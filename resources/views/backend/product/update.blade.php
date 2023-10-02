@@ -1,0 +1,765 @@
+@extends('backend.master')
+
+@section('header_css')
+    <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('multipleImgUploadPlugin')}}/image-uploader.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets')}}/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets')}}/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets')}}/css/tagsinput.css" rel="stylesheet" type="text/css" />
+    <style>
+        .select2-selection{
+            height: 34px !important;
+            border: 1px solid #ced4da !important;
+        }
+        .select2 {
+            width: 100% !important;
+        }
+        .bootstrap-tagsinput .badge {
+            margin: 2px 2px !important;
+        }
+    </style>
+@endsection
+
+@section('page_title')
+    Product
+@endsection
+@section('page_heading')
+    Edit Product
+@endsection
+
+@section('content')
+    <div class="row">
+        <div class="col-lg-12 col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Product Update Form</h4>
+
+                    <form class="needs-validation" method="POST" action="{{url('update/product')}}" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="slug" value="{{$product->slug}}">
+                        <input type="hidden" name="id" value="{{$product->id}}">
+
+                        <div class="row">
+                            <div class="col-lg-8 border-right">
+                                <div class="form-group">
+                                    <label for="name">Title <span class="text-danger">*</span></label>
+                                    <input type="text" id="name" value="{{$product->name}}" name="name" class="form-control" placeholder="Enter Product Name Here" required>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('name')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="short_description">Short Description</label>
+                                    <textarea id="short_description" name="short_description" class="form-control" placeholder="Enter Short Description Here">{{$product->short_description}}</textarea>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('short_description')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Full Description</label>
+                                    <textarea id="description" name="description" class="form-control">{!! $product->description !!}</textarea>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('short_description')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="specification">Specification</label>
+                                    <textarea id="specification" name="specification" class="form-control">{!! $product->specification !!}</textarea>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('specification')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="warrenty_policy">Warrenty Policy</label>
+                                    <textarea id="warrenty_policy" name="warrenty_policy" class="form-control">{!! $product->warrenty_policy !!}</textarea>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('warrenty_policy')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tags">Tags (for search result)</label>
+                                    <input type="text" id="tags" name="tags" value="{{$product->tags}}" class="form-control" placeholder="e.g. Fashion, Dress, Shirts">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('tags')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group" id="product_image_gallery" @if($product->has_variant == 1) style="display:none" @endif>
+                                    <label for="tags">Product Image Gallery</label>
+                                    <div class="input-images"></div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="category_id">Category <span class="text-danger">*</span></label>
+                                    <select name="category_id" data-toggle="select2" class="form-control" id="category_id" required>
+                                        @php
+                                            echo App\Models\Category::getDropDownList('name', $product->category_id);
+                                        @endphp
+                                    </select>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('category_id')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subcategory_id">Subcategory</label>
+                                    <select name="subcategory_id" data-toggle="select2" class="form-control" id="subcategory_id">
+                                        <option value="">Select One</option>
+                                        @foreach ($subcategories as $subcategory)
+                                        <option value="{{$subcategory->id}}" @if($subcategory->id == $product->subcategory_id) selected @endif>{{$subcategory->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('subcategory_id')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="childcategory_id">Child Category</label>
+                                    <select name="childcategory_id" data-toggle="select2" class="form-control" id="childcategory_id">
+                                        <option value="">Select One</option>
+                                        @if(count($childcategories) > 0)
+                                        @foreach ($childcategories as $childcategory)
+                                        <option value="{{$childcategory->id}}" @if($childcategory->id == $product->childcategory_id) selected @endif>{{$childcategory->name}}</option>
+                                        @endforeach
+                                        @endif
+                                    </select>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('childcategory_id')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand_id">Brand</label>
+                                    <select name="brand_id" data-toggle="select2" class="form-control" id="brand_id" required>
+                                        @php
+                                            echo App\Models\Brand::getDropDownList('name', $product->brand_id);
+                                        @endphp
+                                    </select>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('brand_id')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="model_id">Model</label>
+                                    <select name="model_id" data-toggle="select2" class="form-control" id="model_id">
+                                        <option value="">Select One</option>
+                                        @if(count($productModels) > 0)
+                                        @foreach ($productModels as $productModel)
+                                        <option value="{{$productModel->id}}" @if($productModel->id == $product->model_id) selected @endif>{{$productModel->name}}</option>
+                                        @endforeach
+                                        @endif
+                                    </select>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('model_id')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Change Product Image <br>(1040x880)<span class="text-danger">*</span></label>
+                                    @if ($product->image)
+                                    <img src="{{url($product->image)}}" class="img-fluid" style="max-height: 250px; margin-bottom: 10px">
+                                    @endif
+                                    <input type="file" name="image" class="dropify" data-height="200" data-max-file-size="1M" accept="image/*"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="code">Code</label>
+                                    <input type="text" id="code" name="code" class="form-control" value="{{$product->code}}" placeholder="YYWIW482">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('code')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group" id="product_price" @if($product->has_variant == 1) style="display:none" @endif>
+                                            <label for="price">Price (In BDT) <span class="text-danger">*</span></label>
+                                            <input id="price" name="price" data-toggle="touchspin" type="text" value="{{$product->price}}" class="form-control">
+
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('price')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group" id="product_discounted_price" @if($product->has_variant == 1) style="display:none" @endif>
+                                            <label for="discount_price">Discount Price</label>
+                                            <input type="text" id="discount_price" data-toggle="touchspin" name="discount_price" value="{{$product->discount_price}}" class="form-control">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('discount_price')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="flag_id">Flag</label>
+                                            <select name="flag_id" data-toggle="select2" class="form-control" id="flag_id">
+                                                @php
+                                                    echo App\Models\Flag::getDropDownList('name', $product->flag_id);
+                                                @endphp
+                                            </select>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('flag')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="unit_id">Unit</label>
+                                            <select name="unit_id" data-toggle="select2" class="form-control" id="unit_id">
+                                                @php
+                                                    echo App\Models\Unit::getDropDownList('name', $product->unit_id);
+                                                @endphp
+                                            </select>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('unit_id')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-6" id="product_stock" @if($product->has_variant == 1) style="display:none" @endif>
+                                        <div class="form-group">
+                                            <label for="stock">Stock</label>
+                                            <input type="number" id="stock" data-toggle="touchspin" name="stock" value="{{$product->stock}}" class="form-control" placeholder="10">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('stock')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="status">Status</label>
+                                            <select name="status" class="form-control" id="status">
+                                                <option value="">Select One</option>
+                                                <option value="1" @if($product->status == 1) selected @endif>Active</option>
+                                                <option value="0" @if($product->status == 0) selected @endif>Inactive</option>
+                                            </select>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('status')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="product_warrenty" @if($product->has_variant == 1) style="display:none" @endif>
+                                    <label for="warrenty_id">Warrenty</label>
+                                    <select name="warrenty_id" data-toggle="select2" class="form-control" id="warrenty_id">
+                                        @php
+                                            echo App\Models\ProductWarrenty::getDropDownList('name', $product->warrenty_id);
+                                        @endphp
+                                    </select>
+
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('warrenty')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="stock">Video URL</label>
+                                    <input type="text" id="video_url" name="video_url" value="{{$product->video_url}}" class="form-control" placeholder="https://youtube.com/YGUYUTYG">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('video_url')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 text-center pt-3">
+                                    <div class="form-group">
+                                        <label for="stock">Product Has Variant ?</label><br>
+                                        <input type="checkbox" id="has_variant" value="1" @if($product->has_variant == 1) checked @endif onchange="showVariantSection(this.value)" name="has_variant" data-toggle="switchery" data-color="#38b3d6" data-secondary-color="#df3554"/>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('stock')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-3" id="product_variant" @if($product->has_variant != 1) style="display: none" @endif>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body table-responsive">
+                                        <h4 class="card-title mb-3">Product Variant <small class="text-danger font-weight-bolder">(Insert the Base Variant First)</small></h4>
+
+                                        <table class="table table-bordered rounded" id="product_variant_table">
+                                            <thead class="thead-light rounded">
+                                                <tr>
+                                                    <th class="text-center" style="min-width: 240px">Image <span class="text-danger">*</span></th>
+                                                    <th class="text-center" style="min-width: 140px;">Color <span class="text-danger">*</span></th>
+                                                    <th class="text-center" style="min-width: 200px;">Region</th>
+                                                    <th class="text-center" style="min-width: 140px;">SIM Type</th>
+                                                    <th class="text-center" style="min-width: 140px;">Storage</th>
+                                                    <th class="text-center" style="min-width: 120px;">Stock <span class="text-danger">*</span></th>
+                                                    <th class="text-center" style="min-width: 120px;">Price <span class="text-danger">*</span></th>
+                                                    <th class="text-center" style="min-width: 120px;">Disc. Price <span class="text-danger">*</span></th>
+                                                    <th class="text-center" style="min-width: 120px;">Warrenty <span class="text-danger">*</span></th>
+                                                    <th class="text-center" style="min-width: 120px;">Condition</th>
+                                                    <th class="text-center" style="min-width: 50px;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                @if(count($productVariants) > 0 && $product->has_variant == 1)
+                                                @foreach ($productVariants as $productVariant)
+                                                <tr>
+                                                    <td class="text-center">
+                                                        @if($productVariant->image) <img src="{{url('/productImages/'.$productVariant->image)}}" style="max-height: 40px; max-width: 40px;"> @endif
+                                                        <input type="hidden" name="product_variant_id[]" value="{{$productVariant->id}}">
+                                                        <input type="file" class="form-control" name="product_variant_image[]" style="display: inline; width: 75%;">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\Color::getDropDownList('name', $productVariant->color_id);
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\Region::getDropDownList('name', $productVariant->region_id);
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_sim_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\Sim::getDropDownList('name', $productVariant->sim_id);
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_storage_type_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\StorageType::getDropDownList('ram', $productVariant->storage_type_id);
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="number" class="form-control" name="product_variant_stock[]" value="{{$productVariant->stock}}" style="height: 34px;" placeholder="0">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="number" class="form-control" name="product_variant_price[]" value="{{$productVariant->price}}" style="height: 34px;" placeholder="0">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="number" class="form-control" name="product_variant_discounted_price[]" value="{{$productVariant->discounted_price}}" style="height: 34px;" placeholder="0">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_warrenty[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\ProductWarrenty::getDropDownList('name', $productVariant->warrenty_id);
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\DeviceCondition::getDropDownList('name', $productVariant->device_condition_id);
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="javascript:void(0)" onclick="removeRowWithDelete(this, {{$productVariant->id}})" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                                @else
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <input type="file" class="form-control" name="product_variant_image[]">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\Color::getDropDownList('name');
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\Region::getDropDownList('name');
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_sim_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\Sim::getDropDownList('name');
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_storage_type_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\StorageType::getDropDownList('ram');
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="number" class="form-control" name="product_variant_stock[]" value="0" style="height: 34px;" placeholder="0">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="number" class="form-control" name="product_variant_price[]" value="0" style="height: 34px;" placeholder="0">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="number" class="form-control" name="product_variant_discounted_price[]" value="0" style="height: 34px;" placeholder="0">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="text" class="form-control" name="product_variant_warrenty[]" style="height: 34px;" placeholder="1 Year">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\DeviceCondition::getDropDownList('name');
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{-- <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a> --}}
+                                                    </td>
+                                                </tr>
+                                                @endif
+                                            </tbody>
+                                        </table>
+
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                                <button type="button" class="btn btn-success btn-sm rounded addAnotherVariant" onclick="addAnotherVariant()">+ Add Another Variant</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body table-responsive">
+                                        <h4 class="card-title mb-3">Product SEO Information <small class="text-danger font-weight-bolder">(Optional)</small></h4>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="meta_title">Meta Title</label>
+                                                    <input type="text" id="meta_title" name="meta_title" value="{{$product->meta_title}}" class="form-control" placeholder="Meta Title">
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('meta_title')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="meta_keywords">Meta Keywords</label>
+                                                    <input type="text" id="meta_keywords" data-role="tagsinput" name="meta_keywords" value="{{$product->meta_keywords}}" class="form-control">
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('meta_keywords')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="meta_description">Meta Description</label>
+                                                    <textarea id="meta_description" name="meta_description" class="form-control" placeholder="Meta Description Here">{{$product->meta_description}}</textarea>
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('meta_description')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center pt-3">
+                            <a href="{{url('view/all/product')}}" style="width: 150px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
+                            <button class="btn btn-primary m-2" style="width: 150px;" type="submit"><i class="fas fa-save"></i> Update Product</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+
+@section('footer_js')
+    <script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
+    <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
+    <script src="{{url('multipleImgUploadPlugin')}}/image-uploader.min.js"></script>
+    <script src="{{url('assets')}}/plugins/switchery/switchery.min.js"></script>
+    <script src="{{url('assets')}}/plugins/select2/select2.min.js"></script>
+    <script src="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="{{url('assets')}}/js/tagsinput.js"></script>
+
+    <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+
+        let preloaded = [
+            @foreach ($gallery as $image)
+            {id: {{$image->id}}, src: '{{url("productImages")."/".$image->image}}'},
+            @endforeach
+        ];
+
+        $('.input-images').imageUploader({
+            preloaded: preloaded,
+            imagesInputName: 'photos',
+            preloadedInputName: 'old'
+        });
+        $(".material-icons").html("<i class='fa fa-upload'></i>");
+
+
+        function showVariantSection(value){
+            if ($('#has_variant').is(":checked")){
+                $("#product_variant").fadeIn(500);
+
+                $("#product_image_gallery").fadeOut(500);
+                $("#product_price").fadeOut(500);
+                $("#product_discounted_price").fadeOut(500);
+                $("#product_stock").fadeOut(500);
+                $("#product_warrenty").fadeOut(500);
+            } else {
+                $("#product_variant").fadeOut(500);
+
+                $("#product_image_gallery").fadeIn(500);
+                $("#product_price").fadeIn(500);
+                $("#product_discounted_price").fadeIn(500);
+                $("#product_stock").fadeIn(500);
+                $("#product_warrenty").fadeIn(500);
+            }
+        }
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function addAnotherVariant(){
+            $(".addAnotherVariant").html("Adding...");
+            $.ajax({
+                data: '',
+                url: "{{ url('/add/another/variant') }}",
+                type: "POST",
+                dataType: 'json',
+                success: function(data) {
+                    $(".addAnotherVariant").html("Added");
+                    $("#product_variant_table tbody").append(data.variant);
+                    $(".addAnotherVariant").html("+ Add Another Variant");
+                    $('[data-toggle="select2"]').select2(); // initiate select2 for newly added row
+                },
+                error: function(data) {
+                    console.log('Error:', data);
+                    $(".addAnotherVariant").html("Something Went Wrong");
+                }
+            });
+        }
+
+        function removeRow(btndel){
+            if (typeof(btndel) == "object") {
+                $(btndel).closest("tr").remove();
+            } else {
+                return false;
+            }
+        }
+
+        function removeRowWithDelete(btndel, id){
+            if (typeof(btndel) == "object") {
+                $(btndel).closest("tr").remove();
+            } else {
+                return false;
+            }
+
+            $.ajax({
+                type: "GET",
+                url: "{{ url('delete/product/variant') }}"+'/'+id,
+                success: function (data) {
+                    console.log("Deleted Successfully")
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+        }
+
+        $('body').on('click', '.deleteBtn', function () {
+            var slug = $(this).data("id");
+            if(confirm("Are You sure want to delete !")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('delete/product') }}"+'/'+slug,
+                    success: function (data) {
+                        table.draw();
+                        toastr.error("Product has been Deleted", "Deleted Successfully");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                    }
+                });
+            }
+        });
+
+
+        var defaultOptions = {};
+        $('[data-toggle="touchspin"]').each(function (idx, obj) {
+            var objOptions = $.extend({}, defaultOptions, $(obj).data());
+            $(obj).TouchSpin(objOptions);
+        });
+
+        $('[data-toggle="select2"]').select2();
+
+        $('[data-toggle="switchery"]').each(function (idx, obj) {
+            new Switchery($(this)[0], $(this).data());
+        });
+
+        CKEDITOR.replace('description', {
+            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form',
+            height: 170,
+        });
+
+        CKEDITOR.replace('specification', {
+            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form',
+            height: 170,
+        });
+
+        CKEDITOR.replace('warrenty_policy', {
+            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form',
+            height: 170,
+        });
+
+        $(document).ready(function () {
+            $('#category_id').on('change', function () {
+                var categoryId = this.value;
+                $("#subcategory_id").html('');
+                $("#childcategory_id").html('');
+                $.ajax({
+                    url: "{{url('/category/wise/subcategory')}}",
+                    type: "POST",
+                    data: {
+                        category_id: categoryId,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        $('#subcategory_id').html('<option value="">Select Subcategory</option>');
+                        $('#childcategory_id').html('<option value="">Select Child Category</option>');
+                        $.each(result, function (key, value) {
+                            $("#subcategory_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#subcategory_id').on('change', function () {
+                var subCategoryId = this.value;
+                $("#childcategory_id").html('');
+                $.ajax({
+                    url: "{{url('/subcategory/wise/childcategory')}}",
+                    type: "POST",
+                    data: {
+                        subcategory_id: subCategoryId,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        $('#childcategory_id').html('<option value="">Select Child Category</option>');
+                        $.each(result, function (key, value) {
+                            $("#childcategory_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $('#brand_id').on('change', function () {
+
+                var bandId = this.value;
+                $("#model_id").html('');
+                $.ajax({
+                    url: "{{url('/brand/wise/model')}}",
+                    type: "POST",
+                    data: {
+                        brand_id: bandId,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        $('#model_id').html('<option value="">Select Model</option>');
+                        $.each(result, function (key, value) {
+                            $("#model_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+@endsection

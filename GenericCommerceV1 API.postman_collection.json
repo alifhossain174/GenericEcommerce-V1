@@ -1,0 +1,5367 @@
+{
+	"info": {
+		"_postman_id": "d8393de6-bc37-41be-b568-1f0670e6bf8f",
+		"name": "GenericCommerceV1 API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9320515"
+	},
+	"item": [
+		{
+			"name": "Login API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login_type",
+							"value": "1",
+							"description": "1=>Email; 2=>Phone",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "01969005035",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app-area.bestu.com.bd/api/user/login",
+					"protocol": "https",
+					"host": [
+						"app-area",
+						"bestu",
+						"com",
+						"bd"
+					],
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "code",
+							"value": "935615",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app-area.bestu.com.bd/api/verify/user/login",
+					"protocol": "https",
+					"host": [
+						"app-area",
+						"bestu",
+						"com",
+						"bd"
+					],
+					"path": [
+						"api",
+						"verify",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile Info",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "103|8iMIMCwNsFAByFw6VRM8AZQVGwyM4pnmAhKPcej5",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/user/profile/info",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"user",
+						"profile",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Account Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "30|puAGpirlMYQ73dP7hrwsoCUAe6PeLjGdGdzm6DWP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/send/account/delete/request",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"send",
+						"account",
+						"delete",
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile Update (App Only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "133|2AkbsNNMyQQaUyozDH0nj9hDftjZHJOx2Fqo9ZC6",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "address",
+							"value": "Seroil Rajshahi, Bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Fahim Hossain",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "current_password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "new_password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/alifh/Downloads/DSC_3918.JPG"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/user/profile/update",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"user",
+						"profile",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile Update (Web Only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "103|8iMIMCwNsFAByFw6VRM8AZQVGwyM4pnmAhKPcej5",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "address",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Md. Fahim Hossain 2",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmaill.com",
+							"type": "text"
+						},
+						{
+							"key": "current_password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "new_password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/alifh/Downloads/photo-1532463788086-56a492a0b34a.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/user/profile/update/web",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"user",
+						"profile",
+						"update",
+						"web"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password (Web Only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|6EgTw2sOfHdjOCI9rAusTTdVezt8cYWupcManjbz",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "current_password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "new_password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "01969005035",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "sofia@gmaill.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "current_password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "new_password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://admin.sodainagar.com/api/user/change/password/web",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"sodainagar",
+						"com"
+					],
+					"path": [
+						"api",
+						"user",
+						"change",
+						"password",
+						"web"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User Card",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "63|BfvHeuM62hUnecxe7dDanB6Qh6JcIjS6hkHOmEMP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "card_name",
+							"value": "Md. Fahim Hossain",
+							"type": "text"
+						},
+						{
+							"key": "card_no",
+							"value": "1244456345677892",
+							"type": "text"
+						},
+						{
+							"key": "expiry_date",
+							"value": "12/27",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "255",
+							"type": "text"
+						},
+						{
+							"key": "default",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sodainagar.bawin-bd.org/api/add/new/card",
+					"protocol": "https",
+					"host": [
+						"sodainagar",
+						"bawin-bd",
+						"org"
+					],
+					"path": [
+						"api",
+						"add",
+						"new",
+						"card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Card Info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "51|6EgTw2sOfHdjOCI9rAusTTdVezt8cYWupcManjbz",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "card_name",
+							"value": "Md. Fahim Hossain",
+							"type": "text"
+						},
+						{
+							"key": "card_no",
+							"value": "1244456345677892",
+							"type": "text"
+						},
+						{
+							"key": "expiry_date",
+							"value": "12/27",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "255",
+							"type": "text"
+						},
+						{
+							"key": "default",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "card_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://admin.sodainagar.com/api/update/my/card",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"sodainagar",
+						"com"
+					],
+					"path": [
+						"api",
+						"update",
+						"my",
+						"card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User Card",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "64|lV9qJs8eAK9N5uS6bBsw5kZTT4Atxk7qZfQpn0xm",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "card_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "card_no",
+							"value": "1244456345677892",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "expiry_date",
+							"value": "12/27",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "255",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "default",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://admin.sodainagar.com/api/delete/my/card",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"sodainagar",
+						"com"
+					],
+					"path": [
+						"api",
+						"delete",
+						"my",
+						"card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Cards",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "63|BfvHeuM62hUnecxe7dDanB6Qh6JcIjS6hkHOmEMP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "card_name",
+							"value": "Md. Fahim Hossain",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "card_no",
+							"value": "1244456345677892",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "expiry_date",
+							"value": "12/27",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "255",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "default",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "new_password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://admin.sodainagar.com/api/get/my/cards",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"sodainagar",
+						"com"
+					],
+					"path": [
+						"api",
+						"get",
+						"my",
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Addresses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "311|5ueTpKsgU4NlOULEC8Qm2QCeMavUrEamG4i8wR8N",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "card_name",
+							"value": "Md. Fahim Hossain",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "card_no",
+							"value": "1244456345677892",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "expiry_date",
+							"value": "12/27",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "255",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "default",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "new_password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app-area.bestu.com.bd/api/get/all/address",
+					"protocol": "https",
+					"host": [
+						"app-area",
+						"bestu",
+						"com",
+						"bd"
+					],
+					"path": [
+						"api",
+						"get",
+						"all",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User Address",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "311|5ueTpKsgU4NlOULEC8Qm2QCeMavUrEamG4i8wR8N",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "address_type",
+							"value": "Home",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Md Fahim Hossain",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "Mohammadpur",
+							"type": "text"
+						},
+						{
+							"key": "post_code",
+							"value": "1207",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "01969005035",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app-area.bestu.com.bd/api/add/new/address",
+					"protocol": "https",
+					"host": [
+						"app-area",
+						"bestu",
+						"com",
+						"bd"
+					],
+					"path": [
+						"api",
+						"add",
+						"new",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Address",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "311|5ueTpKsgU4NlOULEC8Qm2QCeMavUrEamG4i8wR8N",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "address_type",
+							"value": "Home",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Md Fahim",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "Khilkhet",
+							"type": "text"
+						},
+						{
+							"key": "post_code",
+							"value": "1207",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "01969005035",
+							"type": "text"
+						},
+						{
+							"key": "address_id",
+							"value": "22",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app-area.bestu.com.bd/api/update/my/address",
+					"protocol": "https",
+					"host": [
+						"app-area",
+						"bestu",
+						"com",
+						"bd"
+					],
+					"path": [
+						"api",
+						"update",
+						"my",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User Address",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "311|5ueTpKsgU4NlOULEC8Qm2QCeMavUrEamG4i8wR8N",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "address_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "card_no",
+							"value": "1244456345677892",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "expiry_date",
+							"value": "12/27",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "255",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "default",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app-area.bestu.com.bd/api/delete/my/address",
+					"protocol": "https",
+					"host": [
+						"app-area",
+						"bestu",
+						"com",
+						"bd"
+					],
+					"path": [
+						"api",
+						"delete",
+						"my",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/category/list",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"category",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subcategory Of Category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/subcategory/of/category",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"subcategory",
+						"of",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Child Category of Subcategory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "subcategory_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/childcategory/of/subcategory",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"childcategory",
+						"of",
+						"subcategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYGMTRADERSSBW7583837NUDD81",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/get/all/products",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"all",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Related Products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYGMTRADERSSBW7583837NUDD81",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/get/related/products",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"related",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products You May Like",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/you/may/like/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"you",
+						"may",
+						"like",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category Wise Products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category_slug",
+							"value": "phone-tablet",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/category/wise/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"category",
+						"wise",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subcategory Wise Products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subcategory_slug",
+							"value": "apple-1687158966-CUvxE",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/subcategory/wise/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"subcategory",
+						"wise",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Childcategory Wise Products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "childcategory_slug",
+							"value": "qwedff",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/childcategory/wise/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"childcategory",
+						"wise",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Flag Wise Products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "flag",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/flag/wise/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"flag",
+						"wise",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Featured Flag Wise Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/featured/flag/wise/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"featured",
+						"flag",
+						"wise",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Flag Wise All Products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "flag",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/flag/wise/all/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"flag",
+						"wise",
+						"all",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/product/details/redmi-note-12-168845077933jRw",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"product",
+						"details",
+						"redmi-note-12-168845077933jRw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Flags",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/flags",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"flags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Brands",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/brands",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"brands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "search_keyword",
+							"value": "iphone",
+							"type": "text"
+						},
+						{
+							"key": "brand_slug",
+							"value": "apple",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/search/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"search",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Live Search Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "search_keyword",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "brand_slug",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/live/search/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"live",
+						"search",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Product Get Method",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "search_keyword",
+							"value": "eius",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/search/products?search_keyword=iphone&brand_slug=apple",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"search",
+						"products"
+					],
+					"query": [
+						{
+							"key": "search_keyword",
+							"value": "iphone"
+						},
+						{
+							"key": "brand_slug",
+							"value": "apple"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Terms & Condition",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/terms/and/condition",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"terms",
+						"and",
+						"condition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Privacy Policy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://admin.sodainagar.com/api/get/privacy/policy",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"sodainagar",
+						"com"
+					],
+					"path": [
+						"api",
+						"get",
+						"privacy",
+						"policy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shipping Policy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/shipping/policy",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"shipping",
+						"policy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Policy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/return/policy",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"return",
+						"policy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "About Us",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/about/us",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"about",
+						"us"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "General Info",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/general/info",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"general",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FAQ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://admin.sodainagar.com/api/get/all/faq",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"sodainagar",
+						"com"
+					],
+					"path": [
+						"api",
+						"get",
+						"all",
+						"faq"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sliders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/sliders",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"sliders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Banners",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/banners",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"banners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Promotional Banner",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/promotional/banner",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"promotional",
+						"banner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact Us Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Fahim",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "Hello",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "Optional Field",
+							"type": "text"
+						},
+						{
+							"key": "company_name",
+							"value": "Optional Field",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://admin.sodainagar.com/api/submit/contact/us/request",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"sodainagar",
+						"com"
+					],
+					"path": [
+						"api",
+						"submit",
+						"contact",
+						"us",
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Checkout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "110|aTF0iLnm0idRObq31QPly1xB2O7f9kGQ8NVBgDmm",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id[]",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "qty[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "unit_id[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "unit_price[]",
+							"value": "700",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "coupon_code",
+							"value": "OFF20",
+							"type": "text"
+						},
+						{
+							"key": "special_note",
+							"value": "\"Quickly Need\"",
+							"type": "text"
+						},
+						{
+							"key": "delivery_method",
+							"value": "1",
+							"description": "1=>Home Delivery; 2=>Store Pickup",
+							"type": "text"
+						},
+						{
+							"key": "color_id[]",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "region_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sim_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "storage_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "warrenty_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "device_condition_id[]",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/order/checkout",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"order",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest Order Checkout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id[]",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "qty[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "unit_id[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "unit_price[]",
+							"value": "700",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "coupon_code",
+							"value": "OFF20",
+							"type": "text"
+						},
+						{
+							"key": "special_note",
+							"value": "\"Quickly Need\"",
+							"type": "text"
+						},
+						{
+							"key": "delivery_method",
+							"value": "1",
+							"description": "1=>Home Delivery; 2=>Store Pickup",
+							"type": "text"
+						},
+						{
+							"key": "color_id[]",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "region_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sim_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "storage_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "warrenty_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "device_condition_id[]",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/guest/order/checkout",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"guest",
+						"order",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Shipping & Billing",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "full_name",
+							"value": "Fahim Hossain",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "01969005035",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text"
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text"
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text"
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "thana",
+							"value": "Mohammadpur",
+							"type": "text"
+						},
+						{
+							"key": "billing_thana",
+							"value": "Mohammadpur",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/submit/shipping/billing/info",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"submit",
+						"shipping",
+						"billing",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "47|IeXV69iWDB0IN8CKFCBBdKgFW9OYfpfuYHXT1BBc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "full_name",
+							"value": "Fahim Hossain",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "01969005035",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/my/orders",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"my",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Progress",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order_no",
+							"value": "1690343428343",
+							"type": "text"
+						},
+						{
+							"key": "full_name",
+							"value": "Fahim Hossain",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "01969005035",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/order/progress",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"order",
+						"progress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category Tree",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order_no",
+							"value": "1681588608321",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "full_name",
+							"value": "Fahim Hossain",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "01969005035",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/category/tree",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"category",
+						"tree"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to Cart (App Only)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_unique_cart_no",
+							"value": "1681588608321",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "qty",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "color_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "region_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "sim_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "storage_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "warrenty_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "device_condition_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://app-area.bestu.com.bd/api/add/to/cart",
+					"protocol": "https",
+					"host": [
+						"app-area",
+						"bestu",
+						"com",
+						"bd"
+					],
+					"path": [
+						"api",
+						"add",
+						"to",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart Increment (App Only)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cart_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/incr/cart/qty",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"incr",
+						"cart",
+						"qty"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart Decrement (App Only)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cart_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/decr/cart/qty",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"decr",
+						"cart",
+						"qty"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart Delete (App Only)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cart_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/delete/cart/item",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"delete",
+						"cart",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cart Items (App Only)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_unique_cart_no",
+							"value": "1681588608321",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/cart/items",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"cart",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart Checkout (App Only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "58|n6vtLYyLg7wy1DvgZ6mBgoacGDK337DGQfS7pHC2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_unique_cart_no",
+							"value": "1681588608321",
+							"type": "text"
+						},
+						{
+							"key": "coupon_code",
+							"value": "1YUIFWW",
+							"type": "text"
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/order/cart/checkout",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"order",
+						"cart",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest Cart Checkout (App Only)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_unique_cart_no",
+							"value": "1681588608321",
+							"type": "text"
+						},
+						{
+							"key": "coupon_code",
+							"value": "1YUIFWW",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/guest/order/cart/checkout",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"guest",
+						"order",
+						"cart",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout Buy Now (App Only) Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "58|n6vtLYyLg7wy1DvgZ6mBgoacGDK337DGQfS7pHC2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "coupon_code",
+							"value": "1YUIFWW",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "unit_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "unit_price",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "total_price",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "color_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "region_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sim_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "storage_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "warrenty_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "device_condition_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "special_note",
+							"value": "\"Quick Need\"",
+							"type": "text"
+						},
+						{
+							"key": "delivery_method",
+							"value": "1",
+							"description": "1=>Home Delivery; 2=>Store Pickup",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/order/checkout/buy/now/app",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"order",
+						"checkout",
+						"buy",
+						"now",
+						"app"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest Checkout Buy Now (App Only)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "coupon_code",
+							"value": "1YUIFWW",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "unit_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "unit_price",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "total_price",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "color_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "region_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sim_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "storage_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "warrenty_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "device_condition_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "special_note",
+							"value": "asdasd",
+							"type": "text"
+						},
+						{
+							"key": "delivery_method",
+							"value": "1",
+							"description": "1=>Home Delivery; 2=>Store Pickup",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/guest/order/checkout/buy/now/app",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"guest",
+						"order",
+						"checkout",
+						"buy",
+						"now",
+						"app"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to Wishlist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "54|0B3aCs332Q8xNNfTx5maNOrZ99AAou7pzB3Ci3jk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/add/to/wishlist",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"add",
+						"to",
+						"wishlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My WishList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "53|s6D93rlNrxi80SvKdOvANMQBedjgdT7RLiTkTbKL",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_unique_cart_no",
+							"value": "1681588608321",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/my/wishlist",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"my",
+						"wishlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete My Wishlist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "74|jTu5R7UxMKKruXiRnjTMhMwKf7x7lyRXSAqdlzsH",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "wishlist_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/delete/my/wishlist",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"delete",
+						"my",
+						"wishlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apply Coupon",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "53|wWs3rPHYrBmxxkbxfWuH39U3HKQL8IKOpZemkoSA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "coupon_code",
+							"value": "DIS10",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/apply/coupon",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"apply",
+						"coupon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Coupons",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "coupon_code",
+							"value": "OFFER100",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "qty",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/coupons",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Payment (SSL Commerz)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://admin.sodainagar.com/sslcommerz/order/payment?order_id=1",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"sodainagar",
+						"com"
+					],
+					"path": [
+						"sslcommerz",
+						"order",
+						"payment"
+					],
+					"query": [
+						{
+							"key": "order_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Payment (COD)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/order/payment/cod",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"order",
+						"payment",
+						"cod"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Support Ticket",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "100|hSxyS5IiahkwvsxxHurhREMUQyQ3pbJX8IA3ihP3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subject",
+							"value": "Problem in Order Placement",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "Quis eget risus in egestas. Quis etiam risus eget cras risus. Suspendisse diam, volutpat, sem tellus ridiculus ante. Eu augue sapien, vitae nunc lacus, tellus mi quis ipsum. Pulvinar quam faucibus sit senectus nunc tempor, velit. Pellentesque mi magna elit aliquet faucibus congue pellentesque phasellus. Fermentum odio amet, sed at pulvinar.",
+							"type": "text"
+						},
+						{
+							"key": "attachment",
+							"type": "file",
+							"src": "/C:/Users/alifh/Downloads/64-free-delivery-gad-acc-600x600.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/submit/support/ticket",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"submit",
+						"support",
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Support Message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "80|5sAK702e8vsoTtQBgCNKP4mPKRVMeu01Oyf1HK0C",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "support_ticket_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "Quis eget risus in egestas. Quis etiam risus eget cras risus. Suspendisse diam, volutpat, sem tellus ridiculus ante. Eu augue sapien, vitae nunc lacus, tellus mi quis ipsum. Pulvinar quam faucibus sit senectus nunc tempor, velit. Pellentesque mi magna elit aliquet faucibus congue pellentesque phasellus. Fermentum odio amet, sed at pulvinar.",
+							"type": "text"
+						},
+						{
+							"key": "attachment",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/send/support/ticket/message",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"send",
+						"support",
+						"ticket",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Support Tickets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "16|Fi4HIIPyVVtBY5Ebn5qeMTVeZZFSBQCyuSwDJIJv",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "support_ticket_id",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "message",
+							"value": "Quis eget risus in egestas. Quis etiam risus eget cras risus. Suspendisse diam, volutpat, sem tellus ridiculus ante. Eu augue sapien, vitae nunc lacus, tellus mi quis ipsum. Pulvinar quam faucibus sit senectus nunc tempor, velit. Pellentesque mi magna elit aliquet faucibus congue pellentesque phasellus. Fermentum odio amet, sed at pulvinar.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "attachment",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/support/tickets",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"support",
+						"tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Support Ticket Messages",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "171|nEuAMqwf5O6Y4PFC0RrDgxMtPKMsLPbMuTofepMM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "support_ticket_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "Quis eget risus in egestas. Quis etiam risus eget cras risus. Suspendisse diam, volutpat, sem tellus ridiculus ante. Eu augue sapien, vitae nunc lacus, tellus mi quis ipsum. Pulvinar quam faucibus sit senectus nunc tempor, velit. Pellentesque mi magna elit aliquet faucibus congue pellentesque phasellus. Fermentum odio amet, sed at pulvinar.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "attachment",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/support/ticket/messages",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"support",
+						"ticket",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Preview",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "Quis eget risus in egestas. Quis etiam risus eget cras risus. Suspendisse diam, volutpat, sem tellus ridiculus ante. Eu augue sapien, vitae nunc lacus, tellus mi quis ipsum. Pulvinar quam faucibus sit senectus nunc tempor, velit. Pellentesque mi magna elit aliquet faucibus congue pellentesque phasellus. Fermentum odio amet, sed at pulvinar.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "attachment",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/order/preview",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"order",
+						"preview"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Review Submit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|st4CtwMav2srN4LPUfMrbwuNe6IW6KEcoU58GW4s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "35",
+							"type": "text"
+						},
+						{
+							"key": "rating",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "review",
+							"value": "Instant delivery & got it for a very reasonable price.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/product/review/submit",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"product",
+						"review",
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Question Submit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "35",
+							"type": "text"
+						},
+						{
+							"key": "full_name",
+							"value": "Fahim Hossain",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "fahim@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "question",
+							"value": "Instant delivery & got it for a very reasonable price.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/product/question/submit",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"product",
+						"question",
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testimonial",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "35",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "rating",
+							"value": "4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "review",
+							"value": "Instant delivery & got it for a very reasonable price.",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/testimonials",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"testimonials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscription For Updates",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "sample2@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "rating",
+							"value": "4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "review",
+							"value": "Instant delivery & got it for a very reasonable price.",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/subscribe/for/updates",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"subscribe",
+						"for",
+						"updates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Featured Subcategories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/featured/subcategories",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"featured",
+						"subcategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Featured Brand Wise Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/featured/brand/wise/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"featured",
+						"brand",
+						"wise",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Search Results",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "search_keyword",
+							"value": "iphone",
+							"type": "text"
+						},
+						{
+							"key": "sort_by",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "minimum_price",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "maximum_price",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "storage_type_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "product_type_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sim_type_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "region_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "warrenty_id",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/filter/search/results",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"filter",
+						"search",
+						"results"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "sort_by",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "minimum_price",
+							"value": "120000",
+							"type": "text"
+						},
+						{
+							"key": "maximum_price",
+							"value": "135000",
+							"type": "text"
+						},
+						{
+							"key": "storage_type_id",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "product_type_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "sim_type_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "region_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "warrenty_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "subcategory_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "childcategory_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "flag_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "brand_id",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/filter/products",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"filter",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Storages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/storages",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"storages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Sims",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/sims",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"sims"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Device Conditions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/device/conditions",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"device",
+						"conditions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Warrenty Types",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/warrenty/types",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"warrenty",
+						"types"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Regions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/regions",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"regions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment Gateways",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/payment/gateways",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"payment",
+						"gateways"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Blog Categories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/all/blog/categories",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"blog",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Blogs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BestuServer}}/get/all/blogs",
+					"host": [
+						"{{BestuServer}}"
+					],
+					"path": [
+						"get",
+						"all",
+						"blogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Category Wise Blogs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category_slug",
+							"value": "ecommerse-industry",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/category/wise/blogs",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"category",
+						"wise",
+						"blogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Details",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "slug",
+							"value": "a-list-of-healthy-foods-you-can-eat-without-gaining-any-weight-211688369245",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/blog/details",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"blog",
+						"details"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Bestu API Base URL",
+			"value": "https://app-area.bestu.com.bd/api"
+		}
+	]
+}

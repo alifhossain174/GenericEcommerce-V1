@@ -1,0 +1,152 @@
+@extends('backend.master')
+
+@section('header_css')
+    <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets')}}/css/tagsinput.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url('assets') }}/css/spectrum.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="{{url('codeMirror')}}/css/codemirror.css">
+    <link rel="stylesheet" href="{{url('codeMirror')}}/css/themes/material.css">
+
+    <style>
+        .bootstrap-tagsinput .badge {
+            margin: 2px 2px !important;
+        }
+    </style>
+@endsection
+
+@section('header_js')
+    <script src="{{url('codeMirror')}}/js/codemirror.js"></script>
+    <script src="{{url('codeMirror')}}/js/xml.js"></script>
+    <script src="{{url('codeMirror')}}/js/php.js"></script>
+    <script src="{{url('codeMirror')}}/js/javascript.js"></script>
+    <script src="{{url('codeMirror')}}/js/python.js"></script>
+    <script src="{{url('codeMirror')}}/js/addons/closetag.js"></script>
+    <script src="{{url('codeMirror')}}/js/addons/closebrackets.js"></script>
+@endsection
+
+@section('page_title')
+    General Information
+@endsection
+@section('page_heading')
+    Entry General Information
+@endsection
+
+@section('content')
+    <div class="row">
+        <div class="col-lg-12 col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Update Social Media Links</h4>
+
+                    <form class="needs-validation" method="POST" action="{{url('update/social/media/link')}}" enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="facebook" class="col-form-label"><i class="fab fa-facebook-square" style="color: #1877F2;"></i> Facebook Page Link :</label>
+                                    <input type="text" name="facebook" class="form-control" value="{{$data->facebook}}" id="facebook" placeholder="https://facebook.com/">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('facebook')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="twitter" class="col-form-label"><i class="fab fa-twitter" style="color: #00acee;"></i> Twitter Link :</label>
+                                    <input type="text" name="twitter" class="form-control" value="{{$data->twitter}}" id="twitter" placeholder="https://twitter.com/">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('twitter')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="instagram" class="col-form-label"><i class="fab fa-instagram" style="color: #ffb719;"></i> Instagram Link :</label>
+                                    <input type="text" name="instagram" class="form-control" value="{{$data->instagram}}" id="instagram" placeholder="https://instagram.com/">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('instagram')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="linkedin" class="col-form-label"><i class="fab fa-linkedin" style="color: #0072b1;"></i> Linkedin Profile :</label>
+                                    <input type="text" name="linkedin" class="form-control" value="{{$data->linkedin}}" id="linkedin" placeholder="https://linkedin.com/">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('linkedin')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="messenger" class="col-form-label"><i class="fab fa-facebook-messenger" style="color: #44bec7;"></i> Messenger :</label>
+                                    <input type="text" name="messenger" class="form-control" value="{{$data->messenger}}" id="messenger" placeholder="https://messenger.com/">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('messenger')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="whatsapp" class="col-form-label"><i class="fab fa-whatsapp" style="color: #075e54;"></i> Whats App :</label>
+                                    <input type="text" name="whatsapp" class="form-control" value="{{$data->whatsapp}}" id="whatsapp" placeholder="https://whatsapp.com/">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('whatsapp')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="telegram" class="col-form-label"><i class="fab fa-telegram-plane" style="color: #0088cc;"></i> Telegram :</label>
+                                    <input type="text" name="telegram" class="form-control" value="{{$data->telegram}}" id="telegram" placeholder="https://telegram.com/">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('telegram')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="youtube" class="col-form-label"><i class="fab fa-youtube" style="color: #FF0000;"></i> Youtube Channel Link :</label>
+                                    <input type="text" name="youtube" class="form-control" value="{{$data->youtube}}" id="youtube" placeholder="https://youtube.com/">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('youtube')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="form-group text-center pt-3 mt-3">
+                            <a href="{{url('/home')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
+                            <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i class="fas fa-save"></i> Update Info</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+

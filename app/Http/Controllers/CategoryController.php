@@ -1,0 +1,215 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+use Image;
+use DataTables;
+
+class CategoryController extends Controller
+{
+    public function addNewCategory(){
+        return view('backend.category.create');
+    }
+
+    public function saveNewCategory(Request $request){
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'unique:categories'],
+        ]);
+
+        $icon = null;
+        if ($request->hasFile('icon')){
+            $get_image = $request->file('icon');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('category_images/');
+            // Image::make($get_image)->save($location . $image_name, 80);
+            $get_image->move($location, $image_name);
+            $icon = "category_images/" . $image_name;
+        }
+
+        $categoryBanner = null;
+        if ($request->hasFile('banner_image')){
+            $get_image = $request->file('banner_image');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('category_images/');
+            // Image::make($get_image)->save($location . $image_name, 80);
+            $get_image->move($location, $image_name);
+            $categoryBanner = "category_images/" . $image_name;
+        }
+
+        $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
+        $slug = preg_replace('!\s+!', '-', $clean);
+
+        Category::insert([
+            'name' => $request->name,
+            'icon' => $icon,
+            'banner_image' => $categoryBanner,
+            'slug' => $slug,
+            'status' => 1,
+            'created_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Category has been Added', 'Success');
+        return back();
+
+    }
+
+    public function viewAllCategory(Request $request){
+        if ($request->ajax()) {
+            $data = Category::orderBy('serial', 'asc')->get();
+            return Datatables::of($data)
+                    ->editColumn('status', function($data) {
+                        if($data->status == 1){
+                            return 'Active';
+                        } else {
+                            return 'Inactive';
+                        }
+                    })
+                    ->editColumn('featured', function($data) {
+                        if($data->featured == 0){
+                            return '<button class="btn btn-sm btn-danger rounded">Not Featured</button>';
+                        } else {
+                            return '<button class="btn btn-sm btn-success rounded">Featured</button>';
+                        }
+                    })
+                    ->addIndexColumn()
+                    ->addColumn('action', function($data){
+                        $btn = ' <a href="'.url('edit/category').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+
+                        if($data->featured == 0){
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" title="Featured" data-original-title="Featured" class="btn-sm btn-success rounded featureBtn"><i class="feather-chevrons-up"></i></a>';
+                        } else {
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" title="Featured" data-original-title="Featured" class="btn-sm btn-danger rounded featureBtn"><i class="feather-chevrons-down"></i></a>';
+                        }
+
+                        return $btn;
+                    })
+                    ->rawColumns(['action', 'icon', 'featured'])
+                    ->make(true);
+        }
+        return view('backend.category.view');
+    }
+
+    public function deleteCategory($slug){
+        $data = Category::where('slug', $slug)->first();
+
+        $used = Product::where('category_id', $data->id)->count();
+        if($used > 0){
+            return response()->json(['success' => 'Category cannot be deleted', 'data' => 0]);
+        } else {
+            if($data->icon){
+                if(file_exists(public_path($data->icon))){
+                    unlink(public_path($data->icon));
+                }
+            }
+            if($data->banner_image){
+                if(file_exists(public_path($data->banner_image))){
+                    unlink(public_path($data->banner_image));
+                }
+            }
+            $data->delete();
+            return response()->json(['success' => 'Category deleted successfully.', 'data' => 1]);
+        }
+    }
+
+    public function featureCategory($slug){
+        $data = Category::where('slug', $slug)->first();
+        if($data->featured == 0){
+            $data->featured = 1;
+            $data->save();
+        } else {
+            $data->featured = 0;
+            $data->save();
+        }
+        return response()->json(['success' => 'Status Changed successfully.']);
+    }
+
+    public function editCategory($slug){
+        $category = Category::where('slug', $slug)->first();
+        return view('backend.category.update', compact('category'));
+    }
+
+    public function updateCategory(Request $request){
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'status' => 'required',
+        ]);
+
+        $duplicateCategoryExists = Category::where('name', $request->name)->where('id', '!=', $request->id)->first();
+        if($duplicateCategoryExists){
+            Toastr::warning('Duplicate Category Exists', 'Success');
+            return back();
+        }
+
+        $data = Category::where('id', $request->id)->first();
+
+        $icon = $data->icon;
+        if ($request->hasFile('icon')){
+
+            if($icon != '' && file_exists(public_path($icon))){
+                unlink(public_path($icon));
+            }
+
+            $get_image = $request->file('icon');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('category_images/');
+            // Image::make($get_image)->save($location . $image_name, 80);
+            $get_image->move($location, $image_name);
+            $icon = "category_images/" . $image_name;
+        }
+
+        $categoryBanner = $data->banner_image;
+        if ($request->hasFile('banner_image')){
+
+            if($categoryBanner != '' && file_exists(public_path($categoryBanner))){
+                unlink(public_path($categoryBanner));
+            }
+
+            $get_image = $request->file('banner_image');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('category_images/');
+            // Image::make($get_image)->save($location . $image_name, 80);
+            $get_image->move($location, $image_name);
+            $categoryBanner = "category_images/" . $image_name;
+        }
+
+        $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
+        $slug = preg_replace('!\s+!', '-', $clean);
+
+        Category::where('slug', $request->slug)->update([
+            'name' => $request->name,
+            'icon' => $icon,
+            'banner_image' => $categoryBanner,
+            'slug' => $slug,
+            'status' => $request->status,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Category has been Updated', 'Success');
+        return redirect('/view/all/category');
+    }
+
+    public function rearrangeCategory(){
+        $categories = Category::where('status', 1)->orderBy('serial', 'asc')->get();
+        return view('backend.category.rearrange', compact('categories'));
+    }
+
+    public function saveRearrangeCategoryOrder(Request $request){
+        $sl = 1;
+        foreach($request->slug as $slug){
+            Category::where('slug', $slug)->update([
+                'serial' => $sl
+            ]);
+            $sl++;
+        }
+        Toastr::success('Category has been Rerranged', 'Success');
+        return redirect('/view/all/category');
+    }
+}
