@@ -1,35 +1,10 @@
 @extends('backend.master')
 
-@section('header_css')
-    <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{url('assets')}}/css/tagsinput.css" rel="stylesheet" type="text/css" />
-    <link href="{{ url('assets') }}/css/spectrum.min.css" rel="stylesheet" type="text/css" />
-
-    <link rel="stylesheet" href="{{url('codeMirror')}}/css/codemirror.css">
-    <link rel="stylesheet" href="{{url('codeMirror')}}/css/themes/material.css">
-
-    <style>
-        .bootstrap-tagsinput .badge {
-            margin: 2px 2px !important;
-        }
-    </style>
-@endsection
-
-@section('header_js')
-    <script src="{{url('codeMirror')}}/js/codemirror.js"></script>
-    <script src="{{url('codeMirror')}}/js/xml.js"></script>
-    <script src="{{url('codeMirror')}}/js/php.js"></script>
-    <script src="{{url('codeMirror')}}/js/javascript.js"></script>
-    <script src="{{url('codeMirror')}}/js/python.js"></script>
-    <script src="{{url('codeMirror')}}/js/addons/closetag.js"></script>
-    <script src="{{url('codeMirror')}}/js/addons/closebrackets.js"></script>
-@endsection
-
 @section('page_title')
     General Information
 @endsection
 @section('page_heading')
-    Entry General Information
+    Social Media Links
 @endsection
 
 @section('content')

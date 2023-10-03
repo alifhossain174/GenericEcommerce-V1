@@ -83,6 +83,7 @@
     @if(checkAuth("general/info")) <li><a href="{{ url('/general/info') }}"><i class="feather-grid"></i><span>General Info</span></a></li> @endif
     @if(checkAuth("website/theme/page")) <li><a href="{{ url('/website/theme/page') }}"><i class="mdi mdi-format-color-fill" style="font-size: 18px"></i><span>Website Theme Color</span></a></li> @endif
     @if(checkAuth("social/media/page")) <li><a href="{{ url('/social/media/page') }}"><i class="mdi mdi-link-variant" style="font-size: 17px"></i><span>Social Media Links</span></a></li> @endif
+    @if(checkAuth("seo/homepage")) <li><a href="{{ url('/seo/homepage') }}"><i class="dripicons-search"></i><span>Home Page SEO</span></a></li> @endif
 
     @if ($configModule && count($configModule) > 0)
     <li>

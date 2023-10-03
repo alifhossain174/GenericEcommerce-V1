@@ -90,17 +90,6 @@ class GeneralInfoController extends Controller
             // 'header_css' => $request->header_css,
             // 'header_script' => $request->header_script,
             // 'footer_script' => $request->footer_script,
-            // 'facebook' => $request->facebook,
-            // 'instagram' => $request->instagram,
-            // 'twitter' => $request->twitter,
-            // 'linkedin' => $request->linkedin,
-            // 'youtube' => $request->youtube,
-            // 'messenger' => $request->messenger,
-            // 'whatsapp' => $request->whatsapp,
-            // 'telegram' => $request->telegram,
-            // 'meta_title' => $request->meta_title,
-            // 'meta_keywords' => $request->meta_keywords,
-            // 'meta_description' => $request->meta_description,
             'updated_at' => Carbon::now()
         ]);
 
@@ -152,5 +141,28 @@ class GeneralInfoController extends Controller
         Toastr::success('Website Theme Color Updated', 'Success');
         return back();
 
+    }
+
+    public function seoHomePage(){
+        $data = GeneralInfo::where('id', 1)->select('meta_title', 'meta_keywords', 'meta_description')->first();
+        return view('backend.general_info.seo_homepage', compact('data'));
+    }
+
+    public function updateSeoHomePage(Request $request){
+
+        GeneralInfo::where('id', 1)->update([
+            'meta_title' => $request->meta_title,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Homepage SEO Updated', 'Success');
+        return back();
+    }
+
+    public function customCssJs(){
+        $data = GeneralInfo::where('id', 1)->first();
+        return view('backend.general_info.custom_css_js', compact('data'));
     }
 }

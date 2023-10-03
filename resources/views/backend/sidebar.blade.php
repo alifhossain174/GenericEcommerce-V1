@@ -1,12 +1,18 @@
 <!-- Left Menu Start -->
 <ul class="metismenu list-unstyled" id="side-menu">
-    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Menu</li>
+
 
     <li><a href="{{ url('/home') }}"><i class="feather-home"></i><span>Dashboard</span></a></li>
+
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Website Config</li>
     <li><a href="{{ url('/general/info') }}"><i class="feather-grid"></i><span>General Info</span></a></li>
     <li><a href="{{ url('/website/theme/page') }}"><i class="mdi mdi-format-color-fill" style="font-size: 18px"></i><span>Website Theme Color</span></a></li>
     <li><a href="{{ url('/social/media/page') }}"><i class="mdi mdi-link-variant" style="font-size: 17px"></i><span>Social Media Links</span></a></li>
-    {{-- <li><a href="{{ url('/seo/homepage') }}"><i class="dripicons-search"></i><span>Home Page SEO</span></a></li> --}}
+    <li><a href="{{ url('/seo/homepage') }}"><i class="dripicons-search"></i><span>Home Page SEO</span></a></li>
+    <li><a href="{{ url('/custom/css/js') }}"><i class="feather-code"></i><span>Custom CSS & JS</span></a></li>
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>Config</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -250,7 +256,7 @@
         </ul>
     </li>
 
-    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">User Role Permission</li>
     <li><a href="{{ url('/view/permission/routes') }}"><i class="feather-git-merge"></i><span>Permission Routes</span></a></li>
     <li><a href="{{ url('/view/user/roles') }}"><i class="feather-user-plus"></i><span>User Roles</span></a></li>
