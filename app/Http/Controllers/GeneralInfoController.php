@@ -165,4 +165,19 @@ class GeneralInfoController extends Controller
         $data = GeneralInfo::where('id', 1)->first();
         return view('backend.general_info.custom_css_js', compact('data'));
     }
+
+    public function updateCustomCssJs(Request $request){
+        GeneralInfo::where('id', 1)->update([
+            'custom_css' => $request->custom_css,
+            'custom_js' => $request->custom_js,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Custom CSS & JS Code Updated', 'Success');
+        return back();
+    }
+
+    public function socialChatScriptPage(){
+        return view('backend.general_info.social_chat_script');
+    }
 }

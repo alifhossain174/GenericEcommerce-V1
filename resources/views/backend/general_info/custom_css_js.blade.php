@@ -25,7 +25,7 @@
 @endsection
 
 @section('page_title')
-    General Information
+    Website Config
 @endsection
 @section('page_heading')
     Custom CSS & JS
@@ -41,27 +41,23 @@
                     <form class="needs-validation" method="POST" action="{{url('update/custom/css/js')}}" enctype="multipart/form-data">
                         @csrf
 
-
-                        {{-- code editor --}}
                         <div class="form-group row mt-3">
                             <label for="custom_css" class="col-sm-2 col-form-label">Write Custom CSS</label>
                             <div class="col-sm-10">
-                                <textarea name="custom_css" class="form-control" id="code_editor" style="cursor: pointer">{{$data->custom_css}}</textarea>
+                                <textarea name="custom_css" class="form-control" id="code_editor_css" style="cursor: pointer">{{$data->custom_css}}</textarea>
                             </div>
                         </div>
 
-                        {{-- <div class="form-group row mt-3">
-                            <label for="custom_css" class="col-sm-2 col-form-label">Write Custom JS</label>
+                        <div class="form-group row mt-3">
+                            <label for="custom_js" class="col-sm-2 col-form-label">Write Custom JS</label>
                             <div class="col-sm-10">
-                                <textarea name="custom_css" class="form-control" id="code_editor" style="cursor: pointer">{{$data->custom_css}}</textarea>
+                                <textarea name="custom_js" class="form-control" id="code_editor_js" style="cursor: pointer">{{$data->custom_js}}</textarea>
                             </div>
-                        </div> --}}
-                        {{-- code editor --}}
-
+                        </div>
 
                         <div class="form-group text-center pt-3 mt-3">
                             <a href="{{url('/home')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
-                            <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i class="fas fa-save"></i> Update Info</button>
+                            <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i class="fas fa-save"></i> Update Code</button>
                         </div>
                     </form>
                 </div>
@@ -73,7 +69,7 @@
 
 @section('footer_js')
     <script>
-        var textareas = document.getElementById("code_editor");
+        var textareas = document.getElementById("code_editor_css");
         editor = CodeMirror.fromTextArea(textareas, {
             mode: "javascript",
             theme: "material",
@@ -83,8 +79,14 @@
         });
         editor.setSize("100%", "200");
 
-        $(function(){
-            $('textarea').click();
+        var textareas = document.getElementById("code_editor_js");
+        editor = CodeMirror.fromTextArea(textareas, {
+            mode: "javascript",
+            theme: "material",
+            lineNumbers: true,
+            autoCloseTags: true,
+            autoCloseBrackets: true
         });
+        editor.setSize("100%", "200");
     </script>
 @endsection

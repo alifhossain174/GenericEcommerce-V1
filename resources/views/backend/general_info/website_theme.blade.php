@@ -5,7 +5,7 @@
 @endsection
 
 @section('page_title')
-    General Information
+    Website Config
 @endsection
 @section('page_heading')
     Website Theme Color

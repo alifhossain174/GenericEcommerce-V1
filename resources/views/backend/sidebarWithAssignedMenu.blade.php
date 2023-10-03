@@ -84,6 +84,8 @@
     @if(checkAuth("website/theme/page")) <li><a href="{{ url('/website/theme/page') }}"><i class="mdi mdi-format-color-fill" style="font-size: 18px"></i><span>Website Theme Color</span></a></li> @endif
     @if(checkAuth("social/media/page")) <li><a href="{{ url('/social/media/page') }}"><i class="mdi mdi-link-variant" style="font-size: 17px"></i><span>Social Media Links</span></a></li> @endif
     @if(checkAuth("seo/homepage")) <li><a href="{{ url('/seo/homepage') }}"><i class="dripicons-search"></i><span>Home Page SEO</span></a></li> @endif
+    @if(checkAuth("custom/css/js")) <li><a href="{{ url('/custom/css/js') }}"><i class="feather-code"></i><span>Custom CSS & JS</span></a></li> @endif
+    @if(checkAuth("social/chat/script")) <li><a href="{{ url('/social/chat/script') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li> @endif
 
     @if ($configModule && count($configModule) > 0)
     <li>

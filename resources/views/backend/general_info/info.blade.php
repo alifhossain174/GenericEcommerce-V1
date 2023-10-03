@@ -11,7 +11,7 @@
 @endsection
 
 @section('page_title')
-    General Information
+    Website Config
 @endsection
 @section('page_heading')
     Entry General Information
@@ -149,84 +149,6 @@
                             </div>
 
                         </div>
-
-
-
-                        {{-- <div class="form-group row mt-3">
-                            <label for="header_css" class="col-sm-2 col-form-label">Header CSS</label>
-                            <div class="col-sm-10">
-                                <textarea name="header_css" class="form-control" id="header_css" placeholder="<link href='https://custom.css' rel='stylesheet' type='text/css'/>">{{$data->header_css}}</textarea>
-                                <div class="invalid-feedback" style="display: block;">
-                                    @error('header_css')
-                                        {{ $message }}
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mt-3">
-                            <label for="header_script" class="col-sm-2 col-form-label">Header Script</label>
-                            <div class="col-sm-10">
-                                <textarea name="header_script" class="form-control" id="header_script" placeholder="<script src='https://custom.js'></script>">{{$data->header_script}}</textarea>
-                                <div class="invalid-feedback" style="display: block;">
-                                    @error('header_script')
-                                        {{ $message }}
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mt-3">
-                            <label for="footer_script" class="col-sm-2 col-form-label">Footer Script</label>
-                            <div class="col-sm-10">
-                                <textarea name="footer_script" class="form-control" id="footer_script" placeholder="<script src='https://custom.js'></script>">{{$data->footer_script}}</textarea>
-                                <div class="invalid-feedback" style="display: block;">
-                                    @error('footer_script')
-                                        {{ $message }}
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <fieldset class="border p-2 mt-4" style="border-radius: 4px;">
-                            <legend  class="w-auto">Search Engine Optimization (SEO)</legend>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="meta_title">Meta Title <small>(For SEO)</small></label>
-                                        <input type="text" id="meta_title" name="meta_title" value="{{$data->meta_title}}" class="form-control" placeholder="Enter Meta Title Here">
-                                        <div class="invalid-feedback" style="display: block;">
-                                            @error('meta_title')
-                                                {{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="meta_keywords">Meta Keywords <small>(For SEO) "," Comma Separated</small></label>
-                                        <input type="text" id="meta_keywords" data-role="tagsinput" name="meta_keywords" value="{{$data->meta_keywords}}" class="form-control">
-                                        <div class="invalid-feedback" style="display: block;">
-                                            @error('meta_keywords')
-                                                {{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label for="meta_description">Meta Description <small>(For SEO)</small></label>
-                                        <textarea id="meta_description" name="meta_description" class="form-control" placeholder="Write Meta Description Here">{{$data->meta_description}}</textarea>
-                                        <div class="invalid-feedback" style="display: block;">
-                                            @error('meta_description')
-                                                {{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset> --}}
 
 
                         {{-- <div class="form-group text-center pt-3 mt-3">

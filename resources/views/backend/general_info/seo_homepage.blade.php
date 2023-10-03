@@ -10,7 +10,7 @@
 @endsection
 
 @section('page_title')
-    General Information
+    Website Config
 @endsection
 @section('page_heading')
     SEO for HomePage
@@ -25,8 +25,8 @@
 
                     <form class="needs-validation" method="POST" action="{{url('update/seo/homepage')}}" enctype="multipart/form-data">
                         @csrf
-                        <div class="row pt-3">
-                            <div class="col-lg-6">
+                        <div class="row justify-content-center pt-3">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="meta_title">Meta Title</label>
                                     <input type="text" id="meta_title" name="meta_title" value="{{$data->meta_title}}" class="form-control" placeholder="Enter Meta Title Here">
@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="meta_keywords">Meta Keywords <small>("," Comma Separated)</small></label>
                                     <input type="text" id="meta_keywords" data-role="tagsinput" name="meta_keywords" value="{{$data->meta_keywords}}" class="form-control">
@@ -48,7 +48,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
                                 <div class="form-group">
                                     <label for="meta_description">Meta Description</label>
                                     <textarea id="meta_description" name="meta_description" rows="5" class="form-control" placeholder="Write Meta Description Here">{{$data->meta_description}}</textarea>

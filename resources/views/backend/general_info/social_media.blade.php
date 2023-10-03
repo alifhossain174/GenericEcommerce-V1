@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('page_title')
-    General Information
+    Website Config
 @endsection
 @section('page_heading')
     Social Media Links

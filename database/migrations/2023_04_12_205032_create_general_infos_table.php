@@ -27,10 +27,7 @@ class CreateGeneralInfosTable extends Migration
             $table->string('google_map_link')->nullable();
             $table->string('footer_copyright_text')->nullable();
 
-            $table->longText('header_css')->nullable();
-            $table->longText('header_script')->nullable();
             $table->longText('custom_css')->nullable();
-            $table->longText('footer_script')->nullable();
             $table->longText('custom_js')->nullable();
 
             // project color
