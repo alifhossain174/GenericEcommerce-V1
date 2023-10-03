@@ -1,5 +1,20 @@
 @extends('backend.master')
 
+@section('header_css')
+    <style>
+        #v-pills-tabContent .tab-pane{
+            border: 1px solid #dddd;
+            padding: 12px 20px;
+            border-radius: 4px;
+        }
+
+        a.nav-link{
+            border: 1px solid #dddd;
+            margin-bottom: 5px;
+        }
+    </style>
+@endsection
+
 @section('page_title')
     Website Config
 @endsection
@@ -26,22 +41,27 @@
                                 <a class="nav-link" id="v-pills-ga-tab" data-toggle="pill" href="#v-pills-ga" role="tab" aria-controls="v-pills-ga"
                                     aria-selected="false">
                                     <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
-                                    <span class="d-none d-lg-block">Google Analytics</span>
+                                    <span class="d-none d-lg-block">Google Analytic</span>
                                 </a>
                                 <a class="nav-link" id="v-pills-sl-tab" data-toggle="pill" href="#v-pills-sl" role="tab" aria-controls="v-pills-sl"
                                     aria-selected="false">
                                     <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
                                     <span class="d-none d-lg-block">Social Login</span>
                                 </a>
+                                <a class="nav-link" id="v-pills-fp-tab" data-toggle="pill" href="#v-pills-fp" role="tab" aria-controls="v-pills-fp"
+                                    aria-selected="false">
+                                    <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
+                                    <span class="d-none d-lg-block">Facebook Pixel</span>
+                                </a>
                                 <a class="nav-link" id="v-pills-tawk-tab" data-toggle="pill" href="#v-pills-tawk" role="tab" aria-controls="v-pills-tawk"
                                     aria-selected="false">
                                     <i class="mdi mdi-account-circle d-lg-none d-block"></i>
-                                    <span class="d-none d-lg-block">Tawk Chat</span>
+                                    <span class="d-none d-lg-block">Tawk.to Live Chat</span>
                                 </a>
                                 <a class="nav-link" id="v-pills-crisp-tab" data-toggle="pill" href="#v-pills-crisp" role="tab" aria-controls="v-pills-crisp"
                                     aria-selected="false">
                                     <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
-                                    <span class="d-none d-lg-block">Crisp Chat</span>
+                                    <span class="d-none d-lg-block">Crisp Live Chat</span>
                                 </a>
                             </div>
                         </div> <!-- end col-->
@@ -49,35 +69,170 @@
                         <div class="col-sm-9">
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade active show" id="v-pills-gr" role="tabpanel" aria-labelledby="v-pills-gr-tab">
-                                    <p class="mb-0">Google Recaptcha ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Leggings sint. Veniam sint duis incididunt
-                                        do esse magna mollit excepteur laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et velit
-                                        excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat commodo et voluptate minim reprehenderit
-                                        mollit pariatur. Deserunt non laborum enim et cillum eu deserunt excepteur ea incididunt minim occaecat.</p>
+                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="captcha_status">Allow Recaptcha</label>
+                                            <select id="captcha_status" class="form-control" name="captcha_status">
+                                                <option value="1">Allow Recaptcha</option>
+                                                <option value="0" selected>Disallow Recaptcha</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="captcha_site_key">Captcha Site Key</label>
+                                            <input type="text" class="form-control" id="captcha_site_key" name="captcha_site_key" placeholder="ex. 6LcVO6cbAAAAOzIEwPlU66nL1rxD4VAS38tjpBX">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="captcha_secret_key">Captcha Secret Key</label>
+                                            <input type="text" class="form-control" id="captcha_secret_key" name="captcha_secret_key" placeholder="ex. 6LcVO6cbAAAALVNrpZfNRfd0Gy_9a_fJRLiMVUI">
+                                        </div>
+
+                                        <div class="form-group mb-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-ga" role="tabpanel" aria-labelledby="v-pills-ga-tab">
-                                    <p class="mb-0">Google Analytics ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Leggings sint. Veniam sint duis incididunt
-                                        do esse magna mollit excepteur laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et velit
-                                        excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat commodo et voluptate minim reprehenderit
-                                        mollit pariatur. Deserunt non laborum enim et cillum eu deserunt excepteur ea incididunt minim occaecat.</p>
+                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="analytic_status">Allow Google Analytic</label>
+                                            <select id="analytic_status" class="form-control" name="analytic_status">
+                                                <option value="1">Allow Google Analytic</option>
+                                                <option value="0" selected>Disallow Google Analytic</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="analytic_tracking_id">Analytic Tracking Id</label>
+                                            <input type="text" class="form-control" id="analytic_tracking_id" name="analytic_tracking_id" placeholder="ex. UA-842191520-6">
+                                        </div>
+
+                                        <div class="form-group mb-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-sl" role="tabpanel" aria-labelledby="v-pills-sl-tab">
-                                    <p class="mb-0">Social Login ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Leggings sint. Veniam sint duis incididunt
-                                        do esse magna mollit excepteur laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et velit
-                                        excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat commodo et voluptate minim reprehenderit
-                                        mollit pariatur. Deserunt non laborum enim et cillum eu deserunt excepteur ea incididunt minim occaecat.</p>
+                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="fb_login_status">Allow Login with Facebook</label>
+                                            <select id="fb_login_status" class="form-control" name="fb_login_status">
+                                                <option value="1">Allow Facebook Login</option>
+                                                <option value="0" selected>Disallow Facebook Login</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="fb_app_id">Facebook App Id</label>
+                                            <input type="text" class="form-control" id="fb_app_id" name="fb_app_id" placeholder="ex. 1844188565781706">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="fb_app_secret">Facebook App Secret</label>
+                                            <input type="text" class="form-control" id="fb_app_secret" name="fb_app_secret" placeholder="ex. f32f45abcf57a4dc23ac6f2b2e8e2241">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="fb_redirect_url">Facebook Redirect Url</label>
+                                            <input type="text" class="form-control" id="fb_redirect_url" name="fb_redirect_url" placeholder="ex. http://localhost/web-solution-us/ecommerce_ibrahim/callback/google">
+                                        </div>
+
+                                        <hr style="border-color: #dddd; margin: 25px 0px;">
+
+                                        <div class="form-group">
+                                            <label for="gmail_login_status">Allow Login with Gmail</label>
+                                            <select id="gmail_login_status" class="form-control" name="gmail_login_status">
+                                                <option value="1">Allow Gmail Login</option>
+                                                <option value="0" selected>Disallow Gmail Login</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="gmail_client_id">Gmail Client Id</label>
+                                            <input type="text" class="form-control" id="gmail_client_id" name="gmail_client_id" placeholder="ex. 810593187924-706in12herrovuq39i2pbn483otijei8.apps.googleusercontent.com">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="gmail_secret_id">Gmail Secret Id</label>
+                                            <input type="text" class="form-control" id="gmail_secret_id" name="gmail_secret_id" placeholder="ex. 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">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="gmail_redirect_url">Gmail Redirect Url</label>
+                                            <input type="text" class="form-control" id="gmail_redirect_url" name="gmail_redirect_url" placeholder="ex. http://localhost/web-solution-us/ecommerce_ibrahim/callback/google">
+                                        </div>
+
+                                        <div class="form-group mb-2 pt-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-fp" role="tabpanel" aria-labelledby="v-pills-fp-tab">
+                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="pixel_status">Allow Facebook Pixel</label>
+                                            <select id="pixel_status" class="form-control" name="pixel_status">
+                                                <option value="1">Allow Facebook Pixel</option>
+                                                <option value="0" selected>Disallow Facebook Pixel</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="pixel_fb_app_id">Facebook App Id</label>
+                                            <input type="text" class="form-control" id="pixel_fb_app_id" name="pixel_fb_app_id" placeholder="ex. 97291160691059">
+                                        </div>
+
+                                        <div class="form-group mb-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-tawk" role="tabpanel" aria-labelledby="v-pills-tawk-tab">
-                                    <p class="mb-0">Tawk Chat dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna
-                                        pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit
-                                        id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Leggings
-                                        enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint minim consectetur
-                                        qui.</p>
+                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="tawk_chat_status">Allow Tawk.to Live Chat</label>
+                                            <select id="tawk_chat_status" class="form-control" name="tawk_chat_status">
+                                                <option value="1">Allow Tawk.to Live Chat</option>
+                                                <option value="0" selected>Disallow Tawk.to Live Chat</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="tawk_chat_link">Tawk Chat Link</label>
+                                            <input type="text" class="form-control" id="tawk_chat_link" name="tawk_chat_link" placeholder="ex. https://embed.tawk.to/5a7c31ed7591465c7077c48/default">
+                                        </div>
+
+                                        <div class="form-group mb-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-crisp" role="tabpanel" aria-labelledby="v-pills-crisp-tab">
-                                    <p class="mb-0">Crisp Chat truck quinoa dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-                                        eu, pretium quis, sem. Nulla consequat massa quis enim. Cillum ad ut irure tempor velit nostrud occaecat ullamco
-                                        aliqua anim Leggings sint. Veniam sint duis incididunt do esse magna mollit excepteur laborum qui.</p>
+                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="crisp_chat_status">Allow Crisp Live Chat</label>
+                                            <select id="crisp_chat_status" class="form-control" name="crisp_chat_status">
+                                                <option value="1">Allow Crisp Live Chat</option>
+                                                <option value="0" selected>Disallow Crisp Live Chat</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="crisp_website_id">Crisp Website_ID</label>
+                                            <input type="text" class="form-control" id="crisp_website_id" name="crisp_website_id" placeholder="ex. 7b6ec17d-256a-41e8-9732-17ff58bd515t">
+                                        </div>
+
+                                        <div class="form-group mb-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div> <!-- end tab-content-->
                         </div> <!-- end col-->
