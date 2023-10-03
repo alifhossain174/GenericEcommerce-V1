@@ -5,9 +5,9 @@
     <meta charset="utf-8" />
     <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="GenericCommerceV1 Admin Panel" name="description" />
-    <meta content="GenericCommerceV1" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="Admin Panel" name="description"/>
+    <meta content="Getup Ltd." name="author"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- App favicon -->
@@ -20,6 +20,7 @@
     <link href="{{ url('assets') }}/css/toastr.min.css" rel="stylesheet" type="text/css" />
 
     @yield('header_css')
+    @yield('header_js')
 
 </head>
 
