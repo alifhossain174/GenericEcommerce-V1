@@ -132,7 +132,7 @@
 
 
                         <div class="dropdown d-inline-block ml-2">
-                            <a href="https://GenericCommerceV1.com.bd" target="_blank" class="btn text-white rounded" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-paper-plane"></i> Visit Website</a>
+                            <a href="https://getcommerce.xyz/templates" target="_blank" class="btn text-white rounded" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-paper-plane"></i> Visit Website</a>
                         </div>
 
                         <div class="dropdown d-inline-block ml-2">
