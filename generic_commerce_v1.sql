@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2023 at 07:09 AM
+-- Generation Time: Oct 05, 2023 at 08:41 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -742,10 +742,7 @@ CREATE TABLE `general_infos` (
   `meta_title` varchar(255) DEFAULT NULL,
   `meta_keywords` varchar(255) DEFAULT NULL,
   `meta_description` longtext DEFAULT NULL,
-  `header_css` longtext DEFAULT NULL,
-  `header_script` longtext DEFAULT NULL,
   `custom_css` longtext DEFAULT NULL,
-  `footer_script` longtext DEFAULT NULL,
   `custom_js` longtext DEFAULT NULL,
   `facebook` varchar(255) DEFAULT NULL,
   `instagram` varchar(255) DEFAULT NULL,
@@ -755,6 +752,14 @@ CREATE TABLE `general_infos` (
   `messenger` varchar(255) DEFAULT NULL,
   `whatsapp` varchar(255) DEFAULT NULL,
   `telegram` varchar(255) DEFAULT NULL,
+  `google_analytic_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
+  `google_analytic_tracking_id` varchar(255) DEFAULT NULL,
+  `fb_pixel_status` tinyint(4) NOT NULL DEFAULT 0,
+  `fb_pixel_app_id` varchar(255) DEFAULT NULL,
+  `tawk_chat_status` tinyint(4) NOT NULL DEFAULT 0,
+  `tawk_chat_link` varchar(255) DEFAULT NULL,
+  `crisp_chat_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
+  `crisp_website_id` varchar(255) DEFAULT NULL,
   `about_us` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -764,8 +769,30 @@ CREATE TABLE `general_infos` (
 -- Dumping data for table `general_infos`
 --
 
-INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `footer_copyright_text`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `header_css`, `header_script`, `custom_css`, `footer_script`, `custom_js`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/NvG6Q1696236286.png', 'company_logo/hmuY01696236480.png', 'company_logo/vJ4jW1696243530.png', 'TechShop', 'TechShop', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '01969005035', 'admin@gmail.com', 'Flat #B4, House No: 71, Road: 27, Dhaka 1212', 'https://goo.gl/maps/9AmJHeTmbu2JKrzeA', '<p>2023 &copy; TechShop</p>', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#8fce00', '#5b5b5b', 'TechLand', 'tech,it', 'TechLand', NULL, NULL, NULL, NULL, NULL, 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', '<p><strong>About Us</strong></p>\r\n\r\n<p>Welcome to Bestu, your go-to destination for the latest mobile devices and accessories. We are passionate about providing our customers with the best products and exceptional shopping experiences. With a wide range of high-quality smartphones, tablets, wearables, and accessories, we aim to meet all your tech needs in one convenient place.</p>\r\n\r\n<p>At Bestu, we believe that technology should enhance your lifestyle and simplify your daily routines. That&#39;s why we carefully curate our product selection, ensuring that we offer the latest innovations from top brands that you know and trust. Whether you&#39;re looking for a sleek smartphone with cutting-edge features or a durable case to protect your device, we&#39;ve got you covered.</p>\r\n\r\n<p>Our commitment goes beyond just offering great products. We strive to provide outstanding customer service and support. Our knowledgeable team is always ready to assist you with any questions or concerns you may have, ensuring that you have a seamless shopping experience from start to finish. We value your satisfaction and aim to exceed your expectations at every step of the way.</p>\r\n\r\n<p>At Bestu, we understand the importance of privacy and security. We have implemented robust measures to protect your personal information, ensuring that your data is handled with the utmost care and confidentiality. You can trust that your privacy is our priority.</p>\r\n\r\n<p>We are continuously evolving to meet the ever-changing needs of our customers and the tech industry. We keep a close eye on the latest trends and advancements, ensuring that we stay ahead of the curve and offer you the most up-to-date products and solutions.</p>\r\n\r\n<p>Thank you for choosing Bestu as your preferred destination for mobile devices and accessories. We appreciate your trust in us and look forward to serving you with excellence. If you have any questions, feedback, or suggestions, please don&#39;t hesitate to contact us. We are here to assist you and make your shopping experience truly exceptional.</p>\r\n\r\n<p>Happy shopping!</p>\r\n\r\n<p>The Bestu Team</p>', NULL, '2023-10-03 04:04:10');
+INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `footer_copyright_text`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `custom_css`, `custom_js`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `google_analytic_status`, `google_analytic_tracking_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
+(1, 'company_logo/NvG6Q1696236286.png', 'company_logo/hmuY01696236480.png', 'company_logo/vJ4jW1696243530.png', 'TechShop', 'TechShop', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '01969005035', 'admin@gmail.com', 'Flat #B4, House No: 71, Road: 27, Dhaka 1212', 'https://goo.gl/maps/9AmJHeTmbu2JKrzeA', '<p>2023 &copy; TechShop</p>', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#8fce00', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(myAsset);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, '<p><strong>About Us</strong></p>\r\n\r\n<p>Welcome to Bestu, your go-to destination for the latest mobile devices and accessories. We are passionate about providing our customers with the best products and exceptional shopping experiences. With a wide range of high-quality smartphones, tablets, wearables, and accessories, we aim to meet all your tech needs in one convenient place.</p>\r\n\r\n<p>At Bestu, we believe that technology should enhance your lifestyle and simplify your daily routines. That&#39;s why we carefully curate our product selection, ensuring that we offer the latest innovations from top brands that you know and trust. Whether you&#39;re looking for a sleek smartphone with cutting-edge features or a durable case to protect your device, we&#39;ve got you covered.</p>\r\n\r\n<p>Our commitment goes beyond just offering great products. We strive to provide outstanding customer service and support. Our knowledgeable team is always ready to assist you with any questions or concerns you may have, ensuring that you have a seamless shopping experience from start to finish. We value your satisfaction and aim to exceed your expectations at every step of the way.</p>\r\n\r\n<p>At Bestu, we understand the importance of privacy and security. We have implemented robust measures to protect your personal information, ensuring that your data is handled with the utmost care and confidentiality. You can trust that your privacy is our priority.</p>\r\n\r\n<p>We are continuously evolving to meet the ever-changing needs of our customers and the tech industry. We keep a close eye on the latest trends and advancements, ensuring that we stay ahead of the curve and offer you the most up-to-date products and solutions.</p>\r\n\r\n<p>Thank you for choosing Bestu as your preferred destination for mobile devices and accessories. We appreciate your trust in us and look forward to serving you with excellence. If you have any questions, feedback, or suggestions, please don&#39;t hesitate to contact us. We are here to assist you and make your shopping experience truly exceptional.</p>\r\n\r\n<p>Happy shopping!</p>\r\n\r\n<p>The Bestu Team</p>', NULL, '2023-10-05 06:39:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `google_recaptchas`
+--
+
+CREATE TABLE `google_recaptchas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `captcha_site_key` varchar(255) DEFAULT NULL,
+  `captcha_secret_key` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `google_recaptchas`
+--
+
+INSERT INTO `google_recaptchas` (`id`, `captcha_site_key`, `captcha_secret_key`, `status`, `created_at`, `updated_at`) VALUES
+(1, '6LcVO6cbAAAAOzIEwPlU66nL1rxD4VAS38tjp45', '6LcVO6cbAAAALVNrpZfNRfd0Gy_9a_fJRLiMV', 0, NULL, '2023-10-05 05:29:57');
 
 -- --------------------------------------------------------
 
@@ -834,7 +861,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (82, '2023_06_22_130744_create_sms_templates_table', 1),
 (83, '2023_06_25_104544_create_sms_histories_table', 1),
 (84, '2023_07_03_093759_create_blog_categories_table', 40),
-(85, '2023_07_03_113558_create_blogs_table', 41);
+(85, '2023_07_03_113558_create_blogs_table', 41),
+(86, '2023_07_17_212431_create_permission_routes_table', 1),
+(87, '2023_07_17_222638_create_user_roles_table', 1),
+(88, '2023_07_18_010659_create_role_permissions_table', 1),
+(89, '2023_07_18_014657_create_user_role_permissions_table', 1),
+(90, '2023_10_05_111305_create_google_recaptchas_table', 42),
+(92, '2023_10_05_114505_create_social_logins_table', 43);
 
 -- --------------------------------------------------------
 
@@ -2241,6 +2274,33 @@ CREATE TABLE `sms_templates` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `social_logins`
+--
+
+CREATE TABLE `social_logins` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `fb_login_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Inactive; 1=>Active',
+  `fb_app_id` varchar(255) DEFAULT NULL,
+  `fb_app_secret` varchar(255) DEFAULT NULL,
+  `fb_redirect_url` varchar(255) DEFAULT NULL,
+  `gmail_login_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Inactive; 1=>Active',
+  `gmail_client_id` varchar(255) DEFAULT NULL,
+  `gmail_secret_id` varchar(255) DEFAULT NULL,
+  `gmail_redirect_url` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `social_logins`
+--
+
+INSERT INTO `social_logins` (`id`, `fb_login_status`, `fb_app_id`, `fb_app_secret`, `fb_redirect_url`, `gmail_login_status`, `gmail_client_id`, `gmail_secret_id`, `gmail_redirect_url`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2023-10-05 06:00:25', '2023-10-05 06:06:23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `storage_types`
 --
 
@@ -2765,6 +2825,12 @@ ALTER TABLE `general_infos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `google_recaptchas`
+--
+ALTER TABLE `google_recaptchas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -2916,6 +2982,12 @@ ALTER TABLE `sms_histories`
 -- Indexes for table `sms_templates`
 --
 ALTER TABLE `sms_templates`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `social_logins`
+--
+ALTER TABLE `social_logins`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3110,10 +3182,16 @@ ALTER TABLE `general_infos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `google_recaptchas`
+--
+ALTER TABLE `google_recaptchas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -3252,6 +3330,12 @@ ALTER TABLE `sms_histories`
 --
 ALTER TABLE `sms_templates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `social_logins`
+--
+ALTER TABLE `social_logins`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `storage_types`

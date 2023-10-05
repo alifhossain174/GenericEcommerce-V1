@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\GeneralInfo;
+use App\Models\GoogleRecaptcha;
+use App\Models\SocialLogin;
 use Carbon\Carbon;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
@@ -87,9 +89,6 @@ class GeneralInfoController extends Controller
             'address' => $request->address,
             'google_map_link' => $request->google_map_link,
             'footer_copyright_text' => $request->footer_copyright_text,
-            // 'header_css' => $request->header_css,
-            // 'header_script' => $request->header_script,
-            // 'footer_script' => $request->footer_script,
             'updated_at' => Carbon::now()
         ]);
 
@@ -178,6 +177,82 @@ class GeneralInfoController extends Controller
     }
 
     public function socialChatScriptPage(){
-        return view('backend.general_info.social_chat_script');
+        $googleRecaptcha = GoogleRecaptcha::where('id', 1)->first();
+        $generalInfo = GeneralInfo::where('id', 1)->first();
+        $socialLoginInfo = SocialLogin::where('id', 1)->first();
+        return view('backend.general_info.social_chat_script', compact('googleRecaptcha', 'generalInfo', 'socialLoginInfo'));
+    }
+
+    public function updateGoogleRecaptcha(Request $request){
+        GoogleRecaptcha::where('id', 1)->update([
+            'captcha_site_key' => $request->captcha_site_key,
+            'captcha_secret_key' => $request->captcha_secret_key,
+            'status' => $request->status,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Google Recaptcha Info Updated', 'Success');
+        return back();
+    }
+
+    public function updateGoogleAnalytic(Request $request){
+        GeneralInfo::where('id', 1)->update([
+            'google_analytic_status' => $request->google_analytic_status,
+            'google_analytic_tracking_id' => $request->google_analytic_tracking_id,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Google Analytic Info Updated', 'Success');
+        return back();
+    }
+
+    public function updateSocialLogin(Request $request){
+        SocialLogin::where('id', 1)->update([
+            'fb_login_status' => $request->fb_login_status,
+            'fb_app_id' => $request->fb_app_id,
+            'fb_app_secret' => $request->fb_app_secret,
+            'fb_redirect_url' => $request->fb_redirect_url,
+            'gmail_login_status' => $request->gmail_login_status,
+            'gmail_client_id' => $request->gmail_client_id,
+            'gmail_secret_id' => $request->gmail_secret_id,
+            'gmail_redirect_url' => $request->gmail_redirect_url,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Google Analytic Info Updated', 'Success');
+        return back();
+    }
+
+    public function updateFacebookPixel(Request $request){
+        GeneralInfo::where('id', 1)->update([
+            'fb_pixel_status' => $request->fb_pixel_status,
+            'fb_pixel_app_id' => $request->fb_pixel_app_id,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Facebook Pixel Info Updated', 'Success');
+        return back();
+    }
+
+    public function updateTawkChat(Request $request){
+        GeneralInfo::where('id', 1)->update([
+            'tawk_chat_status' => $request->tawk_chat_status,
+            'tawk_chat_link' => $request->tawk_chat_link,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Tawk Chat Info Updated', 'Success');
+        return back();
+    }
+
+    public function updateCrispChat(Request $request){
+        GeneralInfo::where('id', 1)->update([
+            'crisp_chat_status' => $request->crisp_chat_status,
+            'crisp_website_id' => $request->crisp_website_id,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Crisp Chat Info Updated', 'Success');
+        return back();
     }
 }

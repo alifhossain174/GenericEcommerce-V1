@@ -69,24 +69,24 @@
                         <div class="col-sm-9">
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade active show" id="v-pills-gr" role="tabpanel" aria-labelledby="v-pills-gr-tab">
-                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('update/google/recaptcha')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label for="captcha_status">Allow Recaptcha</label>
-                                            <select id="captcha_status" class="form-control" name="captcha_status">
-                                                <option value="1">Allow Recaptcha</option>
-                                                <option value="0" selected>Disallow Recaptcha</option>
+                                            <select id="captcha_status" class="form-control" name="captcha_status" required>
+                                                <option value="1" @if($googleRecaptcha->status == 1) selected @endif>Allow Recaptcha</option>
+                                                <option value="0" @if($googleRecaptcha->status == 0) selected @endif>Disallow Recaptcha</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="captcha_site_key">Captcha Site Key</label>
-                                            <input type="text" class="form-control" id="captcha_site_key" name="captcha_site_key" placeholder="ex. 6LcVO6cbAAAAOzIEwPlU66nL1rxD4VAS38tjpBX">
+                                            <input type="text" class="form-control" value="{{$googleRecaptcha->captcha_site_key}}" id="captcha_site_key" name="captcha_site_key" placeholder="ex. 6LcVO6cbAAAAOzIEwPlU66nL1rxD4VAS38tjpBX">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="captcha_secret_key">Captcha Secret Key</label>
-                                            <input type="text" class="form-control" id="captcha_secret_key" name="captcha_secret_key" placeholder="ex. 6LcVO6cbAAAALVNrpZfNRfd0Gy_9a_fJRLiMVUI">
+                                            <input type="text" class="form-control" value="{{$googleRecaptcha->captcha_secret_key}}" id="captcha_secret_key" name="captcha_secret_key" placeholder="ex. 6LcVO6cbAAAALVNrpZfNRfd0Gy_9a_fJRLiMVUI">
                                         </div>
 
                                         <div class="form-group mb-2">
@@ -95,19 +95,19 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-ga" role="tabpanel" aria-labelledby="v-pills-ga-tab">
-                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('update/google/analytic')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
-                                            <label for="analytic_status">Allow Google Analytic</label>
-                                            <select id="analytic_status" class="form-control" name="analytic_status">
-                                                <option value="1">Allow Google Analytic</option>
-                                                <option value="0" selected>Disallow Google Analytic</option>
+                                            <label for="google_analytic_status">Allow Google Analytic</label>
+                                            <select id="google_analytic_status" class="form-control" name="google_analytic_status" required>
+                                                <option value="1" @if($generalInfo->status == 1) selected @endif>Allow Google Analytic</option>
+                                                <option value="0" @if($generalInfo->status == 1) selected @endif>Disallow Google Analytic</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="analytic_tracking_id">Analytic Tracking Id</label>
-                                            <input type="text" class="form-control" id="analytic_tracking_id" name="analytic_tracking_id" placeholder="ex. UA-842191520-6">
+                                            <label for="google_analytic_tracking_id">Analytic Tracking Id</label>
+                                            <input type="text" class="form-control" value="{{$generalInfo->google_analytic_tracking_id}}" id="google_analytic_tracking_id" name="google_analytic_tracking_id" placeholder="ex. UA-842191520-6">
                                         </div>
 
                                         <div class="form-group mb-2">
@@ -116,54 +116,54 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-sl" role="tabpanel" aria-labelledby="v-pills-sl-tab">
-                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('update/social/login/info')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label for="fb_login_status">Allow Login with Facebook</label>
-                                            <select id="fb_login_status" class="form-control" name="fb_login_status">
-                                                <option value="1">Allow Facebook Login</option>
-                                                <option value="0" selected>Disallow Facebook Login</option>
+                                            <select id="fb_login_status" class="form-control" name="fb_login_status" required>
+                                                <option value="1" @if($socialLoginInfo->fb_login_status  == 1) selected @endif>Allow Facebook Login</option>
+                                                <option value="0" @if($socialLoginInfo->fb_login_status  == 0) selected @endif>Disallow Facebook Login</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="fb_app_id">Facebook App Id</label>
-                                            <input type="text" class="form-control" id="fb_app_id" name="fb_app_id" placeholder="ex. 1844188565781706">
+                                            <input type="text" class="form-control" value="{{$socialLoginInfo->fb_app_id}}" id="fb_app_id" name="fb_app_id" placeholder="ex. 1844188565781706">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="fb_app_secret">Facebook App Secret</label>
-                                            <input type="text" class="form-control" id="fb_app_secret" name="fb_app_secret" placeholder="ex. f32f45abcf57a4dc23ac6f2b2e8e2241">
+                                            <input type="text" class="form-control" value="{{$socialLoginInfo->fb_app_secret}}" id="fb_app_secret" name="fb_app_secret" placeholder="ex. f32f45abcf57a4dc23ac6f2b2e8e2241">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="fb_redirect_url">Facebook Redirect Url</label>
-                                            <input type="text" class="form-control" id="fb_redirect_url" name="fb_redirect_url" placeholder="ex. http://localhost/web-solution-us/ecommerce_ibrahim/callback/google">
+                                            <input type="text" class="form-control" value="{{$socialLoginInfo->fb_redirect_url}}" id="fb_redirect_url" name="fb_redirect_url" placeholder="ex. http://localhost/web-solution-us/ecommerce_ibrahim/callback/google">
                                         </div>
 
                                         <hr style="border-color: #dddd; margin: 25px 0px;">
 
                                         <div class="form-group">
                                             <label for="gmail_login_status">Allow Login with Gmail</label>
-                                            <select id="gmail_login_status" class="form-control" name="gmail_login_status">
-                                                <option value="1">Allow Gmail Login</option>
-                                                <option value="0" selected>Disallow Gmail Login</option>
+                                            <select id="gmail_login_status" class="form-control" name="gmail_login_status" required>
+                                                <option value="1" @if($socialLoginInfo->gmail_login_status  == 1) selected @endif>Allow Gmail Login</option>
+                                                <option value="0" @if($socialLoginInfo->gmail_login_status  == 0) selected @endif>Disallow Gmail Login</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="gmail_client_id">Gmail Client Id</label>
-                                            <input type="text" class="form-control" id="gmail_client_id" name="gmail_client_id" placeholder="ex. 810593187924-706in12herrovuq39i2pbn483otijei8.apps.googleusercontent.com">
+                                            <input type="text" class="form-control" value="{{$socialLoginInfo->gmail_client_id}}" id="gmail_client_id" name="gmail_client_id" placeholder="ex. 810593187924-706in12herrovuq39i2pbn483otijei8.apps.googleusercontent.com">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="gmail_secret_id">Gmail Secret Id</label>
-                                            <input type="text" class="form-control" id="gmail_secret_id" name="gmail_secret_id" placeholder="ex. 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">
+                                            <input type="text" class="form-control" value="{{$socialLoginInfo->gmail_secret_id}}" id="gmail_secret_id" name="gmail_secret_id" placeholder="ex. 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">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="gmail_redirect_url">Gmail Redirect Url</label>
-                                            <input type="text" class="form-control" id="gmail_redirect_url" name="gmail_redirect_url" placeholder="ex. http://localhost/web-solution-us/ecommerce_ibrahim/callback/google">
+                                            <input type="text" class="form-control" value="{{$socialLoginInfo->gmail_redirect_url}}" id="gmail_redirect_url" name="gmail_redirect_url" placeholder="ex. http://localhost/web-solution-us/ecommerce_ibrahim/callback/google">
                                         </div>
 
                                         <div class="form-group mb-2 pt-2">
@@ -172,19 +172,19 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-fp" role="tabpanel" aria-labelledby="v-pills-fp-tab">
-                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('update/facebook/pixel')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
-                                            <label for="pixel_status">Allow Facebook Pixel</label>
-                                            <select id="pixel_status" class="form-control" name="pixel_status">
-                                                <option value="1">Allow Facebook Pixel</option>
-                                                <option value="0" selected>Disallow Facebook Pixel</option>
+                                            <label for="fb_pixel_status">Allow Facebook Pixel</label>
+                                            <select id="fb_pixel_status" class="form-control" name="fb_pixel_status" required>
+                                                <option value="1" @if($generalInfo->fb_pixel_status == 1) selected @endif>Allow Facebook Pixel</option>
+                                                <option value="0" @if($generalInfo->fb_pixel_status == 0) selected @endif>Disallow Facebook Pixel</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="pixel_fb_app_id">Facebook App Id</label>
-                                            <input type="text" class="form-control" id="pixel_fb_app_id" name="pixel_fb_app_id" placeholder="ex. 97291160691059">
+                                            <label for="fb_pixel_app_id">Facebook App Id</label>
+                                            <input type="text" class="form-control" value="{{$generalInfo->fb_pixel_app_id}}" id="fb_pixel_app_id" name="fb_pixel_app_id" placeholder="ex. 97291160691059">
                                         </div>
 
                                         <div class="form-group mb-2">
@@ -193,19 +193,19 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-tawk" role="tabpanel" aria-labelledby="v-pills-tawk-tab">
-                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('update/tawk/chat/info')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label for="tawk_chat_status">Allow Tawk.to Live Chat</label>
-                                            <select id="tawk_chat_status" class="form-control" name="tawk_chat_status">
-                                                <option value="1">Allow Tawk.to Live Chat</option>
-                                                <option value="0" selected>Disallow Tawk.to Live Chat</option>
+                                            <select id="tawk_chat_status" class="form-control" name="tawk_chat_status" required>
+                                                <option value="1" @if($generalInfo->tawk_chat_status == 1) selected @endif>Allow Tawk.to Live Chat</option>
+                                                <option value="0" @if($generalInfo->tawk_chat_status == 0) selected @endif>Disallow Tawk.to Live Chat</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="tawk_chat_link">Tawk Chat Link</label>
-                                            <input type="text" class="form-control" id="tawk_chat_link" name="tawk_chat_link" placeholder="ex. https://embed.tawk.to/5a7c31ed7591465c7077c48/default">
+                                            <input type="text" class="form-control" value="{{$generalInfo->tawk_chat_link}}" id="tawk_chat_link" name="tawk_chat_link" placeholder="ex. https://embed.tawk.to/5a7c31ed7591465c7077c48/default">
                                         </div>
 
                                         <div class="form-group mb-2">
@@ -214,19 +214,19 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-crisp" role="tabpanel" aria-labelledby="v-pills-crisp-tab">
-                                    <form action="{{url('/')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{url('update/crisp/chat/info')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label for="crisp_chat_status">Allow Crisp Live Chat</label>
-                                            <select id="crisp_chat_status" class="form-control" name="crisp_chat_status">
-                                                <option value="1">Allow Crisp Live Chat</option>
-                                                <option value="0" selected>Disallow Crisp Live Chat</option>
+                                            <select id="crisp_chat_status" class="form-control" name="crisp_chat_status" required>
+                                                <option value="1" @if($generalInfo->crisp_chat_status == 1) selected @endif>Allow Crisp Live Chat</option>
+                                                <option value="0" @if($generalInfo->crisp_chat_status == 0) selected @endif>Disallow Crisp Live Chat</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="crisp_website_id">Crisp Website_ID</label>
-                                            <input type="text" class="form-control" id="crisp_website_id" name="crisp_website_id" placeholder="ex. 7b6ec17d-256a-41e8-9732-17ff58bd515t">
+                                            <input type="text" class="form-control" value="{{$generalInfo->crisp_website_id}}" id="crisp_website_id" name="crisp_website_id" placeholder="ex. 7b6ec17d-256a-41e8-9732-17ff58bd515t">
                                         </div>
 
                                         <div class="form-group mb-2">

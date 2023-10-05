@@ -52,6 +52,22 @@ class CreateGeneralInfosTable extends Migration
             $table->string('whatsapp')->nullable();
             $table->string('telegram')->nullable();
 
+            // google analytics
+            $table->tinyInteger('google_analytic_status')->default(0)->comment("1=>Active; 0=>Inactive");
+            $table->string('google_analytic_tracking_id')->nullable();
+
+            // facebook pixel
+            $table->tinyInteger('fb_pixel_status')->default(0)->comment("1=>Active; 0=>Inactive");
+            $table->string('fb_pixel_app_id')->nullable();
+
+            // Tawk.to
+            $table->tinyInteger('tawk_chat_status')->default(0)->comment("1=>Active; 0=>Inactive");
+            $table->string('tawk_chat_link')->nullable();
+
+            // Crisp Chat
+            $table->tinyInteger('crisp_chat_status')->default(0)->comment("1=>Active; 0=>Inactive");
+            $table->string('crisp_website_id')->nullable();
+
             $table->longText('about_us')->nullable();
             $table->timestamps();
         });
