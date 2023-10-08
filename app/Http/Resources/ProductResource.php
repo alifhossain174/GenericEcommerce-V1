@@ -80,7 +80,7 @@ class ProductResource extends JsonResource
             'flag_name' => $this->flag_name,
             'flag_slug' => $flagInfo ? $flagInfo->slug : null,
             'flag_icon' => $flagInfo ? $flagInfo->icon : null,
-            'average_rating' => ProductReview::where('product_id', $this->id)->where('status', 1)->avg('rating'),
+            'average_rating' => number_format(ProductReview::where('product_id', $this->id)->where('status', 1)->avg('rating'), 1),
             'review_count' => ProductReview::where('product_id', $this->id)->where('status', 1)->count(),
             'reviews' => ProductReviewResource::collection(ProductReview::where('product_id', $this->id)->where('status', 1)->get()),
             'has_variant' => $this->has_variant,
