@@ -111,7 +111,7 @@ class UserController extends Controller
     }
 
     public function editSystemUser($id){
-        $userInfo = User::where('user_type', 2)->where('id', $id)->first();
+        $userInfo = User::where('id', $id)->first();
         return view('backend.users.edit_system_user', compact('userInfo'));
     }
 
