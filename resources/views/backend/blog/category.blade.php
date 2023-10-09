@@ -203,7 +203,7 @@
                     $('#productForm2').trigger("reset");
                     $('#exampleModal2').modal('hide');
                     toastr.success("Flag Created", "Created Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -222,7 +222,7 @@
                     success: function (data) {
 
                         if(data.data == 1){
-                            table.draw();
+                            table.draw(false);
                             toastr.error("Category has been Deleted", "Deleted Successfully");
                         } else {
                             toastr.warning("Blog Available in this Category", "Failed");
@@ -244,7 +244,7 @@
                     url: "{{ url('feature/blog/category') }}"+'/'+categorySlug,
                     success: function (data) {
 
-                        table.draw();
+                        table.draw(false);
                         toastr.success("Blog Category has been Featured", "Featured Successfully");
 
                     },
@@ -279,7 +279,7 @@
                     $('#productForm').trigger("reset");
                     $('#exampleModal').modal('hide');
                     toastr.success("Category Info Updated", "Updated Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);

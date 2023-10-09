@@ -135,7 +135,7 @@
                     type: "GET",
                     url: "{{ url('delete/support/ticket') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Ticket has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
@@ -152,7 +152,7 @@
                     type: "GET",
                     url: "{{ url('support/status/change') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.suucess("Status has been Changed", "Changed Successfully");
                     },
                     error: function (data) {
@@ -169,7 +169,7 @@
                     type: "GET",
                     url: "{{ url('support/status/on/hold') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.suucess("Status has been Changed", "Changed Successfully");
                     },
                     error: function (data) {
@@ -186,7 +186,7 @@
                     type: "GET",
                     url: "{{ url('support/status/rejected') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.suucess("Status has been Changed", "Changed Successfully");
                     },
                     error: function (data) {

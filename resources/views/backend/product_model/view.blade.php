@@ -134,7 +134,7 @@
                     url: "{{ url('delete/model') }}"+'/'+id,
                     success: function (data) {
 
-                        table.draw();
+                        table.draw(false);
                         toastr.success("Model Deleted Successfully", "Deleted Successfully");
 
                     },

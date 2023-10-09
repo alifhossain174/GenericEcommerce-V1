@@ -133,7 +133,7 @@
                     type: "GET",
                     url: "{{ url('delete/faq') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Flag has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

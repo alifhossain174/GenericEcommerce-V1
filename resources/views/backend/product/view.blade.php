@@ -188,7 +188,7 @@
                     url: "{{ url('delete/product') }}"+'/'+slug,
                     success: function (data) {
                         if(data.data == 1){
-                            table.draw();
+                            table.draw(false);
                             toastr.error("Product has been Deleted", "Deleted Successfully");
                         } else {
                             toastr.warning("Order Available for this Product", "Failed");

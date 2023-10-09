@@ -231,7 +231,7 @@
                     $('#productForm2').trigger("reset");
                     $('#exampleModal2').modal('hide');
                     toastr.success("Unit Created", "Created Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -264,7 +264,7 @@
                     $('#productForm').trigger("reset");
                     $('#exampleModal').modal('hide');
                     toastr.success("Unit Info Updated", "Updated Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -280,7 +280,7 @@
                     type: "GET",
                     url: "{{ url('delete/unit') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Unit has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

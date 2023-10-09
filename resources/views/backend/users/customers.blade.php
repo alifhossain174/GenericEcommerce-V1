@@ -168,7 +168,7 @@
                     success: function (data) {
 
                         if(data.data == 1){
-                            table.draw();
+                            table.draw(false);
                             toastr.error("Customer has been Deleted", "Deleted Successfully");
                         } else {
                             toastr.warning("Customer Cannot be Deleted", "Some Relational Data are there (Ex. Order)");

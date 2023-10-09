@@ -196,7 +196,7 @@
                     $('#productForm2').trigger("reset");
                     $('#exampleModal2').modal('hide');
                     toastr.success("New Color Added", "Added Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -230,7 +230,7 @@
                     $('#productForm').trigger("reset");
                     $('#exampleModal').modal('hide');
                     toastr.success("Color Info Updated", "Updated Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -247,7 +247,7 @@
                     type: "GET",
                     url: "{{ url('delete/color') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Color has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

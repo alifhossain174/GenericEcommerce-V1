@@ -172,7 +172,7 @@
                     success: function (data) {
 
                         if(data.data == 1){
-                            table.draw();
+                            table.draw(false);
                             toastr.error("Child Category has been Deleted", "Deleted Successfully");
                         } else {
                             toastr.warning("Product Available in this Child Category", "Failed");

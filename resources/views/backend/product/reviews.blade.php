@@ -222,7 +222,7 @@
                     type: "GET",
                     url: "{{ url('delete/product/review') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Product Review has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
@@ -239,7 +239,7 @@
                     type: "GET",
                     url: "{{ url('approve/product/review') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.success("Product Review has been Approved", "Approved Successfully");
                     },
                     error: function (data) {
@@ -273,7 +273,7 @@
                     $('#productForm').trigger("reset");
                     $('#exampleModal').modal('hide');
                     toastr.success("Reply is Submitted", "Submitted Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);

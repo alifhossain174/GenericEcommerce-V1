@@ -146,7 +146,7 @@
                     type: "GET",
                     url: "{{ url('delete/blog') }}"+'/'+categorySlug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Blog has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

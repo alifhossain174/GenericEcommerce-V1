@@ -183,7 +183,7 @@
                     $('#productForm2').trigger("reset");
                     $('#exampleModal2').modal('hide');
                     toastr.success("Warrenty Type Created", "Created Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -215,7 +215,7 @@
                     $('#productForm').trigger("reset");
                     $('#exampleModal').modal('hide');
                     toastr.success("Product Warrenty Info Updated", "Updated Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -231,7 +231,7 @@
                     type: "GET",
                     url: "{{ url('delete/warrenty') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Warrenty Type has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

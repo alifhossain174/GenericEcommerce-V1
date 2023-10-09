@@ -182,7 +182,7 @@
                     $('#productForm2').trigger("reset");
                     $('#exampleModal2').modal('hide');
                     toastr.success("Sim Type Created", "Created Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -214,7 +214,7 @@
                     $('#productForm').trigger("reset");
                     $('#exampleModal').modal('hide');
                     toastr.success("Sim Type Info Updated", "Updated Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -230,7 +230,7 @@
                     type: "GET",
                     url: "{{ url('delete/sim') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Sim Type has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

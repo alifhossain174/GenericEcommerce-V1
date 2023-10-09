@@ -128,7 +128,7 @@
                     type: "GET",
                     url: "{{ url('delete/subcribed/users') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Subscription has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

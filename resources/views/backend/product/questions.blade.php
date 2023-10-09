@@ -185,7 +185,7 @@
                     type: "GET",
                     url: "{{ url('delete/question/answer/') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Question has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
@@ -221,7 +221,7 @@
                     $('#productForm').trigger("reset");
                     $('#exampleModal').modal('hide');
                     toastr.success("Reply is Submitted", "Submitted Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);

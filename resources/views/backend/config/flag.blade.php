@@ -270,7 +270,7 @@
                     $('#productForm2').trigger("reset");
                     $('#exampleModal2').modal('hide');
                     toastr.success("Flag Created", "Created Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -313,7 +313,7 @@
                     $('#productForm').trigger("reset");
                     $('#exampleModal').modal('hide');
                     toastr.success("Flag Info Updated", "Updated Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
@@ -329,7 +329,7 @@
         //             type: "GET",
         //             url: "{{ url('delete/flag') }}"+'/'+slug,
         //             success: function (data) {
-        //                 table.draw();
+        //                 table.draw(false);
         //                 toastr.error("Flag has been Deleted", "Deleted Successfully");
         //             },
         //             error: function (data) {
@@ -347,7 +347,7 @@
                     url: "{{ url('feature/flag') }}"+'/'+id,
                     success: function (data) {
 
-                        table.draw();
+                        table.draw(false);
                         toastr.success("SubCategory has been Featured", "Featured Successfully");
 
                     },

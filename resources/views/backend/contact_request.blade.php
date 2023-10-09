@@ -143,7 +143,7 @@
                     type: "GET",
                     url: "{{ url('delete/contact/request') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Request has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
@@ -160,7 +160,7 @@
                     type: "GET",
                     url: "{{ url('change/request/status') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.success("Status has been Changed", "Changed Successfully");
                     },
                     error: function (data) {

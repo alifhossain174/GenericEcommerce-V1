@@ -149,7 +149,7 @@
                     type: "GET",
                     url: "{{ url('delete/testimonial') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Testimonial has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

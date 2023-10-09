@@ -196,7 +196,7 @@
                     success: function (data) {
 
                         if(data.data == 1){
-                            table.draw();
+                            table.draw(false);
                             toastr.error("Category has been Deleted", "Deleted Successfully");
                         } else {
                             toastr.warning("Product Available in this Category", "Failed");
@@ -218,7 +218,7 @@
                     url: "{{ url('feature/category') }}"+'/'+categorySlug,
                     success: function (data) {
 
-                        table.draw();
+                        table.draw(false);
                         toastr.success("Category has been Featured", "Featured Successfully");
 
                     },

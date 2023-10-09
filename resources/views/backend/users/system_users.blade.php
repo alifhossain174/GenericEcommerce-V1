@@ -155,7 +155,7 @@
                     type: "GET",
                     url: "{{ url('delete/system/user') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("User has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

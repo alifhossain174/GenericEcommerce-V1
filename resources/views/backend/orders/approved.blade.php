@@ -156,7 +156,7 @@
                     type: "GET",
                     url: "{{ url('cancel/order') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Order has been Cancelled", "Cancelled Successfully");
                     },
                     error: function (data) {
@@ -173,7 +173,7 @@
                     type: "GET",
                     url: "{{ url('intransit/order') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.success("Order has been Approved", "Approved Successfully");
                     },
                     error: function (data) {
@@ -190,7 +190,7 @@
                     type: "GET",
                     url: "{{ url('deliver/order') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.success("Order has been Delivered", "Delivered Successfully");
                     },
                     error: function (data) {

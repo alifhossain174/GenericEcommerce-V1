@@ -135,7 +135,7 @@
                     type: "GET",
                     url: "{{ url('support/status/in/progress') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.suucess("Status has been Changed", "Changed Successfully");
                     },
                     error: function (data) {

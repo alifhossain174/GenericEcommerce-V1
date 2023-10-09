@@ -652,7 +652,7 @@
                     type: "GET",
                     url: "{{ url('delete/product') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Product has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

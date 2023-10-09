@@ -140,7 +140,7 @@
                     type: "GET",
                     url: "{{ url('delete/data') }}"+'/'+slug,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Data has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

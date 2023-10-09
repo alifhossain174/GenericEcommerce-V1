@@ -135,7 +135,7 @@
                     type: "GET",
                     url: "{{ url('delete/user/role') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("User Role has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

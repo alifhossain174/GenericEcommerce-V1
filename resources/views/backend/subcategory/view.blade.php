@@ -197,7 +197,7 @@
                     success: function (data) {
 
                         if(data.data == 1){
-                            table.draw();
+                            table.draw(false);
                             toastr.error("Subcategory has been Deleted", "Deleted Successfully");
                         } else {
                             toastr.warning("Product Available in this Subcategory", "Failed");
@@ -219,7 +219,7 @@
                     url: "{{ url('feature/subcategory') }}"+'/'+id,
                     success: function (data) {
 
-                        table.draw();
+                        table.draw(false);
                         toastr.success("SubCategory has been Featured", "Featured Successfully");
 
                     },

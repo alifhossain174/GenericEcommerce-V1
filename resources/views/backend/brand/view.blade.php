@@ -155,7 +155,7 @@
                     url: "{{ url('feature/brand') }}"+'/'+id,
                     success: function (data) {
 
-                        table.draw();
+                        table.draw(false);
                         toastr.success("Feature Status Changed", "Changed Successfully");
 
                     },

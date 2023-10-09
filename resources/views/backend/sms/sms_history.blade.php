@@ -141,7 +141,7 @@
                     type: "GET",
                     url: "{{ url('delete/sms') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("SMS History has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {

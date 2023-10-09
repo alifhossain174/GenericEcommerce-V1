@@ -160,7 +160,7 @@
                     type: "GET",
                     url: "{{ url('delete/sms/template') }}"+'/'+id,
                     success: function (data) {
-                        table.draw();
+                        table.draw(false);
                         toastr.error("Template has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
@@ -194,7 +194,7 @@
                     $('#productForm').trigger("reset");
                     $('#exampleModal').modal('hide');
                     toastr.success("Template Updated", "Updated Successfully");
-                    table.draw();
+                    table.draw(false);
                 },
                 error: function (data) {
                     console.log('Error:', data);
