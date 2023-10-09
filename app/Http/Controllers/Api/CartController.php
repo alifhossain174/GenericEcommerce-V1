@@ -72,7 +72,8 @@ class CartController extends Controller
 
             return response()->json([
                 'success' => true,
-                'date' => $data
+                'date' => $data,
+                'message' => 'Successfully Added'
             ], 200);
 
         } else {
