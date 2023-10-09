@@ -350,6 +350,8 @@ class CartController extends Controller
             'vat' => 0,
             'tax' => 0,
             'total' => 0,
+            'order_note' => isset($request->special_note) ? $request->special_note : '',
+            'delivery_method' => isset($request->delivery_method) ? $request->delivery_method : '',
             'slug' => str::random(5) . time(),
             'created_at' => Carbon::now()
         ]);
@@ -427,7 +429,6 @@ class CartController extends Controller
 
             $orderId = Order::insertGetId([
                 'order_no' => time().rand(100,999),
-                // 'user_id' => auth()->user()->id,
                 'order_date' => date("Y-m-d H:i:s"),
                 'estimated_dd' => date('Y-m-d', strtotime("+7 day", strtotime(date("Y-m-d")))),
                 'payment_method' => NULL,
@@ -440,6 +441,8 @@ class CartController extends Controller
                 'vat' => 0,
                 'tax' => 0,
                 'total' => 0,
+                'order_note' => isset($request->special_note) ? $request->special_note : '',
+                'delivery_method' => isset($request->delivery_method) ? $request->delivery_method : '',
                 'slug' => str::random(5) . time(),
                 'created_at' => Carbon::now()
             ]);
