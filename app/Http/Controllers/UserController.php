@@ -106,7 +106,7 @@ class UserController extends Controller
     public function deleteSystemUser($id){
         $userInfo = User::where('user_type', 2)->where('id', $id)->first();
         UserRolePermission::where('user_id', $userInfo->id)->delete();
-        User::where('user_type', 2)->where('id', $id)->delete();
+        User::where('id', $id)->delete();
         return response()->json(['success' => 'Deleted successfully']);
     }
 
