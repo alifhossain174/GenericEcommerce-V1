@@ -12,8 +12,27 @@
     <li><a href="{{ url('/seo/homepage') }}"><i class="dripicons-search"></i><span>Home Page SEO</span></a></li>
     <li><a href="{{ url('/custom/css/js') }}"><i class="feather-code"></i><span>Custom CSS & JS</span></a></li>
     <li><a href="{{ url('/social/chat/script/page') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li>
-    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
 
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders & Banners</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/view/all/sliders') }}">View All Sliders</a></li>
+            <li><a href="{{ url('/view/all/banners') }}">View All Banners</a></li>
+            <li><a href="{{ url('/view/promotional/banner') }}">Promotional Banner</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li>
+            <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li>
+        </ul>
+    </li>
+
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">E-commerce</li>
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>Config</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -127,14 +146,6 @@
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders & Banners</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/view/all/sliders') }}">View All Sliders</a></li>
-            <li><a href="{{ url('/view/all/banners') }}">View All Banners</a></li>
-            <li><a href="{{ url('/view/promotional/banner') }}">Promotional Banner</a></li>
-        </ul>
-    </li>
-    <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/terms/and/condition') }}">Terms & Condition</a></li>
@@ -182,13 +193,6 @@
                             ->where('status', 3)
                             ->count();
                     @endphp)</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li>
-            <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li>
         </ul>
     </li>
     <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li>

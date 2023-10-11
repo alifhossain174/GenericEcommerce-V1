@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2023 at 08:41 AM
+-- Generation Time: Oct 11, 2023 at 08:11 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -34,7 +34,14 @@ CREATE TABLE `banners` (
   `link` varchar(255) DEFAULT NULL,
   `position` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
+  `sub_title` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `btn_text` varchar(255) DEFAULT NULL,
+  `btn_link` varchar(255) DEFAULT NULL,
+  `text_position` varchar(255) DEFAULT NULL,
   `slug` varchar(255) NOT NULL,
+  `serial` double NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -43,17 +50,8 @@ CREATE TABLE `banners` (
 -- Dumping data for table `banners`
 --
 
-INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 1, 'banner/ZOrUQ1689506561.jpg', NULL, NULL, 1, 'gLCg31685939913', '2023-06-05 04:38:33', '2023-07-16 21:22:41'),
-(3, 1, 'banner/QinJR1689506550.jpg', NULL, NULL, 1, 'DWURB1685940590', '2023-06-05 04:49:50', '2023-07-16 21:22:30'),
-(4, 1, 'banner/Iyd1P1689504785.jpg', NULL, NULL, 1, '84QLV1685940596', '2023-06-05 04:49:56', '2023-07-16 21:13:01'),
-(5, 2, 'banner/oE3aI1689506770.jpg', 'https://bestu.vercel.app/', 'top', 1, 'P5oVS1685940694', '2023-06-05 04:51:34', '2023-07-16 21:26:10'),
-(6, 2, 'banner/GiMbJ1689506137.jpg', 'https://bestu.vercel.app/', 'top', 1, 'VRRRp1685940701', '2023-06-05 04:51:41', '2023-07-16 21:15:37'),
-(7, 2, 'banner/rgiaB1685941297.png', NULL, 'middle', 1, '8x0k51685941297', '2023-06-05 05:01:37', NULL),
-(8, 2, 'banner/HKhz31685941316.png', NULL, 'middle', 1, 'tdh6F1685941316', '2023-06-05 05:01:56', NULL),
-(9, 2, 'banner/ATLGv1685941324.png', NULL, 'middle', 1, 'PsxGP1685941324', '2023-06-05 05:02:04', NULL),
-(10, 2, 'banner/LLZGl1685941533.png', NULL, 'bottom', 1, 'u9hkX1685941533', '2023-06-05 05:05:33', NULL),
-(11, 2, 'banner/ndCv11685941541.png', NULL, 'bottom', 1, 'sFSfw1685941541', '2023-06-05 05:05:41', NULL);
+INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title`, `title`, `description`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
+(1, 1, 'banner/19IFB1697004301.png', NULL, NULL, 1, 'New Collectio', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'New Collection', 'https://fashionista-demo.getcommerce.xyz', 'left', 'PoK3F1697003496', 1, '2023-10-11 05:51:36', '2023-10-11 06:05:11');
 
 -- --------------------------------------------------------
 
@@ -168,7 +166,7 @@ INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `featured`, `status`, `ser
 (13, 'Vivo', 'brand_images/2zMGI1689771903.png', NULL, 1, 1, 8, 'vivo', '2023-07-19 11:10:36', '2023-07-23 05:57:32'),
 (14, 'Tecno', 'brand_images/SAx4d1689771898.png', NULL, 1, 1, 9, 'tecno', '2023-07-19 11:11:16', '2023-07-23 05:57:32'),
 (15, 'OnePlus', 'brand_images/4jph81689771891.png', NULL, 1, 1, 10, 'oneplus', '2023-07-19 11:12:36', '2023-07-23 05:57:32'),
-(16, 'Motorola', 'brand_images/ZJH5l1689771885.png', NULL, 1, 1, 11, 'motorola', '2023-07-19 11:13:02', '2023-07-23 05:57:32'),
+(16, 'Motorola', 'brand_images/ZJH5l1689771885.png', NULL, 0, 1, 11, 'motorola', '2023-07-19 11:13:02', '2023-10-09 08:06:21'),
 (17, 'Nokia', 'brand_images/0MsOT1689771653.png', NULL, 1, 1, 12, 'nokia', '2023-07-19 11:14:06', '2023-07-23 05:57:32');
 
 -- --------------------------------------------------------
@@ -712,7 +710,7 @@ INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `create
 (2, NULL, 'Recommended', 1, 1, 'OyhOC1685938177', '2023-06-05 04:09:37', '2023-06-05 04:19:55'),
 (3, NULL, 'Best Selling', 1, 1, 'Hskfp1685938185', '2023-06-05 04:09:45', '2023-07-15 19:10:27'),
 (4, NULL, 'Discount items', 1, 1, 'h7HPr1685938212', '2023-06-05 04:10:12', '2023-07-15 19:10:31'),
-(5, 'flag_icons/AYPPb1686740561.png', 'Gadget items', 1, 1, 'gadget-items-n8pHc-1686740561', '2023-06-05 04:10:23', '2023-07-16 23:22:55');
+(5, 'flag_icons/AYPPb1686740561.png', 'Gadget items', 1, 0, 'gadget-items-n8pHc-1686740561', '2023-06-05 04:10:23', '2023-10-11 05:14:16');
 
 -- --------------------------------------------------------
 
@@ -770,7 +768,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `footer_copyright_text`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `custom_css`, `custom_js`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `google_analytic_status`, `google_analytic_tracking_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/NvG6Q1696236286.png', 'company_logo/hmuY01696236480.png', 'company_logo/vJ4jW1696243530.png', 'TechShop', 'TechShop', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '01969005035', 'admin@gmail.com', 'Flat #B4, House No: 71, Road: 27, Dhaka 1212', 'https://goo.gl/maps/9AmJHeTmbu2JKrzeA', '<p>2023 &copy; TechShop</p>', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#8fce00', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(myAsset);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, '<p><strong>About Us</strong></p>\r\n\r\n<p>Welcome to Bestu, your go-to destination for the latest mobile devices and accessories. We are passionate about providing our customers with the best products and exceptional shopping experiences. With a wide range of high-quality smartphones, tablets, wearables, and accessories, we aim to meet all your tech needs in one convenient place.</p>\r\n\r\n<p>At Bestu, we believe that technology should enhance your lifestyle and simplify your daily routines. That&#39;s why we carefully curate our product selection, ensuring that we offer the latest innovations from top brands that you know and trust. Whether you&#39;re looking for a sleek smartphone with cutting-edge features or a durable case to protect your device, we&#39;ve got you covered.</p>\r\n\r\n<p>Our commitment goes beyond just offering great products. We strive to provide outstanding customer service and support. Our knowledgeable team is always ready to assist you with any questions or concerns you may have, ensuring that you have a seamless shopping experience from start to finish. We value your satisfaction and aim to exceed your expectations at every step of the way.</p>\r\n\r\n<p>At Bestu, we understand the importance of privacy and security. We have implemented robust measures to protect your personal information, ensuring that your data is handled with the utmost care and confidentiality. You can trust that your privacy is our priority.</p>\r\n\r\n<p>We are continuously evolving to meet the ever-changing needs of our customers and the tech industry. We keep a close eye on the latest trends and advancements, ensuring that we stay ahead of the curve and offer you the most up-to-date products and solutions.</p>\r\n\r\n<p>Thank you for choosing Bestu as your preferred destination for mobile devices and accessories. We appreciate your trust in us and look forward to serving you with excellence. If you have any questions, feedback, or suggestions, please don&#39;t hesitate to contact us. We are here to assist you and make your shopping experience truly exceptional.</p>\r\n\r\n<p>Happy shopping!</p>\r\n\r\n<p>The Bestu Team</p>', NULL, '2023-10-05 06:39:10');
+(1, 'company_logo/W5wDp1696503884.svg', 'company_logo/hmuY01696236480.png', 'company_logo/vJ4jW1696243530.png', 'TechShop', 'TechShop', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '01969005035', 'admin@gmail.com', 'Flat #B4, House No: 71, Road: 27, Dhaka 1212', 'https://goo.gl/maps/9AmJHeTmbu2JKrzeA', '<p>2023 &copy; TechShop</p>', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(myAsset);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, '<p><strong>About Us</strong></p>\r\n\r\n<p>Welcome to Bestu, your go-to destination for the latest mobile devices and accessories. We are passionate about providing our customers with the best products and exceptional shopping experiences. With a wide range of high-quality smartphones, tablets, wearables, and accessories, we aim to meet all your tech needs in one convenient place.</p>\r\n\r\n<p>At Bestu, we believe that technology should enhance your lifestyle and simplify your daily routines. That&#39;s why we carefully curate our product selection, ensuring that we offer the latest innovations from top brands that you know and trust. Whether you&#39;re looking for a sleek smartphone with cutting-edge features or a durable case to protect your device, we&#39;ve got you covered.</p>\r\n\r\n<p>Our commitment goes beyond just offering great products. We strive to provide outstanding customer service and support. Our knowledgeable team is always ready to assist you with any questions or concerns you may have, ensuring that you have a seamless shopping experience from start to finish. We value your satisfaction and aim to exceed your expectations at every step of the way.</p>\r\n\r\n<p>At Bestu, we understand the importance of privacy and security. We have implemented robust measures to protect your personal information, ensuring that your data is handled with the utmost care and confidentiality. You can trust that your privacy is our priority.</p>\r\n\r\n<p>We are continuously evolving to meet the ever-changing needs of our customers and the tech industry. We keep a close eye on the latest trends and advancements, ensuring that we stay ahead of the curve and offer you the most up-to-date products and solutions.</p>\r\n\r\n<p>Thank you for choosing Bestu as your preferred destination for mobile devices and accessories. We appreciate your trust in us and look forward to serving you with excellence. If you have any questions, feedback, or suggestions, please don&#39;t hesitate to contact us. We are here to assist you and make your shopping experience truly exceptional.</p>\r\n\r\n<p>Happy shopping!</p>\r\n\r\n<p>The Bestu Team</p>', NULL, '2023-10-05 11:04:44');
 
 -- --------------------------------------------------------
 
@@ -823,7 +821,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (27, '2023_04_11_193941_create_terms_and_policies_table', 10),
 (29, '2023_04_12_213408_create_faqs_table', 12),
 (30, '2023_04_12_205032_create_general_infos_table', 13),
-(32, '2023_04_13_002226_create_banners_table', 14),
 (33, '2023_04_13_014055_create_contact_requests_table', 15),
 (39, '2023_04_15_042355_create_shipping_infos_table', 17),
 (40, '2023_04_15_042838_create_billing_addresses_table', 18),
@@ -867,7 +864,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (88, '2023_07_18_010659_create_role_permissions_table', 1),
 (89, '2023_07_18_014657_create_user_role_permissions_table', 1),
 (90, '2023_10_05_111305_create_google_recaptchas_table', 42),
-(92, '2023_10_05_114505_create_social_logins_table', 43);
+(92, '2023_10_05_114505_create_social_logins_table', 43),
+(93, '2023_04_13_002226_create_banners_table', 44);
 
 -- --------------------------------------------------------
 
@@ -1087,7 +1085,8 @@ CREATE TABLE `payment_gateways` (
 INSERT INTO `payment_gateways` (`id`, `provider_name`, `api_key`, `secret_key`, `username`, `password`, `live`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'ssl_commerz', 'sodai644d7015e8eb1', 'sodai644d7015e8eb1@ssl', 'alifhossain174', '12345678', 1, 0, NULL, '2023-07-19 06:08:50'),
 (2, 'stripe', '98798796546', 'ASDFGHJKLERTYUI', 'test_username', 'test_password', 1, 0, NULL, '2023-06-19 05:19:05'),
-(3, 'bkash', '654654654', 'ZWvNGXXPHOYhR', 'bkash_test_user', '85747bkash', 1, 0, NULL, '2023-06-19 05:20:51');
+(3, 'bkash', '654654654', 'ZWvNGXXPHOYhR', 'bkash_test_user', '85747bkash', 1, 0, NULL, '2023-10-11 05:00:38'),
+(4, 'amar_pay', '654654654', 'ZWvNGXXPHOYhR', 'amar_pay_test_user', '85747amar_pay', 1, 1, NULL, '2023-10-11 04:57:30');
 
 -- --------------------------------------------------------
 
@@ -3083,7 +3082,7 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `billing_addresses`
@@ -3191,7 +3190,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -3227,7 +3226,7 @@ ALTER TABLE `order_progress`
 -- AUTO_INCREMENT for table `payment_gateways`
 --
 ALTER TABLE `payment_gateways`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `permission_routes`

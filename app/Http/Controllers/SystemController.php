@@ -199,7 +199,7 @@ class SystemController extends Controller
     public function updatePaymentGatewayInfo(Request $request){
         $provider = $request->provider_name;
 
-        if($provider == 'ssl_commerz'){ //ID 1 => Elitbuzz
+        if($provider == 'ssl_commerz'){
             PaymentGateway::where('id', 1)->update([
                 'api_key' => $request->api_key,
                 'secret_key' => $request->secret_key,
@@ -211,7 +211,7 @@ class SystemController extends Controller
             ]);
         }
 
-        if($provider == 'stripe'){ //ID 1 => Elitbuzz
+        if($provider == 'stripe'){
             PaymentGateway::where('id', 2)->update([
                 'api_key' => $request->api_key,
                 'secret_key' => $request->secret_key,
@@ -223,8 +223,20 @@ class SystemController extends Controller
             ]);
         }
 
-        if($provider == 'bkash'){ //ID 1 => Elitbuzz
+        if($provider == 'bkash'){
             PaymentGateway::where('id', 3)->update([
+                'api_key' => $request->api_key,
+                'secret_key' => $request->secret_key,
+                'username' => $request->username,
+                'password' => $request->password,
+                'live' => $request->live == '' ? 0 : $request->live,
+                'status' => $request->status,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        if($provider == 'amar_pay'){
+            PaymentGateway::where('id', 4)->update([
                 'api_key' => $request->api_key,
                 'secret_key' => $request->secret_key,
                 'username' => $request->username,
@@ -264,6 +276,15 @@ class SystemController extends Controller
             $info = PaymentGateway::where('id', 3)->first();
 
             PaymentGateway::where('id', 3)->update([
+                'status' => $info->status == 1 ? 0 : 1,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        if($provider == 'amar_pay'){ //ID 4 => amar_pay
+            $info = PaymentGateway::where('id', 4)->first();
+
+            PaymentGateway::where('id', 4)->update([
                 'status' => $info->status == 1 ? 0 : 1,
                 'updated_at' => Carbon::now()
             ]);

@@ -16,7 +16,7 @@ class BannerController extends Controller
     public function viewAllSliders(Request $request){
         if ($request->ajax()) {
 
-            $data = Banner::where('type', 1)->orderBy('id', 'desc')->get();
+            $data = Banner::where('type', 1)->orderBy('serial', 'asc')->get();
 
             return Datatables::of($data)
                     ->editColumn('status', function($data) {
@@ -60,6 +60,15 @@ class BannerController extends Controller
             'type' => 1,
             'image' => $image,
             'link' => $request->link,
+
+            'sub_title' => $request->sub_title,
+            'title' => $request->title,
+            'description' => $request->description,
+            'btn_text' => $request->btn_text,
+            'btn_link' => $request->btn_link,
+            'text_position' => $request->text_position,
+            'serial' => Banner::min('serial') - 1,
+
             'status' => 1,
             'slug' => str::random(5) . time(),
             'created_at' => Carbon::now()
@@ -110,12 +119,37 @@ class BannerController extends Controller
         $data->image = $image;
         $data->status = $request->status;
         $data->link = $request->link;
+
+        $data->sub_title = $request->sub_title;
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->btn_text = $request->btn_text;
+        $data->btn_link = $request->btn_link;
+        $data->text_position = $request->text_position;
+
         $data->updated_at = Carbon::now();
         $data->save();
 
         Toastr::success('Data has been Updated', 'Success');
         return redirect('/view/all/sliders');
 
+    }
+
+    public function rearrangeSlider(){
+        $data = Banner::where('type', 1)->orderBy('serial', 'asc')->get();
+        return view('backend.banners.rearrange_slider', compact('data'));
+    }
+
+    public function updateRearrangedSliders(Request $request){
+        $sl = 1;
+        foreach($request->slug as $slug){
+            Banner::where('slug', $slug)->update([
+                'serial' => $sl
+            ]);
+            $sl++;
+        }
+        Toastr::success('Slider has been Rerranged', 'Success');
+        return redirect('/view/all/sliders');
     }
 
 

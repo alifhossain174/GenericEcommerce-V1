@@ -213,6 +213,8 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::post('/save/new/slider', [BannerController::class, 'saveNewSlider'])->name('SaveNewSlider');
     Route::get('/edit/slider/{slug}', [BannerController::class, 'editSlider'])->name('EditSlider');
     Route::post('/update/slider', [BannerController::class, 'updateSlider'])->name('UpdateSlider');
+    Route::get('/rearrange/slider', [BannerController::class, 'rearrangeSlider'])->name('RearrangeSlider');
+    Route::post('/update/slider/rearranged/order', [BannerController::class, 'updateRearrangedSliders'])->name('UpdateRearrangedSliders');
     Route::get('/delete/data/{slug}', [BannerController::class, 'deleteData'])->name('DeleteSliderBanner');
     Route::get('/view/all/banners', [BannerController::class, 'viewAllBanners'])->name('ViewAllBanners');
     Route::get('/add/new/banner', [BannerController::class, 'addNewBanner'])->name('AddNewBanner');

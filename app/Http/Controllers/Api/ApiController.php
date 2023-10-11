@@ -1161,7 +1161,7 @@ class ApiController extends BaseController
     public function getAllSliders(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
-            $data = DB::table('banners')->where('type', 1)->where('status', 1)->select('image', 'link')->orderBy('id', 'desc')->get();
+            $data = DB::table('banners')->where('type', 1)->where('status', 1)->orderBy('serial', 'asc')->get();
 
             return response()->json([
                 'success' => true,
