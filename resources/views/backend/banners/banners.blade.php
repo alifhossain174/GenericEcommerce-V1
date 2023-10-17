@@ -9,21 +9,10 @@
             border-radius: 4px;
         }
         table.dataTable tbody td:nth-child(1){
-            text-align: center !important;
             font-weight: 600;
         }
-        table.dataTable tbody td:nth-child(2){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(3){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(4){
-            text-align: center !important;
-            width: 180px;
-        }
-        table.dataTable tbody td:nth-child(5){
-            text-align: center !important;
+        table.dataTable tbody td{
+            text-align: center;
         }
         tfoot {
             display: table-header-group !important;
@@ -52,6 +41,7 @@
 
                         <label id="customFilter">
                             <a href="{{url('add/new/banner')}}" class="btn btn-success btn-sm" id="addNewFlag" style="margin-left: 5px"><i class="feather-plus"></i> Add New Banner</a>
+                            <a href="{{url('rearrange/banners')}}" class="btn btn-info btn-sm" style="margin-left: 5px"><i class="fas fa-sort-amount-up"></i> Rearrange Banners</a>
                         </label>
 
                         <table class="table table-bordered mb-0 data-table">
@@ -59,7 +49,9 @@
                                 <tr>
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Banner</th>
-                                    <th class="text-center">Link</th>
+                                    <th class="text-center">Title</th>
+                                    <th class="text-center">Description</th>
+                                    <th class="text-center">Button Text</th>
                                     <th class="text-center">Position</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
@@ -115,8 +107,16 @@
                     }
                 },
                 {
-                    data: 'link',
-                    name: 'link'
+                    data: 'title',
+                    name: 'title'
+                },
+                {
+                    data: 'description',
+                    name: 'description'
+                },
+                {
+                    data: 'btn_text',
+                    name: 'btn_text'
                 },
                 {
                     data: 'position',

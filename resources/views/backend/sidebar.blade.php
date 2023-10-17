@@ -30,6 +30,14 @@
             <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li>
         </ul>
     </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li>
+            <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li>
+            <li><a href="{{ url('/view/all/blogs') }}">View All Blogs</a></li>
+        </ul>
+    </li>
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">E-commerce</li>
@@ -227,14 +235,6 @@
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/about/us/page') }}">About Us</a></li>
             <li><a href="{{ url('/view/all/faqs') }}">FAQ's</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li>
-            <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li>
-            <li><a href="{{ url('/view/all/blogs') }}">View All Blogs</a></li>
         </ul>
     </li>
 

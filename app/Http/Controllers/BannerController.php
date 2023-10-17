@@ -67,7 +67,7 @@ class BannerController extends Controller
             'btn_text' => $request->btn_text,
             'btn_link' => $request->btn_link,
             'text_position' => $request->text_position,
-            'serial' => Banner::min('serial') - 1,
+            'serial' => Banner::where('type', 1)->min('serial') - 1,
 
             'status' => 1,
             'slug' => str::random(5) . time(),
@@ -161,23 +161,23 @@ class BannerController extends Controller
     public function viewAllBanners(Request $request){
         if ($request->ajax()) {
 
-            $data = Banner::where('type', 2)->orderBy('id', 'desc')->get();
+            $data = Banner::where('type', 2)->orderBy('serial', 'asc')->get();
 
             return Datatables::of($data)
                     ->editColumn('status', function($data) {
                         if($data->status == 1){
-                            return 'Active';
+                            return '<span class="btn btn-sm btn-success rounded">Active</span>';
                         } else {
-                            return 'Inactive';
+                            return '<span class="btn btn-sm btn-danger rounded">Inactive</span>';
                         }
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                        $btn = ' <a href="'.url('edit/banner').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
-                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                        $btn = ' <a href="'.url('edit/banner').'/'.$data->slug.'" class="mb-1 d-inline-block btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         return $btn;
                     })
-                    ->rawColumns(['action', 'image'])
+                    ->rawColumns(['action', 'image', 'status'])
                     ->make(true);
         }
         return view('backend.banners.banners');
@@ -207,13 +207,21 @@ class BannerController extends Controller
             'image' => $image,
             'link' => $request->link,
             'position' => $request->position,
+
+            'title' => $request->title,
+            'description' => $request->description,
+            'btn_text' => $request->btn_text,
+            'btn_link' => $request->btn_link,
+            'text_position' => $request->text_position,
+            'serial' => Banner::where('type', 2)->min('serial') - 1,
+
             'status' => 1,
             'slug' => str::random(5) . time(),
             'created_at' => Carbon::now()
         ]);
 
         Toastr::success('Banner has been Added', 'Success');
-        return back();
+        return redirect('/view/all/banners');
     }
 
     public function editBanner($slug){
@@ -247,12 +255,36 @@ class BannerController extends Controller
         $data->status = $request->status;
         $data->link = $request->link;
         $data->position = $request->position;
+
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->btn_text = $request->btn_text;
+        $data->btn_link = $request->btn_link;
+        $data->text_position = $request->text_position;
+
         $data->updated_at = Carbon::now();
         $data->save();
 
         Toastr::success('Data has been Updated', 'Success');
         return redirect('/view/all/banners');
 
+    }
+
+    public function rearrangeBanners(){
+        $data = Banner::where('type', 2)->orderBy('serial', 'asc')->get();
+        return view('backend.banners.rearrange_banners', compact('data'));
+    }
+
+    public function updateRearrangedBanners(REquest $request){
+        $sl = 1;
+        foreach($request->slug as $slug){
+            Banner::where('slug', $slug)->update([
+                'serial' => $sl
+            ]);
+            $sl++;
+        }
+        Toastr::success('Slider has been Rerranged', 'Success');
+        return redirect('/view/all/banners');
     }
 
 

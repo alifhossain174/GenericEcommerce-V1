@@ -221,6 +221,8 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::post('/save/new/banner', [BannerController::class, 'saveNewBanner'])->name('SaveNewBanner');
     Route::get('/edit/banner/{slug}', [BannerController::class, 'editBanner'])->name('EditBanner');
     Route::post('/update/banner', [BannerController::class, 'updateBanner'])->name('UpdateBanner');
+    Route::get('/rearrange/banners', [BannerController::class, 'rearrangeBanners'])->name('RearrangeBanners');
+    Route::post('/update/banners/rearranged/order', [BannerController::class, 'updateRearrangedBanners'])->name('UpdateRearrangedBanners');
     Route::get('/view/promotional/banner', [BannerController::class, 'viewPromotionalBanner'])->name('ViewPromotionalBanner');
     Route::post('/update/promotional/banner', [BannerController::class, 'updatePromotionalBanner'])->name('UpdatePromotionalBanner');
 
