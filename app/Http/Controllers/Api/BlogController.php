@@ -35,7 +35,7 @@ class BlogController extends Controller
                         ->leftJoin('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
                         ->select('blogs.*', 'blog_categories.name as blog_category_name', 'blog_categories.slug as category_slug')
                         ->orderBy('blogs.id', 'desc')
-                        ->paginate(15);
+                        ->paginate(6);
 
             return response()->json([
                 'success' => true,
