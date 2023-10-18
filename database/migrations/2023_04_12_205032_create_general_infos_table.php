@@ -24,7 +24,7 @@ class CreateGeneralInfosTable extends Migration
             $table->string('contact')->nullable();
             $table->string('email')->nullable();
             $table->longText('address')->nullable();
-            $table->string('google_map_link')->nullable();
+            $table->longText('google_map_link')->nullable();
             $table->string('footer_copyright_text')->nullable();
 
             $table->longText('custom_css')->nullable();

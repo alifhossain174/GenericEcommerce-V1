@@ -20,6 +20,8 @@ class CreatePromotionalBannersTable extends Migration
             $table->string('heading_color')->nullable();
             $table->string('title')->nullable();
             $table->string('title_color')->nullable();
+            $table->string('description')->nullable();
+            $table->string('description_color')->nullable();
 
             $table->string('url')->nullable();
             $table->string('btn_text')->nullable();
@@ -28,9 +30,12 @@ class CreatePromotionalBannersTable extends Migration
 
             $table->string('background_color')->nullable();
             $table->string('product_image')->nullable();
+            $table->string('background_image')->nullable();
+            $table->string('video_url')->nullable();
             $table->dateTime('started_at')->nullable();
             $table->dateTime('end_at')->nullable();
             $table->string('time_bg_color')->nullable();
+            $table->string('time_font_color')->nullable();
             $table->timestamps();
         });
     }

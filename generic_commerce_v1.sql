@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2023 at 08:11 AM
+-- Generation Time: Oct 18, 2023 at 10:13 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `generic_commerce_v1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_us`
+--
+
+CREATE TABLE `about_us` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `banner_bg` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `section_sub_title` varchar(255) DEFAULT NULL,
+  `section_title` varchar(255) DEFAULT NULL,
+  `section_description` longtext DEFAULT NULL,
+  `btn_icon_class` varchar(255) DEFAULT NULL,
+  `btn_text` varchar(255) DEFAULT NULL,
+  `btn_link` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_us`
+--
+
+INSERT INTO `about_us` (`id`, `banner_bg`, `image`, `section_sub_title`, `section_title`, `section_description`, `btn_icon_class`, `btn_text`, `btn_link`, `created_at`, `updated_at`) VALUES
+(1, 'uploads/about_us/Y7XUU1697616167.png', NULL, 'Why Choose us', 'We do not buy from the open market & traders.', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illo, est repellendus are quia voluptate neque reiciendis ea placeat labore maiores cum, hic ducimus ad a dolorem soluta consectetur adipisci. Perspiciatis quas ab quibusdam is.</p>\r\n\r\n<p>Itaque accusantium eveniet a laboriosam dolorem? Magni suscipit est corrupti explicabo non perspiciatis, excepturi ut asperiores assumenda rerum? Provident ab corrupti sequi, voluptates repudiandae eius odit aut.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Bruce Sutton</strong></p>\r\n\r\n<p>Spa Manager</p>', NULL, NULL, NULL, NULL, '2023-10-18 08:03:52');
 
 -- --------------------------------------------------------
 
@@ -51,7 +78,8 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title`, `title`, `description`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(1, 1, 'banner/19IFB1697004301.png', NULL, NULL, 1, 'New Collectio', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'New Collection', 'https://fashionista-demo.getcommerce.xyz', 'left', 'PoK3F1697003496', 1, '2023-10-11 05:51:36', '2023-10-11 06:05:11');
+(1, 1, 'banner/19IFB1697004301.png', NULL, NULL, 1, 'New Collectio', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'New Collection', 'https://fashionista-demo.getcommerce.xyz', 'left', 'PoK3F1697003496', 1, '2023-10-11 05:51:36', '2023-10-11 06:21:04'),
+(2, 1, 'banner/pLfjs1697004794.png', 'https://fashionista-demo.getcommerce.xyz', NULL, 1, 'Iusto qui ipsa duci', 'Fuga Nobis enim ill', 'Fugiat ut vero quam', 'Distinctio Corrupti', 'https://fashionista-demo.getcommerce.xyz', 'left', 'WRel71697004794', 2, '2023-10-11 06:13:14', '2023-10-11 06:21:04');
 
 -- --------------------------------------------------------
 
@@ -680,8 +708,6 @@ INSERT INTO `faqs` (`id`, `question`, `answer`, `status`, `slug`, `created_at`, 
 (5, 'Can I track the status of my order?', 'Yes, once your order is shipped, you will receive a shipping confirmation email containing a tracking number. You can use this tracking number to monitor the progress of your shipment on the respective courier\'s website.', 1, '4nWcO1689486403', '2023-07-16 15:46:43', '2023-07-16 15:46:43'),
 (6, 'What is your return policy?', 'We have a flexible return policy. If you are not satisfied with your purchase, you may be eligible for a return within the specified return period. Please refer to our Return Policy for detailed information on the return process, eligibility criteria, and other important details.', 1, 'lihMH1689486418', '2023-07-16 15:46:58', '2023-07-16 15:46:58'),
 (7, 'How do I contact customer support?', 'You can contact our customer support team by [insert contact information]. Our dedicated team is available to assist you with any questions, concerns, or inquiries you may have. We strive to provide prompt and helpful assistance to ensure your satisfaction.', 1, 'GQAPS1689486430', '2023-07-16 15:47:10', '2023-07-16 15:47:10'),
-(8, 'Are the products on Bestu covered by warranties?', 'Yes, many products on Bestu come with manufacturer warranties. The specific warranty details can be found on the product page or in the product documentation. If you have any questions about warranties, feel free to reach out to our customer support team.', 1, 'GckHp1689486448', '2023-07-16 15:47:28', '2023-07-16 15:47:28'),
-(9, 'Do you offer discounts or promotions?', 'Yes, we regularly offer discounts and promotions on selected products. Stay updated by subscribing to our newsletter or following our social media channels to be notified of the latest deals and promotions.\r\n\r\nQ: Is my personal information', 1, 'JitG01689486465', '2023-07-16 15:47:45', '2023-07-16 15:47:45'),
 (10, 'Is my personal information secure?', 'We take the security and privacy of your personal information seriously. We implement industry-standard security measures to protect your data and use it only in accordance with our Privacy Policy. For more information on how we handle your personal information, please refer to our Privacy Policy.', 1, 'BC3RU1689486487', '2023-07-16 15:48:07', '2023-07-16 15:48:07');
 
 -- --------------------------------------------------------
@@ -706,11 +732,9 @@ CREATE TABLE `flags` (
 --
 
 INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'New Arrival', 1, 1, 'bVasD1685938162', '2023-06-05 04:09:22', '2023-06-05 04:19:57'),
-(2, NULL, 'Recommended', 1, 1, 'OyhOC1685938177', '2023-06-05 04:09:37', '2023-06-05 04:19:55'),
-(3, NULL, 'Best Selling', 1, 1, 'Hskfp1685938185', '2023-06-05 04:09:45', '2023-07-15 19:10:27'),
-(4, NULL, 'Discount items', 1, 1, 'h7HPr1685938212', '2023-06-05 04:10:12', '2023-07-15 19:10:31'),
-(5, 'flag_icons/AYPPb1686740561.png', 'Gadget items', 1, 0, 'gadget-items-n8pHc-1686740561', '2023-06-05 04:10:23', '2023-10-11 05:14:16');
+(6, NULL, 'Featured', 1, 0, 'featured-q05Xt-1697604619', '2023-10-18 04:50:19', NULL),
+(7, NULL, 'Trending', 1, 0, 'trending-oHJN2-1697604626', '2023-10-18 04:50:26', NULL),
+(8, NULL, 'New Arrival', 1, 0, 'new-arrival-2lpLH-1697604635', '2023-10-18 04:50:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -729,7 +753,7 @@ CREATE TABLE `general_infos` (
   `contact` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `address` longtext DEFAULT NULL,
-  `google_map_link` varchar(255) DEFAULT NULL,
+  `google_map_link` longtext DEFAULT NULL,
   `footer_copyright_text` varchar(255) DEFAULT NULL,
   `primary_color` varchar(255) DEFAULT NULL,
   `secondary_color` varchar(255) DEFAULT NULL,
@@ -768,7 +792,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `footer_copyright_text`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `custom_css`, `custom_js`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `google_analytic_status`, `google_analytic_tracking_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/W5wDp1696503884.svg', 'company_logo/hmuY01696236480.png', 'company_logo/vJ4jW1696243530.png', 'TechShop', 'TechShop', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '01969005035', 'admin@gmail.com', 'Flat #B4, House No: 71, Road: 27, Dhaka 1212', 'https://goo.gl/maps/9AmJHeTmbu2JKrzeA', '<p>2023 &copy; TechShop</p>', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(myAsset);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, '<p><strong>About Us</strong></p>\r\n\r\n<p>Welcome to Bestu, your go-to destination for the latest mobile devices and accessories. We are passionate about providing our customers with the best products and exceptional shopping experiences. With a wide range of high-quality smartphones, tablets, wearables, and accessories, we aim to meet all your tech needs in one convenient place.</p>\r\n\r\n<p>At Bestu, we believe that technology should enhance your lifestyle and simplify your daily routines. That&#39;s why we carefully curate our product selection, ensuring that we offer the latest innovations from top brands that you know and trust. Whether you&#39;re looking for a sleek smartphone with cutting-edge features or a durable case to protect your device, we&#39;ve got you covered.</p>\r\n\r\n<p>Our commitment goes beyond just offering great products. We strive to provide outstanding customer service and support. Our knowledgeable team is always ready to assist you with any questions or concerns you may have, ensuring that you have a seamless shopping experience from start to finish. We value your satisfaction and aim to exceed your expectations at every step of the way.</p>\r\n\r\n<p>At Bestu, we understand the importance of privacy and security. We have implemented robust measures to protect your personal information, ensuring that your data is handled with the utmost care and confidentiality. You can trust that your privacy is our priority.</p>\r\n\r\n<p>We are continuously evolving to meet the ever-changing needs of our customers and the tech industry. We keep a close eye on the latest trends and advancements, ensuring that we stay ahead of the curve and offer you the most up-to-date products and solutions.</p>\r\n\r\n<p>Thank you for choosing Bestu as your preferred destination for mobile devices and accessories. We appreciate your trust in us and look forward to serving you with excellence. If you have any questions, feedback, or suggestions, please don&#39;t hesitate to contact us. We are here to assist you and make your shopping experience truly exceptional.</p>\r\n\r\n<p>Happy shopping!</p>\r\n\r\n<p>The Bestu Team</p>', NULL, '2023-10-05 11:04:44');
+(1, 'company_logo/W5wDp1696503884.svg', 'company_logo/hmuY01696236480.png', 'company_logo/vJ4jW1696243530.png', 'TechShop', 'TechShop', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '01969005035', 'admin@gmail.com', 'Flat #B4, House No: 71, Road: 27, Dhaka 1212', 'https://goo.gl/maps/9AmJHeTmbu2JKrzeA', '2023 © TechShop', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(myAsset);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2023-10-18 08:12:00');
 
 -- --------------------------------------------------------
 
@@ -865,7 +889,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (89, '2023_07_18_014657_create_user_role_permissions_table', 1),
 (90, '2023_10_05_111305_create_google_recaptchas_table', 42),
 (92, '2023_10_05_114505_create_social_logins_table', 43),
-(93, '2023_04_13_002226_create_banners_table', 44);
+(93, '2023_04_13_002226_create_banners_table', 44),
+(94, '2023_10_18_135527_create_about_us_table', 45);
 
 -- --------------------------------------------------------
 
@@ -1652,7 +1677,8 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `created_at`, `updated_at`) VALUES
 (1, 1, 7, NULL, 1, NULL, 'Iphone 14 Pro Max (Test Product)', 'OFF60', 'productImages/UlNWW1689758736.jpeg', NULL, 'Iphone 14 Pro Max', '<p>Iphone 14 Pro Max</p>\r\n\r\n<p>&nbsp;</p>', '<p>Iphone 14 Pro Max</p>', '<h2>One stop for&nbsp;support</h2>\r\n\r\n<p>Minimize the amount of time without your iPhone with Express Replacement Service</p>\r\n\r\n<p>Because Apple designs iPhone, iOS, and many applications, iPhone is a truly integrated system. And only AppleCare+ products provide one-stop service and support from Apple experts, so most issues can be resolved in a single call. Should you need repair or replacement, there are convenient service options.<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></p>\r\n\r\n<ul>\r\n	<li>24/7 priority access to Apple experts via chat or phone</li>\r\n	<li>Same-day service in most major metropolitan areas world wide<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></li>\r\n	<li>Onsite service: Schedule a technician to perform a screen repair at your home or office</li>\r\n	<li><a href=\"https://support.apple.com/iphone/repair/service/express-replacement\">Express Replacement Service</a>: We&rsquo;ll ship you a replacement device so you don&rsquo;t have to wait for a repair<a href=\"https://www.apple.com/support/products/iphone/#footnote-4\">4</a></li>\r\n	<li>Mail-in repair: Mail in your iPhone using a prepaid shipping box provided by Apple</li>\r\n	<li>Carry-in repair: Take your iPhone to an Apple&nbsp;Store or other Apple Authorized Service Provider</li>\r\n</ul>', 120000, 115000, 0, 1, 'iphone,apple', 'https://www.youtube.com/watch?v=FT3ODSg1GFE&ab_channel=Apple', 1, 'iphone-14-pro-max-test-product-1689759041rLTdM', 3, NULL, NULL, NULL, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41'),
-(2, 1, 7, NULL, 2, 6, 'Samsung Galaxy A54 (Test Product)', '3001', 'productImages/6o22L1686813594.jpg', '[\"1686813594L1Yno.jpg\",\"16868135942SXdj.jpg\",\"16877602702SYQu.jpg\"]', 'Largely satisfied, however, I am not a fan of Samsung\'s mandatory OS updates. It was only optional before.', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', 20000, 19500, 119, 1, 'Samsung Galaxy A54,samsung galaxy a50,samsung glalaxy', NULL, 1, 'samsung-galaxy-a54-test-product-1689249650eNuS7', 3, NULL, NULL, NULL, 1, 0, '2023-06-15 17:19:54', '2023-07-17 23:49:13');
+(2, 1, 7, NULL, 2, 6, 'Samsung Galaxy A54 (Test Product)', '3001', 'productImages/6o22L1686813594.jpg', '[\"1686813594L1Yno.jpg\",\"16868135942SXdj.jpg\",\"16877602702SYQu.jpg\"]', 'Largely satisfied, however, I am not a fan of Samsung\'s mandatory OS updates. It was only optional before.', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', 20000, 19500, 119, 1, 'Samsung Galaxy A54,samsung galaxy a50,samsung glalaxy', NULL, 1, 'samsung-galaxy-a54-test-product-1689249650eNuS7', 3, NULL, NULL, NULL, 1, 0, '2023-06-15 17:19:54', '2023-07-17 23:49:13'),
+(20, 1, 7, 146, 1, 12, 'Test', NULL, 'productImages/8TKeI1697009496.png', '[\"1697009521YUs8E.png\",\"1697009521A5zcz.png\"]', 'asdasd', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 'test-1697009521thMX6', NULL, NULL, NULL, NULL, 1, 0, '2023-10-11 07:31:36', '2023-10-11 07:32:01');
 
 -- --------------------------------------------------------
 
@@ -1675,7 +1701,9 @@ CREATE TABLE `product_images` (
 INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
 (2, 2, '1686813594L1Yno.jpg', '2023-06-15 17:19:54', NULL),
 (3, 2, '16868135942SXdj.jpg', '2023-06-15 17:19:54', NULL),
-(14, 2, '16877602702SYQu.jpg', '2023-06-26 16:17:50', NULL);
+(14, 2, '16877602702SYQu.jpg', '2023-06-26 16:17:50', NULL),
+(31, 20, '1697009521YUs8E.png', '2023-10-11 07:32:01', NULL),
+(32, 20, '1697009521A5zcz.png', '2023-10-11 07:32:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -2055,15 +2083,20 @@ CREATE TABLE `promotional_banners` (
   `heading_color` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `title_color` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `description_color` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `btn_text` varchar(255) DEFAULT NULL,
   `btn_text_color` varchar(255) DEFAULT NULL,
   `btn_bg_color` varchar(255) DEFAULT NULL,
   `background_color` varchar(255) DEFAULT NULL,
   `product_image` varchar(255) DEFAULT NULL,
+  `background_image` varchar(255) DEFAULT NULL,
+  `video_url` varchar(255) DEFAULT NULL,
   `started_at` datetime DEFAULT NULL,
   `end_at` datetime DEFAULT NULL,
   `time_bg_color` varchar(255) DEFAULT NULL,
+  `time_font_color` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2072,8 +2105,8 @@ CREATE TABLE `promotional_banners` (
 -- Dumping data for table `promotional_banners`
 --
 
-INSERT INTO `promotional_banners` (`id`, `icon`, `heading`, `heading_color`, `title`, `title_color`, `url`, `btn_text`, `btn_text_color`, `btn_bg_color`, `background_color`, `product_image`, `started_at`, `end_at`, `time_bg_color`, `created_at`, `updated_at`) VALUES
-(1, 'banner/ETxhI1689412954.png', 'Don’t Miss!!', '#c7c7dc', 'Enhance Your Music Experience', '#ffffff', 'https://bestu-beta.vercel.app/', 'Check it out', '#ffffff', '#828282', '#2a00c2', 'banner/6e9rk1689412967.png', '2023-07-15 15:24:46', '2023-07-22 18:00:00', '#ffffff', '2023-06-13 10:08:55', '2023-07-15 19:24:49');
+INSERT INTO `promotional_banners` (`id`, `icon`, `heading`, `heading_color`, `title`, `title_color`, `description`, `description_color`, `url`, `btn_text`, `btn_text_color`, `btn_bg_color`, `background_color`, `product_image`, `background_image`, `video_url`, `started_at`, `end_at`, `time_bg_color`, `time_font_color`, `created_at`, `updated_at`) VALUES
+(1, 'banner/t7HK11697610309.png', 'Don’t Miss!!', '#ffff00', 'Enhance Your Music Experience', '#ffffff', 'Lorem ipsum dolor sit amet, consectetur adipisicie Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore', '#808080', 'https://bestu-beta.vercel.app/', 'Check it out', '#2a00c2', '#828282', '#2a00c2', 'banner/c4raa1697614018.webp', 'banner/RKAip1697614026.png', 'http://127.0.0.1:8000/view/promotional/banner', '2023-10-18 12:00:00', '2023-10-23 18:00:00', '#ffffff', '#808000', '2023-06-13 10:08:55', '2023-10-18 07:43:41');
 
 -- --------------------------------------------------------
 
@@ -2719,6 +2752,12 @@ INSERT INTO `wish_lists` (`id`, `user_id`, `product_id`, `slug`, `created_at`, `
 --
 
 --
+-- Indexes for table `about_us`
+--
+ALTER TABLE `about_us`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `banners`
 --
 ALTER TABLE `banners`
@@ -3079,10 +3118,16 @@ ALTER TABLE `wish_lists`
 --
 
 --
+-- AUTO_INCREMENT for table `about_us`
+--
+ALTER TABLE `about_us`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `billing_addresses`
@@ -3172,7 +3217,7 @@ ALTER TABLE `faqs`
 -- AUTO_INCREMENT for table `flags`
 --
 ALTER TABLE `flags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `general_infos`
@@ -3190,7 +3235,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -3244,13 +3289,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `product_models`

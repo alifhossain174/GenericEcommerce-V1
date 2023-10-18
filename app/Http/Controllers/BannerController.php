@@ -333,25 +333,80 @@ class BannerController extends Controller
             $product_image = "banner/" . $image_name;
         }
 
+        $background_image = $data->background_image;
+        if ($request->hasFile('background_image')){
+
+            if($background_image && file_exists(public_path($background_image))){
+                unlink(public_path($product_image));
+            }
+
+            $get_image = $request->file('background_image');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('banner/');
+            $get_image->move($location, $image_name);
+            $background_image = "banner/" . $image_name;
+        }
+
         $data->icon = $icon;
         $data->product_image = $product_image;
+        $data->background_image = $background_image;
         $data->heading = $request->heading;
         $data->heading_color = $request->heading_color;
         $data->title = $request->title;
         $data->title_color = $request->title_color;
+        $data->description_color = $request->description_color;
+        $data->description = $request->description;
         $data->url = $request->url;
         $data->btn_text = $request->btn_text;
         $data->btn_text_color = $request->btn_text_color;
         $data->btn_bg_color = $request->btn_bg_color;
         $data->background_color = $request->background_color;
+        $data->video_url = $request->video_url;
         $data->started_at = $started_at;
         $data->end_at = $end_at;
         $data->time_bg_color = $request->time_bg_color;
+        $data->time_font_color = $request->time_font_color;
         $data->updated_at = Carbon::now();
         $data->save();
 
         Toastr::success('Data has been Updated', 'Success');
         return back();
 
+    }
+
+    public function removePromotionalHeaderIcon(){
+        $data = PromotionalBanner::where('id', 1)->first();
+        $icon = $data->icon;
+        if($icon && file_exists(public_path($icon))){
+            unlink(public_path($icon));
+            $data->icon = null;
+            $data->save();
+        }
+        Toastr::success('Icon is Removed', 'Success');
+        return back();
+    }
+
+    public function removePromotionalProductImage(){
+        $data = PromotionalBanner::where('id', 1)->first();
+        $product_image = $data->product_image;
+        if($product_image && file_exists(public_path($product_image))){
+            unlink(public_path($product_image));
+            $data->product_image = null;
+            $data->save();
+        }
+        Toastr::success('Image is Removed', 'Success');
+        return back();
+    }
+
+    public function removePromotionalBackgroundImage(){
+        $data = PromotionalBanner::where('id', 1)->first();
+        $background_image = $data->background_image;
+        if($background_image && file_exists(public_path($background_image))){
+            unlink(public_path($background_image));
+            $data->background_image = null;
+            $data->save();
+        }
+        Toastr::success('Image is Removed', 'Success');
+        return back();
     }
 }

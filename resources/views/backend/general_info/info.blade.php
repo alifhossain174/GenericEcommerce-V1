@@ -131,7 +131,7 @@
                                 <div class="form-group row">
                                     <label for="google_map_link" class="col-sm-2 col-form-label">Google Map Link</label>
                                     <div class="col-sm-10">
-                                        <input type="text" id="google_map_link" name="google_map_link" value="{{$data->google_map_link}}" class="form-control" placeholder="https://map.google.com">
+                                        <textarea name="google_map_link" id="google_map_link" class="form-control">{{ $data->google_map_link }}</textarea>
                                         <div class="invalid-feedback" style="display: block;">
                                             @error('google_map_link')
                                                 {{ $message }}
@@ -142,7 +142,7 @@
                                 <div class="form-group row">
                                     <label for="footer_copyright_text" class="col-sm-2 col-form-label">Footer Copyright Text</label>
                                     <div class="col-sm-10">
-                                        <textarea name="footer_copyright_text" id="footer_copyright_text" class="form-control">{!! $data->footer_copyright_text !!}</textarea>
+                                        <textarea name="footer_copyright_text" id="footer_copyright_text" class="form-control">{{ $data->footer_copyright_text }}</textarea>
                                     </div>
                                 </div>
 
@@ -171,11 +171,11 @@
 
     <script>
 
-        CKEDITOR.replace('footer_copyright_text', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 120,
-        });
+        // CKEDITOR.replace('footer_copyright_text', {
+        //     filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+        //     filebrowserUploadMethod: 'form',
+        //     height: 120,
+        // });
 
         @if($data->logo && file_exists(public_path($data->logo)))
             $(".dropify-preview").eq(0).css("display", "block");

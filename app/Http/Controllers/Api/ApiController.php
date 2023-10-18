@@ -23,6 +23,7 @@ use App\Models\BillingAddress;
 use App\Models\Brand;
 use App\Models\ContactRequest;
 use App\Models\Flag;
+use App\Models\AboutUs;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\OrderPayment;
@@ -1107,7 +1108,7 @@ class ApiController extends BaseController
     public function aboutUs(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
-            $data = DB::table('general_infos')->where('id', 1)->select('about_us')->first();
+            $data = AboutUs::where('id', 1)->first();
 
             return response()->json([
                 'success' => true,

@@ -1,0 +1,1 @@
+ALTER TABLE `promotional_banners` ADD `description` VARCHAR(255) NULL DEFAULT NULL AFTER `title_color`, ADD `description_color` VARCHAR(255) NULL DEFAULT NULL AFTER `description`;

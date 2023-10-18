@@ -31,7 +31,7 @@ class FlagResource extends JsonResource
                     ->where('products.flag_id', $this->id)
                     ->orderBy('products.id', 'desc')
                     ->skip(0)
-                    ->limit(12)
+                    ->limit(10)
                     ->get();
 
         return [

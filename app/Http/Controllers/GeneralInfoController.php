@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUs;
 use App\Models\GeneralInfo;
 use App\Models\GoogleRecaptcha;
 use App\Models\SocialLogin;
@@ -13,16 +14,55 @@ use Illuminate\Http\Request;
 class GeneralInfoController extends Controller
 {
     public function aboutUsPage(){
-        $data = GeneralInfo::where('id', 1)->select('about_us')->first();
+        $data = AboutUs::where('id', 1)->first();
         return view('backend.general_info.about_us', compact('data'));
     }
 
     public function updateAboutUsPage(Request $request){
-        GeneralInfo::where('id', 1)->update([
-            'about_us' => $request->about_us,
-            'updated_at' => Carbon::now()
+        $data = AboutUs::where('id', 1)->first();
+
+        $banner_bg = $data->banner_bg;
+        if ($request->hasFile('banner_bg')){
+
+            if($banner_bg != '' && file_exists(public_path($banner_bg))){
+                unlink(public_path($banner_bg));
+            }
+
+            $get_image = $request->file('banner_bg');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('uploads/about_us/');
+            $get_image->move($location, $image_name);
+            $banner_bg = "uploads/about_us/" . $image_name;
+        }
+
+
+        $image = $data->image;
+        if ($request->hasFile('image')){
+
+            if($image != '' && file_exists(public_path($image))){
+                unlink(public_path($image));
+            }
+
+            $get_image = $request->file('image');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('uploads/about_us/');
+            $get_image->move($location, $image_name);
+            $image = "uploads/about_us/" . $image_name;
+        }
+
+        AboutUs::where('id', 1)->update([
+            'banner_bg' => $banner_bg,
+            'image' => $image,
+            'section_sub_title' => $request->section_sub_title,
+            'section_title' => $request->section_title,
+            'section_description' => $request->section_description,
+            'btn_icon_class' => $request->btn_icon_class,
+            'btn_text' => $request->btn_text,
+            'btn_link' => $request->btn_link,
+            'updated_at' => Carbon::now(),
         ]);
-        Toastr::success('About Us Text Updated', 'Success');
+
+        Toastr::success('About Us Info Updated', 'Success');
         return back();
     }
 

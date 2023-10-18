@@ -38,6 +38,17 @@
             <li><a href="{{ url('/view/all/blogs') }}">View All Blogs</a></li>
         </ul>
     </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/terms/and/condition') }}">Terms & Condition</a></li>
+            <li><a href="{{ url('/view/privacy/policy') }}">Privacy Policy</a></li>
+            <li><a href="{{ url('/view/shipping/policy') }}">Shipping Policy</a></li>
+            <li><a href="{{ url('/view/return/policy') }}">Return Policy</a></li>
+        </ul>
+    </li>
+    <li><a href="{{ url('/about/us/page') }}"><i class="feather-globe"></i><span>About Us</span></a></li>
+    <li><a href="{{ url('/view/all/faqs') }}"><i class="far fa-question-circle"></i><span>FAQ's</span></a></li>
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">E-commerce</li>
@@ -153,15 +164,7 @@
             <li><a href="{{ url('/view/all/promo/codes') }}">View All Promo Codes</a></li>
         </ul>
     </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/terms/and/condition') }}">Terms & Condition</a></li>
-            <li><a href="{{ url('/view/privacy/policy') }}">Privacy Policy</a></li>
-            <li><a href="{{ url('/view/shipping/policy') }}">Shipping Policy</a></li>
-            <li><a href="{{ url('/view/return/policy') }}">Return Policy</a></li>
-        </ul>
-    </li>
+
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-users"></i><span>Customers & Users</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -228,13 +231,6 @@
             <li><a href="{{ url('/view/email/credential') }}">Email Configure (SMTP)</a></li>
             <li><a href="{{ url('/setup/sms/gateways') }}">SMS Gateway</a></li>
             <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-globe"></i><span>Web Pages</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/about/us/page') }}">About Us</a></li>
-            <li><a href="{{ url('/view/all/faqs') }}">FAQ's</a></li>
         </ul>
     </li>
 
