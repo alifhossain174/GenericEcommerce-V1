@@ -1179,7 +1179,7 @@ class ApiController extends BaseController
     public function getAllBanners(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
-            $data = DB::table('banners')->where('type', 2)->where('status', 1)->orderBy('serial', 'desc')->get();
+            $data = DB::table('banners')->where('type', 2)->where('status', 1)->orderBy('serial', 'asc')->get();
 
             return response()->json([
                 'success' => true,
