@@ -1,19 +1,19 @@
 {
 	"info": {
-		"_postman_id": "d8393de6-bc37-41be-b568-1f0670e6bf8f",
+		"_postman_id": "c7d9e31c-7891-4930-adeb-614d3ebd4c8f",
 		"name": "GenericCommerceV1 API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "9320515"
 	},
 	"item": [
 		{
-			"name": "Login API",
+			"name": "User Registration API",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
@@ -21,49 +21,54 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "login_type",
-							"value": "1",
-							"description": "1=>Email; 2=>Phone",
-							"type": "text"
-						},
-						{
-							"key": "email",
+							"key": "username",
 							"value": "alifhossain174@gmail.com",
 							"type": "text"
 						},
 						{
-							"key": "phone",
-							"value": "01969005035",
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Md Fahim Hossain",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Uttara, Dhaka-1229",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://app-area.bestu.com.bd/api/user/login",
-					"protocol": "https",
+					"raw": "http://127.0.0.1:8000/api/user/registration",
+					"protocol": "http",
 					"host": [
-						"app-area",
-						"bestu",
-						"com",
-						"bd"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
 						"api",
 						"user",
-						"login"
+						"registration"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Verify Login",
+			"name": "User Verification API",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
@@ -72,33 +77,78 @@
 					"formdata": [
 						{
 							"key": "code",
-							"value": "935615",
+							"value": "269200",
 							"type": "text"
 						},
 						{
-							"key": "email",
-							"value": "alifhossain174@gmail.com",
+							"key": "username",
+							"value": "01969005035",
 							"type": "text"
 						},
 						{
-							"key": "phone",
-							"value": "",
+							"key": "password",
+							"value": "12345678",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://app-area.bestu.com.bd/api/verify/user/login",
-					"protocol": "https",
+					"raw": "http://127.0.0.1:8000/api/user/verification",
+					"protocol": "http",
 					"host": [
-						"app-area",
-						"bestu",
-						"com",
-						"bd"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
 						"api",
-						"verify",
+						"user",
+						"verification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "alifhossain174@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
 						"user",
 						"login"
 					]
@@ -1698,7 +1748,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
@@ -1707,22 +1757,33 @@
 					"urlencoded": [
 						{
 							"key": "search_keyword",
-							"value": "",
+							"value": "denim",
 							"type": "text"
 						},
 						{
 							"key": "brand_slug",
 							"value": "",
 							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "10",
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/live/search/products",
+					"raw": "http://127.0.0.1:8000/api/live/search/products",
+					"protocol": "http",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
+						"api",
 						"live",
 						"search",
 						"products"
@@ -2800,6 +2861,11 @@
 							"type": "text"
 						},
 						{
+							"key": "size_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
 							"key": "region_id",
 							"value": "2",
 							"type": "text"
@@ -2828,12 +2894,6 @@
 							"key": "price",
 							"value": "200",
 							"type": "text"
-						},
-						{
-							"key": "",
-							"value": "",
-							"type": "text",
-							"disabled": true
 						},
 						{
 							"key": "",
@@ -3585,6 +3645,11 @@
 							"type": "text"
 						},
 						{
+							"key": "size_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
 							"key": "region_id",
 							"value": "",
 							"type": "text"
@@ -3688,6 +3753,11 @@
 						{
 							"key": "color_id",
 							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "size_id",
+							"value": "2",
 							"type": "text"
 						},
 						{
@@ -5269,16 +5339,20 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{BestuServer}}/get/all/blogs",
+					"raw": "https://techshop-admin.getcommerce.xyz/api/get/all/blogs",
+					"protocol": "https",
 					"host": [
-						"{{BestuServer}}"
+						"techshop-admin",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
+						"api",
 						"get",
 						"all",
 						"blogs"
@@ -5330,7 +5404,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
@@ -5339,17 +5413,21 @@
 					"formdata": [
 						{
 							"key": "slug",
-							"value": "a-list-of-healthy-foods-you-can-eat-without-gaining-any-weight-211688369245",
+							"value": "blog-41697004676",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/blog/details",
+					"raw": "https://techshop-admin.getcommerce.xyz/api/blog/details",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"techshop-admin",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
+						"api",
 						"blog",
 						"details"
 					]

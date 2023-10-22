@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="google_map_link" class="col-sm-2 col-form-label">Google Map Link</label>
+                                    <label for="google_map_link" class="col-sm-2 col-form-label"><i class="fas fa-map-marker-alt"></i> Google Map Link</label>
                                     <div class="col-sm-10">
                                         <textarea name="google_map_link" id="google_map_link" class="form-control">{{ $data->google_map_link }}</textarea>
                                         <div class="invalid-feedback" style="display: block;">
@@ -139,10 +139,30 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
-                                    <label for="footer_copyright_text" class="col-sm-2 col-form-label">Footer Copyright Text</label>
+                                    <label for="play_store_link" class="col-sm-2 col-form-label"><i class="fab fa-google-play"></i> Play Store Link</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="play_store_link" id="play_store_link" value="{{ $data->play_store_link }}" placeholder="https://play.google.com/store" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="app_store_link" class="col-sm-2 col-form-label"><i class="fab fa-apple" style="font-size: 16px;"></i> App Store Link</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="app_store_link" id="app_store_link" value="{{ $data->app_store_link }}" placeholder="https://www.apple.com/app-store/" class="form-control"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="footer_copyright_text" class="col-sm-2 col-form-label"><i class="far fa-copyright"></i> Footer Copyright Text</label>
                                     <div class="col-sm-10">
                                         <textarea name="footer_copyright_text" id="footer_copyright_text" class="form-control">{{ $data->footer_copyright_text }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="payment_banner" class="col-sm-2 col-form-label"><i class="fab fa-cc-visa"></i> Payment Banner</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" name="payment_banner" class="dropify" data-height="100" data-max-file-size="1M" accept="image/*"/>
                                     </div>
                                 </div>
 
@@ -201,6 +221,13 @@
             $(".dropify-clear").eq(2).css("display", "block");
             $(".dropify-filename-inner").eq(2).html("{{$data->fav_icon}}");
             $("span.dropify-render").eq(2).html("<img src='{{url($data->fav_icon)}}'>");
+        @endif
+
+        @if($data->payment_banner && file_exists(public_path($data->payment_banner)))
+            $(".dropify-preview").eq(3).css("display", "block");
+            $(".dropify-clear").eq(3).css("display", "block");
+            $(".dropify-filename-inner").eq(3).html("{{$data->payment_banner}}");
+            $("span.dropify-render").eq(3).html("<img src='{{url($data->payment_banner)}}'>");
         @endif
     </script>
 @endsection

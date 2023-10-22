@@ -592,7 +592,7 @@
             imagesInputName: 'photos',
             preloadedInputName: 'old'
         });
-        $(".material-icons").html("❌");
+        $(".material-icons").html("<i class='fa fa-upload'></i>");
 
 
         function showVariantSection(value){

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2023 at 10:43 AM
+-- Generation Time: Oct 22, 2023 at 01:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -114,7 +114,7 @@ CREATE TABLE `billing_addresses` (
 INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `thana`, `city`, `country`, `created_at`, `updated_at`) VALUES
 (2, 1, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Dhaka', 'Bangladesh', '2023-07-17 23:49:13', NULL),
 (3, 6, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Dhaka', 'Bangladesh', '2023-07-18 08:34:22', NULL),
-(4, 9, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', NULL);
+(4, 9, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45');
 
 -- --------------------------------------------------------
 
@@ -772,7 +772,10 @@ CREATE TABLE `general_infos` (
   `email` varchar(255) DEFAULT NULL,
   `address` longtext DEFAULT NULL,
   `google_map_link` longtext DEFAULT NULL,
+  `play_store_link` varchar(255) DEFAULT NULL,
+  `app_store_link` varchar(255) DEFAULT NULL,
   `footer_copyright_text` varchar(255) DEFAULT NULL,
+  `payment_banner` varchar(255) DEFAULT NULL,
   `primary_color` varchar(255) DEFAULT NULL,
   `secondary_color` varchar(255) DEFAULT NULL,
   `tertiary_color` varchar(255) DEFAULT NULL,
@@ -792,6 +795,9 @@ CREATE TABLE `general_infos` (
   `messenger` varchar(255) DEFAULT NULL,
   `whatsapp` varchar(255) DEFAULT NULL,
   `telegram` varchar(255) DEFAULT NULL,
+  `tiktok` varchar(255) DEFAULT NULL,
+  `pinterest` varchar(255) DEFAULT NULL,
+  `viber` varchar(255) DEFAULT NULL,
   `google_analytic_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
   `google_analytic_tracking_id` varchar(255) DEFAULT NULL,
   `fb_pixel_status` tinyint(4) NOT NULL DEFAULT 0,
@@ -809,8 +815,8 @@ CREATE TABLE `general_infos` (
 -- Dumping data for table `general_infos`
 --
 
-INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `footer_copyright_text`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `custom_css`, `custom_js`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `google_analytic_status`, `google_analytic_tracking_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/msNrd1697620395.png', 'company_logo/1oSnf1697620395.png', 'company_logo/vJ4jW1696243530.png', 'Fashionista', 'Fashionista', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '+01234-567890,+01234-5688765', 'demo@gmail.com,info@example.com', '123 Stree New York City , United States Of America NY 750065', 'https://www.google.com/maps/dir//U.S.+Embassy,+London+33+Nine+Elms+Ln+Nine+Elms,+London+SW11+7US+United+Kingdom/@51.4825655,-0.1322369,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48760532743b90e1:0x790260718555a20c!2m2!1d-0.1322369!2d51.4825655?entry=ttu', '© 2022 FashionIsta', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2023-10-18 07:17:57');
+INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `custom_css`, `custom_js`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
+(1, 'company_logo/tGAYZ1697968457.png', 'company_logo/1oSnf1697620395.png', 'company_logo/LpoYM1697970480.png', 'Fashionista', 'Fashionista', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '+01234-567890,+01234-5688765', 'demo@gmail.com,info@example.com', '123 Stree New York City , United States Of America NY 750065', 'https://www.google.com/maps/dir//U.S.+Embassy,+London+33+Nine+Elms+Ln+Nine+Elms,+London+SW11+7US+United+Kingdom/@51.4825655,-0.1322369,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48760532743b90e1:0x790260718555a20c!2m2!1d-0.1322369!2d51.4825655?entry=ttu', 'https://play.google.com/store', 'https://www.apple.com/app-store/', '© 2022 FashionIsta', 'company_logo/iexIV1697970944.png', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2023-10-22 11:33:58');
 
 -- --------------------------------------------------------
 
@@ -975,7 +981,7 @@ INSERT INTO `orders` (`id`, `order_no`, `user_id`, `order_date`, `estimated_dd`,
 (6, '1689669262197', 23, '2023-07-18 14:34:22', '2023-07-25', NULL, '', 1, 1, '1689669262uB2Mp', 'Not Available (COD)', 0, 115000, NULL, 0, 100, 0, 0, 115100, '', NULL, 'NvdIM1689669262', 1, '2023-07-18 08:34:22', '2023-07-18 08:34:22'),
 (7, '1689669807556', 35, '2023-07-18 14:43:27', '2023-07-25', NULL, '', NULL, 0, '1689669807utQrJ', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'uOcnS1689669807', 0, '2023-07-18 08:43:27', NULL),
 (8, '1689670104700', 35, '2023-07-18 14:48:24', '2023-07-25', NULL, '', NULL, 0, '1689670104s5gtl', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '3tcFc1689670104', 0, '2023-07-18 08:48:24', NULL),
-(9, '1689670481629', NULL, '2023-07-18 14:54:41', '2023-07-25', NULL, '', 1, 1, '1689670481uRKui', 'Not Available (COD)', 0, 545000, NULL, 0, 100, 0, 0, 545100, '', NULL, 'wPRVx1689670481', 1, '2023-07-18 08:54:41', '2023-07-18 08:54:42'),
+(9, '1689670481629', NULL, '2023-07-18 14:54:41', '2023-07-25', NULL, '', 1, 1, '1689670481uRKui', 'Not Available (COD)', 0, 545100, NULL, 0, 100, 0, 0, 545200, '', NULL, 'wPRVx1689670481', 1, '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
 (10, '1689673103748', 35, '2023-07-18 15:38:23', '2023-07-25', NULL, '', NULL, 0, '1689673103rmIKt', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'DEQEA1689673103', 0, '2023-07-18 09:38:23', NULL),
 (11, '1689673132520', 35, '2023-07-18 15:38:52', '2023-07-25', NULL, '', NULL, 0, '16896731327Tg9B', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'Jvwqy1689673132', 0, '2023-07-18 09:38:52', NULL),
 (12, '1689673273174', 35, '2023-07-18 15:41:13', '2023-07-25', NULL, '', NULL, 0, '1689673273XAEC3', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '4xRod1689673273', 0, '2023-07-18 09:41:13', NULL),
@@ -1016,9 +1022,10 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `color_id`, `size_i
 (3, 2, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 06:12:27', NULL),
 (4, 3, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 06:25:52', NULL),
 (5, 6, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 08:34:22', NULL),
-(6, 9, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 2, 115000, 230000, '2023-07-18 08:54:41', NULL),
-(7, 9, 1, 1, NULL, 226, 4, 2, 1, 1, 0, 3, 105000, 315000, '2023-07-18 08:54:41', NULL),
-(8, 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 200, 200, '2023-07-26 04:30:02', NULL);
+(8, 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 200, 200, '2023-07-26 04:30:02', NULL),
+(24, 9, 1, 5, 0, 226, 2, 2, 1, 1, 0, 2, 115000, 230000, NULL, '2023-10-22 09:17:45'),
+(25, 9, 1, 1, 0, 226, 4, 2, 1, 1, 0, 3, 105000, 315000, NULL, '2023-10-22 09:17:45'),
+(26, 9, 21, 6, 6, 0, 0, 0, 8, 0, 2, 1, 100, 100, NULL, '2023-10-22 09:17:45');
 
 -- --------------------------------------------------------
 
@@ -1534,8 +1541,8 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `created_at`, `updated_at`) VALUES
 (1, 1, 7, NULL, 1, NULL, 'Iphone 14 Pro Max (Test Product)', 'OFF60', 'productImages/UlNWW1689758736.jpeg', NULL, 'Iphone 14 Pro Max', '<p>Iphone 14 Pro Max</p>\r\n\r\n<p>&nbsp;</p>', '<p>Iphone 14 Pro Max</p>', '<h2>One stop for&nbsp;support</h2>\r\n\r\n<p>Minimize the amount of time without your iPhone with Express Replacement Service</p>\r\n\r\n<p>Because Apple designs iPhone, iOS, and many applications, iPhone is a truly integrated system. And only AppleCare+ products provide one-stop service and support from Apple experts, so most issues can be resolved in a single call. Should you need repair or replacement, there are convenient service options.<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></p>\r\n\r\n<ul>\r\n	<li>24/7 priority access to Apple experts via chat or phone</li>\r\n	<li>Same-day service in most major metropolitan areas world wide<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></li>\r\n	<li>Onsite service: Schedule a technician to perform a screen repair at your home or office</li>\r\n	<li><a href=\"https://support.apple.com/iphone/repair/service/express-replacement\">Express Replacement Service</a>: We&rsquo;ll ship you a replacement device so you don&rsquo;t have to wait for a repair<a href=\"https://www.apple.com/support/products/iphone/#footnote-4\">4</a></li>\r\n	<li>Mail-in repair: Mail in your iPhone using a prepaid shipping box provided by Apple</li>\r\n	<li>Carry-in repair: Take your iPhone to an Apple&nbsp;Store or other Apple Authorized Service Provider</li>\r\n</ul>', 120000, 115000, 0, 1, 'iphone,apple', 'https://www.youtube.com/watch?v=FT3ODSg1GFE&ab_channel=Apple', 1, 'iphone-14-pro-max-test-product-1689759041rLTdM', 3, NULL, NULL, NULL, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41'),
-(2, 1, 7, NULL, 2, 6, 'Samsung Galaxy A54 (Test Product)', '3001', 'productImages/6o22L1686813594.jpg', '[\"1686813594L1Yno.jpg\",\"16868135942SXdj.jpg\",\"16877602702SYQu.jpg\"]', 'Largely satisfied, however, I am not a fan of Samsung\'s mandatory OS updates. It was only optional before.', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', 20000, 19500, 119, 1, 'Samsung Galaxy A54,samsung galaxy a50,samsung glalaxy', NULL, 1, 'samsung-galaxy-a54-test-product-1689249650eNuS7', 3, NULL, NULL, NULL, 1, 0, '2023-06-15 17:19:54', '2023-07-17 23:49:13'),
-(21, 10, 29, NULL, 18, NULL, 'Boxy Denim Jacket', 'rg', 'productImages/3xl2q1697626862.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<p>Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 110, 100, 0, 2, 'jacket', NULL, 8, 'boxy-denim-jacket-1697626862LBGLS', 6, NULL, NULL, NULL, 1, 1, '2023-10-18 09:01:02', '2023-10-18 09:01:02'),
+(2, 1, 7, NULL, 24, NULL, 'Samsung Galaxy A54 (Test Product)', '3001', 'productImages/Hrf7c1697970112.webp', '[]', 'Largely satisfied, however, I am not a fan of Samsung\'s mandatory OS updates. It was only optional before.', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', 20000, 19500, 119, 1, 'Samsung Galaxy A54,samsung galaxy a50,samsung glalaxy', NULL, 1, 'samsung-galaxy-a54-test-product-1697970112rXrLt', NULL, NULL, NULL, NULL, 1, 0, '2023-06-15 17:19:54', '2023-10-22 10:21:52'),
+(21, 10, 29, NULL, 18, NULL, 'Boxy Denim Jacket', 'rg', 'productImages/3xl2q1697626862.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<p>Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 110, 100, 0, 2, 'jacket', NULL, 8, 'boxy-denim-jacket-1697964487MRpRd', 6, NULL, NULL, NULL, 1, 1, '2023-10-18 09:01:02', '2023-10-22 08:48:07'),
 (22, 11, 35, NULL, 25, NULL, 'Oversize Cotton Dress', NULL, 'productImages/6mNHL1697627208.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 'oversize-cotton-dress-1697627325QC9K4', NULL, NULL, NULL, NULL, 1, 1, '2023-10-18 09:06:48', '2023-10-18 09:08:45'),
 (23, 13, 42, NULL, 25, NULL, 'Quilted Shoulder Bag', 'piiiu678', 'productImages/BKPcM1697627608.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 'quilted-shoulder-bag-1697627608XjfQH', NULL, NULL, NULL, NULL, 1, 1, '2023-10-18 09:13:28', '2023-10-18 09:13:28'),
 (24, 12, 37, NULL, 24, NULL, 'Test Product', NULL, 'productImages/yyXga1697961494.webp', NULL, 'Test ProductTest ProductTest Product', '<p>Test ProductTest Product</p>', '<p>Test ProductTest Product</p>', '<p>Test ProductTest Product</p>', 100, 90, 0, 3, 'asd,sdffr', NULL, 1, 'test-product-16979627147su7t', 6, NULL, 'asdas,hgthhj', NULL, 0, 1, '2023-10-22 07:58:14', '2023-10-22 08:18:34');
@@ -1553,15 +1560,6 @@ CREATE TABLE `product_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `product_images`
---
-
-INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
-(2, 2, '1686813594L1Yno.jpg', '2023-06-15 17:19:54', NULL),
-(3, 2, '16868135942SXdj.jpg', '2023-06-15 17:19:54', NULL),
-(14, 2, '16877602702SYQu.jpg', '2023-06-26 16:17:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -1917,11 +1915,9 @@ CREATE TABLE `product_variants` (
 --
 
 INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_type_id`, `stock`, `price`, `discounted_price`, `warrenty_id`, `device_condition_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '1686740844EwewL.jpg', 5, NULL, 226, 2, 2, 100, 120000, 115000, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41'),
-(2, 1, '1686740844HXKdN.jpg', 1, NULL, 226, 4, 2, 50, 110000, 105000, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41'),
-(25, 21, '1697626862OsQ7F.png', 6, NULL, 18, NULL, NULL, 100, 110, 100, 8, 1, '2023-10-18 09:01:02', NULL),
-(26, 21, '1697626862sy3aK.png', 2, NULL, 4, NULL, NULL, 320, 115, 80, 7, NULL, '2023-10-18 09:01:02', NULL),
-(27, 21, '1697626862bMCYk.png', 3, NULL, 18, NULL, NULL, 200, 90, 85, 7, NULL, '2023-10-18 09:01:02', NULL),
+(25, 21, '1697626862OsQ7F.png', 6, 6, NULL, NULL, NULL, 100, 110, 100, 8, NULL, '2023-10-18 09:01:02', '2023-10-22 08:48:07'),
+(26, 21, '1697626862sy3aK.png', 2, 5, NULL, NULL, NULL, 320, 115, 80, 7, NULL, '2023-10-18 09:01:02', '2023-10-22 08:48:07'),
+(27, 21, '1697626862bMCYk.png', 3, 3, NULL, NULL, NULL, 200, 90, 85, 7, NULL, '2023-10-18 09:01:02', '2023-10-22 08:48:07'),
 (28, 22, '1697627286MeviK.jpg', 7, NULL, NULL, NULL, NULL, 10, 0, 0, NULL, NULL, '2023-10-18 09:08:06', '2023-10-18 09:08:45'),
 (29, 23, '1697627608IoUkR.png', 7, NULL, 2, 2, 7, 99, 0, 0, NULL, NULL, '2023-10-18 09:13:28', NULL),
 (30, 24, '1697961772eZG2G.webp', 2, 6, NULL, NULL, NULL, 100, 100, 90, 1, NULL, '2023-10-22 08:02:52', '2023-10-22 08:18:34'),
@@ -2097,7 +2093,7 @@ CREATE TABLE `shipping_infos` (
 INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `gender`, `address`, `thana`, `post_code`, `city`, `country`, `created_at`, `updated_at`) VALUES
 (2, 1, 'Reduan', '01850453321', 'reduan@getup.com.bd', 'undefined', 'kapasgola', NULL, '12334', 'Chattogram', 'Bangladesh', '2023-07-17 23:49:13', NULL),
 (3, 6, 'Reduan', '01850453321', 'admin@gmil.com', 'undefined', 'kapasgola', NULL, '12334', 'Chattogram', 'Bangladesh', '2023-07-18 08:34:22', NULL),
-(4, 9, 'Reduan', '01850453322', 'admin@gmil.com', 'undefined', 'Flat A2, House 4 Rd No. 10', NULL, '1000', 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', NULL);
+(4, 9, 'Reduan', '01850453322', 'admin@gmil.com', 'undefined', 'Flat A2, House 4 Rd No. 10', NULL, '1000', 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45');
 
 -- --------------------------------------------------------
 
@@ -3152,7 +3148,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `order_payments`

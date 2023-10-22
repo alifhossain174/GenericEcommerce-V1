@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@php
+    $generalInfo = DB::table('general_infos')->where('id', 1)->select('logo', 'company_name', 'fav_icon')->first();
+@endphp
+
 <head>
     <meta charset="utf-8" />
     <title>Dashboard</title>
@@ -11,7 +15,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ url('assets') }}/images/favicon.ico">
+    @if($generalInfo->fav_icon != '' && $generalInfo->fav_icon != Null && file_exists(public_path($generalInfo->fav_icon)))
+        <link rel="shortcut icon" href="{{ url($generalInfo->fav_icon) }}">
+    @else
+        <link rel="shortcut icon" href="{{ url('assets') }}/images/favicon.ico">
+    @endif
 
     <!-- App css -->
     <link href="{{ url('assets') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -37,9 +45,6 @@
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
                     <a href="{{ url('/home') }}" class="logo" style="display: inline-block;">
-                        @php
-                            $generalInfo = DB::table('general_infos')->where('id', 1)->select('logo', 'company_name')->first();
-                        @endphp
                         @if($generalInfo->logo != '' && $generalInfo->logo != Null && file_exists(public_path($generalInfo->logo)))
                         <span>
                             <img src="{{url($generalInfo->logo)}}" alt="" class="img-fluid" style="max-height: 100px; width: 150px;">

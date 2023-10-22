@@ -117,6 +117,20 @@ class GeneralInfoController extends Controller
             $favIcon = "company_logo/" . $image_name;
         }
 
+        $paymentBanner = $data->payment_banner;
+        if ($request->hasFile('payment_banner')){
+
+            if($data->payment_banner != '' && file_exists(public_path($data->payment_banner))){
+                unlink(public_path($data->payment_banner));
+            }
+
+            $get_image = $request->file('payment_banner');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('company_logo/');
+            $get_image->move($location, $image_name);
+            $paymentBanner = "company_logo/" . $image_name;
+        }
+
         GeneralInfo::where('id', 1)->update([
             'logo' => $image,
             'logo_dark' => $imageDark,
@@ -128,7 +142,10 @@ class GeneralInfoController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'google_map_link' => $request->google_map_link,
+            'play_store_link' => $request->play_store_link,
+            'app_store_link' => $request->app_store_link,
             'footer_copyright_text' => $request->footer_copyright_text,
+            'payment_banner' => $paymentBanner,
             'updated_at' => Carbon::now()
         ]);
 
@@ -174,6 +191,9 @@ class GeneralInfoController extends Controller
             'messenger' => $request->messenger,
             'whatsapp' => $request->whatsapp,
             'telegram' => $request->telegram,
+            'tiktok' => $request->tiktok,
+            'pinterest' => $request->pinterest,
+            'viber' => $request->viber,
             'updated_at' => Carbon::now()
         ]);
 

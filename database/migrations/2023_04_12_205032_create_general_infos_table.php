@@ -26,6 +26,9 @@ class CreateGeneralInfosTable extends Migration
             $table->longText('address')->nullable();
             $table->longText('google_map_link')->nullable();
             $table->string('footer_copyright_text')->nullable();
+            $table->string('payment_banner')->nullable();
+            $table->string('play_store_link')->nullable();
+            $table->string('app_store_link')->nullable();
 
             $table->longText('custom_css')->nullable();
             $table->longText('custom_js')->nullable();
@@ -51,6 +54,9 @@ class CreateGeneralInfosTable extends Migration
             $table->string('messenger')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('telegram')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('pinterest')->nullable();
+            $table->string('viber')->nullable();
 
             // google analytics
             $table->tinyInteger('google_analytic_status')->default(0)->comment("1=>Active; 0=>Inactive");

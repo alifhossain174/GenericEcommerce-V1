@@ -39,7 +39,7 @@
                             <input type="text" class="form-control date_field" value="{{date("01/m/Y")}}" id="start_date" placeholder="Start Date" required>
                         </div>
                         <div class="form-group col">
-                            <label for="end_date">Password</label>
+                            <label for="end_date">End Date</label>
                             <input type="text" class="form-control date_field" value="{{date("d/m/Y")}}" id="end_date" placeholder="End Date" required>
                         </div>
                         <div class="form-group col">

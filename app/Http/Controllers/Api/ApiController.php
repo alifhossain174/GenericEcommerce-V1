@@ -668,9 +668,10 @@ class ApiController extends BaseController
 
             $brandInfo = Brand::where('slug', $request->brand_slug)->first();
             $brand_id = $brandInfo ? $brandInfo->id : 0;
+            $category_id = $request->category_id;
             $keyword = $request->search_keyword;
 
-            if($brand_id != '' || $keyword != ''){
+            if($brand_id != '' || $keyword != '' || $category_id){
 
                 $data = DB::table('products')
                     ->join('categories', 'products.category_id', '=', 'categories.id')
@@ -693,6 +694,10 @@ class ApiController extends BaseController
                     // })
 
                     ->where('products.name', 'LIKE', '%'.$keyword.'%')
+                    ->when($category_id, function($query) use ($category_id){
+                        if($category_id > 0)
+                            return $query->where('products.category_id', $category_id);
+                    })
                     ->when($brand_id, function($query) use ($brand_id){
                         if($brand_id > 0)
                             return $query->where('products.brand_id', $brand_id);

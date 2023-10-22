@@ -257,7 +257,6 @@
     <li><a href="{{ url('/view/all/faqs') }}"><i class="far fa-question-circle"></i><span>FAQ's</span></a></li>
 
 
-
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">User Role Permission</li>
     <li><a href="{{ url('/view/permission/routes') }}"><i class="feather-git-merge"></i><span>Permission Routes</span></a></li>
