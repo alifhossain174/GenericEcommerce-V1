@@ -13,45 +13,9 @@
     <li><a href="{{ url('/custom/css/js') }}"><i class="feather-code"></i><span>Custom CSS & JS</span></a></li>
     <li><a href="{{ url('/social/chat/script/page') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li>
 
-    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
-    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders & Banners</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/view/all/sliders') }}">View All Sliders</a></li>
-            <li><a href="{{ url('/view/all/banners') }}">View All Banners</a></li>
-            <li><a href="{{ url('/view/promotional/banner') }}">Promotional Banner</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li>
-            <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li>
-            <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li>
-            <li><a href="{{ url('/view/all/blogs') }}">View All Blogs</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/terms/and/condition') }}">Terms & Condition</a></li>
-            <li><a href="{{ url('/view/privacy/policy') }}">Privacy Policy</a></li>
-            <li><a href="{{ url('/view/shipping/policy') }}">Shipping Policy</a></li>
-            <li><a href="{{ url('/view/return/policy') }}">Return Policy</a></li>
-        </ul>
-    </li>
-    <li><a href="{{ url('/about/us/page') }}"><i class="feather-globe"></i><span>About Us</span></a></li>
-    <li><a href="{{ url('/view/all/faqs') }}"><i class="far fa-question-circle"></i><span>FAQ's</span></a></li>
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
-    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">E-commerce</li>
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">E-commerce Modules</li>
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>Config</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -120,7 +84,6 @@
             </li>
         </ul>
     </li>
-
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-list"></i><span>Manage Orders</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -157,7 +120,6 @@
                     @endphp)</a></li>
         </ul>
     </li>
-
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-gift"></i><span>Promo Codes</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -165,7 +127,6 @@
             <li><a href="{{ url('/view/all/promo/codes') }}">View All Promo Codes</a></li>
         </ul>
     </li>
-
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-users"></i><span>Customers & Users</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -234,14 +195,12 @@
             <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li>
         </ul>
     </li>
-
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/sales/report') }}">Sales Report</a></li>
         </ul>
     </li>
-
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-download-cloud"></i><span>Download Backup</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -257,6 +216,47 @@
             <li><a href="{{ url('/download/other/files/backup') }}">Other Images Backup</a></li>
         </ul>
     </li>
+
+
+
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders & Banners</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/view/all/sliders') }}">View All Sliders</a></li>
+            <li><a href="{{ url('/view/all/banners') }}">View All Banners</a></li>
+            <li><a href="{{ url('/view/promotional/banner') }}">Promotional Banner</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li>
+            <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li>
+            <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li>
+            <li><a href="{{ url('/view/all/blogs') }}">View All Blogs</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/terms/and/condition') }}">Terms & Condition</a></li>
+            <li><a href="{{ url('/view/privacy/policy') }}">Privacy Policy</a></li>
+            <li><a href="{{ url('/view/shipping/policy') }}">Shipping Policy</a></li>
+            <li><a href="{{ url('/view/return/policy') }}">Return Policy</a></li>
+        </ul>
+    </li>
+    <li><a href="{{ url('/about/us/page') }}"><i class="feather-globe"></i><span>About Us</span></a></li>
+    <li><a href="{{ url('/view/all/faqs') }}"><i class="far fa-question-circle"></i><span>FAQ's</span></a></li>
+
+
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">User Role Permission</li>

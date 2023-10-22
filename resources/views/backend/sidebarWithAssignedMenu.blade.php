@@ -69,7 +69,7 @@
                                                 ->orWhere('route', 'like', '%setup/payment/gateways%')
                                                 ->get();
 
-    $webPagesModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%about/us/page%')->orWhere('route', 'like', '%view/all/faqs%')->get();
+    // $webPagesModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%about/us/page%')->orWhere('route', 'like', '%view/all/faqs%')->get();
     $blogModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%blog/categories%')->orWhere('route', 'like', '%add/new/blog%')->orWhere('route', 'like', '%view/all/blogs%')->get();
     $backupModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%backup%')->get();
 
@@ -81,6 +81,9 @@
     <li class="menu-title">Menu</li>
 
     <li><a href="{{ url('/home') }}"><i class="feather-home"></i><span>Dashboard</span></a></li>
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
+
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Website Config</li>
     @if(checkAuth("general/info")) <li><a href="{{ url('/general/info') }}"><i class="feather-grid"></i><span>General Info</span></a></li> @endif
     @if(checkAuth("website/theme/page")) <li><a href="{{ url('/website/theme/page') }}"><i class="mdi mdi-format-color-fill" style="font-size: 18px"></i><span>Website Theme Color</span></a></li> @endif
     @if(checkAuth("social/media/page")) <li><a href="{{ url('/social/media/page') }}"><i class="mdi mdi-link-variant" style="font-size: 17px"></i><span>Social Media Links</span></a></li> @endif
@@ -88,6 +91,9 @@
     @if(checkAuth("custom/css/js")) <li><a href="{{ url('/custom/css/js') }}"><i class="feather-code"></i><span>Custom CSS & JS</span></a></li> @endif
     @if(checkAuth("social/chat/script")) <li><a href="{{ url('/social/chat/script') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li> @endif
 
+
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">E-commerce Modules</li>
     @if ($configModule && count($configModule) > 0)
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>Config</span></a>
@@ -233,29 +239,6 @@
     </li>
     @endif
 
-    @if ($sliderBannerModule && count($sliderBannerModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders & Banners</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("view/all/sliders")) <li><a href="{{ url('/view/all/sliders') }}">View All Sliders</a></li> @endif
-            @if(checkAuth("view/all/banners")) <li><a href="{{ url('/view/all/banners') }}">View All Banners</a></li> @endif
-            @if(checkAuth("view/promotional/banner")) <li><a href="{{ url('/view/promotional/banner') }}">Promotional Banner</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
-    @if ($termsPolicyModule && count($sliderBannerModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("terms/and/condition")) <li><a href="{{ url('/terms/and/condition') }}">Terms & Condition</a></li> @endif
-            @if(checkAuth("view/privacy/policy")) <li><a href="{{ url('/view/privacy/policy') }}">Privacy Policy</a></li> @endif
-            @if(checkAuth("view/shipping/policy")) <li><a href="{{ url('/view/shipping/policy') }}">Shipping Policy</a></li> @endif
-            @if(checkAuth("view/return/policy")) <li><a href="{{ url('/view/return/policy') }}">Return Policy</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
     @if ($customerUserModule && count($customerUserModule) > 0)
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-users"></i><span>Customers & Users</span></a>
@@ -315,16 +298,6 @@
     </li>
     @endif
 
-    @if ($testimonialModule && count($testimonialModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("add/testimonial")) <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li> @endif
-            @if(checkAuth("view/testimonials")) <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
     @if(checkAuth("view/customers/wishlist")) <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li> @endif
     @if(checkAuth("view/all/contact/requests")) <li><a href="{{ url('/view/all/contact/requests') }}"><i class="feather-phone-forwarded"></i><span>Contact Request</span></a></li> @endif
     @if(checkAuth("view/all/subscribed/users")) <li><a href="{{ url('/view/all/subscribed/users') }}"><i class="feather-user-check"></i><span>Subscribed Users</span></a></li> @endif
@@ -362,27 +335,6 @@
     </li>
     @endif
 
-    @if ($webPagesModule && count($webPagesModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-globe"></i><span>Web Pages</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("about/us/page")) <li><a href="{{ url('/about/us/page') }}">About Us</a></li> @endif
-            @if(checkAuth("view/all/faqs")) <li><a href="{{ url('/view/all/faqs') }}">FAQ's</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
-    @if ($blogModule && count($blogModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("blog/categories")) <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li> @endif
-            @if(checkAuth("add/new/blog")) <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li> @endif
-            @if(checkAuth("view/all/blogs")) <li><a href="{{ url('/view/all/blogs') }}">View All Blogs</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
     @if ($reportModule && count($reportModule) > 0)
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
@@ -410,6 +362,60 @@
     </li>
     @endif
 
+
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>
+    @if ($sliderBannerModule && count($sliderBannerModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders & Banners</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("view/all/sliders")) <li><a href="{{ url('/view/all/sliders') }}">View All Sliders</a></li> @endif
+            @if(checkAuth("view/all/banners")) <li><a href="{{ url('/view/all/banners') }}">View All Banners</a></li> @endif
+            @if(checkAuth("view/promotional/banner")) <li><a href="{{ url('/view/promotional/banner') }}">Promotional Banner</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    @if ($termsPolicyModule && count($sliderBannerModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("terms/and/condition")) <li><a href="{{ url('/terms/and/condition') }}">Terms & Condition</a></li> @endif
+            @if(checkAuth("view/privacy/policy")) <li><a href="{{ url('/view/privacy/policy') }}">Privacy Policy</a></li> @endif
+            @if(checkAuth("view/shipping/policy")) <li><a href="{{ url('/view/shipping/policy') }}">Shipping Policy</a></li> @endif
+            @if(checkAuth("view/return/policy")) <li><a href="{{ url('/view/return/policy') }}">Return Policy</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    @if ($testimonialModule && count($testimonialModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("add/testimonial")) <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li> @endif
+            @if(checkAuth("view/testimonials")) <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    @if(checkAuth("about/us/page")) <li><a href="{{ url('/about/us/page') }}"><i class="feather-globe"></i><span>About Us</span></a></li> @endif
+    @if(checkAuth("view/all/faqs")) <li><a href="{{ url('/view/all/faqs') }}"><i class="far fa-question-circle"></i><span>FAQ's</span></a></li> @endif
+
+
+    @if ($blogModule && count($blogModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("blog/categories")) <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li> @endif
+            @if(checkAuth("add/new/blog")) <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li> @endif
+            @if(checkAuth("view/all/blogs")) <li><a href="{{ url('/view/all/blogs') }}">View All Blogs</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">User Role Permission</li>
     @if(checkAuth("view/permission/routes") || checkAuth("view/user/roles") || checkAuth("view/user/role/permission")) <li class="menu-title">User Role Permission</li> @endif
     @if(checkAuth("view/permission/routes")) <li><a href="{{ url('/view/permission/routes') }}"><i class="feather-git-merge"></i><span>Permission Routes</span></a></li> @endif
     @if(checkAuth("view/user/roles")) <li><a href="{{ url('/view/user/roles') }}"><i class="feather-user-plus"></i><span>User Roles</span></a></li> @endif
