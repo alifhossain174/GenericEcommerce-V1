@@ -18,6 +18,7 @@ class CreateProductVariantsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('image')->nullable();
             $table->unsignedBigInteger('color_id')->nullable();
+            $table->unsignedBigInteger('size_id')->nullable();
             $table->unsignedBigInteger('region_id')->nullable();
             $table->unsignedBigInteger('sim_id')->nullable();
             $table->unsignedBigInteger('storage_type_id')->nullable();

@@ -24,13 +24,14 @@ class ProductResource extends JsonResource
     {
         // return parent::toArray($request);
         $variants = DB::table('product_variants')
+                        ->leftJoin('product_sizes', 'product_variants.size_id', 'product_sizes.id')
                         ->leftJoin('colors', 'product_variants.color_id', 'colors.id')
                         ->leftJoin('country', 'product_variants.region_id', 'country.id')
                         ->leftJoin('sims', 'product_variants.sim_id', 'sims.id')
                         ->leftJoin('storage_types', 'product_variants.storage_type_id', 'storage_types.id')
                         ->leftJoin('device_conditions', 'product_variants.device_condition_id', 'device_conditions.id')
                         ->leftJoin('product_warrenties', 'product_variants.warrenty_id', 'product_warrenties.id')
-                        ->select('product_variants.*', 'colors.name as color_name', 'colors.code as color_code', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
+                        ->select('product_variants.*', 'colors.name as color_name', 'colors.code as color_code', 'product_sizes.name as size_name', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
                         ->where('product_id', $this->id)
                         ->get();
 

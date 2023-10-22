@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2023 at 10:13 AM
+-- Generation Time: Oct 22, 2023 at 10:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -46,7 +46,7 @@ CREATE TABLE `about_us` (
 --
 
 INSERT INTO `about_us` (`id`, `banner_bg`, `image`, `section_sub_title`, `section_title`, `section_description`, `btn_icon_class`, `btn_text`, `btn_link`, `created_at`, `updated_at`) VALUES
-(1, 'uploads/about_us/Y7XUU1697616167.png', NULL, 'Why Choose us', 'We do not buy from the open market & traders.', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illo, est repellendus are quia voluptate neque reiciendis ea placeat labore maiores cum, hic ducimus ad a dolorem soluta consectetur adipisci. Perspiciatis quas ab quibusdam is.</p>\r\n\r\n<p>Itaque accusantium eveniet a laboriosam dolorem? Magni suscipit est corrupti explicabo non perspiciatis, excepturi ut asperiores assumenda rerum? Provident ab corrupti sequi, voluptates repudiandae eius odit aut.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Bruce Sutton</strong></p>\r\n\r\n<p>Spa Manager</p>', NULL, NULL, NULL, NULL, '2023-10-18 08:03:52');
+(1, 'uploads/about_us/Y7XUU1697616167.png', NULL, 'Why Choose us', 'We do not buy from the open market & traders.', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illo, est repellendus are quia voluptate neque reiciendis ea placeat labore maiores cum, hic ducimus ad a dolorem soluta consectetur adipisci. Perspiciatis quas ab quibusdam is.</p>\r\n\r\n<p>Itaque accusantium eveniet a laboriosam dolorem? Magni suscipit est corrupti explicabo non perspiciatis, excepturi ut asperiores assumenda rerum? Provident ab corrupti sequi, voluptates repudiandae eius odit aut.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Bruce Sutton</strong></p>\r\n\r\n<p>Spa Manager</p>', NULL, NULL, NULL, NULL, '2023-10-18 08:06:46');
 
 -- --------------------------------------------------------
 
@@ -78,8 +78,16 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title`, `title`, `description`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(1, 1, 'banner/19IFB1697004301.png', NULL, NULL, 1, 'New Collectio', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'New Collection', 'https://fashionista-demo.getcommerce.xyz', 'left', 'PoK3F1697003496', 1, '2023-10-11 05:51:36', '2023-10-11 06:21:04'),
-(2, 1, 'banner/pLfjs1697004794.png', 'https://fashionista-demo.getcommerce.xyz', NULL, 1, 'Iusto qui ipsa duci', 'Fuga Nobis enim ill', 'Fugiat ut vero quam', 'Distinctio Corrupti', 'https://fashionista-demo.getcommerce.xyz', 'left', 'WRel71697004794', 2, '2023-10-11 06:13:14', '2023-10-11 06:21:04');
+(3, 1, 'banner/kYDXn1697621164.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'E6alq1697621164', -1, '2023-10-18 07:26:04', NULL),
+(4, 1, 'banner/ESgOn1697621260.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'wMPED1697621260', -2, '2023-10-18 07:27:40', NULL),
+(5, 1, 'banner/WxMA31697621777.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'right', '7tY9g1697621777', -3, '2023-10-18 07:36:17', NULL),
+(6, 2, 'banner/lha3M1697621952.png', '#', 'top', 1, NULL, 'Spring Collection Style To', '17% Discount', 'View Discounts', '#', 'left', 'XK7La1697621952', 1, '2023-10-18 07:39:12', '2023-10-19 01:32:09'),
+(7, 2, 'banner/wOObk1697622146.png', '#', 'top', 1, NULL, 'Up to 70% Off & Free Shipping', 'Shop Women', 'View Discounts', '#', NULL, 'CaXvm1697622146', 2, '2023-10-18 07:42:26', '2023-10-19 01:32:09'),
+(8, 2, 'banner/9SHx31697622189.png', '#', 'top', 1, NULL, 'Free Shipping Over Order $120', 'Shop Women', 'View Discounts', '#', 'left', 'RWgJO1697622189', 3, '2023-10-18 07:43:09', '2023-10-19 01:32:09'),
+(9, 2, 'banner/MCMLZ1697622229.png', '#', 'top', 1, NULL, 'Leather Saddle Bag Style', 'Free Shipping Over Order $120', 'View Discount', '#', 'left', 'yBmKG1697622229', 4, '2023-10-18 07:43:49', '2023-10-19 01:32:09'),
+(10, 2, 'banner/mTZIQ1697622413.png', '#', 'middle', 1, NULL, 'Up to 25% Off Order Now', 'Pick Your Items', 'Shop Now', '#', 'left', 'X01JQ1697622413', 6, '2023-10-18 07:46:53', '2023-10-19 01:32:09'),
+(11, 2, 'banner/WQIxE1697622489.png', '#', 'middle', 1, NULL, 'Up to 35% Off Order Now', 'Special offer', 'Shop Now', '#', 'left', 'rlaNY1697622489', 7, '2023-10-18 07:48:09', '2023-10-19 01:32:09'),
+(12, 2, 'banner/dzNRv1697623027.png', '#', 'bottom', 1, NULL, 'Need Winter Boots?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation', 'Shop Now', '#', 'left', 'TrkZB1697623027', 5, '2023-10-18 07:57:07', '2023-10-19 01:32:09');
 
 -- --------------------------------------------------------
 
@@ -133,7 +141,9 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `category_id`, `image`, `title`, `short_description`, `description`, `tags`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'blogImages/KgOav1692591442.jpg', 'Test Title', 'Test Description', '<p>Test Full Description Test Full Description Test Full Description Test Full Description Test Full Description</p>', 'samsung, mobile', 'test-title1692591442', 1, '2023-08-21 04:17:22', NULL);
+(2, 3, 'blogImages/JRl7i1697623059.png', 'Fashion Trends In 2021 Styles, Colors, Accessories', NULL, NULL, NULL, 'fashion-trends-in-2021-styles-colors-accessories1697623059', 1, '2023-10-18 07:57:39', NULL),
+(3, 2, 'blogImages/qje301697623144.png', 'Lauryn Hill Could Make Tulle Skirt and Cowboy', NULL, NULL, NULL, 'lauryn-hill-could-make-tulle-skirt-and-cowboy1697623144', 1, '2023-10-18 07:59:04', NULL),
+(4, 4, 'blogImages/HIFbw1697623177.png', 'Fashion Trends In 2021 Styles, Colors, Accessories', NULL, NULL, NULL, 'fashion-trends-in-2021-styles-colors-accessories1697623177', 1, '2023-10-18 07:59:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -157,7 +167,9 @@ CREATE TABLE `blog_categories` (
 --
 
 INSERT INTO `blog_categories` (`id`, `name`, `slug`, `status`, `featured`, `serial`, `created_at`, `updated_at`) VALUES
-(1, 'Test', 'test1692591412', 1, 0, 1, '2023-08-21 04:16:52', NULL);
+(2, 'A', 'a1697622668', 1, 1, 1, '2023-10-18 07:51:08', '2023-10-18 07:51:36'),
+(3, 'B', 'b1697622676', 1, 1, 1, '2023-10-18 07:51:16', '2023-10-18 07:51:47'),
+(4, 'C', 'c1697622682', 1, 1, 1, '2023-10-18 07:51:22', '2023-10-18 07:52:12');
 
 -- --------------------------------------------------------
 
@@ -183,19 +195,27 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `featured`, `status`, `serial`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Apple', 'brand_images/q9Fcn1689771547.png', 'brand_images/S41ev1689507708.jpg', 1, 1, 1, 'apple', '2023-06-05 04:20:25', '2023-07-23 05:57:32'),
-(2, 'Samsung', 'brand_images/B2Vun1689503322.png', 'brand_images/oPYOC1689572452.jpg', 1, 1, 2, 'samsung', '2023-06-05 04:20:37', '2023-07-23 05:57:32'),
-(3, 'Xiaomi', 'brand_images/r8uyu1687254365.png', 'brand_images/2E8fq1689509240.jpg', 1, 1, 3, 'xiaomi', '2023-06-05 04:20:45', '2023-07-23 05:57:32'),
-(4, 'Infinix', 'brand_images/hZIRZ1687254231.png', 'brand_images/r6la71689509858.jpg', 1, 1, 5, 'infinix', '2023-06-07 14:59:58', '2023-07-23 05:57:32'),
-(5, 'OPPO', 'brand_images/e3XNq1689771912.png', 'brand_images/3D2G01689511079.jpg', 1, 1, 4, 'oppo', '2023-06-07 15:48:28', '2023-07-23 05:57:32'),
-(10, 'Realme', 'brand_images/zg8hn1689503104.png', 'brand_images/xo17Y1689511388.jpg', 1, 1, 6, 'realme', '2023-06-15 20:31:34', '2023-07-23 05:57:32'),
-(11, 'Walton', 'brand_images/q4bmO1687343696.jpg', 'brand_images/2kNqP1687343696.jpg', 1, 0, 1, 'walton', '2023-06-21 20:34:56', '2023-07-19 13:04:01'),
-(12, 'Google', 'brand_images/XoC4n1689503035.png', 'brand_images/1pjkC1689572468.jpg', 1, 1, 7, 'google', '2023-07-16 13:32:57', '2023-07-23 05:57:32'),
-(13, 'Vivo', 'brand_images/2zMGI1689771903.png', NULL, 1, 1, 8, 'vivo', '2023-07-19 11:10:36', '2023-07-23 05:57:32'),
-(14, 'Tecno', 'brand_images/SAx4d1689771898.png', NULL, 1, 1, 9, 'tecno', '2023-07-19 11:11:16', '2023-07-23 05:57:32'),
-(15, 'OnePlus', 'brand_images/4jph81689771891.png', NULL, 1, 1, 10, 'oneplus', '2023-07-19 11:12:36', '2023-07-23 05:57:32'),
-(16, 'Motorola', 'brand_images/ZJH5l1689771885.png', NULL, 0, 1, 11, 'motorola', '2023-07-19 11:13:02', '2023-10-09 08:06:21'),
-(17, 'Nokia', 'brand_images/0MsOT1689771653.png', NULL, 1, 1, 12, 'nokia', '2023-07-19 11:14:06', '2023-07-23 05:57:32');
+(1, 'Apple', 'brand_images/q9Fcn1689771547.png', 'brand_images/S41ev1689507708.jpg', 0, 0, 1, 'apple', '2023-06-05 04:20:25', '2023-10-18 08:45:03'),
+(2, 'Samsung', 'brand_images/B2Vun1689503322.png', 'brand_images/oPYOC1689572452.jpg', 0, 0, 2, 'samsung', '2023-06-05 04:20:37', '2023-10-18 08:45:22'),
+(3, 'Xiaomi', 'brand_images/r8uyu1687254365.png', 'brand_images/2E8fq1689509240.jpg', 0, 0, 3, 'xiaomi', '2023-06-05 04:20:45', '2023-10-18 08:45:39'),
+(4, 'Infinix', 'brand_images/hZIRZ1687254231.png', 'brand_images/r6la71689509858.jpg', 0, 0, 5, 'infinix', '2023-06-07 14:59:58', '2023-10-18 08:46:53'),
+(5, 'OPPO', 'brand_images/e3XNq1689771912.png', 'brand_images/3D2G01689511079.jpg', 0, 0, 4, 'oppo', '2023-06-07 15:48:28', '2023-10-18 08:46:29'),
+(10, 'Realme', 'brand_images/zg8hn1689503104.png', 'brand_images/xo17Y1689511388.jpg', 0, 0, 6, 'realme', '2023-06-15 20:31:34', '2023-10-18 08:47:14'),
+(11, 'Walton', 'brand_images/q4bmO1687343696.jpg', 'brand_images/2kNqP1687343696.jpg', 0, 0, 1, 'walton', '2023-06-21 20:34:56', '2023-10-18 08:44:32'),
+(12, 'Google', 'brand_images/XoC4n1689503035.png', 'brand_images/1pjkC1689572468.jpg', 0, 0, 7, 'google', '2023-07-16 13:32:57', '2023-10-18 08:47:35'),
+(13, 'Vivo', 'brand_images/2zMGI1689771903.png', NULL, 0, 0, 8, 'vivo', '2023-07-19 11:10:36', '2023-10-18 08:47:50'),
+(14, 'Tecno', 'brand_images/SAx4d1689771898.png', NULL, 1, 1, 9, 'tecno', '2023-07-19 11:11:16', '2023-10-18 08:51:12'),
+(15, 'OnePlus', 'brand_images/4jph81689771891.png', NULL, 1, 1, 10, 'oneplus', '2023-07-19 11:12:36', '2023-10-18 08:51:12'),
+(16, 'Motorola', 'brand_images/ZJH5l1689771885.png', NULL, 0, 1, 11, 'motorola', '2023-07-19 11:13:02', '2023-10-18 08:51:12'),
+(17, 'Nokia', 'brand_images/0MsOT1689771653.png', NULL, 1, 1, 12, 'nokia', '2023-07-19 11:14:06', '2023-10-18 08:51:12'),
+(18, 'Jacket', NULL, NULL, 1, 1, 1, 'jacket', '2023-10-18 08:44:12', '2023-10-18 08:51:12'),
+(19, 'Women', NULL, NULL, 0, 1, 2, 'women', '2023-10-18 08:48:06', '2023-10-18 08:51:12'),
+(20, 'Oversize', NULL, NULL, 0, 1, 3, 'oversize', '2023-10-18 08:48:20', '2023-10-18 08:51:12'),
+(21, 'Cottom', NULL, NULL, 0, 1, 4, 'cottom', '2023-10-18 08:48:39', '2023-10-18 08:51:12'),
+(22, 'Shoulder', NULL, NULL, 0, 1, 5, 'shoulder', '2023-10-18 08:48:50', '2023-10-18 08:51:12'),
+(23, 'Winter', NULL, NULL, 0, 1, 6, 'winter', '2023-10-18 08:49:14', '2023-10-18 08:51:12'),
+(24, 'Accessories', NULL, NULL, 0, 1, 7, 'accessories', '2023-10-18 08:49:18', '2023-10-18 08:51:12'),
+(25, 'Dress', NULL, NULL, 0, 1, 8, 'dress', '2023-10-18 08:49:28', '2023-10-18 08:51:12');
 
 -- --------------------------------------------------------
 
@@ -208,6 +228,7 @@ CREATE TABLE `carts` (
   `user_unique_cart_no` varchar(255) NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `color_id` int(11) DEFAULT NULL COMMENT 'Variant',
+  `size_id` int(11) DEFAULT NULL,
   `region_id` int(11) DEFAULT NULL COMMENT 'Variant',
   `sim_id` int(11) DEFAULT NULL COMMENT 'Variant',
   `storage_id` int(11) DEFAULT NULL COMMENT 'Variant',
@@ -225,8 +246,8 @@ CREATE TABLE `carts` (
 -- Dumping data for table `carts`
 --
 
-INSERT INTO `carts` (`id`, `user_unique_cart_no`, `product_id`, `color_id`, `region_id`, `sim_id`, `storage_id`, `warrenty_id`, `device_condition_id`, `unit_id`, `qty`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
-(52, '1681588608321', 1, 2, 2, 2, 2, 2, 2, 1, 2, 200, 400, '2023-08-02 04:09:38', NULL);
+INSERT INTO `carts` (`id`, `user_unique_cart_no`, `product_id`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_id`, `warrenty_id`, `device_condition_id`, `unit_id`, `qty`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
+(52, '1681588608321', 1, 2, NULL, 2, 2, 2, 2, 2, 1, 2, 200, 400, '2023-08-02 04:09:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -253,12 +274,10 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`, `featured`, `serial`, `created_at`, `updated_at`) VALUES
 (1, 'Phone & Tablet', 'category_images/05LN21689766002.png', NULL, 'phone-tablet', 1, 1, 1, '2023-06-05 03:22:01', '2023-07-19 11:34:03'),
-(2, 'Laptop & Desktop', 'category_images/qG2W91689766235.jpg', NULL, 'laptop-desktop', 0, 1, 4, '2023-06-05 03:22:09', '2023-07-19 12:18:11'),
-(3, 'Sound Equipments', 'category_images/wVxHd1689766347.jpg', NULL, 'sound-equipments', 0, 1, 7, '2023-06-05 03:22:17', '2023-07-19 12:18:17'),
-(4, 'Accessories', 'category_images/HAtOO1689766271.jpg', NULL, 'accessories', 0, 1, 5, '2023-06-05 03:22:23', '2023-07-19 12:20:47'),
-(5, 'Fitness & Wearable', 'category_images/UnRud1689766299.jpg', NULL, 'fitness-wearable', 0, 1, 6, '2023-06-05 03:22:36', '2023-07-19 12:21:02'),
-(6, 'Cover & Protector', 'category_images/HmrwN1689766390.png', NULL, 'cover-protector', 0, 1, 8, '2023-06-05 03:22:41', '2023-07-19 12:20:55'),
-(8, 'TV', 'category_images/32dE81689766081.jpg', 'category_images/7DFTU1687342915.jpg', 'tv', 0, 1, 2, '2023-06-21 20:21:55', '2023-07-19 12:18:17');
+(10, 'Denim Jacket', 'category_images/sdhde1697625305.png', NULL, 'denim-jacket', 1, 0, 1, '2023-10-18 08:33:22', '2023-10-18 08:35:05'),
+(11, 'Oversize Cotton', 'category_images/6yyC91697625373.png', NULL, 'oversize-cotton', 1, 0, 1, '2023-10-18 08:36:13', NULL),
+(12, 'Dairy & chesse', 'category_images/kIkYT1697625398.png', NULL, 'dairy-chesse', 1, 0, 1, '2023-10-18 08:36:38', NULL),
+(13, 'Shoulder Bag', 'category_images/W0jso1697625429.png', NULL, 'shoulder-bag', 1, 0, 1, '2023-10-18 08:37:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -661,8 +680,7 @@ CREATE TABLE `email_configures` (
 --
 
 INSERT INTO `email_configures` (`id`, `host`, `port`, `email`, `password`, `mail_from_name`, `mail_from_email`, `encryption`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(4, 'asdasd', 213, 'asdasd', 'hOZkIn9x', 'asdasd', NULL, 2, '16865404242KaxD', 0, '2023-06-12 03:27:04', '2023-06-12 03:42:01'),
-(5, 'smtp.gmail.com', 587, 'alifhossain174@gmail.com', 'xL42dz8hrPa30NFf+Dhr/g==', 'Bestu', 'bestu@gmail.com', 1, '168654136346TAW', 1, '2023-06-12 03:42:43', '2023-06-12 03:58:12');
+(6, 'smtp.gmail.com', 587, 'getupadgency@gmail.com', 'qrRFO6vSKj6Otuq3XBPp1do=', 'Getup', 'getupadgency@gmail.com', 1, '1697948605aqOMD', 1, '2023-10-22 04:23:25', '2023-10-22 04:33:50');
 
 -- --------------------------------------------------------
 
@@ -732,9 +750,9 @@ CREATE TABLE `flags` (
 --
 
 INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `created_at`, `updated_at`) VALUES
-(6, NULL, 'Featured', 1, 0, 'featured-q05Xt-1697604619', '2023-10-18 04:50:19', NULL),
-(7, NULL, 'Trending', 1, 0, 'trending-oHJN2-1697604626', '2023-10-18 04:50:26', NULL),
-(8, NULL, 'New Arrival', 1, 0, 'new-arrival-2lpLH-1697604635', '2023-10-18 04:50:35', NULL);
+(6, NULL, 'Featured', 1, 1, 'featured-q05Xt-1697604619', '2023-10-18 04:50:19', '2023-10-18 08:41:25'),
+(7, NULL, 'Trending', 1, 1, 'trending-oHJN2-1697604626', '2023-10-18 04:50:26', '2023-10-18 08:41:22'),
+(8, NULL, 'New Arrival', 1, 1, 'new-arrival-2lpLH-1697604635', '2023-10-18 04:50:35', '2023-10-18 08:41:19');
 
 -- --------------------------------------------------------
 
@@ -792,7 +810,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `footer_copyright_text`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `custom_css`, `custom_js`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `google_analytic_status`, `google_analytic_tracking_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/W5wDp1696503884.svg', 'company_logo/hmuY01696236480.png', 'company_logo/vJ4jW1696243530.png', 'TechShop', 'TechShop', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '01969005035', 'admin@gmail.com', 'Flat #B4, House No: 71, Road: 27, Dhaka 1212', 'https://goo.gl/maps/9AmJHeTmbu2JKrzeA', '2023 © TechShop', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(myAsset);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2023-10-18 08:12:00');
+(1, 'company_logo/msNrd1697620395.png', 'company_logo/1oSnf1697620395.png', 'company_logo/vJ4jW1696243530.png', 'Fashionista', 'Fashionista', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '+01234-567890,+01234-5688765', 'demo@gmail.com,info@example.com', '123 Stree New York City , United States Of America NY 750065', 'https://www.google.com/maps/dir//U.S.+Embassy,+London+33+Nine+Elms+Ln+Nine+Elms,+London+SW11+7US+United+Kingdom/@51.4825655,-0.1322369,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48760532743b90e1:0x790260718555a20c!2m2!1d-0.1322369!2d51.4825655?entry=ttu', '© 2022 FashionIsta', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2023-10-18 07:17:57');
 
 -- --------------------------------------------------------
 
@@ -890,7 +908,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (90, '2023_10_05_111305_create_google_recaptchas_table', 42),
 (92, '2023_10_05_114505_create_social_logins_table', 43),
 (93, '2023_04_13_002226_create_banners_table', 44),
-(94, '2023_10_18_135527_create_about_us_table', 45);
+(94, '2023_10_18_135527_create_about_us_table', 45),
+(95, '2023_10_22_122627_create_product_sizes_table', 46);
 
 -- --------------------------------------------------------
 
@@ -960,7 +979,7 @@ INSERT INTO `orders` (`id`, `order_no`, `user_id`, `order_date`, `estimated_dd`,
 (10, '1689673103748', 35, '2023-07-18 15:38:23', '2023-07-25', NULL, '', NULL, 0, '1689673103rmIKt', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'DEQEA1689673103', 0, '2023-07-18 09:38:23', NULL),
 (11, '1689673132520', 35, '2023-07-18 15:38:52', '2023-07-25', NULL, '', NULL, 0, '16896731327Tg9B', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'Jvwqy1689673132', 0, '2023-07-18 09:38:52', NULL),
 (12, '1689673273174', 35, '2023-07-18 15:41:13', '2023-07-25', NULL, '', NULL, 0, '1689673273XAEC3', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '4xRod1689673273', 0, '2023-07-18 09:41:13', NULL),
-(13, '1690345802546', NULL, '2023-07-26 10:30:02', '2023-08-02', NULL, NULL, NULL, 0, '1690345802FMqFF', NULL, 1, 400, '1YUIFWW', 0, 0, 0, 0, 400, NULL, NULL, 'zUUxH1690345802', 0, '2023-07-26 04:30:02', '2023-08-06 08:15:39');
+(13, '1690345802546', NULL, '2023-07-26 10:30:02', '2023-08-02', NULL, NULL, NULL, 0, '1690345802FMqFF', NULL, 2, 400, '1YUIFWW', 0, 0, 0, 0, 400, NULL, NULL, 'zUUxH1690345802', 0, '2023-07-26 04:30:02', '2023-10-22 08:14:45');
 
 -- --------------------------------------------------------
 
@@ -973,6 +992,7 @@ CREATE TABLE `order_details` (
   `order_id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `color_id` int(11) DEFAULT NULL COMMENT 'Variant',
+  `size_id` int(11) DEFAULT NULL COMMENT 'Variant',
   `region_id` int(11) DEFAULT NULL COMMENT 'Variant',
   `sim_id` int(11) DEFAULT NULL COMMENT 'Variant',
   `storage_id` int(11) DEFAULT NULL COMMENT 'Variant',
@@ -990,15 +1010,15 @@ CREATE TABLE `order_details` (
 -- Dumping data for table `order_details`
 --
 
-INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `color_id`, `region_id`, `sim_id`, `storage_id`, `warrenty_id`, `device_condition_id`, `unit_id`, `qty`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 5, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-17 23:49:13', NULL),
-(2, 1, 2, 0, 0, 0, 0, 1, 0, 0, 1, 19500, 19500, '2023-07-17 23:49:13', NULL),
-(3, 2, 1, 5, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 06:12:27', NULL),
-(4, 3, 1, 5, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 06:25:52', NULL),
-(5, 6, 1, 5, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 08:34:22', NULL),
-(6, 9, 1, 5, 226, 2, 2, 1, 1, 0, 2, 115000, 230000, '2023-07-18 08:54:41', NULL),
-(7, 9, 1, 1, 226, 4, 2, 1, 1, 0, 3, 105000, 315000, '2023-07-18 08:54:41', NULL),
-(8, 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 200, 200, '2023-07-26 04:30:02', NULL);
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_id`, `warrenty_id`, `device_condition_id`, `unit_id`, `qty`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-17 23:49:13', NULL),
+(2, 1, 2, 0, NULL, 0, 0, 0, 1, 0, 0, 1, 19500, 19500, '2023-07-17 23:49:13', NULL),
+(3, 2, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 06:12:27', NULL),
+(4, 3, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 06:25:52', NULL),
+(5, 6, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 08:34:22', NULL),
+(6, 9, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 2, 115000, 230000, '2023-07-18 08:54:41', NULL),
+(7, 9, 1, 1, NULL, 226, 4, 2, 1, 1, 0, 3, 105000, 315000, '2023-07-18 08:54:41', NULL),
+(8, 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 200, 200, '2023-07-26 04:30:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -1070,7 +1090,8 @@ INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `u
 (11, 11, 0, '2023-07-18 09:38:52', NULL),
 (12, 12, 0, '2023-07-18 09:41:13', NULL),
 (13, 13, 0, '2023-07-26 04:30:02', NULL),
-(14, 13, 1, '2023-08-06 08:15:39', NULL);
+(14, 13, 1, '2023-08-06 08:15:39', NULL),
+(15, 13, 2, '2023-10-22 08:14:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -1108,7 +1129,7 @@ CREATE TABLE `payment_gateways` (
 --
 
 INSERT INTO `payment_gateways` (`id`, `provider_name`, `api_key`, `secret_key`, `username`, `password`, `live`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'ssl_commerz', 'sodai644d7015e8eb1', 'sodai644d7015e8eb1@ssl', 'alifhossain174', '12345678', 1, 0, NULL, '2023-07-19 06:08:50'),
+(1, 'ssl_commerz', 'sodai644d7015e8eb1', 'sodai644d7015e8eb1@ssl', 'alifhossain174', '12345678', 1, 1, NULL, '2023-10-18 08:16:01'),
 (2, 'stripe', '98798796546', 'ASDFGHJKLERTYUI', 'test_username', 'test_password', 1, 0, NULL, '2023-06-19 05:19:05'),
 (3, 'bkash', '654654654', 'ZWvNGXXPHOYhR', 'bkash_test_user', '85747bkash', 1, 0, NULL, '2023-10-11 05:00:38'),
 (4, 'amar_pay', '654654654', 'ZWvNGXXPHOYhR', 'amar_pay_test_user', '85747amar_pay', 1, 1, NULL, '2023-10-11 04:57:30');
@@ -1458,179 +1479,15 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `created_at`, `updated_at`) VALUES
-(1, 'App\\Models\\User', 18, 'Bestu', '182541c1140128b7dac6e630c5fcd2c822314bf98c8e23d99d268e9506bc3f47', '[\"*\"]', NULL, '2023-06-08 16:15:36', '2023-06-08 16:15:36'),
-(2, 'App\\Models\\User', 18, 'Bestu', '9957edbf4cafff78f7bf840378ea94e02afbe816a32132ea2378204e38a0b9c1', '[\"*\"]', NULL, '2023-06-08 16:45:46', '2023-06-08 16:45:46'),
-(3, 'App\\Models\\User', 18, 'Bestu', '8277b71c99e5de541d66dfff0f33d402f4cd8e933b48d00e8494ee25b0012d89', '[\"*\"]', NULL, '2023-06-08 17:31:47', '2023-06-08 17:31:47'),
-(4, 'App\\Models\\User', 18, 'Bestu', 'c0c0dfc965fdfd6ed1fad312491d189ed56b3d412b4c6529ab67998f463acc11', '[\"*\"]', NULL, '2023-06-08 17:33:05', '2023-06-08 17:33:05'),
-(5, 'App\\Models\\User', 18, 'Bestu', '5c232e4d071afa57c8bb230f359c0240cfc87766aaca6d7cfab96bad00f50957', '[\"*\"]', NULL, '2023-06-08 17:33:34', '2023-06-08 17:33:34'),
-(6, 'App\\Models\\User', 18, 'Bestu', 'ac148be70c58ab38e363d264aeec42ad0fa159e998cd61239d3b0104a36bfcaa', '[\"*\"]', NULL, '2023-06-08 18:35:37', '2023-06-08 18:35:37'),
-(7, 'App\\Models\\User', 18, 'Bestu', '0fdee69105a68eb4b263288a8bb446c1de325ff4e4d8d48c8433abb4927b70e8', '[\"*\"]', NULL, '2023-06-08 18:35:47', '2023-06-08 18:35:47'),
-(8, 'App\\Models\\User', 18, 'Bestu', '5c71e0f00dab6fc4151c3b05f6f405e5be9783946970edfe1f8ace9843f7fe27', '[\"*\"]', NULL, '2023-06-08 18:44:29', '2023-06-08 18:44:29'),
-(9, 'App\\Models\\User', 18, 'Bestu', 'ad3d5a1a2c74cd841b1b47da5ec45aaec5cb99a24fcdba9517a36d6db4a6581b', '[\"*\"]', NULL, '2023-06-08 18:44:35', '2023-06-08 18:44:35'),
-(10, 'App\\Models\\User', 18, 'Bestu', '43141211b33accd9f6bc7a1fd38c519a3651661c701e65ecb24e62c12e482ace', '[\"*\"]', NULL, '2023-06-08 19:52:50', '2023-06-08 19:52:50'),
-(11, 'App\\Models\\User', 18, 'Bestu', '185bb3598afe862bca13351fa74a8b49e386ed6119825861600aed759c919f06', '[\"*\"]', NULL, '2023-06-08 19:53:43', '2023-06-08 19:53:43'),
-(12, 'App\\Models\\User', 18, 'Bestu', '2063572878373821302723bb766708a14b3a0d89afe8c7746f5ab01179506235', '[\"*\"]', NULL, '2023-06-08 19:54:48', '2023-06-08 19:54:48'),
-(13, 'App\\Models\\User', 18, 'Bestu', 'a8561af158c4d0c2d602f6ddbf306a6cc9946550d8170746e020af7b2923a4c1', '[\"*\"]', NULL, '2023-06-08 19:54:51', '2023-06-08 19:54:51'),
-(14, 'App\\Models\\User', 18, 'Bestu', 'ff76df410e65614bff616f846fbea311475b4bce5744ee5b5a5f22b671e24713', '[\"*\"]', NULL, '2023-06-08 19:55:14', '2023-06-08 19:55:14'),
-(15, 'App\\Models\\User', 18, 'Bestu', '43f2d65baf95cc9d82fa36f4651699dc6de126dad2f23fbca419347e7b90edef', '[\"*\"]', NULL, '2023-06-08 19:55:51', '2023-06-08 19:55:51'),
-(16, 'App\\Models\\User', 18, 'Bestu', '19f06fd122b4dba71760a9541680c8e7e7561792b186b77b8cadb78814a4a5f1', '[\"*\"]', NULL, '2023-06-08 19:57:54', '2023-06-08 19:57:54'),
-(17, 'App\\Models\\User', 18, 'Bestu', 'bd5531bdb43bf064b30a167c6722ebc85bbb3e88cb21ce07e3b5bc1cb17a368c', '[\"*\"]', NULL, '2023-06-08 19:58:47', '2023-06-08 19:58:47'),
-(18, 'App\\Models\\User', 18, 'Bestu', '33d67873c7a7b0eda8d7c0a591a97b94b98dcbfde559b776f35ee3d027166d0f', '[\"*\"]', NULL, '2023-06-08 20:05:47', '2023-06-08 20:05:47'),
-(19, 'App\\Models\\User', 18, 'Bestu', '7c57d2b3bfeff7d7a4d13d583d64854c9cdcaddaec0861d3d65927d8eaa3b520', '[\"*\"]', NULL, '2023-06-08 20:06:57', '2023-06-08 20:06:57'),
-(20, 'App\\Models\\User', 18, 'Bestu', '7e1790eec8d2a87ff271924d797663e834cfa38b3e52771c4ff7a4a46c9d0bdd', '[\"*\"]', NULL, '2023-06-08 20:13:42', '2023-06-08 20:13:42'),
-(21, 'App\\Models\\User', 18, 'Bestu', 'ea4214713acb5843782baaf05a3c890f027721fd7b256dcd82357039380a7d91', '[\"*\"]', NULL, '2023-06-08 20:23:47', '2023-06-08 20:23:47'),
-(22, 'App\\Models\\User', 18, 'Bestu', '8ea4f8dfe4225a92baddbad9547a23c52e62dff35f20777369e23a4ddfed5c2a', '[\"*\"]', NULL, '2023-06-08 20:24:47', '2023-06-08 20:24:47'),
-(23, 'App\\Models\\User', 23, 'Bestu', 'f4209be11c0c01efbf207488e56997d225a6d7b385c929c8f077206bb4dc5d3b', '[\"*\"]', NULL, '2023-06-18 21:29:25', '2023-06-18 21:29:25'),
-(24, 'App\\Models\\User', 23, 'Bestu', '8253db1f284d762b783bb7e57158414f4c31164222a638edc9babeb560012a04', '[\"*\"]', NULL, '2023-06-18 21:29:33', '2023-06-18 21:29:33'),
-(25, 'App\\Models\\User', 23, 'Bestu', '2fd8a0cc0ee16d42bc20270ccc6b9349035319db33454d2f53967e24351df873', '[\"*\"]', NULL, '2023-06-18 21:29:44', '2023-06-18 21:29:44'),
-(26, 'App\\Models\\User', 23, 'Bestu', 'e386668f4ca6e9cdd0a3cc0b1c43b91f7dfaae8437f4de13242b4dbdd0881648', '[\"*\"]', NULL, '2023-06-18 21:30:23', '2023-06-18 21:30:23'),
-(27, 'App\\Models\\User', 23, 'Bestu', 'e10cedd71b39ce22e490e03e1613977f8a99f2535d1901b0252c7a6ea4b98bc1', '[\"*\"]', NULL, '2023-06-18 21:31:17', '2023-06-18 21:31:17'),
-(28, 'App\\Models\\User', 23, 'Bestu', '4419104d916b9024df511fab62355ed6cb029bd1528a2433466d9a1ed5df27e8', '[\"*\"]', NULL, '2023-06-18 21:31:54', '2023-06-18 21:31:54'),
-(29, 'App\\Models\\User', 23, 'Bestu', 'e62b9ac2ba6e3ce9c5663139297e5282a1fba824bd22ef9f276e66db4b267594', '[\"*\"]', NULL, '2023-06-18 21:32:44', '2023-06-18 21:32:44'),
-(30, 'App\\Models\\User', 23, 'Bestu', 'f56b5d5fb3d726ca1356b17bef049b5d68bf728c6d6631795a390c4045f0c629', '[\"*\"]', NULL, '2023-06-18 21:32:54', '2023-06-18 21:32:54'),
-(31, 'App\\Models\\User', 23, 'Bestu', '4301777fae120764ae56bc83bf88bbb7770e093f73c11402866cb7af81a02a7f', '[\"*\"]', NULL, '2023-06-18 21:33:50', '2023-06-18 21:33:50'),
-(32, 'App\\Models\\User', 23, 'Bestu', '92284818c41150bd2ff7952efc7bc170c720ec7edfce4ebeb8a95048f67e0118', '[\"*\"]', NULL, '2023-06-18 21:34:39', '2023-06-18 21:34:39'),
-(33, 'App\\Models\\User', 23, 'Bestu', 'df4e210b421bb2d09a9b66e89cef2585cd4c5620496ff6ffe5aa2a9b5075c8df', '[\"*\"]', NULL, '2023-06-18 21:35:43', '2023-06-18 21:35:43'),
-(34, 'App\\Models\\User', 24, 'Bestu', '7add3db393d246be2c107be08d4881aee3bc0c0bf5c1ce0bd62a0317570ddb6f', '[\"*\"]', NULL, '2023-06-18 21:54:35', '2023-06-18 21:54:35'),
-(35, 'App\\Models\\User', 23, 'Bestu', 'aaa25710b743b4d4c7f1bde51616ec07e8269e5c04216e5cdc6b90d3f87c6e14', '[\"*\"]', NULL, '2023-06-18 22:04:32', '2023-06-18 22:04:32'),
-(36, 'App\\Models\\User', 23, 'Bestu', 'c7ffb4340671759c337afcf49fcb1db44b69f7e09bdb8ba9f0f0c3c4b796d484', '[\"*\"]', NULL, '2023-06-18 22:06:01', '2023-06-18 22:06:01'),
-(37, 'App\\Models\\User', 23, 'Bestu', '2640381431d1c92d620c3996ff686005a0e18b1224b553a345ffaf95b07348a0', '[\"*\"]', NULL, '2023-06-18 22:08:21', '2023-06-18 22:08:21'),
-(38, 'App\\Models\\User', 23, 'Bestu', 'c432f5eba42713bc3652965f655bbd62e59976c6ec5768df79fb937a57015330', '[\"*\"]', NULL, '2023-06-18 22:10:08', '2023-06-18 22:10:08'),
-(39, 'App\\Models\\User', 23, 'Bestu', '1277f240ee1401a5b11b077556b88391a52949dd239541e50d0cd2d603ddffef', '[\"*\"]', NULL, '2023-06-18 22:14:38', '2023-06-18 22:14:38'),
-(40, 'App\\Models\\User', 23, 'Bestu', '0c957ded83f4667833cd67ce76b7f9c5b072d6174eae9b8793b0b23287719dc3', '[\"*\"]', NULL, '2023-06-18 22:16:18', '2023-06-18 22:16:18'),
-(41, 'App\\Models\\User', 23, 'Bestu', '8520fd3967b15d7e1f2253848359907f2a7a0a2e9344190a0774f1c13254e7e7', '[\"*\"]', NULL, '2023-06-18 22:17:50', '2023-06-18 22:17:50'),
-(42, 'App\\Models\\User', 23, 'Bestu', 'f865b089e1927e9bef8c05a3f59853c3ce8bc7c9acfe80a73e5699f2e30cccd1', '[\"*\"]', NULL, '2023-06-19 13:59:07', '2023-06-19 13:59:07'),
-(43, 'App\\Models\\User', 23, 'Bestu', 'da10e56b1c3cf796a84b76d1c9c062e4e54cfd6aad49fc2f1b56d9bf080fa4ee', '[\"*\"]', NULL, '2023-06-19 14:02:08', '2023-06-19 14:02:08'),
-(44, 'App\\Models\\User', 23, 'Bestu', 'cc7384c68643c474ff7703d97ca3e618c3764850f28593735aec3479a6fc7445', '[\"*\"]', NULL, '2023-06-19 14:03:48', '2023-06-19 14:03:48'),
-(45, 'App\\Models\\User', 23, 'Bestu', '846ea5ce65dbd32b7aa867342aed5156f1eb16c2ccdc058351ada130f28983ac', '[\"*\"]', NULL, '2023-06-19 14:07:10', '2023-06-19 14:07:10'),
-(46, 'App\\Models\\User', 23, 'Bestu', 'fa7bb0520854216b1938b286c70741532f58cb4e716b1ebb81b0ca6c75436404', '[\"*\"]', NULL, '2023-06-19 14:08:05', '2023-06-19 14:08:05'),
-(47, 'App\\Models\\User', 23, 'Bestu', '054d45cfa6fd42d84bb7993eefa893f820b954bf754076fe72d92e7f5faf5eb9', '[\"*\"]', NULL, '2023-06-19 14:11:28', '2023-06-19 14:11:28'),
-(48, 'App\\Models\\User', 23, 'Bestu', '217ad8f7a4f73bc87b37b8d88a023af64c8a32f3ca8d9d4c09e072582113b957', '[\"*\"]', NULL, '2023-06-19 14:33:17', '2023-06-19 14:33:17'),
-(49, 'App\\Models\\User', 23, 'Bestu', 'dac6803300a6b79e3a19f98bd5755c4bc1483f377e6fc1a0568f56d1a5d26e1e', '[\"*\"]', NULL, '2023-06-19 14:54:57', '2023-06-19 14:54:57'),
-(50, 'App\\Models\\User', 24, 'Bestu', 'd90608d89be0abff09b4c1c389938097e43f359c1a461f0032709a131806c10a', '[\"*\"]', NULL, '2023-06-19 15:06:27', '2023-06-19 15:06:27'),
-(51, 'App\\Models\\User', 24, 'Bestu', 'e9a4e96e3610a198f15ef7777202103c888609bd8409df143483484c3ece25cb', '[\"*\"]', NULL, '2023-06-19 15:08:52', '2023-06-19 15:08:52'),
-(52, 'App\\Models\\User', 23, 'Bestu', '1a92f6c240786a3b3cc1559f9720adeecd7b8c6441899c887dc5b9d4d04c5655', '[\"*\"]', NULL, '2023-06-19 15:16:29', '2023-06-19 15:16:29'),
-(53, 'App\\Models\\User', 23, 'Bestu', '8095783253c2ee3a07bb2c91926889f6a759042747df463b408473b00f53fbb6', '[\"*\"]', NULL, '2023-06-19 15:19:04', '2023-06-19 15:19:04'),
-(54, 'App\\Models\\User', 23, 'Bestu', '09c43bb300faf9abda040c6da21c037b93b45bf2f158a194e4f9bb9917896c19', '[\"*\"]', NULL, '2023-06-19 15:21:10', '2023-06-19 15:21:10'),
-(55, 'App\\Models\\User', 23, 'Bestu', 'b23c35db3dfaad4710f7a07a2fc9a41dcdc302ebad7c7762b6b9e097a5c14829', '[\"*\"]', NULL, '2023-06-19 15:22:36', '2023-06-19 15:22:36'),
-(56, 'App\\Models\\User', 23, 'Bestu', '1581ea3055d18bbc5976d8016afdc4e83a83c36d4178b0340ae8adea54a0db4b', '[\"*\"]', NULL, '2023-06-19 15:24:10', '2023-06-19 15:24:10'),
-(57, 'App\\Models\\User', 23, 'Bestu', 'ba270deef5c218be745a40e98b6d0cc5887a2a4ab74bf603ab45de6c83d57b16', '[\"*\"]', NULL, '2023-06-19 15:32:54', '2023-06-19 15:32:54'),
-(58, 'App\\Models\\User', 23, 'Bestu', '22eccc731f70bbb7682386cefa9eaae09ed3eafe65e760113fc1e3c994d692b9', '[\"*\"]', NULL, '2023-06-19 15:35:18', '2023-06-19 15:35:18'),
-(59, 'App\\Models\\User', 23, 'Bestu', 'bbcd720a3913aaa6e99f23573d02b4300ae40a72cd9623f3d3c2cf81a6185a74', '[\"*\"]', NULL, '2023-06-19 15:39:07', '2023-06-19 15:39:07'),
-(60, 'App\\Models\\User', 23, 'Bestu', '8aeac8410c45b707d13c42f71e5e47a740a9a8409c7901400d1533148ded03a0', '[\"*\"]', NULL, '2023-06-19 15:40:55', '2023-06-19 15:40:55'),
-(61, 'App\\Models\\User', 23, 'Bestu', 'e8b6675ad91c8d53818066ed16e9e0a7dbc6c62cd9fef38dbfeb19d717bdb910', '[\"*\"]', NULL, '2023-06-19 15:50:38', '2023-06-19 15:50:38'),
-(62, 'App\\Models\\User', 23, 'Bestu', '6430288c9f2a49bb38161102969a6a04e0cb2e87a3aa6fd71a43448b9f1c56b4', '[\"*\"]', NULL, '2023-06-19 15:50:51', '2023-06-19 15:50:51'),
-(63, 'App\\Models\\User', 23, 'Bestu', 'e3f08b86b5d620388b675aa5da820ddb82042a7577d993a78e7d53eaf00d1f52', '[\"*\"]', NULL, '2023-06-19 15:51:22', '2023-06-19 15:51:22'),
-(64, 'App\\Models\\User', 23, 'Bestu', '8e351426baf596a532e645d0b1ab85966a6619aca4abc1a2b7262f704824a6bd', '[\"*\"]', NULL, '2023-06-19 15:52:18', '2023-06-19 15:52:18'),
-(65, 'App\\Models\\User', 23, 'Bestu', '8d6e308c028331c1f74480ae3a995fe8277b30e491b878ac327c97a47a4d0488', '[\"*\"]', NULL, '2023-06-19 15:52:37', '2023-06-19 15:52:37'),
-(66, 'App\\Models\\User', 23, 'Bestu', 'e58af50c73af1eb3ad5cbebbb3b6fe27cb01103950fe3f490e7618b9cb5f91f4', '[\"*\"]', NULL, '2023-06-19 15:52:39', '2023-06-19 15:52:39'),
-(67, 'App\\Models\\User', 23, 'Bestu', '67611ea4fa5eda4764a5e11d3768a526cef225a987fe2acca4e0abba6a2c9ea3', '[\"*\"]', NULL, '2023-06-19 15:52:41', '2023-06-19 15:52:41'),
-(68, 'App\\Models\\User', 23, 'Bestu', '61f7616ae4c4e750310c741ae30f65c63f75f48885e0894bcdcf295d78d2ff45', '[\"*\"]', NULL, '2023-06-19 15:53:29', '2023-06-19 15:53:29'),
-(69, 'App\\Models\\User', 23, 'Bestu', '7cd8ccdbbca90be96064bd09cc87252dc6622495e6e934b2811ab27d91814d21', '[\"*\"]', NULL, '2023-06-19 15:53:53', '2023-06-19 15:53:53'),
-(70, 'App\\Models\\User', 23, 'Bestu', '845ac559f657c3012a1d2a9d83cec1bcedb9388dae5b0bc4dfdb0b2a82bad73c', '[\"*\"]', NULL, '2023-06-19 15:53:56', '2023-06-19 15:53:56'),
-(71, 'App\\Models\\User', 23, 'Bestu', '67c7ceb45e63430aa970e719470f253d99d861104460a0ec4b59e5176b2c4cdd', '[\"*\"]', NULL, '2023-06-19 15:53:56', '2023-06-19 15:53:56'),
-(72, 'App\\Models\\User', 23, 'Bestu', 'c8cd92bf76455c5c34c4ca759557723bf9c29380fc39eb0ab3142cbd785a77b0', '[\"*\"]', NULL, '2023-06-19 15:53:56', '2023-06-19 15:53:56'),
-(73, 'App\\Models\\User', 23, 'Bestu', '4173abc1dcb9557a40fd4972236441f1f3dd8e53328a5e17ec351e752971f27e', '[\"*\"]', NULL, '2023-06-19 15:53:57', '2023-06-19 15:53:57'),
-(74, 'App\\Models\\User', 23, 'Bestu', '374e3c64b052c2e814fbf0abcfde8cdfbf9c02061df118240da2a2307b53fb70', '[\"*\"]', NULL, '2023-06-19 15:53:57', '2023-06-19 15:53:57'),
-(75, 'App\\Models\\User', 23, 'Bestu', 'cd5d9218fc22216c2ced007ec15e95e1e8d22e09241e7bfa6d91b4c4fc60291f', '[\"*\"]', NULL, '2023-06-19 15:53:57', '2023-06-19 15:53:57'),
-(76, 'App\\Models\\User', 23, 'Bestu', '7036204adf51a489fdfd330a41f079e10535351e738a0f0a6aeb6635e733366b', '[\"*\"]', NULL, '2023-06-19 15:53:57', '2023-06-19 15:53:57'),
-(77, 'App\\Models\\User', 23, 'Bestu', 'bccb7636c5b6c8d96423f4bf4350ce040e4209d8c91611fa89cfa3bc3f8f05f9', '[\"*\"]', NULL, '2023-06-19 15:53:57', '2023-06-19 15:53:57'),
-(78, 'App\\Models\\User', 23, 'Bestu', 'b3392363a1c1d13434fa4be49031017d82a8a046a4510130f7eeddaff104a3fc', '[\"*\"]', NULL, '2023-06-19 15:53:57', '2023-06-19 15:53:57'),
-(79, 'App\\Models\\User', 23, 'Bestu', 'e491a801af51b0ed2627464a52305c19f748a34ed55af88aac347761c7e751a3', '[\"*\"]', NULL, '2023-06-19 15:56:13', '2023-06-19 15:56:13'),
-(80, 'App\\Models\\User', 23, 'Bestu', 'dd89e3c4194e4c55997e959ef768af2ea25206c3b806d0c0a7bf39b90cbb0027', '[\"*\"]', NULL, '2023-06-19 16:04:52', '2023-06-19 16:04:52'),
-(81, 'App\\Models\\User', 23, 'Bestu', '6082a226bcf746020f6e3d0e8205de890fc998831fb45f5b9b6809a4f1f2a338', '[\"*\"]', NULL, '2023-06-19 16:18:40', '2023-06-19 16:18:40'),
-(82, 'App\\Models\\User', 24, 'Bestu', 'bbb0db2cc7263f90020ff1a85a7b4711090a41a7b4a03b926fd3c11514adf3d1', '[\"*\"]', NULL, '2023-06-19 16:22:05', '2023-06-19 16:22:05'),
-(83, 'App\\Models\\User', 24, 'Bestu', '69b12a5d836cbc92ea4b104b731b0729f780a3cbb266b6913fa8a9e3322522bd', '[\"*\"]', NULL, '2023-06-19 16:32:05', '2023-06-19 16:32:05'),
-(84, 'App\\Models\\User', 23, 'Bestu', '2b50e4dcd6e6cc0d4c74d603e5d1e6235b4950c45769f6fe4ab86a03f99a0b1d', '[\"*\"]', NULL, '2023-06-19 16:40:32', '2023-06-19 16:40:32'),
-(85, 'App\\Models\\User', 23, 'Bestu', '893f3d69d80b475b7f3a72ed35d568e47b8bb4a9f1e20bd93f36e3f06d3fa2d5', '[\"*\"]', NULL, '2023-06-19 16:47:42', '2023-06-19 16:47:42'),
-(86, 'App\\Models\\User', 23, 'Bestu', 'cb3443b3fd69f036c927da52a45f62fae97494e55df338736c9ac5ca92bbd0c5', '[\"*\"]', NULL, '2023-06-19 16:58:40', '2023-06-19 16:58:40'),
-(87, 'App\\Models\\User', 23, 'Bestu', '7244e134e9df592d586d94b1c31baf7bb9c4695565774a2d2b8d26bc4326cb82', '[\"*\"]', NULL, '2023-06-19 17:00:19', '2023-06-19 17:00:19'),
-(88, 'App\\Models\\User', 24, 'Bestu', '306b3220a2196c768d332d50b83d525eaddc38f7a6d3d32d4d50bc4bcc0da3e6', '[\"*\"]', '2023-07-03 13:35:01', '2023-06-19 17:24:51', '2023-07-03 13:35:01'),
-(89, 'App\\Models\\User', 23, 'Bestu', 'ded53eafd243aa8f9d570d849d8b8e4289f554eeb3d8686b804e2d495e692f93', '[\"*\"]', NULL, '2023-06-26 06:17:07', '2023-06-26 06:17:07'),
-(90, 'App\\Models\\User', 23, 'Bestu', 'c6cf53800170f3f41b912485a4ed1fe2909da825db0ad179854325ce5dbf7fbc', '[\"*\"]', NULL, '2023-06-26 14:00:13', '2023-06-26 14:00:13'),
-(91, 'App\\Models\\User', 23, 'Bestu', 'aa0e8b7d36e1fc0248856091bef017ff4df6a684338c9bf8675a5bcecabd686a', '[\"*\"]', NULL, '2023-06-26 14:24:27', '2023-06-26 14:24:27'),
-(92, 'App\\Models\\User', 23, 'Bestu', '16b4e4855c53c4074af1ed4f7f975bdc8b71f323407296e41ed00d8194a4d6b7', '[\"*\"]', NULL, '2023-06-26 14:25:27', '2023-06-26 14:25:27'),
-(93, 'App\\Models\\User', 23, 'Bestu', 'dbe4d751a4e5e0a3d0dacd9dabec8b12b8134979009f9e10f63cf20888db0b1b', '[\"*\"]', NULL, '2023-06-26 14:27:37', '2023-06-26 14:27:37'),
-(94, 'App\\Models\\User', 23, 'Bestu', 'a128c168cfee8d7f24df9744d403006294ca72863e639122d0a0ab0ff01e2993', '[\"*\"]', NULL, '2023-06-26 14:53:31', '2023-06-26 14:53:31'),
-(95, 'App\\Models\\User', 23, 'Bestu', 'c22d0a205b64c622e0e0f46ac091595a64c322862fe7b519bff16cf0be5b9fe9', '[\"*\"]', '2023-07-18 08:34:35', '2023-06-26 18:19:57', '2023-07-18 08:34:35'),
-(96, 'App\\Models\\User', 23, 'Bestu', '6ee0d3f6c2fae94dae900266e382ee9935e767858bf9bf49a2cf5e63ff7d559f', '[\"*\"]', NULL, '2023-06-27 03:14:32', '2023-06-27 03:14:32'),
-(97, 'App\\Models\\User', 18, 'Bestu', 'e8173e2813b159fb8bf6eb1ebcdecf20c8c278e5dc8c1fecb01fc1cfb2f459a4', '[\"*\"]', NULL, '2023-06-27 13:53:58', '2023-06-27 13:53:58'),
-(98, 'App\\Models\\User', 18, 'Bestu', '61c7d7ee8f0ced8e4d20229ead419e30d7ef380d99103ecbcf558ddfb7d6ed8f', '[\"*\"]', NULL, '2023-06-27 14:04:36', '2023-06-27 14:04:36'),
-(99, 'App\\Models\\User', 18, 'Bestu', 'bd9520aee3088ac9ab113bc44ca352e8fc686f891a0051c918013f32a6a1b99d', '[\"*\"]', NULL, '2023-06-27 15:24:15', '2023-06-27 15:24:15'),
-(100, 'App\\Models\\User', 18, 'Bestu', 'a4f4572b85354d5d187949377a9914389e564b6705be6a191767c75cec41c342', '[\"*\"]', NULL, '2023-06-27 15:26:53', '2023-06-27 15:26:53'),
-(101, 'App\\Models\\User', 19, 'Bestu', 'ae63ee8f39e12bc29bfd63f6dc7e0bacc7276d00caa2c86ad79741402368bc26', '[\"*\"]', '2023-06-27 15:34:43', '2023-06-27 15:34:18', '2023-06-27 15:34:43'),
-(102, 'App\\Models\\User', 23, 'Bestu', 'ffd5e5f2b82ef12e7ff631d57b9c3c8ddb4dde78da03d5096e29e09f384e5d21', '[\"*\"]', '2023-07-11 20:52:18', '2023-07-03 13:36:41', '2023-07-11 20:52:18'),
-(103, 'App\\Models\\User', 19, 'Bestu', 'be648158cca3c9f26fb6369bda0e642df65c6988726adf86c351773039558e38', '[\"*\"]', '2023-07-03 13:58:01', '2023-07-03 13:52:27', '2023-07-03 13:58:01'),
-(104, 'App\\Models\\User', 20, 'Bestu', '7f19aec0c1d6ece4020982e2b62866474fbd6317a590047e1514f8e9256c95d4', '[\"*\"]', NULL, '2023-07-04 16:47:24', '2023-07-04 16:47:24'),
-(105, 'App\\Models\\User', 20, 'Bestu', '7da78006daa63719d65b0417d0e1ef0891fec050f4a04a89dcebd12453ec4b50', '[\"*\"]', NULL, '2023-07-04 16:48:56', '2023-07-04 16:48:56'),
-(106, 'App\\Models\\User', 20, 'Bestu', 'f13b7d89ceddc40881f6789571eb0c49b6c1d6e87f5f6c023f4db78357594dae', '[\"*\"]', NULL, '2023-07-04 21:12:19', '2023-07-04 21:12:19'),
-(107, 'App\\Models\\User', 20, 'Bestu', 'de1a6cc46e62fb511fc7e393c6f7a7cfcdbadb02a0ffdba55b41b2edf2be8d1f', '[\"*\"]', NULL, '2023-07-04 22:07:23', '2023-07-04 22:07:23'),
-(108, 'App\\Models\\User', 20, 'Bestu', '0c16a01034a3e24582bf44291740bfbb97f809e385dcdbcc8aeeb3b414e92c29', '[\"*\"]', NULL, '2023-07-04 22:10:25', '2023-07-04 22:10:25'),
-(109, 'App\\Models\\User', 20, 'Bestu', 'b15cdde9e150b0ebe2b90442c73bd42ff5c1b07c43419f018980030f85873e7b', '[\"*\"]', NULL, '2023-07-05 15:48:56', '2023-07-05 15:48:56'),
-(110, 'App\\Models\\User', 18, 'Bestu', 'fc3d9b2beac4a8e2f4270bc0a8e7c13c2cab6e853eaf7ca86dbca7f120e4a9ba', '[\"*\"]', NULL, '2023-07-05 20:35:42', '2023-07-05 20:35:42'),
-(111, 'App\\Models\\User', 20, 'Bestu', 'd34de2e8c62574c060319bb2df9e944b348dc7ca34be7d13cc5d660db7897ac9', '[\"*\"]', NULL, '2023-07-05 20:58:38', '2023-07-05 20:58:38'),
-(112, 'App\\Models\\User', 20, 'Bestu', '2bf52f6706fdf92420b0cecac72b3b9eee7c19f75d8478d7fe957b31da09003a', '[\"*\"]', NULL, '2023-07-05 21:05:30', '2023-07-05 21:05:30'),
-(113, 'App\\Models\\User', 20, 'Bestu', 'e547ffe7e0108d0b0b73a2bb1358447c6d1fb7cc204da9713261ae9a024042b0', '[\"*\"]', NULL, '2023-07-05 21:33:34', '2023-07-05 21:33:34'),
-(114, 'App\\Models\\User', 20, 'Bestu', '4eaa7edb9c23c2738bffd009ae14a4103d3ed9c63819670baf8e48dae7d339c2', '[\"*\"]', NULL, '2023-07-05 21:37:56', '2023-07-05 21:37:56'),
-(115, 'App\\Models\\User', 20, 'Bestu', '52d8bbea5c2907b4f62ca83d42277105fe474994936574e555c87ee9545dfa54', '[\"*\"]', NULL, '2023-07-05 21:42:34', '2023-07-05 21:42:34'),
-(116, 'App\\Models\\User', 20, 'Bestu', '0fbb704bdeee0ce27cb845c80d0d71d26b917669b046ab0dd9d647e5c39d8abf', '[\"*\"]', NULL, '2023-07-05 21:42:41', '2023-07-05 21:42:41'),
-(117, 'App\\Models\\User', 20, 'Bestu', '81d5df906138c0da274bfa087265cdc1e8655e6cd4c7cade0f0b2ec73168be7c', '[\"*\"]', NULL, '2023-07-05 21:45:19', '2023-07-05 21:45:19'),
-(118, 'App\\Models\\User', 20, 'Bestu', 'e4840f9cc260050c4258aa6437f2e2d73bae3e27808e3e3cef4869d342e50026', '[\"*\"]', NULL, '2023-07-05 21:46:17', '2023-07-05 21:46:17'),
-(119, 'App\\Models\\User', 18, 'Bestu', 'daf519ff5744b56a2ffaaa232f6a88e5d052f22c1c0d59da806d2ae88f21db84', '[\"*\"]', '2023-07-05 21:49:39', '2023-07-05 21:48:05', '2023-07-05 21:49:39'),
-(120, 'App\\Models\\User', 18, 'Bestu', 'e384154cc88cf15fcec9d91df1a7353cc4ea0a75e9f81034cc4900bddcbfc465', '[\"*\"]', NULL, '2023-07-06 16:02:02', '2023-07-06 16:02:02'),
-(121, 'App\\Models\\User', 18, 'Bestu', 'd81220aebb7b6fd9b1152b977a2af29e1699bf5ec40dd1409a303995925048f5', '[\"*\"]', NULL, '2023-07-06 16:04:40', '2023-07-06 16:04:40'),
-(122, 'App\\Models\\User', 18, 'Bestu', 'af7662e6a7566ad694edf5058cfeee20139d05abdab441fe20015933ad9a2a75', '[\"*\"]', '2023-07-06 16:44:22', '2023-07-06 16:39:15', '2023-07-06 16:44:22'),
-(123, 'App\\Models\\User', 18, 'Bestu', '26a6ba37732e36f949810d0fad0a4f735343359011ee101125749ee37d4d6dc5', '[\"*\"]', NULL, '2023-07-06 16:53:24', '2023-07-06 16:53:24'),
-(124, 'App\\Models\\User', 20, 'Bestu', 'f90891a336f78ba4b3cd3bad19555e5e88f988aa10ca1c2c2febb6c6f2df4e90', '[\"*\"]', NULL, '2023-07-06 16:58:53', '2023-07-06 16:58:53'),
-(125, 'App\\Models\\User', 20, 'Bestu', 'd1819292d05a3fb4393a2db5a7d5c59b17e1d130fbea227ec9c28ba92ba34cf1', '[\"*\"]', NULL, '2023-07-06 16:59:36', '2023-07-06 16:59:36'),
-(126, 'App\\Models\\User', 20, 'Bestu', '5c994199fa0e30854c0477d3e1b543cec1f8341f53094d046f34b34a884d0c45', '[\"*\"]', NULL, '2023-07-06 17:09:16', '2023-07-06 17:09:16'),
-(127, 'App\\Models\\User', 23, 'Bestu', '9eabaecd8a49203371d6a02a169b2ebf87273fefa7f7730165ef794738b831f5', '[\"*\"]', '2023-07-08 16:00:28', '2023-07-06 17:11:51', '2023-07-08 16:00:28'),
-(128, 'App\\Models\\User', 20, 'Bestu', '8d0443c335bc7184cd73a366634066f108324599d6a9a1f4e7c980c9005e0f73', '[\"*\"]', NULL, '2023-07-06 17:34:11', '2023-07-06 17:34:11'),
-(129, 'App\\Models\\User', 20, 'Bestu', '6ba9e7c9d3be5ff95233778b935f77013529cb0c5d5aaf07833671af1900eee7', '[\"*\"]', NULL, '2023-07-06 18:22:06', '2023-07-06 18:22:06'),
-(130, 'App\\Models\\User', 18, 'Bestu', '9ef754c133dce1f1f879781f6db967e084ddef57f36869ba53e36bc1e8b1d61b', '[\"*\"]', NULL, '2023-07-06 18:25:57', '2023-07-06 18:25:57'),
-(131, 'App\\Models\\User', 20, 'Bestu', '39efde513cda96c6ac5d50dea186e0fbfad1a0e0f4c67a8f1cead7dcb4809dcb', '[\"*\"]', NULL, '2023-07-06 19:09:14', '2023-07-06 19:09:14'),
-(132, 'App\\Models\\User', 18, 'Bestu', 'a7f748fda443795f635ff131ced30f40c0a4195427a97e87eafbe98a39b486ea', '[\"*\"]', '2023-07-06 20:23:45', '2023-07-06 19:09:57', '2023-07-06 20:23:45'),
-(133, 'App\\Models\\User', 27, 'Bestu', 'e58a7992b36800d7198d8431d616f836cd51aea35c9adc7942eb05df1144a2ce', '[\"*\"]', '2023-07-06 19:25:48', '2023-07-06 19:24:19', '2023-07-06 19:25:48'),
-(134, 'App\\Models\\User', 20, 'Bestu', '28722a1876f573cef709fcf78e2585024d21ab3efd55eb0410f01e11541914d9', '[\"*\"]', '2023-07-06 20:25:57', '2023-07-06 20:21:35', '2023-07-06 20:25:57'),
-(135, 'App\\Models\\User', 20, 'Bestu', '69630e14ec9ce14e5b65a6b2dca005e370eabb5df1be4ef088b03e4515849b45', '[\"*\"]', '2023-07-06 21:43:15', '2023-07-06 20:27:42', '2023-07-06 21:43:15'),
-(136, 'App\\Models\\User', 20, 'Bestu', '13abfbc791de70807eef30e5299652c29b70e733751960d8a105a32a25bdb6c3', '[\"*\"]', '2023-07-08 00:50:11', '2023-07-06 21:26:30', '2023-07-08 00:50:11'),
-(137, 'App\\Models\\User', 20, 'Bestu', '5db7ae45d6f09446f765631444d1949a30d99fd7c61d29c08cdf0112d02523e7', '[\"*\"]', '2023-07-08 16:11:38', '2023-07-08 00:50:40', '2023-07-08 16:11:38'),
-(138, 'App\\Models\\User', 20, 'Bestu', 'e2b35d0b85208878b882c7a40407b6ecb4555ee9e1976e6c85ed60e2e9a1f546', '[\"*\"]', NULL, '2023-07-08 16:30:13', '2023-07-08 16:30:13'),
-(139, 'App\\Models\\User', 30, 'Bestu', 'c95028780b2d76c0e9a97de5e9f885d64dd9684dc7d8e1289079b1063dc2f84a', '[\"*\"]', '2023-07-08 17:04:14', '2023-07-08 17:02:56', '2023-07-08 17:04:14'),
-(140, 'App\\Models\\User', 20, 'Bestu', '6debd1aafab60b2bc5702bc59d1259ecfe4f8bc2dcce6c4520ab3a615f33d707', '[\"*\"]', '2023-07-09 17:55:38', '2023-07-08 17:07:27', '2023-07-09 17:55:38'),
-(141, 'App\\Models\\User', 13, 'Bestu', 'a78cd66096091470e218f38ae26866c61182a8796d05d210d0157a41974d2b51', '[\"*\"]', '2023-07-08 17:35:44', '2023-07-08 17:35:42', '2023-07-08 17:35:44'),
-(142, 'App\\Models\\User', 18, 'Bestu', '7142a614e188af9e2d4c914bc59697458cc234db15d31f9cbd8f56f4a462a37a', '[\"*\"]', '2023-07-08 18:16:08', '2023-07-08 17:46:10', '2023-07-08 18:16:08'),
-(143, 'App\\Models\\User', 20, 'Bestu', '120a70d46bd3074fd92a789cf72d8d95b021dcfe1665056f97f2eceed71c3f86', '[\"*\"]', '2023-07-08 20:51:34', '2023-07-08 18:17:27', '2023-07-08 20:51:34'),
-(144, 'App\\Models\\User', 13, 'Bestu', '82393f38f3c4d8ad757b333d8bcb4b876a3900d1d0b4a8b2befa16f67d90abb0', '[\"*\"]', '2023-07-08 18:26:15', '2023-07-08 18:26:15', '2023-07-08 18:26:15'),
-(145, 'App\\Models\\User', 13, 'Bestu', '35d09afa7c2fd0a815021040f3bc8eb54721d6487309113892e8235528d02dfe', '[\"*\"]', '2023-07-08 18:26:27', '2023-07-08 18:26:27', '2023-07-08 18:26:27'),
-(146, 'App\\Models\\User', 13, 'Bestu', 'dfa40d76467846b69380c9cf7d442ad425ef3d587e7c00502f954966d59d5ccc', '[\"*\"]', '2023-07-08 18:27:18', '2023-07-08 18:27:18', '2023-07-08 18:27:18'),
-(147, 'App\\Models\\User', 13, 'Bestu', 'cd832c675ef6cbea003af39aa13fe3ec7fbffa5ee1ecf02da4f54d459a570388', '[\"*\"]', '2023-07-08 18:27:19', '2023-07-08 18:27:18', '2023-07-08 18:27:19'),
-(148, 'App\\Models\\User', 13, 'Bestu', '34746301496a476087df2e58f4090cfa7436befa34a49bb0bd8852961f56730b', '[\"*\"]', NULL, '2023-07-08 18:27:19', '2023-07-08 18:27:19'),
-(149, 'App\\Models\\User', 13, 'Bestu', '3b5942ff297d8aa0bd378cd88b0ab47487ebe79b1fa9eb0263635564df2d198a', '[\"*\"]', '2023-07-08 18:27:19', '2023-07-08 18:27:19', '2023-07-08 18:27:19'),
-(150, 'App\\Models\\User', 13, 'Bestu', 'f13fb3e95b89a25f35850d16d0c3757c44e187cdef1daf170943752d8b1c1133', '[\"*\"]', '2023-07-09 15:13:55', '2023-07-08 18:27:19', '2023-07-09 15:13:55'),
-(151, 'App\\Models\\User', 20, 'Bestu', '213ff504cea7bbc22d21b986ba49a61db025f1501db42e41137f2111bd03a34b', '[\"*\"]', '2023-07-09 16:53:26', '2023-07-08 20:52:39', '2023-07-09 16:53:26'),
-(152, 'App\\Models\\User', 27, 'Bestu', '14af12a7794d04bae82e13a99e9bfcfc341ba564bc04063a2f50aa584cabaa72', '[\"*\"]', '2023-07-08 21:28:32', '2023-07-08 21:27:58', '2023-07-08 21:28:32'),
-(153, 'App\\Models\\User', 20, 'Bestu', 'f3d18e69322f17256ae509ed839eba0c83bb10b8276f2027f97a5f1ffff85c36', '[\"*\"]', '2023-07-11 01:56:33', '2023-07-09 17:31:29', '2023-07-11 01:56:33'),
-(154, 'App\\Models\\User', 20, 'Bestu', '0592c0fb83cca9aaebb2397b534a383b4db740ff13a3e5770f092420e4adeb00', '[\"*\"]', '2023-07-11 01:58:12', '2023-07-11 01:56:58', '2023-07-11 01:58:12'),
-(155, 'App\\Models\\User', 20, 'Bestu', '0ebb67b848d26081f8a6e6bd0204824d20902e44672030cb66798c3ab2f7ad4a', '[\"*\"]', '2023-07-11 01:59:13', '2023-07-11 01:58:45', '2023-07-11 01:59:13'),
-(156, 'App\\Models\\User', 18, 'Bestu', '568a40f6577638c0bb9170ef5b0e5f8cdc7c2dcf269438f5df351ed17be1e122', '[\"*\"]', '2023-07-11 05:48:47', '2023-07-11 01:59:54', '2023-07-11 05:48:47'),
-(157, 'App\\Models\\User', 20, 'Bestu', '9ae20371871acd14df1a72853c0fd8d92d4e1b7716b417ea1303c4bf23231703', '[\"*\"]', '2023-07-11 07:49:01', '2023-07-11 07:48:59', '2023-07-11 07:49:01'),
-(158, 'App\\Models\\User', 20, 'Bestu', '9a034aff7102a84f1339771ff82a56e4d84a31fb1ddeeb235119237b411c1676', '[\"*\"]', '2023-07-13 03:38:20', '2023-07-11 19:22:12', '2023-07-13 03:38:20'),
-(159, 'App\\Models\\User', 23, 'Bestu', '6d7c4b1a4aa003a8a7a45b4244c7c017d194f0beafd9ecc205490167371b9386', '[\"*\"]', '2023-07-12 00:10:29', '2023-07-12 00:10:29', '2023-07-12 00:10:29'),
-(160, 'App\\Models\\User', 23, 'Bestu', 'a1093c195e0e5e9b8db46d32148afa5b77bacd3e1a47cd3ad80b6c83cfefa2e7', '[\"*\"]', '2023-07-12 00:12:51', '2023-07-12 00:12:51', '2023-07-12 00:12:51'),
-(161, 'App\\Models\\User', 23, 'Bestu', '4213f7784d24de793364d1f3777382fda492cdcc0779c8df1e484b3cfd8f913c', '[\"*\"]', '2023-07-12 01:47:21', '2023-07-12 00:19:08', '2023-07-12 01:47:21'),
-(162, 'App\\Models\\User', 32, 'Bestu', '2c70d4fdf3363ecdde7af1baa97a24e853ab6f861e6c81d4a1cdd7bc854a2e6f', '[\"*\"]', '2023-07-13 01:26:12', '2023-07-12 01:51:52', '2023-07-13 01:26:12'),
-(163, 'App\\Models\\User', 20, 'Bestu', '7b7d9cd58bdfdb4a6d9a8280bbd8cab9d47dec0cc8b8ae2c3b5303b68655950a', '[\"*\"]', '2023-07-13 01:56:25', '2023-07-12 21:22:41', '2023-07-13 01:56:25'),
-(164, 'App\\Models\\User', 13, 'Bestu', '3f44be61d79d8c9014ae202e4812835628018758562aaa572185e3645333f0b1', '[\"*\"]', '2023-07-13 02:41:29', '2023-07-12 21:26:03', '2023-07-13 02:41:29'),
-(165, 'App\\Models\\User', 23, 'Bestu', '5777e44ffc98e071473e4252836d9f50468bcdc7a60d0ab304be36269c0980b6', '[\"*\"]', '2023-07-16 20:59:29', '2023-07-13 03:35:27', '2023-07-16 20:59:29'),
-(166, 'App\\Models\\User', 20, 'Bestu', '164bde813687cee29b0136de76f9df262a46f0235b34e7e6750bce8871ba4a60', '[\"*\"]', '2023-07-13 03:49:09', '2023-07-13 03:38:44', '2023-07-13 03:49:09'),
-(167, 'App\\Models\\User', 35, 'Bestu', 'bc003a77732d40b45ddd4a0b6c4759e3fc70e60b3fedad05a0718fb1895f4c61', '[\"*\"]', '2023-07-16 14:19:17', '2023-07-16 13:51:34', '2023-07-16 14:19:17'),
-(168, 'App\\Models\\User', 35, 'Bestu', 'e3fd19916fc858c10954762cd22c3eded196f0f4c375e81758574c3ba6212ffb', '[\"*\"]', '2023-07-16 21:50:57', '2023-07-16 14:20:10', '2023-07-16 21:50:57'),
-(169, 'App\\Models\\User', 35, 'Bestu', '1ee62e9e5607e4cf541cf1db9d91ccc15ead999ef3cdaba327fa67da180bc5c1', '[\"*\"]', '2023-07-20 05:57:29', '2023-07-17 16:45:35', '2023-07-20 05:57:29'),
-(170, 'App\\Models\\User', 35, 'Bestu', '1b1a7ca2622a824fb01e37e2eb78dcc6f5228aad61f2872bf10455ba5c196076', '[\"*\"]', '2023-07-17 21:02:25', '2023-07-17 19:12:38', '2023-07-17 21:02:25'),
-(171, 'App\\Models\\User', 27, 'Bestu', '5be9b5f3d61e1c6e69ebce6eef17bb598ea0a1f021d48a565f8168c6366a8c7d', '[\"*\"]', '2023-07-18 03:43:25', '2023-07-17 20:50:35', '2023-07-18 03:43:25'),
-(172, 'App\\Models\\User', 35, 'Bestu', 'e188ecafaeda3f62647e89ca7c0a7f1b12a88b4d1f4cc5d3aa82285ec6a6b932', '[\"*\"]', '2023-07-17 23:29:01', '2023-07-17 23:28:50', '2023-07-17 23:29:01'),
-(173, 'App\\Models\\User', 37, 'Bestu', '8699e9cda8225658ba4f0dad4473274e3fc79ad68918a8bbc626e9eacc696f4b', '[\"*\"]', '2023-07-18 10:53:48', '2023-07-18 10:52:32', '2023-07-18 10:53:48');
+(1, 'App\\Models\\User', 45, 'GenericCommerceV1', '5f622f837408e3b7751d5294eba7e2501f361b861f1de040cb87acd546225d9a', '[\"*\"]', NULL, '2023-10-22 05:26:44', '2023-10-22 05:26:44'),
+(2, 'App\\Models\\User', 45, 'GenericCommerceV1', '3a5417e30d83a07253267e1b0fd98f703eecdf6ae7335af04a0942fa69a9dc02', '[\"*\"]', NULL, '2023-10-22 05:36:17', '2023-10-22 05:36:17'),
+(3, 'App\\Models\\User', 45, 'GenericCommerceV1', 'a784342214375711e75696778877abba05335936f13e535f3d2cc884bcb1016d', '[\"*\"]', NULL, '2023-10-22 05:36:20', '2023-10-22 05:36:20'),
+(4, 'App\\Models\\User', 45, 'GenericCommerceV1', '5fc644144334ee3969fc639e92d92dc40b541fa00a8ffd1551aeaaa34d4145a4', '[\"*\"]', NULL, '2023-10-22 05:36:21', '2023-10-22 05:36:21'),
+(5, 'App\\Models\\User', 45, 'GenericCommerceV1', '705c5e3baea430b64b630b2e88166214217a77028e25cbe47525d85c711ebbfb', '[\"*\"]', NULL, '2023-10-22 05:47:07', '2023-10-22 05:47:07'),
+(6, 'App\\Models\\User', 47, 'GenericCommerceV1', '2388a53dd887103a43a847b66b124c45023240b16ce638d5ed047ab2ff8da253', '[\"*\"]', NULL, '2023-10-22 06:11:03', '2023-10-22 06:11:03'),
+(7, 'App\\Models\\User', 45, 'GenericCommerceV1', 'e696aa4794f7c7d7d0eb368ff94a1fb40ead43ea4627d6eb0cc0169b0d8b2ace', '[\"*\"]', NULL, '2023-10-22 06:22:06', '2023-10-22 06:22:06'),
+(8, 'App\\Models\\User', 45, 'GenericCommerceV1', '7f6f721a59c5cd621339967c1cf839ffeda8fd726433337e034b7b3cd58342b6', '[\"*\"]', NULL, '2023-10-22 06:22:25', '2023-10-22 06:22:25'),
+(9, 'App\\Models\\User', 45, 'GenericCommerceV1', '8481956bea6bddc09dfff4f5ff49ef4657feed8ee5df0e2fa265710361328798', '[\"*\"]', NULL, '2023-10-22 06:22:40', '2023-10-22 06:22:40');
 
 -- --------------------------------------------------------
 
@@ -1678,7 +1535,10 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `created_at`, `updated_at`) VALUES
 (1, 1, 7, NULL, 1, NULL, 'Iphone 14 Pro Max (Test Product)', 'OFF60', 'productImages/UlNWW1689758736.jpeg', NULL, 'Iphone 14 Pro Max', '<p>Iphone 14 Pro Max</p>\r\n\r\n<p>&nbsp;</p>', '<p>Iphone 14 Pro Max</p>', '<h2>One stop for&nbsp;support</h2>\r\n\r\n<p>Minimize the amount of time without your iPhone with Express Replacement Service</p>\r\n\r\n<p>Because Apple designs iPhone, iOS, and many applications, iPhone is a truly integrated system. And only AppleCare+ products provide one-stop service and support from Apple experts, so most issues can be resolved in a single call. Should you need repair or replacement, there are convenient service options.<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></p>\r\n\r\n<ul>\r\n	<li>24/7 priority access to Apple experts via chat or phone</li>\r\n	<li>Same-day service in most major metropolitan areas world wide<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></li>\r\n	<li>Onsite service: Schedule a technician to perform a screen repair at your home or office</li>\r\n	<li><a href=\"https://support.apple.com/iphone/repair/service/express-replacement\">Express Replacement Service</a>: We&rsquo;ll ship you a replacement device so you don&rsquo;t have to wait for a repair<a href=\"https://www.apple.com/support/products/iphone/#footnote-4\">4</a></li>\r\n	<li>Mail-in repair: Mail in your iPhone using a prepaid shipping box provided by Apple</li>\r\n	<li>Carry-in repair: Take your iPhone to an Apple&nbsp;Store or other Apple Authorized Service Provider</li>\r\n</ul>', 120000, 115000, 0, 1, 'iphone,apple', 'https://www.youtube.com/watch?v=FT3ODSg1GFE&ab_channel=Apple', 1, 'iphone-14-pro-max-test-product-1689759041rLTdM', 3, NULL, NULL, NULL, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41'),
 (2, 1, 7, NULL, 2, 6, 'Samsung Galaxy A54 (Test Product)', '3001', 'productImages/6o22L1686813594.jpg', '[\"1686813594L1Yno.jpg\",\"16868135942SXdj.jpg\",\"16877602702SYQu.jpg\"]', 'Largely satisfied, however, I am not a fan of Samsung\'s mandatory OS updates. It was only optional before.', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', 20000, 19500, 119, 1, 'Samsung Galaxy A54,samsung galaxy a50,samsung glalaxy', NULL, 1, 'samsung-galaxy-a54-test-product-1689249650eNuS7', 3, NULL, NULL, NULL, 1, 0, '2023-06-15 17:19:54', '2023-07-17 23:49:13'),
-(20, 1, 7, 146, 1, 12, 'Test', NULL, 'productImages/8TKeI1697009496.png', '[\"1697009521YUs8E.png\",\"1697009521A5zcz.png\"]', 'asdasd', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 'test-1697009521thMX6', NULL, NULL, NULL, NULL, 1, 0, '2023-10-11 07:31:36', '2023-10-11 07:32:01');
+(21, 10, 29, NULL, 18, NULL, 'Boxy Denim Jacket', 'rg', 'productImages/3xl2q1697626862.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<p>Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 110, 100, 0, 2, 'jacket', NULL, 8, 'boxy-denim-jacket-1697626862LBGLS', 6, NULL, NULL, NULL, 1, 1, '2023-10-18 09:01:02', '2023-10-18 09:01:02'),
+(22, 11, 35, NULL, 25, NULL, 'Oversize Cotton Dress', NULL, 'productImages/6mNHL1697627208.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 'oversize-cotton-dress-1697627325QC9K4', NULL, NULL, NULL, NULL, 1, 1, '2023-10-18 09:06:48', '2023-10-18 09:08:45'),
+(23, 13, 42, NULL, 25, NULL, 'Quilted Shoulder Bag', 'piiiu678', 'productImages/BKPcM1697627608.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 'quilted-shoulder-bag-1697627608XjfQH', NULL, NULL, NULL, NULL, 1, 1, '2023-10-18 09:13:28', '2023-10-18 09:13:28'),
+(24, 12, 37, NULL, 24, NULL, 'Test Product', NULL, 'productImages/yyXga1697961494.webp', NULL, 'Test ProductTest ProductTest Product', '<p>Test ProductTest Product</p>', '<p>Test ProductTest Product</p>', '<p>Test ProductTest Product</p>', 100, 90, 0, 3, 'asd,sdffr', NULL, 1, 'test-product-16979627147su7t', 6, NULL, 'asdas,hgthhj', NULL, 0, 1, '2023-10-22 07:58:14', '2023-10-22 08:18:34');
 
 -- --------------------------------------------------------
 
@@ -1701,9 +1561,7 @@ CREATE TABLE `product_images` (
 INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
 (2, 2, '1686813594L1Yno.jpg', '2023-06-15 17:19:54', NULL),
 (3, 2, '16868135942SXdj.jpg', '2023-06-15 17:19:54', NULL),
-(14, 2, '16877602702SYQu.jpg', '2023-06-26 16:17:50', NULL),
-(31, 20, '1697009521YUs8E.png', '2023-10-11 07:32:01', NULL),
-(32, 20, '1697009521A5zcz.png', '2023-10-11 07:32:01', NULL);
+(14, 2, '16877602702SYQu.jpg', '2023-06-26 16:17:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -1978,14 +1836,6 @@ CREATE TABLE `product_question_answers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `product_question_answers`
---
-
-INSERT INTO `product_question_answers` (`id`, `product_id`, `full_name`, `email`, `question`, `answer`, `slug`, `created_at`, `updated_at`) VALUES
-(10, 1, 'Fahim', 'alif@gmail.com', 'What is the specs ?', '4/64', '21321213QWQRRSDS', '2023-07-16 21:09:49', NULL),
-(11, 1, 'Fahim', 'alif@gmail.com', 'What is the specs ?', '4/64', '21321213QWQRRSDS', '2023-07-16 21:09:49', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -2010,9 +1860,33 @@ CREATE TABLE `product_reviews` (
 --
 
 INSERT INTO `product_reviews` (`id`, `product_id`, `user_id`, `rating`, `review`, `reply`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 4, 'A review is an evaluation of a publication, product, service, or company or a critical take on current affairs in literature, politics or culture. In addition to a critical evaluation, the review\'s author may assign the work a rating to indicate its relative meri', 'Thank You so much vaia', '123213UYTUYT', 1, '2023-06-07 13:39:11', '2023-07-04 21:56:10'),
-(2, 1, 1, 4, 'A review is an evaluation of a publication, product, service, or company or a critical take on current affairs in literature, politics or culture. In addition to a critical evaluation, the review\'s author may assign the work a rating to indicate its relative meri', 'Testing...', '123213UYTUYT', 1, '2023-06-07 13:39:11', '2023-06-11 06:29:12'),
 (3, 1, 13, 5, 'dasdassad', 'asdasdsassad', '16891634796LEKY', 1, '2023-07-12 22:04:39', '2023-07-12 22:05:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_sizes`
+--
+
+CREATE TABLE `product_sizes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `slug` varchar(255) NOT NULL,
+  `serial` double NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_sizes`
+--
+
+INSERT INTO `product_sizes` (`id`, `name`, `status`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
+(3, 'XL', 1, '1697959830XHryF', 3, '2023-10-22 07:30:30', '2023-10-22 07:30:47'),
+(4, 'XXL', 1, '16979598348ybGu', 4, '2023-10-22 07:30:34', '2023-10-22 07:30:47'),
+(5, 'M', 1, '16979598389yaga', 2, '2023-10-22 07:30:38', '2023-10-22 07:30:47'),
+(6, 'S', 1, '1697959841kF3bo', 1, '2023-10-22 07:30:41', '2023-10-22 07:30:47');
 
 -- --------------------------------------------------------
 
@@ -2025,6 +1899,7 @@ CREATE TABLE `product_variants` (
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `color_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `size_id` int(11) DEFAULT NULL,
   `region_id` bigint(20) UNSIGNED DEFAULT NULL,
   `sim_id` bigint(20) UNSIGNED DEFAULT NULL,
   `storage_type_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -2041,9 +1916,16 @@ CREATE TABLE `product_variants` (
 -- Dumping data for table `product_variants`
 --
 
-INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `region_id`, `sim_id`, `storage_type_id`, `stock`, `price`, `discounted_price`, `warrenty_id`, `device_condition_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '1686740844EwewL.jpg', 5, 226, 2, 2, 100, 120000, 115000, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41'),
-(2, 1, '1686740844HXKdN.jpg', 1, 226, 4, 2, 50, 110000, 105000, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41');
+INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_type_id`, `stock`, `price`, `discounted_price`, `warrenty_id`, `device_condition_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '1686740844EwewL.jpg', 5, NULL, 226, 2, 2, 100, 120000, 115000, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41'),
+(2, 1, '1686740844HXKdN.jpg', 1, NULL, 226, 4, 2, 50, 110000, 105000, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41'),
+(25, 21, '1697626862OsQ7F.png', 6, NULL, 18, NULL, NULL, 100, 110, 100, 8, 1, '2023-10-18 09:01:02', NULL),
+(26, 21, '1697626862sy3aK.png', 2, NULL, 4, NULL, NULL, 320, 115, 80, 7, NULL, '2023-10-18 09:01:02', NULL),
+(27, 21, '1697626862bMCYk.png', 3, NULL, 18, NULL, NULL, 200, 90, 85, 7, NULL, '2023-10-18 09:01:02', NULL),
+(28, 22, '1697627286MeviK.jpg', 7, NULL, NULL, NULL, NULL, 10, 0, 0, NULL, NULL, '2023-10-18 09:08:06', '2023-10-18 09:08:45'),
+(29, 23, '1697627608IoUkR.png', 7, NULL, 2, 2, 7, 99, 0, 0, NULL, NULL, '2023-10-18 09:13:28', NULL),
+(30, 24, '1697961772eZG2G.webp', 2, 6, NULL, NULL, NULL, 100, 100, 90, 1, NULL, '2023-10-22 08:02:52', '2023-10-22 08:18:34'),
+(31, 24, '1697961772MdE90.webp', 7, 5, NULL, NULL, NULL, 200, 120, 100, 1, NULL, '2023-10-22 08:02:52', '2023-10-22 08:18:34');
 
 -- --------------------------------------------------------
 
@@ -2106,7 +1988,7 @@ CREATE TABLE `promotional_banners` (
 --
 
 INSERT INTO `promotional_banners` (`id`, `icon`, `heading`, `heading_color`, `title`, `title_color`, `description`, `description_color`, `url`, `btn_text`, `btn_text_color`, `btn_bg_color`, `background_color`, `product_image`, `background_image`, `video_url`, `started_at`, `end_at`, `time_bg_color`, `time_font_color`, `created_at`, `updated_at`) VALUES
-(1, 'banner/t7HK11697610309.png', 'Don’t Miss!!', '#ffff00', 'Enhance Your Music Experience', '#ffffff', 'Lorem ipsum dolor sit amet, consectetur adipisicie Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore', '#808080', 'https://bestu-beta.vercel.app/', 'Check it out', '#2a00c2', '#828282', '#2a00c2', 'banner/c4raa1697614018.webp', 'banner/RKAip1697614026.png', 'http://127.0.0.1:8000/view/promotional/banner', '2023-10-18 12:00:00', '2023-10-23 18:00:00', '#ffffff', '#808000', '2023-06-13 10:08:55', '2023-10-18 07:43:41');
+(1, 'banner/t7HK11697610309.png', 'Hurry up and Get 25% Discount', '#ee2761', 'Deals Of The Day', '#000000', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore', '#606060', '#', 'Show Collection', '#ffffff', '#ee2761', '#ffffff', 'banner/c4raa1697614018.webp', 'banner/m7GlQ1697623318.png', 'http://127.0.0.1:8000/view/promotional/banner', '2023-10-19 11:00:41', '2024-11-07 21:00:00', '#efeff1', '#000000', '2023-06-13 10:08:55', '2023-10-19 02:57:21');
 
 -- --------------------------------------------------------
 
@@ -2264,8 +2146,8 @@ CREATE TABLE `sms_gateways` (
 --
 
 INSERT INTO `sms_gateways` (`id`, `image`, `provider_name`, `api_endpoint`, `api_key`, `secret_key`, `sender_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'ElitBuzz', 'https://880sms.com/smsapi', 'C20095786bf436075.85835321', NULL, 'BESTU', 0, '2023-06-13 03:43:26', '2023-07-08 16:42:39'),
-(2, NULL, 'Reve', 'https://smpp.ajuratech.com:7790/sendtext', '69cff06995a4a373', '20cdf1d2', 'BESTU', 1, '2023-06-13 03:43:26', '2023-07-08 16:42:39');
+(1, NULL, 'ElitBuzz', 'https://880sms.com/smsapi', 'C20095786bf436075.858353215', NULL, 'GenericCommerceV1', 0, '2023-06-13 03:43:26', '2023-10-22 06:01:53'),
+(2, NULL, 'Reve', 'https://smpp.ajuratech.com:7790/sendtext', '69cff06995a4a85', '20cdf1d28', 'GenericCommerceV1', 1, '2023-06-13 03:43:26', '2023-10-22 06:01:53');
 
 -- --------------------------------------------------------
 
@@ -2388,14 +2270,22 @@ CREATE TABLE `subcategories` (
 
 INSERT INTO `subcategories` (`id`, `category_id`, `name`, `icon`, `image`, `slug`, `status`, `featured`, `created_at`, `updated_at`) VALUES
 (7, 1, 'Apple', 'subcategory_images/RWEgG1689766831.jpg', 'subcategory_images/4Dwni1689768095.jpg', 'apple-1689768095-7dqt5', 1, 1, '2023-06-13 21:08:42', '2023-07-19 12:01:35'),
-(16, 1, 'Google', 'subcategory_images/GlUYg1689766712.png', 'subcategory_images/3iI901689767872.jpg', 'google-1689767872-jpy4N', 1, 1, '2023-07-16 13:32:34', '2023-07-19 11:57:52'),
-(22, 1, 'Samsung', 'subcategory_images/rmA3f1689767680.jpg', 'subcategory_images/bBgov1689768104.jpg', 'samsung-1689768104-rqw0W', 1, 1, '2023-07-19 11:43:35', '2023-07-19 12:01:44'),
-(23, 1, 'Oneplus', 'subcategory_images/3PdOB1689767738.jpg', 'subcategory_images/KuPbB1689767738.jpg', 'oneplus-1689767738-5STLs', 1, 1, '2023-07-19 11:44:38', '2023-07-19 11:56:36'),
-(24, 1, 'Realme', 'subcategory_images/92VA51689767777.jpg', 'subcategory_images/aAWS01689767344.jpg', 'realme-1689767777-IABLe', 1, 1, '2023-07-19 11:49:04', '2023-07-19 11:56:37'),
-(25, 1, 'Xiaomi', 'subcategory_images/jrOrI1689767433.png', 'subcategory_images/1EFKS1689768121.jpg', 'xiaomi-1689768121-aAhRK', 1, 1, '2023-07-19 11:50:33', '2023-07-19 12:02:01'),
-(26, 1, 'Oppo', 'subcategory_images/fPQhW1689768608.jpg', 'subcategory_images/MFPbx1689768608.jpg', 'oppo-1689768608-1ajzt', 1, 0, '2023-07-19 12:10:08', NULL),
-(27, 1, 'Tecno', 'subcategory_images/2xRGZ1689768705.png', 'subcategory_images/qcktf1689768705.png', 'tecno-1689768705-cKF5U', 1, 0, '2023-07-19 12:11:45', NULL),
-(28, 1, 'Vivo', 'subcategory_images/OiMnf1689768873.jpg', 'subcategory_images/kQBKR1689768873.jpg', 'vivo-1689768873-HQhBo', 1, 0, '2023-07-19 12:14:33', NULL);
+(29, 10, 'Jacket Women', 'subcategory_images/I1xtn1697625309.png', NULL, 'jacket-women-1697625309-htSgh', 1, 0, '2023-10-18 08:35:09', NULL),
+(30, 10, 'Woolend Jacket', 'subcategory_images/TEK8p1697625355.png', NULL, 'woolend-jacket-1697625355-yTkGF', 1, 0, '2023-10-18 08:35:55', NULL),
+(31, 10, 'Western Denim', 'subcategory_images/XpWqz1697625392.png', NULL, 'western-denim-1697625392-U9UiN', 1, 0, '2023-10-18 08:36:32', NULL),
+(32, 10, 'Mini Dress', 'subcategory_images/ZWPSe1697625410.png', NULL, 'mini-dress-1697625410-Cq46l', 1, 0, '2023-10-18 08:36:50', NULL),
+(33, 11, 'Jacket Women', 'subcategory_images/5vuJH1697626398.png', NULL, 'jacket-women-1697626398-nnQaU', 1, 0, '2023-10-18 08:53:18', NULL),
+(34, 11, 'Woolend Jacket', 'subcategory_images/4L0371697626426.png', NULL, 'woolend-jacket-1697626426-ACkq6', 1, 0, '2023-10-18 08:53:46', NULL),
+(35, 11, 'Western Denim', 'subcategory_images/eE6ty1697626449.png', NULL, 'western-denim-1697626449-hBG8o', 1, 0, '2023-10-18 08:54:09', NULL),
+(36, 11, 'MIni Dress', 'subcategory_images/m4hVy1697626469.png', NULL, 'mini-dress-1697626469-h099b', 1, 0, '2023-10-18 08:54:29', NULL),
+(37, 12, 'Woolend Jacket', 'subcategory_images/pUe0P1697626497.png', NULL, 'woolend-jacket-1697626497-OgFmm', 1, 0, '2023-10-18 08:54:57', NULL),
+(38, 12, 'Jacket, Women', 'subcategory_images/hposg1697626524.png', NULL, 'jacket-women-1697626524-2FV8y', 1, 0, '2023-10-18 08:55:24', NULL),
+(39, 12, 'Western Denim', 'subcategory_images/9C5UK1697626550.png', NULL, 'western-denim-1697626550-xvTqp', 1, 0, '2023-10-18 08:55:50', NULL),
+(40, 12, 'MIni Dress', 'subcategory_images/SVGQr1697626575.png', NULL, 'mini-dress-1697626575-bbfS4', 1, 0, '2023-10-18 08:56:15', NULL),
+(41, 13, 'Jacket,Women', 'subcategory_images/SHtV41697626616.png', NULL, 'jacketwomen-1697626616-Ix5uv', 1, 0, '2023-10-18 08:56:56', NULL),
+(42, 13, 'Woolend Jacket', 'subcategory_images/KLFy81697626644.png', NULL, 'woolend-jacket-1697626644-CcGr9', 1, 0, '2023-10-18 08:57:24', NULL),
+(43, 13, 'western denim', 'subcategory_images/fcH6R1697626663.png', NULL, 'western-denim-1697626663-vZmfB', 1, 0, '2023-10-18 08:57:43', NULL),
+(44, 13, 'Mini Dress', 'subcategory_images/x2u9h1697626680.png', NULL, 'mini-dress-1697626680-tY34l', 1, 0, '2023-10-18 08:58:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -2493,7 +2383,7 @@ CREATE TABLE `terms_and_policies` (
 --
 
 INSERT INTO `terms_and_policies` (`id`, `terms`, `privacy_policy`, `shipping_policy`, `return_policy`, `created_at`, `updated_at`) VALUES
-(1, '<p><strong>Terms and Conditions</strong></p>\r\n\r\n<p>Please read these Terms and Conditions (&quot;Terms&quot;) carefully before using the Bestu ecommerce app and website (&quot;Platform&quot;) operated by Bestu. These Terms govern your use of the Platform and any services or products offered through the Platform. By accessing or using the Platform, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not use the Platform.</p>\r\n\r\n<ol>\r\n	<li>\r\n	<p>Account Creation:</p>\r\n\r\n	<ul>\r\n		<li>To access certain features of the Platform, you may be required to create an account. You are responsible for maintaining the confidentiality of your account information and are solely responsible for all activities that occur under your account.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Intellectual Property:</p>\r\n\r\n	<ul>\r\n		<li>The Platform and its original content, features, and functionality are owned by Bestu and are protected by intellectual property laws. You may not modify, reproduce, distribute, or create derivative works based on the Platform or any content without prior written permission from Bestu.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Product Information and Pricing:</p>\r\n\r\n	<ul>\r\n		<li>We strive to provide accurate product information, descriptions, and pricing on the Platform. However, we do not warrant that the information is complete, current, or error-free. In the event of an error, we reserve the right to correct it and modify or cancel any orders placed for products listed with incorrect information or pricing.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Product Availability:</p>\r\n\r\n	<ul>\r\n		<li>Product availability on the Platform is subject to change without prior notice. We make efforts to ensure accurate stock information, but there may be occasions when a product becomes unavailable after an order has been placed. In such cases, we will notify you and provide options, including a refund or alternative product.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>User Conduct:</p>\r\n\r\n	<ul>\r\n		<li>You agree to use the Platform for lawful purposes and in compliance with these Terms.</li>\r\n		<li>You are responsible for any content you post, transmit, or share on the Platform. You must not post or transmit any content that is illegal, offensive, defamatory, or infringes upon the rights of others.</li>\r\n		<li>You must not engage in any activity that may disrupt or interfere with the operation or security of the Platform.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Third-Party Links:</p>\r\n\r\n	<ul>\r\n		<li>The Platform may contain links to third-party websites or services that are not owned or controlled by Bestu. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services. You access and use such third-party websites or services at your own risk.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Limitation of Liability:</p>\r\n\r\n	<ul>\r\n		<li>To the maximum extent permitted by applicable law, Bestu and its affiliates, directors, employees, agents, and suppliers shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, arising out of or in any way connected with the use of the Platform.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Indemnification:</p>\r\n\r\n	<ul>\r\n		<li>You agree to indemnify and hold harmless Bestu and its affiliates, directors, employees, agents, and suppliers from any claims, damages, liabilities, costs, or expenses (including reasonable attorneys&#39; fees) arising out of or related to your use of the Platform, violation of these Terms, or infringement of any rights of third parties.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Governing Law:</p>\r\n\r\n	<ul>\r\n		<li>These Terms shall be governed by and construed in accordance with the laws of [insert applicable jurisdiction]. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in [insert applicable jurisdiction].</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Changes to the Terms:</p>\r\n	</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>We reserve the right to modify or replace these Terms at any time without prior notice. By continuing to access or use the Platform after any revisions become effective, you agree to be bound by the updated Terms.</li>\r\n</ul>\r\n\r\n<ol>\r\n	<li>Contact Us:</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>If you have any questions or concerns about these Terms, please contact us at [insert contact information].</li>\r\n</ul>\r\n\r\n<p>By using the Bestu ecommerce app and website, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.</p>', '<p><strong>Privacy Policy for Bestu Ecommerce App and Website</strong></p>\r\n\r\n<p><em>Effective Date: [ 16 July 2023]</em></p>\r\n\r\n<p>At Bestu, we value the privacy and security of our users. This Privacy Policy outlines the types of personal information we collect, how we use and protect that information, and your rights and choices regarding your personal information. By using the Bestu ecommerce app and website (collectively referred to as the &quot;Platform&quot;), you consent to the practices described in this Privacy Policy.</p>\r\n\r\n<ol>\r\n	<li>Information We Collect: 1.1 Personal Information:\r\n	<ul>\r\n		<li>When you create an account, we may collect your name, email address, phone number, and other contact information.</li>\r\n		<li>When you make a purchase, we collect your payment details, shipping address, and order history.</li>\r\n		<li>If you choose to participate in surveys, contests, or promotions, we may collect additional personal information.</li>\r\n		<li>We may collect information you provide when you contact our customer support team or interact with us through social media platforms.</li>\r\n	</ul>\r\n	</li>\r\n</ol>\r\n\r\n<p>1.2 Non-Personal Information:</p>\r\n\r\n<ul>\r\n	<li>We collect certain non-personal information automatically when you use our Platform, such as device information, IP address, browser type, and usage statistics.</li>\r\n</ul>\r\n\r\n<ol>\r\n	<li>\r\n	<p>Use of Information:</p>\r\n\r\n	<ul>\r\n		<li>We use the collected personal information to provide and improve our services, process orders, handle customer inquiries, and personalize your shopping experience.</li>\r\n		<li>Non-personal information is used for statistical analysis, troubleshooting, and improving our Platform&#39;s performance and functionality.</li>\r\n		<li>We may also use your information to send you marketing communications if you have opted-in to receive them. You can opt-out of these communications at any time.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Sharing of Information:</p>\r\n\r\n	<ul>\r\n		<li>We may share your personal information with trusted third parties, such as payment processors, shipping partners, and service providers, to fulfill your orders and provide our services.</li>\r\n		<li>We may share non-personal information with third parties for analytical or marketing purposes.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Cookies and Similar Technologies:</p>\r\n\r\n	<ul>\r\n		<li>We use cookies and similar technologies to enhance your browsing experience, analyze trends, and gather demographic information.</li>\r\n		<li>You can manage your cookie preferences through your browser settings. However, disabling cookies may limit certain features and functionality of our Platform.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Data Security:</p>\r\n\r\n	<ul>\r\n		<li>We employ industry-standard security measures to protect your personal information from unauthorized access, disclosure, or alteration.</li>\r\n		<li>While we strive to protect your information, no method of transmission over the internet or electronic storage is 100% secure. Therefore, we cannot guarantee absolute security.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Third-Party Links:</p>\r\n\r\n	<ul>\r\n		<li>Our Platform may contain links to third-party websites or services that are not under our control. We are not responsible for the privacy practices or content of these third-party sites.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Children&#39;s Privacy:</p>\r\n\r\n	<ul>\r\n		<li>Our Platform is not intended for use by individuals under the age of 18. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us to have it removed.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Your Rights and Choices:</p>\r\n\r\n	<ul>\r\n		<li>You have the right to access, update, or delete your personal information. You can do so by logging into your account or contacting us directly.</li>\r\n		<li>You may also have the right to restrict or object to the processing of your personal information, as well as the right to data portability.</li>\r\n		<li>If you no longer wish to receive marketing communications, you can opt-out by following the instructions provided in those communications.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Changes to the Privacy Policy:</p>\r\n\r\n	<ul>\r\n		<li>We reserve the right to modify this Privacy Policy at any time. If we make material changes, we will notify you by posting an updated version on our Platform or via other communication channels.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Contact Us:</p>\r\n	</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at [insert contact information].</li>\r\n</ul>\r\n\r\n<p>By using the Bestu ecommerce app and website, you acknowledge that you have read and understood this Privacy Policy and agree to the collection, use, and disclosure of your personal information as described herein.</p>', '<p><strong>Shipping Policy</strong></p>\r\n\r\n<p>Thank you for choosing Bestu for your mobile devices and accessories. We want to ensure that your order is delivered to you in a timely and efficient manner. This Shipping Policy outlines important information regarding our shipping processes, including delivery options, timelines, and other relevant details.</p>\r\n\r\n<ol>\r\n	<li>\r\n	<p>Order Processing:</p>\r\n\r\n	<ul>\r\n		<li>Once you place an order with us, our team will carefully process and prepare it for shipment.</li>\r\n		<li>We aim to process and ship orders as quickly as possible, typically within 1-2 business days. However, please note that processing times may vary during peak seasons or promotional periods.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Shipping Methods and Delivery Options:</p>\r\n\r\n	<ul>\r\n		<li>We offer a variety of shipping methods to cater to your needs. The available options will be presented to you during the checkout process.</li>\r\n		<li>Our shipping partners may include reputable courier services to ensure reliable and secure delivery.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Shipping Destinations:</p>\r\n\r\n	<ul>\r\n		<li>We currently offer shipping within [insert applicable countries or regions].</li>\r\n		<li>Please note that certain products or brands may have shipping restrictions due to legal or logistical reasons. Any such restrictions will be communicated during the checkout process.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Shipping Fees:</p>\r\n\r\n	<ul>\r\n		<li>Shipping fees are calculated based on various factors, including the shipping method selected, the weight and dimensions of the package, and the destination.</li>\r\n		<li>The shipping fee will be displayed to you during the checkout process before you finalize your order.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Estimated Delivery Time:</p>\r\n\r\n	<ul>\r\n		<li>The estimated delivery time will depend on your location, the selected shipping method, and other factors beyond our control.</li>\r\n		<li>We strive to provide accurate delivery estimates, but please note that these are estimates only and actual delivery times may vary.</li>\r\n		<li>Once your order has been shipped, you will receive a shipping confirmation email with tracking information, allowing you to track the progress of your package.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Customs and Duties:</p>\r\n\r\n	<ul>\r\n		<li>For international orders, please note that customs fees, import duties, and taxes may be applicable according to your country&#39;s regulations.</li>\r\n		<li>Any additional charges related to customs clearance are the responsibility of the recipient and may need to be paid upon delivery.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Order Tracking:</p>\r\n\r\n	<ul>\r\n		<li>Once your order has been shipped, you will receive a tracking number and instructions on how to track your package.</li>\r\n		<li>You can use the provided tracking information to monitor the progress of your shipment on the respective courier&#39;s website.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Delivery Issues:</p>\r\n\r\n	<ul>\r\n		<li>In the rare event that your package is delayed, lost, or damaged during transit, please contact our customer support team as soon as possible. We will work diligently to resolve the issue and ensure your satisfaction.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Change of Shipping Address:</p>\r\n\r\n	<ul>\r\n		<li>If you need to change the shipping address after placing an order, please contact our customer support team immediately. We will do our best to accommodate your request if the order has not yet been shipped.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Shipping Policy Updates:</p>\r\n	</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>We reserve the right to update or modify this Shipping Policy at any time without prior notice. Any changes will be effective immediately upon posting on our website.</li>\r\n</ul>\r\n\r\n<p>If you have any questions or need further assistance regarding our shipping policy, please don&#39;t hesitate to contact our customer support team. We are here to provide you with the best possible shopping experience.</p>\r\n\r\n<p>Thank you for choosing Bestu. We appreciate your business!</p>', '<p><strong>Return Policy</strong></p>\r\n\r\n<p>At Bestu, we want you to be completely satisfied with your purchase. If for any reason you are not satisfied with your order, we offer a flexible return policy to ensure your peace of mind. Please read our Return Policy carefully to understand the return process, eligibility criteria, and other important details.</p>\r\n\r\n<ol>\r\n	<li>\r\n	<p>Eligibility for Returns:</p>\r\n\r\n	<ul>\r\n		<li>You may be eligible for a return if you have purchased the product directly from Bestu, within the specified return period.</li>\r\n		<li>The return period starts from the date of delivery and varies depending on the type of product. Please refer to the specific product listing or contact our customer support team for the applicable return period.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Return Process:</p>\r\n\r\n	<ul>\r\n		<li>To initiate a return, please contact our customer support team within the eligible return period. They will guide you through the return process and provide you with the necessary instructions and documentation.</li>\r\n		<li>In some cases, we may require you to provide proof of purchase, such as the order number or receipt, to facilitate the return process.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Return Conditions:</p>\r\n\r\n	<ul>\r\n		<li>The returned product must be in its original condition, unused, undamaged, and in its original packaging (including all accessories, manuals, and warranty cards).</li>\r\n		<li>Please ensure that the product is securely packaged to avoid damage during transit. We recommend using the original packaging whenever possible.</li>\r\n		<li>Products that are damaged due to improper use, negligence, or unauthorized modifications may not be eligible for return.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Return Shipping:</p>\r\n\r\n	<ul>\r\n		<li>Unless the return is due to our error or a defective product, the customer is responsible for the return shipping costs.</li>\r\n		<li>We recommend using a reputable shipping service with tracking and insurance, as we cannot be held responsible for lost or damaged return shipments.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Refund Process:</p>\r\n\r\n	<ul>\r\n		<li>Once the returned product is received and inspected, we will process the refund based on the original payment method used for the purchase.</li>\r\n		<li>Refunds will typically be issued within [insert timeframe] after the product is received and verified. Please note that the refund processing time may vary depending on your financial institution.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Non-Returnable Items:</p>\r\n\r\n	<ul>\r\n		<li>Certain items are non-returnable for hygiene or safety reasons, such as earphones, personal care products, or software with a downloadable component. Please check the product listing or contact our customer support team for specific details.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Exchanges:</p>\r\n\r\n	<ul>\r\n		<li>We currently do not offer direct exchanges. If you wish to exchange a product, you will need to return the original item following our return process and place a new order for the desired item.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Damaged or Defective Products:</p>\r\n\r\n	<ul>\r\n		<li>In the unlikely event that you receive a damaged or defective product, please contact our customer support team immediately. We will assist you in resolving the issue and provide instructions for returning the product, if necessary.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Cancellation Policy:</p>\r\n\r\n	<ul>\r\n		<li>If you need to cancel your order before it has been shipped, please contact our customer support team as soon as possible. We will make every effort to accommodate your request. However, once the order has been shipped, it cannot be canceled and will be subject to the return policy.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Updates to the Return Policy:</p>\r\n	</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>We reserve the right to update or modify this Return Policy at any time without prior notice. Any changes will be effective immediately upon posting on our website.</li>\r\n</ul>\r\n\r\n<p>If you have any questions or require further assistance regarding our return policy, please contact our customer support team. We are here to assist you and ensure your satisfaction.</p>\r\n\r\n<p>Thank you for shopping at Bestu!</p>', '2023-04-11 13:41:20', '2023-07-16 15:24:32');
+(1, '<h2>Who we are</h2>\r\n\r\n<p>Our website address is:&nbsp;<a href=\"mailto:info@example.com\">info@example.com</a></p>\r\n\r\n<h2>What personal data we collect and why we collect it</h2>\r\n\r\n<h3>Comments</h3>\r\n\r\n<p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&rsquo;s IP address and browser user agent string to help spam detection.</p>\r\n\r\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\r\n\r\n<h3>Media</h3>\r\n\r\n<p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\r\n\r\n<h3>Cookies</h3>\r\n\r\n<p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\r\n\r\n<p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\r\n\r\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &ldquo;Remember Me&rdquo;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\r\n\r\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\r\n\r\n<h3>Embedded content from other websites</h3>\r\n\r\n<p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\r\n\r\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\r\n\r\n<h2>How long we retain your data</h2>\r\n\r\n<p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\r\n\r\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\r\n\r\n<h2>What rights you have over your data</h2>\r\n\r\n<p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\r\n\r\n<h2>Where we send your data</h2>\r\n\r\n<p>Visitor comments may be checked through an automated spam detection service.</p>', '<h2>Who we are</h2>\r\n\r\n<p>Our website address is:&nbsp;<a href=\"mailto:info@example.com\">info@example.com</a></p>\r\n\r\n<h2>What personal data we collect and why we collect it</h2>\r\n\r\n<h3>Comments</h3>\r\n\r\n<p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&rsquo;s IP address and browser user agent string to help spam detection.</p>\r\n\r\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\r\n\r\n<h3>Media</h3>\r\n\r\n<p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\r\n\r\n<h3>Cookies</h3>\r\n\r\n<p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\r\n\r\n<p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\r\n\r\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &ldquo;Remember Me&rdquo;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\r\n\r\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\r\n\r\n<h3>Embedded content from other websites</h3>\r\n\r\n<p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\r\n\r\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\r\n\r\n<h2>How long we retain your data</h2>\r\n\r\n<p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\r\n\r\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\r\n\r\n<h2>What rights you have over your data</h2>\r\n\r\n<p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\r\n\r\n<h2>Where we send your data</h2>\r\n\r\n<p>Visitor comments may be checked through an automated spam detection service.</p>', '<h2>Who we are</h2>\r\n\r\n<p>Our website address is:&nbsp;<a href=\"mailto:info@example.com\">info@example.com</a></p>\r\n\r\n<h2>What personal data we collect and why we collect it</h2>\r\n\r\n<h3>Comments</h3>\r\n\r\n<p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&rsquo;s IP address and browser user agent string to help spam detection.</p>\r\n\r\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\r\n\r\n<h3>Media</h3>\r\n\r\n<p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\r\n\r\n<h3>Cookies</h3>\r\n\r\n<p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\r\n\r\n<p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\r\n\r\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &ldquo;Remember Me&rdquo;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\r\n\r\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\r\n\r\n<h3>Embedded content from other websites</h3>\r\n\r\n<p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\r\n\r\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\r\n\r\n<h2>How long we retain your data</h2>\r\n\r\n<p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\r\n\r\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\r\n\r\n<h2>What rights you have over your data</h2>\r\n\r\n<p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\r\n\r\n<h2>Where we send your data</h2>\r\n\r\n<p>Visitor comments may be checked through an automated spam detection service.</p>', '<h2>Who we are</h2>\r\n\r\n<p>Our website address is:&nbsp;<a href=\"mailto:info@example.com\">info@example.com</a></p>\r\n\r\n<h2>What personal data we collect and why we collect it</h2>\r\n\r\n<h3>Comments</h3>\r\n\r\n<p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&rsquo;s IP address and browser user agent string to help spam detection.</p>\r\n\r\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\r\n\r\n<h3>Media</h3>\r\n\r\n<p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\r\n\r\n<h3>Cookies</h3>\r\n\r\n<p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\r\n\r\n<p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\r\n\r\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &ldquo;Remember Me&rdquo;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\r\n\r\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\r\n\r\n<h3>Embedded content from other websites</h3>\r\n\r\n<p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\r\n\r\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\r\n\r\n<h2>How long we retain your data</h2>\r\n\r\n<p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\r\n\r\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\r\n\r\n<h2>What rights you have over your data</h2>\r\n\r\n<p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\r\n\r\n<h2>Where we send your data</h2>\r\n\r\n<p>Visitor comments may be checked through an automated spam detection service.</p>', '2023-04-11 13:41:20', '2023-10-18 08:05:34');
 
 -- --------------------------------------------------------
 
@@ -2511,6 +2401,15 @@ CREATE TABLE `testimonials` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `testimonials`
+--
+
+INSERT INTO `testimonials` (`id`, `description`, `rating`, `customer_name`, `customer_image`, `slug`, `created_at`, `updated_at`) VALUES
+(2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita in recusandae sit officia ipsa, natus ad voluptatem doloribus dolorum placeat, rem deleniti est accusamus ipsum corporis voluptates soluta totam maiores nostrum reprehenderit quasi? Laboriosam itaque ab odit harum sed aut voluptates, illum unde. Saepe enim ad ut pariatur doloremque quas harum sequi, excepturi tempore exercitationem suscipit quam recusandae corrupti quibusdam. Laboriosam sapiente provident repellat blanditiis ratione nostrum illum asperiores quo cumque in quisquam, non iste aut illo vel, alias debitis!', 5, 'Hialry Duff', 'testimonial/myyTv1697621055.png', 'ld8fi1697621055', '2023-10-18 07:24:15', NULL),
+(3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita in recusandae sit officia ipsa, natus ad voluptatem doloribus dolorum placeat, rem deleniti est accusamus ipsum corporis voluptates soluta totam maiores nostrum reprehenderit quasi? Laboriosam itaque ab odit harum sed aut voluptates, illum unde. Saepe enim ad ut pariatur doloremque quas harum sequi, excepturi tempore exercitationem suscipit quam recusandae corrupti quibusdam. Laboriosam sapiente provident repellat blanditiis ratione nostrum illum asperiores quo cumque in quisquam, non iste aut illo vel, alias debitis!', 5, 'Selina Gomez', 'testimonial/K1r3U1697621099.png', 'cMTul1697621099', '2023-10-18 07:24:59', NULL),
+(4, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita in recusandae sit officia ipsa, natus ad voluptatem doloribus dolorum placeat, rem deleniti est accusamus ipsum corporis voluptates soluta totam maiores nostrum reprehenderit quasi? Laboriosam itaque ab odit harum sed aut voluptates, illum unde. Saepe enim ad ut pariatur doloremque quas harum sequi, excepturi tempore exercitationem suscipit quam recusandae corrupti quibusdam. Laboriosam sapiente provident repellat blanditiis ratione nostrum illum asperiores quo cumque in quisquam, non iste aut illo vel, alias debitis!', 5, 'Nike Mardson', 'testimonial/eJ2bC1697621239.png', 'PmDVG1697621239', '2023-10-18 07:27:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -2570,21 +2469,15 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57'),
-(19, 'userProfileImages/bulWt1688356676.jpg', 'Md. Fahim Hossain 2', NULL, 'alifhossain174@gmaill.com', NULL, '655028', '$2y$10$MKFghgrOtoPRr50wFpIx1ubpahBuCI/xoDM2j2ZwysCOoOoHDBUXK', NULL, 3, NULL, 0, 0, NULL, 1, '2023-06-12 03:55:36', '2023-07-03 13:57:56'),
+(19, 'userProfileImages/bulWt1688356676.jpg', 'Md. Fahim Hossain 2', NULL, 'alifhossain175@gmaill.com', NULL, '655028', '$2y$10$MKFghgrOtoPRr50wFpIx1ubpahBuCI/xoDM2j2ZwysCOoOoHDBUXK', NULL, 3, NULL, 0, 0, NULL, 1, '2023-06-12 03:55:36', '2023-07-03 13:57:56'),
 (23, 'userProfileImages/WUsyU1688361290.jpeg', 'Reduan', '01850453322', 'test100@gmail.com', NULL, '154666', '$2y$10$BawJIqWONpVSNWFZ1xCQEe0R8Z4OEn8NiFHENZR6./MMHvM/DP4cS', NULL, 3, NULL, 0, 0, NULL, 1, '2023-06-18 21:08:55', '2023-07-13 03:35:27'),
-(24, NULL, '', NULL, 'ridwanali3322@gmail.com', NULL, '484401', '$2y$10$e7eMM8oMfAstGxrvUb7Eu.lckdUpHGak.6ECGeHJBKVNQAmgRLURa', NULL, 3, NULL, 0, 0, NULL, 1, '2023-06-18 21:51:55', '2023-06-19 17:24:37'),
 (25, NULL, 'Bestu', NULL, 'admin@bestu.com.bd', NULL, NULL, '$2y$10$2QIdfvOWHR8qTvE5FcsGDOkKTc6VkFWkAVbVhu7qSd7x8Zq6..FTG', NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-06-27 16:54:07', '2023-07-18 08:42:03'),
-(26, NULL, '', '016433533365', NULL, NULL, '913673', '$2y$10$vXYSU3UM.B3LEyE9WvF2Re/Sv.GeLEqUono.1OcIM4NBAcvpS0bZC', NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-06 15:45:32', NULL),
-(27, NULL, 'Fahim Hossain', NULL, 'alifhossain174@gmail.com', NULL, '214804', '$2y$10$uiY1ZX1IGwzsUkBzKI//EeubYxq6/8oWX0vLa/hhOKT9DgiCdDeYm', NULL, 3, 'Seroil Rajshahi, Bangladesh', 0, 0, NULL, 1, '2023-07-06 19:23:55', '2023-07-17 20:50:35'),
-(28, NULL, '', '01643533368', NULL, NULL, '910611', '$2y$10$z3mRME527FC0z4hi1zP3sOM7oir.GpDP9eBEWbP/qxKiEjvheq4A2', NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-06 20:27:05', NULL),
-(29, NULL, '', '01643533366', NULL, NULL, '675968', '$2y$10$Gl1h9ismCfKXye7mq1wVlub11ln6WqWnpQS0QXBT9aHG0/WzyVBqi', NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-06 20:37:02', NULL),
-(30, NULL, '', NULL, 'mostaiminfo@gmail.com', NULL, '260757', '$2y$10$QJWbPTH8/UwdxdrQlsX0YuLjqDLkocxF32clWIIO8BRqXeUSeFvyW', NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-08 17:01:47', '2023-07-08 17:02:56'),
-(32, NULL, '', '01704666256', NULL, NULL, '840182', '$2y$10$5eRP84u8BNrkRIlLbfkHB.D3BBoFNTPSrHeUqhE1RNvj5eIBzkACy', NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-12 01:51:27', '2023-07-12 01:51:52'),
 (33, NULL, 'Rohan Hossain Siam', '01632563180', 'itssiam856@gmail.com', NULL, NULL, '$2y$10$eCh/uQ.fK7JxcNf1QSNOa./i9GUuOWEEktJQL52HvoWAWogg46/S2', NULL, 1, '64/62 no. Mahut-tuli, Armanitola, Dhaka, Bangladesh.', 0, 0, NULL, 1, '2023-07-15 19:53:27', '2023-07-18 08:42:00'),
 (34, NULL, 'Istiak Ahamed Sifat', '01580331693', 'istiakahamed30@gmail.com', NULL, NULL, '$2y$10$/d3M1fFredISBGmlpDv4R.IXCGToxs/31ljKCg3wrE2q2gIk21WB2', NULL, 1, 'Ali nekir dewry, Nazimuddin Road, Dhaka.', 0, 0, NULL, 1, '2023-07-15 19:55:06', '2023-07-18 08:41:56'),
 (35, 'userProfileImages/2eYoO1689479533.jpg', 'Ariful', '01643533365', 'ariful@gmail.com', NULL, '772114', '$2y$10$x5m3cQUgd.RHgHWAT7iCu.GMovOLWNBrT9lnB8orb54P5QeU0ls/6', NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-16 13:51:25', '2023-07-19 04:38:59'),
-(36, NULL, 'TestUser By Getup', '01969005035', 'test@gmail.com', NULL, NULL, '$2y$10$/9ZP9Bi/GH51I6kZyZTDVefcQI1dAJSOnv/SlPEIT2YPQgIkgiky2', NULL, 2, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-07-18 08:17:43', '2023-07-18 08:42:28'),
-(37, NULL, '', '+8801829367024', NULL, NULL, '627007', '$2y$10$09X8Y/jlEmWqIUqJmuDbbuBSBLh9oCGn7jQo/fCYR6j/4WBbLX91K', NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-18 10:48:40', '2023-07-18 10:55:54');
+(36, NULL, 'TestUser By Getup', '01969005039', 'test@gmail.com', NULL, NULL, '$2y$10$/9ZP9Bi/GH51I6kZyZTDVefcQI1dAJSOnv/SlPEIT2YPQgIkgiky2', NULL, 2, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-07-18 08:17:43', '2023-07-18 08:42:28'),
+(45, NULL, 'Md Fahim Hossain', '01969005041', 'alifhossain174@gmail.com', '2023-10-22 05:47:07', '926152', '$2y$10$XlL/0J.FotoN/14AFx2Zt.xTesgTYBb5XCCG1aLarpIvIIbetp6CC', NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 05:20:33', '2023-10-22 06:22:40'),
+(47, NULL, 'Md Fahim Hossain', '01969005035', NULL, '2023-10-22 06:11:03', '269200', '$2y$10$ryL5dk9r0et950I4Ux6PXOF11a8L/R5xuGohH5u7yzT2ol3niUWyi', NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 06:08:52', '2023-10-22 06:11:03');
 
 -- --------------------------------------------------------
 
@@ -2963,6 +2856,12 @@ ALTER TABLE `product_reviews`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_sizes`
+--
+ALTER TABLE `product_sizes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product_variants`
 --
 ALTER TABLE `product_variants`
@@ -3127,7 +3026,7 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `billing_addresses`
@@ -3139,19 +3038,19 @@ ALTER TABLE `billing_addresses`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `blog_categories`
 --
 ALTER TABLE `blog_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `carts`
@@ -3163,7 +3062,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `child_categories`
@@ -3199,7 +3098,7 @@ ALTER TABLE `device_conditions`
 -- AUTO_INCREMENT for table `email_configures`
 --
 ALTER TABLE `email_configures`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -3235,7 +3134,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -3265,7 +3164,7 @@ ALTER TABLE `order_payments`
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -3283,19 +3182,19 @@ ALTER TABLE `permission_routes`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `product_models`
@@ -3316,10 +3215,16 @@ ALTER TABLE `product_reviews`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `product_sizes`
+--
+ALTER TABLE `product_sizes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`
@@ -3391,7 +3296,7 @@ ALTER TABLE `storage_types`
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `subscribed_users`
@@ -3421,7 +3326,7 @@ ALTER TABLE `terms_and_policies`
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `units`
@@ -3433,7 +3338,7 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`

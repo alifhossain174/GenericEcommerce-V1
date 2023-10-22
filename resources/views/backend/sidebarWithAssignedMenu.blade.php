@@ -11,6 +11,7 @@
     $configModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
                                                 ->where('route', 'like', '%view/all/units%')
                                                 ->orWhere('route', 'like', '%view/all/flags%')
+                                                ->orWhere('route', 'like', '%view/all/sizes%')
                                                 ->orWhere('route', 'like', '%view/all/brands%')
                                                 ->orWhere('route', 'like', '%view/all/models%')
                                                 ->orWhere('route', 'like', '%view/all/colors%')
@@ -93,12 +94,13 @@
         <ul class="sub-menu" aria-expanded="false">
             @if(checkAuth("view/all/units")) <li><a href="{{ url('/view/all/units') }}">Measurement Units</a></li> @endif
             @if(checkAuth("view/all/flags")) <li><a href="{{ url('/view/all/flags') }}">Product Flags</a></li> @endif
+            @if(checkAuth("view/all/sizes")) <li><a href="{{ url('/view/all/sizes') }}">Product Sizes</a></li> @endif
             @if(checkAuth("view/all/brands")) <li><a href="{{ url('/view/all/brands') }}">Product Brands</a></li> @endif
             @if(checkAuth("view/all/models")) <li><a href="{{ url('/view/all/models') }}">Models of Brand</a></li> @endif
             @if(checkAuth("view/all/colors")) <li><a href="{{ url('/view/all/colors') }}">Product Colors</a></li> @endif
-            @if(checkAuth("view/all/storages")) <li><a href="{{ url('/view/all/storages') }}">Storage (RAM/ROM)</a></li> @endif
+            {{-- @if(checkAuth("view/all/storages")) <li><a href="{{ url('/view/all/storages') }}">Storage (RAM/ROM)</a></li> @endif
             @if(checkAuth("view/all/sims")) <li><a href="{{ url('/view/all/sims') }}">SIM Type</a></li> @endif
-            @if(checkAuth("view/all/device/conditions")) <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li> @endif
+            @if(checkAuth("view/all/device/conditions")) <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li> @endif --}}
             @if(checkAuth("view/all/warrenties")) <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty</a></li> @endif
         </ul>
     </li>

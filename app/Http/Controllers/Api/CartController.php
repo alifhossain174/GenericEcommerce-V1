@@ -42,6 +42,7 @@ class CartController extends Controller
                     'product_id' => $productInfo->id,
                     // variant start
                     'color_id' => $request->color_id,
+                    'size_id' => $request->size_id,
                     'region_id' => $request->region_id,
                     'sim_id' => $request->sim_id,
                     'storage_id' => $request->storage_id,
@@ -60,6 +61,7 @@ class CartController extends Controller
                     ->join('products', 'carts.product_id', '=', 'products.id')
 
                     ->leftJoin('colors', 'carts.color_id', 'colors.id')
+                    ->leftJoin('product_sizes', 'carts.size_id', 'product_sizes.id')
                     ->leftJoin('country', 'carts.region_id', 'country.id')
                     ->leftJoin('sims', 'carts.sim_id', 'sims.id')
                     ->leftJoin('storage_types', 'carts.storage_id', 'storage_types.id')
@@ -67,7 +69,7 @@ class CartController extends Controller
                     ->leftJoin('product_warrenties', 'carts.warrenty_id', 'product_warrenties.id')
 
                     ->where('carts.id', $cartId)
-                    ->select('carts.*', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
+                    ->select('carts.*', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'product_sizes.name as size_name', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
                     ->first();
 
             return response()->json([
@@ -109,6 +111,7 @@ class CartController extends Controller
                             ->join('products', 'carts.product_id', '=', 'products.id')
 
                             ->leftJoin('colors', 'carts.color_id', 'colors.id')
+                            ->leftJoin('product_sizes', 'carts.size_id', 'product_sizes.id')
                             ->leftJoin('country', 'carts.region_id', 'country.id')
                             ->leftJoin('sims', 'carts.sim_id', 'sims.id')
                             ->leftJoin('storage_types', 'carts.storage_id', 'storage_types.id')
@@ -116,7 +119,7 @@ class CartController extends Controller
                             ->leftJoin('product_warrenties', 'carts.warrenty_id', 'product_warrenties.id')
 
                             ->where('carts.id', $request->cart_id)
-                            ->select('carts.*', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
+                            ->select('carts.*', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'product_sizes.name as size_name', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
                             ->first();
 
                 return response()->json([
@@ -165,6 +168,7 @@ class CartController extends Controller
                             ->join('products', 'carts.product_id', '=', 'products.id')
 
                             ->leftJoin('colors', 'carts.color_id', 'colors.id')
+                            ->leftJoin('product_sizes', 'carts.size_id', 'product_sizes.id')
                             ->leftJoin('country', 'carts.region_id', 'country.id')
                             ->leftJoin('sims', 'carts.sim_id', 'sims.id')
                             ->leftJoin('storage_types', 'carts.storage_id', 'storage_types.id')
@@ -172,7 +176,7 @@ class CartController extends Controller
                             ->leftJoin('product_warrenties', 'carts.warrenty_id', 'product_warrenties.id')
 
                             ->where('carts.id', $request->cart_id)
-                            ->select('carts.*', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
+                            ->select('carts.*', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'product_sizes.name as size_name', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
                             ->first();
 
                     return response()->json([
@@ -191,6 +195,7 @@ class CartController extends Controller
                                 ->join('products', 'carts.product_id', '=', 'products.id')
 
                                 ->leftJoin('colors', 'carts.color_id', 'colors.id')
+                                ->leftJoin('product_sizes', 'carts.size_id', 'product_sizes.id')
                                 ->leftJoin('country', 'carts.region_id', 'country.id')
                                 ->leftJoin('sims', 'carts.sim_id', 'sims.id')
                                 ->leftJoin('storage_types', 'carts.storage_id', 'storage_types.id')
@@ -198,7 +203,7 @@ class CartController extends Controller
                                 ->leftJoin('product_warrenties', 'carts.warrenty_id', 'product_warrenties.id')
 
                                 ->where('carts.id', $request->cart_id)
-                                ->select('carts.*', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
+                                ->select('carts.*', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'product_sizes.name as size_name', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
                                 ->first();
 
                     return response()->json([
@@ -257,6 +262,7 @@ class CartController extends Controller
                         ->leftJoin('units', 'products.unit_id', '=', 'units.id')
 
                         ->leftJoin('colors', 'carts.color_id', 'colors.id')
+                        ->leftJoin('product_sizes', 'carts.size_id', 'product_sizes.id')
                         ->leftJoin('country', 'carts.region_id', 'country.id')
                         ->leftJoin('sims', 'carts.sim_id', 'sims.id')
                         ->leftJoin('storage_types', 'carts.storage_id', 'storage_types.id')
@@ -264,7 +270,7 @@ class CartController extends Controller
                         ->leftJoin('product_warrenties', 'carts.warrenty_id', 'product_warrenties.id')
 
                         ->where('carts.user_unique_cart_no', $request->user_unique_cart_no)
-                        ->select('carts.*', 'units.name as unit_name', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
+                        ->select('carts.*', 'units.name as unit_name', 'products.image', 'products.name as product_name', 'products.discount_price', 'products.price as product_price', 'colors.name as color_name', 'colors.code as color_code', 'product_sizes.name as size_name', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
                         ->get();
 
             $totalAmount = DB::table('carts')
@@ -375,6 +381,7 @@ class CartController extends Controller
                 'product_id' => $item->product_id,
 
                 'color_id' => $item->color_id,
+                'size_id' => $item->size_id,
                 'region_id' => $item->region_id,
                 'sim_id' => $item->sim_id,
                 'storage_id' => $item->storage_id,
@@ -466,6 +473,7 @@ class CartController extends Controller
                     'product_id' => $item->product_id,
 
                     'color_id' => $item->color_id,
+                    'size_id' => $item->size_id,
                     'region_id' => $item->region_id,
                     'sim_id' => $item->sim_id,
                     'storage_id' => $item->storage_id,
@@ -554,6 +562,7 @@ class CartController extends Controller
             'order_id' => $orderId,
             'product_id' => $request->product_id,
             'color_id' => $request->color_id,
+            'size_id' => $request->size_id,
             'region_id' => $request->region_id,
             'sim_id' => $request->sim_id,
             'storage_id' => $request->storage_id,
@@ -633,6 +642,7 @@ class CartController extends Controller
                 'order_id' => $orderId,
                 'product_id' => $request->product_id,
                 'color_id' => $request->color_id,
+                'size_id' => $request->size_id,
                 'region_id' => $request->region_id,
                 'sim_id' => $request->sim_id,
                 'storage_id' => $request->storage_id,

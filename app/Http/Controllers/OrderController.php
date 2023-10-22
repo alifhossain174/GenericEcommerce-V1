@@ -499,6 +499,7 @@ class OrderController extends Controller
             foreach($request->product_id as $product_id){
 
                 $color_id = isset($request->color_id[$index]) ? $request->color_id[$index] : '';
+                $size_id = isset($request->size_id[$index]) ? $request->size_id[$index] : '';
                 $region_id = isset($request->region_id[$index]) ? $request->region_id[$index] : '';
                 $sim_id = isset($request->sim_id[$index]) ? $request->sim_id[$index] : '';
                 $storage_id = isset($request->storage_id[$index]) ? $request->storage_id[$index] : '';
@@ -509,6 +510,7 @@ class OrderController extends Controller
                     'order_id' => $request->order_id,
                     'product_id' => $product_id,
                     'color_id' => $color_id,
+                    'size_id' => $size_id,
                     'region_id' => $region_id,
                     'sim_id' => $sim_id,
                     'storage_id' => $storage_id,
@@ -643,6 +645,7 @@ class OrderController extends Controller
         if($productInfo->has_variant == 1){
             $data = DB::table('product_variants')
                         ->leftJoin('colors', 'product_variants.color_id', '=', 'colors.id')
+                        ->leftJoin('product_sizes', 'product_variants.size_id', '=', 'product_sizes.id')
                         ->leftJoin('country', 'product_variants.region_id', '=', 'country.id')
                         ->leftJoin('sims', 'product_variants.sim_id', '=', 'sims.id')
                         ->leftJoin('storage_types', 'product_variants.storage_type_id', '=', 'storage_types.id')
@@ -651,7 +654,7 @@ class OrderController extends Controller
                         ->leftJoin('products', 'product_variants.product_id', '=', 'products.id')
                         ->leftJoin('units', 'products.unit_id', '=', 'units.id')
 
-                        ->select('product_variants.id', 'product_variants.color_id', 'product_variants.storage_type_id', 'product_variants.region_id', 'product_variants.sim_id', 'product_variants.warrenty_id', 'product_variants.device_condition_id', 'product_variants.discounted_price', 'product_variants.price', 'product_variants.stock as variant_stock', 'colors.name as color_name', 'country.name as region_name', 'sims.name as sim_name', 'storage_types.ram', 'storage_types.rom', 'product_warrenties.name as warrrenty', 'device_conditions.name as device_condition', 'units.name as unit_name', 'units.id as unit_id')
+                        ->select('product_variants.id', 'product_variants.color_id', 'product_variants.size_id', 'product_variants.storage_type_id', 'product_variants.region_id', 'product_variants.sim_id', 'product_variants.warrenty_id', 'product_variants.device_condition_id', 'product_variants.discounted_price', 'product_variants.price', 'product_variants.stock as variant_stock', 'colors.name as color_name', 'product_sizes.name as size_name', 'country.name as region_name', 'sims.name as sim_name', 'storage_types.ram', 'storage_types.rom', 'product_warrenties.name as warrrenty', 'device_conditions.name as device_condition', 'units.name as unit_name', 'units.id as unit_id')
 
                         ->where('product_variants.product_id', $request->product_id)
                         ->where('product_variants.stock', '>', 0)

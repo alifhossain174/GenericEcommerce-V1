@@ -99,7 +99,7 @@ class ProductController extends Controller
                 if($i == 0){ // saving the base variant price & warrenty As product main price & warrenty for filtering
                     $product->price = $request->product_variant_price[$i];
                     $product->discount_price = $request->product_variant_discounted_price[$i];
-                    $product->warrenty_id = $request->product_variant_warrenty[$i];
+                    $product->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null;
                     $product->save();
                 }
 
@@ -107,14 +107,15 @@ class ProductController extends Controller
                     'product_id' => $product->id,
                     'image' => $name,
                     'color_id' => $color_id,
-                    'region_id' => $request->product_variant_region_id[$i],
-                    'sim_id' => $request->product_variant_sim_id[$i],
-                    'storage_type_id' => $request->product_variant_storage_type_id[$i],
+                    'size_id' => isset($request->product_variant_size_id[$i]) ? $request->product_variant_size_id[$i] : null,
+                    'region_id' => isset($request->product_variant_region_id[$i]) ? $request->product_variant_region_id[$i] : null,
+                    'sim_id' => isset($request->product_variant_sim_id[$i]) ? $request->product_variant_sim_id[$i] : null,
+                    'storage_type_id' => isset($request->product_variant_storage_type_id[$i]) ? $request->product_variant_storage_type_id[$i] : null,
                     'stock' => $request->product_variant_stock[$i],
                     'price' => $request->product_variant_price[$i],
                     'discounted_price' => $request->product_variant_discounted_price[$i],
-                    'warrenty_id' => $request->product_variant_warrenty[$i],
-                    'device_condition_id' => $request->product_variant_device_condition_id[$i],
+                    'warrenty_id' => isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null,
+                    'device_condition_id' => isset($request->product_variant_device_condition_id[$i]) ? $request->product_variant_device_condition_id[$i] : null,
                     'created_at' => Carbon::now()
                 ]);
                 $i++;
@@ -178,9 +179,9 @@ class ProductController extends Controller
             return Datatables::of($data)
                     ->editColumn('status', function($data) {
                         if($data->status == 1){
-                            return 'Active';
+                            return '<span class="btn btn-sm btn-success d-inline-block">Active</span>';
                         } else {
-                            return 'Inactive';
+                            return '<span class="btn btn-sm btn-danger d-inline-block">Inactive</span>';
                         }
                     })
                     ->editColumn('price', function($data) {
@@ -230,7 +231,7 @@ class ProductController extends Controller
                         $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded d-inline-block deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         return $btn;
                     })
-                    ->rawColumns(['action', 'price'])
+                    ->rawColumns(['action', 'price', 'status'])
                     ->make(true);
         }
         return view('backend.product.view');
@@ -367,7 +368,7 @@ class ProductController extends Controller
                 if($i == 0){ // saving the base variant price & warrenty As product main price & warrenty for filtering
                     $product->price = $request->product_variant_price[$i];
                     $product->discount_price = $request->product_variant_discounted_price[$i];
-                    $product->warrenty_id = $request->product_variant_warrenty[$i];
+                    $product->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null;
                     $product->save();
                 }
 
@@ -385,14 +386,15 @@ class ProductController extends Controller
 
                     $variantInfo->image = $name;
                     $variantInfo->color_id = $color_id;
-                    $variantInfo->region_id = $request->product_variant_region_id[$i];
-                    $variantInfo->sim_id = $request->product_variant_sim_id[$i];
-                    $variantInfo->storage_type_id = $request->product_variant_storage_type_id[$i];
+                    $variantInfo->size_id = isset($request->product_variant_size_id[$i]) ? $request->product_variant_size_id[$i] : null;
+                    $variantInfo->region_id = isset($request->product_variant_region_id[$i]) ? $request->product_variant_region_id[$i] : null;
+                    $variantInfo->sim_id = isset($request->product_variant_sim_id[$i]) ? $request->product_variant_sim_id[$i] : null;
+                    $variantInfo->storage_type_id = isset($request->product_variant_storage_type_id[$i]) ? $request->product_variant_storage_type_id[$i] : null;
                     $variantInfo->stock = $request->product_variant_stock[$i];
                     $variantInfo->price = $request->product_variant_price[$i];
                     $variantInfo->discounted_price = $request->product_variant_discounted_price[$i];
-                    $variantInfo->warrenty_id = $request->product_variant_warrenty[$i];
-                    $variantInfo->device_condition_id = $request->product_variant_device_condition_id[$i];
+                    $variantInfo->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null;
+                    $variantInfo->device_condition_id = isset($request->product_variant_device_condition_id[$i]) ? $request->product_variant_device_condition_id[$i] : null;
                     $variantInfo->updated_at = Carbon::now();
                     $variantInfo->save();
 
@@ -409,14 +411,15 @@ class ProductController extends Controller
                         'product_id' => $product->id,
                         'image' => $name,
                         'color_id' => $color_id,
-                        'region_id' => $request->product_variant_region_id[$i],
-                        'sim_id' => $request->product_variant_sim_id[$i],
-                        'storage_type_id' => $request->product_variant_storage_type_id[$i],
+                        'size_id' => isset($request->product_variant_size_id[$i]) ? $request->product_variant_size_id[$i] : null,
+                        'region_id' => isset($request->product_variant_region_id[$i]) ? $request->product_variant_region_id[$i] : null,
+                        'sim_id' => isset($request->product_variant_sim_id[$i]) ? $request->product_variant_sim_id[$i] : null,
+                        'storage_type_id' => isset($request->product_variant_storage_type_id[$i]) ? $request->product_variant_storage_type_id[$i] : null,
                         'stock' => $request->product_variant_stock[$i],
                         'price' => $request->product_variant_price[$i],
                         'discounted_price' => $request->product_variant_discounted_price[$i],
-                        'warrenty_id' => $request->product_variant_warrenty[$i],
-                        'device_condition_id' => $request->product_variant_device_condition_id[$i],
+                        'warrenty_id' => isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null,
+                        'device_condition_id' => isset($request->product_variant_device_condition_id[$i]) ? $request->product_variant_device_condition_id[$i] : null,
                         'created_at' => Carbon::now()
                     ]);
 

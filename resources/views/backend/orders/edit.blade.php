@@ -178,6 +178,8 @@
                                             @php
                                                 if($details->color_id)
                                                     $colorInfo = App\Models\Color::where('id', $details->color_id)->first();
+                                                if($details->size_id)
+                                                    $sizeInfo = App\Models\ProductSize::where('id', $details->size_id)->first();
                                                 if($details->storage_id)
                                                     $storageInfo = App\Models\StorageType::where('id', $details->storage_id)->first();
                                                 if($details->sim_id)
@@ -201,6 +203,7 @@
 
                                                 <td class="text-center" style="vertical-align: middle;">
                                                     @if($details->color_id) Color: {{$colorInfo->name}} | @endif
+                                                    @if($details->size_id) Size: {{$sizeInfo->name}} | @endif
                                                     @if($details->storage_id) Storage: {{$storageInfo->ram}}/{{$storageInfo->rom}} | @endif
                                                     @if($details->sim_id) SIM: {{$simInfo->name}} @endif
 
@@ -210,6 +213,7 @@
                                                     @if($details->device_condition_id) Condition: {{$deviceCondition->name}} @endif
 
                                                     <input type="hidden" id="color_id_{{$sl}}" name="color_id[]" value="{{$details->color_id}}">
+                                                    <input type="hidden" id="size_id_{{$sl}}" name="size_id[]" value="{{$details->size_id}}">
                                                     <input type="hidden" id="storage_id_{{$sl}}" name="storage_id[]" value="{{$details->storage_id}}">
                                                     <input type="hidden" id="sim_id_{{$sl}}" name="sim_id[]" value="{{$details->sim_id}}">
                                                     <input type="hidden" id="region_id_{{$sl}}" name="region_id[]" value="{{$details->region_id}}">
@@ -416,6 +420,8 @@
                             $optionStr = "("+value.variant_stock+") ";
                             if(value.color_name)
                                 $optionStr += value.color_name;
+                            if(value.size_name)
+                                $optionStr += " | "+value.size_name;
                             if(value.ram && value.rom)
                                 $optionStr += " | "+value.ram+'/'+value.rom;
                             if(value.region_name)
@@ -433,7 +439,7 @@
                             else
                                 price = Number(value.price);
 
-                            $("#product_variant_id_"+renum).append('<option value="' + value.id + '" color_id="'+value.color_id+'" storage_id="'+value.storage_type_id+'" region_id="'+value.region_id+'" sim_id="'+value.sim_id+'" warrenty_id="'+value.warrenty_id+'" device_condition_id="'+value.device_condition_id+'" price="'+price+'" unit_name="'+value.unit_name+'" unit_id="'+value.unit_id+'" stock="'+value.variant_stock+'">' + $optionStr + '</option>');
+                            $("#product_variant_id_"+renum).append('<option value="' + value.id + '" color_id="'+value.color_id+'" size_id="'+value.size_id+'" storage_id="'+value.storage_type_id+'" region_id="'+value.region_id+'" sim_id="'+value.sim_id+'" warrenty_id="'+value.warrenty_id+'" device_condition_id="'+value.device_condition_id+'" price="'+price+'" unit_name="'+value.unit_name+'" unit_id="'+value.unit_id+'" stock="'+value.variant_stock+'">' + $optionStr + '</option>');
                         });
 
                         orderAmountCalculation();
@@ -494,12 +500,15 @@
             $("#total_price_"+id).val(price);
 
             var color_id = $('#product_variant_id_'+id+' option:selected').attr('color_id');
+            var size_id = $('#product_variant_id_'+id+' option:selected').attr('size_id');
             var storage_id = $('#product_variant_id_'+id+' option:selected').attr('storage_id');
             var region_id = $('#product_variant_id_'+id+' option:selected').attr('region_id');
             var sim_id = $('#product_variant_id_'+id+' option:selected').attr('sim_id');
             var warrenty_id = $('#product_variant_id_'+id+' option:selected').attr('warrenty_id');
             var device_condition_id = $('#product_variant_id_'+id+' option:selected').attr('device_condition_id');
+
             $("#color_id_"+id).val(color_id);
+            $("#size_id_"+id).val(size_id);
             $("#storage_id_"+id).val(storage_id);
             $("#region_id_"+id).val(region_id);
             $("#sim_id_"+id).val(sim_id);

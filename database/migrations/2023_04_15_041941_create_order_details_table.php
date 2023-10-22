@@ -20,6 +20,7 @@ class CreateOrderDetailsTable extends Migration
 
             // added later start
             $table->unsignedBigInteger('color_id')->comment("Variant")->nullable();
+            $table->unsignedBigInteger('size_id')->comment("Variant")->nullable();
             $table->unsignedBigInteger('region_id')->comment("Variant")->nullable();
             $table->unsignedBigInteger('sim_id')->comment("Variant")->nullable();
             $table->unsignedBigInteger('storage_id')->comment("Variant")->nullable();

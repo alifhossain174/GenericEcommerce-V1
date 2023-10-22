@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthenticationController;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\ProfileController;
@@ -10,10 +11,13 @@ use App\Http\Controllers\Api\BlogController;
 
 Route::group(['namespace' => 'Api'], function () {
 
-    Route::post('user/login', [ApiController::class, 'userLogin'])->middleware(['throttle:5,1']);
-    Route::post('verify/user/login', [ApiController::class, 'verifyUserLogin'])->middleware(['throttle:5,1']);
-    Route::post('subscribe/for/updates', [ApiController::class, 'subscriptionForUpdates']);
+    // authentication api | middleware(['throttle:5,1']) means 5 requests can be made in 1 minute
+    Route::post('user/registration', [AuthenticationController::class, 'userRegistration'])->middleware(['throttle:5,1']);
+    Route::post('user/verification', [AuthenticationController::class, 'userVerification'])->middleware(['throttle:5,1']);
+    Route::post('user/login', [AuthenticationController::class, 'userLogin'])->middleware(['throttle:5,1']);
 
+
+    Route::post('subscribe/for/updates', [ApiController::class, 'subscriptionForUpdates']);
     Route::middleware('auth:sanctum')->group( function () {
         Route::get('user/profile/info', [ApiController::class, 'userProfileInfo']);
         Route::post('user/profile/update', [ApiController::class, 'userProfileUpdate']); //for app only

@@ -87,4 +87,14 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::get('/rearrange/storage/types', [StorageController::class, 'rearrangeStorage'])->name('RearrangeStorage');
     Route::post('/save/rearranged/storages', [StorageController::class, 'saveRearrangeStorage'])->name('SaveRearrangeStorage');
 
+    // config routes for sizes
+    Route::get('/view/all/sizes', [ConfigController::class, 'viewAllSizes'])->name('ViewAllSizes');
+    Route::get('/delete/size/{id}', [ConfigController::class, 'deleteSize'])->name('DeleteSize');
+    Route::get('/get/size/info/{id}', [ConfigController::class, 'getSizeInfo'])->name('GetSizeInfo');
+    Route::post('/update/size', [ConfigController::class, 'updateSizeInfo'])->name('UpdateSizeInfo');
+    Route::post('/create/new/size', [ConfigController::class, 'createNewSize'])->name('CreateNewSize');
+    Route::get('/rearrange/size', [ConfigController::class, 'rearrangeSize'])->name('RearrangeSize');
+    Route::post('/save/rearranged/sizes', [ConfigController::class, 'saveRearrangedSizes'])->name('SaveRearrangedSizes');
+    
+
 });

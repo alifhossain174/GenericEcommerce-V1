@@ -57,12 +57,13 @@
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/view/all/units') }}">Measurement Units</a></li>
             <li><a href="{{ url('/view/all/flags') }}">Product Flags</a></li>
+            <li><a href="{{ url('/view/all/sizes') }}">Product Sizes</a></li>
             <li><a href="{{ url('/view/all/brands') }}">Product Brands</a></li>
             <li><a href="{{ url('/view/all/models') }}">Models of Brand</a></li>
             <li><a href="{{ url('/view/all/colors') }}">Product Colors</a></li>
-            <li><a href="{{ url('/view/all/storages') }}">Storage (RAM/ROM)</a></li>
+            {{-- <li><a href="{{ url('/view/all/storages') }}">Storage (RAM/ROM)</a></li>
             <li><a href="{{ url('/view/all/sims') }}">SIM Type</a></li>
-            <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li>
+            <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li> --}}
             <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty</a></li>
         </ul>
     </li>

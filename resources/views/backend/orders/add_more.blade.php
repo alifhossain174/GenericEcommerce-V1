@@ -15,6 +15,7 @@
         </select>
 
         <input type="hidden" id="color_id_{{$rowNo}}" name="color_id[]">
+        <input type="hidden" id="size_id_{{$rowNo}}" name="size_id[]">
         <input type="hidden" id="storage_id_{{$rowNo}}" name="storage_id[]">
         <input type="hidden" id="sim_id_{{$rowNo}}" name="sim_id[]">
         <input type="hidden" id="region_id_{{$rowNo}}" name="region_id[]">

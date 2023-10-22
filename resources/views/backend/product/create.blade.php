@@ -161,7 +161,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="image">Product Thumbnail Image (1040x880)<span class="text-danger">*</span></label>
+                                    <label for="image">Product Thumbnail Image<span class="text-danger">*</span></label>
                                     <input type="file" name="image" class="dropify" data-height="200" data-max-file-size="1M" accept="image/*" required/>
                                 </div>
                                 <div class="form-group">
@@ -299,16 +299,17 @@
                                         <table class="table table-bordered rounded" id="product_variant_table">
                                             <thead class="thead-light rounded">
                                                 <tr>
-                                                    <th class="text-center" style="min-width: 240px">Image <span class="text-danger">*</span></th>
-                                                    <th class="text-center" style="min-width: 140px;">Color <span class="text-danger">*</span></th>
-                                                    <th class="text-center" style="min-width: 200px;">Region</th>
+                                                    <th class="text-center">Image <span class="text-danger">*</span></th>
+                                                    <th class="text-center">Color <span class="text-danger">*</span></th>
+                                                    <th class="text-center">Size <span class="text-danger">*</span></th>
+                                                    {{-- <th class="text-center" style="min-width: 200px;">Region</th>
                                                     <th class="text-center" style="min-width: 140px;">SIM Type</th>
-                                                    <th class="text-center" style="min-width: 140px;">Storage</th>
-                                                    <th class="text-center" style="min-width: 120px;">Stock <span class="text-danger">*</span></th>
-                                                    <th class="text-center" style="min-width: 120px;">Price <span class="text-danger">*</span></th>
-                                                    <th class="text-center" style="min-width: 120px;">Disc. Price <span class="text-danger">*</span></th>
+                                                    <th class="text-center" style="min-width: 140px;">Storage</th> --}}
+                                                    <th class="text-center">Stock <span class="text-danger">*</span></th>
+                                                    <th class="text-center">Price <span class="text-danger">*</span></th>
+                                                    <th class="text-center">Disc. Price <span class="text-danger">*</span></th>
                                                     <th class="text-center" style="min-width: 120px;">Warrenty <span class="text-danger">*</span></th>
-                                                    <th class="text-center" style="min-width: 120px;">Condition</th>
+                                                    {{-- <th class="text-center" style="min-width: 120px;">Condition</th> --}}
                                                     <th class="text-center" style="min-width: 50px;">Action</th>
                                                 </tr>
                                             </thead>
@@ -325,6 +326,13 @@
                                                         </select>
                                                     </td>
                                                     <td class="text-center">
+                                                        <select name="product_variant_size_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\ProductSize::getDropDownList('name');
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    {{-- <td class="text-center">
                                                         <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
                                                             @php
                                                                 echo App\Models\Region::getDropDownList('name');
@@ -344,7 +352,7 @@
                                                                 echo App\Models\StorageType::getDropDownList('ram');
                                                             @endphp
                                                         </select>
-                                                    </td>
+                                                    </td> --}}
                                                     <td class="text-center">
                                                         <input type="number" class="form-control" name="product_variant_stock[]" value="0" style="height: 34px;" placeholder="0">
                                                     </td>
@@ -361,13 +369,13 @@
                                                             @endphp
                                                         </select>
                                                     </td>
-                                                    <td class="text-center">
+                                                    {{-- <td class="text-center">
                                                         <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
                                                             @php
                                                                 echo App\Models\DeviceCondition::getDropDownList('name');
                                                             @endphp
                                                         </select>
-                                                    </td>
+                                                    </td> --}}
                                                     <td class="text-center">
                                                         {{-- <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a> --}}
                                                     </td>

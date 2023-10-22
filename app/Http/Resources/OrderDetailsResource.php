@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Color;
 use App\Models\DeviceCondition;
 use App\Models\Product;
+use App\Models\ProductSize;
 use App\Models\ProductWarrenty;
 use App\Models\Sim;
 use App\Models\StorageType;
@@ -26,7 +27,23 @@ class OrderDetailsResource extends JsonResource
         // return parent::toArray($request);
         $prodInfo = Product::where('id', $this->product_id)->first();
         $unitInfo = Unit::where('id', $this->unit_id)->first();
+
+
+        $colorInfo = Color::where('id', $this->color_id)->first();
+        $colorName = $colorInfo ? $colorInfo->name : '';
+        $sizeInfo = ProductSize::where('id', $this->size_id)->first();
+        $sizeName = $sizeInfo ? $sizeInfo->name : '';
+        $regionInfo = DB::table('country')->where('id', $this->region_id)->first();
+        $regionName = $regionInfo ? $regionInfo->name : '';
+        $simInfo = Sim::where('id', $this->sim_id)->first();
+        $simName = $simInfo ? $simInfo->name : '';
+        $storageInfo = StorageType::where('id', $this->storage_id)->first();
+        $storageName = $storageInfo ? $storageInfo->ram."/".$storageInfo->rom : '';
+        $warrentyInfo = ProductWarrenty::where('id', $this->warrenty_id)->first();
+        $warrentyName = $warrentyInfo ? $warrentyInfo->name : '';
         $deviceConditionInfo = DeviceCondition::where('id', $this->device_condition_id)->first();
+        $deviceConditionName = $deviceConditionInfo ? $deviceConditionInfo->name : '';
+
 
         return [
             'id' => $this->id,
@@ -39,17 +56,19 @@ class OrderDetailsResource extends JsonResource
 
             // variants
             'color_id' => $this->color_id,
-            'color_name' => $this->color_id > 0 ? Color::where('id', $this->color_id)->first()->name : '',
+            'color_name' => $colorName,
+            'size_id' => $this->size_id,
+            'size_name' => $sizeName,
             'region_id' => $this->region_id,
-            'region_name' => $this->region_id > 0 ? DB::table('country')->where('id', $this->region_id)->first()->name : '',
+            'region_name' => $regionName,
             'sim_id' => $this->sim_id,
-            'sim_name' => $this->sim_id > 0 ? Sim::where('id', $this->sim_id)->first()->name : '',
+            'sim_name' => $simName,
             'storage_id' => $this->storage_id,
-            'storage_name' => $this->storage_id > 0 ? StorageType::where('id', $this->storage_id)->first()->ram."/".StorageType::where('id', $this->storage_id)->first()->rom : '',
+            'storage_name' => $storageName,
             'warrenty_id' => $this->warrenty_id,
-            'warrenty_name' => $this->warrenty_id > 0 ? ProductWarrenty::where('id', $this->warrenty_id)->first()->name : '',
+            'warrenty_name' => $warrentyName,
             'device_condition_id' => $this->device_condition_id,
-            'device_condition_name' => $deviceConditionInfo ? $deviceConditionInfo->name : '',
+            'device_condition_name' => $deviceConditionName,
 
             'qty' => $this->qty,
             'unit_price' => $this->unit_price,
