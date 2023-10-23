@@ -33,8 +33,8 @@
                             <h4 class="m-0">{{$generalInfo->company_name}}</h4>
                         </div>
                         <div class="col text-center">
-                            @if(file_exists(public_path($generalInfo->logo)))
-                            <img src="{{url($generalInfo->logo)}}" alt="" height="25">
+                            @if(file_exists(public_path($generalInfo->logo_dark)))
+                            <img src="{{url($generalInfo->logo_dark)}}" alt="" height="40">
                             @endif
                         </div>
                         <div class="col text-right">

@@ -16,6 +16,9 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('user/verification', [AuthenticationController::class, 'userVerification'])->middleware(['throttle:5,1']);
     Route::post('user/login', [AuthenticationController::class, 'userLogin'])->middleware(['throttle:5,1']);
 
+    // available social login credentials
+    Route::post('social/login/credentials', [AuthenticationController::class, 'socialLoginCredentials']);
+
 
     Route::post('subscribe/for/updates', [ApiController::class, 'subscriptionForUpdates']);
     Route::middleware('auth:sanctum')->group( function () {

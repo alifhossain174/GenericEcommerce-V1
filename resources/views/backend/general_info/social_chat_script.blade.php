@@ -101,7 +101,7 @@
                                             <label for="google_analytic_status">Allow Google Analytic</label>
                                             <select id="google_analytic_status" class="form-control" name="google_analytic_status" required>
                                                 <option value="1" @if($generalInfo->status == 1) selected @endif>Allow Google Analytic</option>
-                                                <option value="0" @if($generalInfo->status == 1) selected @endif>Disallow Google Analytic</option>
+                                                <option value="0" @if($generalInfo->status == 0) selected @endif>Disallow Google Analytic</option>
                                             </select>
                                         </div>
 

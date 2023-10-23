@@ -157,6 +157,37 @@
 			"response": []
 		},
 		{
+			"name": "Social Login Credentials",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/social/login/credentials",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"social",
+						"login",
+						"credentials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "User Profile Info",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -1977,16 +2008,22 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{Bestu API Base URL}}/general/info",
+					"raw": "http://127.0.0.1:8000/api/general/info",
+					"protocol": "http",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
+						"api",
 						"general",
 						"info"
 					]

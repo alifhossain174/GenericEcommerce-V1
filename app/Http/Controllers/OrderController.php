@@ -375,7 +375,7 @@ class OrderController extends Controller
                             ->select('order_details.*', 'products.name as product_name', 'units.name as unit_name', 'categories.name as category_name')
                             ->where('order_id', $order->id)
                             ->get();
-        $generalInfo = DB::table('general_infos')->select('logo', 'company_name')->first();
+        $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
         return view('backend.orders.details', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo'));
     }
 
@@ -484,7 +484,7 @@ class OrderController extends Controller
                             ->select('order_details.*', 'products.name as product_name', 'units.name as unit_name', 'categories.name as category_name')
                             ->where('order_id', $order->id)
                             ->get();
-        $generalInfo = DB::table('general_infos')->select('logo', 'company_name')->first();
+        $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
         return view('backend.orders.edit', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo'));
     }
 

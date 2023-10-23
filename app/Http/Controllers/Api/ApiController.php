@@ -7,6 +7,7 @@ use App\Http\Resources\OrderResource;
 use App\Http\Resources\OrderProgressResource;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\GeneralInfoResource;
 use App\Http\Resources\BrandResource;
 use App\Http\Resources\FlagResource;
 use App\Models\User;
@@ -14,11 +15,8 @@ use App\Models\Category;
 use App\Models\ChildCategory;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\UserVerificationEmail;
 use App\Models\BillingAddress;
 use App\Models\Brand;
 use App\Models\ContactRequest;
@@ -35,12 +33,9 @@ use App\Models\SubscribedUsers;
 use App\Models\ShippingInfo;
 use App\Models\Subcategory;
 use App\Models\WishList;
-use App\Models\EmailConfigure;
 use App\Models\PaymentGateway;
 use App\Models\ProductQuestionAnswer;
 use App\Models\ProductVariant;
-use App\Models\SmsGateway;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Image;
 
@@ -887,7 +882,7 @@ class ApiController extends BaseController
 
             return response()->json([
                 'success' => true,
-                'data' => $data
+                'data' => new GeneralInfoResource($data)
             ], 200);
 
         } else {

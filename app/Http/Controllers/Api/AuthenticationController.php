@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\EmailConfigure;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\SocialLoginResource;
 use App\Models\User;
 use App\Models\SmsGateway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserVerificationEmail;
+use App\Models\SocialLogin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
@@ -294,7 +296,7 @@ class AuthenticationController extends Controller
             }
 
             if(Auth::attempt(['email' => $request->username, 'password' => $request->password]) || Auth::attempt(['phone' => $request->username, 'password' => $request->password])){
-                
+
                 $user = Auth::user();
                 User::where('id', $user->id)->update([
                     'delete_request_submitted' => 0,
@@ -317,7 +319,7 @@ class AuthenticationController extends Controller
                     'message'=> 'Successfully Logged In',
                     'data' => $data
                 ]);
-                
+
             }
             else{
                 return response()->json([
@@ -334,4 +336,24 @@ class AuthenticationController extends Controller
             ], 422);
         }
     }
+
+    public function socialLoginCredentials(Request $request){
+        if ($request->header('Authorization') == AuthenticationController::AUTHORIZATION_TOKEN) {
+
+            $data = SocialLogin::where('id', 1)->first();
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Wrong Login Credentials',
+                'data' => new SocialLoginResource($data),
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
 }
