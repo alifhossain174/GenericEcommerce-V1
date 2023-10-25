@@ -376,7 +376,7 @@
     </li>
     @endif
 
-    @if ($termsPolicyModule && count($sliderBannerModule) > 0)
+    @if ($termsPolicyModule && count($termsPolicyModule) > 0)
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
         <ul class="sub-menu" aria-expanded="false">

@@ -68,7 +68,7 @@ class AuthenticationController extends Controller
                     $data['email'] = $username;
                     $data['phone'] = null;
                     $data['email_verified_at'] = null;
-                    $data['user_type'] = 3;
+                    // $data['user_type'] = 3;
                     $data['status'] = 0;
                     $data['image'] = null;
                     $data['address'] = $address;
@@ -155,7 +155,7 @@ class AuthenticationController extends Controller
                     $data['email'] = null;
                     $data['phone'] = $username;
                     $data['email_verified_at'] = null;
-                    $data['user_type'] = 3;
+                    // $data['user_type'] = 3;
                     $data['status'] = 0;
                     $data['image'] = null;
                     $data['address'] = $address;
@@ -232,7 +232,7 @@ class AuthenticationController extends Controller
     public function userVerification(Request $request){
         if ($request->header('Authorization') == AuthenticationController::AUTHORIZATION_TOKEN) {
 
-            if(!$request->code || !$request->username || $request->password){
+            if(!$request->code || !$request->username || !$request->password){
                 return response()->json([
                     'success' => false,
                     'message' => 'All the Fields are required'
@@ -254,7 +254,7 @@ class AuthenticationController extends Controller
                 $data['email'] = $user->email;
                 $data['phone'] = $user->phone;
                 $data['email_verified_at'] = $user->email_verified_at;
-                $data['user_type'] = 3;
+                // $data['user_type'] = 3;
                 $data['status'] = 1;
                 $data['image'] = $user->image;
                 $data['address'] = $user->address;
@@ -308,7 +308,7 @@ class AuthenticationController extends Controller
                 $data['email'] = $user->email;
                 $data['phone'] = $user->phone;
                 $data['email_verified_at'] = $user->email_verified_at;
-                $data['user_type'] = 3;
+                // $data['user_type'] = 3;
                 $data['status'] = 1;
                 $data['image'] = $user->image;
                 $data['address'] = $user->address;
