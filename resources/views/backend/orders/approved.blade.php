@@ -107,6 +107,7 @@
             processing: true,
             serverSide: true,
             pageLength: 15,
+            stateSave: true,
             ajax: "{{ url('view/approved/orders') }}",
             columns: [
                 {

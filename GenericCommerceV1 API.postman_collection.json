@@ -77,12 +77,12 @@
 					"formdata": [
 						{
 							"key": "code",
-							"value": "269200",
+							"value": "134688",
 							"type": "text"
 						},
 						{
 							"key": "username",
-							"value": "01969005035",
+							"value": "alifhossain174@gmail.com",
 							"type": "text"
 						},
 						{
@@ -150,6 +150,51 @@
 					"path": [
 						"api",
 						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Social Login API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "provider_name",
+							"value": "google",
+							"type": "text"
+						},
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..LHNyGpelOTnzwfhh.Bl8tnmhmtOyMcY2okTLPiKpbpHwuRSXtTYI_6zSxI_fXIC_fqXBx3ORNPbqoC8axzdSeqXup0H_UMZKYSdW136EwY8hj0Jx84yTes7JOBKbdt0-MipTh02AHsxpdA6znJSC7ubAy5aXydsSQFY3zNn_myiZbsNpybfw5UDmKZV9kZS3lCa_iykF8hTrYuh2zuxuAuwO5nowc7W1RD8wPB4EeH8d01HWRe0fJHiwOjLgSWRHtMG4VGlAXl95wdvh1UDr9O7xSQJWZUdLYHOfcKKqqZemwEtBMpw5dVYsGEgWGmxbiNg77fZA_IReK_3pDD5iN-ZAA6Fz1_Z6aCtnFd7UpZA1p9slJNkeuePc8.xi3a99vfTOV6YrdzLtg_UA",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/social/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"social",
 						"login"
 					]
 				}
@@ -2291,6 +2336,11 @@
 							"key": "device_condition_id[]",
 							"value": "",
 							"type": "text"
+						},
+						{
+							"key": "size_id[]",
+							"value": "",
+							"type": "text"
 						}
 					]
 				},
@@ -2302,6 +2352,129 @@
 					"path": [
 						"order",
 						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Checkout App Only",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "72|12jhIiTopXW75foGveQh4sOpfwY2HuVJrrFGVBJ2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "qty[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "unit_id[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "unit_price[]",
+							"value": "700",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "coupon_code",
+							"value": "OFF20",
+							"type": "text"
+						},
+						{
+							"key": "special_note",
+							"value": "\"Quickly Need\"",
+							"type": "text"
+						},
+						{
+							"key": "delivery_method",
+							"value": "1",
+							"description": "1=>Home Delivery; 2=>Store Pickup",
+							"type": "text"
+						},
+						{
+							"key": "color_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "region_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sim_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "storage_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "warrenty_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "device_condition_id[]",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "size_id[]",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://fashionista-admin.getcommerce.xyz/api/order/checkout/app/only",
+					"protocol": "https",
+					"host": [
+						"fashionista-admin",
+						"getcommerce",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"order",
+						"checkout",
+						"app",
+						"only"
 					]
 				}
 			},
@@ -5325,16 +5498,22 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/payment/gateways",
+					"raw": "http://127.0.0.1:8000/api/get/payment/gateways",
+					"protocol": "http",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
+						"api",
 						"get",
 						"payment",
 						"gateways"
@@ -5381,10 +5560,10 @@
 					}
 				],
 				"url": {
-					"raw": "https://techshop-admin.getcommerce.xyz/api/get/all/blogs",
+					"raw": "https://fashionista-admin.getcommerce.xyz/api/get/all/blogs",
 					"protocol": "https",
 					"host": [
-						"techshop-admin",
+						"fashionista-admin",
 						"getcommerce",
 						"xyz"
 					],
@@ -5467,6 +5646,37 @@
 						"api",
 						"blog",
 						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Best Selling Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/best/selling/product",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"best",
+						"selling",
+						"product"
 					]
 				}
 			},

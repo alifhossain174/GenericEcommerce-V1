@@ -20,8 +20,6 @@
 
                     <form class="needs-validation" method="POST" action="{{url('update/subcategory')}}" enctype="multipart/form-data">
                         @csrf
-
-                        <input type="hidden" name="slug" value="{{$subcategory->slug}}">
                         <input type="hidden" name="id" value="{{$subcategory->id}}">
 
                         <div class="form-group row">
@@ -54,27 +52,27 @@
 
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Subcategory Icon</label>
-                            <div class="col-sm-8">
+                            <div class="col-sm-10">
                                 <input type="file" name="icon" class="dropify" data-height="100" accept="image/*"/>
-                            </div>
-                            <div class="col-sm-2">
-                                <label class="col-form-label">Previous Icon</label><br>
-                                @if($subcategory->icon != '' && file_exists(public_path($subcategory->icon)))
-                                    <img src="{{url($subcategory->icon)}}" width="60">
-                                @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Subcategory Image</label>
-                            <div class="col-sm-8">
+                            <div class="col-sm-10">
                                 <input type="file" name="image" class="dropify" data-height="100" accept="image/*"/>
                             </div>
-                            <div class="col-sm-2">
-                                <label class="col-form-label">Previous Image</label><br>
-                                @if($subcategory->image != '' && file_exists(public_path($subcategory->image)))
-                                    <img src="{{url($subcategory->image)}}" width="80">
-                                @endif
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="slug" class="col-sm-2 col-form-label">Slug <span class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" name="slug" value="{{$subcategory->slug}}" class="form-control" id="slug" placeholder="Subcategory Slug" required>
+                                <div class="invalid-feedback" style="display: block;">
+                                    @error('slug')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
                             </div>
                         </div>
 
@@ -94,9 +92,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Save Subcategory</button>
+                        <div class="form-group row">
+                            <label for="colFormLabe0" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Update Subcategory</button>
+                            </div>
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -108,4 +110,19 @@
 @section('footer_js')
     <script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
     <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
+    <script>
+        @if($subcategory->icon && file_exists(public_path($subcategory->icon)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{$subcategory->icon}}");
+            $("span.dropify-render").eq(0).html("<img src='{{url($subcategory->icon)}}'>");
+        @endif
+
+        @if($subcategory->image && file_exists(public_path($subcategory->image)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{$subcategory->image}}");
+            $("span.dropify-render").eq(0).html("<img src='{{url($subcategory->image)}}'>");
+        @endif
+    </script>
 @endsection

@@ -301,7 +301,7 @@
                                                 <tr>
                                                     <th class="text-center">Image <span class="text-danger">*</span></th>
                                                     <th class="text-center">Color <span class="text-danger">*</span></th>
-                                                    <th class="text-center">Size <span class="text-danger">*</span></th>
+                                                    <th class="text-center" style="min-width: 120px;">Size <span class="text-danger">*</span></th>
                                                     {{-- <th class="text-center" style="min-width: 200px;">Region</th>
                                                     <th class="text-center" style="min-width: 140px;">SIM Type</th>
                                                     <th class="text-center" style="min-width: 140px;">Storage</th> --}}

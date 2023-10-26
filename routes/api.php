@@ -18,6 +18,7 @@ Route::group(['namespace' => 'Api'], function () {
 
     // available social login credentials
     Route::post('social/login/credentials', [AuthenticationController::class, 'socialLoginCredentials']);
+    Route::post('social/login', [AuthenticationController::class, 'socialLogin']);
 
 
     Route::post('subscribe/for/updates', [ApiController::class, 'subscriptionForUpdates']);
@@ -44,7 +45,6 @@ Route::group(['namespace' => 'Api'], function () {
         // product review submit
         Route::post('product/review/submit', [ApiController::class, 'submitProductReview']);
     });
-
     Route::post('product/question/submit', [ApiController::class, 'submitProductQuestion']);
 
     Route::get('get/category/tree', [ApiController::class, 'getCategoryTree']);
@@ -82,11 +82,13 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('get/all/testimonials', [ApiController::class, 'getAllTestimonials']);
     Route::get('get/payment/gateways', [ApiController::class, 'getPaymentGateways']);
     Route::post('order/preview', [ApiController::class, 'orderPreview']);
+    Route::post('best/selling/product', [ApiController::class, 'bestSellingProduct']);
 
 
     // order api start
     Route::middleware('auth:sanctum')->group( function () {
         Route::post('order/checkout', [ApiController::class, 'orderCheckout']);
+        Route::post('order/checkout/app/only', [ApiController::class, 'orderCheckoutAppOnly']);
         Route::get('get/my/orders', [ApiController::class, 'getMyOrders']);
     });
     Route::post('order/progress', [ApiController::class, 'orderProgress']);

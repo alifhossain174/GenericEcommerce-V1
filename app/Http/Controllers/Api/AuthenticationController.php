@@ -15,6 +15,7 @@ use App\Models\SocialLogin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthenticationController extends Controller
 {
@@ -346,6 +347,64 @@ class AuthenticationController extends Controller
                 'success' => false,
                 'message' => 'Wrong Login Credentials',
                 'data' => new SocialLoginResource($data),
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
+    public function socialLogin(Request $request){
+        if ($request->header('Authorization') == AuthenticationController::AUTHORIZATION_TOKEN) {
+
+            $provider = $request->provider_name;
+            $token = $request->access_token;
+
+
+
+            $providerUser = Socialite::driver($provider)->userFromToken($token);
+            dd($providerUser);
+
+            // $url = 'https://oauth2.googleapis.com/tokeninfo?id_token=' . $token;
+            // $ch = curl_init();
+            // curl_setopt($ch, CURLOPT_URL, $url);
+            // curl_setopt($ch, CURLOPT_POST, 0);
+            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            // $response = curl_exec($ch);
+            // $err = curl_error($ch);  //if you need
+            // curl_close($ch);
+            // $providerUser = json_decode($response);
+            // print_r($providerUser);
+            // exit();
+
+
+
+            $user = User::where('provider_name', $provider)->where('provider_id', $providerUser->id)->first();
+            if($user == null){
+                $user = User::create([
+                    'provider_name' => $provider,
+                    'provider_id' => $providerUser->id,
+                ]);
+            }
+
+            $data['token'] = $user->createToken('GenericCommerceV1')->plainTextToken;
+            $data['name'] = $user->name;
+            $data['email'] = $user->email;
+            $data['phone'] = $user->phone;
+            $data['email_verified_at'] = $user->email_verified_at;
+            // $data['user_type'] = 3;
+            $data['status'] = 1;
+            $data['image'] = $user->image;
+            $data['address'] = $user->address;
+            $data['balance'] = $user->balance;
+
+            return response()->json([
+                'success'=> true,
+                'message'=> 'Successfully Logged In',
+                'data' => $data
             ]);
 
         } else {

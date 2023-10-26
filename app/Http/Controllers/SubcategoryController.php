@@ -6,11 +6,12 @@ use App\Models\Product;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
+use Sohibd\Laravelslug\Generate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Image;
-use DataTables;
+use Yajra\DataTables\DataTables;
 
 class SubcategoryController extends Controller
 {
@@ -45,15 +46,12 @@ class SubcategoryController extends Controller
             $image = "subcategory_images/" . $image_name;
         }
 
-        $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
-        $slug = preg_replace('!\s+!', '-', $clean);
-
         Subcategory::insert([
             'category_id' => $request->category_id,
             'name' => $request->name,
             'icon' => $icon,
             'image' => $image,
-            'slug' => $slug."-".time()."-".str::random(5),
+            'slug' => Generate::Slug($request->name),
             'status' => 1,
             'created_at' => Carbon::now()
         ]);
@@ -66,7 +64,7 @@ class SubcategoryController extends Controller
         if ($request->ajax()) {
 
             $data = DB::table('subcategories')
-                ->join('categories', 'subcategories.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'subcategories.category_id', '=', 'categories.id')
                 ->select('subcategories.*', 'categories.name as category_name')
                 ->orderBy('subcategories.id', 'desc')
                 ->get();
@@ -108,18 +106,13 @@ class SubcategoryController extends Controller
 
     public function deleteSubcategory($slug){
         $data = Subcategory::where('slug', $slug)->first();
-        $used = Product::where('subcategory_id', $data->id)->count();
-        if($used > 0){
-            return response()->json(['success' => 'Subcategory Cannot be Deleted.', 'data' => 0]);
-        } else {
-            if($data->icon){
-                if(file_exists(public_path($data->icon))){
-                    unlink(public_path($data->icon));
-                }
+        if($data->icon){
+            if(file_exists(public_path($data->icon))){
+                unlink(public_path($data->icon));
             }
-            $data->delete();
-            return response()->json(['success' => 'Subcategory deleted successfully.', 'data' => 1]);
         }
+        $data->delete();
+        return response()->json(['success' => 'Subcategory deleted successfully.']);
     }
 
     public function editSubcategory($slug){
@@ -135,13 +128,14 @@ class SubcategoryController extends Controller
             'status' => 'required',
         ]);
 
-        $duplicateSubCategoryExists = Subcategory::where('name', $request->name)->where('id', '!=', $request->id)->first();
-        if($duplicateSubCategoryExists){
+        $duplicateSubCategoryExists = Subcategory::where('id', '!=', $request->id)->where('category_id', $request->category_id)->where('name', $request->name)->first();
+        $duplicateSubCategorySlugExists = Subcategory::where('id', '!=', $request->id)->where('category_id', $request->category_id)->where('slug', $request->slug)->first();
+        if($duplicateSubCategoryExists || $duplicateSubCategorySlugExists){
             Toastr::warning('Duplicate SubCategory Exists', 'Success');
             return back();
         }
 
-        $data = Subcategory::where('slug', $request->slug)->first();
+        $data = Subcategory::where('id', $request->id)->first();
 
         $icon = $data->icon;
         if ($request->hasFile('icon')){
@@ -173,15 +167,12 @@ class SubcategoryController extends Controller
             $image = "subcategory_images/" . $image_name;
         }
 
-        $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
-        $slug = preg_replace('!\s+!', '-', $clean);
-
-        Subcategory::where('slug', $request->slug)->update([
+        Subcategory::where('id', $request->id)->update([
             'category_id' => $request->category_id,
             'name' => $request->name,
             'icon' => $icon,
             'image' => $image,
-            'slug' => $slug."-".time()."-".str::random(5),
+            'slug' => Generate::Slug($request->slug),
             'status' => $request->status,
             'updated_at' => Carbon::now()
         ]);

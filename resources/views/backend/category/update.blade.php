@@ -20,8 +20,6 @@
 
                     <form class="needs-validation" method="POST" action="{{url('update/category')}}" enctype="multipart/form-data">
                         @csrf
-
-                        <input type="hidden" name="slug" value="{{$category->slug}}">
                         <input type="hidden" name="id" value="{{$category->id}}">
 
                         <div class="form-group row">
@@ -38,27 +36,15 @@
 
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Change Icon</label>
-                            <div class="col-sm-8">
+                            <div class="col-sm-10">
                                 <input type="file" name="icon" class="dropify" data-height="100" data-max-file-size="1M" accept="image/*"/>
-                            </div>
-                            <div class="col-sm-2">
-                                <label class="col-form-label">Previous Icon</label><br>
-                                @if($category->icon != '' && file_exists(public_path($category->icon)))
-                                    <img src="{{url($category->icon)}}" width="60">
-                                @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Change Banner</label>
-                            <div class="col-sm-8">
+                            <div class="col-sm-10">
                                 <input type="file" name="banner_image" class="dropify" data-height="200" data-max-file-size="1M" accept="image/*"/>
-                            </div>
-                            <div class="col-sm-2">
-                                <label class="col-form-label">Previous Banner</label><br>
-                                @if($category->banner_image != '' && file_exists(public_path($category->banner_image)))
-                                    <img src="{{url($category->banner_image)}}" width="60">
-                                @endif
                             </div>
                         </div>
 
@@ -78,9 +64,22 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Update Category</button>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Slug</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="slug" class="form-control" value="{{$category->slug}}" required/>
+                            </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="colFormLabe0" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Update Category</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
@@ -92,4 +91,19 @@
 @section('footer_js')
     <script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
     <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
+    <script>
+        @if($category->icon && file_exists(public_path($category->icon)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{$category->icon}}");
+            $("span.dropify-render").eq(0).html("<img src='{{url($category->icon)}}'>");
+        @endif
+
+        @if($category->banner_image && file_exists(public_path($category->banner_image)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{$category->banner_image}}");
+            $("span.dropify-render").eq(0).html("<img src='{{url($category->banner_image)}}'>");
+        @endif
+    </script>
 @endsection

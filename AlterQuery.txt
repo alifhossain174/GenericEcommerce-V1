@@ -1,1 +1,2 @@
-ALTER TABLE `promotional_banners` ADD `description` VARCHAR(255) NULL DEFAULT NULL AFTER `title_color`, ADD `description_color` VARCHAR(255) NULL DEFAULT NULL AFTER `description`;
+ALTER TABLE `users` CHANGE `password` `password` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+ALTER TABLE `users` ADD `provider_name` VARCHAR(255) NULL DEFAULT NULL AFTER `password`, ADD `provider_id` VARCHAR(255) NULL DEFAULT NULL AFTER `provider_name`;

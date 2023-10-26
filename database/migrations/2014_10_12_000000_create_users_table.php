@@ -21,7 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('verification_code')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('provider_name')->nullable();
+            $table->string('provider_id')->nullable();
             $table->rememberToken();
             $table->tinyInteger('user_type')->comment("1=>Admin; 2=>User/Shop; 3=>Customer")->default(3);
             $table->longText('address')->nullable();

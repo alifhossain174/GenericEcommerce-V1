@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Sohibd\Laravelslug\Generate;
 use Illuminate\Support\Str;
 use Image;
 use DataTables;
@@ -167,7 +168,7 @@ class ProductController extends Controller
         if ($request->ajax()) {
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
@@ -177,6 +178,12 @@ class ProductController extends Controller
                 ->get();
 
             return Datatables::of($data)
+                    ->editColumn('image', function($data) {
+                        if(!$data->image || !file_exists(public_path(''. $data->image)))
+                            return '';
+                        else
+                            return $data->image;
+                    })
                     ->editColumn('status', function($data) {
                         if($data->status == 1){
                             return '<span class="btn btn-sm btn-success d-inline-block">Active</span>';

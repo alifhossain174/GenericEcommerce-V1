@@ -264,7 +264,7 @@ class ApiController extends BaseController
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -298,7 +298,7 @@ class ApiController extends BaseController
             $categoryId = $prodInfo->category_id;
 
             $data = DB::table('products')
-                        ->join('categories', 'products.category_id', '=', 'categories.id')
+                        ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                         ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                         ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                         ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -340,7 +340,7 @@ class ApiController extends BaseController
             $categoryId = $prodInfo->category_id;
 
             $data = DB::table('products')
-                        ->join('categories', 'products.category_id', '=', 'categories.id')
+                        ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                         ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                         ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                         ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -376,7 +376,7 @@ class ApiController extends BaseController
             $categoryInfo = Category::where('slug', $request->category_slug)->first();
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -409,7 +409,7 @@ class ApiController extends BaseController
             $subCategoryInfo = Subcategory::where('slug', $request->subcategory_slug)->first();
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -442,7 +442,7 @@ class ApiController extends BaseController
             $childCategoryInfo = ChildCategory::where('slug', $request->childcategory_slug)->first();
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -474,7 +474,7 @@ class ApiController extends BaseController
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -504,7 +504,7 @@ class ApiController extends BaseController
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -555,7 +555,7 @@ class ApiController extends BaseController
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -623,7 +623,7 @@ class ApiController extends BaseController
             $brand_id = $brandInfo ? $brandInfo->id : 0;
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -669,7 +669,7 @@ class ApiController extends BaseController
             if($brand_id != '' || $keyword != '' || $category_id){
 
                 $data = DB::table('products')
-                    ->join('categories', 'products.category_id', '=', 'categories.id')
+                    ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                     ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                     ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                     ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -732,7 +732,7 @@ class ApiController extends BaseController
             $brand_id = $brandInfo ? $brandInfo->id : 0;
 
             $data = DB::table('products')
-                ->join('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                 ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
                 ->leftJoin('units', 'products.unit_id', '=', 'units.id')
@@ -1017,6 +1017,7 @@ class ApiController extends BaseController
         $colorIdArray = explode(",", $request->color_id[0]);
         $regionIdArray = explode(",", $request->region_id[0]);
         $simIdArray = explode(",", $request->sim_id[0]);
+        $sizeIdArray = explode(",", $request->size_id[0]);
         $storageIdArray = explode(",", $request->storage_id[0]);
         $warrentyIdArray = explode(",", $request->warrenty_id[0]);
         $deviceConditionIdArray = explode(",", $request->device_condition_id[0]);
@@ -1036,14 +1037,17 @@ class ApiController extends BaseController
             $storageId = (double) trim($storageIdArray[$index]);
             $warrentyId = (double) trim($warrentyIdArray[$index]);
             $deviceConditionId = (double) trim($deviceConditionIdArray[$index]);
+            $sizeId = (double) trim($sizeIdArray[$index]);
+
             if($prodInfo->has_variant == 1){
                 $variants = ProductVariant::where('product_id', $prodInfo->id)->where('stock', '>', 0)->count();
                 if($variants > 0){
-                    if(!$colorId && !$regionId && !$simId && !$storageId && !$warrentyId && !$deviceConditionId){
+                    if(!$colorId && !$regionId && !$simId && !$storageId && !$warrentyId && !$deviceConditionId && !$sizeId){
                         $defaultVariant = ProductVariant::where('product_id', $prodInfo->id)->where('stock', '>', 0)->orderBy('price', 'desc')->first();
                         $colorId = $defaultVariant->color_id;
                         $regionId = $defaultVariant->region_id;
                         $simId = $defaultVariant->sim_id;
+                        $sizeId = $defaultVariant->size_id;
                         $storageId = $defaultVariant->storage_type_id;
                         $warrentyId = $defaultVariant->warrenty_id;
                         $deviceConditionId = $defaultVariant->device_condition_id;
@@ -1061,6 +1065,7 @@ class ApiController extends BaseController
                 'color_id' => $colorId,
                 'region_id' => $regionId,
                 'sim_id' => $simId,
+                'size_id' => $sizeId,
                 'storage_id' => $storageId,
                 'warrenty_id' => $warrentyId,
                 'device_condition_id' => $deviceConditionId,
@@ -1073,6 +1078,96 @@ class ApiController extends BaseController
             ]);
 
             $totalOrderAmount = $totalOrderAmount + ($quantity * $unitPrice);
+            $index++;
+        }
+
+
+        // calculating coupon discount
+        $discount = 0;
+        $promoInfo = PromoCode::where('code', $request->coupon_code)->where('status', 1)->where('effective_date', '<=', date("Y-m-d"))->where('expire_date', '>=', date("Y-m-d"))->first();
+        if($promoInfo){
+            $alreadyUsed = Order::where('user_id', auth()->user()->id)->where('coupon_code', $request->coupon_code)->count();
+            if($alreadyUsed == 0){
+                if($promoInfo->type == 1){
+                    $discount = $promoInfo->value;
+                } else {
+                    $discount = ($totalOrderAmount*$promoInfo->value)/100;
+                }
+            }
+        }
+        // calculating coupon discount
+
+        Order::where('id', $orderId)->update([
+            'sub_total' => $totalOrderAmount,
+            'coupon_code' => $request->coupon_code,
+            'discount' => $discount,
+            'total' => $totalOrderAmount - $discount,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => "Order is Submitted",
+            'data' => new OrderResource(Order::where('id', $orderId)->first())
+        ], 200);
+    }
+
+    public function orderCheckoutAppOnly(Request $request){
+
+        date_default_timezone_set("Asia/Dhaka");
+
+        $orderId = Order::insertGetId([
+            'order_no' => time().rand(100,999),
+            'user_id' => auth()->user()->id,
+            'order_date' => date("Y-m-d H:i:s"),
+            'estimated_dd' => date('Y-m-d', strtotime("+7 day", strtotime(date("Y-m-d")))),
+            'payment_method' => NULL,
+            'trx_id' => time().str::random(5),
+            'order_status' => 0,
+            'sub_total' => 0,
+            'coupon_code' => NULL,
+            'discount' => 0,
+            'delivery_fee' => 0,
+            'vat' => 0,
+            'tax' => 0,
+            'total' => 0,
+            'order_note' => isset($request->special_note) ? $request->special_note : '',
+            'delivery_method' => isset($request->delivery_method) ? $request->delivery_method : '',
+            'slug' => str::random(5) . time(),
+            'created_at' => Carbon::now()
+        ]);
+
+        OrderProgress::insert([
+            'order_id' => $orderId,
+            'order_status' => 0,
+            'created_at' => Carbon::now()
+        ]);
+
+        $index = 0;
+        $totalOrderAmount = 0;
+
+        foreach($request->product_id as $productId){
+            Product::where('id', $productId)->decrement("stock", $request->qty[$index]);
+            OrderDetails::insert([
+                'order_id' => $orderId,
+                'product_id' => $productId,
+
+                // VARIANT
+                'color_id' => isset($request->color_id[$index]) ? $request->color_id[$index] : null,
+                'region_id' => isset($request->region_id[$index]) ? $request->region_id[$index] : null,
+                'sim_id' => isset($request->sim_id[$index]) ? $request->sim_id[$index] : null,
+                'size_id' => isset($request->size_id[$index]) ? $request->size_id[$index] : null,
+                'storage_id' => isset($request->storage_id[$index]) ? $request->storage_id[$index] : null,
+                'warrenty_id' => isset($request->warrenty_id[$index]) ? $request->warrenty_id[$index] : null,
+                'device_condition_id' => isset($request->device_condition_id[$index]) ? $request->device_condition_id[$index] : null,
+
+                'qty' => $request->qty[$index],
+                'unit_id' => $request->unit_id[$index],
+                'unit_price' => $request->unit_price[$index],
+                'total_price' => $request->qty[$index] * $request->unit_price[$index],
+                'created_at' => Carbon::now()
+            ]);
+
+            $totalOrderAmount = $totalOrderAmount + ($request->qty[$index] * $request->unit_price[$index]);
             $index++;
         }
 
@@ -1520,6 +1615,44 @@ class ApiController extends BaseController
                 'success' => true,
                 'data' => $gateways
             ], 200);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
+    public function bestSellingProduct(Request $request){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            // SELECT products.id, count(order_details.product_id) as prod_count FROM products
+            // LEFT JOIN order_details ON products.id = order_details.product_id
+            // GROUP BY products.id ORDER BY prod_count DESC;
+
+            $data = DB::table('products')
+                        ->leftJoin('order_details', 'products.id', '=', 'order_details.product_id')
+                        ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+                        ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
+                        ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
+                        ->leftJoin('units', 'products.unit_id', '=', 'units.id')
+                        ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
+                        ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
+                        ->leftJoin('product_models', 'products.model_id', '=', 'product_models.id')
+                        ->leftJoin('product_warrenties', 'products.warrenty_id', '=', 'product_warrenties.id')
+                        ->select('products.*', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name', 'units.name as unit_name', 'flags.name as flag_name', 'brands.name as brand_name', 'product_models.name as model_name', 'product_warrenties.name as product_warrenty', DB::raw("count(order_details.product_id) as order_count"))
+                        ->where('products.status', 1)
+                        ->orderBy('order_count', 'desc')
+                        ->groupBy('products.id') //group is must needed, otherwise only one product will show
+                        ->skip(0)
+                        ->limit(12)
+                        ->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => ProductResource::collection($data)
+            ]);
 
         } else {
             return response()->json([

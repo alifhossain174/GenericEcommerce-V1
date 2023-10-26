@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
+use Sohibd\Laravelslug\Generate;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Image;
-use DataTables;
+use Yajra\DataTables\DataTables;
 
 class CategoryController extends Controller
 {
@@ -43,14 +43,11 @@ class CategoryController extends Controller
             $categoryBanner = "category_images/" . $image_name;
         }
 
-        $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
-        $slug = preg_replace('!\s+!', '-', $clean);
-
         Category::insert([
             'name' => $request->name,
             'icon' => $icon,
             'banner_image' => $categoryBanner,
-            'slug' => $slug,
+            'slug' => Generate::Slug($request->name),
             'status' => 1,
             'created_at' => Carbon::now()
         ]);
@@ -99,24 +96,18 @@ class CategoryController extends Controller
 
     public function deleteCategory($slug){
         $data = Category::where('slug', $slug)->first();
-
-        $used = Product::where('category_id', $data->id)->count();
-        if($used > 0){
-            return response()->json(['success' => 'Category cannot be deleted', 'data' => 0]);
-        } else {
-            if($data->icon){
-                if(file_exists(public_path($data->icon))){
-                    unlink(public_path($data->icon));
-                }
+        if($data->icon){
+            if(file_exists(public_path($data->icon))){
+                unlink(public_path($data->icon));
             }
-            if($data->banner_image){
-                if(file_exists(public_path($data->banner_image))){
-                    unlink(public_path($data->banner_image));
-                }
-            }
-            $data->delete();
-            return response()->json(['success' => 'Category deleted successfully.', 'data' => 1]);
         }
+        if($data->banner_image){
+            if(file_exists(public_path($data->banner_image))){
+                unlink(public_path($data->banner_image));
+            }
+        }
+        $data->delete();
+        return response()->json(['success' => 'Category deleted successfully.']);
     }
 
     public function featureCategory($slug){
@@ -142,9 +133,10 @@ class CategoryController extends Controller
             'status' => 'required',
         ]);
 
-        $duplicateCategoryExists = Category::where('name', $request->name)->where('id', '!=', $request->id)->first();
-        if($duplicateCategoryExists){
-            Toastr::warning('Duplicate Category Exists', 'Success');
+        $duplicateCategoryExists = Category::where('id', '!=', $request->id)->where('name', $request->name)->first();
+        $duplicateCategorySlugExists = Category::where('id', '!=', $request->id)->where('slug', $request->slug)->first();
+        if($duplicateCategoryExists || $duplicateCategorySlugExists){
+            Toastr::warning('Duplicate Category Or Slug Exists', 'Duplicate');
             return back();
         }
 
@@ -180,14 +172,11 @@ class CategoryController extends Controller
             $categoryBanner = "category_images/" . $image_name;
         }
 
-        $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
-        $slug = preg_replace('!\s+!', '-', $clean);
-
-        Category::where('slug', $request->slug)->update([
+        Category::where('id', $request->id)->update([
             'name' => $request->name,
             'icon' => $icon,
             'banner_image' => $categoryBanner,
-            'slug' => $slug,
+            'slug' => Generate::Slug($request->slug),
             'status' => $request->status,
             'updated_at' => Carbon::now()
         ]);

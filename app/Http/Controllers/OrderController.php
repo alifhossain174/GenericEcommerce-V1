@@ -59,7 +59,7 @@ class OrderController extends Controller
                         if($data->payment_status == 0){
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Unpaid</span>';
                         } elseif($data->payment_status == 1) {
-                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Success</span>';
+                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Paid</span>';
                         } else {
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Failed</span>';
                         }
@@ -140,7 +140,7 @@ class OrderController extends Controller
                         if($data->payment_status == 0){
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Unpaid</span>';
                         } elseif($data->payment_status == 1) {
-                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Success</span>';
+                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Paid</span>';
                         } else {
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Failed</span>';
                         }
@@ -198,7 +198,7 @@ class OrderController extends Controller
                         if($data->payment_status == 0){
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Unpaid</span>';
                         } elseif($data->payment_status == 1) {
-                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Success</span>';
+                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Paid</span>';
                         } else {
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Failed</span>';
                         }
@@ -271,7 +271,7 @@ class OrderController extends Controller
                         if($data->payment_status == 0){
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Unpaid</span>';
                         } elseif($data->payment_status == 1) {
-                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Success</span>';
+                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Paid</span>';
                         } else {
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Failed</span>';
                         }
@@ -335,7 +335,7 @@ class OrderController extends Controller
                         if($data->payment_status == 0){
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Unpaid</span>';
                         } elseif($data->payment_status == 1) {
-                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Success</span>';
+                            return '<span class="alert alert-success" style="padding: 2px 10px !important;">Paid</span>';
                         } else {
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Failed</span>';
                         }

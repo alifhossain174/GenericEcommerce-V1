@@ -89,6 +89,7 @@
         var table = $(".data-table").DataTable({
             processing: true,
             serverSide: true,
+            stateSave: true,
             ajax: "{{ url('view/all/category') }}",
             columns: [
                 {
@@ -175,14 +176,8 @@
                     type: "GET",
                     url: "{{ url('delete/category') }}"+'/'+categorySlug,
                     success: function (data) {
-
-                        if(data.data == 1){
-                            table.draw(false);
-                            toastr.error("Category has been Deleted", "Deleted Successfully");
-                        } else {
-                            toastr.warning("Product Available in this Category", "Failed");
-                        }
-
+                        table.draw(false);
+                        toastr.error("Category has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
                         console.log('Error:', data);

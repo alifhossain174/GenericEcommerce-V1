@@ -106,6 +106,7 @@
         var table = $(".data-table").DataTable({
             processing: true,
             serverSide: true,
+            stateSave: true,
             pageLength: 15,
             ajax: "{{ url('view/pending/orders') }}",
             columns: [

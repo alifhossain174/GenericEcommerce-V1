@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2023 at 01:41 PM
+-- Generation Time: Oct 26, 2023 at 08:51 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -46,7 +46,7 @@ CREATE TABLE `about_us` (
 --
 
 INSERT INTO `about_us` (`id`, `banner_bg`, `image`, `section_sub_title`, `section_title`, `section_description`, `btn_icon_class`, `btn_text`, `btn_link`, `created_at`, `updated_at`) VALUES
-(1, 'uploads/about_us/Y7XUU1697616167.png', NULL, 'Why Choose us', 'We do not buy from the open market & traders.', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illo, est repellendus are quia voluptate neque reiciendis ea placeat labore maiores cum, hic ducimus ad a dolorem soluta consectetur adipisci. Perspiciatis quas ab quibusdam is.</p>\r\n\r\n<p>Itaque accusantium eveniet a laboriosam dolorem? Magni suscipit est corrupti explicabo non perspiciatis, excepturi ut asperiores assumenda rerum? Provident ab corrupti sequi, voluptates repudiandae eius odit aut.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Bruce Sutton</strong></p>\r\n\r\n<p>Spa Manager</p>', NULL, NULL, NULL, NULL, '2023-10-18 08:06:46');
+(1, 'uploads/about_us/Y7XUU1697616167.png', 'uploads/about_us/0a1sz1698222202.png', 'Why Choose us', 'We do not buy from the open market & traders.', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illo, est repellendus are quia voluptate neque reiciendis ea placeat labore maiores cum, hic ducimus ad a dolorem soluta consectetur adipisci. Perspiciatis quas ab quibusdam is.</p>\r\n\r\n<p>Itaque accusantium eveniet a laboriosam dolorem? Magni suscipit est corrupti explicabo non perspiciatis, excepturi ut asperiores assumenda rerum? Provident ab corrupti sequi, voluptates repudiandae eius odit aut.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Bruce Sutton</strong></p>\r\n\r\n<p>Spa Manager</p>', NULL, NULL, NULL, NULL, '2023-10-25 06:23:22');
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,9 @@ CREATE TABLE `billing_addresses` (
 INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `thana`, `city`, `country`, `created_at`, `updated_at`) VALUES
 (2, 1, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Dhaka', 'Bangladesh', '2023-07-17 23:49:13', NULL),
 (3, 6, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Dhaka', 'Bangladesh', '2023-07-18 08:34:22', NULL),
-(4, 9, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45');
+(4, 9, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
+(9, 14, 'hh', NULL, 'Gopalganj Sadar', 'Gopalganj', NULL, '2023-10-25 06:33:57', NULL),
+(10, 0, NULL, NULL, NULL, NULL, NULL, '2023-10-26 03:34:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -273,11 +275,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`, `featured`, `serial`, `created_at`, `updated_at`) VALUES
-(1, 'Phone & Tablet', 'category_images/05LN21689766002.png', NULL, 'phone-tablet', 1, 1, 1, '2023-06-05 03:22:01', '2023-07-19 11:34:03'),
 (10, 'Denim Jacket', 'category_images/sdhde1697625305.png', NULL, 'denim-jacket', 1, 0, 1, '2023-10-18 08:33:22', '2023-10-18 08:35:05'),
 (11, 'Oversize Cotton', 'category_images/6yyC91697625373.png', NULL, 'oversize-cotton', 1, 0, 1, '2023-10-18 08:36:13', NULL),
 (12, 'Dairy & chesse', 'category_images/kIkYT1697625398.png', NULL, 'dairy-chesse', 1, 0, 1, '2023-10-18 08:36:38', NULL),
-(13, 'Shoulder Bag', 'category_images/W0jso1697625429.png', NULL, 'shoulder-bag', 1, 0, 1, '2023-10-18 08:37:09', NULL);
+(13, 'Shoulder Bag', 'category_images/W0jso1697625429.png', NULL, 'shoulder-bag', 1, 0, 1, '2023-10-18 08:37:09', NULL),
+(14, 'Jeans', NULL, NULL, 'jeans', 1, 0, 1, '2023-10-25 05:58:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -816,7 +818,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `custom_css`, `custom_js`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/tGAYZ1697968457.png', 'company_logo/1oSnf1697620395.png', 'company_logo/LpoYM1697970480.png', 'Fashionista', 'Fashionista', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '+01234-567890,+01234-5688765', 'demo@gmail.com,info@example.com', '123 Stree New York City , United States Of America NY 750065', 'https://www.google.com/maps/dir//U.S.+Embassy,+London+33+Nine+Elms+Ln+Nine+Elms,+London+SW11+7US+United+Kingdom/@51.4825655,-0.1322369,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48760532743b90e1:0x790260718555a20c!2m2!1d-0.1322369!2d51.4825655?entry=ttu', 'https://play.google.com/store', 'https://www.apple.com/app-store/', '© 2022 FashionIsta', 'company_logo/iexIV1697970944.png', 'rgba(61, 133, 198, 0.813)', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2023-10-22 11:33:58');
+(1, 'company_logo/tGAYZ1697968457.png', 'company_logo/1oSnf1697620395.png', 'company_logo/LpoYM1697970480.png', 'Fashionista', 'Fashionista', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '+01234-567890,+01234-5688765', 'demo@gmail.com,info@example.com', '123 Stree New York City , United States Of America NY 750065', 'https://www.google.com/maps/dir//U.S.+Embassy,+London+33+Nine+Elms+Ln+Nine+Elms,+London+SW11+7US+United+Kingdom/@51.4825655,-0.1322369,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48760532743b90e1:0x790260718555a20c!2m2!1d-0.1322369!2d51.4825655?entry=ttu', 'https://play.google.com/store', 'https://www.apple.com/app-store/', '© 2022 FashionIsta', 'company_logo/iexIV1697970944.png', '#6aa84f', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n  width: 100%;\r\n  height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 1, 'UA-842191520-669T', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2023-10-25 17:01:28');
 
 -- --------------------------------------------------------
 
@@ -985,7 +987,19 @@ INSERT INTO `orders` (`id`, `order_no`, `user_id`, `order_date`, `estimated_dd`,
 (10, '1689673103748', 35, '2023-07-18 15:38:23', '2023-07-25', NULL, '', NULL, 0, '1689673103rmIKt', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'DEQEA1689673103', 0, '2023-07-18 09:38:23', NULL),
 (11, '1689673132520', 35, '2023-07-18 15:38:52', '2023-07-25', NULL, '', NULL, 0, '16896731327Tg9B', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'Jvwqy1689673132', 0, '2023-07-18 09:38:52', NULL),
 (12, '1689673273174', 35, '2023-07-18 15:41:13', '2023-07-25', NULL, '', NULL, 0, '1689673273XAEC3', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '4xRod1689673273', 0, '2023-07-18 09:41:13', NULL),
-(13, '1690345802546', NULL, '2023-07-26 10:30:02', '2023-08-02', NULL, NULL, NULL, 0, '1690345802FMqFF', NULL, 2, 400, '1YUIFWW', 0, 0, 0, 0, 400, NULL, NULL, 'zUUxH1690345802', 0, '2023-07-26 04:30:02', '2023-10-22 08:14:45');
+(13, '1690345802546', NULL, '2023-07-26 10:30:02', '2023-08-02', NULL, NULL, NULL, 0, '1690345802FMqFF', NULL, 2, 400, '1YUIFWW', 0, 0, 0, 0, 400, NULL, NULL, 'zUUxH1690345802', 0, '2023-07-26 04:30:02', '2023-10-22 08:14:45'),
+(14, '1698222836533', 55, '2023-10-25 14:33:56', '2023-11-01', NULL, '1', 1, 1, '1698222836tI1ff', 'Not Available (COD)', 0, 1290, 'hh', 0, 100, 0, 0, 1390, '', NULL, 'IB2tg1698222836', 1, '2023-10-25 06:33:56', '2023-10-25 06:33:57'),
+(15, '1698300256594', 55, '2023-10-26 12:04:16', '2023-11-02', NULL, '1', NULL, 0, '1698300256G6UvV', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'CGnuK1698300256', 0, '2023-10-26 04:04:16', NULL),
+(16, '1698300290472', 55, '2023-10-26 12:04:50', '2023-11-02', NULL, '1', NULL, 0, '1698300290FK8KD', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'toZq81698300290', 0, '2023-10-26 04:04:50', NULL),
+(17, '1698300310280', 55, '2023-10-26 12:05:10', '2023-11-02', NULL, '1', NULL, 0, '1698300310YEspy', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, '0QOsU1698300310', 0, '2023-10-26 04:05:10', NULL),
+(18, '1698300321234', 55, '2023-10-26 12:05:21', '2023-11-02', NULL, '1', NULL, 0, '1698300321iHzj6', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'YlUQB1698300321', 0, '2023-10-26 04:05:21', NULL),
+(19, '1698300330621', 55, '2023-10-26 12:05:30', '2023-11-02', NULL, '1', NULL, 0, '1698300330ucYGU', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'YmLrn1698300330', 0, '2023-10-26 04:05:30', '2023-10-26 04:05:30'),
+(20, '1698300996361', 55, '2023-10-26 12:16:36', '2023-11-02', NULL, '1', NULL, 0, '1698300996vZLbG', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'U9VvI1698300996', 0, '2023-10-26 04:16:36', NULL),
+(21, '1698301013564', 55, '2023-10-26 12:16:53', '2023-11-02', NULL, '1', NULL, 0, '1698301013yHzSp', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, '0Tckc1698301013', 0, '2023-10-26 04:16:53', NULL),
+(22, '1698301051252', 55, '2023-10-26 12:17:31', '2023-11-02', NULL, '1', NULL, 0, '1698301051Up5XO', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'sEXiV1698301051', 0, '2023-10-26 04:17:31', NULL),
+(23, '1698301075217', 55, '2023-10-26 12:17:55', '2023-11-02', NULL, '1', NULL, 0, '1698301075Fx9wC', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'aEV3E1698301075', 0, '2023-10-26 04:17:55', '2023-10-26 04:17:56'),
+(24, '1698301083839', 55, '2023-10-26 12:18:03', '2023-11-02', NULL, '1', NULL, 0, '169830108305aE7', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'oENX21698301083', 0, '2023-10-26 04:18:03', '2023-10-26 04:18:03'),
+(25, '1698302472705', 55, '2023-10-26 12:41:12', '2023-11-02', NULL, '1', NULL, 0, '1698302472JfmvW', NULL, 0, 700, 'OFF20', 0, 0, 0, 0, 700, '\"Quickly Need\"', NULL, 'nrnbC1698302472', 0, '2023-10-26 04:41:12', '2023-10-26 04:41:12');
 
 -- --------------------------------------------------------
 
@@ -1025,7 +1039,14 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `color_id`, `size_i
 (8, 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 200, 200, '2023-07-26 04:30:02', NULL),
 (24, 9, 1, 5, 0, 226, 2, 2, 1, 1, 0, 2, 115000, 230000, NULL, '2023-10-22 09:17:45'),
 (25, 9, 1, 1, 0, 226, 4, 2, 1, 1, 0, 3, 105000, 315000, NULL, '2023-10-22 09:17:45'),
-(26, 9, 21, 6, 6, 0, 0, 0, 8, 0, 2, 1, 100, 100, NULL, '2023-10-22 09:17:45');
+(26, 9, 21, 6, 6, 0, 0, 0, 8, 0, 2, 1, 100, 100, NULL, '2023-10-22 09:17:45'),
+(27, 14, 28, 0, NULL, 0, 0, 0, 0, 0, 1, 1, 1290, 1290, '2023-10-25 06:33:56', NULL),
+(28, 19, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:05:30', NULL),
+(29, 20, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:16:36', NULL),
+(30, 21, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:16:53', NULL),
+(31, 23, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:17:55', NULL),
+(32, 24, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:18:03', NULL),
+(33, 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-10-26 04:41:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -1063,7 +1084,8 @@ CREATE TABLE `order_payments` (
 INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `val_id`, `amount`, `card_type`, `store_amount`, `card_no`, `bank_tran_id`, `status`, `tran_date`, `currency`, `card_issuer`, `card_brand`, `card_sub_brand`, `card_issuer_country`, `store_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 'COD', NULL, NULL, '134600', NULL, '134600', NULL, NULL, 'VALID', '2023-07-17 19:49:13', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-17 23:49:13', NULL),
 (2, 6, 'COD', NULL, NULL, '115100', NULL, '115100', NULL, NULL, 'VALID', '2023-07-18 14:34:22', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-18 08:34:22', NULL),
-(3, 9, 'COD', NULL, NULL, '545100', NULL, '545100', NULL, NULL, 'VALID', '2023-07-18 14:54:42', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-18 08:54:42', NULL);
+(3, 9, 'COD', NULL, NULL, '545100', NULL, '545100', NULL, NULL, 'VALID', '2023-07-18 14:54:42', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-18 08:54:42', NULL),
+(4, 14, 'COD', NULL, NULL, '1390', NULL, '1390', NULL, NULL, 'VALID', '2023-10-25 14:33:57', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-10-25 06:33:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -1098,7 +1120,19 @@ INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `u
 (12, 12, 0, '2023-07-18 09:41:13', NULL),
 (13, 13, 0, '2023-07-26 04:30:02', NULL),
 (14, 13, 1, '2023-08-06 08:15:39', NULL),
-(15, 13, 2, '2023-10-22 08:14:45', NULL);
+(15, 13, 2, '2023-10-22 08:14:45', NULL),
+(16, 14, 0, '2023-10-25 06:33:56', NULL),
+(17, 15, 0, '2023-10-26 04:04:16', NULL),
+(18, 16, 0, '2023-10-26 04:04:50', NULL),
+(19, 17, 0, '2023-10-26 04:05:10', NULL),
+(20, 18, 0, '2023-10-26 04:05:21', NULL),
+(21, 19, 0, '2023-10-26 04:05:30', NULL),
+(22, 20, 0, '2023-10-26 04:16:36', NULL),
+(23, 21, 0, '2023-10-26 04:16:53', NULL),
+(24, 22, 0, '2023-10-26 04:17:31', NULL),
+(25, 23, 0, '2023-10-26 04:17:55', NULL),
+(26, 24, 0, '2023-10-26 04:18:03', NULL),
+(27, 25, 0, '2023-10-26 04:41:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -1494,7 +1528,83 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (6, 'App\\Models\\User', 47, 'GenericCommerceV1', '2388a53dd887103a43a847b66b124c45023240b16ce638d5ed047ab2ff8da253', '[\"*\"]', NULL, '2023-10-22 06:11:03', '2023-10-22 06:11:03'),
 (7, 'App\\Models\\User', 45, 'GenericCommerceV1', 'e696aa4794f7c7d7d0eb368ff94a1fb40ead43ea4627d6eb0cc0169b0d8b2ace', '[\"*\"]', NULL, '2023-10-22 06:22:06', '2023-10-22 06:22:06'),
 (8, 'App\\Models\\User', 45, 'GenericCommerceV1', '7f6f721a59c5cd621339967c1cf839ffeda8fd726433337e034b7b3cd58342b6', '[\"*\"]', NULL, '2023-10-22 06:22:25', '2023-10-22 06:22:25'),
-(9, 'App\\Models\\User', 45, 'GenericCommerceV1', '8481956bea6bddc09dfff4f5ff49ef4657feed8ee5df0e2fa265710361328798', '[\"*\"]', NULL, '2023-10-22 06:22:40', '2023-10-22 06:22:40');
+(9, 'App\\Models\\User', 45, 'GenericCommerceV1', '8481956bea6bddc09dfff4f5ff49ef4657feed8ee5df0e2fa265710361328798', '[\"*\"]', NULL, '2023-10-22 06:22:40', '2023-10-22 06:22:40'),
+(10, 'App\\Models\\User', 45, 'GenericCommerceV1', 'e41b762ed9153d989b361911717c2f8f8edb8bfee6f293096ed444c7d1b55a5a', '[\"*\"]', NULL, '2023-10-23 04:20:05', '2023-10-23 04:20:05'),
+(11, 'App\\Models\\User', 45, 'GenericCommerceV1', '6f0cd41da7378f3cfbaaefe73ad3cfcc8f9c49c9f3e208497e594f320eafe249', '[\"*\"]', NULL, '2023-10-23 04:35:56', '2023-10-23 04:35:56'),
+(12, 'App\\Models\\User', 45, 'GenericCommerceV1', 'd121c7e34e276d2e964b5fb7dd07870cbf5b16c142676e3474b6a2bd919086be', '[\"*\"]', NULL, '2023-10-23 04:47:34', '2023-10-23 04:47:34'),
+(13, 'App\\Models\\User', 45, 'GenericCommerceV1', '95aa989c2e6d5b09e9642d2eef3a2a168f5f2733f8bdd7d4b3a67e9838804730', '[\"*\"]', NULL, '2023-10-23 06:38:35', '2023-10-23 06:38:35'),
+(14, 'App\\Models\\User', 45, 'GenericCommerceV1', '68fe5ed63d3e66b6f75dcfbe8517c7e6390272dbf4308e0c40f06b9ee82fc33a', '[\"*\"]', NULL, '2023-10-23 06:38:54', '2023-10-23 06:38:54'),
+(15, 'App\\Models\\User', 45, 'GenericCommerceV1', 'af231b972593f4ba67288e7b93fa01c77dcb6ee8365ac4e12e5e8b6a6211cccf', '[\"*\"]', NULL, '2023-10-23 06:40:09', '2023-10-23 06:40:09'),
+(16, 'App\\Models\\User', 45, 'GenericCommerceV1', 'd0071869a685c9f90ae548a091e240d3de8f3f26e72e4c926707b49c65ed73ce', '[\"*\"]', NULL, '2023-10-23 08:32:55', '2023-10-23 08:32:55'),
+(17, 'App\\Models\\User', 45, 'GenericCommerceV1', 'c0cd27c6ea6ba817851700b51d518b811474bc860120c2d147b5e4057e10e873', '[\"*\"]', NULL, '2023-10-23 09:09:32', '2023-10-23 09:09:32'),
+(18, 'App\\Models\\User', 45, 'GenericCommerceV1', 'c3047b96f3bc19739d050e2c6b4c13f09894edc0be070fa017c7045f0fc8fd0c', '[\"*\"]', NULL, '2023-10-23 09:25:31', '2023-10-23 09:25:31'),
+(19, 'App\\Models\\User', 45, 'GenericCommerceV1', 'a479acbec466649f17da51ad331b8f11b36e7ebd5ef80f4a26bb85c6f73aa137', '[\"*\"]', NULL, '2023-10-23 09:28:37', '2023-10-23 09:28:37'),
+(20, 'App\\Models\\User', 45, 'GenericCommerceV1', 'e4a3bcd422038984c618ccd6bd472fa98fadd37ac5c8cfc12a7542917c6b435f', '[\"*\"]', NULL, '2023-10-23 09:35:44', '2023-10-23 09:35:44'),
+(21, 'App\\Models\\User', 45, 'GenericCommerceV1', 'b06b9853e4893af16eb9920fa341f5983951a95ca82266d530abef97815bb56c', '[\"*\"]', NULL, '2023-10-23 09:36:07', '2023-10-23 09:36:07'),
+(22, 'App\\Models\\User', 45, 'GenericCommerceV1', 'bf45877044565542a1d4750292e5398dbc59f6e9ec4c8ad86f05805a8530fe85', '[\"*\"]', NULL, '2023-10-23 09:37:51', '2023-10-23 09:37:51'),
+(23, 'App\\Models\\User', 45, 'GenericCommerceV1', 'fd0c83844dc98300ce8f0d6792c7f39ec766422e68cddd82dc69529e533cc9d6', '[\"*\"]', NULL, '2023-10-23 09:38:15', '2023-10-23 09:38:15'),
+(24, 'App\\Models\\User', 45, 'GenericCommerceV1', 'e6c86a6fcc9dc59acee1cc6d7f43dc953bc30668a7f4b98ef645b390f8c0ea9d', '[\"*\"]', NULL, '2023-10-23 09:38:35', '2023-10-23 09:38:35'),
+(25, 'App\\Models\\User', 45, 'GenericCommerceV1', '2f92ae6b1ddc367fafdb6efeda07e5ff3b1de0ac137a47f99d5d6ea6302b7cb3', '[\"*\"]', NULL, '2023-10-23 09:43:42', '2023-10-23 09:43:42'),
+(26, 'App\\Models\\User', 45, 'GenericCommerceV1', '0b6e109e3d9492a5c6ae9bf4cefe4c056cda23cad4077e047656b16325bb6733', '[\"*\"]', NULL, '2023-10-23 09:50:43', '2023-10-23 09:50:43'),
+(27, 'App\\Models\\User', 45, 'GenericCommerceV1', 'd5344ce88f8d6d7a9b2bc020c69777061682c776e3d15d88845731851355e076', '[\"*\"]', NULL, '2023-10-23 09:54:37', '2023-10-23 09:54:37'),
+(28, 'App\\Models\\User', 45, 'GenericCommerceV1', 'e21b1eda89d3a3d39fb483a3ea91ead6bf719d5721270c08b84d2c4b34aa921f', '[\"*\"]', NULL, '2023-10-23 09:57:39', '2023-10-23 09:57:39'),
+(29, 'App\\Models\\User', 45, 'GenericCommerceV1', '22f9ab57329d754d4df61dfe023be3db9d21050726ee2976cf915d01294f3f31', '[\"*\"]', NULL, '2023-10-23 10:07:09', '2023-10-23 10:07:09'),
+(30, 'App\\Models\\User', 45, 'GenericCommerceV1', '2adb7f360a7371351322b3fde7a8cdbdb6c7c304bb0e89b6c9a20c65a669f78f', '[\"*\"]', NULL, '2023-10-23 10:11:00', '2023-10-23 10:11:00'),
+(31, 'App\\Models\\User', 45, 'GenericCommerceV1', 'd511440574564dba5ebc81e46be3d0205c04b6f94537be1dca9c065d1f9d193c', '[\"*\"]', NULL, '2023-10-23 10:12:33', '2023-10-23 10:12:33'),
+(32, 'App\\Models\\User', 45, 'GenericCommerceV1', 'e50464b8536e832e7f2d95d9547d29aef59b4ecfe668bdb25a25c702e90ea9ae', '[\"*\"]', NULL, '2023-10-23 10:38:37', '2023-10-23 10:38:37'),
+(33, 'App\\Models\\User', 55, 'GenericCommerceV1', '272548637ba2bb77556a7053a4b5dcefc4db2f47defd0be343fe90501b8e7bdd', '[\"*\"]', NULL, '2023-10-25 02:00:12', '2023-10-25 02:00:12'),
+(34, 'App\\Models\\User', 55, 'GenericCommerceV1', 'cd8a8171cb4f47570e2e7dc9368373a38710722e0447a7e486445e5f6cdb3d8d', '[\"*\"]', NULL, '2023-10-25 02:16:50', '2023-10-25 02:16:50'),
+(35, 'App\\Models\\User', 55, 'GenericCommerceV1', '48e2bd04a01d8217faf69b0d0033b47cb55d622ddfa4f6d637149d8dfe7c6587', '[\"*\"]', NULL, '2023-10-25 02:49:03', '2023-10-25 02:49:03'),
+(36, 'App\\Models\\User', 55, 'GenericCommerceV1', '17e3532105c6a7e5d3b672f03cbb7ea2a1562bff53856b905018d443cf30a116', '[\"*\"]', '2023-10-25 04:09:51', '2023-10-25 03:03:23', '2023-10-25 04:09:51'),
+(37, 'App\\Models\\User', 55, 'GenericCommerceV1', '8299d08d3ed071059fedc28f65e5318b6db08b3f6af7049dbe75138cf758c10a', '[\"*\"]', '2023-10-25 03:08:04', '2023-10-25 03:07:35', '2023-10-25 03:08:04'),
+(38, 'App\\Models\\User', 55, 'GenericCommerceV1', 'ed9be3661b9874688dc66bd1c530392bc519b28620524e79c046973e57fd2e43', '[\"*\"]', '2023-10-25 04:21:21', '2023-10-25 04:10:16', '2023-10-25 04:21:21'),
+(39, 'App\\Models\\User', 45, 'GenericCommerceV1', '3dbfce91ab523774683f5caa491c78b52840697dd22e91f56d7dc3d043383c1a', '[\"*\"]', NULL, '2023-10-25 04:21:09', '2023-10-25 04:21:09'),
+(40, 'App\\Models\\User', 45, 'GenericCommerceV1', '4ec7d4c30481526a12dee61265e892b635a5af051441c27c2f0617e8ed7b88d1', '[\"*\"]', NULL, '2023-10-25 04:22:43', '2023-10-25 04:22:43'),
+(41, 'App\\Models\\User', 45, 'GenericCommerceV1', '36aefc3f061a57cd2fd76bf88b8aad6a5fd7976057825b73f27e6d0a51e8be9a', '[\"*\"]', NULL, '2023-10-25 04:23:53', '2023-10-25 04:23:53'),
+(42, 'App\\Models\\User', 45, 'GenericCommerceV1', '0b0baf35d5c1ec371c39a0299ba5a1a2ab31c4185ea229434b918c476935e169', '[\"*\"]', NULL, '2023-10-25 04:26:31', '2023-10-25 04:26:31'),
+(43, 'App\\Models\\User', 45, 'GenericCommerceV1', '5cd9c60a889fbe01bd596f5bf590013c6fefa7adfcd37c849bea8ae5e22d56ee', '[\"*\"]', NULL, '2023-10-25 04:28:40', '2023-10-25 04:28:40'),
+(44, 'App\\Models\\User', 45, 'GenericCommerceV1', '23c803e23fc08ad4d12348e7d9e4b63125742156989941a7f630f48b56d29f15', '[\"*\"]', NULL, '2023-10-25 04:29:17', '2023-10-25 04:29:17'),
+(45, 'App\\Models\\User', 45, 'GenericCommerceV1', '70ac0543f32f1c4ed63210d95b4d61af2555049208b3b81d801a1ab1f31f713a', '[\"*\"]', NULL, '2023-10-25 04:32:48', '2023-10-25 04:32:48'),
+(46, 'App\\Models\\User', 55, 'GenericCommerceV1', '4b3e83bb93fce480f9b1accaae652172c49a386b5a18eec71be4a7e3394c855c', '[\"*\"]', NULL, '2023-10-25 04:33:08', '2023-10-25 04:33:08'),
+(47, 'App\\Models\\User', 45, 'GenericCommerceV1', '2ad59a41a9aed3dc35e0c30bba71da177c573bc6b0d3b85ebd6c4a785d32d7bf', '[\"*\"]', NULL, '2023-10-25 04:33:50', '2023-10-25 04:33:50'),
+(48, 'App\\Models\\User', 45, 'GenericCommerceV1', 'ae11615775290b3f3c2b882f9972b3b35ef38bff6ba236b26c236d7502e976cc', '[\"*\"]', NULL, '2023-10-25 04:35:34', '2023-10-25 04:35:34'),
+(49, 'App\\Models\\User', 55, 'GenericCommerceV1', '286e10cb80304d9d537f566a24061331bc6cab878c70ead75991e6a42b092894', '[\"*\"]', NULL, '2023-10-25 04:37:26', '2023-10-25 04:37:26'),
+(50, 'App\\Models\\User', 55, 'GenericCommerceV1', 'aef60e51422dd7ab9e53bddefb755a429dcc0f7739edcc265bcb3696f6c51202', '[\"*\"]', NULL, '2023-10-25 04:41:01', '2023-10-25 04:41:01'),
+(51, 'App\\Models\\User', 55, 'GenericCommerceV1', 'b912bc531f4f01dbbf660f851eecbde7f6456a4ea52ae91b127385d6799b087c', '[\"*\"]', NULL, '2023-10-25 04:43:54', '2023-10-25 04:43:54'),
+(52, 'App\\Models\\User', 45, 'GenericCommerceV1', '912f35c8df3d0b85ed0d6e33bfbbfe404be0074d3a67b3bfd2b0b944179e5bf1', '[\"*\"]', NULL, '2023-10-25 04:45:08', '2023-10-25 04:45:08'),
+(53, 'App\\Models\\User', 45, 'GenericCommerceV1', '876e48f670f83d57e3506f65473a32184c4176ab359cad2fc73ec002157dcbcd', '[\"*\"]', NULL, '2023-10-25 04:46:30', '2023-10-25 04:46:30'),
+(54, 'App\\Models\\User', 55, 'GenericCommerceV1', '781403189c2f726e4e3d8e4d1afeafd6da5dff007f6b943151582ed30a13a93b', '[\"*\"]', '2023-10-25 06:37:50', '2023-10-25 04:47:23', '2023-10-25 06:37:50'),
+(55, 'App\\Models\\User', 45, 'GenericCommerceV1', 'cea64887a3a44729638d9886edb283e6dcd77d4041aa7035b6035361f37f02b6', '[\"*\"]', NULL, '2023-10-25 04:55:10', '2023-10-25 04:55:10'),
+(56, 'App\\Models\\User', 45, 'GenericCommerceV1', 'ecaae5d264a2c52f3a50a6771cb561f004d78e2852029576793de91151227287', '[\"*\"]', NULL, '2023-10-25 04:56:51', '2023-10-25 04:56:51'),
+(57, 'App\\Models\\User', 45, 'GenericCommerceV1', '0d456d3354130d3db91e79ac027a3cb583dfe1d0a126631217967b408ebae349', '[\"*\"]', NULL, '2023-10-25 04:57:42', '2023-10-25 04:57:42'),
+(58, 'App\\Models\\User', 45, 'GenericCommerceV1', '3cbdb577356b2c6952e55afe10ff1420c09ce91bcc6b2958673e9aeb12dec3ea', '[\"*\"]', NULL, '2023-10-25 04:59:00', '2023-10-25 04:59:00'),
+(59, 'App\\Models\\User', 45, 'GenericCommerceV1', '586ec35334bf08cf910dda235363d86952a914b3acd31296eccc4fb59a14f048', '[\"*\"]', NULL, '2023-10-25 04:59:29', '2023-10-25 04:59:29'),
+(60, 'App\\Models\\User', 45, 'GenericCommerceV1', '25edd058dd2b8a037c5842138bdf27576cb9127532ac4892b79a070a136017cc', '[\"*\"]', NULL, '2023-10-25 05:00:16', '2023-10-25 05:00:16'),
+(61, 'App\\Models\\User', 45, 'GenericCommerceV1', '31fd4aa7aacec2de74746149b1cd696d9cc2ba8e815f5ab0f5c38f0941fa8e94', '[\"*\"]', NULL, '2023-10-25 05:01:35', '2023-10-25 05:01:35'),
+(62, 'App\\Models\\User', 45, 'GenericCommerceV1', '62312372290ea24ea52c94ed9a327e3423c53c322bc669d776452bf7eb0c1af5', '[\"*\"]', NULL, '2023-10-25 05:03:02', '2023-10-25 05:03:02'),
+(63, 'App\\Models\\User', 45, 'GenericCommerceV1', '2ea1cfdeed3fa6ba6cb38c15806cef720425b4e287a7fad60ebc0e045963f464', '[\"*\"]', NULL, '2023-10-25 05:04:56', '2023-10-25 05:04:56'),
+(64, 'App\\Models\\User', 45, 'GenericCommerceV1', 'cf99b72b7974aa68ef04644c0304d59da4a7b772cff720e3709ed551e5f66a4d', '[\"*\"]', NULL, '2023-10-25 05:05:18', '2023-10-25 05:05:18'),
+(65, 'App\\Models\\User', 45, 'GenericCommerceV1', '14189e48adc86bfa970d5668a55e6041b67c3a1ee1daaac31835856bd34cd5f3', '[\"*\"]', NULL, '2023-10-25 05:15:56', '2023-10-25 05:15:56'),
+(66, 'App\\Models\\User', 45, 'GenericCommerceV1', 'c2f85546cd587d996521485a33bbca2d26bcba690b4459afdee3afffb0ad59b8', '[\"*\"]', NULL, '2023-10-25 05:26:43', '2023-10-25 05:26:43'),
+(67, 'App\\Models\\User', 45, 'GenericCommerceV1', '0101b5e70e7e1e84afa36b7c3c00afe117bc9d77a0df4cc59752425d3b4dd1e0', '[\"*\"]', NULL, '2023-10-25 05:27:12', '2023-10-25 05:27:12'),
+(68, 'App\\Models\\User', 45, 'GenericCommerceV1', '63df89bc70d1a41cca3e6486bcb4263b38b0f9631d709711a08c07f33d02bd5c', '[\"*\"]', NULL, '2023-10-25 05:29:26', '2023-10-25 05:29:26'),
+(69, 'App\\Models\\User', 45, 'GenericCommerceV1', '8724faf90466374c124798566ae9d44640225144fcce7aae9ad30357d0dec7b4', '[\"*\"]', NULL, '2023-10-25 05:31:51', '2023-10-25 05:31:51'),
+(70, 'App\\Models\\User', 45, 'GenericCommerceV1', 'a81f43718b47234b651605e9479d893d6ace999355d92fad812c0b47cb07f95a', '[\"*\"]', '2023-10-26 04:38:30', '2023-10-25 05:46:28', '2023-10-26 04:38:30'),
+(71, 'App\\Models\\User', 45, 'GenericCommerceV1', 'f1d8f44ab51199d9e1a697b00b7b9a3947b1a06f156632992c9f99b6712b4e79', '[\"*\"]', NULL, '2023-10-25 06:05:22', '2023-10-25 06:05:22'),
+(72, 'App\\Models\\User', 55, 'GenericCommerceV1', '183562a6754689a6a1aa7c12f2c2c0e8e9db2098280d41762ddee663c96d869a', '[\"*\"]', '2023-10-26 04:41:12', '2023-10-25 06:39:48', '2023-10-26 04:41:12'),
+(73, 'App\\Models\\User', 45, 'GenericCommerceV1', '7363d64b17d23840e1ce98865c29f86755278390b7e0ec585f56955355950bc7', '[\"*\"]', '2023-10-25 08:36:13', '2023-10-25 08:21:44', '2023-10-25 08:36:13'),
+(74, 'App\\Models\\User', 45, 'GenericCommerceV1', 'e614e6a3f893a857e93880034c7bf1d46f6872509be7238f921fdf933053a615', '[\"*\"]', '2023-10-25 09:12:06', '2023-10-25 08:42:24', '2023-10-25 09:12:06'),
+(75, 'App\\Models\\User', 45, 'GenericCommerceV1', '28e537da1ceec6328c00a68f43a7ca574d52ef787983f964704e6e37fd605450', '[\"*\"]', '2023-10-25 09:12:47', '2023-10-25 09:12:27', '2023-10-25 09:12:47'),
+(76, 'App\\Models\\User', 45, 'GenericCommerceV1', '67de33fac8224cef05e1e33551e54de9a3aa0b827a2cfc7310832ce3252f2e0a', '[\"*\"]', '2023-10-25 09:13:28', '2023-10-25 09:12:58', '2023-10-25 09:13:28'),
+(77, 'App\\Models\\User', 45, 'GenericCommerceV1', '0b32faca29202be691f838ab939d42b090433cd25cec09ca6f83c891a2b510a6', '[\"*\"]', '2023-10-25 09:27:15', '2023-10-25 09:13:48', '2023-10-25 09:27:15'),
+(78, 'App\\Models\\User', 45, 'GenericCommerceV1', '6c66b1b2209c4c125f20e2b2bf2fc7124507db661ddf5000caf7ce5a95d8eac1', '[\"*\"]', '2023-10-25 09:28:50', '2023-10-25 09:28:46', '2023-10-25 09:28:50'),
+(79, 'App\\Models\\User', 45, 'GenericCommerceV1', '4d43e9c7eb7e02cd6557736ff11c2bd1d489547f77bfc619a87904d0138943a9', '[\"*\"]', '2023-10-25 09:30:17', '2023-10-25 09:30:07', '2023-10-25 09:30:17'),
+(80, 'App\\Models\\User', 45, 'GenericCommerceV1', '358b3f8a24286ff800832e8e62cd0c575cc8273e06d2959b922a5cffed39f050', '[\"*\"]', '2023-10-25 09:31:21', '2023-10-25 09:31:14', '2023-10-25 09:31:21'),
+(81, 'App\\Models\\User', 45, 'GenericCommerceV1', '28d6df44ca1961c115954523248a38f3316d95a57159bb3e3e4e8df86442024e', '[\"*\"]', '2023-10-25 09:33:03', '2023-10-25 09:32:53', '2023-10-25 09:33:03'),
+(82, 'App\\Models\\User', 45, 'GenericCommerceV1', '46727d262692803bfcfd9fb749f1baae34e7d180ca902e01c8c74a29b1e80a5b', '[\"*\"]', '2023-10-25 09:37:53', '2023-10-25 09:36:08', '2023-10-25 09:37:53'),
+(83, 'App\\Models\\User', 45, 'GenericCommerceV1', '8be31eff5f20c8ac497aa21e2a265dfd170473befa1c79d13b783f6fa681e5fb', '[\"*\"]', '2023-10-26 04:22:15', '2023-10-26 02:57:18', '2023-10-26 04:22:15'),
+(84, 'App\\Models\\User', 45, 'GenericCommerceV1', '248b9102132eb03d89dc624665c9adb1610a3a94e5cf359f49ac947c90098525', '[\"*\"]', '2023-10-26 04:48:10', '2023-10-26 04:22:21', '2023-10-26 04:48:10'),
+(85, 'App\\Models\\User', 45, 'GenericCommerceV1', 'a35a62b357e110c90350a0f3070b090c457e32b0a165a450bf91f1a534b6f3d0', '[\"*\"]', NULL, '2023-10-26 04:22:22', '2023-10-26 04:22:22');
 
 -- --------------------------------------------------------
 
@@ -1540,12 +1650,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `created_at`, `updated_at`) VALUES
-(1, 1, 7, NULL, 1, NULL, 'Iphone 14 Pro Max (Test Product)', 'OFF60', 'productImages/UlNWW1689758736.jpeg', NULL, 'Iphone 14 Pro Max', '<p>Iphone 14 Pro Max</p>\r\n\r\n<p>&nbsp;</p>', '<p>Iphone 14 Pro Max</p>', '<h2>One stop for&nbsp;support</h2>\r\n\r\n<p>Minimize the amount of time without your iPhone with Express Replacement Service</p>\r\n\r\n<p>Because Apple designs iPhone, iOS, and many applications, iPhone is a truly integrated system. And only AppleCare+ products provide one-stop service and support from Apple experts, so most issues can be resolved in a single call. Should you need repair or replacement, there are convenient service options.<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></p>\r\n\r\n<ul>\r\n	<li>24/7 priority access to Apple experts via chat or phone</li>\r\n	<li>Same-day service in most major metropolitan areas world wide<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></li>\r\n	<li>Onsite service: Schedule a technician to perform a screen repair at your home or office</li>\r\n	<li><a href=\"https://support.apple.com/iphone/repair/service/express-replacement\">Express Replacement Service</a>: We&rsquo;ll ship you a replacement device so you don&rsquo;t have to wait for a repair<a href=\"https://www.apple.com/support/products/iphone/#footnote-4\">4</a></li>\r\n	<li>Mail-in repair: Mail in your iPhone using a prepaid shipping box provided by Apple</li>\r\n	<li>Carry-in repair: Take your iPhone to an Apple&nbsp;Store or other Apple Authorized Service Provider</li>\r\n</ul>', 120000, 115000, 0, 1, 'iphone,apple', 'https://www.youtube.com/watch?v=FT3ODSg1GFE&ab_channel=Apple', 1, 'iphone-14-pro-max-test-product-1689759041rLTdM', 3, NULL, NULL, NULL, 1, 1, '2023-06-14 21:07:24', '2023-07-19 09:30:41'),
-(2, 1, 7, NULL, 24, NULL, 'Samsung Galaxy A54 (Test Product)', '3001', 'productImages/Hrf7c1697970112.webp', '[]', 'Largely satisfied, however, I am not a fan of Samsung\'s mandatory OS updates. It was only optional before.', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', 20000, 19500, 119, 1, 'Samsung Galaxy A54,samsung galaxy a50,samsung glalaxy', NULL, 1, 'samsung-galaxy-a54-test-product-1697970112rXrLt', NULL, NULL, NULL, NULL, 1, 0, '2023-06-15 17:19:54', '2023-10-22 10:21:52'),
+(1, 12, 37, NULL, 24, NULL, 'Iphone 14 Pro Max (Test Product)', 'OFF60', 'productImages/UlNWW1689758736.jpeg', NULL, 'Iphone 14 Pro Max', '<p>Iphone 14 Pro Max</p>\r\n\r\n<p>&nbsp;</p>', '<p>Iphone 14 Pro Max</p>', '<h2>One stop for&nbsp;support</h2>\r\n\r\n<p>Minimize the amount of time without your iPhone with Express Replacement Service</p>\r\n\r\n<p>Because Apple designs iPhone, iOS, and many applications, iPhone is a truly integrated system. And only AppleCare+ products provide one-stop service and support from Apple experts, so most issues can be resolved in a single call. Should you need repair or replacement, there are convenient service options.<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></p>\r\n\r\n<ul>\r\n	<li>24/7 priority access to Apple experts via chat or phone</li>\r\n	<li>Same-day service in most major metropolitan areas world wide<a href=\"https://www.apple.com/support/products/iphone/#footnote-7\">7</a></li>\r\n	<li>Onsite service: Schedule a technician to perform a screen repair at your home or office</li>\r\n	<li><a href=\"https://support.apple.com/iphone/repair/service/express-replacement\">Express Replacement Service</a>: We&rsquo;ll ship you a replacement device so you don&rsquo;t have to wait for a repair<a href=\"https://www.apple.com/support/products/iphone/#footnote-4\">4</a></li>\r\n	<li>Mail-in repair: Mail in your iPhone using a prepaid shipping box provided by Apple</li>\r\n	<li>Carry-in repair: Take your iPhone to an Apple&nbsp;Store or other Apple Authorized Service Provider</li>\r\n</ul>', 0, 0, -1, 1, 'iphone,apple', 'https://www.youtube.com/watch?v=FT3ODSg1GFE&ab_channel=Apple', NULL, 'iphone-14-pro-max-test-product-1698217191T4RlT', NULL, NULL, NULL, NULL, 1, 1, '2023-06-14 21:07:24', '2023-10-26 04:41:12'),
+(2, 12, NULL, NULL, 24, NULL, 'Samsung Galaxy A54 (Test Product)', '3001', 'productImages/Hrf7c1697970112.webp', '[]', 'Largely satisfied, however, I am not a fan of Samsung\'s mandatory OS updates. It was only optional before.', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', '<p>Largely satisfied, however, I am not a fan of Samsung&#39;s mandatory OS updates. It was only optional before. Now it is enforced. This means they can remove features without warning and without confirmation by the user.</p>', 20000, 19500, 119, 1, 'Samsung Galaxy A54,samsung galaxy a50,samsung glalaxy', NULL, 1, 'samsung-galaxy-a54-test-product-1698217172bNI9w', NULL, NULL, NULL, NULL, 1, 0, '2023-06-15 17:19:54', '2023-10-25 04:59:32'),
 (21, 10, 29, NULL, 18, NULL, 'Boxy Denim Jacket', 'rg', 'productImages/3xl2q1697626862.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<p>Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 110, 100, 0, 2, 'jacket', NULL, 8, 'boxy-denim-jacket-1697964487MRpRd', 6, NULL, NULL, NULL, 1, 1, '2023-10-18 09:01:02', '2023-10-22 08:48:07'),
-(22, 11, 35, NULL, 25, NULL, 'Oversize Cotton Dress', NULL, 'productImages/6mNHL1697627208.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 'oversize-cotton-dress-1697627325QC9K4', NULL, NULL, NULL, NULL, 1, 1, '2023-10-18 09:06:48', '2023-10-18 09:08:45'),
-(23, 13, 42, NULL, 25, NULL, 'Quilted Shoulder Bag', 'piiiu678', 'productImages/BKPcM1697627608.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 'quilted-shoulder-bag-1697627608XjfQH', NULL, NULL, NULL, NULL, 1, 1, '2023-10-18 09:13:28', '2023-10-18 09:13:28'),
-(24, 12, 37, NULL, 24, NULL, 'Test Product', NULL, 'productImages/yyXga1697961494.webp', NULL, 'Test ProductTest ProductTest Product', '<p>Test ProductTest Product</p>', '<p>Test ProductTest Product</p>', '<p>Test ProductTest Product</p>', 100, 90, 0, 3, 'asd,sdffr', NULL, 1, 'test-product-16979627147su7t', 6, NULL, 'asdas,hgthhj', NULL, 0, 1, '2023-10-22 07:58:14', '2023-10-22 08:18:34');
+(22, 11, 36, NULL, 19, NULL, 'Oversize Cotton Dress', NULL, 'productImages/Ecfe81698220172.png', '[\"1698220172hEGSk.png\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<p>avd</p>', '<p>dcwef</p>', 0, 0, 0, NULL, NULL, NULL, NULL, 'oversize-cotton-dress-1698220172ENAOK', 7, NULL, NULL, NULL, 1, 0, '2023-10-18 09:06:48', '2023-10-25 05:49:32'),
+(23, 13, 42, NULL, 25, NULL, 'Quilted Shoulder Bag', 'piiiu678', 'productImages/BKPcM1697627608.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 'quilted-shoulder-bag-1698040211WSrQ3', 8, NULL, NULL, NULL, 1, 1, '2023-10-18 09:13:28', '2023-10-23 03:50:11'),
+(24, 12, 37, NULL, 24, NULL, 'Test Product', NULL, 'productImages/yyXga1697961494.webp', NULL, 'Test ProductTest ProductTest Product', '<p>Test ProductTest Product</p>', '<p>Test ProductTest Product</p>', '<p>Test ProductTest Product</p>', 100, 90, -10, 3, 'asd,sdffr', NULL, 1, 'test-product-16980401983I6aM', 6, NULL, 'asdas,hgthhj', NULL, 1, 1, '2023-10-22 07:58:14', '2023-10-26 04:18:03'),
+(25, 13, 41, NULL, 19, NULL, 'Quilted Shoulder Bag', 'etwed124', 'productImages/petoC1698218036.png', '[\"1698218036kzgay.png\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit', '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<p>Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 3000, 2300, 398, 1, 'bag', NULL, 7, 'quilted-shoulder-bag-16982180368MQtS', 7, NULL, NULL, NULL, 1, 0, '2023-10-25 05:13:56', '2023-10-25 05:13:56'),
+(26, 10, 31, NULL, 18, NULL, 'Western denim shirt', 'tgf2531', 'productImages/yTtWp1698220071.png', NULL, 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam,', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;</li>\r\n</ul>\r\n\r\n<ul>\r\n	<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;</li>\r\n	<li>Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;</li>\r\n	<li>Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;</li>\r\n	<li>Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;</li>\r\n</ul>\r\n\r\n<ul>\r\n	<li>Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>\r\n\r\n<h2>&nbsp;</h2>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus do</p>', '<p>estibulum a tortor diam. Vestibulum ac felis sem. Sed scelerisque nulla quam, vehicula porttitor diam fringilla vitae. Aenean quis velit id quam placerat facilisis nec non nisl. Morbi purus odio, vestibulum pellentesque velit eget, viverra consectetur lorem. Proin nec sem egestas leo interdum efficitur nec eleifend velit. Vestibulum ultrices consectetur semper. Duis nibh elit, volutpat nec sapien ac, luctus auctor felis. Vestibulum placerat, velit vel bibendum cursus, dolor urna iaculis dui, non ultricies ante nisi vitae leo. Aenean id egestas sem.</p>', 3000, 2850, 0, 1, 'Western', NULL, 7, 'western-denim-shirt-1698220071p9SX3', 8, NULL, NULL, NULL, 1, 1, '2023-10-25 05:47:51', '2023-10-25 05:47:51'),
+(27, 11, 36, NULL, 21, NULL, 'Aware organic cotton', 'ehg5ry4', 'productImages/MK64v1698220649.png', NULL, 'Praesent purus massa, placerat nec maximus non, hendrerit ac turpis. Fusce semper pellentesque semper. Nunc in turpis at nulla fringilla accumsan non fermentum lectus. Nullam iaculis mi sit amet faucibus ullamcorper.', '<p>Praesent purus massa, placerat nec maximus non, hendrerit ac turpis. Fusce semper pellentesque semper. Nunc in turpis at nulla fringilla accumsan non fermentum lectus. Nullam iaculis mi sit amet faucibus ullamcorper. Maecenas volutpat erat vitae lacus porttitor rutrum. Aliquam imperdiet quam sed felis finibus blandit.</p>\r\n\r\n<p>Praesent sodales lacinia blandit. Nullam luctus nunc elit, nec tempor tortor feugiat sollicitudin. Cras iaculis cursus odio, id venenatis dolor scelerisque eget. Mauris vitae fringilla dolor, id pulvinar odio. Proin aliquam rhoncus laoreet. Vestibulum ullamcorper sem sit amet fringilla maximus. Proin felis arcu, bibendum cursus molestie consequat, porta et enim. Ut sagittis bibendum tellus, in cursus lorem scelerisque quis.</p>\r\n\r\n<p>Maecenas scelerisque cursus tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas vel varius arcu, id posuere sapien. Vestibulum dictum mauris a ex accumsan, sed semper tortor gravida. Integer gravida velit a enim eleifend tempus. Aliquam tincidunt, dui eget venenatis vehicula, nunc lectus aliquet nunc, at luctus eros ipsum quis libero. Fusce a purus faucibus, rhoncus diam a, hendrerit nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>\r\n\r\n<p>Nam pulvinar arcu non tortor auctor bibendum. Nullam eu consectetur velit, at tempor ante. Nunc vulputate cursus lorem, vitae fermentum mi rhoncus et. Nullam convallis massa imperdiet vestibulum tincidunt. Morbi ex mi, euismod vel imperdiet non, blandit nec urna. Nullam posuere quam elit, vel suscipit nisl tempor id. Aenean a blandit felis. Quisque sit amet consectetur tortor, eget egestas lorem. Maecenas ut tortor pellentesque, elementum ante non, ullamcorper urna. Pellentesque iaculis sapien tortor.</p>\r\n\r\n<p>Vestibulum a tortor diam. Vestibulum ac felis sem. Sed scelerisque nulla quam, vehicula porttitor diam fringilla vitae. Aenean quis velit id quam placerat facilisis nec non nisl. Morbi purus odio, vestibulum pellentesque velit eget, viverra consectetur lorem. Proin nec sem egestas leo interdum efficitur nec eleifend velit. Vestibulum ultrices consectetur semper. Duis nibh elit, volutpat nec sapien ac, luctus auctor felis. Vestibulum placerat, velit vel bibendum cursus, dolor urna iaculis dui, non ultricies ante nisi vitae leo. Aenean id egestas sem.</p>', '<p>&nbsp;</p>\r\n\r\n<p>Maecenas scelerisque cursus tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas vel varius arcu, id posuere sapien. Vestibulum dictum mauris a ex accumsan, sed semper tortor gravida. Integer gravida velit a enim eleifend tempus. Aliquam tincidunt, dui eget venenatis vehicula, nunc lectus aliquet nunc, at luctus eros ipsum quis libero. Fusce a purus faucibus, rhoncus diam a, hendrerit nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>\r\n\r\n<p>Nam pulvinar arcu non tortor auctor bibendum. Nullam eu consectetur velit, at tempor ante. Nunc vulputate cursus lorem, vitae fermentum mi rhoncus et. Nullam convallis massa imperdiet vestibulum tincidunt. Morbi ex mi, euismod vel imperdiet non, blandit nec urna. Nullam posuere quam elit, vel suscipit nisl tempor id. Aenean a blandit felis. Quisque sit amet consectetur tortor, eget egestas lorem. Maecenas ut tortor pellentesque, elementum ante non, ullamcorper urna. Pellentesque iaculis sapien tortor.</p>\r\n\r\n<p>Vestibulum a tortor diam. Vestibulum ac felis sem. Sed scelerisque nulla quam, vehicula porttitor</p>', '<p>Nam pulvinar arcu non tortor auctor bibendum. Nullam eu consectetur velit, at tempor ante. Nunc vulputate cursus lorem, vitae fermentum mi rhoncus et. Nullam convallis massa imperdiet vestibulum tincidunt. Morbi ex mi, euismod vel imperdiet non, blandit nec urna. Nullam posuere quam elit, vel suscipit nisl tempor id. Aenean a blandit felis. Quisque sit amet consectetur tortor, eget egestas lorem. Maecenas ut tortor pellentesque, elementum ante non, ullamcorper urna. Pellentesque iaculis sapien tortor.</p>', 800, 700, 0, 1, 'cotton', 'hfh', 7, 'aware-organic-cotton-1698220649jm79G', 6, NULL, NULL, NULL, 1, 1, '2023-10-25 05:57:29', '2023-10-25 05:57:29'),
+(28, 14, 45, NULL, 25, NULL, 'High Ankle Jeans', '2dr34', 'productImages/fvzi31698220928.png', '[\"1698220928tQu8C.png\"]', 'ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', '<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae</p>', '<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;</p>', 1500, 1290, 257, 1, 'high ,jeans', NULL, 1, 'high-ankle-jeans-1698221001ta2Gv', 8, NULL, NULL, NULL, 1, 0, '2023-10-25 06:02:08', '2023-10-25 06:03:21');
 
 -- --------------------------------------------------------
 
@@ -1560,6 +1674,15 @@ CREATE TABLE `product_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
+(38, 25, '1698218036kzgay.png', '2023-10-25 05:13:56', NULL),
+(39, 22, '1698220172hEGSk.png', '2023-10-25 05:49:32', NULL),
+(40, 28, '1698220928tQu8C.png', '2023-10-25 06:02:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -1918,10 +2041,19 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_i
 (25, 21, '1697626862OsQ7F.png', 6, 6, NULL, NULL, NULL, 100, 110, 100, 8, NULL, '2023-10-18 09:01:02', '2023-10-22 08:48:07'),
 (26, 21, '1697626862sy3aK.png', 2, 5, NULL, NULL, NULL, 320, 115, 80, 7, NULL, '2023-10-18 09:01:02', '2023-10-22 08:48:07'),
 (27, 21, '1697626862bMCYk.png', 3, 3, NULL, NULL, NULL, 200, 90, 85, 7, NULL, '2023-10-18 09:01:02', '2023-10-22 08:48:07'),
-(28, 22, '1697627286MeviK.jpg', 7, NULL, NULL, NULL, NULL, 10, 0, 0, NULL, NULL, '2023-10-18 09:08:06', '2023-10-18 09:08:45'),
-(29, 23, '1697627608IoUkR.png', 7, NULL, 2, 2, 7, 99, 0, 0, NULL, NULL, '2023-10-18 09:13:28', NULL),
-(30, 24, '1697961772eZG2G.webp', 2, 6, NULL, NULL, NULL, 100, 100, 90, 1, NULL, '2023-10-22 08:02:52', '2023-10-22 08:18:34'),
-(31, 24, '1697961772MdE90.webp', 7, 5, NULL, NULL, NULL, 200, 120, 100, 1, NULL, '2023-10-22 08:02:52', '2023-10-22 08:18:34');
+(29, 23, '1697627608IoUkR.png', 7, NULL, NULL, NULL, NULL, 99, 0, 0, NULL, NULL, '2023-10-18 09:13:28', '2023-10-23 03:50:11'),
+(30, 24, '1697961772eZG2G.webp', 2, 6, NULL, NULL, NULL, 100, 100, 90, 1, NULL, '2023-10-22 08:02:52', '2023-10-23 03:49:58'),
+(31, 24, '1697961772MdE90.webp', 7, 5, NULL, NULL, NULL, 200, 120, 100, 1, NULL, '2023-10-22 08:02:52', '2023-10-23 03:49:58'),
+(32, 1, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '2023-10-25 04:59:51', NULL),
+(33, 26, '1698220071KJHUh.png', 2, 4, NULL, NULL, NULL, 100, 3000, 2850, 7, NULL, '2023-10-25 05:47:51', NULL),
+(34, 26, '1698220071D5DHw.png', 6, 5, NULL, NULL, NULL, 300, 3400, 3200, 8, NULL, '2023-10-25 05:47:51', NULL),
+(35, 26, '16982200714Piub.png', 3, 6, NULL, NULL, NULL, 200, 4000, 3790, 2, NULL, '2023-10-25 05:47:51', NULL),
+(36, 26, '1698220071p1CPR.png', 10, 4, NULL, NULL, NULL, 400, 3900, 3000, 7, NULL, '2023-10-25 05:47:51', NULL),
+(37, 27, '1698220649T4kIh.png', 1, 4, NULL, NULL, NULL, 100, 800, 700, 7, NULL, '2023-10-25 05:57:29', NULL),
+(38, 27, '1698220649mYEaQ.png', 1, 3, NULL, NULL, NULL, 140, 750, 600, 8, NULL, '2023-10-25 05:57:29', NULL),
+(39, 27, '1698220649T2jK0.png', 1, 5, NULL, NULL, NULL, 200, 750, 690, 8, NULL, '2023-10-25 05:57:29', NULL),
+(40, 27, '1698220649CwkcU.png', 2, 5, NULL, NULL, NULL, 500, 900, 800, 8, NULL, '2023-10-25 05:57:29', NULL),
+(41, 27, '1698220649S40Zf.png', 2, 3, NULL, NULL, NULL, 90, 900, 780, 7, NULL, '2023-10-25 05:57:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -2012,8 +2144,8 @@ CREATE TABLE `promo_codes` (
 --
 
 INSERT INTO `promo_codes` (`id`, `title`, `description`, `code`, `effective_date`, `expire_date`, `type`, `value`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(1, '25% off', 'happy shoping', 'Off25', '2023-07-03', '2023-07-10', 2, 25, 'J0vnY1688367426', 0, '2023-07-03 16:57:06', '2023-07-13 03:32:46'),
-(2, 'OFF 100', '100 taka off', 'OFF100', '2023-07-09', '2023-07-15', 1, 100, '2EtEa1688804325', 2, '2023-07-08 18:18:45', '2023-07-13 04:15:23');
+(1, '25% off', 'happy shoping', 'Off25', '2023-07-03', '2023-11-30', 2, 25, 'J0vnY1688367426', 1, '2023-07-03 16:57:06', '2023-10-25 08:18:17'),
+(2, 'OFF 100', '100 taka off', 'OFF100', '2023-07-09', '2023-11-30', 1, 100, '2EtEa1688804325', 1, '2023-07-08 18:18:45', '2023-10-25 08:18:05');
 
 -- --------------------------------------------------------
 
@@ -2093,7 +2225,9 @@ CREATE TABLE `shipping_infos` (
 INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `gender`, `address`, `thana`, `post_code`, `city`, `country`, `created_at`, `updated_at`) VALUES
 (2, 1, 'Reduan', '01850453321', 'reduan@getup.com.bd', 'undefined', 'kapasgola', NULL, '12334', 'Chattogram', 'Bangladesh', '2023-07-17 23:49:13', NULL),
 (3, 6, 'Reduan', '01850453321', 'admin@gmil.com', 'undefined', 'kapasgola', NULL, '12334', 'Chattogram', 'Bangladesh', '2023-07-18 08:34:22', NULL),
-(4, 9, 'Reduan', '01850453322', 'admin@gmil.com', 'undefined', 'Flat A2, House 4 Rd No. 10', NULL, '1000', 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45');
+(4, 9, 'Reduan', '01850453322', 'admin@gmil.com', 'undefined', 'Flat A2, House 4 Rd No. 10', NULL, '1000', 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
+(9, 14, 'bh', 'hh', 'bb', NULL, 'hh', 'Gopalganj Sadar', NULL, 'Gopalganj', NULL, '2023-10-25 06:33:57', NULL),
+(10, 0, 'Arif', '98666776778', 'dcsuperstar22@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '2023-10-26 03:34:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -2206,7 +2340,7 @@ CREATE TABLE `social_logins` (
 --
 
 INSERT INTO `social_logins` (`id`, `fb_login_status`, `fb_app_id`, `fb_app_secret`, `fb_redirect_url`, `gmail_login_status`, `gmail_client_id`, `gmail_secret_id`, `gmail_redirect_url`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2023-10-05 06:00:25', '2023-10-05 06:06:23');
+(1, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2023-10-05 06:00:25', '2023-10-23 05:44:31');
 
 -- --------------------------------------------------------
 
@@ -2277,11 +2411,12 @@ INSERT INTO `subcategories` (`id`, `category_id`, `name`, `icon`, `image`, `slug
 (37, 12, 'Woolend Jacket', 'subcategory_images/pUe0P1697626497.png', NULL, 'woolend-jacket-1697626497-OgFmm', 1, 0, '2023-10-18 08:54:57', NULL),
 (38, 12, 'Jacket, Women', 'subcategory_images/hposg1697626524.png', NULL, 'jacket-women-1697626524-2FV8y', 1, 0, '2023-10-18 08:55:24', NULL),
 (39, 12, 'Western Denim', 'subcategory_images/9C5UK1697626550.png', NULL, 'western-denim-1697626550-xvTqp', 1, 0, '2023-10-18 08:55:50', NULL),
-(40, 12, 'MIni Dress', 'subcategory_images/SVGQr1697626575.png', NULL, 'mini-dress-1697626575-bbfS4', 1, 0, '2023-10-18 08:56:15', NULL),
 (41, 13, 'Jacket,Women', 'subcategory_images/SHtV41697626616.png', NULL, 'jacketwomen-1697626616-Ix5uv', 1, 0, '2023-10-18 08:56:56', NULL),
 (42, 13, 'Woolend Jacket', 'subcategory_images/KLFy81697626644.png', NULL, 'woolend-jacket-1697626644-CcGr9', 1, 0, '2023-10-18 08:57:24', NULL),
 (43, 13, 'western denim', 'subcategory_images/fcH6R1697626663.png', NULL, 'western-denim-1697626663-vZmfB', 1, 0, '2023-10-18 08:57:43', NULL),
-(44, 13, 'Mini Dress', 'subcategory_images/x2u9h1697626680.png', NULL, 'mini-dress-1697626680-tY34l', 1, 0, '2023-10-18 08:58:00', NULL);
+(44, 13, 'Mini Dress', 'subcategory_images/x2u9h1697626680.png', NULL, 'mini-dress-1697626680-tY34l', 1, 0, '2023-10-18 08:58:00', NULL),
+(45, 14, 'Women', NULL, NULL, 'women-1698220736-Ul0Jl', 1, 0, '2023-10-25 05:58:56', NULL),
+(46, 14, 'Man', NULL, NULL, 'man-1698220744-lhEyi', 1, 0, '2023-10-25 05:59:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -2472,8 +2607,11 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (34, NULL, 'Istiak Ahamed Sifat', '01580331693', 'istiakahamed30@gmail.com', NULL, NULL, '$2y$10$/d3M1fFredISBGmlpDv4R.IXCGToxs/31ljKCg3wrE2q2gIk21WB2', NULL, 1, 'Ali nekir dewry, Nazimuddin Road, Dhaka.', 0, 0, NULL, 1, '2023-07-15 19:55:06', '2023-07-18 08:41:56'),
 (35, 'userProfileImages/2eYoO1689479533.jpg', 'Ariful', '01643533365', 'ariful@gmail.com', NULL, '772114', '$2y$10$x5m3cQUgd.RHgHWAT7iCu.GMovOLWNBrT9lnB8orb54P5QeU0ls/6', NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-16 13:51:25', '2023-07-19 04:38:59'),
 (36, NULL, 'TestUser By Getup', '01969005039', 'test@gmail.com', NULL, NULL, '$2y$10$/9ZP9Bi/GH51I6kZyZTDVefcQI1dAJSOnv/SlPEIT2YPQgIkgiky2', NULL, 2, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-07-18 08:17:43', '2023-07-18 08:42:28'),
-(45, NULL, 'Md Fahim Hossain', '01969005041', 'alifhossain174@gmail.com', '2023-10-22 05:47:07', '926152', '$2y$10$XlL/0J.FotoN/14AFx2Zt.xTesgTYBb5XCCG1aLarpIvIIbetp6CC', NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 05:20:33', '2023-10-22 06:22:40'),
-(47, NULL, 'Md Fahim Hossain', '01969005035', NULL, '2023-10-22 06:11:03', '269200', '$2y$10$ryL5dk9r0et950I4Ux6PXOF11a8L/R5xuGohH5u7yzT2ol3niUWyi', NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 06:08:52', '2023-10-22 06:11:03');
+(45, NULL, 'Md Fahim Hossain', '01969005041', 'alifhossain174@gmail.com', '2023-10-22 05:47:07', '926152', '$2y$10$XlL/0J.FotoN/14AFx2Zt.xTesgTYBb5XCCG1aLarpIvIIbetp6CC', NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 05:20:33', '2023-10-26 04:22:22'),
+(47, NULL, 'Md Fahim Hossain', '01969005035', NULL, '2023-10-22 06:11:03', '269200', '$2y$10$ryL5dk9r0et950I4Ux6PXOF11a8L/R5xuGohH5u7yzT2ol3niUWyi', NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 06:08:52', '2023-10-22 06:11:03'),
+(49, NULL, 'gyuvvyvt', NULL, 'gugug@gmail.com', NULL, '905201', '$2y$10$PtjpDvvP1tpv7o5XI.ZLH.Ga9I5.7ri14aGQIammYShOCtqfL4TNy', NULL, 3, 'vhvhv', 0, 0, NULL, 0, '2023-10-23 09:25:59', NULL),
+(50, NULL, 'ub', 'bubbu&t.gik', NULL, NULL, '473080', '$2y$10$X.P55zHGNauDZ73s9rM1W.1x2b472wYgpPD968p0tGqV3xltRcRCa', NULL, 3, 'uvu', 0, 0, NULL, 0, '2023-10-23 09:28:29', NULL),
+(55, 'userProfileImages/zs2911698216503.jpg', 'Arif', '98666776778', 'dcsuperstar22@gmail.com', '2023-10-25 02:00:12', '973071', '$2y$10$hiI/K.pthRSg4U85.dMCW.0jZ5OFmsGqHadIv0uPP0zr0aySd32zC', NULL, 3, NULL, 0, 0, NULL, 1, '2023-10-25 01:55:10', '2023-10-25 06:39:48');
 
 -- --------------------------------------------------------
 
@@ -3028,7 +3166,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -3058,7 +3196,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `child_categories`
@@ -3142,25 +3280,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -3178,19 +3316,19 @@ ALTER TABLE `permission_routes`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `product_models`
@@ -3220,7 +3358,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`
@@ -3250,7 +3388,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `sims`
@@ -3292,7 +3430,7 @@ ALTER TABLE `storage_types`
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `subscribed_users`
@@ -3334,7 +3472,7 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`

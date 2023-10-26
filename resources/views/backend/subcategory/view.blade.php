@@ -9,28 +9,9 @@
             border-radius: 4px;
         }
         table.dataTable tbody td:nth-child(1){
-            text-align: center !important;
             font-weight: 600;
         }
-        table.dataTable tbody td:nth-child(2){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(3){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(4){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(5){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(6){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(7){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(8){
+        table.dataTable tbody td{
             text-align: center !important;
         }
         tfoot {
@@ -71,7 +52,7 @@
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            {{-- <tfoot>
                                 <tr>
                                     <th></th>
                                     <th></th>
@@ -83,7 +64,7 @@
                                     <th></th>
                                     <th></th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> --}}
                             <tbody>
 
                             </tbody>
@@ -107,6 +88,7 @@
         var table = $(".data-table").DataTable({
             processing: true,
             serverSide: true,
+            stateSave: true,
             ajax: "{{ url('view/all/subcategory') }}",
             columns: [
                 {
@@ -149,33 +131,33 @@
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
             initComplete: function() {
-                this.api().columns([2,5]).every(function() {
-                    var column = this;
-                    var input = document.createElement("input");
-                    $(input).appendTo($(column.footer()).empty())
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                            column.search(val ? val : '', true, false).draw();
-                        });
-                });
+                // this.api().columns([2,5]).every(function() {
+                //     var column = this;
+                //     var input = document.createElement("input");
+                //     $(input).appendTo($(column.footer()).empty())
+                //         .on('change', function() {
+                //             var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                //             column.search(val ? val : '', true, false).draw();
+                //         });
+                // });
 
-                this.api().columns([7]).every(function() {
-                    var column = this;
-                    var select = $('<select style="width:100%"><option value="">All</option></select>')
-                        .appendTo($(column.footer()).empty())
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-                            column
-                                .search(val ? '^' + val + '$' : '', true, false)
-                                .draw();
-                        });
-                    column.each(function() {
-                        select.append('<option value="Active">' + 'Active' + '</option>')
-                        select.append('<option value="Inactive">' + 'Inactive' + '</option>')
-                    });
-                });
+                // this.api().columns([7]).every(function() {
+                //     var column = this;
+                //     var select = $('<select style="width:100%"><option value="">All</option></select>')
+                //         .appendTo($(column.footer()).empty())
+                //         .on('change', function() {
+                //             var val = $.fn.dataTable.util.escapeRegex(
+                //                 $(this).val()
+                //             );
+                //             column
+                //                 .search(val ? '^' + val + '$' : '', true, false)
+                //                 .draw();
+                //         });
+                //     column.each(function() {
+                //         select.append('<option value="Active">' + 'Active' + '</option>')
+                //         select.append('<option value="Inactive">' + 'Inactive' + '</option>')
+                //     });
+                // });
             }
         });
     </script>
@@ -195,14 +177,8 @@
                     type: "GET",
                     url: "{{ url('delete/subcategory') }}"+'/'+subcategorySlug,
                     success: function (data) {
-
-                        if(data.data == 1){
-                            table.draw(false);
-                            toastr.error("Subcategory has been Deleted", "Deleted Successfully");
-                        } else {
-                            toastr.warning("Product Available in this Subcategory", "Failed");
-                        }
-
+                        table.draw(false);
+                        toastr.error("Subcategory has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
                         console.log('Error:', data);
