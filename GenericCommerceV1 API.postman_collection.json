@@ -5287,7 +5287,7 @@
 					"formdata": [
 						{
 							"key": "category_id",
-							"value": "11",
+							"value": "",
 							"type": "text"
 						},
 						{
@@ -5353,6 +5353,11 @@
 						{
 							"key": "brand_id",
 							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "search_keyword",
+							"value": "Oversize Cotton Dress",
 							"type": "text"
 						}
 					]
@@ -5666,7 +5671,7 @@
 		{
 			"name": "Best Selling Product",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
@@ -5675,15 +5680,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/best/selling/product",
-					"protocol": "http",
+					"raw": "https://fashionista-admin.getcommerce.xyz/api/best/selling/product",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"fashionista-admin",
+						"getcommerce",
+						"xyz"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"best",

@@ -114,6 +114,7 @@ class FilterController extends Controller
             $childcategoryId = $request->childcategory_id;
             $flagId = $request->flag_id;
             $brandId = $request->brand_id;
+            $searchKeyword = $request->search_keyword;
 
             $sortBy = $request->sort_by; // 1=>Low to High; 2=>High To Low
             $priceRangeMin = $request->minimum_price;
@@ -125,7 +126,7 @@ class FilterController extends Controller
             // $regionId = $request->region_id;
 
 
-            if($categoryId || $subcategoryId || $childcategoryId || $flagId || $brandId || $sortBy || $priceRangeMin || $priceRangeMax || $warrentyId){ //$storageId || $deviceConditionId || $simTypeId || $regionId ||
+            if($categoryId || $subcategoryId || $childcategoryId || $flagId || $brandId || $sortBy || $priceRangeMin || $priceRangeMax || $warrentyId || $searchKeyword){ //$storageId || $deviceConditionId || $simTypeId || $regionId ||
                 $data = DB::table('products')
                             ->join('categories', 'products.category_id', '=', 'categories.id')
                             ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
@@ -139,6 +140,9 @@ class FilterController extends Controller
                             ->select('products.*', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name', 'units.name as unit_name', 'flags.name as flag_name', 'brands.name as brand_name', 'product_models.name as model_name', 'product_warrenties.name as product_warrenty')
                             ->where('products.status', 1)
 
+                            ->when($searchKeyword, function($query) use ($searchKeyword){
+                                return $query->where('products.name', 'LIKE', '%'.$searchKeyword.'%');
+                            })
                             ->when($categoryId, function($query) use ($categoryId){
                                 return $query->where('products.category_id', $categoryId);
                             })
