@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use DataTables;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Str;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Brand;
+use App\Models\ProductModel;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
+use Sohibd\Laravelslug\Generate;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -38,6 +39,7 @@ class BrandController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
                         $btn = ' <a href="'.url('edit/brand').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         if($data->featured == 0){
                             $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" title="Featured" data-original-title="Featured" class="btn-sm btn-success rounded featureBtn"><i class="feather-chevrons-up"></i></a>';
                         } else {
@@ -77,14 +79,11 @@ class BrandController extends Controller
             $banner = "brand_images/" . $image_name;
         }
 
-        $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
-        $slug = preg_replace('!\s+!', '-', $clean);
-
         Brand::insert([
             'name' => $request->name,
             'logo' => $logo,
             'banner' => $banner,
-            'slug' => $slug,
+            'slug' => Generate::Slug($request->name),
             'featured' => 0,
             'created_at' => Carbon::now()
         ]);
@@ -154,14 +153,11 @@ class BrandController extends Controller
             $banner = "brand_images/" . $image_name;
         }
 
-        $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
-        $slug = preg_replace('!\s+!', '-', $clean);
-
         Brand::where('id', $request->id)->update([
             'name' => $request->name,
             'logo' => $logo,
             'banner' => $banner,
-            'slug' => $slug,
+            'slug' => Generate::Slug($request->name),
             'status' => $request->status,
             'updated_at' => Carbon::now()
         ]);
@@ -185,6 +181,24 @@ class BrandController extends Controller
         }
         Toastr::success('Brand has been Rerranged', 'Success');
         return redirect('/view/all/brands');
+    }
+
+    public function deleteBrand($slug){
+        $data = Brand::where('slug', $slug)->first();
+        if($data->logo){
+            if(file_exists(public_path($data->logo))){
+                unlink(public_path($data->logo));
+            }
+        }
+        if($data->banner){
+            if(file_exists(public_path($data->banner))){
+                unlink(public_path($data->banner));
+            }
+        }
+
+        ProductModel::where('brand_id', $data->id)->delete();
+        $data->delete();
+        return response()->json(['success' => 'Brand Deleted Successfully.']);
     }
 
 }

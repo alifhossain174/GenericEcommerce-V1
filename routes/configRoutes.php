@@ -61,6 +61,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::get('/feature/brand/{id}', [BrandController::class, 'featureBrand'])->name('FeatureBrand');
     Route::get('/edit/brand/{slug}', [BrandController::class, 'editBrand'])->name('EditBrand');
     Route::post('/update/brand', [BrandController::class, 'updateBrand'])->name('UpdateBrand');
+    Route::get('/delete/brand/{slug}', [BrandController::class, 'deleteBrand'])->name('DeleteBrand');
 
     // model
     Route::get('/add/new/model', [ProductModelController::class, 'addNewModel'])->name('AddNewModel');
@@ -95,6 +96,6 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::post('/create/new/size', [ConfigController::class, 'createNewSize'])->name('CreateNewSize');
     Route::get('/rearrange/size', [ConfigController::class, 'rearrangeSize'])->name('RearrangeSize');
     Route::post('/save/rearranged/sizes', [ConfigController::class, 'saveRearrangedSizes'])->name('SaveRearrangedSizes');
-    
+
 
 });

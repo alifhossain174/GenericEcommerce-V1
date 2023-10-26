@@ -9,28 +9,9 @@
             border-radius: 4px;
         }
         table.dataTable tbody td:nth-child(1){
-            text-align: center !important;
             font-weight: 600;
         }
-        table.dataTable tbody td:nth-child(2){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(3){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(4){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(5){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(6){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(7){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(8){
+        table.dataTable tbody td{
             text-align: center !important;
         }
         tfoot {
@@ -99,6 +80,7 @@
         var table = $(".data-table").DataTable({
             processing: true,
             serverSide: true,
+            stateSave: true,
             ajax: "{{ url('view/all/brands') }}",
             columns: [
                 {
@@ -158,6 +140,23 @@
                         table.draw(false);
                         toastr.success("Feature Status Changed", "Changed Successfully");
 
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                    }
+                });
+            }
+        });
+
+        $('body').on('click', '.deleteBtn', function () {
+            var brandSlug = $(this).data("id");
+            if(confirm("All the models of that Brand will also be Deleted !")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('delete/brand') }}"+'/'+brandSlug,
+                    success: function (data) {
+                        table.draw(false);
+                        toastr.error("Brand has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
                         console.log('Error:', data);

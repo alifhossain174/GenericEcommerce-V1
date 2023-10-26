@@ -25,7 +25,7 @@
                         <input type="hidden" name="id" value="{{$data->id}}">
 
                         <div class="form-group row">
-                            <label for="colFormLabe0" class="col-sm-2 col-form-label">Select Category <span class="text-danger">*</span></label>
+                            <label for="colFormLabe0" class="col-sm-2 col-form-label">Select Brand <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <select name="brand_id" class="form-control" id="colFormLabe0" required>
                                     @php
@@ -80,9 +80,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Update Model</button>
+                        <div class="form-group row">
+                            <label for="colFormLabe0" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Update Model</button>
+                            </div>
                         </div>
+
                     </form>
                 </div>
             </div>

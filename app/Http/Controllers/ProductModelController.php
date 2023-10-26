@@ -16,7 +16,7 @@ class ProductModelController extends Controller
         if ($request->ajax()) {
 
             $data = DB::table('product_models')
-                        ->join('brands', 'product_models.brand_id' , '=', 'brands.id')
+                        ->leftJoin('brands', 'product_models.brand_id' , '=', 'brands.id')
                         ->select('product_models.*', 'brands.name as brand_name')
                         ->orderBy('id', 'desc')
                         ->get();
@@ -32,6 +32,7 @@ class ProductModelController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
                         $btn = ' <a href="'.url('edit/model').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         // $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" title="Featured" data-original-title="Featured" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
 
                         return $btn;

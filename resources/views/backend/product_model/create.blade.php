@@ -57,9 +57,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Save Model</button>
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Save Model</button>
+                            </div>
                         </div>
+
                     </form>
                 </div>
             </div>

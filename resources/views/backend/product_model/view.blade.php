@@ -9,28 +9,9 @@
             border-radius: 4px;
         }
         table.dataTable tbody td:nth-child(1){
-            text-align: center !important;
             font-weight: 600;
         }
-        table.dataTable tbody td:nth-child(2){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(3){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(4){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(5){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(6){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(7){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(8){
+        table.dataTable tbody td{
             text-align: center !important;
         }
         tfoot {
@@ -97,7 +78,9 @@
         var table = $(".data-table").DataTable({
             processing: true,
             serverSide: true,
+            stateSave: true,
             pageLength: 15,
+            lengthMenu: [15, 25, 50, 100],
             ajax: "{{ url('view/all/models') }}",
             columns: [
                 {
@@ -135,7 +118,7 @@
                     success: function (data) {
 
                         table.draw(false);
-                        toastr.success("Model Deleted Successfully", "Deleted Successfully");
+                        toastr.error("Model Deleted Successfully", "Deleted Successfully");
 
                     },
                     error: function (data) {

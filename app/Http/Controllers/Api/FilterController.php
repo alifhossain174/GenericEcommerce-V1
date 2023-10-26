@@ -22,11 +22,12 @@ class FilterController extends Controller
             $sortBy = $request->sort_by; // 1=>Low to High; 2=>High To Low
             $priceRangeMin = $request->minimum_price;
             $priceRangeMax = $request->maximum_price;
-            $storageId = $request->storage_type_id;
-            $deviceConditionId = $request->product_type_id;
-            $simTypeId = $request->sim_type_id;
-            $regionId = $request->region_id;
             $warrentyId = $request->warrenty_id;
+            // $storageId = $request->storage_type_id;
+            // $deviceConditionId = $request->product_type_id;
+            // $simTypeId = $request->sim_type_id;
+            // $regionId = $request->region_id;
+
 
             $data = DB::table('products')
                         ->join('categories', 'products.category_id', '=', 'categories.id')
@@ -57,22 +58,22 @@ class FilterController extends Controller
                             return $query->where('products.discount_price', '<=', $priceRangeMax);
                         })
 
-                        ->when($storageId, function($query) use ($storageId){
-                            return $query->leftJoin('storage_types', 'product_variants.storage_type_id', '=', 'storage_types.id')
-                                    ->where('storage_types.id', $storageId);
-                        })
-                        ->when($deviceConditionId, function($query) use ($deviceConditionId){
-                            return $query->leftJoin('device_conditions', 'product_variants.device_condition_id', '=', 'device_conditions.id')
-                                    ->where('device_conditions.id', $deviceConditionId);
-                        })
-                        ->when($simTypeId, function($query) use ($simTypeId){
-                            return $query->leftJoin('sims', 'product_variants.sim_id', '=', 'sims.id')
-                                    ->where('sims.id', $simTypeId);
-                        })
-                        ->when($regionId, function($query) use ($regionId){
-                            return $query->leftJoin('country', 'product_variants.region_id', '=', 'country.id')
-                                    ->where('country.id', $regionId);
-                        })
+                        // ->when($storageId, function($query) use ($storageId){
+                        //     return $query->leftJoin('storage_types', 'product_variants.storage_type_id', '=', 'storage_types.id')
+                        //             ->where('storage_types.id', $storageId);
+                        // })
+                        // ->when($deviceConditionId, function($query) use ($deviceConditionId){
+                        //     return $query->leftJoin('device_conditions', 'product_variants.device_condition_id', '=', 'device_conditions.id')
+                        //             ->where('device_conditions.id', $deviceConditionId);
+                        // })
+                        // ->when($simTypeId, function($query) use ($simTypeId){
+                        //     return $query->leftJoin('sims', 'product_variants.sim_id', '=', 'sims.id')
+                        //             ->where('sims.id', $simTypeId);
+                        // })
+                        // ->when($regionId, function($query) use ($regionId){
+                        //     return $query->leftJoin('country', 'product_variants.region_id', '=', 'country.id')
+                        //             ->where('country.id', $regionId);
+                        // })
                         ->when($warrentyId, function($query) use ($warrentyId){
                             return $query->leftJoin('product_warrenties as variant_warrenty', 'product_variants.warrenty_id', '=', 'variant_warrenty.id')
                                     ->where('variant_warrenty.id', $warrentyId);
@@ -117,13 +118,14 @@ class FilterController extends Controller
             $sortBy = $request->sort_by; // 1=>Low to High; 2=>High To Low
             $priceRangeMin = $request->minimum_price;
             $priceRangeMax = $request->maximum_price;
-            $storageId = $request->storage_type_id;
-            $deviceConditionId = $request->product_type_id;
-            $simTypeId = $request->sim_type_id;
-            $regionId = $request->region_id;
             $warrentyId = $request->warrenty_id;
+            // $storageId = $request->storage_type_id;
+            // $deviceConditionId = $request->product_type_id;
+            // $simTypeId = $request->sim_type_id;
+            // $regionId = $request->region_id;
 
-            if($categoryId || $subcategoryId || $childcategoryId || $flagId || $brandId || $sortBy || $priceRangeMin || $priceRangeMax || $storageId || $deviceConditionId || $simTypeId || $regionId || $warrentyId){
+
+            if($categoryId || $subcategoryId || $childcategoryId || $flagId || $brandId || $sortBy || $priceRangeMin || $priceRangeMax || $warrentyId){ //$storageId || $deviceConditionId || $simTypeId || $regionId ||
                 $data = DB::table('products')
                             ->join('categories', 'products.category_id', '=', 'categories.id')
                             ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
@@ -168,22 +170,22 @@ class FilterController extends Controller
                                 return $query->where('products.discount_price', '<=', $priceRangeMax);
                             })
 
-                            ->when($storageId, function($query) use ($storageId){
-                                return $query->leftJoin('storage_types', 'product_variants.storage_type_id', '=', 'storage_types.id')
-                                        ->where('storage_types.id', $storageId);
-                            })
-                            ->when($deviceConditionId, function($query) use ($deviceConditionId){
-                                return $query->leftJoin('device_conditions', 'product_variants.device_condition_id', '=', 'device_conditions.id')
-                                        ->where('device_conditions.id', $deviceConditionId);
-                            })
-                            ->when($simTypeId, function($query) use ($simTypeId){
-                                return $query->leftJoin('sims', 'product_variants.sim_id', '=', 'sims.id')
-                                        ->where('sims.id', $simTypeId);
-                            })
-                            ->when($regionId, function($query) use ($regionId){
-                                return $query->leftJoin('country', 'product_variants.region_id', '=', 'country.id')
-                                        ->where('country.id', $regionId);
-                            })
+                            // ->when($storageId, function($query) use ($storageId){
+                            //     return $query->leftJoin('storage_types', 'product_variants.storage_type_id', '=', 'storage_types.id')
+                            //             ->where('storage_types.id', $storageId);
+                            // })
+                            // ->when($deviceConditionId, function($query) use ($deviceConditionId){
+                            //     return $query->leftJoin('device_conditions', 'product_variants.device_condition_id', '=', 'device_conditions.id')
+                            //             ->where('device_conditions.id', $deviceConditionId);
+                            // })
+                            // ->when($simTypeId, function($query) use ($simTypeId){
+                            //     return $query->leftJoin('sims', 'product_variants.sim_id', '=', 'sims.id')
+                            //             ->where('sims.id', $simTypeId);
+                            // })
+                            // ->when($regionId, function($query) use ($regionId){
+                            //     return $query->leftJoin('country', 'product_variants.region_id', '=', 'country.id')
+                            //             ->where('country.id', $regionId);
+                            // })
                             ->when($warrentyId, function($query) use ($warrentyId){
                                 return $query->leftJoin('product_warrenties as variant_warrenty', 'product_variants.warrenty_id', '=', 'variant_warrenty.id')
                                         ->where('variant_warrenty.id', $warrentyId);

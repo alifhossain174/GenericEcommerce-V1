@@ -12,9 +12,9 @@ use App\Http\Controllers\Api\BlogController;
 Route::group(['namespace' => 'Api'], function () {
 
     // authentication api | middleware(['throttle:5,1']) means 5 requests can be made in 1 minute
-    Route::post('user/registration', [AuthenticationController::class, 'userRegistration'])->middleware(['throttle:5,1']);
-    Route::post('user/verification', [AuthenticationController::class, 'userVerification'])->middleware(['throttle:5,1']);
-    Route::post('user/login', [AuthenticationController::class, 'userLogin'])->middleware(['throttle:5,1']);
+    Route::post('user/registration', [AuthenticationController::class, 'userRegistration']); //->middleware(['throttle:5,1']);
+    Route::post('user/verification', [AuthenticationController::class, 'userVerification']);
+    Route::post('user/login', [AuthenticationController::class, 'userLogin']);
 
     // available social login credentials
     Route::post('social/login/credentials', [AuthenticationController::class, 'socialLoginCredentials']);
@@ -82,7 +82,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('get/all/testimonials', [ApiController::class, 'getAllTestimonials']);
     Route::get('get/payment/gateways', [ApiController::class, 'getPaymentGateways']);
     Route::post('order/preview', [ApiController::class, 'orderPreview']);
-    Route::post('best/selling/product', [ApiController::class, 'bestSellingProduct']);
+    Route::get('best/selling/product', [ApiController::class, 'bestSellingProduct']);
 
 
     // order api start

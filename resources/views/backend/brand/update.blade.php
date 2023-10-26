@@ -38,27 +38,15 @@
 
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Change Logo</label>
-                            <div class="col-sm-8">
+                            <div class="col-sm-10">
                                 <input type="file" name="logo" class="dropify" data-height="100" data-max-file-size="1M" accept="image/*"/>
-                            </div>
-                            <div class="col-sm-2">
-                                <label class="col-form-label">Previous Logo</label><br>
-                                @if($data->logo != '' && file_exists(public_path($data->logo)))
-                                    <img src="{{url($data->logo)}}" width="60">
-                                @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Change Banner (545px*845px)</label>
-                            <div class="col-sm-8">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Change Banner</label>
+                            <div class="col-sm-10">
                                 <input type="file" name="banner" class="dropify" data-height="200" data-max-file-size="1M" accept="image/*"/>
-                            </div>
-                            <div class="col-sm-2">
-                                <label class="col-form-label">Previous Banner</label><br>
-                                @if($data->banner != '' && file_exists(public_path($data->banner)))
-                                    <img src="{{url($data->banner)}}" width="60">
-                                @endif
                             </div>
                         </div>
 
@@ -78,9 +66,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Update Brand Info</button>
+                        <div class="form-group row">
+                            <label for="colFormLabe0" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Update Brand Info</button>
+                            </div>
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -92,4 +84,19 @@
 @section('footer_js')
     <script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
     <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
+    <script>
+        @if($data->logo && file_exists(public_path($data->logo)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{$data->logo}}");
+            $("span.dropify-render").eq(0).html("<img src='{{url($data->logo)}}'>");
+        @endif
+
+        @if($data->banner && file_exists(public_path($data->banner)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{$data->banner}}");
+            $("span.dropify-render").eq(0).html("<img src='{{url($data->banner)}}'>");
+        @endif
+    </script>
 @endsection
