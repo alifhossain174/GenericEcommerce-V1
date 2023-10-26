@@ -90,6 +90,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('order/checkout', [ApiController::class, 'orderCheckout']);
         Route::post('order/checkout/app/only', [ApiController::class, 'orderCheckoutAppOnly']);
         Route::get('get/my/orders', [ApiController::class, 'getMyOrders']);
+        Route::get('order/details/{slug}', [ApiController::class, 'orderDetails']);
     });
     Route::post('order/progress', [ApiController::class, 'orderProgress']);
     Route::post('guest/order/checkout', [ApiController::class, 'guestOrderCheckout']); // for guest

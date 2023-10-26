@@ -1415,6 +1415,14 @@ class ApiController extends BaseController
         ], 200);
     }
 
+    public function orderDetails($slug){
+        $data = DB::table('orders')->where('user_id', auth()->user()->id)->where('slug', $slug)->first();
+        return response()->json([
+            'success' => true,
+            'date' => new OrderResource($data)
+        ], 200);
+    }
+
     public function orderProgress(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
