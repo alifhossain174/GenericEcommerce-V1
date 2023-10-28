@@ -11,6 +11,7 @@ use App\Models\SmsGateway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserVerificationEmail;
+use App\Mail\ForgetPasswordEmail;
 use App\Models\SocialLogin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -254,7 +255,7 @@ class AuthenticationController extends Controller
                 $data['name'] = $user->name;
                 $data['email'] = $user->email;
                 $data['phone'] = $user->phone;
-                $data['email_verified_at'] = $user->email_verified_at;
+                $data['email_verified_at'] = date("Y-m-d H:i:s", strtotime($user->email_verified_at));
                 // $data['user_type'] = 3;
                 $data['status'] = 1;
                 $data['image'] = $user->image;
@@ -308,7 +309,7 @@ class AuthenticationController extends Controller
                 $data['name'] = $user->name;
                 $data['email'] = $user->email;
                 $data['phone'] = $user->phone;
-                $data['email_verified_at'] = $user->email_verified_at;
+                $data['email_verified_at'] = date("Y-m-d H:i:s", strtotime($user->email_verified_at));
                 // $data['user_type'] = 3;
                 $data['status'] = 1;
                 $data['image'] = $user->image;
@@ -394,7 +395,7 @@ class AuthenticationController extends Controller
             $data['name'] = $user->name;
             $data['email'] = $user->email;
             $data['phone'] = $user->phone;
-            $data['email_verified_at'] = $user->email_verified_at;
+            $data['email_verified_at'] = date("Y-m-d H:i:s", strtotime($user->email_verified_at));
             // $data['user_type'] = 3;
             $data['status'] = 1;
             $data['image'] = $user->image;
@@ -406,6 +407,311 @@ class AuthenticationController extends Controller
                 'message'=> 'Successfully Logged In',
                 'data' => $data
             ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
+    public function forgetPassword(Request $request){
+        if ($request->header('Authorization') == AuthenticationController::AUTHORIZATION_TOKEN) {
+
+            if(!$request->username){
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Please Write Your Username'
+                ]);
+            }
+
+            $username = $request->username;
+
+            // check its a email or phone
+            if (filter_var($username, FILTER_VALIDATE_EMAIL)) { // email
+
+                $userInfo = User::where('email', $username)->first();
+                if(!$userInfo){
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Email does not Exist',
+                        'data' => null
+                    ]);
+                } else {
+
+                    $randomCode = rand(100000, 999999);
+                    $userInfo->verification_code = $randomCode;
+                    $userInfo->save();
+
+                    try {
+
+                        $emailConfig = EmailConfigure::where('status', 1)->orderBy('id', 'desc')->first();
+                        if($emailConfig){
+
+                            $decryption = "";
+                            if($emailConfig){
+                                $ciphering = "AES-128-CTR";
+                                $options = 0;
+                                $decryption_iv = '1234567891011121';
+                                $decryption_key = "GenericCommerceV1";
+                                $decryption = openssl_decrypt ($emailConfig->password, $ciphering, $decryption_key, $options, $decryption_iv);
+                            }
+
+                            config([
+                                'mail.mailers.smtp.host' => $emailConfig ? $emailConfig->host : '',
+                                'mail.mailers.smtp.port' => $emailConfig ? $emailConfig->port : '',
+                                'mail.mailers.smtp.username' => $emailConfig ? $emailConfig->email : '',
+                                'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
+                                'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
+                            ]);
+
+                            $mailData = array();
+                            $mailData['code'] = $randomCode;
+                            Mail::to(trim($username))->send(new ForgetPasswordEmail($mailData));
+
+                            return response()->json([
+                                'success' => true,
+                                'message' => "Password Reset Email Sent",
+                                'data' => null
+                            ], 200);
+
+                        } else {
+                            return response()->json([
+                                'success' => false,
+                                'message' => "No Mail Server is Active Yet",
+                                'data' => null
+                            ], 200);
+                        }
+
+                    } catch(\Exception $e) {
+                        return response()->json([
+                            'success' => false,
+                            'message' => "Something Went Wrong while Sending Email",
+                            'data' => null
+                        ], 200);
+                    }
+                }
+
+            } else {
+
+                $userInfo = User::where('phone', $username)->first();
+                if(!$userInfo){
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Phone No. Not Found',
+                        'data' => null
+                    ]);
+                } else {
+
+                    $randomCode = rand(100000, 999999);
+                    $userInfo->verification_code = $randomCode;
+                    $userInfo->save();
+
+                    $smsGateway = SmsGateway::where('status', 1)->first();
+                    if($smsGateway && $smsGateway->provider_name == 'Reve'){
+                        $response = Http::get($smsGateway->api_endpoint, [
+                            'apikey' => $smsGateway->api_key,
+                            'secretkey' => $smsGateway->secret_key,
+                            "callerID" => $smsGateway->sender_id,
+                            "toUser" => $username,
+                            "messageContent" => "Verification Code is : ". $randomCode
+                        ]);
+
+                        if($response->status() == 200){
+                            return response()->json([
+                                'success' => true,
+                                'message' => "Password Reset SMS Sent Successfully",
+                                'data' => null
+                            ], 200);
+
+                        } else {
+                            return response()->json([
+                                'success' => false,
+                                'message' => "Failed to Send SMS",
+                                'data' => null
+                            ], 200);
+                        }
+
+                    } elseif($smsGateway && $smsGateway->provider_name == 'ElitBuzz'){
+
+                        $response = Http::get($smsGateway->api_endpoint, [
+                            'api_key' => $smsGateway->api_key,
+                            "type" => "text",
+                            "contacts" => $username, //“88017xxxxxxxx,88018xxxxxxxx”
+                            "senderid" => $smsGateway->sender_id,
+                            "msg" => "Verification Code is : ". $randomCode
+                        ]);
+
+                        if($response->status() == 200){
+                            return response()->json([
+                                'success' => true,
+                                'message' => "Password Reset SMS Sent Successfully",
+                                'data' => null
+                            ], 200);
+                        } else {
+                            return response()->json([
+                                'success' => false,
+                                'message' => "Failed to Send SMS",
+                                'data' => null
+                            ], 200);
+                        }
+
+                    } else {
+                        return response()->json([
+                            'success' => false,
+                            'message' => "No SMS Gateway is Active Yet",
+                            'data' => null
+                        ], 200);
+                    }
+                }
+            }
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
+    public function verifyResetCode(Request $request){
+        if ($request->header('Authorization') == AuthenticationController::AUTHORIZATION_TOKEN) {
+
+            if(!$request->username && !$request->code){
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Please Provide Username with Verification Code',
+                    'data' => null
+                ]);
+            }
+
+            $username = $request->username;
+            $code = $request->code;
+            $data = array();
+
+            if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+
+                $userInfo = User::where('email', $username)->where('verification_code', $code)->first();
+                if(!$userInfo){
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Wrong Password Reset Code',
+                        'data' => null
+                    ]);
+                } else {
+
+                    $data['name'] = $userInfo->name;
+                    $data['email'] = $userInfo->email;
+                    $data['phone'] = $userInfo->phone;
+                    $data['email_verified_at'] = date("Y-m-d H:i:s", strtotime($userInfo->email_verified_at));
+                    $data['status'] = $userInfo->status;
+                    $data['image'] = $userInfo->image;
+                    $data['address'] = $userInfo->address;
+                    $data['balance'] = $userInfo->balance;
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => "Code is Verified. Now Change Your Password",
+                        'data' => $data
+                    ], 200);
+
+                }
+
+            } else {
+
+                $userInfo = User::where('phone', $username)->where('verification_code', $code)->first();
+                if(!$userInfo){
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Wrong Password Reset Code',
+                        'data' => null
+                    ]);
+                } else {
+
+                    $data['name'] = $userInfo->name;
+                    $data['email'] = $userInfo->email;
+                    $data['phone'] = $userInfo->phone;
+                    $data['email_verified_at'] = date("Y-m-d H:i:s", strtotime($userInfo->email_verified_at));
+                    $data['status'] = $userInfo->status;
+                    $data['image'] = $userInfo->image;
+                    $data['address'] = $userInfo->address;
+                    $data['balance'] = $userInfo->balance;
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => "Code is Verified. Now Change Your Password",
+                        'data' => $data
+                    ], 200);
+
+                }
+            }
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
+    public function changePassword(Request $request){
+        if ($request->header('Authorization') == AuthenticationController::AUTHORIZATION_TOKEN) {
+
+            if(!$request->username && !$request->code){
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Please Provide Username with Verification Code',
+                    'data' => null
+                ]);
+            }
+
+            $username = $request->username;
+            $password = $request->password;
+
+            if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+
+                $userInfo = User::where('email', $username)->first();
+                $userInfo->password = Hash::make($password);
+                $userInfo->save();
+
+                $data['name'] = $userInfo->name;
+                $data['email'] = $userInfo->email;
+                $data['phone'] = $userInfo->phone;
+                $data['email_verified_at'] = date("Y-m-d H:i:s", strtotime($userInfo->email_verified_at));
+                $data['status'] = $userInfo->status;
+                $data['image'] = $userInfo->image;
+                $data['address'] = $userInfo->address;
+                $data['balance'] = $userInfo->balance;
+
+                return response()->json([
+                    'success' => true,
+                    'message' => "Password Changed Successfully",
+                    'data' => $data
+                ], 200);
+
+            } else {
+
+                $userInfo = User::where('phone', $username)->first();
+                $userInfo->password = Hash::make($password);
+                $userInfo->save();
+
+                $data['name'] = $userInfo->name;
+                $data['email'] = $userInfo->email;
+                $data['phone'] = $userInfo->phone;
+                $data['email_verified_at'] = date("Y-m-d H:i:s", strtotime($userInfo->email_verified_at));
+                $data['status'] = $userInfo->status;
+                $data['image'] = $userInfo->image;
+                $data['address'] = $userInfo->address;
+                $data['balance'] = $userInfo->balance;
+
+                return response()->json([
+                    'success' => true,
+                    'message' => "Password Changed Successfully",
+                    'data' => $data
+                ], 200);
+
+            }
 
         } else {
             return response()->json([

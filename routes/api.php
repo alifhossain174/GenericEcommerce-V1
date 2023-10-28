@@ -15,6 +15,9 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('user/registration', [AuthenticationController::class, 'userRegistration']); //->middleware(['throttle:5,1']);
     Route::post('user/verification', [AuthenticationController::class, 'userVerification']);
     Route::post('user/login', [AuthenticationController::class, 'userLogin']);
+    Route::post('forget/password', [AuthenticationController::class, 'forgetPassword']); // forget password api
+    Route::post('verify/reset/code', [AuthenticationController::class, 'verifyResetCode']); // forget password api
+    Route::post('change/password', [AuthenticationController::class, 'changePassword']); // forget password api
 
     // available social login credentials
     Route::post('social/login/credentials', [AuthenticationController::class, 'socialLoginCredentials']);
