@@ -8,7 +8,6 @@ use App\Models\OrderDetails;
 use App\Models\OrderPayment;
 use App\Models\OrderProgress;
 use App\Models\Product;
-use App\Models\ProductVariant;
 use App\Models\ShippingInfo;
 use App\Models\User;
 use Carbon\Carbon;
@@ -150,10 +149,10 @@ class OrderController extends Controller
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                        $btn = ' <a href="'.url('order/edit').'/'.$data->slug.'" onclick="return orderEditWarning()" title="Order Edit" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
-                        $btn .= ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="mb-1 btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
-                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
-                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="btn-sm btn-success rounded approveBtn"><i class="fas fa-check"></i></a>';
+                        $btn = ' <a href="'.url('order/edit').'/'.$data->slug.'" onclick="return orderEditWarning()" title="Order Edit" class="mb-1 d-inline-block btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
+                        $btn .= ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="mb-1 d-inline-block btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="d-inline-block btn-sm btn-success rounded approveBtn"><i class="fas fa-check"></i></a>';
                         return $btn;
                     })
                     ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status'])

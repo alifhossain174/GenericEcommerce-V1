@@ -43,7 +43,7 @@
 <body width="100%" style="margin: 0; padding: 0; mso-line-height-rule: exactly;">
     Hi, <br>
 
-    We just need to verify your email address before you can access GenericCommerceV1. <br><br>
+    We just need to verify your email address before you can reset your password. <br><br>
 
     Your Verification Code is : <?= $sendLinkInfo['code'] ?> <br><br>
 
