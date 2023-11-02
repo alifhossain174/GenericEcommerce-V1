@@ -139,15 +139,13 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/user/login",
-					"protocol": "http",
+					"raw": "https://fashionista-admin.getcommerce.xyz/api/user/login",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"fashionista-admin",
+						"getcommerce",
+						"xyz"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"user",
@@ -2812,6 +2810,161 @@
 						"get",
 						"my",
 						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Orders Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "47|IeXV69iWDB0IN8CKFCBBdKgFW9OYfpfuYHXT1BBc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "INEJEUDYSBW7583837NUDD752023",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "full_name",
+							"value": "Fahim Hossain",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "01969005035",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "alifhossain174@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Dhaka, Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_address",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_post_code",
+							"value": "1071",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_city",
+							"value": "Dhaka",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "billing_country",
+							"value": "Bangladesh",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Bestu API Base URL}}/get/my/orders",
+					"host": [
+						"{{Bestu API Base URL}}"
+					],
+					"path": [
+						"get",
+						"my",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "100|XVwG2OXIkW8AypF2lRie86SadCFW4F9ELrRXJl8H",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fashionista-admin.getcommerce.xyz/api/order/details/WAfOJ1698320835",
+					"protocol": "https",
+					"host": [
+						"fashionista-admin",
+						"getcommerce",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"order",
+						"details",
+						"WAfOJ1698320835"
 					]
 				}
 			},
