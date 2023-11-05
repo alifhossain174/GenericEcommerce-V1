@@ -196,7 +196,7 @@ class FilterController extends Controller
                             })
 
                             ->groupBy('products.id')
-                            ->paginate(20);
+                            ->paginate(16);
 
                 return response()->json([
                     'success' => true,
