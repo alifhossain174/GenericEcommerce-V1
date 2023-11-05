@@ -266,6 +266,17 @@ class GeneralInfoController extends Controller
         return back();
     }
 
+    public function updateGoogleTagManager(Request $request){
+        GeneralInfo::where('id', 1)->update([
+            'google_tag_manager_status' => $request->google_tag_manager_status,
+            'google_tag_manager_id' => $request->google_tag_manager_id,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Google Tag Manager Info Updated', 'Success');
+        return back();
+    }
+
     public function updateSocialLogin(Request $request){
         SocialLogin::where('id', 1)->update([
             'fb_login_status' => $request->fb_login_status,

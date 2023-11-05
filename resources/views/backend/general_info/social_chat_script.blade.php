@@ -43,6 +43,11 @@
                                     <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
                                     <span class="d-none d-lg-block">Google Analytic</span>
                                 </a>
+                                <a class="nav-link" id="v-pills-gt-tab" data-toggle="pill" href="#v-pills-gt" role="tab" aria-controls="v-pills-gt"
+                                    aria-selected="false">
+                                    <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
+                                    <span class="d-none d-lg-block">Google Tag Manager</span>
+                                </a>
                                 <a class="nav-link" id="v-pills-sl-tab" data-toggle="pill" href="#v-pills-sl" role="tab" aria-controls="v-pills-sl"
                                     aria-selected="false">
                                     <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
@@ -74,8 +79,8 @@
                                         <div class="form-group">
                                             <label for="captcha_status">Allow Recaptcha</label>
                                             <select id="captcha_status" class="form-control" name="captcha_status" required>
-                                                <option value="1" @if($googleRecaptcha->status == 1) selected @endif>Allow Recaptcha</option>
-                                                <option value="0" @if($googleRecaptcha->status == 0) selected @endif>Disallow Recaptcha</option>
+                                                <option value="1" @if($googleRecaptcha->status == 1) selected @endif>Enable Recaptcha</option>
+                                                <option value="0" @if($googleRecaptcha->status == 0) selected @endif>Disable Recaptcha</option>
                                             </select>
                                         </div>
 
@@ -100,14 +105,35 @@
                                         <div class="form-group">
                                             <label for="google_analytic_status">Allow Google Analytic</label>
                                             <select id="google_analytic_status" class="form-control" name="google_analytic_status" required>
-                                                <option value="1" @if($generalInfo->status == 1) selected @endif>Allow Google Analytic</option>
-                                                <option value="0" @if($generalInfo->status == 0) selected @endif>Disallow Google Analytic</option>
+                                                <option value="1" @if($generalInfo->google_analytic_status == 1) selected @endif>Enable Google Analytic</option>
+                                                <option value="0" @if($generalInfo->google_analytic_status == 0) selected @endif>Disable Google Analytic</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="google_analytic_tracking_id">Analytic Tracking Id</label>
+                                            <label for="google_analytic_tracking_id">Analytic Tracking ID</label>
                                             <input type="text" class="form-control" value="{{$generalInfo->google_analytic_tracking_id}}" id="google_analytic_tracking_id" name="google_analytic_tracking_id" placeholder="ex. UA-842191520-6">
+                                        </div>
+
+                                        <div class="form-group mb-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-gt" role="tabpanel" aria-labelledby="v-pills-gt-tab">
+                                    <form action="{{url('update/google/tag/manager')}}" method="POST">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="google_tag_manager_status">Allow Google Tag Manager</label>
+                                            <select id="google_tag_manager_status" class="form-control" name="google_tag_manager_status" required>
+                                                <option value="1" @if($generalInfo->google_tag_manager_status == 1) selected @endif>Enable Google Tag Manager</option>
+                                                <option value="0" @if($generalInfo->google_tag_manager_status == 0) selected @endif>Disable Google Tag Manager</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="google_analytic_tracking_id">Google Tag Manager ID</label>
+                                            <input type="text" class="form-control" value="{{$generalInfo->google_tag_manager_id}}" id="google_tag_manager_id" name="google_tag_manager_id" placeholder="ex. GTM-546FMKZS">
                                         </div>
 
                                         <div class="form-group mb-2">
@@ -121,8 +147,8 @@
                                         <div class="form-group">
                                             <label for="fb_login_status">Allow Login with Facebook</label>
                                             <select id="fb_login_status" class="form-control" name="fb_login_status" required>
-                                                <option value="1" @if($socialLoginInfo->fb_login_status  == 1) selected @endif>Allow Facebook Login</option>
-                                                <option value="0" @if($socialLoginInfo->fb_login_status  == 0) selected @endif>Disallow Facebook Login</option>
+                                                <option value="1" @if($socialLoginInfo->fb_login_status  == 1) selected @endif>Enable Facebook Login</option>
+                                                <option value="0" @if($socialLoginInfo->fb_login_status  == 0) selected @endif>Disable Facebook Login</option>
                                             </select>
                                         </div>
 
@@ -177,8 +203,8 @@
                                         <div class="form-group">
                                             <label for="fb_pixel_status">Allow Facebook Pixel</label>
                                             <select id="fb_pixel_status" class="form-control" name="fb_pixel_status" required>
-                                                <option value="1" @if($generalInfo->fb_pixel_status == 1) selected @endif>Allow Facebook Pixel</option>
-                                                <option value="0" @if($generalInfo->fb_pixel_status == 0) selected @endif>Disallow Facebook Pixel</option>
+                                                <option value="1" @if($generalInfo->fb_pixel_status == 1) selected @endif>Enable Facebook Pixel</option>
+                                                <option value="0" @if($generalInfo->fb_pixel_status == 0) selected @endif>Disable Facebook Pixel</option>
                                             </select>
                                         </div>
 
@@ -198,8 +224,8 @@
                                         <div class="form-group">
                                             <label for="tawk_chat_status">Allow Tawk.to Live Chat</label>
                                             <select id="tawk_chat_status" class="form-control" name="tawk_chat_status" required>
-                                                <option value="1" @if($generalInfo->tawk_chat_status == 1) selected @endif>Allow Tawk.to Live Chat</option>
-                                                <option value="0" @if($generalInfo->tawk_chat_status == 0) selected @endif>Disallow Tawk.to Live Chat</option>
+                                                <option value="1" @if($generalInfo->tawk_chat_status == 1) selected @endif>Enable Tawk.to Live Chat</option>
+                                                <option value="0" @if($generalInfo->tawk_chat_status == 0) selected @endif>Disable Tawk.to Live Chat</option>
                                             </select>
                                         </div>
 
@@ -219,8 +245,8 @@
                                         <div class="form-group">
                                             <label for="crisp_chat_status">Allow Crisp Live Chat</label>
                                             <select id="crisp_chat_status" class="form-control" name="crisp_chat_status" required>
-                                                <option value="1" @if($generalInfo->crisp_chat_status == 1) selected @endif>Allow Crisp Live Chat</option>
-                                                <option value="0" @if($generalInfo->crisp_chat_status == 0) selected @endif>Disallow Crisp Live Chat</option>
+                                                <option value="1" @if($generalInfo->crisp_chat_status == 1) selected @endif>Enable Crisp Live Chat</option>
+                                                <option value="0" @if($generalInfo->crisp_chat_status == 0) selected @endif>Disable Crisp Live Chat</option>
                                             </select>
                                         </div>
 

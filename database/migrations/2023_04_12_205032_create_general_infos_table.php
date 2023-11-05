@@ -62,6 +62,10 @@ class CreateGeneralInfosTable extends Migration
             $table->tinyInteger('google_analytic_status')->default(0)->comment("1=>Active; 0=>Inactive");
             $table->string('google_analytic_tracking_id')->nullable();
 
+            // google tag manager
+            $table->tinyInteger('google_tag_manager_status')->default(0)->comment("1=>Active; 0=>Inactive");
+            $table->string('google_tag_manager_id')->nullable();
+
             // facebook pixel
             $table->tinyInteger('fb_pixel_status')->default(0)->comment("1=>Active; 0=>Inactive");
             $table->string('fb_pixel_app_id')->nullable();
