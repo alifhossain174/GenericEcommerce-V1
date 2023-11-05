@@ -275,7 +275,7 @@ class ApiController extends BaseController
                 ->select('products.*', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name', 'units.name as unit_name', 'flags.name as flag_name', 'brands.name as brand_name', 'product_models.name as model_name', 'product_warrenties.name as product_warrenty')
                 ->where('products.status', 1)
                 ->orderBy('products.id', 'desc')
-                ->paginate(20);
+                ->paginate(16);
 
             return response()->json([
                 'success' => true,
