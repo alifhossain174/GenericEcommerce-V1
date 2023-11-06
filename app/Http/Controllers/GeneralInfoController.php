@@ -228,7 +228,8 @@ class GeneralInfoController extends Controller
     public function updateCustomCssJs(Request $request){
         GeneralInfo::where('id', 1)->update([
             'custom_css' => $request->custom_css,
-            'custom_js' => $request->custom_js,
+            'header_script' => $request->header_script,
+            'footer_script' => $request->footer_script,
             'updated_at' => Carbon::now()
         ]);
 

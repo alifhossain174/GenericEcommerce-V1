@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use DataTables;
+use Yajra\DataTables\DataTables;
 
 class WishListController extends Controller
 {
@@ -20,6 +20,10 @@ class WishListController extends Controller
                 ->get();
 
             return Datatables::of($data)
+                    ->editColumn('image', function($data) {
+                        if($data->image && file_exists(public_path($data->image)))
+                            return $data->image;
+                    })
                     ->editColumn('created_at', function($data) {
                         return date("Y-m-d h:i:s a", strtotime($data->created_at));
                     })

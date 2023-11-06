@@ -25,7 +25,7 @@
 @endsection
 
 @section('page_title')
-    Website Config
+    Content Module
 @endsection
 @section('page_heading')
     Custom CSS & JS
@@ -49,9 +49,16 @@
                         </div>
 
                         <div class="form-group row mt-3">
-                            <label for="custom_js" class="col-sm-2 col-form-label">Write Custom JS</label>
+                            <label for="header_script" class="col-sm-2 col-form-label">Header Custom Script</label>
                             <div class="col-sm-10">
-                                <textarea name="custom_js" class="form-control" id="code_editor_js" style="cursor: pointer">{{$data->custom_js}}</textarea>
+                                <textarea name="header_script" class="form-control" id="header_script" style="cursor: pointer">{{$data->header_script}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mt-3">
+                            <label for="footer_script" class="col-sm-2 col-form-label">Footer Custom Script</label>
+                            <div class="col-sm-10">
+                                <textarea name="footer_script" class="form-control" id="footer_script" style="cursor: pointer">{{$data->footer_script}}</textarea>
                             </div>
                         </div>
 
@@ -79,7 +86,17 @@
         });
         editor.setSize("100%", "200");
 
-        var textareas = document.getElementById("code_editor_js");
+        var textareas = document.getElementById("header_script");
+        editor = CodeMirror.fromTextArea(textareas, {
+            mode: "javascript",
+            theme: "material",
+            lineNumbers: true,
+            autoCloseTags: true,
+            autoCloseBrackets: true
+        });
+        editor.setSize("100%", "200");
+
+        var textareas = document.getElementById("footer_script");
         editor = CodeMirror.fromTextArea(textareas, {
             mode: "javascript",
             theme: "material",

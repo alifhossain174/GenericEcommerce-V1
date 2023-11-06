@@ -100,7 +100,9 @@
             processing: true,
             serverSide: true,
             stateSave: true,
+            // pageLength: 15,
             pageLength: 15,
+            lengthMenu: [15, 25, 50, 100],
             ajax: "{{ url('view/pending/orders') }}",
             columns: [{
                     data: 'DT_RowIndex',

@@ -132,6 +132,56 @@
             <li><a href="{{ url('/view/system/users') }}">System Users</a></li>
         </ul>
     </li>
+    <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li>
+    {{-- <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li> --}}
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-bell"></i><span>Push Notification</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/send/notification/page') }}">Send Notification</a></li>
+            <li><a href="{{ url('/view/all/notifications') }}">Prevoious Notifications</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-sms"></i><span>SMS Service</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/view/sms/templates') }}">SMS Templates</a></li>
+            <li><a href="{{ url('/send/sms/page') }}">Send SMS</a></li>
+            <li><a href="{{ url('/view/sms/history') }}">SMS History</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>System</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/view/email/credential') }}">Email Configure (SMTP)</a></li>
+            <li><a href="{{ url('/setup/sms/gateways') }}">SMS Gateway</a></li>
+            <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li>
+        </ul>
+    </li>
+    <li><a href="{{ url('/view/delivery/charges') }}"><i class="feather-truck"></i><span>Delivery Charges</span></a></li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/sales/report') }}">Sales Report</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-download-cloud"></i><span>Download Backup</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/download/database/backup') }}">Database Backup</a></li>
+            <li><a href="{{ url('/download/product/files/backup') }}">Product Images Backup</a></li>
+            <li><a href="{{ url('/download/user/files/backup') }}">User Images Backup</a></li>
+            <li><a href="{{ url('/download/banner/files/backup') }}">Banner Images Backup</a></li>
+            <li><a href="{{ url('/download/category/files/backup') }}">Category Icon Backup</a></li>
+            <li><a href="{{ url('/download/subcategory/files/backup') }}">Subcategory Backup</a></li>
+            <li><a href="{{ url('/download/flag/files/backup') }}">Flag Icon Backup</a></li>
+            <li><a href="{{ url('/download/ticket/files/backup') }}">Ticket Files Backup</a></li>
+            <li><a href="{{ url('/download/blog/files/backup') }}">Blog Files Backup</a></li>
+            <li><a href="{{ url('/download/other/files/backup') }}">Other Images Backup</a></li>
+        </ul>
+    </li>
+
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">CRM Modules</li>
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-headset"></i><span>Support Ticket</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -166,56 +216,8 @@
                     @endphp)</a></li>
         </ul>
     </li>
-    <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li>
     <li><a href="{{ url('/view/all/contact/requests') }}"><i class="feather-phone-forwarded"></i><span>Contact Request</span></a></li>
     <li><a href="{{ url('/view/all/subscribed/users') }}"><i class="feather-user-check"></i><span>Subscribed Users</span></a></li>
-    {{-- <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li> --}}
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-bell"></i><span>Push Notification</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/send/notification/page') }}">Send Notification</a></li>
-            <li><a href="{{ url('/view/all/notifications') }}">Prevoious Notifications</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-sms"></i><span>SMS Service</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/view/sms/templates') }}">SMS Templates</a></li>
-            <li><a href="{{ url('/send/sms/page') }}">Send SMS</a></li>
-            <li><a href="{{ url('/view/sms/history') }}">SMS History</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>System</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/view/email/credential') }}">Email Configure (SMTP)</a></li>
-            <li><a href="{{ url('/setup/sms/gateways') }}">SMS Gateway</a></li>
-            <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/sales/report') }}">Sales Report</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-download-cloud"></i><span>Download Backup</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/download/database/backup') }}">Database Backup</a></li>
-            <li><a href="{{ url('/download/product/files/backup') }}">Product Images Backup</a></li>
-            <li><a href="{{ url('/download/user/files/backup') }}">User Images Backup</a></li>
-            <li><a href="{{ url('/download/banner/files/backup') }}">Banner Images Backup</a></li>
-            <li><a href="{{ url('/download/category/files/backup') }}">Category Icon Backup</a></li>
-            <li><a href="{{ url('/download/subcategory/files/backup') }}">Subcategory Backup</a></li>
-            <li><a href="{{ url('/download/flag/files/backup') }}">Flag Icon Backup</a></li>
-            <li><a href="{{ url('/download/ticket/files/backup') }}">Ticket Files Backup</a></li>
-            <li><a href="{{ url('/download/blog/files/backup') }}">Blog Files Backup</a></li>
-            <li><a href="{{ url('/download/other/files/backup') }}">Other Images Backup</a></li>
-        </ul>
-    </li>
-
-
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>

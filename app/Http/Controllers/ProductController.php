@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 use Sohibd\Laravelslug\Generate;
 use Illuminate\Support\Str;
 use Image;
-use DataTables;
+use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
 {

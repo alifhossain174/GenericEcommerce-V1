@@ -1371,19 +1371,17 @@ class ApiController extends BaseController
                 'created_at' => Carbon::now()
             ]);
 
-            if(strtolower(trim($request->city)) == 'dhaka'){
-                $orderInfo = Order::where('id', $request->order_id)->first();
-                $orderInfo->delivery_fee = 60;
-                $orderInfo->total = $orderInfo->total + 60;
-                $orderInfo->complete_order = 1;
-                $orderInfo->save();
-            } else {
-                $orderInfo = Order::where('id', $request->order_id)->first();
-                $orderInfo->delivery_fee = 100;
-                $orderInfo->total = $orderInfo->total + 100;
-                $orderInfo->complete_order = 1;
-                $orderInfo->save();
+            $deliveryCharge = 100;
+            $districtWiseDeliveryCharge = DB::table('districts')->select('delivery_charge')->where('name', strtolower(trim($request->city)))->first();
+            if($districtWiseDeliveryCharge){
+                $deliveryCharge = $districtWiseDeliveryCharge->delivery_charge;
             }
+
+            $orderInfo = Order::where('id', $request->order_id)->first();
+            $orderInfo->delivery_fee = $deliveryCharge;
+            $orderInfo->total = $orderInfo->total + $deliveryCharge;
+            $orderInfo->complete_order = 1;
+            $orderInfo->save();
 
             return response()->json([
                 'success' => true,

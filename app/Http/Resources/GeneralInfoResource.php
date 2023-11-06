@@ -41,6 +41,8 @@ class GeneralInfoResource extends JsonResource
             'meta_description' => $this->meta_description,
             'custom_css' => $this->custom_css,
             'custom_js' => $this->custom_js,
+            'header_script' => $this->header_script,
+            'footer_script' => $this->footer_script,
             'facebook' => $this->facebook,
             'instagram' => $this->instagram,
             'twitter' => $this->twitter,

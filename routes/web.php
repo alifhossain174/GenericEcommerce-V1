@@ -27,6 +27,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PermissionRoutesController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserRoleController;
+use App\Http\Controllers\DeliveryChargeController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
 
@@ -346,6 +347,12 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::get('/delete/blog/{slug}', [BlogController::class, 'deleteBlog'])->name('DeleteBlog');
     Route::get('/edit/blog/{slug}', [BlogController::class, 'editBlog'])->name('EditBlog');
     Route::post('/update/blog', [BlogController::class, 'updateBlog'])->name('UpdateBlog');
+
+
+    // delivery charges
+    Route::get('/view/delivery/charges', [DeliveryChargeController::class, 'viewAllDeliveryCharges'])->name('ViewAllDeliveryCharges');
+    Route::get('/get/delivery/charge/{id}', [DeliveryChargeController::class, 'getDeliveryCharge'])->name('GetDeliveryCharge');
+    Route::post('/update/delivery/charge', [DeliveryChargeController::class, 'updateDeliveryCharge'])->name('UpdateDeliveryCharge');
 
 
     // generate report

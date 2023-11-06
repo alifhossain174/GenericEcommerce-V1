@@ -249,6 +249,72 @@
     </li>
     @endif
 
+    @if(checkAuth("view/customers/wishlist")) <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li> @endif
+    {{-- <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li> --}}
+
+    @if ($pushNotificationModule && count($pushNotificationModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-bell"></i><span>Push Notification</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("send/notification/page")) <li><a href="{{ url('/send/notification/page') }}">Send Notification</a></li> @endif
+            @if(checkAuth("view/all/notifications")) <li><a href="{{ url('/view/all/notifications') }}">Prevoious Notifications</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    @if ($smsServiceModule && count($smsServiceModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-sms"></i><span>SMS Service</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("view/sms/templates")) <li><a href="{{ url('/view/sms/templates') }}">SMS Templates</a></li> @endif
+            @if(checkAuth("send/sms/page")) <li><a href="{{ url('/send/sms/page') }}">Send SMS</a></li> @endif
+            @if(checkAuth("view/sms/history")) <li><a href="{{ url('/view/sms/history') }}">SMS History</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    @if ($systemModule && count($systemModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>System</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("view/email/credential")) <li><a href="{{ url('/view/email/credential') }}">Email Configure (SMTP)</a></li> @endif
+            @if(checkAuth("setup/sms/gateways")) <li><a href="{{ url('/setup/sms/gateways') }}">SMS Gateway</a></li> @endif
+            @if(checkAuth("setup/payment/gateways")) <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    @if(checkAuth("view/delivery/charges")) <li><a href="{{ url('/view/delivery/charges') }}"><i class="feather-truck"></i><span>Delivery Charges</span></a></li> @endif
+
+    @if ($reportModule && count($reportModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("sales/report")) <li><a href="{{ url('/sales/report') }}">Sales Report</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    @if ($backupModule && count($backupModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-download-cloud"></i><span>Download Backup</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("download/database/backup")) <li><a href="{{ url('/download/database/backup') }}">Database Backup</a></li> @endif
+            @if(checkAuth("download/product/files/backup")) <li><a href="{{ url('/download/product/files/backup') }}">Product Images Backup</a></li> @endif
+            @if(checkAuth("download/user/files/backup")) <li><a href="{{ url('/download/user/files/backup') }}">User Images Backup</a></li> @endif
+            @if(checkAuth("download/banner/files/backup")) <li><a href="{{ url('/download/banner/files/backup') }}">Banner Images Backup</a></li> @endif
+            @if(checkAuth("download/category/files/backup")) <li><a href="{{ url('/download/category/files/backup') }}">Category Icon Backup</a></li> @endif
+            @if(checkAuth("download/subcategory/files/backup")) <li><a href="{{ url('/download/subcategory/files/backup') }}">Subcategory Backup</a></li> @endif
+            @if(checkAuth("download/flag/files/backup")) <li><a href="{{ url('/download/flag/files/backup') }}">Flag Icon Backup</a></li> @endif
+            @if(checkAuth("download/ticket/files/backup")) <li><a href="{{ url('/download/ticket/files/backup') }}">Ticket Files Backup</a></li> @endif
+            @if(checkAuth("download/blog/files/backup")) <li><a href="{{ url('/download/blog/files/backup') }}">Blog Files Backup</a></li> @endif
+            @if(checkAuth("download/other/files/backup")) <li><a href="{{ url('/download/other/files/backup') }}">Other Images Backup</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">CRM Modules</li>
     @if ($supportTicketModule && count($supportTicketModule) > 0)
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-headset"></i><span>Support Ticket</span></a>
@@ -297,70 +363,8 @@
         </ul>
     </li>
     @endif
-
-    @if(checkAuth("view/customers/wishlist")) <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li> @endif
     @if(checkAuth("view/all/contact/requests")) <li><a href="{{ url('/view/all/contact/requests') }}"><i class="feather-phone-forwarded"></i><span>Contact Request</span></a></li> @endif
     @if(checkAuth("view/all/subscribed/users")) <li><a href="{{ url('/view/all/subscribed/users') }}"><i class="feather-user-check"></i><span>Subscribed Users</span></a></li> @endif
-    {{-- <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li> --}}
-
-    @if ($pushNotificationModule && count($pushNotificationModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-bell"></i><span>Push Notification</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("send/notification/page")) <li><a href="{{ url('/send/notification/page') }}">Send Notification</a></li> @endif
-            @if(checkAuth("view/all/notifications")) <li><a href="{{ url('/view/all/notifications') }}">Prevoious Notifications</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
-    @if ($smsServiceModule && count($smsServiceModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-sms"></i><span>SMS Service</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("view/sms/templates")) <li><a href="{{ url('/view/sms/templates') }}">SMS Templates</a></li> @endif
-            @if(checkAuth("send/sms/page")) <li><a href="{{ url('/send/sms/page') }}">Send SMS</a></li> @endif
-            @if(checkAuth("view/sms/history")) <li><a href="{{ url('/view/sms/history') }}">SMS History</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
-    @if ($systemModule && count($systemModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>System</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("view/email/credential")) <li><a href="{{ url('/view/email/credential') }}">Email Configure (SMTP)</a></li> @endif
-            @if(checkAuth("setup/sms/gateways")) <li><a href="{{ url('/setup/sms/gateways') }}">SMS Gateway</a></li> @endif
-            @if(checkAuth("setup/payment/gateways")) <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
-    @if ($reportModule && count($reportModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("sales/report")) <li><a href="{{ url('/sales/report') }}">Sales Report</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
-    @if ($backupModule && count($backupModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-download-cloud"></i><span>Download Backup</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("download/database/backup")) <li><a href="{{ url('/download/database/backup') }}">Database Backup</a></li> @endif
-            @if(checkAuth("download/product/files/backup")) <li><a href="{{ url('/download/product/files/backup') }}">Product Images Backup</a></li> @endif
-            @if(checkAuth("download/user/files/backup")) <li><a href="{{ url('/download/user/files/backup') }}">User Images Backup</a></li> @endif
-            @if(checkAuth("download/banner/files/backup")) <li><a href="{{ url('/download/banner/files/backup') }}">Banner Images Backup</a></li> @endif
-            @if(checkAuth("download/category/files/backup")) <li><a href="{{ url('/download/category/files/backup') }}">Category Icon Backup</a></li> @endif
-            @if(checkAuth("download/subcategory/files/backup")) <li><a href="{{ url('/download/subcategory/files/backup') }}">Subcategory Backup</a></li> @endif
-            @if(checkAuth("download/flag/files/backup")) <li><a href="{{ url('/download/flag/files/backup') }}">Flag Icon Backup</a></li> @endif
-            @if(checkAuth("download/ticket/files/backup")) <li><a href="{{ url('/download/ticket/files/backup') }}">Ticket Files Backup</a></li> @endif
-            @if(checkAuth("download/blog/files/backup")) <li><a href="{{ url('/download/blog/files/backup') }}">Blog Files Backup</a></li> @endif
-            @if(checkAuth("download/other/files/backup")) <li><a href="{{ url('/download/other/files/backup') }}">Other Images Backup</a></li> @endif
-        </ul>
-    </li>
-    @endif
 
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
