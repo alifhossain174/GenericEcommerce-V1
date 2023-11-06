@@ -32,6 +32,8 @@ class CreateGeneralInfosTable extends Migration
 
             $table->longText('custom_css')->nullable();
             $table->longText('custom_js')->nullable();
+            $table->longText('header_script')->nullable();
+            $table->longText('footer_script')->nullable();
 
             // project color
             $table->string('primary_color')->nullable();

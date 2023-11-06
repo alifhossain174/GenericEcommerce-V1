@@ -1668,4 +1668,26 @@ class ApiController extends BaseController
         }
     }
 
+    public function getdeliveryCharge(Request $request, $disctrict){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $deliveryCharge = 100;
+            $districtWiseDeliveryCharge = DB::table('districts')->select('delivery_charge')->where('name', strtolower(trim($disctrict)))->first();
+            if($districtWiseDeliveryCharge){
+                $deliveryCharge = $districtWiseDeliveryCharge->delivery_charge;
+            }
+
+            return response()->json([
+                'success' => true,
+                'data' => $deliveryCharge
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
 }

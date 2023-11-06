@@ -44,15 +44,13 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/user/registration",
-					"protocol": "http",
+					"raw": "https://imaginex-admin.getcommerce.xyz/api/user/registration",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"imaginex-admin",
+						"getcommerce",
+						"xyz"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"user",
@@ -253,15 +251,14 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/forget/password",
-					"protocol": "http",
+					"raw": "https://app-area.imaginex.com.bd/api/forget/password",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"forget",
@@ -1501,20 +1498,19 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYGMTRADERSSBW7583837NUDD81",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/get/all/products",
-					"protocol": "http",
+					"raw": "https://app-area.imaginex.com.bd/api/get/all/products",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"get",
@@ -1829,7 +1825,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
@@ -1845,14 +1841,18 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/product/details/redmi-note-12-168845077933jRw",
+					"raw": "https://imaginex-admin.getcommerce.xyz/api/product/details/aware-organic-cotton-1698644975UODL6",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"imaginex-admin",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
+						"api",
 						"product",
 						"details",
-						"redmi-note-12-168845077933jRw"
+						"aware-organic-cotton-1698644975UODL6"
 					]
 				}
 			},
@@ -1865,16 +1865,21 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/all/flags",
+					"raw": "https://app-area.imaginex.com.bd/api/get/all/flags",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
+						"api",
 						"get",
 						"all",
 						"flags"
@@ -1890,14 +1895,18 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/all/brands",
+					"raw": "https://app-area.imaginex.com.bd/get/all/brands",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
 						"get",
@@ -2188,15 +2197,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/general/info",
-					"protocol": "http",
+					"raw": "https://imaginex-admin.getcommerce.xyz/api/general/info",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"imaginex-admin",
+						"getcommerce",
+						"xyz"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"general",
@@ -2475,11 +2482,15 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/order/checkout",
+					"raw": "https://imaginex-admin.getcommerce.xyz/api/order/checkout",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"imaginex-admin",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
+						"api",
 						"order",
 						"checkout"
 					]
@@ -2725,7 +2736,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
@@ -2810,11 +2821,15 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/submit/shipping/billing/info",
+					"raw": "https://imaginex-admin.getcommerce.xyz/api/submit/shipping/billing/info",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"imaginex-admin",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
+						"api",
 						"submit",
 						"shipping",
 						"billing",
@@ -3220,7 +3235,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
@@ -3308,11 +3323,15 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/category/tree",
+					"raw": "https://imaginex-admin.getcommerce.xyz/api/get/category/tree",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"imaginex-admin",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
+						"api",
 						"get",
 						"category",
 						"tree"
@@ -4439,7 +4458,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "53|s6D93rlNrxi80SvKdOvANMQBedjgdT7RLiTkTbKL",
+							"value": "103|TBpfp8YwFz113BWIxZhAmlYb99G6yK4FTXIaVBjm",
 							"type": "string"
 						}
 					]
@@ -4447,10 +4466,10 @@
 				"method": "GET",
 				"header": [
 					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
 						"key": "Authorization",
-						"value": "INEJEUDYSBW7583837NUDD752023",
-						"type": "text",
-						"disabled": true
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -4537,11 +4556,15 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/my/wishlist",
+					"raw": "https://imaginex.getcommerce.xyz/api/get/my/wishlist",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"imaginex",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
+						"api",
 						"get",
 						"my",
 						"wishlist"
@@ -5571,24 +5594,27 @@
 					"formdata": [
 						{
 							"key": "category_id",
-							"value": "",
-							"type": "text"
+							"value": "11",
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "sort_by",
-							"value": "1",
+							"value": "2",
 							"description": "1=>Low to High; 2=>High To Low",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
-							"key": "minimum_price",
-							"value": "0",
+							"key": "minimum_price'",
+							"value": "'79'",
 							"type": "text"
 						},
 						{
 							"key": "maximum_price",
 							"value": "135000",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "storage_type_id",
@@ -5617,45 +5643,44 @@
 						{
 							"key": "warrenty_id",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "subcategory_id",
-							"value": "",
-							"type": "text"
+							"value": "48",
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "childcategory_id",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "flag_id",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "brand_id",
 							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "search_keyword",
-							"value": "Oversize Cotton Dress",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/filter/products",
-					"protocol": "http",
+					"raw": "https://app-area.imaginex.com.bd/api/filter/products",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"filter",
@@ -5976,6 +6001,38 @@
 						"best",
 						"selling",
 						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Delivery Charge",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/get/delivery/charge/dhaka",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"delivery",
+						"charge",
+						"dhaka"
 					]
 				}
 			},
