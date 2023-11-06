@@ -1,7 +1,5 @@
 <!-- Left Menu Start -->
 <ul class="metismenu list-unstyled" id="side-menu">
-
-
     <li><a href="{{ url('/home') }}"><i class="feather-home"></i><span>Dashboard</span></a></li>
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
