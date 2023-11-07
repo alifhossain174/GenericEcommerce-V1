@@ -6,6 +6,6 @@ ALTER TABLE `general_infos` ADD `google_tag_manager_status` TINYINT(4) NOT NULL 
 
 ==================06.11.23======================
 New Table
-:divsions, district, upazila, union
+:divsions, district (with delivery_charge extra coloumn), upazila, union
 
 ALTER TABLE `general_infos` ADD `header_script` VARCHAR(255) NULL DEFAULT NULL AFTER `custom_js`, ADD `footer_script` VARCHAR(255) NULL DEFAULT NULL AFTER `header_script`;

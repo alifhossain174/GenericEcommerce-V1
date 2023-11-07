@@ -8,8 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
-use DataTables;
-use DateTime;
+use Yajra\DataTables\DataTables;
 
 class BannerController extends Controller
 {
@@ -302,7 +301,6 @@ class BannerController extends Controller
         $end_at = str_replace("/","-",$request->end_at);
         $end_at = date("Y-m-d H:i:s", strtotime($end_at));
 
-
         $data = PromotionalBanner::where('id', 1)->first();
 
         $icon = $data->icon;
@@ -337,7 +335,7 @@ class BannerController extends Controller
         if ($request->hasFile('background_image')){
 
             if($background_image && file_exists(public_path($background_image))){
-                unlink(public_path($product_image));
+                unlink(public_path($background_image));
             }
 
             $get_image = $request->file('background_image');

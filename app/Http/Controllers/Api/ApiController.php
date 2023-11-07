@@ -39,6 +39,10 @@ use App\Models\ProductVariant;
 use Illuminate\Support\Str;
 use Image;
 
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Auth;
+
+
 class ApiController extends BaseController
 {
     const AUTHORIZATION_TOKEN = 'GenericCommerceV1-SBW7583837NUDD82';
@@ -1637,6 +1641,7 @@ class ApiController extends BaseController
             // LEFT JOIN order_details ON products.id = order_details.product_id
             // GROUP BY products.id ORDER BY prod_count DESC;
 
+
             $data = DB::table('products')
                         ->leftJoin('order_details', 'products.id', '=', 'order_details.product_id')
                         ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
@@ -1666,6 +1671,133 @@ class ApiController extends BaseController
                 'message' => "Authorization Token is Invalid"
             ], 422);
         }
+    }
+
+
+    public function productsForYou(Request $request){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $data = DB::table('products')
+                    ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+                    ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
+                    ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
+                    ->leftJoin('units', 'products.unit_id', '=', 'units.id')
+                    ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
+                    ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
+                    ->leftJoin('product_models', 'products.model_id', '=', 'product_models.id')
+                    ->leftJoin('product_warrenties', 'products.warrenty_id', '=', 'product_warrenties.id')
+                    ->select('products.*', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name', 'units.name as unit_name', 'flags.name as flag_name', 'brands.name as brand_name', 'product_models.name as model_name', 'product_warrenties.name as product_warrenty')
+                    ->where('products.status', 1)
+                    ->inRandomOrder()
+                    ->paginate(20);
+
+            return response()->json([
+                'success' => true,
+                'data' => ProductResource::collection($data)->resource
+            ], 200);
+
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
+    public function productsForYouLoggedIn(Request $request){
+
+        // SELECT products.id as product_id, name as product_name, COUNT(order_details.id) as order_count from products
+        // LEFT JOIN order_details ON order_details.product_id = products.id
+
+        // WHERE products.id NOT IN (SELECT product_id FROM order_details JOIN orders ON orders.id = order_details.order_id WHERE orders.user_id = 20)
+        // AND
+        // (
+        //     products.category_id IN (SELECT category_id FROM products INNER JOIN order_details ON order_details.product_id = products.id INNER JOIN orders on orders.id = order_details.order_id WHERE orders.user_id = 20)
+        //     OR
+        //     products.subcategory_id IN (SELECT subcategory_id FROM products INNER JOIN order_details ON order_details.product_id = products.id INNER JOIN orders on orders.id = order_details.order_id WHERE orders.user_id = 20)
+        //     OR
+        //     products.childcategory_id IN (SELECT childcategory_id FROM products INNER JOIN order_details ON order_details.product_id = products.id INNER JOIN orders on orders.id = order_details.order_id WHERE orders.user_id = 20)
+        //     OR
+        //     products.id IN (SELECT product_id FROM wish_lists INNER JOIN users ON users.id = wish_lists.user_id WHERE wish_lists.user_id = 20)
+        // )
+
+        // GROUP BY products.id ORDER BY RAND( );
+
+
+        // calculating already ordered products start
+        $alreadyOrderedProducts = DB::table('order_details')
+                                    ->join('orders', 'orders.id', '=', 'order_details.id')
+                                    ->where('orders.user_id', auth()->user()->id)
+                                    ->select('order_details.product_id')
+                                    ->get();
+
+        $alreadyOrdered = array();
+        $index = 0;
+        foreach($alreadyOrderedProducts as $item){
+            $alreadyOrdered[$index] = $item->product_id;
+            $index++;
+        }
+        // calculating already ordered products end
+
+
+        // calculating already ordered products category start
+        $similarOrderedProducts = DB::table('products')
+                                    ->join('order_details', 'order_details.product_id', '=', 'products.id')
+                                    ->join('orders', 'orders.id', '=', 'order_details.id')
+                                    ->where('orders.user_id', auth()->user()->id)
+                                    ->select('products.category_id', 'products.subcategory_id', 'products.childcategory_id')
+                                    ->get();
+
+        $similarCategories = array();
+        $index = 0;
+        foreach($similarOrderedProducts as $item){
+            $similarCategories[$index] = $item->category_id;
+            $index++;
+        }
+
+        $similarSubCategories = array();
+        $index = 0;
+        foreach($similarOrderedProducts as $item){
+            $similarSubCategories[$index] = $item->subcategory_id;
+            $index++;
+        }
+
+        $similarChildCategories = array();
+        $index = 0;
+        foreach($similarOrderedProducts as $item){
+            $similarChildCategories[$index] = $item->childcategory_id;
+            $index++;
+        }
+        // calculating already ordered products category end
+
+
+        $data = DB::table('products')
+                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+                ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
+                ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
+                ->leftJoin('units', 'products.unit_id', '=', 'units.id')
+                ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
+                ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
+                ->leftJoin('product_models', 'products.model_id', '=', 'product_models.id')
+                ->leftJoin('product_warrenties', 'products.warrenty_id', '=', 'product_warrenties.id')
+                ->select('products.*', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name', 'units.name as unit_name', 'flags.name as flag_name', 'brands.name as brand_name', 'product_models.name as model_name', 'product_warrenties.name as product_warrenty')
+                ->where('products.status', 1)
+
+                // custom lagic for products you may like
+                ->whereNotIn('products.id', $alreadyOrdered)
+                ->orWhereIn('products.category_id', $similarCategories)
+                ->orWhereIn('products.subcategory_id', $similarSubCategories)
+                ->orWhereIn('products.childcategory_id', $similarChildCategories)
+
+                ->inRandomOrder()
+                ->paginate(20);
+
+        return response()->json([
+            'success' => true,
+            'data' => ProductResource::collection($data)->resource
+        ], 200);
+
     }
 
     public function getdeliveryCharge(Request $request, $disctrict){

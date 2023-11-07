@@ -34,6 +34,7 @@ class BlogController extends Controller
             $data = DB::table('blogs')
                         ->leftJoin('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
                         ->select('blogs.*', 'blog_categories.name as blog_category_name', 'blog_categories.slug as category_slug')
+                        ->where('blogs.status', 1)
                         ->orderBy('blogs.id', 'desc')
                         ->paginate(6);
 
@@ -56,6 +57,7 @@ class BlogController extends Controller
             $data = DB::table('blogs')
                         ->leftJoin('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
                         ->select('blogs.*', 'blog_categories.name as blog_category_name', 'blog_categories.slug as category_slug')
+                        ->where('blogs.status', 1)
                         ->where('blog_categories.slug', $request->category_slug)
                         ->orderBy('blogs.id', 'desc')
                         ->paginate(15);

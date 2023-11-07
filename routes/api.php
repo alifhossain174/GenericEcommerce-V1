@@ -85,8 +85,13 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('get/all/testimonials', [ApiController::class, 'getAllTestimonials']);
     Route::get('get/payment/gateways', [ApiController::class, 'getPaymentGateways']);
     Route::post('order/preview', [ApiController::class, 'orderPreview']);
-    Route::get('best/selling/product', [ApiController::class, 'bestSellingProduct']);
     Route::get('get/delivery/charge/{district}', [ApiController::class, 'getdeliveryCharge']);
+
+
+    // unique api
+    Route::get('best/selling/product', [ApiController::class, 'bestSellingProduct']);
+    Route::get('products/for/you/without/login', [ApiController::class, 'productsForYouLoggedIn'])->middleware('auth:sanctum');
+    Route::get('products/for/you', [ApiController::class, 'productsForYou']);
 
 
     // order api start
