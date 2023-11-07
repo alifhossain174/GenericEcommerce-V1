@@ -137,13 +137,15 @@
 					]
 				},
 				"url": {
-					"raw": "https://fashionista-admin.getcommerce.xyz/api/user/login",
-					"protocol": "https",
+					"raw": "http://127.0.0.1:8000/api/user/login",
+					"protocol": "http",
 					"host": [
-						"fashionista-admin",
-						"getcommerce",
-						"xyz"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
 						"api",
 						"user",
@@ -6001,6 +6003,80 @@
 						"best",
 						"selling",
 						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products For You",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/for/you",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"for",
+						"you"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products For You Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "102|fc2QwMf1WdPRqhnNBiBUhFkYNZTPmZbkQUgYdKdf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/for/you/without/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"for",
+						"you",
+						"without",
+						"login"
 					]
 				}
 			},

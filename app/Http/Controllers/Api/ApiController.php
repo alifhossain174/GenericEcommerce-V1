@@ -39,9 +39,6 @@ use App\Models\ProductVariant;
 use Illuminate\Support\Str;
 use Image;
 
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Auth;
-
 
 class ApiController extends BaseController
 {
