@@ -90,7 +90,7 @@ Route::group(['namespace' => 'Api'], function () {
 
     // unique api
     Route::get('best/selling/product', [ApiController::class, 'bestSellingProduct']);
-    Route::get('products/for/you/without/login', [ApiController::class, 'productsForYouLoggedIn'])->middleware('auth:sanctum');
+    Route::get('products/for/you/with/login', [ApiController::class, 'productsForYouLoggedIn'])->middleware('auth:sanctum');
     Route::get('products/for/you', [ApiController::class, 'productsForYou']);
 
 

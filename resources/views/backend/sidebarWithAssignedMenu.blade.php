@@ -65,6 +65,7 @@
 
     $systemModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
                                                 ->where('route', 'like', '%view/email/credential%')
+                                                ->where('route', 'like', '%view/email/templates%')
                                                 ->orWhere('route', 'like', '%setup/sms/gateways%')
                                                 ->orWhere('route', 'like', '%setup/payment/gateways%')
                                                 ->get();
@@ -278,6 +279,7 @@
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>System</span></a>
         <ul class="sub-menu" aria-expanded="false">
             @if(checkAuth("view/email/credential")) <li><a href="{{ url('/view/email/credential') }}">Email Configure (SMTP)</a></li> @endif
+            @if(checkAuth("view/email/templates")) <li><a href="{{ url('/view/email/templates') }}">Email Templates</a></li> @endif
             @if(checkAuth("setup/sms/gateways")) <li><a href="{{ url('/setup/sms/gateways') }}">SMS Gateway</a></li> @endif
             @if(checkAuth("setup/payment/gateways")) <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li> @endif
         </ul>

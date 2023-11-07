@@ -6020,15 +6020,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/products/for/you",
-					"protocol": "http",
+					"raw": "https://fashionista-admin.getcommerce.xyz/api/products/for/you",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"fashionista-admin",
+						"getcommerce",
+						"xyz"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"products",
@@ -6061,7 +6059,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/products/for/you/without/login",
+					"raw": "http://127.0.0.1:8000/api/products/for/you/with/login",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -6075,7 +6073,7 @@
 						"products",
 						"for",
 						"you",
-						"without",
+						"with",
 						"login"
 					]
 				}

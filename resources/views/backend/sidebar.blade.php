@@ -153,6 +153,7 @@
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>System</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/view/email/credential') }}">Email Configure (SMTP)</a></li>
+            <li><a href="{{ url('/view/email/templates') }}">Email Templates</a></li>
             <li><a href="{{ url('/setup/sms/gateways') }}">SMS Gateway</a></li>
             <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li>
         </ul>

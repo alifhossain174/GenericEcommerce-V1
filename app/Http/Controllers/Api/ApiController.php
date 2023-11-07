@@ -1384,6 +1384,8 @@ class ApiController extends BaseController
             $orderInfo->complete_order = 1;
             $orderInfo->save();
 
+            // sending order email
+
             return response()->json([
                 'success' => true,
                 'message' => "Order Info Updated",

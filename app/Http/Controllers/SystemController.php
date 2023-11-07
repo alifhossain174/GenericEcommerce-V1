@@ -57,6 +57,10 @@ class SystemController extends Controller
         return view('backend.system.email_config');
     }
 
+    public function viewEmailTemplates(){
+        return view('backend.system.email_template');
+    }
+
     public function saveEmailCredential(Request $request){
 
         DB::table('email_configures')->update([
