@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2023 at 05:57 AM
+-- Generation Time: Nov 08, 2023 at 10:21 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -795,6 +795,31 @@ INSERT INTO `email_configures` (`id`, `host`, `port`, `email`, `password`, `mail
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `email_templates`
+--
+
+CREATE TABLE `email_templates` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `template_image` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
+  `serial` double NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `email_templates`
+--
+
+INSERT INTO `email_templates` (`id`, `type`, `template_image`, `title`, `status`, `serial`, `created_at`, `updated_at`) VALUES
+(1, 'order_placed', 'email_templates/order_successfull_1.png', 'Regular', 1, 1, '2023-11-08 08:45:06', '2023-11-08 09:07:45'),
+(2, 'order_placed', 'email_templates/order_successfull_1.png', 'Classic', 0, 2, '2023-11-08 08:45:06', '2023-11-08 09:07:45');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -1030,7 +1055,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (92, '2023_10_05_114505_create_social_logins_table', 43),
 (93, '2023_04_13_002226_create_banners_table', 44),
 (94, '2023_10_18_135527_create_about_us_table', 45),
-(95, '2023_10_22_122627_create_product_sizes_table', 46);
+(95, '2023_10_22_122627_create_product_sizes_table', 46),
+(96, '2023_11_08_144020_create_email_templates_table', 47);
 
 -- --------------------------------------------------------
 
@@ -7953,6 +7979,12 @@ ALTER TABLE `email_configures`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `email_templates`
+--
+ALTER TABLE `email_templates`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -8349,6 +8381,12 @@ ALTER TABLE `email_configures`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `email_templates`
+--
+ALTER TABLE `email_templates`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -8382,7 +8420,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `notifications`

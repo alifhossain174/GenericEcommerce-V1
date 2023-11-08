@@ -10,10 +10,13 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\GeneralInfoResource;
 use App\Http\Resources\BrandResource;
 use App\Http\Resources\FlagResource;
+use App\Models\EmailConfigure;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\ChildCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderPlacedEmail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -1384,7 +1387,40 @@ class ApiController extends BaseController
             $orderInfo->complete_order = 1;
             $orderInfo->save();
 
+
+
             // sending order email
+            try {
+
+                $emailConfig = EmailConfigure::where('status', 1)->orderBy('id', 'desc')->first();
+                $userEmail = $request->email;
+
+                if($emailConfig && $userEmail){
+
+                    $decryption = "";
+                    if($emailConfig){
+                        $ciphering = "AES-128-CTR";
+                        $options = 0;
+                        $decryption_iv = '1234567891011121';
+                        $decryption_key = "GenericCommerceV1";
+                        $decryption = openssl_decrypt ($emailConfig->password, $ciphering, $decryption_key, $options, $decryption_iv);
+                    }
+
+                    config([
+                        'mail.mailers.smtp.host' => $emailConfig ? $emailConfig->host : '',
+                        'mail.mailers.smtp.port' => $emailConfig ? $emailConfig->port : '',
+                        'mail.mailers.smtp.username' => $emailConfig ? $emailConfig->email : '',
+                        'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
+                        'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
+                    ]);
+
+                    Mail::to(trim($userEmail))->send(new OrderPlacedEmail($orderInfo));
+                }
+
+            } catch(\Exception $e) {
+                // write code for handling error from here
+            }
+            // sending order email done
 
             return response()->json([
                 'success' => true,
