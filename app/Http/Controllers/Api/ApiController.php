@@ -1388,38 +1388,45 @@ class ApiController extends BaseController
             $orderInfo->save();
 
 
+            if($request->email){
+                SubscribedUsers::insert([
+                    'email' => $request->email,
+                    'created_at' => Carbon::now()
+                ]);
+            }
+
 
             // sending order email
-            try {
+            // try {
 
-                $emailConfig = EmailConfigure::where('status', 1)->orderBy('id', 'desc')->first();
-                $userEmail = $request->email;
+            //     $emailConfig = EmailConfigure::where('status', 1)->orderBy('id', 'desc')->first();
+            //     $userEmail = $request->email;
 
-                if($emailConfig && $userEmail){
+            //     if($emailConfig && $userEmail){
 
-                    $decryption = "";
-                    if($emailConfig){
-                        $ciphering = "AES-128-CTR";
-                        $options = 0;
-                        $decryption_iv = '1234567891011121';
-                        $decryption_key = "GenericCommerceV1";
-                        $decryption = openssl_decrypt ($emailConfig->password, $ciphering, $decryption_key, $options, $decryption_iv);
-                    }
+            //         $decryption = "";
+            //         if($emailConfig){
+            //             $ciphering = "AES-128-CTR";
+            //             $options = 0;
+            //             $decryption_iv = '1234567891011121';
+            //             $decryption_key = "GenericCommerceV1";
+            //             $decryption = openssl_decrypt ($emailConfig->password, $ciphering, $decryption_key, $options, $decryption_iv);
+            //         }
 
-                    config([
-                        'mail.mailers.smtp.host' => $emailConfig ? $emailConfig->host : '',
-                        'mail.mailers.smtp.port' => $emailConfig ? $emailConfig->port : '',
-                        'mail.mailers.smtp.username' => $emailConfig ? $emailConfig->email : '',
-                        'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
-                        'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
-                    ]);
+            //         config([
+            //             'mail.mailers.smtp.host' => $emailConfig ? $emailConfig->host : '',
+            //             'mail.mailers.smtp.port' => $emailConfig ? $emailConfig->port : '',
+            //             'mail.mailers.smtp.username' => $emailConfig ? $emailConfig->email : '',
+            //             'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
+            //             'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
+            //         ]);
 
-                    Mail::to(trim($userEmail))->send(new OrderPlacedEmail($orderInfo));
-                }
+            //         Mail::to(trim($userEmail))->send(new OrderPlacedEmail($orderInfo));
+            //     }
 
-            } catch(\Exception $e) {
-                // write code for handling error from here
-            }
+            // } catch(\Exception $e) {
+            //     // write code for handling error from here
+            // }
             // sending order email done
 
             return response()->json([
