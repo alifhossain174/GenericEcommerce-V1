@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description <span class="text-danger">*</span></label>
-                                    <textarea id="description" name="description" class="form-control" placeholder="Write Testimonial Here" required></textarea>
+                                    <textarea id="description" name="description" maxlength="255" class="form-control" placeholder="Write Testimonial Here" required></textarea>
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('description')
                                             {{ $message }}

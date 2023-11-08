@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EmailConfigure;
+use App\Models\EmailTemplate;
 use App\Models\PaymentGateway;
 use App\Models\SmsGateway;
 use Carbon\Carbon;
@@ -58,7 +59,22 @@ class SystemController extends Controller
     }
 
     public function viewEmailTemplates(){
-        return view('backend.system.email_template');
+        $orderPlacedTemplates = EmailTemplate::where('type', 'order_placed')->orderBy('serial', 'asc')->get();
+        return view('backend.system.email_template', compact('orderPlacedTemplates'));
+    }
+
+    public function changeMailTemplateStatus($templateId){
+        $template = EmailTemplate::where('id', $templateId)->first();
+        if($template && $template->status == 1){
+            $template->status = 0;
+            $template->save();
+            EmailTemplate::where('type', $template->type)->where('id', '!=', $template->id)->update(['status'=> 1]);
+        } else {
+            $template->status = 1;
+            $template->save();
+            EmailTemplate::where('type', $template->type)->where('id', '!=', $template->id)->update(['status'=> 0]);
+        }
+        return response()->json(['success' => 'Saved successfully.']);
     }
 
     public function saveEmailCredential(Request $request){

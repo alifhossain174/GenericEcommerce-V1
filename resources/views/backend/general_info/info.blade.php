@@ -109,7 +109,7 @@
                                 <div class="form-group row">
                                     <label for="short_description" class="col-sm-2 col-form-label">Short Description</label>
                                     <div class="col-sm-10">
-                                        <textarea id="short_description" name="short_description" rows="3" class="form-control" placeholder="Enter Short Description about Company">{{$data->short_description}}</textarea>
+                                        <textarea id="short_description" name="short_description" maxlength="255" rows="3" class="form-control" placeholder="Enter Short Description about Company">{{$data->short_description}}</textarea>
                                         <div class="invalid-feedback" style="display: block;">
                                             @error('short_description')
                                                 {{ $message }}

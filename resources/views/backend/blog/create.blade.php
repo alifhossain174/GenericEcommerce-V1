@@ -39,6 +39,7 @@
                             <div class="col-lg-12">
 
                                 <div class="row">
+
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="image">Cover Image <span class="text-danger">*</span></label>
@@ -46,6 +47,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-9">
+
                                         <div class="form-group">
                                             <label for="category_id">Category<span class="text-danger">*</span></label>
                                             <select name="category_id" data-toggle="select2" class="form-control" id="category_id" required>
@@ -62,7 +64,7 @@
 
                                         <div class="form-group">
                                             <label for="title">Blog Title <span class="text-danger">*</span></label>
-                                            <input type="text" id="title" name="title" class="form-control" placeholder="Enter Product Title Here" required>
+                                            <input type="text" id="title" name="title" maxlength="255" class="form-control" placeholder="Enter Product Title Here" required>
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('title')
                                                     {{ $message }}
