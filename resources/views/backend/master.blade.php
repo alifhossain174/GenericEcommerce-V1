@@ -9,6 +9,10 @@
     <meta charset="utf-8" />
     <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {{-- to stop indexing --}}
+    <meta name="robots" content="noindex, nofollow">
+
     <meta content="Admin Panel" name="description"/>
     <meta content="Getup Ltd." name="author"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
