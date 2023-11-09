@@ -154,16 +154,16 @@
 <body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #ffffff;color: #000000">
 
     @php
-        $generalInfo = App\Models\GeneralInfo::where('id', 1)->select('logo_dark', 'company_name')->first();
+        $generalInfo = App\Models\GeneralInfo::where('id', 1)->select('logo_dark', 'company_name', 'contact', 'email', 'address', 'facebook', 'twitter', 'linkedin', 'youtube', 'messenger', 'whatsapp', 'telegram')->first();
 
         $orderDetails = DB::table('order_details')
                             ->join('products', 'order_details.product_id', '=', 'products.id')
                             ->select('order_details.*', 'products.name as product_name')
-                            ->where('order_id', $orderInfo->user_id)
+                            ->where('order_id', $orderInfo->id)
                             ->get();
 
-        $billingInfo = App\Models\BillingAddress::where('order_id', $orderInfo->user_id)->first();
-        $shippingInfo = App\Models\ShippingInfo::where('order_id', $orderInfo->user_id)->first();
+        $billingInfo = App\Models\BillingAddress::where('order_id', $orderInfo->id)->first();
+        $shippingInfo = App\Models\ShippingInfo::where('order_id', $orderInfo->id)->first();
 
         function getDomain($url){
             $pieces = parse_url($url);
@@ -200,7 +200,7 @@
                                                                 <tr>
                                                                     <td style="padding-right: 0px;padding-left: 0px;" align="center">
                                                                         <a href="#" target="_blank">
-                                                                            <img align="center" border="0" src="{{url($generalInfo->logo_dark)}}" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 35%;max-width: 203px;" width="203" />
+                                                                            <img align="center" border="0" @if($generalInfo->logo_dark && file_exists(public_path($generalInfo->logo_dark))) src="{{url($generalInfo->logo_dark)}}" @endif alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 35%;max-width: 203px;" width="203">
                                                                         </a>
                                                                     </td>
                                                                 </tr>
@@ -341,7 +341,7 @@
                                                     <tr>
                                                         <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
                                                             <div align="center">
-                                                                <a href="{{getDomain(url('/'))}}/login" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #0056ff; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 14px;">
+                                                                <a href="{{getDomain(env('APP_URL'))}}/dashboard/orders/track" target="_blank" class="v-button" style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #0056ff; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 14px;">
                                                                     <span style="display:block;padding:10px 20px;line-height:120%;">
                                                                         <span style="line-height: 16.8px;">Track your order</span>
                                                                     </span>
@@ -420,7 +420,8 @@
                     </div>
 
                     <!-- ordered products -->
-                    @foreach ($orderDetails as $index => $item)
+                    @php $orderSl = 1; @endphp
+                    @foreach ($orderDetails as $item)
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
                         <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
                             <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
@@ -456,7 +457,11 @@
                                                         <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
 
                                                             <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-                                                                <p style="line-height: 140%;"><span style="color: #000000; line-height: 19.6px;">{{ $index+$orderDetails->firstItem() }}. {{$item->product_name}}*{{$item->qty}}</span></p>
+                                                                <p style="line-height: 140%;">
+                                                                    <span style="color: #000000; line-height: 19.6px;">
+                                                                    {{ $orderSl++ }}. {{$item->product_name}}*{{$item->qty}}
+                                                                    </span>
+                                                                </p>
                                                             </div>
 
                                                         </td>
@@ -1065,7 +1070,7 @@
 
 
 
-
+                    {{-- order no , shipping , billing --}}
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
                         <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
                             <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
@@ -1089,8 +1094,7 @@
                                     <div
                                         style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
                                         <!--[if (!mso)&(!IE)]><!-->
-                                        <div class="v-col-padding"
-                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                        <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
                                             <!--<![endif]-->
 
                                             {{-- order no --}}
@@ -1149,7 +1153,9 @@
                                                                 <p style="line-height: 140%;">
                                                                     <span style="color: #000000; line-height: 19.6px;">
                                                                         <span style="color: #000000; line-height: 19.6px;">
-                                                                            <strong>{{$billingInfo->address}}, {{$billingInfo->thana}}, {{$billingInfo->city}}-{{$billingInfo->post_code}}, {{$billingInfo->country}}</strong>
+                                                                            @if($billingInfo)
+                                                                            <strong>{{$billingInfo ? $billingInfo->address : ''}}, {{$billingInfo ? $billingInfo->thana : ''}}, {{$billingInfo ? $billingInfo->city : ''}}-{{$billingInfo ? $billingInfo->post_code : ''}}, {{$billingInfo ? $billingInfo->country : ''}}</strong>
+                                                                            @endif
                                                                         </span>
                                                                     </span>
                                                                 </p>
@@ -1172,7 +1178,9 @@
                                                                 <p style="line-height: 140%;">
                                                                     <span style="color: #000000; line-height: 19.6px;">
                                                                         <span style="color: #000000; line-height: 19.6px;">
-                                                                            <strong>{{$shippingInfo->address}}, {{$shippingInfo->thana}}, {{$shippingInfo->city}}-{{$shippingInfo->post_code}}, {{$shippingInfo->country}}</strong>
+                                                                            @if($shippingInfo)
+                                                                            <strong>{{$shippingInfo ? $shippingInfo->address : ''}}, {{$shippingInfo ? $shippingInfo->thana : ''}}, {{$shippingInfo ? $shippingInfo->city : ''}}-{{$shippingInfo ? $shippingInfo->post_code : ''}}, {{$shippingInfo ? $shippingInfo->country : ''}}</strong>
+                                                                            @endif
                                                                         </span>
                                                                     </span>
                                                                 </p>
@@ -1189,15 +1197,11 @@
                                     </div>
                                 </div>
 
-                                <div id="u_column_36" class="u-col u-col-25p03"
-                                    style="max-width: 320px;min-width: 150.18px;display: table-cell;vertical-align: top;">
-                                    <div
-                                        style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div class="v-col-padding"
-                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                            <!--<![endif]-->
+                                <div id="u_column_36" class="u-col u-col-25p03" style="max-width: 320px;min-width: 150.18px;display: table-cell;vertical-align: top;">
+                                    <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                        <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
 
+                                            {{-- order status --}}
                                             <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
@@ -1207,7 +1211,19 @@
                                                                 <p style="line-height: 140%;">Order status:</p>
                                                                 <p style="line-height: 140%;">
                                                                     <span style="color: #f9bd0b; line-height: 19.6px;">
-                                                                        <strong>Pending</strong>
+                                                                        <strong>
+                                                                            @if($orderInfo->order_status == 0)
+                                                                                <span style="color: blue; line-height: 19.6px;"><strong>Pending</strong></span>
+                                                                            @elseif($orderInfo->order_status == 1)
+                                                                                <span style="color: green; line-height: 19.6px;"><strong>Approved</strong></span>
+                                                                            @elseif($orderInfo->order_status == 2)
+                                                                                <span style="color: green; line-height: 19.6px;"><strong>Intransit</strong></span>
+                                                                            @elseif($orderInfo->order_status == 3)
+                                                                                <span style="color: green; line-height: 19.6px;"><strong>Delivered</strong></span>
+                                                                            @else
+                                                                                <span style="color: red; line-height: 19.6px;"><strong>Cancelled</strong></span>
+                                                                            @endif
+                                                                        </strong>
                                                                     </span>
                                                                 </p>
                                                             </div>
@@ -1217,18 +1233,53 @@
                                                 </tbody>
                                             </table>
 
+                                            {{-- payment status --}}
                                             <table style="font-family:'Lato',sans-serif;" role="presentation"
                                                 cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px 4px 0px;font-family:'Lato',sans-serif;"
-                                                            align="left">
-
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px 4px 0px;font-family:'Lato',sans-serif;" align="left">
                                                             <div
                                                                 style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="line-height: 140%;">Payment status:</p>
-                                                                <p style="line-height: 140%;"><span
-                                                                        style="color: #e03e2d; line-height: 19.6px;"><strong>Unpaid</strong></span>
+                                                                <p style="line-height: 140%;">
+                                                                    @if($orderInfo->payment_status == 0)
+                                                                        <span style="color: #e03e2d; line-height: 19.6px;"><strong>Unpaid</strong></span>
+                                                                    @elseif($orderInfo->payment_status == 1)
+                                                                        <span style="color: green; line-height: 19.6px;"><strong>Paid</strong></span>
+                                                                    @else
+                                                                        <span style="color: #e03e2d; line-height: 19.6px;"><strong>Failed</strong></span>
+                                                                    @endif
+                                                                </p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            {{-- payment method --}}
+                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
+                                                cellpadding="0" cellspacing="0" width="100%" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px 4px 0px;font-family:'Lato',sans-serif;" align="left">
+
+                                                            <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
+                                                                <p style="line-height: 140%;">Payment method:</p>
+                                                                <p style="line-height: 140%;">
+
+                                                                    @if($orderInfo->payment_method == NULL)
+                                                                        <span style="color: red; line-height: 19.6px;"><strong>Unpaid</strong></span>
+                                                                    @elseif($orderInfo->payment_method == 1)
+                                                                        <span style="color: blue; line-height: 19.6px;"><strong>COD</strong></span>
+                                                                    @elseif($orderInfo->payment_method == 2)
+                                                                        <span style="color: green; line-height: 19.6px;"><strong>bKash</strong></span>
+                                                                    @elseif($orderInfo->payment_method == 3)
+                                                                        <span style="color: green; line-height: 19.6px;"><strong>Nagad</strong></span>
+                                                                    @else
+                                                                        <span style="color: green; line-height: 19.6px;"><strong>Card</strong></span>
+                                                                    @endif
+
                                                                 </p>
                                                             </div>
 
@@ -1237,39 +1288,25 @@
                                                 </tbody>
                                             </table>
 
+                                            {{-- delivery method --}}
                                             <table style="font-family:'Lato',sans-serif;" role="presentation"
                                                 cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px 4px 0px;font-family:'Lato',sans-serif;"
-                                                            align="left">
-
-                                                            <div
-                                                                style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-                                                                <p style="line-height: 140%;">Payment method:</p>
-                                                                <p style="line-height: 140%;"><span
-                                                                        style="color: #843fa1; line-height: 19.6px;"><strong>COD
-                                                                            (Cash on delivery)</strong></span></p>
-                                                            </div>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px 4px 0px;font-family:'Lato',sans-serif;"
-                                                            align="left">
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px 4px 0px;font-family:'Lato',sans-serif;" align="left">
 
                                                             <div
                                                                 style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="line-height: 140%;">Delivery method:</p>
-                                                                <p style="line-height: 140%;"><span
-                                                                        style="color: #34495e; line-height: 19.6px;"><strong>Store
-                                                                            pickup</strong></span></p>
+                                                                <p style="line-height: 140%;">
+                                                                    @if($orderInfo->delivery_method == 1)
+                                                                        <span style="color: #34495e; line-height: 19.6px;"><strong>Home Delivery</strong></span>
+                                                                    @endif
+
+                                                                    @if($orderInfo->delivery_method == 2)
+                                                                        <span style="color: #34495e; line-height: 19.6px;"><strong>Store Pickup</strong></span>
+                                                                    @endif
+                                                                </p>
                                                             </div>
 
                                                         </td>
@@ -1277,60 +1314,31 @@
                                                 </tbody>
                                             </table>
 
-                                            <!--[if (!mso)&(!IE)]><!-->
                                         </div>
-                                        <!--<![endif]-->
                                     </div>
                                 </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]><td align="center" width="59" class="v-col-padding" style="width: 59px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-                                <div class="u-col u-col-9p92"
-                                    style="max-width: 320px;min-width: 59.52px;display: table-cell;vertical-align: top;">
-                                    <div
-                                        style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div class="v-col-padding"
-                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                            <!--<![endif]-->
-
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
+                                <div class="u-col u-col-9p92" style="max-width: 320px;min-width: 59.52px;display: table-cell;vertical-align: top;">
+                                    <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                        <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"></div>
                                     </div>
                                 </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
                             </div>
                         </div>
                     </div>
 
 
 
-
-
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                        <div class="u-row"
-                            style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-                            <div
-                                style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
+                        <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                            <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+                                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                                    <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                        <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
 
-                                <!--[if (mso)|(IE)]><td align="center" width="600" class="v-col-padding" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-                                <div class="u-col u-col-100"
-                                    style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                                    <div
-                                        style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div class="v-col-padding"
-                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                            <!--<![endif]-->
-
-                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:'Lato',sans-serif;"
-                                                            align="left">
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:0px;font-family:'Lato',sans-serif;" align="left">
 
                                                             <div>
                                                                 <br>
@@ -1341,56 +1349,34 @@
                                                 </tbody>
                                             </table>
 
-                                            <!--[if (!mso)&(!IE)]><!-->
                                         </div>
-                                        <!--<![endif]-->
                                     </div>
                                 </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
                             </div>
                         </div>
                     </div>
 
 
-
-
-
+                    {{-- footer logo --}}
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                        <div class="u-row"
-                            style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-                            <div
-                                style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
+                        <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                            <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+                                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                                    <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                        <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
 
-                                <!--[if (mso)|(IE)]><td align="center" width="600" class="v-col-padding" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-                                <div class="u-col u-col-100"
-                                    style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                                    <div
-                                        style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div class="v-col-padding"
-                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                            <!--<![endif]-->
-
-                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0px;font-family:'Lato',sans-serif;"
-                                                            align="left">
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0px;font-family:'Lato',sans-serif;" align="left">
 
-                                                            <table width="100%" cellpadding="0" cellspacing="0"
-                                                                border="0">
+                                                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                                                 <tr>
-                                                                    <td style="padding-right: 0px;padding-left: 0px;"
-                                                                        align="center">
+                                                                    <td style="padding-right: 0px;padding-left: 0px;" align="center">
                                                                         <a href="#" target="_blank">
-                                                                            <img align="center" border="0"
-                                                                                src="https://assets.unlayer.com/stock-templates/1698306384616-PixeTheme%20Logo%20Big.png"
-                                                                                alt="" title=""
-                                                                                style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 174px;"
-                                                                                width="174" />
+
+                                                                            <img align="center" border="0" @if($generalInfo->logo_dark && file_exists(public_path($generalInfo->logo_dark))) src="{{url($generalInfo->logo_dark)}}" @endif alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 174px;" width="174">
+
                                                                         </a>
                                                                     </td>
                                                                 </tr>
@@ -1401,59 +1387,45 @@
                                                 </tbody>
                                             </table>
 
-                                            <!--[if (!mso)&(!IE)]><!-->
                                         </div>
-                                        <!--<![endif]-->
                                     </div>
                                 </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
                             </div>
                         </div>
                     </div>
 
 
-
-
-
+                    {{-- footer email contact address --}}
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                        <div class="u-row"
-                            style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-                            <div
-                                style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
+                        <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                            <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+                                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                                    <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
 
-                                <!--[if (mso)|(IE)]><td align="center" width="600" class="v-col-padding" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-                                <div class="u-col u-col-100"
-                                    style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                                    <div
-                                        style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div class="v-col-padding"
-                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                            <!--<![endif]-->
+                                        <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
 
-                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;"
-                                                            align="left">
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
 
-                                                            <div
-                                                                style="font-size: 15px; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                                                <p style="line-height: 140%;"><span
-                                                                        style="color: #000000; line-height: 19.6px;"><strong>Helpline:</strong>
-                                                                        <a target="_blank" href="tel:+8801234567890"
-                                                                            rel="noopener">+8801234567890</a><br><strong>E-mail:</strong>
-                                                                        <a target="_blank"
-                                                                            href="mailto:info@businessmail.com"
-                                                                            rel="noopener">info@businessmail.com</a><br></span>
+                                                            <div style="font-size: 15px; line-height: 140%; text-align: center; word-wrap: break-word;">
+                                                                <p style="line-height: 140%;">
+                                                                    <span style="color: #000000; line-height: 19.6px;">
+                                                                        <strong>Helpline:</strong>
+                                                                        <a target="_blank" @if($generalInfo->contact) href="tel:{{explode(",",$generalInfo->contact)[0]}}" @endif rel="noopener">{{$generalInfo->contact}}</a>
+                                                                        <br>
+                                                                        <strong>E-mail:</strong>
+                                                                        <a target="_blank" @if($generalInfo->email) href="mailto:{{explode(",",$generalInfo->email)[0]}}" @endif rel="noopener">{{$generalInfo->email}}</a>
+                                                                        <br>
+                                                                    </span>
                                                                 </p>
-                                                                <p style="line-height: 140%;"><span
-                                                                        style="color: #000000; line-height: 19.6px;"><strong>Address:</strong>
-                                                                        Flat No: B4, House No: 71 Road No: 27, Dhaka
-                                                                        1212</span></p>
+                                                                <p style="line-height: 140%;">
+                                                                    <span style="color: #000000; line-height: 19.6px;">
+                                                                        <strong>Address:</strong>
+                                                                        {{$generalInfo->address}}
+                                                                    </span>
+                                                                </p>
                                                             </div>
 
                                                         </td>
@@ -1461,236 +1433,141 @@
                                                 </tbody>
                                             </table>
 
-                                            <!--[if (!mso)&(!IE)]><!-->
                                         </div>
-                                        <!--<![endif]-->
                                     </div>
                                 </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
                             </div>
                         </div>
                     </div>
 
-
-
-
-
+                    {{-- social media links --}}
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                        <div class="u-row"
-                            style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #062b52;">
-                            <div
-                                style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #062b52;"><![endif]-->
+                        <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #062b52;">
+                            <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+                                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                                    <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
 
-                                <!--[if (mso)|(IE)]><td align="center" width="600" class="v-col-padding" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-                                <div class="u-col u-col-100"
-                                    style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                                    <div
-                                        style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div class="v-col-padding"
-                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                            <!--<![endif]-->
+                                        <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
 
-                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;"
-                                                            align="left">
-
-                                                            <h1
-                                                                style="margin: 0px; color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 22px; font-weight: 400;">
-                                                                <strong>Follow us</strong></h1>
-
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
+                                                            <h1 style="margin: 0px; color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 22px; font-weight: 400;">
+                                                            <strong>Follow us</strong></h1>
                                                         </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
 
-                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;"
-                                                            align="left">
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
 
                                                             <div align="center">
                                                                 <div style="display: table; max-width:258px;">
-                                                                    <!--[if (mso)|(IE)]><table width="258" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-collapse:collapse;" align="center"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspace: 0pt; width:258px;"><tr><![endif]-->
 
 
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 5px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
+                                                                    {{-- facebook --}}
+                                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt; mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
                                                                         <tbody>
                                                                             <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://facebook.com/"
-                                                                                        title="Facebook"
-                                                                                        target="_blank">
-                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/facebook.png"
-                                                                                            alt="Facebook"
-                                                                                            title="Facebook"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                    <a href="{{$generalInfo->facebook}}" title="Facebook" target="_blank">
+                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/facebook.png" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block  !important;border: none;height: auto;float: none;max-width: 32px !important">
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
 
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 5px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
+
+                                                                    {{-- twitter --}}
+                                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
                                                                         <tbody>
                                                                             <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://x.com/"
-                                                                                        title="X"
-                                                                                        target="_blank">
-                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/x.png"
-                                                                                            alt="X"
-                                                                                            title="X"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                    <a href="{{$generalInfo->twitter}}" title="X" target="_blank">
+                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/x.png" alt="X" title="X" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none; height: auto;float: none;max-width: 32px !important">
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
 
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 5px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
+
+                                                                    {{-- linkedin --}}
+                                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
                                                                         <tbody>
                                                                             <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://linkedin.com/"
-                                                                                        title="LinkedIn"
-                                                                                        target="_blank">
-                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/linkedin.png"
-                                                                                            alt="LinkedIn"
-                                                                                            title="LinkedIn"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                    <a href="{{$generalInfo->linkedin}}" title="LinkedIn" target="_blank">
+                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/linkedin.png" alt="LinkedIn" title="LinkedIn" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
 
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 5px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
+
+                                                                    {{-- youtube --}}
+                                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
                                                                         <tbody>
                                                                             <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://youtube.com/"
-                                                                                        title="YouTube"
-                                                                                        target="_blank">
-                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/youtube.png"
-                                                                                            alt="YouTube"
-                                                                                            title="YouTube"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                    <a href="{{$generalInfo->youtube}}" title="YouTube" target="_blank">
+                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/youtube.png" alt="YouTube" title="YouTube" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
 
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 5px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
+
+                                                                    {{-- messenger --}}
+                                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt; mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
                                                                         <tbody>
                                                                             <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://messenger.com/"
-                                                                                        title="Messenger"
-                                                                                        target="_blank">
-                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/messenger.png"
-                                                                                            alt="Messenger"
-                                                                                            title="Messenger"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                    <a href="{{$generalInfo->messenger}}" title="Messenger" target="_blank">
+                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/messenger.png" alt="Messenger" title="Messenger" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
 
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 5px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
+
+                                                                    {{-- whats app --}}
+                                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 5px">
                                                                         <tbody>
                                                                             <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://whatsapp.com/"
-                                                                                        title="WhatsApp"
-                                                                                        target="_blank">
-                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/whatsapp.png"
-                                                                                            alt="WhatsApp"
-                                                                                            title="WhatsApp"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                    <a href="{{$generalInfo->whatsapp}}" title="WhatsApp" target="_blank">
+                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/whatsapp.png" alt="WhatsApp" title="WhatsApp" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
 
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 0px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
+
+                                                                    {{-- telegram --}}
+                                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32"
                                                                         style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
                                                                         <tbody>
                                                                             <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://telegram.org/"
-                                                                                        title="Telegram"
-                                                                                        target="_blank">
-                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/telegram.png"
-                                                                                            alt="Telegram"
-                                                                                            title="Telegram"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                                                                <td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                                                                                    <a href="{{$generalInfo->telegram}}" title="Telegram" target="_blank">
+                                                                                        <img src="https://cdn.tools.unlayer.com/social/icons/circle/telegram.png" alt="Telegram" title="Telegram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
 
 
-                                                                    <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
                                                                 </div>
                                                             </div>
 
@@ -1699,22 +1576,18 @@
                                                 </tbody>
                                             </table>
 
-                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;"
-                                                            align="left">
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
 
-                                                            <div
-                                                                style="font-size: 14px; color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                                                <p style="line-height: 140%;">© Copyright 2023 | All
-                                                                    right reserved | Powered by<span
-                                                                        style="color: #59a8fe; line-height: 19.6px;">
-                                                                        <strong><a style="color: #59a8fe;"
-                                                                                target="_self"
-                                                                                href="https://getup.com.bd/">GetUp
-                                                                                Limited</a>&nbsp;</strong></span></p>
+                                                            <div style="font-size: 14px; color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
+                                                                <p style="line-height: 140%;">
+                                                                    © Copyright 2023 | All right reserved | Designed & Developed by
+                                                                    <span style="color: #59a8fe; line-height: 19.6px;">
+                                                                        <strong><a style="color: #59a8fe;" target="_self" href="https://getup.com.bd/">GetUp Limited</a>&nbsp;</strong>
+                                                                    </span>
+                                                                </p>
                                                             </div>
 
                                                         </td>
@@ -1722,21 +1595,15 @@
                                                 </tbody>
                                             </table>
 
-                                            <!--[if (!mso)&(!IE)]><!-->
                                         </div>
-                                        <!--<![endif]-->
                                     </div>
                                 </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
                             </div>
                         </div>
                     </div>
 
 
-
-
-
+                    {{-- footer links --}}
                     <div class="u-row-container" style="padding: 0px;background-color: #ecf0f1">
                         <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
                             <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
@@ -1744,58 +1611,42 @@
                                     <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
                                         <div class="v-col-padding" style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
 
-                                            <table style="font-family:'Lato',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;"
-                                                            align="left">
+                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lato',sans-serif;" align="left">
 
                                                             <div class="menu" style="text-align:center">
 
-                                                                <a href="#" target="_blank"
-                                                                    style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
+                                                                <a href="{{getDomain(env('APP_URL'))}}/about" target="_blank" style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
                                                                     About us
                                                                 </a>
-                                                                <span
-                                                                    style="padding:5px 8px;display:inline-block;color:#dddddd;font-size:14px;font-weight: 400;"
-                                                                    class="hide-mobile">
+                                                                <span style="padding:5px 8px;display:inline-block;color:#dddddd;font-size:14px;font-weight: 400;" class="hide-mobile">
                                                                     |
                                                                 </span>
 
-                                                                <a href="#" target="_blank"
-                                                                    style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
+                                                                <a href="{{getDomain(env('APP_URL'))}}/contact" target="_blank" style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
                                                                     Contact us
                                                                 </a>
-                                                                <span
-                                                                    style="padding:5px 8px;display:inline-block;color:#dddddd;font-size:14px;font-weight: 400;"
-                                                                    class="hide-mobile">
+                                                                <span style="padding:5px 8px;display:inline-block;color:#dddddd;font-size:14px;font-weight: 400;" class="hide-mobile">
                                                                     |
                                                                 </span>
 
-                                                                <a href="#" target="_blank"
-                                                                    style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
+                                                                <a href="{{getDomain(env('APP_URL'))}}/terms" target="_blank" style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
                                                                     Terms & Condition
                                                                 </a>
-                                                                <span
-                                                                    style="padding:5px 8px;display:inline-block;color:#dddddd;font-size:14px;font-weight: 400;"
-                                                                    class="hide-mobile">
+                                                                <span style="padding:5px 8px;display:inline-block;color:#dddddd;font-size:14px;font-weight: 400;" class="hide-mobile">
                                                                     |
                                                                 </span>
 
-                                                                <a href="#" target="_blank"
-                                                                    style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
+                                                                <a href="{{getDomain(env('APP_URL'))}}/privacy-policy" target="_blank" style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
                                                                     Privacy policy
                                                                 </a>
-
-                                                                <span
-                                                                    style="padding:5px 8px;display:inline-block;color:#dddddd;font-size:14px;font-weight: 400;"
-                                                                    class="hide-mobile">
+                                                                <span style="padding:5px 8px;display:inline-block;color:#dddddd;font-size:14px;font-weight: 400;" class="hide-mobile">
                                                                     |
                                                                 </span>
 
-                                                                <a href="#" target="_blank"
-                                                                    style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
+                                                                <a href="{{getDomain(env('APP_URL'))}}/refund-policy" target="_blank" style="padding:5px 8px;display:inline-block;color:#0068A5;font-size:14px;font-weight: 400;text-decoration:none">
                                                                     Refund policy
                                                                 </a>
 
@@ -1814,10 +1665,7 @@
                     </div>
 
 
-
-
-
-                    <div class="u-row-container" style="padding: 0px 0px 16px;background-color: transparent">
+                    {{-- <div class="u-row-container" style="padding: 0px 0px 16px;background-color: transparent">
                         <div class="u-row" style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
                             <div style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
                                 <div class="u-col u-col-100"
@@ -1859,7 +1707,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </td>
             </tr>

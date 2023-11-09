@@ -109,7 +109,7 @@
                                         if($order->payment_status == 0){
                                             echo '<span class="badge badge-soft-warning" style="padding: 2px 10px !important;">Unpaid</span>';
                                         } elseif($order->payment_status == 1) {
-                                            echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Success</span>';
+                                            echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Paid</span>';
                                         } else {
                                             echo '<span class="badge badge-soft-danger" style="padding: 2px 10px !important;">Failed</span>';
                                         }
