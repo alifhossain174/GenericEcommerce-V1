@@ -50,7 +50,7 @@
                                                     ->orWhere('route', 'like', '%view/return/policy%')
                                                     ->get();
 
-    $customerUserModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%view/all/sliders%')->orWhere('route', 'like', '%view/all/banners%')->get();
+    // $customerUserModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%view/all/sliders%')->orWhere('route', 'like', '%view/all/banners%')->get();
 
     $supportTicketModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
                                                     ->where('route', 'like', '%pending/support/tickets%')
@@ -240,17 +240,6 @@
     </li>
     @endif
 
-    @if ($customerUserModule && count($customerUserModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-users"></i><span>Customers & Users</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("view/all/customers")) <li><a href="{{ url('/view/all/customers') }}">Customers</a></li> @endif
-            @if(checkAuth("view/system/users")) <li><a href="{{ url('/view/system/users') }}">System Users</a></li> @endif
-        </ul>
-    </li>
-    @endif
-
-    @if(checkAuth("view/customers/wishlist")) <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li> @endif
     {{-- <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li> --}}
 
     @if ($pushNotificationModule && count($pushNotificationModule) > 0)
@@ -286,6 +275,8 @@
     </li>
     @endif
 
+    @if(checkAuth("view/all/customers")) <li><a href="{{ url('/view/all/customers') }}"><i class="feather-users"></i><span>Customers</span></a></li> @endif
+    @if(checkAuth("view/customers/wishlist")) <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li> @endif
     @if(checkAuth("view/delivery/charges")) <li><a href="{{ url('/view/delivery/charges') }}"><i class="feather-truck"></i><span>Delivery Charges</span></a></li> @endif
 
     @if ($reportModule && count($reportModule) > 0)
@@ -422,7 +413,8 @@
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">User Role Permission</li>
-    @if(checkAuth("view/permission/routes") || checkAuth("view/user/roles") || checkAuth("view/user/role/permission")) <li class="menu-title">User Role Permission</li> @endif
+    @if(checkAuth("view/permission/routes") || checkAuth("view/user/roles") || checkAuth("view/user/role/permission") || checkAuth("view/system/users")) <li class="menu-title">User Role Permission</li> @endif
+    @if(checkAuth("view/system/users")) <li><a href="{{ url('/view/system/users') }}"><i class="fas fa-user-shield"></i><span>System Users</span></a></li> @endif
     @if(checkAuth("view/permission/routes")) <li><a href="{{ url('/view/permission/routes') }}"><i class="feather-git-merge"></i><span>Permission Routes</span></a></li> @endif
     @if(checkAuth("view/user/roles")) <li><a href="{{ url('/view/user/roles') }}"><i class="feather-user-plus"></i><span>User Roles</span></a></li> @endif
     @if(checkAuth("view/user/role/permission")) <li><a href="{{ url('/view/user/role/permission') }}"><i class="mdi mdi-security"></i><span>Assign Role Permission</span></a></li> @endif

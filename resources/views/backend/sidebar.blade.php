@@ -125,14 +125,7 @@
             <li><a href="{{ url('/view/all/promo/codes') }}">View All Promo Codes</a></li>
         </ul>
     </li>
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-users"></i><span>Customers & Users</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/view/all/customers') }}">Customers</a></li>
-            <li><a href="{{ url('/view/system/users') }}">System Users</a></li>
-        </ul>
-    </li>
-    <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li>
+    
     {{-- <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li> --}}
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-bell"></i><span>Push Notification</span></a>
@@ -158,7 +151,11 @@
             <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li>
         </ul>
     </li>
+
+    <li><a href="{{ url('/view/all/customers') }}"><i class="feather-users"></i><span>Customers</span></a></li>
+    <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li>
     <li><a href="{{ url('/view/delivery/charges') }}"><i class="feather-truck"></i><span>Delivery Charges</span></a></li>
+
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
         <ul class="sub-menu" aria-expanded="false">
@@ -260,6 +257,7 @@
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">User Role Permission</li>
+    <li><a href="{{ url('/view/system/users') }}"><i class="fas fa-user-shield"></i><span>System Users</span></a></li>
     <li><a href="{{ url('/view/permission/routes') }}"><i class="feather-git-merge"></i><span>Permission Routes</span></a></li>
     <li><a href="{{ url('/view/user/roles') }}"><i class="feather-user-plus"></i><span>User Roles</span></a></li>
     <li><a href="{{ url('/view/user/role/permission') }}"><i class="mdi mdi-security"></i><span>Assign Role Permission</span></a></li>
