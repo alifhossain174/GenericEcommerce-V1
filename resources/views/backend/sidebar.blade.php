@@ -125,7 +125,7 @@
             <li><a href="{{ url('/view/all/promo/codes') }}">View All Promo Codes</a></li>
         </ul>
     </li>
-    
+
     {{-- <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li> --}}
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-bell"></i><span>Push Notification</span></a>
@@ -262,6 +262,14 @@
     <li><a href="{{ url('/view/user/roles') }}"><i class="feather-user-plus"></i><span>User Roles</span></a></li>
     <li><a href="{{ url('/view/user/role/permission') }}"><i class="mdi mdi-security"></i><span>Assign Role Permission</span></a></li>
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-box"></i><span>Demo Products</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/generate/demo/products') }}">Generate Products</a></li>
+            <li><a href="{{ url('/remove/demo/products') }}">Remove Products</a></li>
+        </ul>
+    </li>
     <li><a href="{{ url('/clear/cache') }}"><i class="feather-rotate-cw"></i><span>Clear Cache</span></a></li>
     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="feather-log-out"></i><span>Logout</span></a></li>
 

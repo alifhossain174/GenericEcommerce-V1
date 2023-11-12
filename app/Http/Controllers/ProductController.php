@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\ChildCategory;
+use App\Models\Color;
+use App\Models\Flag;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductReview;
+use App\Models\ProductSize;
 use App\Models\ProductVariant;
+use App\Models\ProductWarrenty;
 use App\Models\Subcategory;
 use App\Models\ProductModel;
 use App\Models\OrderDetails;
 use App\Models\ProductQuestionAnswer;
+use App\Models\Unit;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
@@ -19,6 +26,9 @@ use Sohibd\Laravelslug\Generate;
 use Illuminate\Support\Str;
 use Image;
 use Yajra\DataTables\DataTables;
+
+use Faker\Generator;
+use Illuminate\Container\Container;
 
 class ProductController extends Controller
 {
@@ -338,7 +348,7 @@ class ProductController extends Controller
         $product->code = $request->code;
         $product->unit_id = $request->unit_id;
         $product->status = $request->status;
-        $product->slug = $slug."-".time().str::random(5);
+        // $product->slug = $slug."-".time().str::random(5);
         $product->flag_id = $request->flag_id;
         $product->meta_title = $request->meta_title;
         $product->meta_keywords = $request->meta_keywords;
@@ -623,6 +633,126 @@ class ProductController extends Controller
             'updated_at' => Carbon::now()
         ]);
         return response()->json(['success' => 'Replied Successfully.']);
+    }
+
+    // demo products function
+    public function generateDemoProducts(){
+
+        $faker = Container::getInstance()->make(Generator::class);
+        for($i=1; $i<=100; $i++){
+
+            $title = $faker->catchPhrase();
+            $categoryId = Category::select('id')->inRandomOrder()->limit(1)->get();
+            $subcategoryId = Subcategory::where('category_id', isset($categoryId[0]) ? $categoryId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
+            $childCategoryId = ChildCategory::where('subcategory_id', isset($subcategoryId[0]) ? $subcategoryId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
+            $brandId = Brand::select('id')->inRandomOrder()->limit(1)->get();
+            $modelId = ProductModel::where('brand_id', isset($brandId[0]) ? $brandId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
+            $unitId = Unit::select('id')->inRandomOrder()->limit(1)->get();
+            $warrentyId = ProductWarrenty::select('id')->inRandomOrder()->limit(1)->get();
+            $flagId = Flag::select('id')->inRandomOrder()->limit(1)->get();
+            $colorId = Color::select('id')->inRandomOrder()->limit(1)->get();
+            $sizeId = ProductSize::select('id')->inRandomOrder()->limit(1)->get();
+            $regionId = DB::table('country')->select('id')->inRandomOrder()->limit(1)->get();
+
+            $multipleProductArray = array();
+            for($j=1; $j<=4; $j++){
+                $multipleProductArray[] = rand(1,20).'.png';
+            }
+
+            $price = rand(100,999);
+
+
+            $id = Product::insertGetId([
+                'category_id' => isset($categoryId[0]) ? $categoryId[0]->id : null,
+                'subcategory_id' => isset($subcategoryId[0]) ? $subcategoryId[0]->id : null,
+                'childcategory_id' => isset($childCategoryId[0]) ? $childCategoryId[0]->id : null,
+                'brand_id' => isset($brandId[0]) ? $brandId[0]->id : null,
+                'model_id' => isset($modelId[0]) ? $modelId[0]->id : null,
+                'name' => $title,
+                'code' => rand(100,999),
+                'image' => 'productImages/'.rand(1,20).'.png',
+                'multiple_images' => $i%2 != 0 ? json_encode($multipleProductArray) : null,
+                'short_description' => $faker->text($maxNbChars = 200),
+                'description' => $faker->text($maxNbChars = 400),
+                'specification' => $faker->text($maxNbChars = 200),
+                'warrenty_policy' => $faker->text($maxNbChars = 200),
+                'price' => $price,
+                'discount_price' => $price - 10,
+                'stock' => 1000,
+                'unit_id' => isset($unitId[0]) ? $unitId[0]->id : null,
+                'tags' => 'product,demo',
+                'video_url' => 'https://www.youtube.com/watch?v=2tirsYI5D2M',
+                'warrenty_id' => isset($warrentyId[0]) ? $warrentyId[0]->id : null,
+                'slug' => time(). str::random(5),
+                'flag_id' => isset($flagId[0]) ? $flagId[0]->id : null,
+                'meta_title' => $title,
+                'meta_keywords' => 'product,demo',
+                'meta_description' => null,
+                'status' => 1,
+                'has_variant' => $i%2 == 0 ? 1 : 0,
+                'is_demo' => 1,
+                'created_at' => Carbon::now()
+            ]);
+
+            if($i%2 != 0){
+                foreach($multipleProductArray as $image)
+                {
+                    ProductImage::insert([
+                        'product_id' => $id,
+                        'image' => $image,
+                        'created_at' => Carbon::now(),
+                    ]);
+                }
+            }
+
+            if($i%2 == 0){
+                foreach($multipleProductArray as $image)
+                {
+                    $variantInfo = new ProductVariant();
+                    $variantInfo->product_id = $id;
+                    $variantInfo->image = $image;
+                    $variantInfo->color_id = isset($colorId[0]) ? $colorId[0]->id : null;
+                    $variantInfo->size_id = isset($sizeId[0]) ? $sizeId[0]->id : null;
+                    $variantInfo->region_id = isset($regionId[0]) ? $regionId[0]->id : null;
+                    $variantInfo->sim_id = null;
+                    $variantInfo->storage_type_id = null;
+                    $variantInfo->stock = 1000;
+                    $variantInfo->price = $price;
+                    $variantInfo->discounted_price = $price - 10;
+                    $variantInfo->warrenty_id = null;
+                    $variantInfo->device_condition_id = null;
+                    $variantInfo->created_at = Carbon::now();
+                    $variantInfo->save();
+
+                    ProductReview::insert([
+                        'product_id' => $id,
+                        'user_id' => 1,
+                        'rating' => rand(1,5),
+                        'review' => $faker->catchPhrase(),
+                        'reply' => 'thanks',
+                        'status' => 1,
+                        'created_at' => Carbon::now(),
+                    ]);
+
+                }
+            }
+
+        }
+
+        Toastr::success('Fake Products Inserted', 'Success');
+        return back();
+    }
+
+    public function removeDemoProducts(){
+        $products = Product::where('is_demo', 1)->get();
+        foreach($products as $product){
+            ProductImage::where('product_id', $product->id)->delete();
+            ProductVariant::where('product_id', $product->id)->delete();
+            ProductReview::where('product_id', $product->id)->delete();
+            $product->delete();
+        }
+        Toastr::success('Successfully Removed Demo Products', 'Success');
+        return back();
     }
 
 }

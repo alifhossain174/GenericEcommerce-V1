@@ -65,7 +65,7 @@
 
     $systemModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
                                                 ->where('route', 'like', '%view/email/credential%')
-                                                ->where('route', 'like', '%view/email/templates%')
+                                                ->orWhere('route', 'like', '%view/email/templates%')
                                                 ->orWhere('route', 'like', '%setup/sms/gateways%')
                                                 ->orWhere('route', 'like', '%setup/payment/gateways%')
                                                 ->get();
@@ -75,6 +75,11 @@
     $backupModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%backup%')->get();
 
     $reportModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%sales/report%')->get();
+
+    $demoProductsModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
+                                                ->where('route', 'like', '%generate/demo/products%')
+                                                ->orWhere('route', 'like', '%remove/demo/products%')
+                                                ->get();
 ?>
 
 
@@ -420,6 +425,15 @@
     @if(checkAuth("view/user/role/permission")) <li><a href="{{ url('/view/user/role/permission') }}"><i class="mdi mdi-security"></i><span>Assign Role Permission</span></a></li> @endif
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    @if ($demoProductsModule && count($demoProductsModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-box"></i><span>Demo Products</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("generate/demo/products"))<li><a href="{{ url('/generate/demo/products') }}">Generate Products</a></li>@endif
+            @if(checkAuth("remove/demo/products"))<li><a href="{{ url('/remove/demo/products') }}">Remove Products</a></li>@endif
+        </ul>
+    </li>
+    @endif
     @if(checkAuth("clear/cache")) <li><a href="{{ url('/clear/cache') }}"><i class="feather-rotate-cw"></i><span>Clear Cache</span></a></li> @endif
     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="feather-log-out"></i><span>Logout</span></a></li>
 

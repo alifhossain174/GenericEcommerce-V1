@@ -134,6 +134,9 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::post('/update/product', [ProductController::class, 'updateProduct'])->name('UpdateProduct');
     Route::post('/add/another/variant', [ProductController::class, 'addAnotherVariant'])->name('AddAnotherVariant');
     Route::get('/delete/product/variant/{id}', [ProductController::class, 'deleteProductVariant'])->name('DeleteProductVariant');
+    // demo products route
+    Route::get('generate/demo/products', [ProductController::class, 'generateDemoProducts'])->name('GenerateDemoProducts');
+    Route::get('remove/demo/products', [ProductController::class, 'removeDemoProducts'])->name('RemoveDemoProducts');
 
 
     // product review

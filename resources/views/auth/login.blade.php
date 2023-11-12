@@ -20,7 +20,7 @@
                 <form class="user" method="POST" action="{{ route('login') }}" style="padding-bottom: 20px;">
                     @csrf
                     <div class="form-group">
-                        <input type="email" name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email Address">
+                        <input type="email" @if(env('APP_NAME') == 'GenericCommerceV1') value="admin@gmail.com" @else value="{{ old('email') }}" @endif name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail email" required autocomplete="email" autofocus placeholder="Email Address">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -28,7 +28,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="exampleInputPassword password" required autocomplete="current-password" placeholder="Password">
+                        <input type="password" @if(env('APP_NAME') == 'GenericCommerceV1') value="12345678" @endif name="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="exampleInputPassword password" required autocomplete="current-password" placeholder="Password">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

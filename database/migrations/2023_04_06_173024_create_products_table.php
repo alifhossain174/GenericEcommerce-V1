@@ -44,6 +44,7 @@ class CreateProductsTable extends Migration
 
             $table->tinyInteger('status')->default(1)->comment("1=>Active; 0=>Inactive");
             $table->tinyInteger('has_variant')->default(0)->comment("0=>No Variant; 1=>Product Has variant based on Colors, Region etc.");
+            $table->tinyInteger('is_demo')->default(0)->comment("0=>original; 1=>Demo");
             $table->timestamps();
         });
     }

@@ -1419,7 +1419,7 @@ class ApiController extends BaseController
                             'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
                             'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
                         ]);
-    
+
                         Mail::to(trim($userEmail))->send(new OrderPlacedEmail($orderInfo));
                     }
                 }
