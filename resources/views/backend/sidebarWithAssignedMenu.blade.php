@@ -78,7 +78,7 @@
 
     $demoProductsModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
                                                 ->where('route', 'like', '%generate/demo/products%')
-                                                ->orWhere('route', 'like', '%remove/demo/products%')
+                                                ->orWhere('route', 'like', '%remove/demo/products/page%')
                                                 ->get();
 ?>
 
@@ -430,7 +430,7 @@
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-box"></i><span>Demo Products</span></a>
         <ul class="sub-menu" aria-expanded="false">
             @if(checkAuth("generate/demo/products"))<li><a href="{{ url('/generate/demo/products') }}">Generate Products</a></li>@endif
-            @if(checkAuth("remove/demo/products"))<li><a href="{{ url('/remove/demo/products') }}">Remove Products</a></li>@endif
+            @if(checkAuth("remove/demo/products/page"))<li><a href="{{ url('/remove/demo/products') }}">Remove Products</a></li>@endif
         </ul>
     </li>
     @endif

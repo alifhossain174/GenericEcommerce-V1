@@ -245,7 +245,9 @@ class ProductController extends Controller
                         $link = "https://GenericCommerceV1-beta.vercel.app/product/".$data->slug;
                         $btn = ' <a target="_blank" href="'.$link.'" class="mb-1 btn-sm btn-success rounded d-inline-block" title="For Frontend Product View"><i class="fa fa-eye"></i></a>';
                         $btn .= ' <a href="'.url('edit/product').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded d-inline-block"><i class="fas fa-edit"></i></a>';
-                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded d-inline-block deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                        // if($data->is_demo == 0){
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded d-inline-block deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                        // }
                         return $btn;
                     })
                     ->rawColumns(['action', 'price', 'status'])
@@ -263,13 +265,13 @@ class ProductController extends Controller
         }
 
         if($data->image){
-            if(file_exists(public_path($data->image))){
+            if(file_exists(public_path($data->image)) && $data->is_demo == 0){
                 unlink(public_path($data->image));
             }
         }
 
         $gallery = ProductImage::where('product_id', $data->id)->get();
-        if(count($gallery) > 0){
+        if(count($gallery) > 0 && $data->is_demo == 0){
             foreach($gallery as $img){
                 if($img->image && file_exists(public_path('productImages/'.$img->image))){
                     unlink(public_path('productImages/'.$img->image));
@@ -279,7 +281,7 @@ class ProductController extends Controller
         }
 
         $variants = ProductVariant::where('product_id', $data->id)->orderBy('id', 'asc')->get();
-        if(count($variants) > 0){
+        if(count($variants) > 0 && $data->is_demo == 0){
             foreach($variants as $img){
                 if($img->image && file_exists(public_path('productImages/'.$img->image))){
                     unlink(public_path('productImages/'.$img->image));
@@ -637,9 +639,14 @@ class ProductController extends Controller
 
     // demo products function
     public function generateDemoProducts(){
+        return view('backend.product.generate_demo');
+    }
+
+    public function saveGeneratedDemoProducts(Request $request){
 
         $faker = Container::getInstance()->make(Generator::class);
-        for($i=1; $i<=100; $i++){
+
+        for($i = 1; $i<=$request->products; $i++){
 
             $title = $faker->catchPhrase();
             $categoryId = Category::select('id')->inRandomOrder()->limit(1)->get();
@@ -736,11 +743,14 @@ class ProductController extends Controller
 
                 }
             }
-
         }
 
-        Toastr::success('Fake Products Inserted', 'Success');
+        Toastr::success('Demo Products Inserted', 'Success');
         return back();
+    }
+
+    public function removeDemoProductsPage(){
+        return view('backend.product.remove_demo');
     }
 
     public function removeDemoProducts(){

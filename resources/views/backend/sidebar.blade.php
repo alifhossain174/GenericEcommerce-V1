@@ -267,7 +267,7 @@
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-box"></i><span>Demo Products</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/generate/demo/products') }}">Generate Products</a></li>
-            <li><a href="{{ url('/remove/demo/products') }}">Remove Products</a></li>
+            <li><a href="{{ url('/remove/demo/products/page') }}">Remove Products</a></li>
         </ul>
     </li>
     <li><a href="{{ url('/clear/cache') }}"><i class="feather-rotate-cw"></i><span>Clear Cache</span></a></li>
