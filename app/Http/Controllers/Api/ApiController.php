@@ -1382,7 +1382,7 @@ class ApiController extends BaseController
             }
 
             $orderInfo = Order::where('id', $request->order_id)->first();
-            $orderInfo->delivery_fee = $deliveryCharge;
+            $orderInfo->delivery_fee = $orderInfo->delivery_method == 2 ? 0 : $deliveryCharge;
             $orderInfo->total = $orderInfo->total + $deliveryCharge;
             $orderInfo->complete_order = 1;
             $orderInfo->save();
