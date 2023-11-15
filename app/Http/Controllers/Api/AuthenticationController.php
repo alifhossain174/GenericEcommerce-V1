@@ -46,7 +46,7 @@ class AuthenticationController extends Controller
                 if($username != '' && $checkExistingEmail){
                     return response()->json([
                         'success'=> false,
-                        'message'=> 'Email already used ! Please use another Email',
+                        'message'=> 'You are already registered! Try login',
                         'data' => $data
                     ]);
                 } else {
