@@ -137,15 +137,14 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/user/login",
-					"protocol": "http",
+					"raw": "https://app-area.imaginex.com.bd/api/user/login",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"user",
@@ -372,7 +371,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "103|8iMIMCwNsFAByFw6VRM8AZQVGwyM4pnmAhKPcej5",
+							"value": "167|saAvRPLgPEoFg25Xau8fAa6hw5oTtC4XmAzEc8HM",
 							"type": "string"
 						}
 					]
@@ -404,11 +403,16 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/user/profile/info",
+					"raw": "https://app-area.imaginex.com.bd/api/user/profile/info",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
+						"api",
 						"user",
 						"profile",
 						"info"
@@ -1722,7 +1726,7 @@
 					"formdata": [
 						{
 							"key": "flag",
-							"value": "5",
+							"value": "8",
 							"type": "text"
 						}
 					]
@@ -1751,7 +1755,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
@@ -1767,11 +1771,16 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/featured/flag/wise/products",
+					"raw": "https://app-area.imaginex.com.bd/api/featured/flag/wise/products",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
+						"api",
 						"featured",
 						"flag",
 						"wise",
@@ -1843,7 +1852,7 @@
 					]
 				},
 				"url": {
-					"raw": "https://imaginex-admin.getcommerce.xyz/api/product/details/aware-organic-cotton-1698644975UODL6",
+					"raw": "https://imaginex-admin.getcommerce.xyz/api/product/details/western-denim-shirt-16987319851Ck5g",
 					"protocol": "https",
 					"host": [
 						"imaginex-admin",
@@ -1854,7 +1863,7 @@
 						"api",
 						"product",
 						"details",
-						"aware-organic-cotton-1698644975UODL6"
+						"western-denim-shirt-16987319851Ck5g"
 					]
 				}
 			},
@@ -1902,7 +1911,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-area.imaginex.com.bd/get/all/brands",
+					"raw": "https://app-area.imaginex.com.bd/api/get/all/brands",
 					"protocol": "https",
 					"host": [
 						"app-area",
@@ -1911,6 +1920,7 @@
 						"bd"
 					],
 					"path": [
+						"api",
 						"get",
 						"all",
 						"brands"
@@ -2064,16 +2074,21 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/terms/and/condition",
+					"raw": "https://app-area.imaginex.com.bd/api/get/terms/and/condition",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
+						"api",
 						"get",
 						"terms",
 						"and",
@@ -2119,16 +2134,21 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/shipping/policy",
+					"raw": "https://app-area.imaginex.com.bd/api/get/shipping/policy",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
+						"api",
 						"get",
 						"shipping",
 						"policy"
@@ -2144,16 +2164,21 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/return/policy",
+					"raw": "https://app-area.imaginex.com.bd/api/get/return/policy",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
+						"api",
 						"get",
 						"return",
 						"policy"
@@ -2199,12 +2224,12 @@
 					}
 				],
 				"url": {
-					"raw": "https://imaginex-admin.getcommerce.xyz/api/general/info",
+					"raw": "https://app-area.threenotthree.com/api/general/info",
 					"protocol": "https",
 					"host": [
-						"imaginex-admin",
-						"getcommerce",
-						"xyz"
+						"app-area",
+						"threenotthree",
+						"com"
 					],
 					"path": [
 						"api",
@@ -2387,7 +2412,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "110|aTF0iLnm0idRObq31QPly1xB2O7f9kGQ8NVBgDmm",
+							"value": "167|saAvRPLgPEoFg25Xau8fAa6hw5oTtC4XmAzEc8HM",
 							"type": "string"
 						}
 					]
@@ -2406,7 +2431,7 @@
 					"formdata": [
 						{
 							"key": "product_id[]",
-							"value": "3",
+							"value": "37",
 							"type": "text"
 						},
 						{
@@ -2433,63 +2458,74 @@
 						{
 							"key": "coupon_code",
 							"value": "OFF20",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "special_note",
 							"value": "\"Quickly Need\"",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "delivery_method",
 							"value": "1",
 							"description": "1=>Home Delivery; 2=>Store Pickup",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "color_id[]",
 							"value": "12",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "region_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "sim_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "storage_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "warrenty_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "device_condition_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "size_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "https://imaginex-admin.getcommerce.xyz/api/order/checkout",
+					"raw": "https://app-area.imaginex.com.bd/api/order/checkout",
 					"protocol": "https",
 					"host": [
-						"imaginex-admin",
-						"getcommerce",
-						"xyz"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
 						"api",
@@ -2768,7 +2804,8 @@
 						{
 							"key": "gender",
 							"value": "Male",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "address",
@@ -2778,7 +2815,8 @@
 						{
 							"key": "post_code",
 							"value": "1071",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "city",
@@ -4339,7 +4377,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "54|0B3aCs332Q8xNNfTx5maNOrZ99AAou7pzB3Ci3jk",
+							"value": "207|cirodMHmAXiiOqzrfYQBWgBGjVjtUhGd2G3xNSr2",
 							"type": "string"
 						}
 					]
@@ -4436,11 +4474,15 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/add/to/wishlist",
+					"raw": "https://imaginex-admin.getcommerce.xyz/api/add/to/wishlist",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"imaginex-admin",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
+						"api",
 						"add",
 						"to",
 						"wishlist"
@@ -4460,7 +4502,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "103|TBpfp8YwFz113BWIxZhAmlYb99G6yK4FTXIaVBjm",
+							"value": "207|cirodMHmAXiiOqzrfYQBWgBGjVjtUhGd2G3xNSr2",
 							"type": "string"
 						}
 					]
@@ -4558,12 +4600,13 @@
 					]
 				},
 				"url": {
-					"raw": "https://imaginex.getcommerce.xyz/api/get/my/wishlist",
+					"raw": "https://app-area.imaginex.com.bd/api/get/my/wishlist",
 					"protocol": "https",
 					"host": [
+						"app-area",
 						"imaginex",
-						"getcommerce",
-						"xyz"
+						"com",
+						"bd"
 					],
 					"path": [
 						"api",
@@ -5250,7 +5293,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "4|st4CtwMav2srN4LPUfMrbwuNe6IW6KEcoU58GW4s",
+							"value": "164|dVdyuqi5ylNKcjCkIKIVzxHiOWqX6dRxvUP8Z6uy",
 							"type": "string"
 						}
 					]
@@ -5285,11 +5328,16 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/product/review/submit",
+					"raw": "https://app-area.imaginex.com.bd/api/product/review/submit",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
+						"api",
 						"product",
 						"review",
 						"submit"
@@ -5608,9 +5656,10 @@
 							"disabled": true
 						},
 						{
-							"key": "minimum_price'",
-							"value": "'79'",
-							"type": "text"
+							"key": "minimum_price",
+							"value": "150",
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "maximum_price",
@@ -5668,7 +5717,7 @@
 						},
 						{
 							"key": "brand_id",
-							"value": "",
+							"value": "26",
 							"type": "text",
 							"disabled": true
 						}
@@ -5944,7 +5993,7 @@
 		{
 			"name": "Blog Details",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
@@ -5952,18 +6001,8 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "slug",
-							"value": "blog-41697004676",
-							"type": "text"
-						}
-					]
-				},
 				"url": {
-					"raw": "https://techshop-admin.getcommerce.xyz/api/blog/details",
+					"raw": "https://techshop-admin.getcommerce.xyz/api/blog/details/blog-41697004676",
 					"protocol": "https",
 					"host": [
 						"techshop-admin",
@@ -5973,7 +6012,8 @@
 					"path": [
 						"api",
 						"blog",
-						"details"
+						"details",
+						"blog-41697004676"
 					]
 				}
 			},
@@ -6020,18 +6060,24 @@
 					}
 				],
 				"url": {
-					"raw": "https://fashionista-admin.getcommerce.xyz/api/products/for/you",
+					"raw": "https://app-area.fejmo.com/api/products/for/you?page=2",
 					"protocol": "https",
 					"host": [
-						"fashionista-admin",
-						"getcommerce",
-						"xyz"
+						"app-area",
+						"fejmo",
+						"com"
 					],
 					"path": [
 						"api",
 						"products",
 						"for",
 						"you"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
 					]
 				}
 			},

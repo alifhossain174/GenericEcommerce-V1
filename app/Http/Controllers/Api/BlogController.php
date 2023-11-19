@@ -75,13 +75,13 @@ class BlogController extends Controller
         }
     }
 
-    public function blogDetails(Request $request){
+    public function blogDetails(Request $request, $slug){
         if ($request->header('Authorization') == BlogController::AUTHORIZATION_TOKEN) {
 
             $data = DB::table('blogs')
                         ->leftJoin('blog_categories', 'blogs.category_id', '=', 'blog_categories.id')
                         ->select('blogs.*', 'blog_categories.name as blog_category_name', 'blog_categories.slug as category_slug')
-                        ->where('blogs.slug', $request->slug)
+                        ->where('blogs.slug', $slug)
                         ->first();
 
             return response()->json([
