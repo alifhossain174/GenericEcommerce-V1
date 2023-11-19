@@ -5,11 +5,14 @@
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Website Config</li>
     <li><a href="{{ url('/general/info') }}"><i class="feather-grid"></i><span>General Info</span></a></li>
-    <li><a href="{{ url('/website/theme/page') }}"><i class="mdi mdi-format-color-fill" style="font-size: 18px"></i><span>Website Theme Color</span></a></li>
-    <li><a href="{{ url('/social/media/page') }}"><i class="mdi mdi-link-variant" style="font-size: 17px"></i><span>Social Media Links</span></a></li>
+    <li><a href="{{ url('/website/theme/page') }}"><i class="mdi mdi-format-color-fill"
+                style="font-size: 18px"></i><span>Website Theme Color</span></a></li>
+    <li><a href="{{ url('/social/media/page') }}"><i class="mdi mdi-link-variant"
+                style="font-size: 17px"></i><span>Social Media Links</span></a></li>
     <li><a href="{{ url('/seo/homepage') }}"><i class="dripicons-search"></i><span>Home Page SEO</span></a></li>
     <li><a href="{{ url('/custom/css/js') }}"><i class="feather-code"></i><span>Custom CSS & JS</span></a></li>
-    <li><a href="{{ url('/social/chat/script/page') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li>
+    <li><a href="{{ url('/social/chat/script/page') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat
+                Scripts</span></a></li>
 
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
@@ -44,7 +47,8 @@
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-git-pull-request"></i><span>Child Category</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-git-pull-request"></i><span>Child
+                Category</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/add/new/childcategory') }}">Add New Child Category</a></li>
             <li><a href="{{ url('/view/all/childcategory') }}">View All Child Categories</a></li>
@@ -73,9 +77,9 @@
                     <span style="color:goldenrod" title="Indicate Unanswered Questions">
                         (@php
                             echo DB::table('product_question_answers')
-                                    ->whereNull('answer')
-                                    ->orWhere('answer', '=', '')
-                                    ->count();
+                                ->whereNull('answer')
+                                ->orWhere('answer', '=', '')
+                                ->count();
                         @endphp)
                     </span>
                 </a>
@@ -87,30 +91,27 @@
         <ul class="sub-menu" aria-expanded="false">
             <li><a style="color: white !important;" href="{{ url('/view/orders') }}">All Orders (@php echo DB::table('orders')->count(); @endphp)</a>
             </li>
-            <li><a style="color: skyblue !important;"
-                    href="{{ url('/view/pending/orders') }}">Pending Orders (@php
+            <li><a style="color: skyblue !important;" href="{{ url('/view/pending/orders') }}">Pending Orders
+                    (@php
                         echo DB::table('orders')
                             ->where('order_status', 0)
                             ->count();
                     @endphp)</a>
             </li>
-            <li><a style="color: wheat !important;"
-                    href="{{ url('/view/approved/orders') }}">Approved Orders
+            <li><a style="color: wheat !important;" href="{{ url('/view/approved/orders') }}">Approved Orders
                     (@php
                         echo DB::table('orders')
                             ->where('order_status', 1)
                             ->orWhere('order_status', 2)
                             ->count();
                     @endphp)</a></li>
-            <li><a style="color: #0c0 !important;"
-                    href="{{ url('/view/delivered/orders') }}">Delivered Orders
+            <li><a style="color: #0c0 !important;" href="{{ url('/view/delivered/orders') }}">Delivered Orders
                     (@php
                         echo DB::table('orders')
                             ->where('order_status', 3)
                             ->count();
                     @endphp)</a></li>
-            <li><a style="color: red !important;"
-                    href="{{ url('/view/cancelled/orders') }}">Cancelled Orders
+            <li><a style="color: red !important;" href="{{ url('/view/cancelled/orders') }}">Cancelled Orders
                     (@php
                         echo DB::table('orders')
                             ->where('order_status', 4)
@@ -153,17 +154,21 @@
     </li>
 
     <li><a href="{{ url('/view/all/customers') }}"><i class="feather-users"></i><span>Customers</span></a></li>
-    <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li>
-    <li><a href="{{ url('/view/delivery/charges') }}"><i class="feather-truck"></i><span>Delivery Charges</span></a></li>
+    <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's
+                Wishlist</span></a></li>
+    <li><a href="{{ url('/view/delivery/charges') }}"><i class="feather-truck"></i><span>Delivery Charges</span></a>
+    </li>
 
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate
+                Report</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/sales/report') }}">Sales Report</a></li>
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-download-cloud"></i><span>Download Backup</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-download-cloud"></i><span>Download
+                Backup</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/download/database/backup') }}">Database Backup</a></li>
             <li><a href="{{ url('/download/product/files/backup') }}">Product Images Backup</a></li>
@@ -181,32 +186,29 @@
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">CRM Modules</li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-headset"></i><span>Support Ticket</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-headset"></i><span>Support
+                Ticket</span></a>
         <ul class="sub-menu" aria-expanded="false">
-            <li><a style="color: skyblue !important;"
-                    href="{{ url('/pending/support/tickets') }}">Pending Supports
+            <li><a style="color: skyblue !important;" href="{{ url('/pending/support/tickets') }}">Pending Supports
                     (@php
                         echo DB::table('support_tickets')
                             ->where('status', 0)
                             ->orWhere('status', 1)
                             ->count();
                     @endphp)</a></li>
-            <li><a style="color: #0c0 !important;"
-                    href="{{ url('/solved/support/tickets') }}">Solved Supports
+            <li><a style="color: #0c0 !important;" href="{{ url('/solved/support/tickets') }}">Solved Supports
                     (@php
                         echo DB::table('support_tickets')
                             ->where('status', 2)
                             ->count();
                     @endphp)</a></li>
-            <li><a style="color: goldenrod !important;"
-                    href="{{ url('/on/hold/support/tickets') }}">On Hold Supports
+            <li><a style="color: goldenrod !important;" href="{{ url('/on/hold/support/tickets') }}">On Hold Supports
                     (@php
                         echo DB::table('support_tickets')
                             ->where('status', 4)
                             ->count();
                     @endphp)</a></li>
-            <li><a style="color: red !important;"
-                    href="{{ url('/rejected/support/tickets') }}">Rejected Supports
+            <li><a style="color: red !important;" href="{{ url('/rejected/support/tickets') }}">Rejected Supports
                     (@php
                         echo DB::table('support_tickets')
                             ->where('status', 3)
@@ -214,13 +216,16 @@
                     @endphp)</a></li>
         </ul>
     </li>
-    <li><a href="{{ url('/view/all/contact/requests') }}"><i class="feather-phone-forwarded"></i><span>Contact Request</span></a></li>
-    <li><a href="{{ url('/view/all/subscribed/users') }}"><i class="feather-user-check"></i><span>Subscribed Users</span></a></li>
+    <li><a href="{{ url('/view/all/contact/requests') }}"><i class="feather-phone-forwarded"></i><span>Contact
+                Request</span></a></li>
+    <li><a href="{{ url('/view/all/subscribed/users') }}"><i class="feather-user-check"></i><span>Subscribed
+                Users</span></a></li>
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders & Banners</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders &
+                Banners</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/view/all/sliders') }}">View All Sliders</a></li>
             <li><a href="{{ url('/view/all/banners') }}">View All Banners</a></li>
@@ -228,14 +233,16 @@
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i
+                class="feather-message-square"></i><span>Testimonials</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li>
             <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li>
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage
+                Blogs</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li>
             <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li>
@@ -243,7 +250,8 @@
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms &
+                Policies</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/terms/and/condition') }}">Terms & Condition</a></li>
             <li><a href="{{ url('/view/privacy/policy') }}">Privacy Policy</a></li>
@@ -257,10 +265,13 @@
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">User Role Permission</li>
-    <li><a href="{{ url('/view/system/users') }}"><i class="fas fa-user-shield"></i><span>System Users</span></a></li>
-    <li><a href="{{ url('/view/permission/routes') }}"><i class="feather-git-merge"></i><span>Permission Routes</span></a></li>
+    <li><a href="{{ url('/view/system/users') }}"><i class="fas fa-user-shield"></i><span>System Users</span></a>
+    </li>
+    <li><a href="{{ url('/view/permission/routes') }}"><i class="feather-git-merge"></i><span>Permission
+                Routes</span></a></li>
     <li><a href="{{ url('/view/user/roles') }}"><i class="feather-user-plus"></i><span>User Roles</span></a></li>
-    <li><a href="{{ url('/view/user/role/permission') }}"><i class="mdi mdi-security"></i><span>Assign Role Permission</span></a></li>
+    <li><a href="{{ url('/view/user/role/permission') }}"><i class="mdi mdi-security"></i><span>Assign Role
+                Permission</span></a></li>
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
 
     <li>
@@ -271,6 +282,8 @@
         </ul>
     </li>
     <li><a href="{{ url('/clear/cache') }}"><i class="feather-rotate-cw"></i><span>Clear Cache</span></a></li>
-    <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="feather-log-out"></i><span>Logout</span></a></li>
+    <li><a href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                class="feather-log-out"></i><span>Logout</span></a></li>
 
 </ul>
