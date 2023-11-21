@@ -155,6 +155,6 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('get/all/blog/categories', [BlogController::class, 'getAllBlogCategories']);
     Route::get('get/all/blogs', [BlogController::class, 'getAllBlogs']);
     Route::post('get/category/wise/blogs', [BlogController::class, 'getCategoryWiseBlogs']);
-    Route::get('blog/details/slug', [BlogController::class, 'blogDetails']);
+    Route::get('blog/details/{slug}', [BlogController::class, 'blogDetails']);
 
 });
