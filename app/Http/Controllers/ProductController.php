@@ -175,17 +175,17 @@ class ProductController extends Controller
     }
 
     public function viewAllProducts(Request $request){
+
         if ($request->ajax()) {
 
+            ini_set('memory_limit', '4096M'); // 4GB RAM
             $data = DB::table('products')
-                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
-                ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
-                ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
-                ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
-                ->leftJoin('units', 'products.unit_id', '=', 'units.id')
-                ->select('products.*', 'units.name as unit_name', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name',  'flags.name as flag_name')
-                ->orderBy('products.id', 'desc')
-                ->get();
+                        ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+                        ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
+                        ->leftJoin('units', 'products.unit_id', '=', 'units.id')
+                        ->select('products.*', 'units.name as unit_name', 'categories.name as category_name', 'flags.name as flag_name')
+                        ->orderBy('products.id', 'desc')
+                        ->get();
 
             return Datatables::of($data)
                     ->editColumn('image', function($data) {
@@ -204,7 +204,7 @@ class ProductController extends Controller
                     ->editColumn('price', function($data) {
                         if($data->has_variant == 1){
                             $priceStr = '';
-                            $variantInfo = ProductVariant::where('product_id', $data->id)->orderBy('id', 'asc')->get();
+                            $variantInfo = ProductVariant::where('product_id', $data->id)->select('price')->orderBy('id', 'asc')->get();
                             foreach($variantInfo as $variant){
                                 $priceStr .= $variant->price.", ";
                             }
@@ -242,9 +242,9 @@ class ProductController extends Controller
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                        $link = "https://GenericCommerceV1-beta.vercel.app/product/".$data->slug;
-                        $btn = ' <a target="_blank" href="'.$link.'" class="mb-1 btn-sm btn-success rounded d-inline-block" title="For Frontend Product View"><i class="fa fa-eye"></i></a>';
-                        $btn .= ' <a href="'.url('edit/product').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded d-inline-block"><i class="fas fa-edit"></i></a>';
+                        // $link = "https://GenericCommerceV1-beta.vercel.app/product/".$data->slug;
+                        // $btn = ' <a target="_blank" href="'.$link.'" class="mb-1 btn-sm btn-success rounded d-inline-block" title="For Frontend Product View"><i class="fa fa-eye"></i></a>';
+                        $btn = ' <a href="'.url('edit/product').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded d-inline-block"><i class="fas fa-edit"></i></a>';
                         $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded d-inline-block deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         return $btn;
                     })
@@ -642,6 +642,8 @@ class ProductController extends Controller
 
     public function saveGeneratedDemoProducts(Request $request){
 
+        ini_set('max_execution_time', 3600);
+
         $faker = Container::getInstance()->make(Generator::class);
 
         for($i = 1; $i<=$request->products; $i++){
@@ -752,6 +754,9 @@ class ProductController extends Controller
     }
 
     public function removeDemoProducts(){
+
+        ini_set('max_execution_time', 3600);
+
         $products = Product::where('is_demo', 1)->get();
         foreach($products as $product){
             ProductImage::where('product_id', $product->id)->delete();
