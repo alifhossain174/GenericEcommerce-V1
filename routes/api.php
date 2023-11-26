@@ -86,6 +86,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('get/payment/gateways', [ApiController::class, 'getPaymentGateways']);
     Route::post('order/preview', [ApiController::class, 'orderPreview']);
     Route::get('get/delivery/charge/{district}', [ApiController::class, 'getdeliveryCharge']);
+    Route::post('get/product/list', [ApiController::class, 'getProductList']);
 
 
     // unique api
