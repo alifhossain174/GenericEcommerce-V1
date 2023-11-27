@@ -1456,7 +1456,7 @@ class ApiController extends BaseController
         $data = DB::table('orders')->where('user_id', auth()->user()->id)->where('complete_order', 1)->orderBy('id', 'desc')->paginate(100);
         return response()->json([
             'success' => true,
-            'date' => OrderResource::collection($data)->resource
+            'data' => OrderResource::collection($data)->resource
         ], 200);
     }
 
