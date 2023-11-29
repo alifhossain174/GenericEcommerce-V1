@@ -1472,12 +1472,19 @@ class ApiController extends BaseController
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
             $order = DB::table('orders')->where('order_no', $request->order_no)->first();
-            $data = DB::table('order_progress')->where('order_id', $order->id)->orderBy('id', 'asc')->get();
+            if($order){
+                $data = DB::table('order_progress')->where('order_id', $order->id)->orderBy('id', 'asc')->get();
+                return response()->json([
+                    'success' => true,
+                    'date' => OrderProgressResource::collection($data)
+                ], 200);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => "No Order Found"
+                ], 200);
+            }
 
-            return response()->json([
-                'success' => true,
-                'date' => OrderProgressResource::collection($data)
-            ], 200);
 
         } else {
             return response()->json([
