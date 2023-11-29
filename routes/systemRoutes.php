@@ -19,7 +19,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::post('/update/sms/gateway/info', [SystemController::class, 'updateSmsGatewayInfo'])->name('UpdateSmsGatewayInfo');
     Route::get('/change/gateway/status/{provider}', [SystemController::class, 'changeGatewayStatus'])->name('ChangeGatewayStatus');
 
-    // system route for sms gateway
+    // system route for payment gateway
     Route::get('/setup/payment/gateways', [SystemController::class, 'viewPaymentGateways'])->name('ViewPaymentGateways');
     Route::post('/update/payment/gateway/info', [SystemController::class, 'updatePaymentGatewayInfo'])->name('UpdatePaymentGatewayInfo');
     Route::get('/change/payment/gateway/status/{provider}', [SystemController::class, 'changePaymentGatewayStatus'])->name('ChangePaymentGatewayStatus');
