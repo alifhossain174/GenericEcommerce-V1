@@ -12,7 +12,7 @@ use App\Models\Unit;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use DataTables;
+use Yajra\DataTables\DataTables;
 
 class ConfigController extends Controller
 {
