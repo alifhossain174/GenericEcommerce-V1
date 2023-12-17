@@ -110,9 +110,9 @@
             @if(checkAuth("view/all/brands")) <li><a href="{{ url('/view/all/brands') }}">Product Brands</a></li> @endif
             @if(checkAuth("view/all/models")) <li><a href="{{ url('/view/all/models') }}">Models of Brand</a></li> @endif
             @if(checkAuth("view/all/colors")) <li><a href="{{ url('/view/all/colors') }}">Product Colors</a></li> @endif
-            {{-- @if(checkAuth("view/all/storages")) <li><a href="{{ url('/view/all/storages') }}">Storage (RAM/ROM)</a></li> @endif
+            @if(checkAuth("view/all/storages")) <li><a href="{{ url('/view/all/storages') }}">Storage (RAM/ROM)</a></li> @endif
             @if(checkAuth("view/all/sims")) <li><a href="{{ url('/view/all/sims') }}">SIM Type</a></li> @endif
-            @if(checkAuth("view/all/device/conditions")) <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li> @endif --}}
+            @if(checkAuth("view/all/device/conditions")) <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li> @endif
             @if(checkAuth("view/all/warrenties")) <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty</a></li> @endif
         </ul>
     </li>

@@ -11,8 +11,7 @@
                 style="font-size: 17px"></i><span>Social Media Links</span></a></li>
     <li><a href="{{ url('/seo/homepage') }}"><i class="dripicons-search"></i><span>Home Page SEO</span></a></li>
     <li><a href="{{ url('/custom/css/js') }}"><i class="feather-code"></i><span>Custom CSS & JS</span></a></li>
-    <li><a href="{{ url('/social/chat/script/page') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat
-                Scripts</span></a></li>
+    <li><a href="{{ url('/social/chat/script/page') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li>
 
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
@@ -20,16 +19,25 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>Config</span></a>
         <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/view/all/units') }}">Measurement Units</a></li>
-            <li><a href="{{ url('/view/all/flags') }}">Product Flags</a></li>
-            <li><a href="{{ url('/view/all/sizes') }}">Product Sizes</a></li>
+
+            <li><a href="{{ url('/config/setup') }}">Setup Your Config</a></li>
+
+            {{-- Fshion Insdustry --}}
+            <li><a href="{{ url('/view/all/sizes') }}">Product Sizes (Fashion)</a></li>
+
+            {{-- tech industry --}}
+            <li><a href="{{ url('/view/all/storages') }}">Storage (Tech)</a></li>
+            <li><a href="{{ url('/view/all/sims') }}">SIM Type (Tech)</a></li>
+            <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition (Tech)</a></li>
+            <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty (Tech)</a></li>
+
+            {{-- common --}}
             <li><a href="{{ url('/view/all/brands') }}">Product Brands</a></li>
             <li><a href="{{ url('/view/all/models') }}">Models of Brand</a></li>
             <li><a href="{{ url('/view/all/colors') }}">Product Colors</a></li>
-            {{-- <li><a href="{{ url('/view/all/storages') }}">Storage (RAM/ROM)</a></li>
-            <li><a href="{{ url('/view/all/sims') }}">SIM Type</a></li>
-            <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li> --}}
-            <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty</a></li>
+            <li><a href="{{ url('/view/all/units') }}">Measurement Units</a></li>
+            <li><a href="{{ url('/view/all/flags') }}">Product Flags</a></li>
+
         </ul>
     </li>
     <li>

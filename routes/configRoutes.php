@@ -9,6 +9,10 @@ use App\Http\Controllers\StorageController;
 
 Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
 
+    // config setup
+    Route::get('config/setup', [ConfigController::class, 'configSetup'])->name('ConfigSetup');
+    Route::post('update/config/setup', [ConfigController::class, 'updateConfigSetup'])->name('UpdateConfigSetup');
+
     // config routes for falg
     Route::get('/view/all/flags', [ConfigController::class, 'viewAllFlags'])->name('ViewAllFlags');
     Route::get('/delete/flag/{slug}', [ConfigController::class, 'deleteFlag'])->name('DeleteFlag');

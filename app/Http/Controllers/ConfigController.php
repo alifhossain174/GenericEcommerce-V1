@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ConfigSetup;
 use App\Models\DeviceCondition;
 use App\Models\Flag;
 use App\Models\ProductWarrenty;
@@ -16,6 +17,32 @@ use Yajra\DataTables\DataTables;
 
 class ConfigController extends Controller
 {
+    public function configSetup(){
+        $techConfigs = ConfigSetup::where('industry', 'Tech')->orderBy('industry', 'desc')->get();
+        $fashionConfigs = ConfigSetup::where('industry', 'Fashion')->orderBy('industry', 'desc')->get();
+        return view('backend.config.setup', compact('techConfigs', 'fashionConfigs'));
+    }
+
+    public function updateConfigSetup(Request $request){
+
+        $configArray = array();
+        foreach($request->config_setup as $configSetup){
+            $configArray[] = $configSetup;
+            ConfigSetup::where('code', $configSetup)->update([
+                'status' => 1,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        ConfigSetup::whereNotIn('code', $configArray)->update([
+            'status' => 0,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Config Setup Updated', 'Success');
+        return back();
+    }
+
     // falg methods
     public function viewAllFlags(Request $request){
         if ($request->ajax()) {

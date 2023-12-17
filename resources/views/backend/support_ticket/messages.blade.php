@@ -32,6 +32,7 @@
             <div class="card">
                 <div class="card-body" id="div1" style="max-height: 400px; overflow-y: scroll">
                     <h4 class="card-title mb-1">Customer</h4>
+                    
                     <div class="w-75 text-left mb-3" style="background: lightgoldenrodyellow; padding: 10px; border-radius: 5px;">
                         {!! $data->message !!}
                         <div class="row pt-1 border-top mt-2">

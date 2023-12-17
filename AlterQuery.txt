@@ -19,3 +19,8 @@ New Table: email_templates
 ==================12.11.23======================
 ALTER TABLE `products` ADD `is_demo` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '0=>original; 1=>Demo' AFTER `has_variant`;
 ================================================
+
+
+==================17.12.23======================
+New table Added named "config_setup" to dynamically manage the config based on industry
+================================================

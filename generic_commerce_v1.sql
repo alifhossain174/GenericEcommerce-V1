@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 05:15 AM
+-- Generation Time: Dec 17, 2023 at 10:22 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -346,6 +346,34 @@ INSERT INTO `colors` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
 (13, 'Dusty Pink', '#c27ba0', '2023-07-09 18:26:57', NULL),
 (14, 'LightGreen', '#b6d7a8', '2023-07-25 10:05:10', '2023-07-25 10:16:12'),
 (15, 'Light Purple', '#cbc3e3', '2023-07-25 10:08:46', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `config_setups`
+--
+
+CREATE TABLE `config_setups` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  `industry` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `config_setups`
+--
+
+INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Product Size', 'product_size', 'Fashion', 0, '2023-12-17 06:53:00', '2023-12-17 09:21:47'),
+(2, NULL, 'Storage', 'storage', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 09:21:47'),
+(3, NULL, 'Sim Type', 'sim', 'Tech', 0, '2023-12-17 06:53:00', '2023-12-17 09:21:47'),
+(4, NULL, 'Device Condition', 'device_condition', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 09:21:47'),
+(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 09:21:47');
 
 -- --------------------------------------------------------
 
@@ -1057,7 +1085,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (93, '2023_04_13_002226_create_banners_table', 44),
 (94, '2023_10_18_135527_create_about_us_table', 45),
 (95, '2023_10_22_122627_create_product_sizes_table', 46),
-(96, '2023_11_08_144020_create_email_templates_table', 47);
+(96, '2023_11_08_144020_create_email_templates_table', 47),
+(97, '2023_12_17_125055_create_config_setups_table', 48);
 
 -- --------------------------------------------------------
 
@@ -7967,6 +7996,12 @@ ALTER TABLE `colors`
   ADD UNIQUE KEY `colors_code_unique` (`code`);
 
 --
+-- Indexes for table `config_setups`
+--
+ALTER TABLE `config_setups`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contact_requests`
 --
 ALTER TABLE `contact_requests`
@@ -8370,6 +8405,12 @@ ALTER TABLE `colors`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `config_setups`
+--
+ALTER TABLE `config_setups`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `contact_requests`
 --
 ALTER TABLE `contact_requests`
@@ -8445,7 +8486,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -8499,13 +8540,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=825;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7213;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1596;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14372;
 
 --
 -- AUTO_INCREMENT for table `product_models`
@@ -8523,7 +8564,7 @@ ALTER TABLE `product_question_answers`
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1396;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14172;
 
 --
 -- AUTO_INCREMENT for table `product_sizes`
@@ -8535,7 +8576,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1462;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14238;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`
