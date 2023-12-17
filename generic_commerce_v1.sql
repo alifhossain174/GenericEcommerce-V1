@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2023 at 10:22 AM
+-- Generation Time: Dec 17, 2023 at 01:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -369,11 +369,12 @@ CREATE TABLE `config_setups` (
 --
 
 INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Product Size', 'product_size', 'Fashion', 0, '2023-12-17 06:53:00', '2023-12-17 09:21:47'),
-(2, NULL, 'Storage', 'storage', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 09:21:47'),
-(3, NULL, 'Sim Type', 'sim', 'Tech', 0, '2023-12-17 06:53:00', '2023-12-17 09:21:47'),
-(4, NULL, 'Device Condition', 'device_condition', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 09:21:47'),
-(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 09:21:47');
+(1, NULL, 'Product Size', 'product_size', 'Fashion', 0, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
+(2, NULL, 'Storage', 'storage', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
+(3, NULL, 'Sim Type', 'sim', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
+(4, NULL, 'Device Condition', 'device_condition', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
+(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
+(6, NULL, 'Region', 'region', 'Common', 0, '2023-12-17 06:53:00', '2023-12-17 11:22:01');
 
 -- --------------------------------------------------------
 
@@ -8408,7 +8409,7 @@ ALTER TABLE `colors`
 -- AUTO_INCREMENT for table `config_setups`
 --
 ALTER TABLE `config_setups`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `contact_requests`
