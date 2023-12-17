@@ -47,7 +47,7 @@
                                         <div class="form-group config_box" @if($config->status == 1) style="background: linear-gradient(to right, #f2fcfe, #cfeeff);" @else style="background: linear-gradient(to right, #fff8f8, #ffd9de);" @endif>
                                             <label class="col-form-label">
                                                 <input type="checkbox" class="switchery_checkbox" id="{{$config->code}}" @if($config->status == 1) checked @endif value="{{$config->code}}" onchange="changeStatus(this.value)" name="config_setup[]" data-size="small" data-toggle="switchery" data-color="#53c024" data-secondary-color="#df3554"/>
-                                                {{$config->name}}
+                                                {{$config->name}} ({{$config->industry}})
                                             </label>
                                         </div>
                                     </div>
@@ -61,7 +61,7 @@
                                         <div class="form-group config_box" @if($config->status == 1) style="background: linear-gradient(to right, #f2fcfe, #cfeeff);" @else style="background: linear-gradient(to right, #fff8f8, #ffd9de);" @endif>
                                             <label class="col-form-label">
                                                 <input type="checkbox" class="switchery_checkbox" id="{{$config->code}}" @if($config->status == 1) checked @endif value="{{$config->code}}" onchange="changeStatus(this.value)" name="config_setup[]" data-size="small" data-toggle="switchery" data-color="#53c024" data-secondary-color="#df3554"/>
-                                                {{$config->name}}
+                                                {{$config->name}} ({{$config->industry}})
                                             </label>
                                         </div>
                                     </div>

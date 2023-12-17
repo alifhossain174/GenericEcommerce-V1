@@ -19,6 +19,7 @@
                                                 ->orWhere('route', 'like', '%view/all/sims%')
                                                 ->orWhere('route', 'like', '%view/all/device/conditions%')
                                                 ->orWhere('route', 'like', '%view/all/warrenties%')
+                                                ->orWhere('route', 'like', '%config/setup%')
                                                 ->get();
 
     $categoryModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%add/new/category%')->orWhere('route', 'like', '%view/new/category%')->get();
@@ -104,16 +105,31 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>Config</span></a>
         <ul class="sub-menu" aria-expanded="false">
+
+            <li><a href="{{ url('/config/setup') }}">Setup Your Config</a></li>
+
+            @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
+                @if(checkAuth("view/all/sizes")) <li><a href="{{ url('/view/all/sizes') }}">Product Sizes</a></li> @endif
+            @endif
+            @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
+                @if(checkAuth("view/all/storages")) <li><a href="{{ url('/view/all/storages') }}">Storage (RAM/ROM)</a></li> @endif
+            @endif
+            @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
+                @if(checkAuth("view/all/sims")) <li><a href="{{ url('/view/all/sims') }}">SIM Type</a></li> @endif
+            @endif
+            @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
+                @if(checkAuth("view/all/device/conditions")) <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li> @endif
+            @endif
+            @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
+                @if(checkAuth("view/all/warrenties")) <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty</a></li> @endif
+            @endif
+
             @if(checkAuth("view/all/units")) <li><a href="{{ url('/view/all/units') }}">Measurement Units</a></li> @endif
             @if(checkAuth("view/all/flags")) <li><a href="{{ url('/view/all/flags') }}">Product Flags</a></li> @endif
-            @if(checkAuth("view/all/sizes")) <li><a href="{{ url('/view/all/sizes') }}">Product Sizes</a></li> @endif
             @if(checkAuth("view/all/brands")) <li><a href="{{ url('/view/all/brands') }}">Product Brands</a></li> @endif
             @if(checkAuth("view/all/models")) <li><a href="{{ url('/view/all/models') }}">Models of Brand</a></li> @endif
             @if(checkAuth("view/all/colors")) <li><a href="{{ url('/view/all/colors') }}">Product Colors</a></li> @endif
-            @if(checkAuth("view/all/storages")) <li><a href="{{ url('/view/all/storages') }}">Storage (RAM/ROM)</a></li> @endif
-            @if(checkAuth("view/all/sims")) <li><a href="{{ url('/view/all/sims') }}">SIM Type</a></li> @endif
-            @if(checkAuth("view/all/device/conditions")) <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li> @endif
-            @if(checkAuth("view/all/warrenties")) <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty</a></li> @endif
+
         </ul>
     </li>
     @endif

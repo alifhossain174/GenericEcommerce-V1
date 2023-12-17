@@ -301,15 +301,34 @@
                                                 <tr>
                                                     <th class="text-center">Image <span class="text-danger">*</span></th>
                                                     <th class="text-center">Color <span class="text-danger">*</span></th>
-                                                    <th class="text-center" style="min-width: 120px;">Size <span class="text-danger">*</span></th>
-                                                    {{-- <th class="text-center" style="min-width: 200px;">Region</th>
-                                                    <th class="text-center" style="min-width: 140px;">SIM Type</th>
-                                                    <th class="text-center" style="min-width: 140px;">Storage</th> --}}
+
+                                                    @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
+                                                    <th class="text-center" style="min-width: 120px;">Size</th>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
+                                                    <th class="text-center" style="min-width: 200px;">Region</th>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
+                                                    <th class="text-center" style="min-width: 140px;">SIM Type</th>.
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
+                                                    <th class="text-center" style="min-width: 140px;">Storage</th>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
+                                                    <th class="text-center" style="min-width: 120px;">Warrenty</th>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
+                                                    <th class="text-center" style="min-width: 120px;">Condition</th>
+                                                    @endif
+
                                                     <th class="text-center">Stock <span class="text-danger">*</span></th>
                                                     <th class="text-center">Price <span class="text-danger">*</span></th>
                                                     <th class="text-center">Disc. Price <span class="text-danger">*</span></th>
-                                                    <th class="text-center" style="min-width: 120px;">Warrenty <span class="text-danger">*</span></th>
-                                                    {{-- <th class="text-center" style="min-width: 120px;">Condition</th> --}}
                                                     <th class="text-center" style="min-width: 50px;">Action</th>
                                                 </tr>
                                             </thead>
@@ -325,6 +344,8 @@
                                                             @endphp
                                                         </select>
                                                     </td>
+
+                                                    @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
                                                     <td class="text-center">
                                                         <select name="product_variant_size_id[]" data-toggle="select2" class="form-control">
                                                             @php
@@ -332,13 +353,19 @@
                                                             @endphp
                                                         </select>
                                                     </td>
-                                                    {{-- <td class="text-center">
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
+                                                    <td class="text-center">
                                                         <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
                                                             @php
                                                                 echo App\Models\Region::getDropDownList('name');
                                                             @endphp
                                                         </select>
                                                     </td>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
                                                     <td class="text-center">
                                                         <select name="product_variant_sim_id[]" data-toggle="select2" class="form-control">
                                                             @php
@@ -346,13 +373,38 @@
                                                             @endphp
                                                         </select>
                                                     </td>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
                                                     <td class="text-center">
                                                         <select name="product_variant_storage_type_id[]" data-toggle="select2" class="form-control">
                                                             @php
                                                                 echo App\Models\StorageType::getDropDownList('ram');
                                                             @endphp
                                                         </select>
-                                                    </td> --}}
+                                                    </td>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
+                                                    <td class="text-center">
+                                                        <select name="product_variant_warrenty[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\ProductWarrenty::getDropDownList('name');
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
+                                                    <td class="text-center">
+                                                        <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\DeviceCondition::getDropDownList('name');
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    @endif
+
                                                     <td class="text-center">
                                                         <input type="number" class="form-control" name="product_variant_stock[]" value="0" style="height: 34px;" placeholder="0">
                                                     </td>
@@ -362,20 +414,7 @@
                                                     <td class="text-center">
                                                         <input type="number" class="form-control" name="product_variant_discounted_price[]" value="0" style="height: 34px;" placeholder="0">
                                                     </td>
-                                                    <td class="text-center">
-                                                        <select name="product_variant_warrenty[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\ProductWarrenty::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    {{-- <td class="text-center">
-                                                        <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\DeviceCondition::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td> --}}
+
                                                     <td class="text-center">
                                                         {{-- <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a> --}}
                                                     </td>

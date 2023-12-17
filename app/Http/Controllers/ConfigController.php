@@ -19,20 +19,24 @@ class ConfigController extends Controller
 {
     public function configSetup(){
         $techConfigs = ConfigSetup::where('industry', 'Tech')->orderBy('industry', 'desc')->get();
-        $fashionConfigs = ConfigSetup::where('industry', 'Fashion')->orderBy('industry', 'desc')->get();
+        $fashionConfigs = ConfigSetup::where('industry', 'Fashion')->orWhere('industry', 'Common')->orderBy('industry', 'desc')->get();
         return view('backend.config.setup', compact('techConfigs', 'fashionConfigs'));
     }
 
     public function updateConfigSetup(Request $request){
 
         $configArray = array();
-        foreach($request->config_setup as $configSetup){
-            $configArray[] = $configSetup;
-            ConfigSetup::where('code', $configSetup)->update([
-                'status' => 1,
-                'updated_at' => Carbon::now()
-            ]);
+
+        if(isset($request->config_setup)){
+            foreach($request->config_setup as $configSetup){
+                $configArray[] = $configSetup;
+                ConfigSetup::where('code', $configSetup)->update([
+                    'status' => 1,
+                    'updated_at' => Carbon::now()
+                ]);
+            }
         }
+
 
         ConfigSetup::whereNotIn('code', $configArray)->update([
             'status' => 0,

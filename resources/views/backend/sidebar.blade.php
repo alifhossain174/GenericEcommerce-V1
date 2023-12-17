@@ -23,13 +23,24 @@
             <li><a href="{{ url('/config/setup') }}">Setup Your Config</a></li>
 
             {{-- Fshion Insdustry --}}
-            <li><a href="{{ url('/view/all/sizes') }}">Product Sizes (Fashion)</a></li>
+            @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
+            <li><a href="{{ url('/view/all/sizes') }}">Product Sizes</a></li>
+            @endif
 
             {{-- tech industry --}}
-            <li><a href="{{ url('/view/all/storages') }}">Storage (Tech)</a></li>
-            <li><a href="{{ url('/view/all/sims') }}">SIM Type (Tech)</a></li>
-            <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition (Tech)</a></li>
-            <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty (Tech)</a></li>
+            @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
+            <li><a href="{{ url('/view/all/storages') }}">Storage</a></li>
+            @endif
+            @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
+            <li><a href="{{ url('/view/all/sims') }}">SIM Type</a></li>
+            @endif
+            @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
+            <li><a href="{{ url('/view/all/device/conditions') }}">Device Condition</a></li>
+            @endif
+            @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
+            <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty</a></li>
+            @endif
+
 
             {{-- common --}}
             <li><a href="{{ url('/view/all/brands') }}">Product Brands</a></li>
