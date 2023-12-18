@@ -59,7 +59,7 @@
                             </div>
                             <div class="col text-center">
                                 @if(file_exists(public_path($generalInfo->logo_dark)))
-                                <img src="{{url($generalInfo->logo_dark)}}" alt="" height="40">
+                                <img src="{{url($generalInfo->logo_dark)}}" alt="" height="50">
                                 @endif
                             </div>
                             <div class="col text-right">

@@ -662,11 +662,10 @@ class ProductController extends Controller
 
             $multipleProductArray = array();
             for($j=1; $j<=4; $j++){
-                $multipleProductArray[] = rand(1,20).'.png';
+                $multipleProductArray[] = $request->product_type == 1 ? rand(1,20).'.png' : rand(21,40).'.png';
             }
 
             $price = rand(100,999);
-
 
             $id = Product::insertGetId([
                 'category_id' => isset($categoryId[0]) ? $categoryId[0]->id : null,
@@ -676,7 +675,7 @@ class ProductController extends Controller
                 'model_id' => isset($modelId[0]) ? $modelId[0]->id : null,
                 'name' => $title,
                 'code' => rand(100,999),
-                'image' => 'productImages/'.rand(1,20).'.png',
+                'image' => 'productImages/'. $request->product_type == 1 ? rand(1,20).'.png' : rand(21,40).'.png',
                 'multiple_images' => $i%2 != 0 ? json_encode($multipleProductArray) : null,
                 'short_description' => $faker->text($maxNbChars = 200),
                 'description' => $faker->text($maxNbChars = 400),

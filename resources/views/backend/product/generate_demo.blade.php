@@ -24,11 +24,27 @@
 
                             <form action="{{url('save/generated/demo/products')}}" method="POST" class="mt-4">
                                 @csrf
-                                <div class="form-group">
-                                    <label>No of Demo Products to be Generated:</label>
-                                    <input type="number" class="form-control" name="products" value="100" placeholder="100" required>
-                                    <button type="submit" class="btn btn-success rounded w-100 d-block mt-1"><i class="feather-upload"></i> Generate Demo Products</button>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Demo Products Type</label>
+                                            <select class="form-control" name="product_type">
+                                                <option value="1">Fashion</option>
+                                                <option value="2">Tech</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="form-group">
+                                            <label>No of Demo Products to be Generated</label>
+                                            <input type="number" class="form-control" name="products" value="100" placeholder="100" required>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <button type="submit" class="btn btn-success rounded w-100 d-block"><i class="feather-upload"></i> Generate Demo Products</button>
+
                             </form>
                         </div>
                     </div>
