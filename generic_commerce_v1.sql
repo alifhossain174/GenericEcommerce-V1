@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2023 at 01:08 PM
+-- Generation Time: Dec 18, 2023 at 06:32 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -117,7 +117,8 @@ INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `than
 (4, 9, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
 (9, 14, 'Flat A2, House 4 Rd No. 10', NULL, 'Gopalganj Sadar', 'Gopalganj', NULL, '2023-10-25 06:33:57', NULL),
 (10, 0, 'Flat A2, House 4 Rd No. 10', NULL, NULL, NULL, NULL, '2023-10-26 03:34:13', NULL),
-(25, 3, 'Dhaka', '1071', 'Mohammadpur', 'Dhaka', 'Bangladesh', '2023-11-09 06:57:59', NULL);
+(25, 3, 'Dhaka', '1071', 'Mohammadpur', 'Dhaka', 'Bangladesh', '2023-11-09 06:57:59', NULL),
+(26, 25, 'khilkhet', '1229', NULL, 'Dhaka', 'Bangladesh', '2023-12-18 04:41:58', '2023-12-18 05:31:14');
 
 -- --------------------------------------------------------
 
@@ -1169,7 +1170,7 @@ INSERT INTO `orders` (`id`, `order_no`, `user_id`, `order_date`, `estimated_dd`,
 (22, '1698301051252', 55, '2023-10-26 12:17:31', '2023-11-02', NULL, '1', NULL, 0, '1698301051Up5XO', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'sEXiV1698301051', 0, '2023-10-26 04:17:31', NULL),
 (23, '1698301075217', 55, '2023-10-26 12:17:55', '2023-11-02', NULL, '1', NULL, 0, '1698301075Fx9wC', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'aEV3E1698301075', 0, '2023-10-26 04:17:55', '2023-10-26 04:17:56'),
 (24, '1698301083839', 55, '2023-10-26 12:18:03', '2023-11-02', NULL, '1', NULL, 0, '169830108305aE7', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'oENX21698301083', 0, '2023-10-26 04:18:03', '2023-10-26 04:18:03'),
-(25, '1698302472705', 55, '2023-10-26 12:41:12', '2023-11-02', NULL, '1', NULL, 0, '1698302472JfmvW', NULL, 0, 700, 'OFF20', 0, 0, 0, 0, 700, '\"Quickly Need\"', NULL, 'nrnbC1698302472', 0, '2023-10-26 04:41:12', '2023-10-26 04:41:12');
+(25, '1698302472705', 55, '2023-10-26 12:41:12', '2023-11-02', NULL, '1', 1, 1, '1698302472JfmvW', 'Not Available (COD)', 0, 5300, 'OFF20', 0, 100, 0, 0, 5400, '\"Quickly Need\"', NULL, 'nrnbC1698302472', 0, '2023-10-26 04:41:12', '2023-12-18 05:31:14');
 
 -- --------------------------------------------------------
 
@@ -1215,8 +1216,9 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `color_id`, `size_i
 (30, 21, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:16:53', NULL),
 (31, 23, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:17:55', NULL),
 (32, 24, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:18:03', NULL),
-(33, 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-10-26 04:41:12', NULL),
-(34, 3, 30, 5, 0, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, NULL, '2023-11-09 06:10:26');
+(34, 3, 30, 5, 0, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, NULL, '2023-11-09 06:10:26'),
+(51, 25, 47, 2, 3, 0, 0, 0, 8, 0, 1, 1, 3000, 3000, NULL, '2023-12-18 05:31:14'),
+(52, 25, 31, 6, 5, 0, 0, 0, 1, 0, 1, 1, 2300, 2300, NULL, '2023-12-18 05:31:14');
 
 -- --------------------------------------------------------
 
@@ -1255,7 +1257,8 @@ INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `v
 (1, 1, 'COD', NULL, NULL, '134600', NULL, '134600', NULL, NULL, 'VALID', '2023-07-17 19:49:13', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-17 23:49:13', NULL),
 (2, 6, 'COD', NULL, NULL, '115100', NULL, '115100', NULL, NULL, 'VALID', '2023-07-18 14:34:22', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-18 08:34:22', NULL),
 (3, 9, 'COD', NULL, NULL, '545100', NULL, '545100', NULL, NULL, 'VALID', '2023-07-18 14:54:42', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-18 08:54:42', NULL),
-(4, 14, 'COD', NULL, NULL, '1390', NULL, '1390', NULL, NULL, 'VALID', '2023-10-25 14:33:57', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-10-25 06:33:57', NULL);
+(4, 14, 'COD', NULL, NULL, '1390', NULL, '1390', NULL, NULL, 'VALID', '2023-10-25 14:33:57', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-10-25 06:33:57', NULL),
+(5, 25, 'COD', NULL, NULL, '5360', NULL, '5360', NULL, NULL, 'VALID', '2023-12-18 10:41:58', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-12-18 04:41:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -2292,7 +2295,8 @@ INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `
 (4, 9, 'Reduan', '01850453322', 'admin@gmil.com', 'undefined', 'Flat A2, House 4 Rd No. 10', NULL, '1000', 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
 (9, 14, 'bh', 'hh', 'bb', NULL, 'hh', 'Gopalganj Sadar', NULL, 'Gopalganj', NULL, '2023-10-25 06:33:57', NULL),
 (10, 0, 'Arif', '98666776778', 'dcsuperstar22@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '2023-10-26 03:34:13', NULL),
-(25, 3, 'Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', 'Male', 'Dhaka, Bangladesh', 'Mohammadpur', '1071', 'Dhaka', 'Bangladesh', '2023-11-09 06:57:59', NULL);
+(25, 3, 'Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', 'Male', 'Dhaka, Bangladesh', 'Mohammadpur', '1071', NULL, 'Bangladesh', '2023-11-09 06:57:59', NULL),
+(26, 25, 'Md Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'khilkhet', NULL, '1229', 'Rajshahi', 'Bangladesh', '2023-12-18 04:41:58', '2023-12-18 05:31:14');
 
 -- --------------------------------------------------------
 
@@ -8361,7 +8365,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -8505,13 +8509,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
@@ -8607,7 +8611,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `sims`

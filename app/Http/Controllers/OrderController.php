@@ -487,7 +487,8 @@ class OrderController extends Controller
 
         $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
         $districts = DB::table('districts')->get();
-        return view('backend.orders.edit', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo', 'districts'));
+        $countries = DB::table('country')->get();
+        return view('backend.orders.edit', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo', 'districts', 'countries'));
     }
 
     public function orderUpdate(Request $request){
@@ -540,15 +541,16 @@ class OrderController extends Controller
         $shippingInfo = ShippingInfo::where('order_id', $request->order_id)->first();
         if($shippingInfo){
 
-            if($request->shipping_city != '' && strtolower(trim($request->shipping_city)) == 'dhaka'){
-                $orderInfo->delivery_fee = 60;
-                $orderInfo->total = $orderInfo->total + 60;
-                $orderInfo->save();
-            } else {
-                $orderInfo->delivery_fee = 100;
-                $orderInfo->total = $orderInfo->total + 100;
-                $orderInfo->save();
+            $deliveryCharge = 100;
+            $districtWiseDeliveryCharge = DB::table('districts')->select('delivery_charge')->where('name', strtolower(trim($request->shipping_city)))->first();
+            if($districtWiseDeliveryCharge){
+                $deliveryCharge = $districtWiseDeliveryCharge->delivery_charge;
             }
+
+            $orderInfo->delivery_fee = $deliveryCharge;
+            $orderInfo->total = $orderInfo->total + $deliveryCharge;
+            $orderInfo->save();
+
 
             $shippingInfo->full_name = $request->shipping_name;
             $shippingInfo->phone = $request->shipping_phone;
@@ -562,15 +564,15 @@ class OrderController extends Controller
 
         } else {
 
-            if($request->shipping_city != '' && strtolower(trim($request->shipping_city)) == 'dhaka'){
-                $orderInfo->delivery_fee = 60;
-                $orderInfo->total = $orderInfo->total + 60;
-                $orderInfo->save();
-            } else {
-                $orderInfo->delivery_fee = 100;
-                $orderInfo->total = $orderInfo->total + 100;
-                $orderInfo->save();
+            $deliveryCharge = 100;
+            $districtWiseDeliveryCharge = DB::table('districts')->select('delivery_charge')->where('name', strtolower(trim($request->shipping_city)))->first();
+            if($districtWiseDeliveryCharge){
+                $deliveryCharge = $districtWiseDeliveryCharge->delivery_charge;
             }
+
+            $orderInfo->delivery_fee = $deliveryCharge;
+            $orderInfo->total = $orderInfo->total + $deliveryCharge;
+            $orderInfo->save();
 
             ShippingInfo::insert([
                 'order_id' => $orderInfo->id,
