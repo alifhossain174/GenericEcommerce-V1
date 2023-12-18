@@ -137,13 +137,12 @@
 					]
 				},
 				"url": {
-					"raw": "https://app-area.imaginex.com.bd/api/user/login",
+					"raw": "https://app-area.fejmo.com/api/user/login",
 					"protocol": "https",
 					"host": [
 						"app-area",
-						"imaginex",
-						"com",
-						"bd"
+						"fejmo",
+						"com"
 					],
 					"path": [
 						"api",
@@ -1528,6 +1527,44 @@
 			"response": []
 		},
 		{
+			"name": "Get Products List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\": [31,34,36]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://app-area.fejmo.com/api/get/product/list",
+					"protocol": "https",
+					"host": [
+						"app-area",
+						"fejmo",
+						"com"
+					],
+					"path": [
+						"api",
+						"get",
+						"product",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Related Products",
 			"request": {
 				"method": "POST",
@@ -1838,6 +1875,18 @@
 						"key": "Authorization",
 						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "17004701868xbWf",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "western-denim-shirt-1699267153CfzWV",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
@@ -1852,18 +1901,18 @@
 					]
 				},
 				"url": {
-					"raw": "https://imaginex-admin.getcommerce.xyz/api/product/details/western-denim-shirt-16987319851Ck5g",
+					"raw": "https://app-area.fejmo.com/api/product/details/ladies-blazer-1700113672rnV6W",
 					"protocol": "https",
 					"host": [
-						"imaginex-admin",
-						"getcommerce",
-						"xyz"
+						"app-area",
+						"fejmo",
+						"com"
 					],
 					"path": [
 						"api",
 						"product",
 						"details",
-						"western-denim-shirt-16987319851Ck5g"
+						"ladies-blazer-1700113672rnV6W"
 					]
 				}
 			},
@@ -1984,12 +2033,12 @@
 					"urlencoded": [
 						{
 							"key": "search_keyword",
-							"value": "denim",
+							"value": "Ergonomic",
 							"type": "text"
 						},
 						{
 							"key": "brand_slug",
-							"value": "",
+							"value": "yellow123",
 							"type": "text"
 						},
 						{
@@ -2301,16 +2350,20 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/all/banners",
+					"raw": "https://app-area.fejmo.com/api/get/all/banners",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"fejmo",
+						"com"
 					],
 					"path": [
+						"api",
 						"get",
 						"all",
 						"banners"
@@ -2412,7 +2465,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "167|saAvRPLgPEoFg25Xau8fAa6hw5oTtC4XmAzEc8HM",
+							"value": "187|NRoL0c9QoCcxMLA326ZNfTWEZfPGyckB5Km6eGvb",
 							"type": "string"
 						}
 					]
@@ -2519,13 +2572,12 @@
 					]
 				},
 				"url": {
-					"raw": "https://app-area.imaginex.com.bd/api/order/checkout",
+					"raw": "https://app-area.fejmo.com/api/order/checkout",
 					"protocol": "https",
 					"host": [
 						"app-area",
-						"imaginex",
-						"com",
-						"bd"
+						"fejmo",
+						"com"
 					],
 					"path": [
 						"api",
@@ -2544,7 +2596,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "72|12jhIiTopXW75foGveQh4sOpfwY2HuVJrrFGVBJ2",
+							"value": "187|NRoL0c9QoCcxMLA326ZNfTWEZfPGyckB5Km6eGvb",
 							"type": "string"
 						}
 					]
@@ -2590,63 +2642,73 @@
 						{
 							"key": "coupon_code",
 							"value": "OFF20",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "special_note",
 							"value": "\"Quickly Need\"",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "delivery_method",
 							"value": "1",
 							"description": "1=>Home Delivery; 2=>Store Pickup",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "color_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "region_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "sim_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "storage_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "warrenty_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "device_condition_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "size_id[]",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "https://fashionista-admin.getcommerce.xyz/api/order/checkout/app/only",
+					"raw": "https://app-area.fejmo.com/api/order/checkout/app/only",
 					"protocol": "https",
 					"host": [
-						"fashionista-admin",
-						"getcommerce",
-						"xyz"
+						"app-area",
+						"fejmo",
+						"com"
 					],
 					"path": [
 						"api",
@@ -3363,12 +3425,12 @@
 					]
 				},
 				"url": {
-					"raw": "https://imaginex-admin.getcommerce.xyz/api/get/category/tree",
+					"raw": "https://app-area.fejmo.com/api/get/category/tree",
 					"protocol": "https",
 					"host": [
-						"imaginex-admin",
-						"getcommerce",
-						"xyz"
+						"app-area",
+						"fejmo",
+						"com"
 					],
 					"path": [
 						"api",
@@ -4502,7 +4564,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "207|cirodMHmAXiiOqzrfYQBWgBGjVjtUhGd2G3xNSr2",
+							"value": "167|saAvRPLgPEoFg25Xau8fAa6hw5oTtC4XmAzEc8HM",
 							"type": "string"
 						}
 					]
@@ -4951,11 +5013,16 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/all/coupons",
+					"raw": "https://app-area.imaginex.com.bd/api/get/all/coupons",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
+						"api",
 						"get",
 						"all",
 						"coupons"
@@ -5644,9 +5711,8 @@
 					"formdata": [
 						{
 							"key": "category_id",
-							"value": "11",
-							"type": "text",
-							"disabled": true
+							"value": "10",
+							"type": "text"
 						},
 						{
 							"key": "sort_by",
@@ -5724,13 +5790,12 @@
 					]
 				},
 				"url": {
-					"raw": "https://app-area.imaginex.com.bd/api/filter/products",
+					"raw": "https://app-area.fejmo.com/api/filter/products",
 					"protocol": "https",
 					"host": [
 						"app-area",
-						"imaginex",
-						"com",
-						"bd"
+						"fejmo",
+						"com"
 					],
 					"path": [
 						"api",
@@ -6002,12 +6067,12 @@
 					}
 				],
 				"url": {
-					"raw": "https://techshop-admin.getcommerce.xyz/api/blog/details/blog-41697004676",
+					"raw": "https://app-area.fejmo.com/api/blog/details/blog-41697004676",
 					"protocol": "https",
 					"host": [
-						"techshop-admin",
-						"getcommerce",
-						"xyz"
+						"app-area",
+						"fejmo",
+						"com"
 					],
 					"path": [
 						"api",
