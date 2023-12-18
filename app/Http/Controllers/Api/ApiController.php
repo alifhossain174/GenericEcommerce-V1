@@ -665,14 +665,13 @@ class ApiController extends BaseController
     public function searchLiveProducts(Request $request){ //post method
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
-            $brandInfo = Brand::where('slug', $request->brand_slug)->first();
-            $brand_id = $brandInfo ? $brandInfo->id : 0;
+            $brand_slug = $request->brand_slug;
             $category_id = $request->category_id;
             $keyword = $request->search_keyword;
 
-            if($brand_id != '' || $keyword != '' || $category_id){
+            if($brand_slug != '' || $keyword != '' || $category_id){
 
-                $data = DB::table('products')
+                $query = DB::table('products')
                     ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                     ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
                     ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
@@ -683,29 +682,20 @@ class ApiController extends BaseController
                     ->leftJoin('product_warrenties', 'products.warrenty_id', '=', 'product_warrenties.id')
                     ->select('products.*', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name', 'units.name as unit_name', 'flags.name as flag_name', 'brands.name as brand_name', 'product_models.name as model_name', 'product_warrenties.name as product_warrenty')
                     ->where('products.status', 1)
-
-                    // ->when($keyword, function($query) use ($keyword){
-                    //     return $query->where('products.name', 'LIKE', '%'.$keyword.'%')
-                    //     ->orwhere('categories.name', 'LIKE', '%'.$keyword.'%')
-                    //     ->orwhere('subcategories.name', 'LIKE', '%'.$keyword.'%')
-                    //     ->orwhere('products.tags', 'LIKE', '%'.$keyword.'%')
-                    //     ->orwhere('brands.name', 'LIKE', '%'.$keyword.'%');
-                    // })
-
                     ->where('products.name', 'LIKE', '%'.$keyword.'%')
                     ->when($category_id, function($query) use ($category_id){
                         if($category_id > 0)
                             return $query->where('products.category_id', $category_id);
-                    })
-                    ->when($brand_id, function($query) use ($brand_id){
-                        if($brand_id > 0)
-                            return $query->where('products.brand_id', $brand_id);
-                    })
+                    });
 
-                    ->orderBy('products.id', 'desc')
-                    ->skip(0)
-                    ->limit(5)
-                    ->get();
+                if($request->brand_slug){
+                    $brandInfo = Brand::where('slug', $brand_slug)->first();
+                    $brand_id = $brandInfo ? $brandInfo->id : 0;
+                    $query->where('products.brand_id', $brand_id);
+                }
+
+                $query->orderBy('products.id', 'desc')->skip(0)->limit(5);
+                $data = $query->get();
 
                 return response()->json([
                     'success' => true,
@@ -718,7 +708,6 @@ class ApiController extends BaseController
                     'data' => array()
                 ], 200);
             }
-
 
 
         } else {

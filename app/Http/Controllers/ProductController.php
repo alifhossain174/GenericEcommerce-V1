@@ -659,6 +659,10 @@ class ProductController extends Controller
             $colorId = Color::select('id')->inRandomOrder()->limit(1)->get();
             $sizeId = ProductSize::select('id')->inRandomOrder()->limit(1)->get();
             $regionId = DB::table('country')->select('id')->inRandomOrder()->limit(1)->get();
+            $simId = DB::table('sims')->select('id')->inRandomOrder()->limit(1)->get();
+            $storageTypeId = DB::table('storage_types')->select('id')->inRandomOrder()->limit(1)->get();
+            $conditionID = DB::table('device_conditions')->select('id')->inRandomOrder()->limit(1)->get();
+            $warrentyID = DB::table('product_warrenties')->select('id')->inRandomOrder()->limit(1)->get();
 
             $multipleProductArray = array();
             for($j=1; $j<=4; $j++){
@@ -675,7 +679,7 @@ class ProductController extends Controller
                 'model_id' => isset($modelId[0]) ? $modelId[0]->id : null,
                 'name' => $title,
                 'code' => rand(100,999),
-                'image' => 'productImages/'. $request->product_type == 1 ? rand(1,20).'.png' : rand(21,40).'.png',
+                'image' => $request->product_type == 1 ? 'productImages/'. rand(1,20).'.png' : 'productImages/'. rand(21,40).'.png',
                 'multiple_images' => $i%2 != 0 ? json_encode($multipleProductArray) : null,
                 'short_description' => $faker->text($maxNbChars = 200),
                 'description' => $faker->text($maxNbChars = 400),
@@ -719,13 +723,13 @@ class ProductController extends Controller
                     $variantInfo->color_id = isset($colorId[0]) ? $colorId[0]->id : null;
                     $variantInfo->size_id = isset($sizeId[0]) ? $sizeId[0]->id : null;
                     $variantInfo->region_id = isset($regionId[0]) ? $regionId[0]->id : null;
-                    $variantInfo->sim_id = null;
-                    $variantInfo->storage_type_id = null;
+                    $variantInfo->sim_id = isset($simId[0]) ? $simId[0]->id : null;
+                    $variantInfo->storage_type_id = isset($storageTypeId[0]) ? $storageTypeId[0]->id : null;
                     $variantInfo->stock = 1000;
                     $variantInfo->price = $price;
                     $variantInfo->discounted_price = $price - 10;
-                    $variantInfo->warrenty_id = null;
-                    $variantInfo->device_condition_id = null;
+                    $variantInfo->warrenty_id = isset($warrentyID[0]) ? $warrentyID[0]->id : null;
+                    $variantInfo->device_condition_id = isset($conditionID[0]) ? $conditionID[0]->id : null;
                     $variantInfo->created_at = Carbon::now();
                     $variantInfo->save();
 

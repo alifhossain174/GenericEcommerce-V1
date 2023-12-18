@@ -338,7 +338,6 @@
                                 <div class="card">
                                     <div class="card-body table-responsive">
                                         <h4 class="card-title mb-3">Product Variant <small class="text-danger font-weight-bolder">(Insert the Base Variant First)</small></h4>
-
                                         <table class="table table-bordered rounded" id="product_variant_table">
                                             <thead class="thead-light rounded">
                                                 <tr>
@@ -354,7 +353,7 @@
                                                     @endif
 
                                                     @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
-                                                    <th class="text-center" style="min-width: 140px;">SIM Type</th>.
+                                                    <th class="text-center" style="min-width: 140px;">SIM Type</th>
                                                     @endif
 
                                                     @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
@@ -378,163 +377,186 @@
                                             <tbody>
 
                                                 @if(count($productVariants) > 0 && $product->has_variant == 1)
-                                                @foreach ($productVariants as $productVariant)
-                                                <tr>
-                                                    <td class="text-center">
-                                                        @if($productVariant->image) <img src="{{url('/productImages/'.$productVariant->image)}}" style="max-height: 40px; max-width: 40px;"> @endif
-                                                        <input type="hidden" name="product_variant_id[]" value="{{$productVariant->id}}">
-                                                        <input type="file" class="form-control" name="product_variant_image[]" style="display: inline; width: 75%;">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Color::getDropDownList('name', $productVariant->color_id);
-                                                            @endphp
-                                                        </select>
-                                                    </td>
+                                                    @foreach ($productVariants as $productVariant)
+                                                    <tr>
+                                                        <td class="text-center">
+                                                            @if($productVariant->image) <img src="{{url('/productImages/'.$productVariant->image)}}" style="max-height: 40px; max-width: 40px;"> @endif
+                                                            <input type="hidden" name="product_variant_id[]" value="{{$productVariant->id}}">
+                                                            <input type="file" class="form-control" name="product_variant_image[]" style="display: inline; width: 75%;">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\Color::getDropDownList('name', $productVariant->color_id);
+                                                                @endphp
+                                                            </select>
+                                                        </td>
 
-                                                    @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_size_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\ProductSize::getDropDownList('name', $productVariant->size_id);
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                        @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_size_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\ProductSize::getDropDownList('name', $productVariant->size_id);
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Region::getDropDownList('name', $productVariant->region_id);
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                        @if(DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\Region::getDropDownList('name', $productVariant->region_id);
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_sim_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Sim::getDropDownList('name', $productVariant->sim_id);
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                        @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_sim_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\Sim::getDropDownList('name', $productVariant->sim_id);
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_storage_type_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\StorageType::getDropDownList('ram', $productVariant->storage_type_id);
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                        @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_storage_type_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\StorageType::getDropDownList('ram', $productVariant->storage_type_id);
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_warrenty[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\ProductWarrenty::getDropDownList('name', $productVariant->warrenty_id);
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                        @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_warrenty[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\ProductWarrenty::getDropDownList('name', $productVariant->warrenty_id);
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\DeviceCondition::getDropDownList('name', $productVariant->device_condition_id);
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                        @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\DeviceCondition::getDropDownList('name', $productVariant->device_condition_id);
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
 
-                                                    <td class="text-center">
-                                                        <input type="number" class="form-control" name="product_variant_stock[]" value="{{$productVariant->stock}}" style="height: 34px;" placeholder="0">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <input type="number" class="form-control" name="product_variant_price[]" value="{{$productVariant->price}}" style="height: 34px;" placeholder="0">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <input type="number" class="form-control" name="product_variant_discounted_price[]" value="{{$productVariant->discounted_price}}" style="height: 34px;" placeholder="0">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a href="javascript:void(0)" onclick="removeRowWithDelete(this, {{$productVariant->id}})" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
+                                                        <td class="text-center">
+                                                            <input type="number" class="form-control" name="product_variant_stock[]" value="{{$productVariant->stock}}" style="height: 34px;" placeholder="0">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input type="number" class="form-control" name="product_variant_price[]" value="{{$productVariant->price}}" style="height: 34px;" placeholder="0">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input type="number" class="form-control" name="product_variant_discounted_price[]" value="{{$productVariant->discounted_price}}" style="height: 34px;" placeholder="0">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a href="javascript:void(0)" onclick="removeRowWithDelete(this, {{$productVariant->id}})" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
                                                 @else
-                                                <tr>
-                                                    <td class="text-center">
-                                                        <input type="file" class="form-control" name="product_variant_image[]">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Color::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <select name="product_variant_size_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\ProductSize::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    {{-- <td class="text-center">
-                                                        <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Region::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <select name="product_variant_sim_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Sim::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <select name="product_variant_storage_type_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\StorageType::getDropDownList('ram');
-                                                            @endphp
-                                                        </select>
-                                                    </td> --}}
-                                                    <td class="text-center">
-                                                        <input type="number" class="form-control" name="product_variant_stock[]" value="0" style="height: 34px;" placeholder="0">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <input type="number" class="form-control" name="product_variant_price[]" value="0" style="height: 34px;" placeholder="0">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <input type="number" class="form-control" name="product_variant_discounted_price[]" value="0" style="height: 34px;" placeholder="0">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <select name="product_variant_warrenty[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\ProductWarrenty::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    {{-- <td class="text-center">
-                                                        <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\DeviceCondition::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td> --}}
-                                                    <td class="text-center">
-                                                        {{-- <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a> --}}
-                                                    </td>
-                                                </tr>
+                                                    <tr>
+                                                        <td class="text-center">
+                                                            <input type="file" class="form-control" name="product_variant_image[]">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\Color::getDropDownList('name');
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+
+                                                        @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_size_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\ProductSize::getDropDownList('name');
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
+
+                                                        @if(DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\Region::getDropDownList('name');
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
+
+                                                        @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_sim_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\Sim::getDropDownList('name');
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
+
+                                                        @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_storage_type_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\StorageType::getDropDownList('ram');
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
+
+                                                        @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_warrenty[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\ProductWarrenty::getDropDownList('name');
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
+
+                                                        @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
+                                                        <td class="text-center">
+                                                            <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
+                                                                @php
+                                                                    echo App\Models\DeviceCondition::getDropDownList('name');
+                                                                @endphp
+                                                            </select>
+                                                        </td>
+                                                        @endif
+
+
+
+                                                        <td class="text-center">
+                                                            <input type="number" class="form-control" name="product_variant_stock[]" value="0" style="height: 34px;" placeholder="0">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input type="number" class="form-control" name="product_variant_price[]" value="0" style="height: 34px;" placeholder="0">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input type="number" class="form-control" name="product_variant_discounted_price[]" value="0" style="height: 34px;" placeholder="0">
+                                                        </td>
+
+                                                        <td class="text-center">
+                                                            {{-- <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a> --}}
+                                                        </td>
+                                                    </tr>
                                                 @endif
+
                                             </tbody>
                                         </table>
 

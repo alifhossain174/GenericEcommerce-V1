@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2023 at 06:32 AM
+-- Generation Time: Dec 18, 2023 at 07:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -106,19 +106,6 @@ CREATE TABLE `billing_addresses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `billing_addresses`
---
-
-INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `thana`, `city`, `country`, `created_at`, `updated_at`) VALUES
-(2, 1, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Dhaka', 'Bangladesh', '2023-07-17 23:49:13', NULL),
-(3, 6, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Dhaka', 'Bangladesh', '2023-07-18 08:34:22', NULL),
-(4, 9, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
-(9, 14, 'Flat A2, House 4 Rd No. 10', NULL, 'Gopalganj Sadar', 'Gopalganj', NULL, '2023-10-25 06:33:57', NULL),
-(10, 0, 'Flat A2, House 4 Rd No. 10', NULL, NULL, NULL, NULL, '2023-10-26 03:34:13', NULL),
-(25, 3, 'Dhaka', '1071', 'Mohammadpur', 'Dhaka', 'Bangladesh', '2023-11-09 06:57:59', NULL),
-(26, 25, 'khilkhet', '1229', NULL, 'Dhaka', 'Bangladesh', '2023-12-18 04:41:58', '2023-12-18 05:31:14');
 
 -- --------------------------------------------------------
 
@@ -370,12 +357,12 @@ CREATE TABLE `config_setups` (
 --
 
 INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Product Size', 'product_size', 'Fashion', 0, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
-(2, NULL, 'Storage', 'storage', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
-(3, NULL, 'Sim Type', 'sim', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
-(4, NULL, 'Device Condition', 'device_condition', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
-(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-17 11:22:01'),
-(6, NULL, 'Region', 'region', 'Common', 0, '2023-12-17 06:53:00', '2023-12-17 11:22:01');
+(1, NULL, 'Product Size', 'product_size', 'Fashion', 1, '2023-12-17 06:53:00', '2023-12-18 06:42:03'),
+(2, NULL, 'Storage', 'storage', 'Tech', 0, '2023-12-17 06:53:00', '2023-12-18 06:42:03'),
+(3, NULL, 'Sim Type', 'sim', 'Tech', 0, '2023-12-17 06:53:00', '2023-12-18 06:42:03'),
+(4, NULL, 'Device Condition', 'device_condition', 'Tech', 0, '2023-12-17 06:53:00', '2023-12-18 06:42:03'),
+(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 0, '2023-12-17 06:53:00', '2023-12-18 06:42:03'),
+(6, NULL, 'Region', 'region', 'Common', 1, '2023-12-17 06:53:00', '2023-12-18 06:42:03');
 
 -- --------------------------------------------------------
 
@@ -1141,37 +1128,6 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `order_no`, `user_id`, `order_date`, `estimated_dd`, `delivery_date`, `delivery_method`, `payment_method`, `payment_status`, `trx_id`, `bank_tran_id`, `order_status`, `sub_total`, `coupon_code`, `discount`, `delivery_fee`, `vat`, `tax`, `total`, `order_note`, `order_remarks`, `slug`, `complete_order`, `created_at`, `updated_at`) VALUES
-(1, '1689601753866', 23, '2023-07-17 19:49:13', '2023-07-24', NULL, '', 1, 1, '1689601753icKfT', 'Not Available (COD)', 0, 134500, NULL, 0, 100, 0, 0, 134600, '', NULL, 'y8IlF1689601753', 1, '2023-07-17 23:49:13', '2023-10-26 08:50:44'),
-(2, '1689660747209', 23, '2023-07-18 12:12:27', '2023-07-25', NULL, '', NULL, 0, '1689660747nBBFs', NULL, 0, 115000, NULL, 0, 0, 0, 0, 115000, '', NULL, 'NHy8P1689660747', 0, '2023-07-18 06:12:27', '2023-07-18 06:12:27'),
-(3, '1689661552576', 23, '2023-07-18 12:25:52', '2023-07-25', NULL, '', NULL, 0, '1689661552ybmES', NULL, 0, 115000, NULL, 0, 60, 0, 0, 115180, '', NULL, 'aClNv1689661552', 1, '2023-07-18 06:25:52', '2023-11-09 06:57:59'),
-(4, '1689668976893', 35, '2023-07-18 14:29:36', '2023-07-25', NULL, '', NULL, 0, '1689668976rPEtA', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'XTFRa1689668976', 0, '2023-07-18 08:29:36', NULL),
-(5, '1689669097583', 35, '2023-07-18 14:31:37', '2023-07-25', NULL, '', NULL, 0, '1689669097nA79o', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'gFjl71689669097', 0, '2023-07-18 08:31:37', NULL),
-(6, '1689669262197', 23, '2023-07-18 14:34:22', '2023-07-25', NULL, '', 1, 1, '1689669262uB2Mp', 'Not Available (COD)', 0, 115000, NULL, 0, 100, 0, 0, 115100, '', NULL, 'NvdIM1689669262', 1, '2023-07-18 08:34:22', '2023-07-18 08:34:22'),
-(7, '1689669807556', 35, '2023-07-18 14:43:27', '2023-07-25', NULL, '', NULL, 0, '1689669807utQrJ', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'uOcnS1689669807', 0, '2023-07-18 08:43:27', NULL),
-(8, '1689670104700', 35, '2023-07-18 14:48:24', '2023-07-25', NULL, '', NULL, 0, '1689670104s5gtl', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '3tcFc1689670104', 0, '2023-07-18 08:48:24', NULL),
-(9, '1689670481629', NULL, '2023-07-18 14:54:41', '2023-07-25', NULL, '', 1, 1, '1689670481uRKui', 'Not Available (COD)', 0, 545100, NULL, 0, 100, 0, 0, 545200, '', NULL, 'wPRVx1689670481', 1, '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
-(10, '1689673103748', 35, '2023-07-18 15:38:23', '2023-07-25', NULL, '', NULL, 0, '1689673103rmIKt', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'DEQEA1689673103', 0, '2023-07-18 09:38:23', NULL),
-(11, '1689673132520', 35, '2023-07-18 15:38:52', '2023-07-25', NULL, '', NULL, 0, '16896731327Tg9B', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'Jvwqy1689673132', 0, '2023-07-18 09:38:52', NULL),
-(12, '1689673273174', 35, '2023-07-18 15:41:13', '2023-07-25', NULL, '', NULL, 0, '1689673273XAEC3', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '4xRod1689673273', 0, '2023-07-18 09:41:13', NULL),
-(13, '1690345802546', NULL, '2023-07-26 10:30:02', '2023-08-02', NULL, NULL, NULL, 0, '1690345802FMqFF', NULL, 2, 400, '1YUIFWW', 0, 0, 0, 0, 400, NULL, NULL, 'zUUxH1690345802', 0, '2023-07-26 04:30:02', '2023-10-22 08:14:45'),
-(14, '1698222836533', 55, '2023-10-25 14:33:56', '2023-11-01', NULL, '1', 1, 1, '1698222836tI1ff', 'Not Available (COD)', 0, 1290, 'hh', 0, 100, 0, 0, 1390, '', NULL, 'IB2tg1698222836', 1, '2023-10-25 06:33:56', '2023-10-25 06:33:57'),
-(15, '1698300256594', 55, '2023-10-26 12:04:16', '2023-11-02', NULL, '1', NULL, 0, '1698300256G6UvV', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'CGnuK1698300256', 0, '2023-10-26 04:04:16', NULL),
-(16, '1698300290472', 55, '2023-10-26 12:04:50', '2023-11-02', NULL, '1', NULL, 0, '1698300290FK8KD', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'toZq81698300290', 0, '2023-10-26 04:04:50', NULL),
-(17, '1698300310280', 55, '2023-10-26 12:05:10', '2023-11-02', NULL, '1', NULL, 0, '1698300310YEspy', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, '0QOsU1698300310', 0, '2023-10-26 04:05:10', NULL),
-(18, '1698300321234', 55, '2023-10-26 12:05:21', '2023-11-02', NULL, '1', NULL, 0, '1698300321iHzj6', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'YlUQB1698300321', 0, '2023-10-26 04:05:21', NULL),
-(19, '1698300330621', 55, '2023-10-26 12:05:30', '2023-11-02', NULL, '1', NULL, 0, '1698300330ucYGU', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'YmLrn1698300330', 0, '2023-10-26 04:05:30', '2023-10-26 04:05:30'),
-(20, '1698300996361', 55, '2023-10-26 12:16:36', '2023-11-02', NULL, '1', NULL, 0, '1698300996vZLbG', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'U9VvI1698300996', 0, '2023-10-26 04:16:36', NULL),
-(21, '1698301013564', 55, '2023-10-26 12:16:53', '2023-11-02', NULL, '1', NULL, 0, '1698301013yHzSp', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, '0Tckc1698301013', 0, '2023-10-26 04:16:53', NULL),
-(22, '1698301051252', 55, '2023-10-26 12:17:31', '2023-11-02', NULL, '1', NULL, 0, '1698301051Up5XO', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'sEXiV1698301051', 0, '2023-10-26 04:17:31', NULL),
-(23, '1698301075217', 55, '2023-10-26 12:17:55', '2023-11-02', NULL, '1', NULL, 0, '1698301075Fx9wC', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'aEV3E1698301075', 0, '2023-10-26 04:17:55', '2023-10-26 04:17:56'),
-(24, '1698301083839', 55, '2023-10-26 12:18:03', '2023-11-02', NULL, '1', NULL, 0, '169830108305aE7', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'oENX21698301083', 0, '2023-10-26 04:18:03', '2023-10-26 04:18:03'),
-(25, '1698302472705', 55, '2023-10-26 12:41:12', '2023-11-02', NULL, '1', 1, 1, '1698302472JfmvW', 'Not Available (COD)', 0, 5300, 'OFF20', 0, 100, 0, 0, 5400, '\"Quickly Need\"', NULL, 'nrnbC1698302472', 0, '2023-10-26 04:41:12', '2023-12-18 05:31:14');
-
 -- --------------------------------------------------------
 
 --
@@ -1196,29 +1152,6 @@ CREATE TABLE `order_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_id`, `warrenty_id`, `device_condition_id`, `unit_id`, `qty`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-17 23:49:13', NULL),
-(2, 1, 2, 0, NULL, 0, 0, 0, 1, 0, 0, 1, 19500, 19500, '2023-07-17 23:49:13', NULL),
-(3, 2, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 06:12:27', NULL),
-(5, 6, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 08:34:22', NULL),
-(8, 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 200, 200, '2023-07-26 04:30:02', NULL),
-(24, 9, 1, 5, 0, 226, 2, 2, 1, 1, 0, 2, 115000, 230000, NULL, '2023-10-22 09:17:45'),
-(25, 9, 1, 1, 0, 226, 4, 2, 1, 1, 0, 3, 105000, 315000, NULL, '2023-10-22 09:17:45'),
-(26, 9, 21, 6, 6, 0, 0, 0, 8, 0, 2, 1, 100, 100, NULL, '2023-10-22 09:17:45'),
-(27, 14, 28, 0, NULL, 0, 0, 0, 0, 0, 1, 1, 1290, 1290, '2023-10-25 06:33:56', NULL),
-(28, 19, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:05:30', NULL),
-(29, 20, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:16:36', NULL),
-(30, 21, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:16:53', NULL),
-(31, 23, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:17:55', NULL),
-(32, 24, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:18:03', NULL),
-(34, 3, 30, 5, 0, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, NULL, '2023-11-09 06:10:26'),
-(51, 25, 47, 2, 3, 0, 0, 0, 8, 0, 1, 1, 3000, 3000, NULL, '2023-12-18 05:31:14'),
-(52, 25, 31, 6, 5, 0, 0, 0, 1, 0, 1, 1, 2300, 2300, NULL, '2023-12-18 05:31:14');
 
 -- --------------------------------------------------------
 
@@ -1249,17 +1182,6 @@ CREATE TABLE `order_payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `order_payments`
---
-
-INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `val_id`, `amount`, `card_type`, `store_amount`, `card_no`, `bank_tran_id`, `status`, `tran_date`, `currency`, `card_issuer`, `card_brand`, `card_sub_brand`, `card_issuer_country`, `store_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 'COD', NULL, NULL, '134600', NULL, '134600', NULL, NULL, 'VALID', '2023-07-17 19:49:13', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-17 23:49:13', NULL),
-(2, 6, 'COD', NULL, NULL, '115100', NULL, '115100', NULL, NULL, 'VALID', '2023-07-18 14:34:22', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-18 08:34:22', NULL),
-(3, 9, 'COD', NULL, NULL, '545100', NULL, '545100', NULL, NULL, 'VALID', '2023-07-18 14:54:42', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-18 08:54:42', NULL),
-(4, 14, 'COD', NULL, NULL, '1390', NULL, '1390', NULL, NULL, 'VALID', '2023-10-25 14:33:57', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-10-25 06:33:57', NULL),
-(5, 25, 'COD', NULL, NULL, '5360', NULL, '5360', NULL, NULL, 'VALID', '2023-12-18 10:41:58', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-12-18 04:41:58', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -1273,39 +1195,6 @@ CREATE TABLE `order_progress` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `order_progress`
---
-
-INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, '2023-07-17 23:49:13', NULL),
-(2, 2, 0, '2023-07-18 06:12:27', NULL),
-(3, 3, 0, '2023-07-18 06:25:52', NULL),
-(4, 4, 0, '2023-07-18 08:29:36', NULL),
-(5, 5, 0, '2023-07-18 08:31:37', NULL),
-(6, 6, 0, '2023-07-18 08:34:22', NULL),
-(7, 7, 0, '2023-07-18 08:43:27', NULL),
-(8, 8, 0, '2023-07-18 08:48:24', NULL),
-(9, 9, 0, '2023-07-18 08:54:41', NULL),
-(10, 10, 0, '2023-07-18 09:38:23', NULL),
-(11, 11, 0, '2023-07-18 09:38:52', NULL),
-(12, 12, 0, '2023-07-18 09:41:13', NULL),
-(13, 13, 0, '2023-07-26 04:30:02', NULL),
-(14, 13, 1, '2023-08-06 08:15:39', NULL),
-(15, 13, 2, '2023-10-22 08:14:45', NULL),
-(16, 14, 0, '2023-10-25 06:33:56', NULL),
-(17, 15, 0, '2023-10-26 04:04:16', NULL),
-(18, 16, 0, '2023-10-26 04:04:50', NULL),
-(19, 17, 0, '2023-10-26 04:05:10', NULL),
-(20, 18, 0, '2023-10-26 04:05:21', NULL),
-(21, 19, 0, '2023-10-26 04:05:30', NULL),
-(22, 20, 0, '2023-10-26 04:16:36', NULL),
-(23, 21, 0, '2023-10-26 04:16:53', NULL),
-(24, 22, 0, '2023-10-26 04:17:31', NULL),
-(25, 23, 0, '2023-10-26 04:17:55', NULL),
-(26, 24, 0, '2023-10-26 04:18:03', NULL),
-(27, 25, 0, '2023-10-26 04:41:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -1842,29 +1731,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
-(30, 10, 47, NULL, NULL, NULL, 'Oversize Jeans', NULL, 'productImages/pEkqM1699262475.png', '[\"1698857318xs1Bf.png\",\"16988573189P3Gj.jpg\",\"1698857318MF3FO.jpg\",\"1698857318grBW4.jpg\",\"1698857318nSxWw.jpg\",\"1698857318lhH9H.jpg\",\"1698857318J1Co7.jpg\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 400, 373, 17, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'oversize-jeans-16992632238vHWb', 6, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 07:33:43'),
-(31, 11, 50, NULL, NULL, NULL, 'Boxy Denim Jacket', 'tgr423', 'productImages/PTTvZ1698857380.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 2900, 2300, 0, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 1, 'boxy-denim-jacket-16992605721KisN', 6, 'Meta Title', 'Meta', 'Meta Description', 1, 1, 0, '2023-11-01 14:31:18', '2023-11-06 06:49:32'),
-(32, 10, 48, NULL, 39, NULL, 'Quilted Shoulder Bag', 'dsf', 'productImages/XGOEo1699262436.png', '[\"1698857484juSIj.png\",\"1698857484LRGE9.jpg\",\"1698857484nPVcM.jpg\",\"16988574844Hpxh.jpg\",\"16988574849WemR.jpg\",\"1698857484gPVFQ.jpg\",\"1698857484SEZCb.jpg\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 9900, 8100, 70, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'quilted-shoulder-bag-1699263276g4fNO', 9, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 07:34:36'),
-(33, 10, NULL, NULL, 25, NULL, 'High Ankle Jeans', 'a2wq21j78', 'productImages/dMfeP1699159351.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 1000, 800, 0, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'high-ankle-jeans-1699159734GL6SZ', 7, 'Meta Title', 'Meta', 'Meta Description', 1, 1, 0, '2023-11-01 14:31:18', '2023-11-05 02:48:54'),
-(34, 11, NULL, NULL, 35, NULL, 'Leather Shoulder Bag', 'd13244', 'productImages/6IuI01699160397.jpg', '[\"1698857728cwhln.png\",\"16988577287QDwJ.jpg\",\"1698857728RSf0D.jpg\",\"1698857728R7zHo.jpg\",\"1698857728JpKgN.jpg\",\"1698857728YH32K.jpg\",\"1698857728vDQhN.jpg\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 250, 150, 100, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'leather-shoulder-bag-16992606959mMnL', 9, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 06:51:35'),
-(35, 11, 42, NULL, 20, NULL, 'Oversize Denim Jacket', NULL, 'productImages/u2Wj61699159950.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 2800, 2450, 0, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'oversize-denim-jacket-16991599504Ma9h', 6, 'Meta Title', 'Meta', 'Meta Description', 1, 1, 0, '2023-11-01 14:31:18', '2023-11-05 02:52:30'),
-(36, 11, 50, NULL, 26, NULL, 'Wool-blend Jacket', NULL, 'productImages/nyDVp1699160469.png', '[\"1698857849JhT9B.png\",\"16988578492AFSD.jpg\",\"1698857849igSJh.jpg\",\"1698857849Hjg0v.jpg\",\"1698857849bxyrt.jpg\",\"1698857849DsTaH.jpg\",\"1698857849Pgnom.jpg\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 110, 50, 384, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'woolblend-jacket-1699260666aCxyq', 6, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 06:51:06'),
-(37, 10, 48, NULL, NULL, NULL, 'Aware organic cotton', NULL, 'productImages/gNUBC1699158745.png', '[\"1698857889hWdxj.png\",\"1698857889Mx1tk.jpg\",\"1698857889MvtVr.jpg\",\"1698857889DYalN.jpg\",\"1698857889zA8fy.jpg\",\"1698857889Xjh4g.jpg\",\"1698857889rY1R2.jpg\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 410, 210, 300, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'aware-organic-cotton-16992638452HlZc', 6, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 07:44:05'),
-(38, 11, NULL, NULL, NULL, NULL, 'Western denim shirt', NULL, 'productImages/08P1w1699267153.jpg', '[\"1698857930IUJzq.png\",\"1698857930OdnJN.jpg\",\"16988579308MUi4.jpg\",\"1698857930cplMZ.jpg\",\"1698857930XWHZa.jpg\",\"1698857930LahcA.jpg\",\"1698857930V7zdC.jpg\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 1900, 1400, 1006, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'western-denim-shirt-1699267153CfzWV', 6, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 08:39:13'),
-(39, 11, 49, NULL, 26, NULL, 'Printed Colorful  Dresss', NULL, 'productImages/kZQcw1698857998.png', '[\"1698858049IE3p5.png\",\"1698858049FDo4Y.jpg\",\"16988580495lxw2.jpg\",\"16988580499keF5.jpg\",\"1698858049g5NjY.jpg\",\"16988580490LDQw.jpg\",\"1698858049ItId3.jpg\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 1210, 1078, 119, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'printed-colorful-dresss-1699260540RTHy4', 6, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-07 09:53:40'),
-(40, 11, NULL, NULL, NULL, NULL, 'Boxy Denim Jacket', NULL, 'productImages/PTTvZ1698857380.png', '[]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 110, 78, 71, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'boxy-denim-jacket-1699260789aQ2Z1', 7, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 06:53:09'),
-(41, 10, 47, NULL, NULL, NULL, 'Quilted Shoulder Dress', NULL, 'productImages/vslMW1699262895.png', '[\"1699262939DMeo9.png\",\"1699262939eEzgo.png\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 1910, 0, 77, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'quilted-shoulder-dress-1699262939CUuO3', 7, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 07:28:59'),
-(42, 11, NULL, NULL, NULL, NULL, 'High Ankle Jeans', NULL, 'productImages/HuckL1699159565.jpg', '[]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 110, 78, 90, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'high-ankle-jeans-1699260766vGZ1P', 7, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 06:52:46'),
-(43, 11, 49, NULL, NULL, NULL, 'Wool-blend Jacket', 'fw', 'productImages/99V7Z1699160257.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 5000, 4800, 0, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 1, 'woolblend-jacket-1699261951iqL96', 7, 'Meta Title', 'Meta', 'Meta Description', 1, 1, 0, '2023-11-01 14:31:18', '2023-11-06 07:12:31'),
-(44, 11, NULL, NULL, NULL, NULL, 'Light Denim Jacket', NULL, 'productImages/aShPx1699160444.jpg', '[\"1699160444F5iiD.png\",\"16991604445Crke.png\",\"1699160444zXGnk.png\",\"1699160444kiCXS.png\",\"16991604449tL7L.png\",\"1699160444lv5UB.png\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 2000, 1000, 49, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'light-denim-jacket-1699263826AtV2I', 7, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-07 09:53:40'),
-(45, 11, NULL, NULL, NULL, NULL, 'Western denim jacket', NULL, 'productImages/96nkO1699267360.png', '[\"1699267360lssJZ.jpg\",\"1699267360tfaoJ.jpg\",\"16992673606595E.jpg\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 700, 500, 7, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'western-denim-jacket-1699267360DSmWR', 8, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 08:42:40'),
-(46, 11, 42, NULL, 21, NULL, 'Square Shoulder Bag', 'd1324', 'productImages/eGpPF1699160354.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 3200, 3000, 0, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 1, 'square-shoulder-bag-1699160354ox2Ax', 8, 'Meta Title', 'Meta', 'Meta Description', 1, 1, 0, '2023-11-01 14:31:18', '2023-11-05 02:59:14'),
-(47, 11, 49, NULL, NULL, NULL, 'Aware organic cotton', 'd13244', 'productImages/trYRv1699158726.png', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 3000, 2400, 0, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'aware-organic-cotton-1699260385Gy8Wl', 8, 'Meta Title', 'Meta', 'Meta Description', 1, 1, 0, '2023-11-01 14:31:18', '2023-11-06 06:46:25'),
-(48, 11, 49, NULL, 38, NULL, 'Oversize Cotton Dress', NULL, 'productImages/5usxQ1699263355.jpg', '[\"1699260370C0vdz.png\",\"1699260370ofvg7.png\",\"1699260370LhPaX.png\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 110, 80, 100, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'oversize-cotton-dress-16992638695nyTl', 8, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 07:44:29');
-INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
-(50, 11, 50, NULL, NULL, NULL, 'OSmock Mini Dresss', NULL, 'productImages/kZQcw1698857998.png', '[\"1699260344vmv5C.jpg\",\"1699260344ycuZi.jpg\",\"1699260344o8AWf.jpg\",\"1699260344CR1R9.jpg\",\"1699260344IZST7.jpg\"]', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit cum harum dolor sciunt.', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>\r\n\r\n<p>More Details</p>\r\n\r\n<ul>\r\n	<li>&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?</li>\r\n	<li>&nbsp;Magnam enim modi, illo harum suscipit tempore aut dolore?</li>\r\n	<li>&nbsp;Numquam eaque mollitia fugiat laborum dolor tempora;</li>\r\n	<li>&nbsp;Sit amet consectetur adipisicing elit. Quo delectus repellat facere maiores.</li>\r\n	<li>&nbsp;Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?</li>\r\n</ul>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', '<h2>Nam provident sequi</h2>\r\n\r\n<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>', 2110, 1910, 120, 1, 'Fashion,Dress,Shirt', 'https://www.youtube.com/watch?v=RzVvThhjAKw', 8, 'osmock-mini-dresss-16992603442r80y', 8, 'Meta Title', 'Meta', 'Meta Description', 1, 0, 0, '2023-11-01 14:31:18', '2023-11-06 06:45:44'),
-(51, 15, 54, NULL, 40, NULL, 'Baby Woolen Dress', 'd132', 'productImages/GNhlO1699261330.jpg', '[\"1699261330f4iyb.jpg\",\"169926133018WeB.jpg\"]', 'Customized Baby Girl\'s Sweater with Hand-Embroidered Name image 1\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 1\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 2\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 3\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 4\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 5\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 6\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 7\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 8\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 9\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name image 10\r\nIn demand. 13 people bought this in the last 24 hours.\r\n\r\nPrice:USD 31.62\r\n\r\nOriginal Price:USD 90.35\r\n\r\n65% off sale for a limited time\r\n\r\nLocal taxes included (where applicable)\r\nCustomized Baby Girl\'s Sweater with Hand-Embroidered Name and Monogram - A Cherished Gift from Aunt', '<p>🧵 For the flowers or other patterns on the sweater in the example image, as well as other complex patterns, vibrant name designs, or embroidery with more than 8 letters that you provide, please consider purchasing our additional design services:<br />\r\n🔗&nbsp;<a href=\"https://www.etsy.com/uk/listing/1576836128/extended-design-services-offered?ref=listings_manager_grid\" target=\"_blank\">https://www.etsy.com/uk/listing/1576836128/extended-design-services-offered?ref=listings_manager_grid</a><br />\r\n<br />\r\n😊 We offer a limited selection of clothing specially tailored for children aged 6 to 16. If you&#39;re interested in these items, please don&#39;t hesitate to reach out to us to confirm stock availability.<br />\r\n<br />\r\n🌈 For sizes 6-7T, we have a delightful array of colors ready for you to explore. Check them out here:<br />\r\n🔗&nbsp;<a href=\"https://www.etsy.com/uk/listing/1575398552/custom-hand-knit-kids-sweater-6-7t-with?ref=listings_manager_grid\" target=\"_blank\">https://www.etsy.com/uk/listing/1575398552/custom-hand-knit-kids-sweater-6-7t-with?ref=listings_manager_grid</a><br />\r\n<br />\r\n🌟 Step into the world of personalized baby and toddler sweaters, where each piece is a canvas for your child&#39;s name, lovingly hand-embroidered in cursive on the chest or back. We offer a choice of yarn thickness, from Thin to Extra Thick, ensuring every sweater is truly unique. 🧵<br />\r\n<br />\r\nEvery one-of-a-kind heirloom is customized and hand-embroidered on a high-quality, ultra-soft 100% cotton oversized sweater, crafted with love. Each stitch is a labor of affection, and because every sweater is handmade by us, each one is as special as the child who wears it, tailored just for you! 💕<br />\r\n<br />\r\n🎁 These sweaters make perfect gifts for baby welcome parties, holiday celebrations, birthdays, adorable photoshoots, capturing precious milestones, and a unique way to congratulate new or expectant mothers. 📸</p>', '<p>Customization Details:<br />\r\n<br />\r\n- **Yarn Thickness:** Choose from Thin, Regular, Thick, or Extra Thick. (See examples in the photos)<br />\r\n- **Name:** While Regular and Thin yarn are suitable for any name, for the smallest sizes (0-6 and 6-9 months), names with 4-6 letters typically look best before they start to appear a bit crowded. For these smaller sizes and longer names, we recommend choosing Regular.<br />\r\n<br />\r\n📝 ***Please ensure accurate provision of all necessary personalized information. If we have any further questions or require additional details, we&#39;ll contact you before commencing production. If we don&#39;t receive a response within one week after contacting you, we may have to cancel your order.<br />\r\n<br />\r\nDelivery Time:<br />\r\n<br />\r\nYou can typically expect to receive your order in about 2-3 weeks.<br />\r\nAll orders within the United States qualify for free first-tier shipping via the United States Postal Service, with a delivery time of 2-5 days. For faster delivery, explore additional options in the &quot;Additional Shipping Options&quot; section.<br />\r\n&nbsp;</p>', '<p>As these products are carefully customized, we are unable to accept returns or exchanges. However, if you encounter any issues with your order, please reach out to us. Your satisfaction is our top priority, and we&#39;re here to assist you.</p>\r\n\r\n<p>Less</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>Shipping and return policies</h2>\r\n\r\n<ul>\r\n	<li>Order today to get by&nbsp;Nov 18-Dec 6\r\n	<p>&nbsp;</p>\r\n	</li>\r\n	<li>Returns &amp; exchanges accepted\r\n	<p>&nbsp;</p>\r\n	&nbsp;within 30 days</li>\r\n	<li>\r\n	<p>Cost to ship:&nbsp;USD&nbsp;6.32</p>\r\n	</li>\r\n</ul>\r\n\r\n<p>Deliver to Bangladesh</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ships from United Kingdom</p>\r\n\r\n<p>Etsy offsets carbon emissions from shipping and packaging on this purchase.</p>\r\n\r\n<p><strong>Etsy Purchase Protection:</strong>&nbsp;Shop confidently on Etsy knowing if something goes wrong with an order, we&#39;ve got your back for all eligible purchases &mdash;&nbsp;<a href=\"https://www.etsy.com/etsy-purchase-protection\">see program terms</a></p>\r\n\r\n<h2>Meet your sellers</h2>\r\n\r\n<p><img alt=\"laura\" src=\"https://i.etsystatic.com/isla/d917b1/65939960/isla_75x75.65939960_qs4ywi3f.jpg?version=0\" /></p>\r\n\r\n<p>laura</p>\r\n\r\n<p>Owner of&nbsp;<a href=\"https://www.etsy.com/shop/ReesTips?ref=l2-about-shopname\">ReesTips</a></p>\r\n\r\n<p><a href=\"https://www.etsy.com/signin?workflow=ZmF2b3JpdGVfdXNlcl9pZDo4MjIzMDczNzI6MTY5OTI2MTgyNDo3MGZkNGNkZmJiN2QzNDUyNTljNjVhZjFhZGU4MTg5NQ%3D%3D&amp;use_follow_text=1&amp;from_page=https%3A%2F%2Fwww.etsy.com%2Flisting%2F1586303969%2Fcustomized-baby-girls-sweater-with-hand%3Fga_order%3Dmost_relevant%26ga_search_type%3Dall%26ga_view_type%3Dgallery%26ga_search_query%3Dbaby%2Bwool%2Bsweater%26ref%3Dsr_gallery-1-5%26pro%3D1%26organic_search_click%3D1\">&nbsp;Follow shop</a></p>\r\n\r\n<p><a href=\"https://www.etsy.com/messages/new?with_id=822307372&amp;referring_id=1586303969&amp;referring_type=listing&amp;recipient_id=822307372&amp;from_action=contact-seller\">Message laura</a></p>\r\n\r\n<p>This seller usually responds&nbsp;<strong>within 24 hours.</strong></p>\r\n\r\n<h2>0 shop reviews</h2>\r\n\r\n<p>0 out of 5 stars&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n\r\n<p>Sort by: Suggested</p>\r\n\r\n<h2>More from this shop</h2>\r\n\r\n<p><a href=\"https://www.etsy.com/signin?workflow=ZmF2b3JpdGVfdXNlcl9pZDo4MjIzMDczNzI6MTY5OTI2MTgzNToyNDM2Mzg4NGNhODlmMmFmMWRkMmFmYmM4OTdkMTczNg%3D%3D&amp;use_follow_text=1&amp;from_page=https%3A%2F%2Fwww.etsy.com%2Fapi%2Fv3%2Fajax%2Fbespoke%2Fmember%2Fneu%2Fspecs%2Fdesktop_async_mfts\">Follow</a></p>', 1500, 850, 115, 1, 'baby', NULL, 1, 'baby-woolen-dress-169926133005uCH', 9, NULL, NULL, NULL, 1, 0, 0, '2023-11-06 07:02:10', '2023-11-08 02:49:51'),
-(52, 15, 51, NULL, 41, NULL, 'Baby Cotton Dress', 'as12', 'productImages/j9vUr1699261662.jpeg', NULL, 'Cotton Dress - PDF sewing pattern, sizes 6-9m - 8yr | baby & toddler, girls long sleeve, sleeveless dress', '<p>Urna cursus eget nunc scelerisque. Vitae justo eget magna fermentum iaculis. Libero volutpat sed cras ornare. Viverra adipiscing at in tellus integer. Molestie at elementum eu facilisis sed. Ultrices mi tempus imperdiet nulla. Iaculis nunc sed augue lacus viverra vitae congue eu. Massa massa ultricies mi quis. Id leo in vitae turpis massa sed elementum tempus egestas. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Nam libero justo laoreet sit amet cursus sit. Lobortis elementum nibh tellus molestie. Odio euismod lacinia at quis risus sed vulputate odio ut. Suspendisse in est ante in nibh mauris cursus. Iaculis urna id volutpat lacus laoreet non curabitur. Diam sollicitudin tempor id eu. Velit laoreet id donec ultrices tincidunt arcu non. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare.</p>', '<p>Tortor vitae purus faucibus ornare suspendisse. Donec ultrices tincidunt arcu non sodales neque sodales ut etiam. Donec ultrices tincidunt arcu non sodales neque. Et tortor at risus viverra adipiscing at in tellus integer. Turpis nunc eget lorem dolor. Rutrum tellus pellentesque eu tincidunt.</p>\r\n\r\n<p>Amet justo donec enim diam vulputate ut. Sed augue lacus viverra vitae. Orci a scelerisque purus semper eget duis at. A scelerisque purus semper eget duis at tellus at urna. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Dictum non consectetur a erat nam at. Dui accumsan sit amet nulla facilisi. Velit aliquet sagittis id consectetur purus ut. Enim neque volutpat ac tincidunt. Cursus eget nunc scelerisque viverra mauris. Lobortis mattis aliquam faucibus purus in. Enim lobortis scelerisque fermentum dui faucibus in ornare quam. Eget mauris pharetra et ultrices neque ornare. Molestie nunc non blandit massa enim nec dui nunc mattis. Ipsum suspendisse ultrices gravida dictum fusce. Non blandit massa enim nec dui. At urna condimentum mattis pellentesque id. Eget dolor morbi non arcu risus quis varius quam. Egestas pretium aenean pharetra magna ac placerat. Quam vulputate dignissim suspendisse in est ante in nibh.</p>', '<p>Cursus eget nunc scelerisque viverra mauris. Lobortis mattis aliquam faucibus purus in. Enim lobortis scelerisque fermentum dui faucibus in ornare quam. Eget mauris pharetra et ultrices neque ornare. Molestie nunc non blandit massa enim nec dui nunc mattis. Ipsum suspendisse ultrices gravida dictum fusce. Non blandit massa enim nec dui. At urna condimentum mattis pellentesque id.</p>', 1690, 1400, 0, 1, NULL, 'https://www.youtube.com/', 1, 'baby-cotton-dress-1699261662plI7n', 9, NULL, NULL, NULL, 1, 1, 0, '2023-11-06 07:07:42', '2023-11-06 07:07:42');
+(21, 10, 47, NULL, 29, NULL, 'Ergonomic system-worthy processimprovement', '309', 'productImages/24.png', '[\"36.png\",\"37.png\",\"27.png\",\"28.png\"]', 'Doloremque cumque temporibus consequatur debitis. Tenetur voluptatem ad minus blanditiis. Possimus itaque explicabo labore doloribus saepe. Soluta non distinctio facere amet id.', 'Aut labore et delectus labore eius vel. Sint et vitae itaque excepturi ducimus. Dolore consequatur consequuntur cumque consequatur quia voluptatum. Reprehenderit facere atque non id ut. Minima aut fugiat minima. Sit enim totam dolorum tenetur sapiente nostrum temporibus aut. Praesentium in vitae eveniet optio dolor. Eius eaque quidem quo delectus. Provident enim repellendus dolores sequi.', 'Voluptates eos architecto recusandae adipisci nam labore. Nostrum molestiae sint dolore natus cupiditate dolores quia. Deleniti delectus corporis provident recusandae.', 'Sunt sunt laborum soluta vitae rerum vitae aut in. Quia enim est id et doloremque labore. Qui quae quae sit magnam dignissimos. Maiores sit modi quia facere itaque delectus dolorum.', 840, 830, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1702881034zp1O4', 7, 'Ergonomic system-worthy processimprovement', 'product,demo', NULL, 1, 0, 1, '2023-12-18 06:30:34', NULL),
+(22, 11, 49, NULL, 33, NULL, 'Pre-emptive upward-trending throughput', '665', 'productImages/27.png', NULL, 'Delectus sed voluptatem animi cupiditate voluptates. Odio saepe rem et cumque laborum accusamus. Optio et nobis et optio repellendus. Dolorum mollitia dolorum debitis rerum.', 'Nihil unde fuga maiores iste ipsa. Quia molestiae soluta labore placeat dolorem inventore et. Optio qui adipisci praesentium. Qui iste non aut voluptatem. Laboriosam quae id aspernatur. Necessitatibus a ut sint perspiciatis architecto dolorem architecto.', 'Voluptas consectetur culpa aut sunt enim deleniti neque. Aut soluta est illum voluptatem modi quasi. Est quia quas similique est sit dolores iure.', 'Commodi totam veritatis aut est quibusdam quibusdam. Eos dignissimos harum libero. Necessitatibus molestiae aut consequatur alias.', 432, 422, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1702881034XIG6I', 9, 'Pre-emptive upward-trending throughput', 'product,demo', NULL, 1, 1, 1, '2023-12-18 06:30:34', NULL),
+(23, 10, 48, NULL, 37, NULL, 'Automated system-worthy knowledgeuser', '581', 'productImages/37.png', '[\"21.png\",\"29.png\",\"39.png\",\"35.png\"]', 'At magnam perspiciatis aut sint. Et sit non expedita reiciendis deleniti recusandae. Sit id rem totam optio. Dolores officiis tenetur sit.', 'Dolorem ad voluptates consequuntur ea. Eos esse nihil et placeat error ipsam maxime. Autem maiores ullam rerum eius molestiae. Eos id est qui rem sint temporibus nostrum. Aspernatur aut officiis ex. Aut facere eveniet ut sint. Vel sint ipsa eaque id repudiandae. Aperiam voluptatum enim dolores unde adipisci et vero laborum. Laudantium iste fugiat neque. Mollitia consequatur vel quo dolor.', 'Ratione voluptates aperiam qui et. Est repellat ea ad minus reprehenderit. Odio qui neque nam maxime recusandae fugit.', 'Necessitatibus aut explicabo sit. Odio accusantium velit sit eos laboriosam et voluptatem. Doloribus ex et consequatur nam quibusdam. Ea laboriosam debitis sit dolorem enim est aliquam.', 817, 807, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1702881034UTuPB', 9, 'Automated system-worthy knowledgeuser', 'product,demo', NULL, 1, 0, 1, '2023-12-18 06:30:34', NULL),
+(24, 11, 49, NULL, 37, NULL, 'Persevering incremental concept', '258', 'productImages/37.png', NULL, 'Molestiae est facilis itaque itaque. Cumque deserunt aspernatur eos cum maiores repellat expedita. Eveniet esse et dolorem et. Quis optio suscipit quia autem aut accusantium.', 'Consequuntur cupiditate eveniet totam eos similique aut soluta soluta. Fuga doloribus natus sit cumque. Saepe non aut autem. Et ut molestiae adipisci quas id. Voluptatibus quae assumenda numquam est nemo. Sed consequatur temporibus provident et soluta. Eligendi facere aliquid vero velit laboriosam pariatur est quia.', 'Molestias corporis atque voluptatem aperiam ipsa ab. Officiis magni cupiditate debitis non quis. Odio et facilis saepe temporibus facilis omnis.', 'Nostrum quis aspernatur et adipisci. Molestiae magni deleniti rerum dolorem necessitatibus ut. Architecto enim vero esse non.', 770, 760, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '17028810352oDaT', 9, 'Persevering incremental concept', 'product,demo', NULL, 1, 1, 1, '2023-12-18 06:30:35', NULL),
+(25, 15, 54, NULL, 34, NULL, 'Operative maximized strategy', '873', 'productImages/30.png', '[\"22.png\",\"25.png\",\"27.png\",\"34.png\"]', 'Repellendus nisi voluptas sit itaque et iure quis. Eos aut fugit iure dolorem molestiae laboriosam natus. Expedita assumenda omnis cumque esse aperiam.', 'Itaque nostrum quos totam qui omnis expedita. Et dignissimos totam dolores voluptatum rerum sit quis dolorum. Consectetur excepturi est dolores et numquam aliquid qui. Adipisci non hic autem. Ad dolorum asperiores cupiditate sed velit. A est rerum debitis quam officiis eum. Et non ut amet.', 'Et libero ut et impedit et quam et. Nulla praesentium iure totam eos et. Excepturi velit quo dolorum et. Facilis possimus provident alias pariatur magnam.', 'Ab veniam dicta harum cumque asperiores enim praesentium. Est quis aut veritatis odit nam quae. Id ducimus vero aliquam. Fuga veritatis velit voluptatem aut repellendus aliquam.', 706, 696, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1702881035finDV', 9, 'Operative maximized strategy', 'product,demo', NULL, 1, 0, 1, '2023-12-18 06:30:35', NULL),
+(26, 11, 49, NULL, 40, NULL, 'Open-source 3rdgeneration toolset', '211', 'productImages/35.png', NULL, 'Eum et architecto commodi dicta ut eligendi amet repellat. Commodi ducimus reprehenderit dolorem eligendi. Rerum eum quam placeat animi. Vel pariatur ducimus culpa dignissimos totam atque sunt.', 'In optio ratione aut sint. Fuga iure atque recusandae voluptatibus. Itaque expedita aliquam assumenda eligendi dolorem dolorum. Distinctio veniam exercitationem sed facilis. Omnis excepturi excepturi consectetur minus optio. Rerum qui error aspernatur neque et autem.', 'Est eius minus omnis similique facere quibusdam. Quod sit minus dolore in beatae. Cupiditate aut eum ut quibusdam autem.', 'Ipsam necessitatibus quaerat consequatur non qui. Nihil et culpa nulla. Consequuntur occaecati dolor deserunt provident deleniti dolores. Sequi et vitae quos quisquam cumque qui.', 382, 372, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1702881035K1BPx', 6, 'Open-source 3rdgeneration toolset', 'product,demo', NULL, 1, 1, 1, '2023-12-18 06:30:35', NULL),
+(27, 15, 54, NULL, 32, NULL, 'Ergonomic encompassing time-frame', '965', 'productImages/23.png', '[\"21.png\",\"38.png\",\"30.png\",\"32.png\"]', 'Nisi et qui error voluptatem qui. Commodi adipisci quisquam dolor neque facere voluptas eaque est. Voluptate facere tenetur pariatur porro aliquam dolorem quis.', 'Eos reprehenderit distinctio sint eos quibusdam ipsa est. Cupiditate ratione qui earum voluptate voluptates id quam. Consectetur est sequi exercitationem culpa corrupti doloremque est. Incidunt ullam et atque quos optio quam omnis. Qui assumenda non in quae nemo nihil. Adipisci impedit et ad impedit praesentium quisquam officia. Quod consequatur quaerat ea.', 'Qui veniam explicabo cum necessitatibus. Et cum aut facilis dolores. Voluptatibus nulla corrupti ut voluptatum amet tempora quam. Nesciunt ea ut reprehenderit cumque dolor sed.', 'Et provident nostrum eum qui ut. Ipsum facilis distinctio aut sit ut sint corporis nisi.', 216, 206, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1702881035UhUld', 6, 'Ergonomic encompassing time-frame', 'product,demo', NULL, 1, 0, 1, '2023-12-18 06:30:35', NULL),
+(28, 11, 50, NULL, 34, NULL, 'Upgradable zerotolerance ability', '905', 'productImages/30.png', NULL, 'Et consectetur voluptatibus dolore neque. Nostrum qui qui labore ad quis. Dolorem ut odit exercitationem est dolores ullam expedita et. Pariatur qui dolor totam.', 'Ut quo expedita qui dolores consequuntur velit unde vel. Quis voluptas eos neque deserunt debitis enim sit. Unde pariatur veniam nihil natus est possimus. Est vero consequatur corrupti id. Ab consequatur quae saepe ea. Doloremque quia cupiditate quae quae alias. Labore praesentium saepe voluptatibus rerum. Temporibus laboriosam dolorem consequatur beatae ipsam. Harum necessitatibus hic id.', 'Aut sit atque omnis ullam laboriosam quaerat ea ipsam. Qui optio amet tenetur voluptatem illum aspernatur. Nihil omnis tempora excepturi nam asperiores ut non.', 'Consequatur magni incidunt soluta veniam sit et. Enim ullam rerum impedit autem. Quisquam dolore et omnis reiciendis.', 318, 308, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1702881035KasuH', 6, 'Upgradable zerotolerance ability', 'product,demo', NULL, 1, 1, 1, '2023-12-18 06:30:35', NULL),
+(29, 15, 54, NULL, 27, NULL, 'Multi-channelled fresh-thinking toolset', '761', 'productImages/34.png', '[\"24.png\",\"21.png\",\"36.png\",\"31.png\"]', 'Quis qui autem natus rem illum nihil. Ut occaecati excepturi modi mollitia a. Quis pariatur exercitationem perspiciatis dolor eum asperiores.', 'Voluptas et nobis officia vitae perspiciatis velit fuga est. Excepturi hic ut iure blanditiis laborum. Sint cum molestiae dolorum odio. Magnam hic excepturi tempore consectetur et voluptatem. Ut voluptatem deleniti quis quae quaerat et consequatur. Ducimus et sed in earum dolorem vel excepturi. Est ipsa asperiores quia dignissimos eaque suscipit voluptatem.', 'Ratione quod voluptatem magni exercitationem est. Quo ex qui repudiandae sit impedit laborum unde. Omnis sit culpa at hic sit.', 'Doloribus alias fugiat officia corrupti nemo. Neque eius id aut aspernatur. Natus et voluptate quo atque nobis tempore. Libero qui quaerat occaecati qui.', 454, 444, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1702881035veRIo', 8, 'Multi-channelled fresh-thinking toolset', 'product,demo', NULL, 1, 0, 1, '2023-12-18 06:30:35', NULL),
+(30, 11, 50, NULL, 41, NULL, 'Networked fresh-thinking definition', '449', 'productImages/33.png', NULL, 'Minus natus facere accusantium incidunt soluta. Nostrum sunt laborum sunt pariatur. Hic quod praesentium quos in in voluptates.', 'Illo praesentium facilis rem velit. Culpa consequatur facilis et debitis ratione sit doloribus. Voluptatem recusandae totam qui eius fuga nostrum. Dolores pariatur voluptas deleniti accusamus asperiores dolorem. Non fugiat non enim qui ex vel.', 'Et qui quibusdam magnam qui suscipit. Quis corporis sequi fugiat rerum tempore ipsum nisi. Qui in commodi saepe corrupti.', 'Dolor quia quo ut ipsa omnis est. Eos id minus quae quis et harum. Asperiores exercitationem consequatur eum neque et est. Maxime ut ut qui.', 783, 773, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1702881035KeBcp', 7, 'Networked fresh-thinking definition', 'product,demo', NULL, 1, 1, 1, '2023-12-18 06:30:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -1885,89 +1761,26 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
-(41, 22, '1698573346nLUO8.png', '2023-10-29 07:55:46', NULL),
-(42, 26, '1698637443sHaYu.png', '2023-10-30 01:44:03', NULL),
-(43, 28, '1698637555DPkAw.png', '2023-10-30 01:45:55', NULL),
-(46, 2, '1698637800SYuIk.png', '2023-10-30 01:50:00', NULL),
-(48, 28, '1698729029FBRwU.jpg', '2023-10-31 03:10:29', NULL),
-(50, 26, '1698729087k7kRd.png', '2023-10-31 03:11:27', NULL),
-(52, 26, '1698729087WyRpN.jpg', '2023-10-31 03:11:27', NULL),
-(57, 22, '16987292712Waym.jpg', '2023-10-31 03:14:31', NULL),
-(60, 2, '1698729390KecXE.png', '2023-10-31 03:16:30', NULL),
-(62, 28, '1698731956i58uE.png', '2023-10-31 03:59:16', NULL),
-(63, 26, '1698731985UieAW.png', '2023-10-31 03:59:45', NULL),
-(64, 2, '1698732149epL0Z.png', '2023-10-31 04:02:29', NULL),
-(67, 28, '1698809964wyoEb.png', '2023-11-01 01:39:24', NULL),
-(98, 30, '1698857318xs1Bf.png', '2023-11-01 14:48:38', NULL),
-(99, 30, '16988573189P3Gj.jpg', '2023-11-01 14:48:38', NULL),
-(100, 30, '1698857318MF3FO.jpg', '2023-11-01 14:48:38', NULL),
-(101, 30, '1698857318grBW4.jpg', '2023-11-01 14:48:38', NULL),
-(102, 30, '1698857318nSxWw.jpg', '2023-11-01 14:48:38', NULL),
-(103, 30, '1698857318lhH9H.jpg', '2023-11-01 14:48:38', NULL),
-(104, 30, '1698857318J1Co7.jpg', '2023-11-01 14:48:38', NULL),
-(112, 32, '1698857484juSIj.png', '2023-11-01 14:51:24', NULL),
-(113, 32, '1698857484LRGE9.jpg', '2023-11-01 14:51:24', NULL),
-(114, 32, '1698857484nPVcM.jpg', '2023-11-01 14:51:24', NULL),
-(115, 32, '16988574844Hpxh.jpg', '2023-11-01 14:51:24', NULL),
-(116, 32, '16988574849WemR.jpg', '2023-11-01 14:51:24', NULL),
-(117, 32, '1698857484gPVFQ.jpg', '2023-11-01 14:51:24', NULL),
-(118, 32, '1698857484SEZCb.jpg', '2023-11-01 14:51:24', NULL),
-(126, 34, '1698857728cwhln.png', '2023-11-01 14:55:28', NULL),
-(127, 34, '16988577287QDwJ.jpg', '2023-11-01 14:55:28', NULL),
-(128, 34, '1698857728RSf0D.jpg', '2023-11-01 14:55:28', NULL),
-(129, 34, '1698857728R7zHo.jpg', '2023-11-01 14:55:28', NULL),
-(130, 34, '1698857728JpKgN.jpg', '2023-11-01 14:55:28', NULL),
-(131, 34, '1698857728YH32K.jpg', '2023-11-01 14:55:28', NULL),
-(132, 34, '1698857728vDQhN.jpg', '2023-11-01 14:55:28', NULL),
-(140, 36, '1698857849JhT9B.png', '2023-11-01 14:57:29', NULL),
-(141, 36, '16988578492AFSD.jpg', '2023-11-01 14:57:29', NULL),
-(142, 36, '1698857849igSJh.jpg', '2023-11-01 14:57:29', NULL),
-(143, 36, '1698857849Hjg0v.jpg', '2023-11-01 14:57:29', NULL),
-(144, 36, '1698857849bxyrt.jpg', '2023-11-01 14:57:29', NULL),
-(145, 36, '1698857849DsTaH.jpg', '2023-11-01 14:57:29', NULL),
-(146, 36, '1698857849Pgnom.jpg', '2023-11-01 14:57:29', NULL),
-(147, 37, '1698857889hWdxj.png', '2023-11-01 14:58:09', NULL),
-(148, 37, '1698857889Mx1tk.jpg', '2023-11-01 14:58:09', NULL),
-(149, 37, '1698857889MvtVr.jpg', '2023-11-01 14:58:09', NULL),
-(150, 37, '1698857889DYalN.jpg', '2023-11-01 14:58:09', NULL),
-(151, 37, '1698857889zA8fy.jpg', '2023-11-01 14:58:09', NULL),
-(152, 37, '1698857889Xjh4g.jpg', '2023-11-01 14:58:09', NULL),
-(153, 37, '1698857889rY1R2.jpg', '2023-11-01 14:58:09', NULL),
-(154, 38, '1698857930IUJzq.png', '2023-11-01 14:58:50', NULL),
-(155, 38, '1698857930OdnJN.jpg', '2023-11-01 14:58:50', NULL),
-(156, 38, '16988579308MUi4.jpg', '2023-11-01 14:58:50', NULL),
-(157, 38, '1698857930cplMZ.jpg', '2023-11-01 14:58:50', NULL),
-(158, 38, '1698857930XWHZa.jpg', '2023-11-01 14:58:50', NULL),
-(159, 38, '1698857930LahcA.jpg', '2023-11-01 14:58:50', NULL),
-(160, 38, '1698857930V7zdC.jpg', '2023-11-01 14:58:50', NULL),
-(172, 39, '1698858049IE3p5.png', '2023-11-01 15:00:49', NULL),
-(173, 39, '1698858049FDo4Y.jpg', '2023-11-01 15:00:49', NULL),
-(174, 39, '16988580495lxw2.jpg', '2023-11-01 15:00:49', NULL),
-(175, 39, '16988580499keF5.jpg', '2023-11-01 15:00:49', NULL),
-(176, 39, '1698858049g5NjY.jpg', '2023-11-01 15:00:49', NULL),
-(177, 39, '16988580490LDQw.jpg', '2023-11-01 15:00:49', NULL),
-(178, 39, '1698858049ItId3.jpg', '2023-11-01 15:00:49', NULL),
-(179, 44, '1699160444F5iiD.png', '2023-11-05 03:00:44', NULL),
-(180, 44, '16991604445Crke.png', '2023-11-05 03:00:44', NULL),
-(181, 44, '1699160444zXGnk.png', '2023-11-05 03:00:44', NULL),
-(182, 44, '1699160444kiCXS.png', '2023-11-05 03:00:44', NULL),
-(183, 44, '16991604449tL7L.png', '2023-11-05 03:00:44', NULL),
-(184, 44, '1699160444lv5UB.png', '2023-11-05 03:00:44', NULL),
-(185, 50, '1699260344vmv5C.jpg', '2023-11-06 06:45:44', NULL),
-(186, 50, '1699260344ycuZi.jpg', '2023-11-06 06:45:44', NULL),
-(187, 50, '1699260344o8AWf.jpg', '2023-11-06 06:45:44', NULL),
-(188, 50, '1699260344CR1R9.jpg', '2023-11-06 06:45:44', NULL),
-(189, 50, '1699260344IZST7.jpg', '2023-11-06 06:45:44', NULL),
-(190, 48, '1699260370C0vdz.png', '2023-11-06 06:46:10', NULL),
-(191, 48, '1699260370ofvg7.png', '2023-11-06 06:46:10', NULL),
-(192, 48, '1699260370LhPaX.png', '2023-11-06 06:46:10', NULL),
-(193, 51, '1699261330f4iyb.jpg', '2023-11-06 07:02:10', NULL),
-(194, 51, '169926133018WeB.jpg', '2023-11-06 07:02:10', NULL),
-(195, 41, '1699262939DMeo9.png', '2023-11-06 07:28:59', NULL),
-(196, 41, '1699262939eEzgo.png', '2023-11-06 07:28:59', NULL),
-(197, 45, '1699267360lssJZ.jpg', '2023-11-06 08:42:40', NULL),
-(198, 45, '1699267360tfaoJ.jpg', '2023-11-06 08:42:40', NULL),
-(199, 45, '16992673606595E.jpg', '2023-11-06 08:42:40', NULL);
+(41, 21, '36.png', '2023-12-18 06:30:34', NULL),
+(42, 21, '37.png', '2023-12-18 06:30:34', NULL),
+(43, 21, '27.png', '2023-12-18 06:30:34', NULL),
+(44, 21, '28.png', '2023-12-18 06:30:34', NULL),
+(45, 23, '21.png', '2023-12-18 06:30:34', NULL),
+(46, 23, '29.png', '2023-12-18 06:30:35', NULL),
+(47, 23, '39.png', '2023-12-18 06:30:35', NULL),
+(48, 23, '35.png', '2023-12-18 06:30:35', NULL),
+(49, 25, '22.png', '2023-12-18 06:30:35', NULL),
+(50, 25, '25.png', '2023-12-18 06:30:35', NULL),
+(51, 25, '27.png', '2023-12-18 06:30:35', NULL),
+(52, 25, '34.png', '2023-12-18 06:30:35', NULL),
+(53, 27, '21.png', '2023-12-18 06:30:35', NULL),
+(54, 27, '38.png', '2023-12-18 06:30:35', NULL),
+(55, 27, '30.png', '2023-12-18 06:30:35', NULL),
+(56, 27, '32.png', '2023-12-18 06:30:35', NULL),
+(57, 29, '24.png', '2023-12-18 06:30:35', NULL),
+(58, 29, '21.png', '2023-12-18 06:30:35', NULL),
+(59, 29, '36.png', '2023-12-18 06:30:35', NULL),
+(60, 29, '31.png', '2023-12-18 06:30:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -2028,7 +1841,26 @@ CREATE TABLE `product_reviews` (
 --
 
 INSERT INTO `product_reviews` (`id`, `product_id`, `user_id`, `rating`, `review`, `reply`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(3, 1, 13, 5, 'dasdassad', 'asdasdsassad', '16891634796LEKY', 1, '2023-07-12 22:04:39', '2023-07-12 22:05:13');
+(41, 22, 1, 1, 'Vision-oriented hybrid knowledgebase', 'thanks', '', 1, '2023-12-18 06:30:34', NULL),
+(42, 22, 1, 4, 'Stand-alone needs-based neural-net', 'thanks', '', 1, '2023-12-18 06:30:34', NULL),
+(43, 22, 1, 3, 'Progressive assymetric monitoring', 'thanks', '', 1, '2023-12-18 06:30:34', NULL),
+(44, 22, 1, 4, 'Digitized context-sensitive flexibility', 'thanks', '', 1, '2023-12-18 06:30:34', NULL),
+(45, 24, 1, 2, 'Vision-oriented multi-tasking emulation', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(46, 24, 1, 4, 'Triple-buffered logistical infrastructure', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(47, 24, 1, 4, 'Implemented tangible instructionset', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(48, 24, 1, 2, 'Streamlined contextually-based parallelism', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(49, 26, 1, 2, 'Expanded multi-tasking benchmark', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(50, 26, 1, 3, 'Customizable client-driven benchmark', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(51, 26, 1, 1, 'Reduced local monitoring', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(52, 26, 1, 1, 'Customer-focused web-enabled application', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(53, 28, 1, 2, 'Enhanced directional openarchitecture', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(54, 28, 1, 5, 'Sharable full-range archive', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(55, 28, 1, 3, 'Secured 3rdgeneration approach', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(56, 28, 1, 5, 'Automated stable middleware', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(57, 30, 1, 4, 'Intuitive attitude-oriented circuit', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(58, 30, 1, 3, 'Polarised needs-based conglomeration', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(59, 30, 1, 5, 'Visionary secondary website', 'thanks', '', 1, '2023-12-18 06:30:35', NULL),
+(60, 30, 1, 3, 'Diverse needs-based paradigm', 'thanks', '', 1, '2023-12-18 06:30:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -2085,42 +1917,26 @@ CREATE TABLE `product_variants` (
 --
 
 INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_type_id`, `stock`, `price`, `discounted_price`, `warrenty_id`, `device_condition_id`, `created_at`, `updated_at`) VALUES
-(29, 23, '1698732114Cs1XY.jpg', 2, 5, NULL, NULL, NULL, 99, 1289, 1000, 1, NULL, '2023-10-18 09:13:28', '2023-10-31 04:01:54'),
-(30, 24, '1698732056BVBQ4.png', 10, 6, NULL, NULL, NULL, 100, 100, 90, 1, NULL, '2023-10-22 08:02:52', '2023-10-31 04:00:56'),
-(31, 24, '1698732056kGL0Z.png', 6, 5, NULL, NULL, NULL, 200, 120, 100, 1, NULL, '2023-10-22 08:02:52', '2023-10-31 04:00:56'),
-(32, 1, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '2023-10-25 04:59:51', '2023-10-31 03:10:48'),
-(37, 27, '1698220649T4kIh.png', 1, 4, NULL, NULL, NULL, 100, 800, 700, 7, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
-(38, 27, '1698220649mYEaQ.png', 1, 3, NULL, NULL, NULL, 140, 750, 600, 8, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
-(39, 27, '1698220649T2jK0.png', 1, 5, NULL, NULL, NULL, 200, 750, 690, 8, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
-(40, 27, '1698220649CwkcU.png', 2, 5, NULL, NULL, NULL, 500, 900, 800, 8, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
-(41, 27, '1698220649S40Zf.png', 2, 3, NULL, NULL, NULL, 90, 900, 780, 7, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
-(42, 23, '1698732114ixupl.jpg', 10, 5, NULL, NULL, NULL, 120, 1300, 1200, 8, NULL, '2023-10-31 03:13:18', '2023-10-31 04:01:54'),
-(43, 47, '1699158726ygF3Y.jpg', 2, 5, NULL, NULL, NULL, 100, 3000, 2400, 8, NULL, '2023-11-05 02:32:06', '2023-11-06 06:46:25'),
-(44, 47, '1699158726ooMjv.jpg', 2, 3, NULL, NULL, NULL, 120, 3500, 3000, 8, NULL, '2023-11-05 02:32:06', '2023-11-06 06:46:25'),
-(45, 47, '16991587262SH1g.jpg', 10, 5, NULL, NULL, NULL, 400, 3000, 2870, 7, NULL, '2023-11-05 02:32:06', '2023-11-06 06:46:25'),
-(46, 47, '16991587269OJ0a.jpg', 10, 4, NULL, NULL, NULL, 180, 3800, 3530, 1, NULL, '2023-11-05 02:32:06', '2023-11-06 06:46:25'),
-(47, 31, '1699158963bFzRH.png', 6, 5, NULL, NULL, NULL, 200, 2900, 2300, 1, NULL, '2023-11-05 02:36:03', '2023-11-06 06:49:32'),
-(48, 31, '16991589632HONV.png', 3, 5, NULL, NULL, NULL, 222, 1894, 1400, 3, NULL, '2023-11-05 02:36:03', '2023-11-06 06:49:32'),
-(49, 31, '16991589643qBAZ.png', 2, 3, NULL, NULL, NULL, 120, 2300, 2080, 1, NULL, '2023-11-05 02:36:04', '2023-11-06 06:49:32'),
-(50, 33, '1699159301appKA.png', 10, 6, NULL, NULL, NULL, 280, 1000, 800, 8, NULL, '2023-11-05 02:41:41', '2023-11-05 02:48:54'),
-(52, 33, '1699159351v4NzS.png', 10, 5, NULL, NULL, NULL, 300, 1050, 850, 8, NULL, '2023-11-05 02:42:31', '2023-11-05 02:48:54'),
-(53, 33, '1699159734zsZGy.png', 10, 3, NULL, NULL, NULL, 150, 1100, 900, 1, NULL, '2023-11-05 02:48:54', NULL),
-(54, 33, '1699159734ltE6b.png', 1, 3, NULL, NULL, NULL, 200, 1200, 1150, 1, NULL, '2023-11-05 02:48:54', NULL),
-(55, 33, '1699159734pBUXd.png', NULL, 4, NULL, NULL, NULL, 100, 1290, 1190, 1, NULL, '2023-11-05 02:48:54', NULL),
-(56, 35, '1699159950EHpEw.png', 7, 3, NULL, NULL, NULL, 100, 2800, 2450, 8, NULL, '2023-11-05 02:52:30', NULL),
-(57, 35, '1699159950PmWa7.png', 11, 4, NULL, NULL, NULL, 104, 3000, 0, 8, NULL, '2023-11-05 02:52:30', NULL),
-(58, 35, '1699159950QZoQf.png', 2, 5, NULL, NULL, NULL, 50, 2890, 0, 8, NULL, '2023-11-05 02:52:30', NULL),
-(59, 43, '1699160257ytM6T.png', 12, 6, NULL, NULL, NULL, 200, 5000, 4800, 1, NULL, '2023-11-05 02:57:37', '2023-11-06 07:12:31'),
-(60, 43, '1699160257q2GSr.png', 12, 5, NULL, NULL, NULL, 180, 4900, 4590, 8, NULL, '2023-11-05 02:57:37', '2023-11-06 07:12:31'),
-(61, 43, '1699160257BxkKI.png', 12, 3, NULL, NULL, NULL, 100, 5200, 5020, 7, NULL, '2023-11-05 02:57:37', '2023-11-06 07:12:31'),
-(62, 43, '1699160257wdf72.png', 12, 4, NULL, NULL, NULL, 180, 5300, 5190, 1, NULL, '2023-11-05 02:57:37', '2023-11-06 07:12:31'),
-(63, 43, '1699160257l14Bc.png', 1, 4, NULL, NULL, NULL, 122, 5090, 5000, 7, NULL, '2023-11-05 02:57:37', '2023-11-06 07:12:31'),
-(64, 43, '1699160257yIr8r.png', NULL, 4, NULL, NULL, NULL, 120, 4900, 4590, 1, NULL, '2023-11-05 02:57:37', '2023-11-06 07:12:31'),
-(65, 46, '1699160354TZqCD.jpg', 9, 3, NULL, NULL, NULL, 100, 3200, 3000, 1, NULL, '2023-11-05 02:59:14', NULL),
-(66, 46, '16991603549iXBr.jpg', NULL, 5, NULL, NULL, NULL, 120, 3400, 3180, 2, NULL, '2023-11-05 02:59:14', NULL),
-(67, 52, '16992616621F8OM.jpg', 13, 4, NULL, NULL, NULL, 190, 1690, 1400, 1, NULL, '2023-11-06 07:07:42', NULL),
-(68, 52, '1699261662JesN8.jpg', 15, 3, NULL, NULL, NULL, 100, 1800, 0, 8, NULL, '2023-11-06 07:07:42', NULL),
-(69, 52, '1699261662evQAp.jpg', 10, 3, NULL, NULL, NULL, 129, 1900, 1300, 7, NULL, '2023-11-06 07:07:42', NULL);
+(41, 22, '38.png', 11, 5, 42, 3, 8, 1000, 432, 422, 2, 6, '2023-12-18 06:30:34', '2023-12-18 06:30:34'),
+(42, 22, '23.png', 11, 5, 42, 3, 8, 1000, 432, 422, 2, 6, '2023-12-18 06:30:34', '2023-12-18 06:30:34'),
+(43, 22, '33.png', 11, 5, 42, 3, 8, 1000, 432, 422, 2, 6, '2023-12-18 06:30:34', '2023-12-18 06:30:34'),
+(44, 22, '26.png', 11, 5, 42, 3, 8, 1000, 432, 422, 2, 6, '2023-12-18 06:30:34', '2023-12-18 06:30:34'),
+(45, 24, '40.png', 2, 5, 16, 4, 6, 1000, 770, 760, 3, 3, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(46, 24, '32.png', 2, 5, 16, 4, 6, 1000, 770, 760, 3, 3, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(47, 24, '40.png', 2, 5, 16, 4, 6, 1000, 770, 760, 3, 3, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(48, 24, '24.png', 2, 5, 16, 4, 6, 1000, 770, 760, 3, 3, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(49, 26, '37.png', 3, 5, 52, 1, 6, 1000, 382, 372, 7, 4, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(50, 26, '31.png', 3, 5, 52, 1, 6, 1000, 382, 372, 7, 4, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(51, 26, '39.png', 3, 5, 52, 1, 6, 1000, 382, 372, 7, 4, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(52, 26, '24.png', 3, 5, 52, 1, 6, 1000, 382, 372, 7, 4, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(53, 28, '21.png', 3, 3, 136, 2, 1, 1000, 318, 308, 3, 1, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(54, 28, '27.png', 3, 3, 136, 2, 1, 1000, 318, 308, 3, 1, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(55, 28, '31.png', 3, 3, 136, 2, 1, 1000, 318, 308, 3, 1, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(56, 28, '28.png', 3, 3, 136, 2, 1, 1000, 318, 308, 3, 1, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(57, 30, '36.png', 7, 4, 137, 4, 6, 1000, 783, 773, 2, 1, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(58, 30, '39.png', 7, 4, 137, 4, 6, 1000, 783, 773, 2, 1, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(59, 30, '39.png', 7, 4, 137, 4, 6, 1000, 783, 773, 2, 1, '2023-12-18 06:30:35', '2023-12-18 06:30:35'),
+(60, 30, '31.png', 7, 4, 137, 4, 6, 1000, 783, 773, 2, 1, '2023-12-18 06:30:35', '2023-12-18 06:30:35');
 
 -- --------------------------------------------------------
 
@@ -2284,19 +2100,6 @@ CREATE TABLE `shipping_infos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `shipping_infos`
---
-
-INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `gender`, `address`, `thana`, `post_code`, `city`, `country`, `created_at`, `updated_at`) VALUES
-(2, 1, 'Reduan', '01850453321', 'reduan@getup.com.bd', 'undefined', 'kapasgola', NULL, '12334', 'Chattogram', 'Bangladesh', '2023-07-17 23:49:13', NULL),
-(3, 6, 'Reduan', '01850453321', 'admin@gmil.com', 'undefined', 'kapasgola', NULL, '12334', 'Chattogram', 'Bangladesh', '2023-07-18 08:34:22', NULL),
-(4, 9, 'Reduan', '01850453322', 'admin@gmil.com', 'undefined', 'Flat A2, House 4 Rd No. 10', NULL, '1000', 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
-(9, 14, 'bh', 'hh', 'bb', NULL, 'hh', 'Gopalganj Sadar', NULL, 'Gopalganj', NULL, '2023-10-25 06:33:57', NULL),
-(10, 0, 'Arif', '98666776778', 'dcsuperstar22@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '2023-10-26 03:34:13', NULL),
-(25, 3, 'Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', 'Male', 'Dhaka, Bangladesh', 'Mohammadpur', '1071', NULL, 'Bangladesh', '2023-11-09 06:57:59', NULL),
-(26, 25, 'Md Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'khilkhet', NULL, '1229', 'Rajshahi', 'Bangladesh', '2023-12-18 04:41:58', '2023-12-18 05:31:14');
 
 -- --------------------------------------------------------
 
@@ -2526,25 +2329,6 @@ CREATE TABLE `support_messages` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `support_messages`
---
-
-INSERT INTO `support_messages` (`id`, `support_ticket_id`, `sender_id`, `sender_type`, `message`, `attachment`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 'hello there', NULL, '2023-07-17 20:04:12', NULL),
-(2, 1, 35, 2, 'Quis eget risus in egestas. Quis etiam risus eget cras risus. Suspendisse diam, volutpat, sem tellus ridiculus ante. Eu augue sapien, vitae nunc lacus, tellus mi quis ipsum. Pulvinar quam faucibus sit senectus nunc tempor, velit. Pellentesque mi magna elit aliquet faucibus congue pellentesque phasellus. Fermentum odio amet, sed at pulvinar.', NULL, '2023-07-17 20:04:54', NULL),
-(3, 1, 1, 1, 'check it out.', 'support_ticket_attachments/I8ARl1689675518.png', '2023-07-18 10:18:38', NULL),
-(4, 1, 35, 2, 'Joss', NULL, '2023-07-18 10:54:46', NULL),
-(5, 1, 35, 2, 'Ok', NULL, '2023-07-18 10:55:37', NULL),
-(6, 1, 35, 2, 'Wow', NULL, '2023-07-18 10:57:46', NULL),
-(7, 1, 35, 2, 'Wow 2', NULL, '2023-07-18 10:58:30', NULL),
-(8, 1, 1, 1, 'Hi Hello', NULL, '2023-07-18 10:59:15', NULL),
-(9, 1, 35, 2, 'Wow', NULL, '2023-07-18 10:59:27', NULL),
-(10, 1, 1, 1, 'hi..', NULL, '2023-07-18 10:59:32', NULL),
-(11, 1, 35, 2, 'Watch this', 'support_ticket_attachments/iiHwz1689678035.jpg', '2023-07-18 11:00:35', NULL),
-(12, 1, 35, 2, 'Yo', NULL, '2023-07-18 11:08:02', NULL),
-(13, 1, 35, 2, 'Hey', NULL, '2023-07-18 11:11:00', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -2563,13 +2347,6 @@ CREATE TABLE `support_tickets` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `support_tickets`
---
-
-INSERT INTO `support_tickets` (`id`, `ticket_no`, `support_taken_by`, `subject`, `message`, `attachment`, `status`, `slug`, `created_at`, `updated_at`) VALUES
-(1, '16895854913Vj676', 35, 'Problem in Order Placement', 'Quis eget risus in egestas. Quis etiam risus eget cras risus. Suspendisse diam, volutpat, sem tellus ridiculus ante. Eu augue sapien, vitae nunc lacus, tellus mi quis ipsum. Pulvinar quam faucibus sit senectus nunc tempor, velit. Pellentesque mi magna elit aliquet faucibus congue pellentesque phasellus. Fermentum odio amet, sed at pulvinar.', 'support_ticket_attachments/C8dls1689585491.png', 1, '16895854919zdQS', '2023-07-17 19:18:11', '2023-07-17 20:03:31');
 
 -- --------------------------------------------------------
 
@@ -7927,14 +7704,6 @@ CREATE TABLE `wish_lists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `wish_lists`
---
-
-INSERT INTO `wish_lists` (`id`, `user_id`, `product_id`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 35, 1, '2m3mj1689739577', '2023-07-19 04:06:17', NULL),
-(2, 35, 2, 'vbvol1689747837', '2023-07-19 06:23:57', NULL);
-
---
 -- Indexes for dumped tables
 --
 
@@ -8365,7 +8134,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -8503,25 +8272,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -8545,13 +8314,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7213;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14372;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `product_models`
@@ -8569,7 +8338,7 @@ ALTER TABLE `product_question_answers`
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14172;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `product_sizes`
@@ -8581,7 +8350,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14238;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`
@@ -8611,7 +8380,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sims`
@@ -8665,13 +8434,13 @@ ALTER TABLE `subscribed_users`
 -- AUTO_INCREMENT for table `support_messages`
 --
 ALTER TABLE `support_messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `support_tickets`
 --
 ALTER TABLE `support_tickets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `terms_and_policies`
@@ -8737,7 +8506,7 @@ ALTER TABLE `user_role_permissions`
 -- AUTO_INCREMENT for table `wish_lists`
 --
 ALTER TABLE `wish_lists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
