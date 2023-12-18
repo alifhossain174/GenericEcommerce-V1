@@ -149,6 +149,7 @@
             processing: true,
             serverSide: true,
             pageLength: 15,
+            lengthMenu: [15, 25, 50, 100],
             ajax: "{{ url('view/all/colors') }}",
             columns: [
                 {
