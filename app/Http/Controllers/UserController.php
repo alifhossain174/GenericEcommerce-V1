@@ -130,7 +130,7 @@ class UserController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
-            'user_type' => 2,
+            // 'user_type' => 2,
             'updated_at' => Carbon::now()
         ]);
 

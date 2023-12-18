@@ -19,6 +19,15 @@
         table thead tr th{
             padding: 5px 10px !important
         }
+        address{
+            font-size: 15px;
+        }
+        address h6{
+            font-size: 15px;
+        }
+        .order_details_text p{
+            font-size: 15px;
+        }
     </style>
 @endsection
 
@@ -60,11 +69,11 @@
 
                         </div><!-- end col -->
                         <div class="col-6">
-                            <div class="mt-3 float-right">
-                                <p class="mb-2"><strong>Order NO: </strong> #{{$order->order_no}}</p>
-                                <p class="mb-2"><strong>Tran. ID: </strong> #{{$order->trx_id}}</p>
-                                <p class="mb-2"><strong>Order Date: </strong> {{date("jS F, Y",strtotime($order->order_date))}}</p>
-                                <p class="mb-2"><strong>Order Status: </strong>
+                            <div class="mt-3 float-right order_details_text">
+                                <p class="mb-1"><strong>Order NO: </strong> #{{$order->order_no}}</p>
+                                <p class="mb-1"><strong>Tran. ID: </strong> #{{$order->trx_id}}</p>
+                                <p class="mb-1"><strong>Order Date: </strong> {{date("jS F, Y",strtotime($order->order_date))}}</p>
+                                <p class="mb-1"><strong>Order Status: </strong>
                                     @php
                                         if($order->order_status == 0){
                                             echo '<span class="badge badge-soft-warning" style="padding: 2px 10px !important;">Pending</span>';
@@ -79,7 +88,7 @@
                                         }
                                     @endphp
                                 </p>
-                                <p class="mb-2"><strong>Delivery Method: </strong>
+                                <p class="mb-1"><strong>Delivery Method: </strong>
                                     @php
                                         if($order->delivery_method == 1){
                                             echo '<span class="badge badge-soft-success" style="padding: 3px 5px !important;">Home Delivery</span>';
@@ -89,7 +98,7 @@
                                         }
                                     @endphp
                                 </p>
-                                <p class="mb-2"><strong>Payment Method: </strong>
+                                <p class="mb-1"><strong>Payment Method: </strong>
                                     @php
                                         if($order->payment_method == NULL){
                                             echo '<span class="badge badge-soft-danger" style="padding: 2px 10px !important;">Unpaid</span>';

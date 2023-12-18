@@ -34,7 +34,15 @@
 			</div>
 			<h2>Unauthorized Access</h2>
 			<p>You dont have permission to view the content of this page. Please Contact to Admisintrator for Access.</p>
-			<a href="{{url('/home')}}">Homepage</a>
+			<a href="{{url('/home')}}" style="margin: 5px">Homepage</a>
+            <a href="{{ route('logout') }}" style="margin: 5px" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                class="d-none">
+                @csrf
+            </form>
 		</div>
 	</div>
 

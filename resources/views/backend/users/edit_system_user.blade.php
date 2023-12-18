@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-sm-2 col-form-label">Password <span class="text-danger">*</span></label>
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
                                 <input type="password" name="password" class="form-control d-inline-block" id="password" placeholder="********">
                                 <i class="bi bi-eye-slash" id="togglePassword"></i>
