@@ -415,7 +415,6 @@ class ProductController extends Controller
                     $variantInfo->updated_at = Carbon::now();
                     $variantInfo->save();
 
-
                 } else {
 
                     $name = NULL;

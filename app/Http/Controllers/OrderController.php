@@ -476,6 +476,7 @@ class OrderController extends Controller
         $userInfo = User::where('id', $order->user_id)->first();
         $shippingInfo = ShippingInfo::where('order_id', $order->id)->first();
         $billingAddress = BillingAddress::where('order_id', $order->id)->first();
+
         $orderDetails = DB::table('order_details')
                             ->leftJoin('products', 'order_details.product_id', 'products.id')
                             ->leftJoin('categories', 'products.category_id', 'categories.id')
@@ -483,8 +484,10 @@ class OrderController extends Controller
                             ->select('order_details.*', 'products.name as product_name', 'units.name as unit_name', 'categories.name as category_name')
                             ->where('order_id', $order->id)
                             ->get();
+
         $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
-        return view('backend.orders.edit', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo'));
+        $districts = DB::table('districts')->get();
+        return view('backend.orders.edit', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo', 'districts'));
     }
 
     public function orderUpdate(Request $request){

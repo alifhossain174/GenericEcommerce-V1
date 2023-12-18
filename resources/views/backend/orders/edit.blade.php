@@ -72,15 +72,39 @@
                             <div class="col-lg-3">
 
                                 <h6 class="font-weight-bold">Shipping Info :</h6>
-                                <address class="line-h-24">
+                                <address class="line-h-24 shipping_address_fields">
                                     <input type="text" name="shipping_name" value="@if($shippingInfo){{$shippingInfo->full_name}}@endif" @if((isset($shippingInfo) && $shippingInfo->full_name == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c;" @endif placeholder="Customer Name" class="form-control shipping_input mb-2" required>
                                     <input type="text" name="shipping_phone" value="@if($shippingInfo){{$shippingInfo->phone}}@endif" @if((isset($shippingInfo) && $shippingInfo->phone == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c;" @endif placeholder="Customer Phone" class="form-control shipping_input mb-2" required>
                                     <input type="text" name="shipping_email" value="@if($shippingInfo){{$shippingInfo->email}}@endif" @if((isset($shippingInfo) && $shippingInfo->email == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c;" @endif placeholder="Customer Email" class="form-control shipping_input mb-2">
                                     <input type="text" name="shipping_address" value="@if($shippingInfo){{$shippingInfo->address}}@endif" @if((isset($shippingInfo) && $shippingInfo->address == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c;" @endif placeholder="Customer Address" class="form-control shipping_input mb-2" required>
 
-                                    <input type="text" name="shipping_city" value="@if($shippingInfo){{$shippingInfo->city}}@endif" @if((isset($shippingInfo) && $shippingInfo->city == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c; width: 60%;" @else style="width: 60%;" @endif placeholder="Shipping City" class="form-control shipping_input mb-2" required>
+
+                                    @if((isset($shippingInfo) && $shippingInfo->city == '') || !isset($shippingInfo))
+                                    <style>
+                                        .shipping_address_fields .select2-container{
+                                            border: 1px solid #b500008c !important;
+                                            border-radius: 6px;
+                                            margin-bottom: 8px;
+                                        }
+                                    </style>
+                                    @else
+                                    <style>
+                                        .shipping_address_fields .select2-container{
+                                            margin-bottom: 8px;
+                                        }
+                                    </style>
+                                    @endif
+
+                                    <select class="form-control" name="shipping_city" data-toggle="select2" required>
+                                        <option value="">Select Shipping City</option>
+                                        @foreach ($districts as $district)
+                                        <option value="{{$district->name}}" @if($shippingInfo && $shippingInfo->city == $district->name) selected @endif>{{$district->name}}</option>
+                                        @endforeach
+                                    </select>
+
                                     <input type="text" name="shipping_post_code" value="@if($shippingInfo){{$shippingInfo->post_code}}@endif" @if((isset($shippingInfo) && $shippingInfo->post_code == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c; width: 38.4%;" @else style="width: 38.4%;" @endif placeholder="Post Code" class="form-control shipping_input mb-2">
-                                    <input type="text" name="shipping_country" value="@if($shippingInfo){{$shippingInfo->country}}@endif" @if((isset($shippingInfo) && $shippingInfo->country == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c;" @endif placeholder="Country Name" class="form-control shipping_input">
+                                    <input type="text" name="shipping_country" value="@if($shippingInfo){{$shippingInfo->country}}@endif" @if((isset($shippingInfo) && $shippingInfo->country == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c; width: 60%;" @else style="width: 60%;" @endif placeholder="Country Name" class="form-control shipping_input">
+
                                 </address>
 
                             </div><!-- end col -->
@@ -254,11 +278,35 @@
                             <div class="col-lg-3">
                                 <div class="clearfix pt-3">
                                     <h6 class="text-muted">Billing Address:</h6>
-                                    <address class="line-h-24">
+                                    <address class="line-h-24 billing_address_fields">
                                         <input type="text" name="billing_address" value="@if($billingAddress){{$billingAddress->address}}@endif" @if((isset($billingAddress) && $billingAddress->address == '') || !isset($billingAddress)) style="border: 1px solid #b500008c;" @endif placeholder="Billing Address" class="form-control shipping_input mb-2">
-                                        <input type="text" name="billing_city" value="@if($billingAddress){{$billingAddress->city}}@endif" @if((isset($billingAddress) && $billingAddress->city == '') || !isset($billingAddress)) style="border: 1px solid #b500008c; width: 60%;" @else style="width: 60%;" @endif placeholder="Billing City" class="form-control shipping_input mb-2">
+
+                                        @if((isset($billingAddress) && $billingAddress->city == '') || !isset($billingAddress))
+                                        <style>
+                                            .billing_address_fields .select2-container{
+                                                border: 1px solid #b500008c !important;
+                                                border-radius: 6px;
+                                                margin-bottom: 8px;
+                                            }
+                                        </style>
+                                        @else
+                                        <style>
+                                            .billing_address_fields .select2-container{
+                                                margin-bottom: 8px;
+                                            }
+                                        </style>
+                                        @endif
+
+                                        <select class="form-control" name="billing_city" data-toggle="select2" required>
+                                            <option value="">Select Billing City</option>
+                                            @foreach ($districts as $district)
+                                            <option value="{{$district->name}}" @if($billingAddress && $billingAddress->city == $district->name) selected @endif>{{$district->name}}</option>
+                                            @endforeach
+                                        </select>
+
+
                                         <input type="text" name="billing_post_code" value="@if($billingAddress){{$billingAddress->post_code}}@endif" @if((isset($billingAddress) && $billingAddress->post_code == '') || !isset($billingAddress)) style="border: 1px solid #b500008c; width: 38.4%;" @else style="width: 38.4%;" @endif placeholder="Post Code" class="form-control shipping_input mb-2">
-                                        <input type="text" name="billing_country" value="@if($billingAddress){{$billingAddress->country}}@endif" @if((isset($billingAddress) && $billingAddress->country == '') || !isset($billingAddress)) style="border: 1px solid #b500008c;" @endif placeholder="Country Name" class="form-control shipping_input">
+                                        <input type="text" name="billing_country" value="@if($billingAddress){{$billingAddress->country}}@endif" @if((isset($billingAddress) && $billingAddress->country == '') || !isset($billingAddress)) style="border: 1px solid #b500008c;" @else style="width: 60%;" @endif placeholder="Country Name" class="form-control shipping_input">
                                     </address>
                                 </div>
 
