@@ -9,39 +9,24 @@
             border-radius: 4px;
         }
         table.dataTable tbody td:nth-child(1){
-            text-align: center !important;
             font-weight: 600;
         }
-        table.dataTable tbody td:nth-child(2){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(3){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(4){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(5){
+        table.dataTable tbody td{
             text-align: center !important;
         }
         table.dataTable tbody td:nth-child(6){
-            text-align: center !important;
             min-width: 100px !important;
         }
         table.dataTable tbody td:nth-child(7){
-            text-align: center !important;
             min-width: 80px !important;
         }
         table.dataTable tbody td:nth-child(8){
-            text-align: center !important;
             min-width: 80px !important;
         }
         table.dataTable tbody td:nth-child(9){
-            text-align: center !important;
             min-width: 80px !important;
         }
         table.dataTable tbody td:nth-child(10){
-            text-align: center !important;
             min-width: 100px !important;
         }
         tfoot {
@@ -263,6 +248,24 @@
                     success: function (data) {
                         table.draw(false);
                         toastr.success("Order has been Approved", "Approved Successfully");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                    }
+                });
+            }
+        });
+
+
+        $('body').on('click', '.deleteBtn', function () {
+            var slug = $(this).data("id");
+            if(confirm("Are You sure to Delete Order !")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('delete/order') }}"+'/'+slug,
+                    success: function (data) {
+                        table.draw(false);
+                        toastr.error("Order has been Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
                         console.log('Error:', data);

@@ -11,10 +11,11 @@ use App\Models\Product;
 use App\Models\ShippingInfo;
 use App\Models\User;
 use Carbon\Carbon;
-use DataTables;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -69,28 +70,28 @@ class OrderController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
 
-                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="mb-1 btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
+                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="d-inline-block btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
 
                         if($data->order_status == 0){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="btn-sm btn-success rounded approveBtn"><i class="fas fa-check"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Cancel" class="d-inline-block btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="d-inline-block btn-sm btn-success rounded approveBtn"><i class="fas fa-check"></i></a>';
                         }
 
                         if($data->order_status == 1){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-success rounded intransitBtn"><i class="fas fa-check"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Cancel" class="d-inline-block btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="d-inline-block btn-sm btn-success rounded intransitBtn"><i class="fas fa-check"></i></a>';
                         }
 
                         if($data->order_status == 2){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Deliver" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-success rounded deliveryBtn"><i class="fas fa-truck"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Deliver" data-id="'.$data->slug.'" data-original-title="Delivery" class="d-inline-block btn-sm btn-success rounded deliveryBtn"><i class="fas fa-truck"></i></a>';
+                        }
+
+                        if(Auth::user()->user_type == 1){
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         }
 
                         return $btn;
                     })
-                    // ->with([
-                    //     "recordsTotal" => 3,
-                    //     "recordsFiltered" => 3,
-                    // ])
                     ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status'])
                     ->make(true);
         }
@@ -153,6 +154,9 @@ class OrderController extends Controller
                         $btn .= ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="mb-1 d-inline-block btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
                         $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
                         $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="d-inline-block btn-sm btn-success rounded approveBtn"><i class="fas fa-check"></i></a>';
+                        if(Auth::user()->user_type == 1){
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                        }
                         return $btn;
                     })
                     ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status'])
@@ -216,14 +220,18 @@ class OrderController extends Controller
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="mb-1 btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
+                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="d-inline-block btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
 
                         if($data->order_status == 1){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-success rounded intransitBtn"><i class="fas fa-check"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-success rounded intransitBtn"><i class="fas fa-check"></i></a>';
                         }
                         if($data->order_status == 2){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Deliver" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-success rounded deliveryBtn"><i class="fas fa-truck"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Deliver" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-success rounded deliveryBtn"><i class="fas fa-truck"></i></a>';
+                        }
+
+                        if(Auth::user()->user_type == 1){
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         }
 
                         return $btn;
@@ -289,7 +297,12 @@ class OrderController extends Controller
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="mb-1 btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
+                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="d-inline-block btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
+
+                        if(Auth::user()->user_type == 1){
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                        }
+
                         return $btn;
                     })
                     ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status'])
@@ -353,7 +366,12 @@ class OrderController extends Controller
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="mb-1 btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
+                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="d-inline-block btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
+
+                        if(Auth::user()->user_type == 1){
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                        }
+
                         return $btn;
                     })
                     ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status'])
@@ -675,6 +693,20 @@ class OrderController extends Controller
                             ->first();
 
             return response()->json($productInfo);
+
         }
+    }
+
+    public function deleteOrder($slug){
+
+        $orderInfo = Order::where('slug', $slug)->first();
+        OrderDetails::where('order_id', $orderInfo->id)->delete();
+        ShippingInfo::where('order_id', $orderInfo->id)->delete();
+        BillingAddress::where('order_id', $orderInfo->id)->delete();
+        OrderPayment::where('order_id', $orderInfo->id)->delete();
+        OrderProgress::where('order_id', $orderInfo->id)->delete();
+        $orderInfo->delete();
+
+        return response()->json(['success' => 'Order Deleted Successfully.']);
     }
 }

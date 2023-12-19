@@ -259,6 +259,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::post('/order/update', [OrderController::class, 'orderUpdate'])->name('OrderUpdate');
     Route::post('/add/more/product', [OrderController::class, 'addMoreProduct'])->name('AddMoreProduct');
     Route::post('/get/product/variants', [OrderController::class, 'getProductVariants'])->name('GetProductVariants');
+    Route::get('delete/order/{slug}', [OrderController::class, 'deleteOrder'])->name('DeleteOrder');
 
 
     // promo codes

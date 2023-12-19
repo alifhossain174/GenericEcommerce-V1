@@ -197,5 +197,22 @@
                 });
             }
         });
+
+        $('body').on('click', '.deleteBtn', function () {
+            var slug = $(this).data("id");
+            if(confirm("Are You sure to Delete Order !")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('delete/order') }}"+'/'+slug,
+                    success: function (data) {
+                        table.draw(false);
+                        toastr.error("Order has been Deleted", "Deleted Successfully");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                    }
+                });
+            }
+        });
     </script>
 @endsection
