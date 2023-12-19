@@ -607,10 +607,7 @@ class ApiController extends BaseController
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
             $brands = Brand::orderBy('serial', 'asc')->where('status', 1)->get();
-            return response()->json([
-                'success' => true,
-                'data' => $brands
-            ], 200);
+            return response()->json(['success' => true, 'data' => $brands], 200);
 
         } else {
             return response()->json([
