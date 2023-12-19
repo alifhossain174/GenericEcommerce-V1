@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\DataTables;
 
 
 class HomeController extends Controller
@@ -126,7 +127,6 @@ class HomeController extends Controller
     }
 
     public function clearCache(){
-
         Artisan::call('cache:clear');
         Artisan::call('config:clear');
         Artisan::call('view:clear');
@@ -134,6 +134,15 @@ class HomeController extends Controller
 
         Toastr::success('Cahce Cleared', 'Successfully');
         return back();
+    }
 
+    public function viewPaymentHistory(Request $request){
+        if ($request->ajax()) {
+            $data = OrderPayment::orderBy('id', 'desc')->get();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->make(true);
+        }
+        return view('backend.payment_histories');
     }
 }

@@ -92,6 +92,8 @@ require 'systemRoutes.php';
 
 Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
 
+    Route::get('/view/payment/history', [HomeController::class, 'viewPaymentHistory'])->name('ViewPaymentHistory');
+
     // category routes
     Route::get('/add/new/category', [CategoryController::class, 'addNewCategory'])->name('AddNewCategory');
     Route::post('/save/new/category', [CategoryController::class, 'saveNewCategory'])->name('SaveNewCategory');
