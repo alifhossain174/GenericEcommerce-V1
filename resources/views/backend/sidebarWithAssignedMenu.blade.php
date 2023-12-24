@@ -23,7 +23,12 @@
                                                 ->get();
 
     $categoryModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%add/new/category%')->orWhere('route', 'like', '%view/new/category%')->get();
-    $subCategoryModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%add/new/subcategory%')->orWhere('route', 'like', '%view/all/subcategory%')->get();
+
+    $subCategoryModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where(function($query) {
+                                                            $query->where('route', 'like', '%add/new/subcategory%')
+                                                                ->orWhere('route', 'like', '%view/all/subcategory%');
+                                                        })->get();
+
     $childCategoryModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%add/new/childcategory%')->orWhere('route', 'like', '%view/all/childcategory%')->get();
 
     $productModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
@@ -102,8 +107,11 @@
     @if(checkAuth("social/chat/script")) <li><a href="{{ url('/social/chat/script') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li> @endif
 
 
+    @if(count($configModule) > 0 || count($categoryModule) > 0 || count($subCategoryModule) > 0 || count($childCategoryModule) > 0 || count($productModule) > 0 || count($orderModule) > 0 || count($promoCodeModule) > 0 || count($pushNotificationModule) > 0 || count($smsServiceModule) > 0 || count($systemModule) > 0 || checkAuth("view/all/customers") || checkAuth("view/customers/wishlist") || checkAuth("view/delivery/charges") || count($reportModule) > 0 || count($backupModule) > 0)
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">E-commerce Modules</li>
+    @endif
+
     @if ($configModule && count($configModule) > 0)
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>Config</span></a>
@@ -330,8 +338,12 @@
     </li>
     @endif
 
+
+    @if(count($supportTicketModule) > 0 || checkAuth("view/all/contact/requests") || checkAuth("view/all/subscribed/users"))
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">CRM Modules</li>
+    @endif
+
     @if ($supportTicketModule && count($supportTicketModule) > 0)
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-headset"></i><span>Support Ticket</span></a>
@@ -384,8 +396,11 @@
     @if(checkAuth("view/all/subscribed/users")) <li><a href="{{ url('/view/all/subscribed/users') }}"><i class="feather-user-check"></i><span>Subscribed Users</span></a></li> @endif
 
 
+    @if(count($sliderBannerModule) > 0 || count($termsPolicyModule) > 0 || count($testimonialModule) > 0 || checkAuth("about/us/page") || checkAuth("view/all/faqs") || count($blogModule) > 0)
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>
+    @endif
+
     @if ($sliderBannerModule && count($sliderBannerModule) > 0)
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders & Banners</span></a>
@@ -435,9 +450,11 @@
     @endif
 
 
+    @if(checkAuth("view/permission/routes") || checkAuth("view/user/roles") || checkAuth("view/user/role/permission") || checkAuth("view/system/users"))
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">User Role Permission</li>
-    @if(checkAuth("view/permission/routes") || checkAuth("view/user/roles") || checkAuth("view/user/role/permission") || checkAuth("view/system/users")) <li class="menu-title">User Role Permission</li> @endif
+    @endif
+
     @if(checkAuth("view/system/users")) <li><a href="{{ url('/view/system/users') }}"><i class="fas fa-user-shield"></i><span>System Users</span></a></li> @endif
     @if(checkAuth("view/permission/routes")) <li><a href="{{ url('/view/permission/routes') }}"><i class="feather-git-merge"></i><span>Permission Routes</span></a></li> @endif
     @if(checkAuth("view/user/roles")) <li><a href="{{ url('/view/user/roles') }}"><i class="feather-user-plus"></i><span>User Roles</span></a></li> @endif
