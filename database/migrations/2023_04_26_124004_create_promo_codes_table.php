@@ -15,6 +15,7 @@ class CreatePromoCodesTable extends Migration
     {
         Schema::create('promo_codes', function (Blueprint $table) {
             $table->id();
+            $table->string('icon')->nullable();
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->string('code');
@@ -22,6 +23,7 @@ class CreatePromoCodesTable extends Migration
             $table->date('expire_date');
             $table->tinyInteger('type')->comment("1=>Amount; 2=>Percentage");
             $table->double('value')->default(0);
+            $table->double('minimum_order_amount')->nullable();
             $table->string('slug');
             $table->tinyInteger('status')->default(1)->comment("1=>Active; 0=>Inactive");
             $table->timestamps();

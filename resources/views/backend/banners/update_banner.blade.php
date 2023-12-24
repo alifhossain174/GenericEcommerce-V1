@@ -50,26 +50,40 @@
                                             <label for="position">Banner Position</label>
                                             <select class="form-control" name="position" id="position" required>
                                                 <option value="">Select Option</option>
-                                                <option value="top" @if($data->position == 'top') selected @endif>Top</option>
-                                                <option value="left" @if($data->position == 'left') selected @endif>Left</option>
-                                                <option value="right" @if($data->position == 'right') selected @endif>Right</option>
-                                                <option value="middle" @if($data->position == 'middle') selected @endif>Middle</option>
-                                                <option value="bottom" @if($data->position == 'bottom') selected @endif>Bottom</option>
+                                                <option value="top" @if($data->position == 'top') selected @endif>Top (Homepage)</option>
+                                                <option value="left" @if($data->position == 'left') selected @endif>Left (Homepage)</option>
+                                                <option value="right" @if($data->position == 'right') selected @endif>Right (Homepage)</option>
+                                                <option value="middle" @if($data->position == 'middle') selected @endif>Middle (Homepage)</option>
+                                                <option value="bottom" @if($data->position == 'bottom') selected @endif>Bottom (Homepage)</option>
+                                                <option value="shop" @if($data->position == 'shop') selected @endif>Top (ShopPage)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="form-group">
-                                            <label for="title">Title</label>
-                                            <input type="text" name="title" id="title" value="{{$data->title}}" class="form-control" placeholder="Write Title Here"/>
+                                            <label for="sub_title">Sub Title</label>
+                                            <input type="text" name="sub_title" id="sub_title" value="{{$data->sub_title}}" class="form-control" placeholder="Write Sub Title Here"/>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <input type="text" name="description" id="description" value="{{$data->description}}" class="form-control" placeholder="Write Description Here"/>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" name="title" id="title" value="{{$data->title}}" class="form-control" placeholder="Write Title Here"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <input type="text" name="description" id="description" value="{{$data->description}}" class="form-control" placeholder="Write Description Here"/>
+                                        </div>
+                                    </div>
                                 </div>
+
+
 
                                 <div class="row">
                                     <div class="col-lg-4">

@@ -2,6 +2,7 @@
 
 @section('header_css')
     <link href="{{url('assets')}}/css/jquery.datetimepicker.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('page_title')
@@ -21,8 +22,16 @@
                     <form class="needs-validation" method="POST" action="{{url('update/promo/code')}}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="slug" value="{{$data->slug}}">
+
                         <div class="row">
-                            <div class="col-lg-8 border-right">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="icon">Promo Icon</label>
+                                    <input type="file" name="icon" class="dropify" data-height="250" data-max-file-size="1M" accept="image/*"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5">
                                 <div class="form-group">
                                     <label for="title">Title <span class="text-danger">*</span></label>
                                     <input type="text" id="title" name="title" class="form-control" value="{{$data->title}}" placeholder="25% OFF Promo" required>
@@ -42,8 +51,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
 
+                            <div class="col-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -98,13 +107,28 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="code">Code <span class="text-danger">*</span></label>
-                                    <input type="text" id="code" value="{{$data->code}}" name="code" class="form-control" placeholder="SNNY22" required>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('code')
-                                            {{ $message }}
-                                        @enderror
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="code">Code <span class="text-danger">*</span></label>
+                                            <input type="text" id="code" value="{{$data->code}}" name="code" class="form-control" placeholder="SNNY22" required>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('code')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="minimum_order_amount">Minimum Order Amount</label>
+                                            <input type="number" id="minimum_order_amount" name="minimum_order_amount" value="{{$data->minimum_order_amount}}" class="form-control">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('minimum_order_amount')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -126,6 +150,7 @@
 
 
                         <div class="form-group text-center pt-3">
+                            <a href="{{url('view/all/promo/codes')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
                             <button class="btn btn-primary" type="submit">Update Promo Code</button>
                         </div>
                     </form>
@@ -137,6 +162,8 @@
 
 @section('footer_js')
     <script src="{{url('assets')}}/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
+    <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
     <script>
         $("#effective_date").datetimepicker({
             timepicker: false,
@@ -149,6 +176,13 @@
             // minDate: "-1970/01/01",
             format: "d/m/Y",
         });
+
+        @if($data->icon && file_exists(public_path($data->icon)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{$data->icon}}");
+            $("span.dropify-render").eq(0).html("<img src='{{url($data->icon)}}'>");
+        @endif
     </script>
 @endsection
 

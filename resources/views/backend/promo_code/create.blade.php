@@ -2,6 +2,7 @@
 
 @section('header_css')
     <link href="{{url('assets')}}/css/jquery.datetimepicker.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('page_title')
@@ -22,7 +23,14 @@
                         @csrf
 
                         <div class="row">
-                            <div class="col-lg-8 border-right">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="icon">Promo Icon</label>
+                                    <input type="file" name="icon" class="dropify" data-height="250" data-max-file-size="1M" accept="image/*"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5">
                                 <div class="form-group">
                                     <label for="title">Title <span class="text-danger">*</span></label>
                                     <input type="text" id="title" name="title" class="form-control" placeholder="25% OFF Promo" required>
@@ -42,6 +50,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-lg-4">
 
                                 <div class="row">
@@ -69,28 +78,47 @@
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="type">Type <span class="text-danger">*</span></label>
+                                            <select class="form-control" name="type" required>
+                                                <option value="">Select One</option>
+                                                <option value="1">Amount (৳) Based</option>
+                                                <option value="2">Percentage (%) Based</option>
+                                            </select>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('type')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="value">Value <span class="text-danger">*</span></label>
+                                            <input type="number" id="value" name="value" class="form-control" required>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('value')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 <div class="form-group">
-                                    <label for="type">Type <span class="text-danger">*</span></label>
-                                    <select class="form-control" name="type" required>
-                                        <option value="">Select One</option>
-                                        <option value="1">Amount (৳) Based</option>
-                                        <option value="2">Percentage (%) Based</option>
-                                    </select>
+                                    <label for="minimum_order_amount">Minimum Order Amount</label>
+                                    <input type="number" id="minimum_order_amount" name="minimum_order_amount" class="form-control">
                                     <div class="invalid-feedback" style="display: block;">
-                                        @error('type')
+                                        @error('minimum_order_amount')
                                             {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="value">Value <span class="text-danger">*</span></label>
-                                    <input type="number" id="value" name="value" class="form-control" required>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('value')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
+
+
                                 <div class="form-group">
                                     <label for="code">Code <span class="text-danger">*</span></label>
                                     <input type="text" id="code" name="code" class="form-control" placeholder="SNNY22" required>
@@ -115,6 +143,8 @@
 @endsection
 
 @section('footer_js')
+    <script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
+    <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
     <script src="{{url('assets')}}/js/jquery.datetimepicker.full.min.js"></script>
     <script>
         $("#effective_date").datetimepicker({

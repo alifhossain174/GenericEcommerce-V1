@@ -36,26 +36,41 @@
                                             <label for="position">Banner Position</label>
                                             <select class="form-control" name="position" id="position" required>
                                                 <option value="">Select Option</option>
-                                                <option value="top">Top</option>
-                                                <option value="left">Left</option>
-                                                <option value="right">Right</option>
-                                                <option value="middle">Middle</option>
-                                                <option value="bottom">Bottom</option>
+                                                <option value="top">Top (Homepage)</option>
+                                                <option value="left">Left (Homepage)</option>
+                                                <option value="right">Right (Homepage)</option>
+                                                <option value="middle">Middle (Homepage)</option>
+                                                <option value="bottom">Bottom (Homepage)</option>
+                                                <option value="shop">Top (ShopPage)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="form-group">
-                                            <label for="title">Title</label>
-                                            <input type="text" name="title" id="title" class="form-control" placeholder="Write Title Here"/>
+                                            <label for="sub_title">Sub Title</label>
+                                            <input type="text" name="sub_title" id="sub_title" class="form-control" placeholder="Write Sub Title Here"/>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <input type="text" name="description" id="description" class="form-control" placeholder="Write Description Here"/>
+
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" name="title" id="title" class="form-control" placeholder="Write Title Here"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <input type="text" name="description" id="description" class="form-control" placeholder="Write Description Here"/>
+                                        </div>
+                                    </div>
                                 </div>
+
+
 
                                 <div class="row">
                                     <div class="col-lg-4">

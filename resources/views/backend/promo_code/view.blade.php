@@ -8,37 +8,14 @@
             padding: 0px;
             border-radius: 4px;
         }
-        table.dataTable tbody td:nth-child(1){
+        table.dataTable tbody td{
             text-align: center !important;
+        }
+        table.dataTable tbody td:nth-child(1){
             font-weight: 600;
         }
-        table.dataTable tbody td:nth-child(2){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(3){
-            text-align: center !important;
-        }
         table.dataTable tbody td:nth-child(4){
-            text-align: center !important;
             width: 180px;
-        }
-        table.dataTable tbody td:nth-child(5){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(6){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(7){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(8){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(9){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(10){
-            text-align: center !important;
         }
         tfoot {
             display: table-header-group !important;
@@ -74,9 +51,9 @@
                                     <th class="text-center">Expiry Date</th>
                                     <th class="text-center">Type</th>
                                     <th class="text-center">Value</th>
+                                    <th class="text-center">Min. Spend</th>
                                     <th class="text-center">Code</th>
                                     <th class="text-center">Status</th>
-                                    <th class="text-center">Created At</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -132,9 +109,9 @@
                 },
                 {data: 'type', name: 'type'},
                 {data: 'value', name: 'value'},
+                {data: 'minimum_order_amount', name: 'minimum_order_amount'},
                 {data: 'code', name: 'code'},
                 {data: 'status', name: 'status'},
-                {data: 'created_at', name: 'created_at'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
         });

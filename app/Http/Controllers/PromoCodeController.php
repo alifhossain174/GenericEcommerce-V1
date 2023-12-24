@@ -16,6 +16,7 @@ class PromoCodeController extends Controller
     }
 
     public function savePromoCode(Request $request){
+
         $request->validate([
             'title' => 'required|max:255',
             'type' => 'required',
@@ -35,11 +36,22 @@ class PromoCodeController extends Controller
             return back();
         }
 
+        $icon = null;
+        if ($request->hasFile('icon')){
+            $get_image = $request->file('icon');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('promoImages/');
+            $get_image->move($location, $image_name);
+            $icon = "promoImages/" . $image_name;
+        }
+
         PromoCode::insert([
+            'icon' => $icon,
             'title' => $request->title,
             'description' => $request->description,
             'type' => $request->type,
             'value' => $request->value,
+            'minimum_order_amount' => $request->minimum_order_amount,
             'code' => $request->code,
             'effective_date' => date("Y-m-d", strtotime(str_replace("/","-",$request->effective_date))),
             'expire_date' => date("Y-m-d", strtotime(str_replace("/","-",$request->expire_date))),
@@ -123,11 +135,24 @@ class PromoCodeController extends Controller
             return back();
         }
 
+        $data = PromoCode::where('slug', $request->slug)->first();
+
+        $icon = $data->icon;
+        if ($request->hasFile('icon')){
+            $get_image = $request->file('icon');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('promoImages/');
+            $get_image->move($location, $image_name);
+            $icon = "promoImages/" . $image_name;
+        }
+
         PromoCode::where('slug', $request->slug)->update([
+            'icon' => $icon,
             'title' => $request->title,
             'description' => $request->description,
             'type' => $request->type,
             'value' => $request->value,
+            'minimum_order_amount' => $request->minimum_order_amount,
             'code' => $request->code,
             'effective_date' => date("Y-m-d", strtotime(str_replace("/","-",$request->effective_date))),
             'expire_date' => date("Y-m-d", strtotime(str_replace("/","-",$request->expire_date))),

@@ -49,6 +49,7 @@
                                 <tr>
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Banner</th>
+                                    <th class="text-center">Sub Title</th>
                                     <th class="text-center">Title</th>
                                     <th class="text-center">Description</th>
                                     <th class="text-center">Button Text</th>
@@ -105,6 +106,10 @@
                             return '';
                         }
                     }
+                },
+                {
+                    data: 'sub_title',
+                    name: 'sub_title'
                 },
                 {
                     data: 'title',

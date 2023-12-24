@@ -207,6 +207,7 @@ class BannerController extends Controller
             'link' => $request->link,
             'position' => $request->position,
 
+            'sub_title' => $request->sub_title,
             'title' => $request->title,
             'description' => $request->description,
             'btn_text' => $request->btn_text,
@@ -255,6 +256,7 @@ class BannerController extends Controller
         $data->link = $request->link;
         $data->position = $request->position;
 
+        $data->sub_title = $request->sub_title;
         $data->title = $request->title;
         $data->description = $request->description;
         $data->btn_text = $request->btn_text;
