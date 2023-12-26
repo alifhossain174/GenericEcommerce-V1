@@ -180,7 +180,16 @@
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-box"></i><span>Manage Products</span></a>
         <ul class="sub-menu" aria-expanded="false">
             @if(checkAuth("add/new/product")) <li><a href="{{ url('/add/new/product') }}">Add New Product</a></li> @endif
-            @if(checkAuth("view/all/product")) <li><a href="{{ url('/view/all/product') }}">View All Products</a></li> @endif
+            @if(checkAuth("view/all/product"))
+            <li>
+                <a href="{{ url('/view/all/product') }}">
+                    View All Products
+                    <span style="color:lightgreen" title="Total Products">
+                        ({{DB::table('products')->where('status', 1)->count()}})
+                    </span>
+                </a>
+            </li>
+            @endif
             @if(checkAuth("view/product/reviews"))
             <li>
                 <a href="{{ url('/view/product/reviews') }}">
