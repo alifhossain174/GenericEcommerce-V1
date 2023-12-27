@@ -12,7 +12,8 @@
                         @php
                             $generalInfo = DB::table('general_infos')->where('id', 1)->select('company_name')->first();
                         @endphp
-                       <h3>{{$generalInfo->company_name}} Admin Panel</h3>
+                       <h3>{{$generalInfo->company_name}}</h3>
+                       <h3>Admin Panel</h3>
                     </a>
                 </div>
                 <h1 class="h5 mb-1">Welcome Back!</h1>
