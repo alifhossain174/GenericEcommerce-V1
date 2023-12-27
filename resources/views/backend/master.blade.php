@@ -51,7 +51,7 @@
                     <a href="{{ url('/home') }}" class="logo" style="display: inline-block;">
                         @if($generalInfo->logo != '' && $generalInfo->logo != Null && file_exists(public_path($generalInfo->logo)))
                         <span>
-                            <img src="{{url($generalInfo->logo)}}" alt="" class="img-fluid" style="max-height: 100px; width: 150px;">
+                            <img src="{{url($generalInfo->logo)}}" alt="" class="img-fluid" style="max-height: 100px; max-width: 150px;">
                         </span>
                         @else
                             <h3 style="color: white; margin-top: 20px">{{$generalInfo->company_name}}</h3>
