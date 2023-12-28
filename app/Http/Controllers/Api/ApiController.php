@@ -1153,11 +1153,11 @@ class ApiController extends BaseController
                 'qty' => $request->qty[$index],
                 'unit_id' => $request->unit_id[$index],
                 'unit_price' => $request->unit_price[$index],
-                'total_price' => $request->qty[$index] * $request->unit_price[$index],
+                'total_price' => (int) $request->qty[$index] * (double) $request->unit_price[$index],
                 'created_at' => Carbon::now()
             ]);
 
-            $totalOrderAmount = $totalOrderAmount + ($request->qty[$index] * $request->unit_price[$index]);
+            $totalOrderAmount = $totalOrderAmount + ((int)$request->qty[$index] * (double)$request->unit_price[$index]);
             $index++;
         }
 
