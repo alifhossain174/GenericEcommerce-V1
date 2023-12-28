@@ -25,6 +25,7 @@ ALTER TABLE `products` ADD `is_demo` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '0=
 New table Added named "config_setup" to dynamically manage the config based on industry
 ================================================
 
+
 ==================18.12.23======================
 New Tech Related Demo Product's (21.png to 40.png) image added in product_images
 ================================================
