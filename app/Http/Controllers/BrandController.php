@@ -6,7 +6,9 @@ use Yajra\DataTables\DataTables;
 use Illuminate\Support\Str;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\ProductModel;
+use App\Models\Subcategory;
 use Carbon\Carbon;
 use Sohibd\Laravelslug\Generate;
 use Illuminate\Http\Request;
@@ -36,6 +38,28 @@ class BrandController extends Controller
                             return '<button class="btn btn-sm btn-success rounded">Featured</button>';
                         }
                     })
+                    ->editColumn('categories', function($data) {
+                        $categoryString = '';
+                        $categoryArray = explode(",",$data->categories);
+                        foreach($categoryArray as $item){
+                            $catInfo = Category::where('id', $item)->first();
+                            if($catInfo){
+                                $categoryString .= '<button class="btn btn-sm btn-primary rounded" style="padding: .10rem .5rem;">'.$catInfo->name.'</button> ';
+                            }
+                        }
+                        return $categoryString;
+                    })
+                    ->editColumn('subcategories', function($data) {
+                        $subcategoryString = '';
+                        $subcategoryArray = explode(",",$data->subcategories);
+                        foreach($subcategoryArray as $item){
+                            $subcatInfo = Subcategory::where('id', $item)->first();
+                            if($subcatInfo){
+                                $subcategoryString .= '<button class="btn btn-sm btn-primary rounded" style="padding: .10rem .5rem;">'.$subcatInfo->name.'</button> ';
+                            }
+                        }
+                        return $subcategoryString;
+                    })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
                         $btn = ' <a href="'.url('edit/brand').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
@@ -48,7 +72,7 @@ class BrandController extends Controller
 
                         return $btn;
                     })
-                    ->rawColumns(['action', 'logo', 'featured', 'status'])
+                    ->rawColumns(['action', 'logo', 'featured', 'status', 'categories', 'subcategories'])
                     ->make(true);
         }
         return view('backend.brand.view');
@@ -83,8 +107,11 @@ class BrandController extends Controller
             'name' => $request->name,
             'logo' => $logo,
             'banner' => $banner,
+            'categories' => implode(",", $request->categories),
+            'subcategories' => implode(",", $request->subcategories),
             'slug' => Generate::Slug($request->name),
             'featured' => 0,
+            'serial' => Brand::min('serial') - 1,
             'created_at' => Carbon::now()
         ]);
 
@@ -157,6 +184,8 @@ class BrandController extends Controller
             'name' => $request->name,
             'logo' => $logo,
             'banner' => $banner,
+            'categories' => implode(",", $request->categories),
+            'subcategories' => implode(",", $request->subcategories),
             'slug' => Generate::Slug($request->name),
             'status' => $request->status,
             'updated_at' => Carbon::now()

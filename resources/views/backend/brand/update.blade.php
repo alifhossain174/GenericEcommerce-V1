@@ -2,6 +2,28 @@
 
 @section('header_css')
     <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets')}}/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .select2-selection{
+            height: 34px !important;
+            border: 1px solid #ced4da !important;
+        }
+        .select2 {
+            width: 100% !important;
+        }
+        .bootstrap-tagsinput .badge {
+            margin: 2px 2px !important;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice{
+            background: #1B69D1;
+            border-color: #1B69D1;
+            color: white;
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+            color: white;
+        }
+    </style>
 @endsection
 
 @section('page_title')
@@ -51,6 +73,34 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="categories" class="col-sm-2 col-form-label">Categories</label>
+                            <div class="col-sm-10">
+                                @php
+                                    $categories = App\Models\Category::get();
+                                @endphp
+                                <select name="categories[]" data-toggle="select2" class="form-control" id="categories" multiple>
+                                    @foreach ($categories as $category)
+                                    <option value="{{$category->id}}" @if(str_contains($data->categories, $category->id)) selected @endif>{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="subcategories" class="col-sm-2 col-form-label">Subcategories</label>
+                            <div class="col-sm-10">
+                                @php
+                                    $subcategories = App\Models\Subcategory::get();
+                                @endphp
+                                <select name="subcategories[]" data-toggle="select2" class="form-control" id="subcategories" multiple>
+                                    @foreach ($subcategories as $subcategory)
+                                    <option value="{{$subcategory->id}}" @if(str_contains($data->subcategories, $subcategory->id)) selected @endif>{{$subcategory->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="colFormLabe0" class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <select name="status" class="form-control" id="colFormLabe0" required>
@@ -84,7 +134,10 @@
 @section('footer_js')
     <script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
     <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
+    <script src="{{url('assets')}}/plugins/select2/select2.min.js"></script>
     <script>
+        $('[data-toggle="select2"]').select2();
+
         @if($data->logo && file_exists(public_path($data->logo)))
             $(".dropify-preview").eq(0).css("display", "block");
             $(".dropify-clear").eq(0).css("display", "block");
@@ -99,4 +152,5 @@
             $("span.dropify-render").eq(0).html("<img src='{{url($data->banner)}}'>");
         @endif
     </script>
+
 @endsection

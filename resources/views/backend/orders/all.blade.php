@@ -256,7 +256,6 @@
             }
         });
 
-
         $('body').on('click', '.deleteBtn', function () {
             var slug = $(this).data("id");
             if(confirm("Are You sure to Delete Order !")){
@@ -266,6 +265,7 @@
                     success: function (data) {
                         table.draw(false);
                         toastr.error("Order has been Deleted", "Deleted Successfully");
+                        location.reload(true);
                     },
                     error: function (data) {
                         console.log('Error:', data);

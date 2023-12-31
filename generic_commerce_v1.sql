@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2023 at 06:21 AM
+-- Generation Time: Dec 31, 2023 at 06:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -81,13 +81,13 @@ INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub
 (3, 1, 'banner/bBrDN1699268846.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 30% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'E6alq1697621164', -1, '2023-10-18 07:26:04', '2023-11-06 09:07:26'),
 (4, 1, 'banner/ESgOn1697621260.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'wMPED1697621260', -2, '2023-10-18 07:27:40', NULL),
 (5, 1, 'banner/WxMA31697621777.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'right', '7tY9g1697621777', -3, '2023-10-18 07:36:17', NULL),
-(6, 2, 'banner/lha3M1697621952.png', '#', 'top', 1, NULL, 'Spring Collection Style To', '17% Discount', 'View Discounts', '#', 'left', 'XK7La1697621952', 1, '2023-10-18 07:39:12', '2023-10-19 01:32:09'),
+(6, 2, 'banner/lha3M1697621952.png', '#', 'top', 1, 'New Collection', 'Spring Collection Style To', '17% Discount', 'View Discounts', '#', 'left', 'XK7La1697621952', 1, '2023-10-18 07:39:12', '2023-12-24 06:18:29'),
 (7, 2, 'banner/wOObk1697622146.png', '#', 'top', 1, NULL, 'Up to 70% Off & Free Shipping', 'Shop Women', 'View Discounts', '#', NULL, 'CaXvm1697622146', 2, '2023-10-18 07:42:26', '2023-10-19 01:32:09'),
 (8, 2, 'banner/9SHx31697622189.png', '#', 'top', 1, NULL, 'Free Shipping Over Order $120', 'Shop Women', 'View Discounts', '#', 'left', 'RWgJO1697622189', 3, '2023-10-18 07:43:09', '2023-10-19 01:32:09'),
 (9, 2, 'banner/MCMLZ1697622229.png', '#', 'top', 1, NULL, 'Leather Saddle Bag Style', 'Free Shipping Over Order $120', 'View Discount', '#', 'left', 'yBmKG1697622229', 4, '2023-10-18 07:43:49', '2023-10-19 01:32:09'),
 (10, 2, 'banner/mTZIQ1697622413.png', '#', 'middle', 1, NULL, 'Up to 25% Off Order Now', 'Pick Your Items', 'Shop Now', '#', 'left', 'X01JQ1697622413', 6, '2023-10-18 07:46:53', '2023-11-06 09:29:37'),
 (11, 2, 'banner/WQIxE1697622489.png', '#', 'middle', 1, NULL, 'Up to 35% Off Order Now', 'Special offer', 'Discover Now', '#', 'left', 'rlaNY1697622489', 7, '2023-10-18 07:48:09', '2023-11-06 09:31:26'),
-(12, 2, 'banner/dzNRv1697623027.png', '#', 'bottom', 1, NULL, 'Need Winter Boots?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation', 'Shop Now', '#', 'left', 'TrkZB1697623027', 5, '2023-10-18 07:57:07', '2023-11-06 09:29:23');
+(12, 2, 'banner/dzNRv1697623027.png', '#', 'bottom', 1, NULL, 'Need Winter Boots?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', 'Shop Now', '#', 'left', 'TrkZB1697623027', 5, '2023-10-18 07:57:07', '2023-12-24 06:18:59');
 
 -- --------------------------------------------------------
 
@@ -225,6 +225,8 @@ CREATE TABLE `brands` (
   `name` varchar(255) NOT NULL,
   `logo` varchar(255) DEFAULT NULL,
   `banner` varchar(255) DEFAULT NULL,
+  `categories` varchar(255) DEFAULT NULL,
+  `subcategories` varchar(255) DEFAULT NULL,
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=> Not Featured; 1=> Featured',
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=> Inactive; 1=> Active',
   `serial` tinyint(4) NOT NULL DEFAULT 1,
@@ -237,24 +239,25 @@ CREATE TABLE `brands` (
 -- Dumping data for table `brands`
 --
 
-INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `featured`, `status`, `serial`, `slug`, `created_at`, `updated_at`) VALUES
-(26, 'Aarong', 'brand_images/FdgL41699161783.webp', NULL, 1, 1, 1, 'aarong', '2023-11-05 03:17:28', '2023-11-05 03:46:11'),
-(27, 'Cats Eye', 'brand_images/8epFy1699161748.png', NULL, 1, 1, 1, 'cats-eye', '2023-11-05 03:22:28', '2023-11-05 03:46:06'),
-(28, 'Richman', 'brand_images/qH0pK1699161850.png', NULL, 1, 1, 1, 'richman', '2023-11-05 03:24:10', '2023-11-05 03:46:04'),
-(29, 'Yellow', 'brand_images/eMyMJ1699161915.webp', NULL, 1, 1, 1, 'yellow', '2023-11-05 03:25:15', '2023-11-05 03:46:02'),
-(30, 'Ecstasy', 'brand_images/F1j4F1699161994.png', NULL, 1, 1, 1, 'ecstasy', '2023-11-05 03:26:34', '2023-11-05 03:45:59'),
-(31, 'Rang Bangladesh', 'brand_images/Bar5c1699162054.gif', NULL, 1, 1, 1, 'rang-bangladesh', '2023-11-05 03:27:34', '2023-11-05 03:45:56'),
-(32, 'Kay Kraft', 'brand_images/ZRqIm1699162108.png', NULL, 1, 1, 1, 'kay-kraft', '2023-11-05 03:28:28', '2023-11-05 03:45:52'),
-(33, 'Dorjibari', 'brand_images/IGQTv1699162148.jpg', NULL, 1, 1, 1, 'dorjibari', '2023-11-05 03:29:08', '2023-11-05 03:45:50'),
-(34, 'Anjan’s', 'brand_images/3UeRa1699162191.png', NULL, 1, 1, 1, 'anjan’s', '2023-11-05 03:29:51', '2023-11-05 03:46:40'),
-(35, 'Bibiana', 'brand_images/yQNZv1699162315.jpg', NULL, 1, 1, 1, 'bibiana', '2023-11-05 03:31:55', '2023-11-05 03:46:13'),
-(36, 'Artisti', 'brand_images/lyCcA1699162472.png', NULL, 1, 1, 1, 'artisti', '2023-11-05 03:34:32', '2023-11-05 03:46:15'),
-(37, 'Le Reve', 'brand_images/eXL971699162812.png', NULL, 1, 1, 1, 'le-reve', '2023-11-05 03:40:12', '2023-11-05 03:46:18'),
-(38, 'GentlePark', 'brand_images/tMz1O1699162892.png', NULL, 1, 1, 1, 'gentlepark', '2023-11-05 03:41:32', '2023-11-05 03:46:20'),
-(39, 'ILLIYEEN Fashion', 'brand_images/9Kc1i1699162948.png', NULL, 1, 1, 1, 'illiyeen-fashion', '2023-11-05 03:42:28', '2023-11-05 03:46:23'),
-(40, 'Twelve Clothing', 'brand_images/4GHBs1699162991.webp', NULL, 1, 1, 1, 'twelve-clothing', '2023-11-05 03:43:11', '2023-11-05 03:46:28'),
-(41, 'Grameencheck', 'brand_images/dazxd1699163045.png', NULL, 1, 1, 1, 'grameencheck', '2023-11-05 03:44:05', '2023-11-05 03:46:35'),
-(42, 'Grameen Uniqlo', 'brand_images/0XJMv1699163120.svg', NULL, 1, 1, 1, 'grameen-uniqlo', '2023-11-05 03:45:20', '2023-11-05 03:46:38');
+INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `categories`, `subcategories`, `featured`, `status`, `serial`, `slug`, `created_at`, `updated_at`) VALUES
+(26, 'Aarong', 'brand_images/FdgL41699161783.webp', NULL, NULL, NULL, 1, 1, 1, 'aarong', '2023-11-05 03:17:28', '2023-11-05 03:46:11'),
+(27, 'Cats Eye', 'brand_images/8epFy1699161748.png', NULL, NULL, NULL, 1, 1, 1, 'cats-eye', '2023-11-05 03:22:28', '2023-11-05 03:46:06'),
+(28, 'Richman', 'brand_images/qH0pK1699161850.png', NULL, NULL, NULL, 1, 1, 1, 'richman', '2023-11-05 03:24:10', '2023-11-05 03:46:04'),
+(29, 'Yellow', 'brand_images/eMyMJ1699161915.webp', NULL, NULL, NULL, 1, 1, 1, 'yellow', '2023-11-05 03:25:15', '2023-11-05 03:46:02'),
+(30, 'Ecstasy', 'brand_images/F1j4F1699161994.png', NULL, NULL, NULL, 1, 1, 1, 'ecstasy', '2023-11-05 03:26:34', '2023-11-05 03:45:59'),
+(31, 'Rang Bangladesh', 'brand_images/Bar5c1699162054.gif', NULL, NULL, NULL, 1, 1, 1, 'rang-bangladesh', '2023-11-05 03:27:34', '2023-11-05 03:45:56'),
+(32, 'Kay Kraft', 'brand_images/ZRqIm1699162108.png', NULL, NULL, NULL, 1, 1, 1, 'kay-kraft', '2023-11-05 03:28:28', '2023-11-05 03:45:52'),
+(33, 'Dorjibari', 'brand_images/IGQTv1699162148.jpg', NULL, NULL, NULL, 1, 1, 1, 'dorjibari', '2023-11-05 03:29:08', '2023-11-05 03:45:50'),
+(34, 'Anjan’s', 'brand_images/3UeRa1699162191.png', NULL, NULL, NULL, 1, 1, 1, 'anjan’s', '2023-11-05 03:29:51', '2023-11-05 03:46:40'),
+(35, 'Bibiana', 'brand_images/yQNZv1699162315.jpg', NULL, NULL, NULL, 1, 1, 1, 'bibiana', '2023-11-05 03:31:55', '2023-11-05 03:46:13'),
+(36, 'Artisti', 'brand_images/lyCcA1699162472.png', NULL, NULL, NULL, 1, 1, 1, 'artisti', '2023-11-05 03:34:32', '2023-11-05 03:46:15'),
+(37, 'Le Reve', 'brand_images/eXL971699162812.png', NULL, NULL, NULL, 1, 1, 1, 'le-reve', '2023-11-05 03:40:12', '2023-11-05 03:46:18'),
+(38, 'GentlePark', 'brand_images/tMz1O1699162892.png', NULL, NULL, NULL, 1, 1, 1, 'gentlepark', '2023-11-05 03:41:32', '2023-11-05 03:46:20'),
+(39, 'ILLIYEEN Fashion', 'brand_images/9Kc1i1699162948.png', NULL, NULL, NULL, 1, 1, 1, 'illiyeen-fashion', '2023-11-05 03:42:28', '2023-11-05 03:46:23'),
+(40, 'Twelve Clothing', 'brand_images/4GHBs1699162991.webp', NULL, NULL, NULL, 1, 1, 1, 'twelve-clothing', '2023-11-05 03:43:11', '2023-11-05 03:46:28'),
+(41, 'Grameencheck', 'brand_images/dazxd1699163045.png', NULL, NULL, NULL, 1, 1, 1, 'grameencheck', '2023-11-05 03:44:05', '2023-11-05 03:46:35'),
+(42, 'Grameen Uniqlo', 'brand_images/0XJMv1699163120.svg', NULL, NULL, NULL, 1, 1, 1, 'grameen-uniqlo', '2023-11-05 03:45:20', '2023-11-05 03:46:38'),
+(44, 'Test Brand by Fahim', NULL, NULL, '10,11', '47,50,54', 0, 1, 0, 'test-brand-by-fahim', '2023-12-31 05:22:31', '2023-12-31 05:44:38');
 
 -- --------------------------------------------------------
 
@@ -2520,7 +2523,8 @@ CREATE TABLE `promo_codes` (
 INSERT INTO `promo_codes` (`id`, `icon`, `title`, `description`, `code`, `effective_date`, `expire_date`, `type`, `value`, `minimum_order_amount`, `slug`, `status`, `created_at`, `updated_at`) VALUES
 (1, NULL, '25% off', 'happy shoping', 'Off25', '2023-07-03', '2023-11-30', 2, 25, NULL, 'J0vnY1688367426', 0, '2023-07-03 16:57:06', '2023-12-24 04:48:09'),
 (2, NULL, 'OFF 100', '100 taka off', 'OFF100', '2023-07-09', '2023-11-30', 1, 100, NULL, '2EtEa1688804325', 0, '2023-07-08 18:18:45', '2023-12-24 04:48:09'),
-(3, NULL, 'Aut doloremque et ut', 'Exercitation quibusd', '95ASD', '2023-12-30', '2023-12-31', 2, 35, 399, 'wLSY11703393709', 1, '2023-12-24 04:55:09', '2023-12-24 05:03:26');
+(3, NULL, 'Aut doloremque et ut', 'Exercitation quibusd', '95ASD', '2023-12-30', '2023-12-31', 2, 35, 399, 'wLSY11703393709', 1, '2023-12-24 04:55:09', '2023-12-24 05:03:26'),
+(4, 'promoImages/Am8aQ1703396267.png', '20% off', 'During this sale, we\'re offering 25% OFF this summary. Make sure you don\'t miss it.', 'Offer20', '2023-12-29', '2023-12-31', 1, 20, 399, '2nbz71703395917', 1, '2023-12-24 05:31:57', '2023-12-24 05:37:47');
 
 -- --------------------------------------------------------
 
@@ -8674,7 +8678,7 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `billing_addresses`
@@ -8698,7 +8702,7 @@ ALTER TABLE `blog_categories`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `carts`
@@ -8914,7 +8918,7 @@ ALTER TABLE `promotional_banners`
 -- AUTO_INCREMENT for table `promo_codes`
 --
 ALTER TABLE `promo_codes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `role_permissions`

@@ -34,3 +34,7 @@ New Tech Related Demo Product's (21.png to 40.png) image added in product_images
 ALTER TABLE `promo_codes` ADD `minimum_order_amount` DOUBLE NULL DEFAULT NULL AFTER `value`;
 ALTER TABLE `promo_codes` ADD `icon` VARCHAR(255) NULL DEFAULT NULL AFTER `id`;
 ================================================
+
+==================31.12.23======================
+ALTER TABLE `brands` ADD `categories` VARCHAR(255) NULL DEFAULT NULL AFTER `banner`, ADD `subcategories` VARCHAR(255) NULL DEFAULT NULL AFTER `categories`;
+================================================
