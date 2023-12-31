@@ -94,7 +94,7 @@ class BrandController extends Controller
             if($get_image->getClientOriginalExtension() == 'svg'){
                 $get_image->move($location, $image_name);
             } else {
-                Image::make($get_image)->save($location . $image_name, 50);
+                Image::make($get_image)->save($location . $image_name, 25);
             }
 
             $logo = "brand_images/" . $image_name;
@@ -171,7 +171,7 @@ class BrandController extends Controller
             if($get_image->getClientOriginalExtension() == 'svg'){
                 $get_image->move($location, $image_name);
             } else {
-                Image::make($get_image)->save($location . $image_name, 50);
+                Image::make($get_image)->save($location . $image_name, 25);
             }
 
             $logo = "brand_images/" . $image_name;
