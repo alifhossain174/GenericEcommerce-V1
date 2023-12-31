@@ -96,7 +96,7 @@
                     name: 'logo',
                     render: function( data, type, full, meta ) {
                         if(data){
-                            return "<img src=\"/" + data + "\" width=\"60\"/>";
+                            return "<img src=\"/" + data + "\" width=\"40\"/>";
                         } else {
                             return '';
                         }
@@ -107,7 +107,7 @@
                     name: 'banner',
                     render: function( data, type, full, meta ) {
                         if(data){
-                            return "<img src=\"/" + data + "\" width=\"60\"/>";
+                            return "<img src=\"/" + data + "\" width=\"40\"/>";
                         } else {
                             return '';
                         }

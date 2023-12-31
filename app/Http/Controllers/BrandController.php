@@ -12,6 +12,7 @@ use App\Models\Subcategory;
 use Carbon\Carbon;
 use Sohibd\Laravelslug\Generate;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class BrandController extends Controller
 {
@@ -85,11 +86,17 @@ class BrandController extends Controller
 
         $logo = null;
         if ($request->hasFile('logo')){
+
             $get_image = $request->file('logo');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('brand_images/');
-            // Image::make($get_image)->save($location . $image_name, 80);
-            $get_image->move($location, $image_name);
+
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 50);
+            }
+
             $logo = "brand_images/" . $image_name;
         }
 
@@ -160,8 +167,13 @@ class BrandController extends Controller
             $get_image = $request->file('logo');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('brand_images/');
-            // Image::make($get_image)->save($location . $image_name, 80);
-            $get_image->move($location, $image_name);
+
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 50);
+            }
+
             $logo = "brand_images/" . $image_name;
         }
 
