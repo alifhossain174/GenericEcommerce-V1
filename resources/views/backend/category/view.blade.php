@@ -56,16 +56,6 @@
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            {{-- <tfoot>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </tfoot> --}}
                             <tbody>
 
                             </tbody>
@@ -104,7 +94,7 @@
                     name: 'icon',
                     render: function( data, type, full, meta ) {
                         if(data){
-                            return "<img src=\"/" + data + "\" width=\"60\"/>";
+                            return "<img src=\"/" + data + "\" width=\"50\"/>";
                         } else {
                             return '';
                         }
@@ -115,7 +105,7 @@
                     name: 'banner_image',
                     render: function( data, type, full, meta ) {
                         if(data){
-                            return "<img src=\"/" + data + "\" width=\"60\"/>";
+                            return "<img src=\"/" + data + "\" width=\"50\"/>";
                         } else {
                             return '';
                         }

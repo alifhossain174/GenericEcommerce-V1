@@ -59,6 +59,8 @@ class ApiController extends BaseController
         $address = $userInfo->address;
         $totalProductInWishList = WishList::where('user_id', $userInfo->id)->count();
         $totalOrders = Order::where('user_id', $userInfo->id)->count();
+        $totalPendingOrders = Order::where('user_id', $userInfo->id)->where('order_status', 0)->count();
+        $totalConfirmedOrders = Order::where('user_id', $userInfo->id)->where('order_status', 1)->count();
 
         $data = array(
             'name' => $name,
@@ -69,6 +71,8 @@ class ApiController extends BaseController
             'address' => $address,
             'totalProductInWishList' => $totalProductInWishList,
             'totalOrders' => $totalOrders,
+            'totalPendingOrders' => $totalPendingOrders,
+            'totalConfirmedOrders' => $totalConfirmedOrders,
         );
 
         return $this->sendResponse($data, 'User Profile Retrieved Successfully.');
