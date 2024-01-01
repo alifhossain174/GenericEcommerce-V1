@@ -101,8 +101,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="colFormLabe0" class="col-sm-2 col-form-label">Feature Status</label>
+                            <div class="col-sm-3">
+                                <select name="featured" class="form-control" id="colFormLabe0" required>
+                                    <option value="">Select One</option>
+                                    <option value="1" @if($data->featured == 1) selected @endif>Featured</option>
+                                    <option value="0" @if($data->featured == 0) selected @endif>Not Featured</option>
+                                </select>
+                                <div class="invalid-feedback" style="display: block;">
+                                    @error('featured')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="colFormLabe0" class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-3">
                                 <select name="status" class="form-control" id="colFormLabe0" required>
                                     <option value="">Select One</option>
                                     <option value="1" @if($data->status == 1) selected @endif>Active</option>

@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class GeneralInfoController extends Controller
 {
@@ -127,7 +128,13 @@ class GeneralInfoController extends Controller
             $get_image = $request->file('payment_banner');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('company_logo/');
-            $get_image->move($location, $image_name);
+
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 25);
+            }
+
             $paymentBanner = "company_logo/" . $image_name;
         }
 

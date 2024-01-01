@@ -94,7 +94,7 @@
                 <div class="card-body">
                     <h4 class="card-title mb-3">Set Info for Promotional Banner</h4>
 
-                    <div class="row" style="display:none; ">
+                    <div class="row">
                         <div class="col-lg-12 p-5">
 
                             <div class="banner" style="@if($promotionalBanner->background_image) background: url('{{url($promotionalBanner->background_image)}}'); background-repeat: no-repeat; background-size: cover; @else background: {{$promotionalBanner->background_color}}; @endif">
@@ -164,7 +164,7 @@
                                         <input type="file" name="icon" class="dropify" data-height="112" data-max-file-size="1M" accept="image/*"/>
                                     </div>
                                 </div>
-                                <div class="form-group row" style="display: none">
+                                <div class="form-group row">
                                     <label for="product_image" class="col-sm-12">Product Image: <a href="{{url('remove/promotional/banner/product/image')}}" class="btn btn-sm d-inline-block">❌ Remove</a></label>
                                     <div class="col-sm-12">
                                         <input type="file" name="product_image" class="dropify" data-height="150" data-max-file-size="1M" accept="image/*"/>
