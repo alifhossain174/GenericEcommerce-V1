@@ -73,10 +73,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row" style="display:none">
                                     <label for="tab_title" class="col-sm-2 col-form-label">Browser Tab Title <span class="text-danger">*</span></label>
                                     <div class="col-sm-10">
-                                        <input type="text" id="tab_title" name="tab_title" value="{{$data->tab_title}}" class="form-control" placeholder="Tab Title" required>
+                                        <input type="text" id="tab_title" name="tab_title" value="{{$data->tab_title}}" class="form-control" placeholder="Tab Title">
                                         <div class="invalid-feedback" style="display: block;">
                                             @error('tab_title')
                                                 {{ $message }}

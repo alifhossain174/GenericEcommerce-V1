@@ -38,3 +38,7 @@ ALTER TABLE `promo_codes` ADD `icon` VARCHAR(255) NULL DEFAULT NULL AFTER `id`;
 ==================31.12.23======================
 ALTER TABLE `brands` ADD `categories` VARCHAR(255) NULL DEFAULT NULL AFTER `banner`, ADD `subcategories` VARCHAR(255) NULL DEFAULT NULL AFTER `categories`;
 ================================================
+
+==================04.01.23======================
+ALTER TABLE `general_infos` ADD `meta_og_title` VARCHAR(255) NULL DEFAULT NULL AFTER `meta_description`, ADD `meta_og_image` VARCHAR(255) NULL DEFAULT NULL AFTER `meta_og_title`, ADD `meta_og_description` VARCHAR(255) NULL DEFAULT NULL AFTER `meta_og_image`;
+================================================
