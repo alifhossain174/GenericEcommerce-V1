@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2023 at 06:46 AM
+-- Generation Time: Jan 04, 2024 at 12:32 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -78,16 +78,14 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title`, `title`, `description`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(3, 1, 'banner/bBrDN1699268846.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 30% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'E6alq1697621164', -1, '2023-10-18 07:26:04', '2023-11-06 09:07:26'),
-(4, 1, 'banner/ESgOn1697621260.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'wMPED1697621260', -2, '2023-10-18 07:27:40', NULL),
-(5, 1, 'banner/WxMA31697621777.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 40% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'right', '7tY9g1697621777', -3, '2023-10-18 07:36:17', NULL),
-(6, 2, 'banner/lha3M1697621952.png', '#', 'top', 1, 'New Collection', 'Spring Collection Style To', '17% Discount', 'View Discounts', '#', 'left', 'XK7La1697621952', 1, '2023-10-18 07:39:12', '2023-12-24 06:18:29'),
-(7, 2, 'banner/wOObk1697622146.png', '#', 'top', 1, NULL, 'Up to 70% Off & Free Shipping', 'Shop Women', 'View Discounts', '#', NULL, 'CaXvm1697622146', 2, '2023-10-18 07:42:26', '2023-10-19 01:32:09'),
-(8, 2, 'banner/9SHx31697622189.png', '#', 'top', 1, NULL, 'Free Shipping Over Order $120', 'Shop Women', 'View Discounts', '#', 'left', 'RWgJO1697622189', 3, '2023-10-18 07:43:09', '2023-10-19 01:32:09'),
-(9, 2, 'banner/MCMLZ1697622229.png', '#', 'top', 1, NULL, 'Leather Saddle Bag Style', 'Free Shipping Over Order $120', 'View Discount', '#', 'left', 'yBmKG1697622229', 4, '2023-10-18 07:43:49', '2023-10-19 01:32:09'),
-(10, 2, 'banner/mTZIQ1697622413.png', '#', 'middle', 1, NULL, 'Up to 25% Off Order Now', 'Pick Your Items', 'Shop Now', '#', 'left', 'X01JQ1697622413', 6, '2023-10-18 07:46:53', '2023-11-06 09:29:37'),
-(11, 2, 'banner/WQIxE1697622489.png', '#', 'middle', 1, NULL, 'Up to 35% Off Order Now', 'Special offer', 'Discover Now', '#', 'left', 'rlaNY1697622489', 7, '2023-10-18 07:48:09', '2023-11-06 09:31:26'),
-(12, 2, 'banner/dzNRv1697623027.png', '#', 'bottom', 1, NULL, 'Need Winter Boots?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', 'Shop Now', '#', 'left', 'TrkZB1697623027', 5, '2023-10-18 07:57:07', '2023-12-24 06:18:59');
+(14, 1, 'banner/jvqRt1704003868.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'ySd3d1704003868', -1, '2023-12-31 06:24:28', '2023-12-31 10:35:27'),
+(15, 1, 'banner/yOjHH1704003871.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'vcoVV1704003871', -2, '2023-12-31 06:24:31', '2023-12-31 10:35:23'),
+(16, 1, 'banner/aE4B91704003874.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'fPvoV1704003874', -3, '2023-12-31 06:24:34', '2023-12-31 10:35:19'),
+(17, 1, 'banner/ccb2G1704003877.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'a4ISa1704003877', -4, '2023-12-31 06:24:37', '2023-12-31 10:35:14'),
+(18, 2, 'banner/IoxtE1704019137.svg', 'http://127.0.0.1:8000', 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, 'bzEmE1704019137', 4, '2023-12-31 10:38:57', '2023-12-31 11:46:07'),
+(19, 2, 'banner/quMkS1704019147.svg', 'http://127.0.0.1:8000/', 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, 'W8HX01704019147', 3, '2023-12-31 10:39:07', '2023-12-31 11:46:07'),
+(20, 2, 'banner/sKFJT1704022858.png', '#', 'middle', 1, NULL, 'Xiaomi 12 Pro', 'Xiaomi 12 Pro Will be Available at a Special Offer Starting December 01, 2022', 'Learn More', '#', 'left', 'hpfsb1704022858', 1, '2023-12-31 11:40:58', '2023-12-31 11:46:07'),
+(21, 2, 'banner/bfctK1704022897.png', '#', 'middle', 1, NULL, 'Galaxy S21 FE', 'Galaxy S21 FE 5G Will be Available at a Special Offer Starting December 16, 2022', 'Learn More', '#', 'left', '2wDJF1704022897', 2, '2023-12-31 11:41:37', '2023-12-31 11:48:29');
 
 -- --------------------------------------------------------
 
@@ -106,58 +104,6 @@ CREATE TABLE `billing_addresses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `billing_addresses`
---
-
-INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `thana`, `city`, `country`, `created_at`, `updated_at`) VALUES
-(2, 1, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Dhaka', 'Bangladesh', '2023-07-17 23:49:13', NULL),
-(3, 6, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Dhaka', 'Bangladesh', '2023-07-18 08:34:22', NULL),
-(4, 9, 'Flat A2, House 4 Rd No. 10', '1000', NULL, 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
-(9, 14, 'hh', NULL, 'Gopalganj Sadar', 'Gopalganj', NULL, '2023-10-25 06:33:57', NULL),
-(11, 26, NULL, NULL, NULL, NULL, NULL, '2023-11-09 09:11:46', NULL),
-(12, 27, NULL, NULL, NULL, NULL, NULL, '2023-11-09 09:12:01', NULL),
-(13, 30, NULL, NULL, NULL, NULL, NULL, '2023-11-11 06:58:51', NULL),
-(14, 31, 'Badda', NULL, 'Tejgaon', 'Dhaka', NULL, '2023-11-21 02:15:06', NULL),
-(15, 32, 'Dilalpur', NULL, 'Sujanagar', 'Pabna', NULL, '2023-11-21 02:58:32', NULL),
-(16, 33, 'Dilalpur', NULL, 'Sujanagar', 'Pabna', NULL, '2023-11-21 03:04:31', NULL),
-(19, 36, 'Dilalpur', NULL, 'Sujanagar', 'Pabna', NULL, '2023-11-21 03:14:19', NULL),
-(21, 0, 'Dilalpur', NULL, 'Sujanagar', 'Pabna', NULL, '2023-11-21 03:20:55', NULL),
-(22, 39, 'Dilalpur', NULL, 'Sujanagar', 'Pabna', NULL, '2023-11-21 03:22:09', NULL),
-(23, 40, 'Dilalpur', NULL, 'Sujanagar', 'Pabna', NULL, '2023-11-21 03:30:45', NULL),
-(24, 66, 'Flat A2, House 4 Rd No. 10', NULL, 'Dohar', 'Dhaka', NULL, '2023-11-26 04:57:08', NULL),
-(25, 88, NULL, NULL, NULL, NULL, NULL, '2023-11-27 01:18:34', NULL),
-(26, 89, NULL, NULL, NULL, NULL, NULL, '2023-11-27 01:18:37', NULL),
-(27, 90, NULL, NULL, NULL, NULL, NULL, '2023-11-27 01:19:01', NULL),
-(28, 91, NULL, NULL, NULL, NULL, NULL, '2023-11-27 01:19:36', NULL),
-(29, 92, NULL, NULL, NULL, NULL, NULL, '2023-11-27 01:20:20', NULL),
-(30, 93, NULL, NULL, NULL, NULL, NULL, '2023-11-27 01:21:04', NULL),
-(31, 94, NULL, NULL, NULL, NULL, NULL, '2023-11-27 01:22:08', NULL),
-(32, 95, NULL, NULL, NULL, NULL, NULL, '2023-11-27 02:03:37', NULL),
-(33, 96, NULL, NULL, NULL, NULL, NULL, '2023-11-27 03:08:12', NULL),
-(34, 97, NULL, NULL, NULL, NULL, NULL, '2023-11-27 03:08:20', NULL),
-(35, 98, NULL, NULL, NULL, NULL, NULL, '2023-11-27 03:13:29', NULL),
-(36, 99, NULL, NULL, NULL, NULL, NULL, '2023-11-27 03:13:52', NULL),
-(37, 100, NULL, NULL, NULL, NULL, NULL, '2023-11-27 03:15:17', NULL),
-(38, 103, NULL, NULL, NULL, NULL, NULL, '2023-11-27 14:59:24', NULL),
-(39, 104, NULL, NULL, NULL, NULL, NULL, '2023-11-27 14:59:48', NULL),
-(40, 105, NULL, NULL, NULL, NULL, NULL, '2023-11-27 15:00:13', NULL),
-(41, 106, NULL, NULL, NULL, NULL, NULL, '2023-11-27 15:15:03', NULL),
-(42, 107, NULL, NULL, NULL, NULL, NULL, '2023-11-28 02:53:25', NULL),
-(43, 108, NULL, NULL, NULL, NULL, NULL, '2023-11-28 02:53:32', NULL),
-(44, 111, NULL, NULL, NULL, NULL, NULL, '2023-11-29 02:23:55', NULL),
-(45, 112, NULL, NULL, NULL, NULL, NULL, '2023-11-29 02:24:02', NULL),
-(46, 113, NULL, NULL, NULL, NULL, NULL, '2023-11-30 01:28:20', NULL),
-(47, 114, NULL, NULL, NULL, NULL, NULL, '2023-11-30 03:22:10', NULL),
-(48, 115, NULL, NULL, NULL, NULL, NULL, '2023-11-30 03:23:06', NULL),
-(49, 116, 'nn', NULL, 'Islampur', 'Jamalpur', NULL, '2023-11-30 08:14:48', NULL),
-(50, 117, NULL, NULL, NULL, NULL, NULL, '2023-12-01 04:02:41', NULL),
-(51, 118, NULL, NULL, NULL, NULL, NULL, '2023-12-03 04:24:59', NULL),
-(52, 122, NULL, NULL, NULL, NULL, NULL, '2023-12-06 08:15:24', NULL),
-(53, 124, NULL, NULL, NULL, NULL, NULL, '2023-12-14 09:37:21', NULL),
-(54, 126, NULL, NULL, NULL, NULL, NULL, '2023-12-18 03:10:27', NULL),
-(55, 127, NULL, NULL, NULL, NULL, NULL, '2023-12-18 09:38:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -240,24 +186,13 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `categories`, `subcategories`, `featured`, `status`, `serial`, `slug`, `created_at`, `updated_at`) VALUES
-(26, 'Aarong', 'brand_images/FdgL41699161783.webp', NULL, NULL, NULL, 1, 1, 1, 'aarong', '2023-11-05 03:17:28', '2023-11-05 03:46:11'),
-(27, 'Cats Eye', 'brand_images/8epFy1699161748.png', NULL, NULL, NULL, 1, 1, 1, 'cats-eye', '2023-11-05 03:22:28', '2023-11-05 03:46:06'),
-(28, 'Richman', 'brand_images/qH0pK1699161850.png', NULL, NULL, NULL, 1, 1, 1, 'richman', '2023-11-05 03:24:10', '2023-11-05 03:46:04'),
-(29, 'Yellow', 'brand_images/eMyMJ1699161915.webp', NULL, NULL, NULL, 1, 1, 1, 'yellow', '2023-11-05 03:25:15', '2023-11-05 03:46:02'),
-(30, 'Ecstasy', 'brand_images/F1j4F1699161994.png', NULL, NULL, NULL, 1, 1, 1, 'ecstasy', '2023-11-05 03:26:34', '2023-11-05 03:45:59'),
-(31, 'Rang Bangladesh', 'brand_images/Bar5c1699162054.gif', NULL, NULL, NULL, 1, 1, 1, 'rang-bangladesh', '2023-11-05 03:27:34', '2023-11-05 03:45:56'),
-(32, 'Kay Kraft', 'brand_images/ZRqIm1699162108.png', NULL, NULL, NULL, 1, 1, 1, 'kay-kraft', '2023-11-05 03:28:28', '2023-11-05 03:45:52'),
-(33, 'Dorjibari', 'brand_images/IGQTv1699162148.jpg', NULL, NULL, NULL, 1, 1, 1, 'dorjibari', '2023-11-05 03:29:08', '2023-11-05 03:45:50'),
-(34, 'Anjan’s', 'brand_images/3UeRa1699162191.png', NULL, NULL, NULL, 1, 1, 1, 'anjan’s', '2023-11-05 03:29:51', '2023-11-05 03:46:40'),
-(35, 'Bibiana', 'brand_images/yQNZv1699162315.jpg', NULL, NULL, NULL, 1, 1, 1, 'bibiana', '2023-11-05 03:31:55', '2023-11-05 03:46:13'),
-(36, 'Artisti', 'brand_images/lyCcA1699162472.png', NULL, NULL, NULL, 1, 1, 1, 'artisti', '2023-11-05 03:34:32', '2023-11-05 03:46:15'),
-(37, 'Le Reve', 'brand_images/eXL971699162812.png', NULL, NULL, NULL, 1, 1, 1, 'le-reve', '2023-11-05 03:40:12', '2023-11-05 03:46:18'),
-(38, 'GentlePark', 'brand_images/tMz1O1699162892.png', NULL, NULL, NULL, 1, 1, 1, 'gentlepark', '2023-11-05 03:41:32', '2023-11-05 03:46:20'),
-(39, 'ILLIYEEN Fashion', 'brand_images/9Kc1i1699162948.png', NULL, NULL, NULL, 1, 1, 1, 'illiyeen-fashion', '2023-11-05 03:42:28', '2023-11-05 03:46:23'),
-(40, 'Twelve Clothing', 'brand_images/4GHBs1699162991.webp', NULL, NULL, NULL, 1, 1, 1, 'twelve-clothing', '2023-11-05 03:43:11', '2023-11-05 03:46:28'),
-(41, 'Grameencheck', 'brand_images/dazxd1699163045.png', NULL, NULL, NULL, 1, 1, 1, 'grameencheck', '2023-11-05 03:44:05', '2023-11-05 03:46:35'),
-(42, 'Grameen Uniqlo', 'brand_images/0XJMv1699163120.svg', NULL, NULL, NULL, 1, 1, 1, 'grameen-uniqlo', '2023-11-05 03:45:20', '2023-11-05 03:46:38'),
-(44, 'Test Brand by Fahim', NULL, NULL, '10,11', '47,50,54', 0, 1, 0, 'test-brand-by-fahim', '2023-12-31 05:22:31', '2023-12-31 05:44:38');
+(1, 'Samsung', NULL, NULL, '17,18', '62', 1, 1, -1, 'samsung', '2023-12-31 06:30:57', '2023-12-31 11:52:30'),
+(2, 'Xiaomi', 'brand_images/CB5Zj1704014683.png', NULL, '18', '61', 1, 1, -2, 'xiaomi', '2023-12-31 06:36:07', '2023-12-31 11:52:28'),
+(3, 'Redmi', NULL, NULL, '18', '61', 0, 1, -3, 'redmi', '2023-12-31 06:37:13', '2023-12-31 06:38:05'),
+(4, 'Vivo', NULL, NULL, '18', NULL, 0, 1, -4, 'vivo', '2023-12-31 06:37:18', '2023-12-31 06:38:15'),
+(5, 'Oppo', NULL, NULL, '18', NULL, 0, 1, -5, 'oppo', '2023-12-31 06:37:25', '2023-12-31 06:39:07'),
+(6, 'Techno', NULL, NULL, '18', NULL, 0, 1, -6, 'techno', '2023-12-31 06:37:33', '2023-12-31 11:01:18'),
+(7, 'Apple', NULL, NULL, '18', '60', 1, 1, -7, 'apple', '2023-12-31 06:39:52', '2023-12-31 11:52:25');
 
 -- --------------------------------------------------------
 
@@ -315,9 +250,22 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`, `featured`, `serial`, `created_at`, `updated_at`) VALUES
-(10, 'Men', 'category_images/i0cbb1698644383.png', NULL, 'men', 1, 1, 1, '2023-10-18 08:33:22', '2023-10-30 03:39:48'),
-(11, 'Women', 'category_images/YffuS1698644399.png', NULL, 'women', 1, 1, 1, '2023-10-18 08:36:13', '2023-10-30 03:40:04'),
-(15, 'Baby Care', 'category_images/AwSUC1699249450.jpg', NULL, 'baby-care', 1, 1, 1, '2023-11-06 03:09:56', '2023-11-06 04:27:56');
+(17, 'Laptop', 'category_images/wNTXD1704003160.svg', NULL, 'laptop', 1, 1, 1, '2023-12-31 06:12:40', '2023-12-31 06:25:04'),
+(18, 'Mobile', 'category_images/MLOUm1704003277.svg', NULL, 'mobile', 1, 1, 1, '2023-12-31 06:14:37', '2023-12-31 06:25:07'),
+(19, 'Gadget', 'category_images/rHVtn1704003317.svg', NULL, 'gadget', 1, 1, 1, '2023-12-31 06:15:17', '2023-12-31 06:25:09'),
+(20, 'Cable', 'category_images/UlwHJ1704003328.svg', NULL, 'cable', 1, 0, 1, '2023-12-31 06:15:28', NULL),
+(21, 'Sound Equipment', 'category_images/gylXj1704003364.svg', NULL, 'sound-equipment', 1, 0, 1, '2023-12-31 06:16:04', NULL),
+(22, 'Monitor', 'category_images/moTUm1704003386.svg', NULL, 'monitor', 1, 1, 1, '2023-12-31 06:16:19', '2023-12-31 06:25:16'),
+(23, 'Tablet', 'category_images/CDYTX1704003437.svg', NULL, 'tablet', 1, 1, 1, '2023-12-31 06:17:17', '2023-12-31 06:25:19'),
+(24, 'Camera', 'category_images/oqwe01704003463.svg', NULL, 'camera', 1, 1, 1, '2023-12-31 06:17:43', '2023-12-31 06:25:20'),
+(25, 'Security', 'category_images/ifQud1704003474.svg', NULL, 'security', 1, 0, 1, '2023-12-31 06:17:54', NULL),
+(26, 'Software', 'category_images/Rx7hY1704003482.svg', NULL, 'software', 1, 0, 1, '2023-12-31 06:18:02', NULL),
+(27, 'Accessories', 'category_images/4J34Y1704003492.svg', NULL, 'accessories', 1, 1, 1, '2023-12-31 06:18:12', '2023-12-31 06:25:27'),
+(28, 'Gaming', 'category_images/dwB4t1704003507.svg', NULL, 'gaming', 1, 0, 1, '2023-12-31 06:18:27', NULL),
+(29, 'Desktop', 'category_images/1h5EG1704003512.svg', NULL, 'desktop', 1, 1, 1, '2023-12-31 06:18:32', '2023-12-31 06:25:32'),
+(30, 'Component', 'category_images/cs1k61704003520.svg', NULL, 'component', 1, 0, 1, '2023-12-31 06:18:40', NULL),
+(31, 'UPS', 'category_images/ysrEj1704003527.svg', NULL, 'ups', 1, 0, 1, '2023-12-31 06:18:47', NULL),
+(32, 'TV / AC', 'category_images/H4XIb1704003538.svg', NULL, 'tv-ac', 1, 0, 1, '2023-12-31 06:18:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -341,19 +289,10 @@ CREATE TABLE `child_categories` (
 --
 
 INSERT INTO `child_categories` (`id`, `category_id`, `subcategory_id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, 'Iphone 14 Series', 'iphone-14-series', 1, '2023-06-05 04:02:17', NULL),
-(2, 1, 2, 'Iphone 13 Series', 'iphone-13-series', 1, '2023-06-05 04:03:01', NULL),
-(3, 1, 3, 'Galaxy Z Series', 'galaxy-z-series', 1, '2023-06-05 04:03:16', NULL),
-(146, 1, 7, 'iPhone', 'iphone', 1, '2023-07-19 13:09:54', NULL),
-(147, 1, 7, 'Airpods', 'airpods', 1, '2023-07-19 13:10:05', NULL),
-(148, 1, 7, 'Apple Watch', 'apple-watch', 1, '2023-07-19 13:10:21', NULL),
-(149, 1, 7, 'iPad', 'ipad', 1, '2023-07-19 13:10:46', NULL),
-(150, 1, 16, 'Mobile Phones', 'mobile-phones', 1, '2023-07-20 08:35:45', '2023-07-20 08:37:33'),
-(151, 1, 16, 'Voice assistant', 'voice-assistant', 1, '2023-07-20 08:37:16', NULL),
-(152, 1, 16, 'Charger', 'charger', 1, '2023-07-20 08:39:47', NULL),
-(153, 1, 22, 'Galaxy Phones', 'galaxy-phones', 1, '2023-07-20 08:42:12', NULL),
-(154, 1, 22, 'Galaxy Tabs', 'galaxy-tabs', 1, '2023-07-20 08:42:19', NULL),
-(155, 1, 22, 'Charger', 'charger-1689844735-dzty9', 1, '2023-07-20 09:18:55', NULL);
+(1, 17, 55, 'Lenovo', 'lenovo-1704003717-Ebzrd', 1, '2023-12-31 06:21:57', NULL),
+(2, 17, 55, 'HP', 'hp-1704003726-TsxVx', 1, '2023-12-31 06:22:06', NULL),
+(3, 17, 55, 'Asus', 'asus-1704003732-3gPYA', 1, '2023-12-31 06:22:12', NULL),
+(4, 17, 55, 'Acer', 'acer-1704003737-MU1Sx', 1, '2023-12-31 06:22:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -412,12 +351,12 @@ CREATE TABLE `config_setups` (
 --
 
 INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Product Size', 'product_size', 'Fashion', 0, '2023-12-17 06:53:00', '2023-12-18 07:15:07'),
-(2, NULL, 'Storage', 'storage', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-18 07:15:07'),
-(3, NULL, 'Sim Type', 'sim', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-18 07:15:07'),
-(4, NULL, 'Device Condition', 'device_condition', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-18 07:15:07'),
-(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 1, '2023-12-17 06:53:00', '2023-12-18 07:15:07'),
-(6, NULL, 'Region', 'region', 'Common', 1, '2023-12-17 06:53:00', '2023-12-18 07:15:07');
+(1, NULL, 'Product Size', 'product_size', 'Fashion', 0, '2023-12-17 06:53:00', '2024-01-03 04:26:48'),
+(2, NULL, 'Storage', 'storage', 'Tech', 1, '2023-12-17 06:53:00', '2024-01-03 04:26:48'),
+(3, NULL, 'Sim Type', 'sim', 'Tech', 1, '2023-12-17 06:53:00', '2024-01-03 04:26:48'),
+(4, NULL, 'Device Condition', 'device_condition', 'Tech', 1, '2023-12-17 06:53:00', '2024-01-03 04:26:48'),
+(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 1, '2023-12-17 06:53:00', '2024-01-03 04:26:48'),
+(6, NULL, 'Region', 'region', 'Common', 1, '2023-12-17 06:53:00', '2024-01-03 04:26:48');
 
 -- --------------------------------------------------------
 
@@ -959,8 +898,8 @@ CREATE TABLE `flags` (
 
 INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `created_at`, `updated_at`) VALUES
 (6, NULL, 'Featured', 1, 1, 'featured-q05Xt-1697604619', '2023-10-18 04:50:19', '2023-10-18 08:41:25'),
-(7, NULL, 'Trending', 1, 1, 'trending-oHJN2-1697604626', '2023-10-18 04:50:26', '2023-10-18 08:41:22'),
-(8, NULL, 'New Arrival', 1, 1, 'new-arrival-2lpLH-1697604635', '2023-10-18 04:50:35', '2023-10-18 08:41:19'),
+(7, NULL, 'Trending', 1, 0, 'trending-oHJN2-1697604626', '2023-10-18 04:50:26', '2023-12-31 12:01:01'),
+(8, NULL, 'New Arrival', 1, 0, 'new-arrival-2lpLH-1697604635', '2023-10-18 04:50:35', '2023-12-31 12:22:29'),
 (9, 'flag_icons/UIskl1699247145.png', 'Discounted Items', 1, 1, 'discounted-items-KlXGg-1699261810', '2023-11-06 03:05:45', '2023-11-06 07:10:10');
 
 -- --------------------------------------------------------
@@ -994,6 +933,9 @@ CREATE TABLE `general_infos` (
   `meta_title` varchar(255) DEFAULT NULL,
   `meta_keywords` varchar(255) DEFAULT NULL,
   `meta_description` longtext DEFAULT NULL,
+  `meta_og_title` varchar(255) DEFAULT NULL,
+  `meta_og_image` varchar(255) DEFAULT NULL,
+  `meta_og_description` varchar(255) DEFAULT NULL,
   `custom_css` longtext DEFAULT NULL,
   `custom_js` longtext DEFAULT NULL,
   `header_script` longtext DEFAULT NULL,
@@ -1028,8 +970,8 @@ CREATE TABLE `general_infos` (
 -- Dumping data for table `general_infos`
 --
 
-INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/tGAYZ1697968457.png', 'company_logo/1oSnf1697620395.png', 'company_logo/LpoYM1697970480.png', 'Fashionista', 'Fashionista', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '+01234-567890,+01234-5688765', 'demo@gmail.com,info@example.com', '123 Stree New York City , United States Of America NY 750065', 'https://www.google.com/maps/dir//U.S.+Embassy,+London+33+Nine+Elms+Ln+Nine+Elms,+London+SW11+7US+United+Kingdom/@51.4825655,-0.1322369,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48760532743b90e1:0x790260718555a20c!2m2!1d-0.1322369!2d51.4825655?entry=ttu', 'https://play.google.com/store', 'https://www.apple.com/app-store/', '© 2022 FashionIsta', 'company_logo/iexIV1697970944.png', '#6aa84f', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'TechLand', 'tech,it,technical', 'Technical', '.custom{\r\n    width: 100%;\r\n    height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 1, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2023-11-06 11:00:47');
+INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
+(1, 'company_logo/OfOLc1704002832.png', 'company_logo/wneJl1704002832.png', 'company_logo/zeJpF1704002832.png', 'TechShop - Ecommerce', 'TechShop', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '+01234-5688765', 'demo@gmail.com', '123 Stree New York City , United States Of America NY 750065', 'https://www.google.com/maps/dir//U.S.+Embassy,+London+33+Nine+Elms+Ln+Nine+Elms,+London+SW11+7US+United+Kingdom/@51.4825655,-0.1322369,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48760532743b90e1:0x790260718555a20c!2m2!1d-0.1322369!2d51.4825655?entry=ttu', 'https://play.google.com/store', 'https://www.apple.com/app-store/', '© 2022 Techshop', 'company_logo/GVgni1704081652.png', '#6aa84f', '#8e7cc3', '#c27ba0', '#ffd966', '#0b5394', '#5b5b5b', 'Techshop Ecommerce', 'techshop', 'Techshop Ecommerce', 'Techshop Ecommerce', 'company_logo/QZYN11704367941.png', 'Techshop Ecommerce', '.custom{\r\n    width: 100%;\r\n    height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 1, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2024-01-04 11:32:21');
 
 -- --------------------------------------------------------
 
@@ -1183,141 +1125,6 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `order_no`, `user_id`, `order_date`, `estimated_dd`, `delivery_date`, `delivery_method`, `payment_method`, `payment_status`, `trx_id`, `bank_tran_id`, `order_status`, `sub_total`, `coupon_code`, `discount`, `delivery_fee`, `vat`, `tax`, `total`, `order_note`, `order_remarks`, `slug`, `complete_order`, `created_at`, `updated_at`) VALUES
-(1, '1689601753866', 23, '2023-07-17 19:49:13', '2023-07-24', NULL, '', 1, 1, '1689601753icKfT', 'Not Available (COD)', 0, 134500, NULL, 0, 100, 0, 0, 134600, '', NULL, 'y8IlF1689601753', 1, '2023-07-17 23:49:13', '2023-10-26 08:50:44'),
-(2, '1689660747209', 23, '2023-07-18 12:12:27', '2023-07-25', NULL, '', NULL, 0, '1689660747nBBFs', NULL, 0, 115000, NULL, 0, 0, 0, 0, 115000, '', NULL, 'NHy8P1689660747', 0, '2023-07-18 06:12:27', '2023-07-18 06:12:27'),
-(3, '1689661552576', 23, '2023-07-18 12:25:52', '2023-07-25', NULL, '', NULL, 0, '1689661552ybmES', NULL, 0, 115000, NULL, 0, 0, 0, 0, 115000, '', NULL, 'aClNv1689661552', 0, '2023-07-18 06:25:52', '2023-07-18 06:25:53'),
-(4, '1689668976893', 35, '2023-07-18 14:29:36', '2023-07-25', NULL, '', NULL, 0, '1689668976rPEtA', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'XTFRa1689668976', 0, '2023-07-18 08:29:36', NULL),
-(5, '1689669097583', 35, '2023-07-18 14:31:37', '2023-07-25', NULL, '', NULL, 0, '1689669097nA79o', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'gFjl71689669097', 0, '2023-07-18 08:31:37', NULL),
-(6, '1689669262197', 23, '2023-07-18 14:34:22', '2023-07-25', NULL, '', 1, 1, '1689669262uB2Mp', 'Not Available (COD)', 0, 115000, NULL, 0, 100, 0, 0, 115100, '', NULL, 'NvdIM1689669262', 1, '2023-07-18 08:34:22', '2023-07-18 08:34:22'),
-(7, '1689669807556', 35, '2023-07-18 14:43:27', '2023-07-25', NULL, '', NULL, 0, '1689669807utQrJ', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'uOcnS1689669807', 0, '2023-07-18 08:43:27', NULL),
-(8, '1689670104700', 35, '2023-07-18 14:48:24', '2023-07-25', NULL, '', NULL, 0, '1689670104s5gtl', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '3tcFc1689670104', 0, '2023-07-18 08:48:24', NULL),
-(9, '1689670481629', NULL, '2023-07-18 14:54:41', '2023-07-25', NULL, '', 1, 1, '1689670481uRKui', 'Not Available (COD)', 0, 545100, NULL, 0, 100, 0, 0, 545200, '', NULL, 'wPRVx1689670481', 1, '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
-(10, '1689673103748', 35, '2023-07-18 15:38:23', '2023-07-25', NULL, '', NULL, 0, '1689673103rmIKt', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'DEQEA1689673103', 0, '2023-07-18 09:38:23', NULL),
-(11, '1689673132520', 35, '2023-07-18 15:38:52', '2023-07-25', NULL, '', NULL, 0, '16896731327Tg9B', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'Jvwqy1689673132', 0, '2023-07-18 09:38:52', NULL),
-(12, '1689673273174', 35, '2023-07-18 15:41:13', '2023-07-25', NULL, '', NULL, 0, '1689673273XAEC3', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '4xRod1689673273', 0, '2023-07-18 09:41:13', NULL),
-(13, '1690345802546', NULL, '2023-07-26 10:30:02', '2023-08-02', NULL, NULL, NULL, 0, '1690345802FMqFF', NULL, 3, 400, '1YUIFWW', 0, 0, 0, 0, 400, NULL, NULL, 'zUUxH1690345802', 0, '2023-07-26 04:30:02', '2023-11-13 05:14:52'),
-(14, '1698222836533', 55, '2023-10-25 14:33:56', '2023-11-01', NULL, '1', 1, 1, '1698222836tI1ff', 'Not Available (COD)', 0, 1290, 'hh', 0, 100, 0, 0, 1390, '', NULL, 'IB2tg1698222836', 1, '2023-10-25 06:33:56', '2023-10-25 06:33:57'),
-(15, '1698300256594', 55, '2023-10-26 12:04:16', '2023-11-02', NULL, '1', NULL, 0, '1698300256G6UvV', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'CGnuK1698300256', 0, '2023-10-26 04:04:16', NULL),
-(16, '1698300290472', 55, '2023-10-26 12:04:50', '2023-11-02', NULL, '1', NULL, 0, '1698300290FK8KD', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'toZq81698300290', 0, '2023-10-26 04:04:50', NULL),
-(17, '1698300310280', 55, '2023-10-26 12:05:10', '2023-11-02', NULL, '1', NULL, 0, '1698300310YEspy', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, '0QOsU1698300310', 0, '2023-10-26 04:05:10', NULL),
-(18, '1698300321234', 55, '2023-10-26 12:05:21', '2023-11-02', NULL, '1', NULL, 0, '1698300321iHzj6', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'YlUQB1698300321', 0, '2023-10-26 04:05:21', NULL),
-(19, '1698300330621', 55, '2023-10-26 12:05:30', '2023-11-02', NULL, '1', NULL, 0, '1698300330ucYGU', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'YmLrn1698300330', 0, '2023-10-26 04:05:30', '2023-10-26 04:05:30'),
-(20, '1698300996361', 55, '2023-10-26 12:16:36', '2023-11-02', NULL, '1', NULL, 0, '1698300996vZLbG', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'U9VvI1698300996', 0, '2023-10-26 04:16:36', NULL),
-(21, '1698301013564', 55, '2023-10-26 12:16:53', '2023-11-02', NULL, '1', NULL, 0, '1698301013yHzSp', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, '0Tckc1698301013', 0, '2023-10-26 04:16:53', NULL),
-(22, '1698301051252', 55, '2023-10-26 12:17:31', '2023-11-02', NULL, '1', NULL, 0, '1698301051Up5XO', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'sEXiV1698301051', 0, '2023-10-26 04:17:31', NULL),
-(23, '1698301075217', 55, '2023-10-26 12:17:55', '2023-11-02', NULL, '1', NULL, 0, '1698301075Fx9wC', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'aEV3E1698301075', 0, '2023-10-26 04:17:55', '2023-10-26 04:17:56'),
-(24, '1698301083839', 55, '2023-10-26 12:18:03', '2023-11-02', NULL, '1', NULL, 0, '169830108305aE7', NULL, 0, 1400, 'OFF20', 0, 0, 0, 0, 1400, '\"Quickly Need\"', NULL, 'oENX21698301083', 0, '2023-10-26 04:18:03', '2023-10-26 04:18:03'),
-(25, '1698302472705', 55, '2023-10-26 12:41:12', '2023-11-02', NULL, '1', NULL, 0, '1698302472JfmvW', NULL, 0, 700, 'OFF20', 0, 0, 0, 0, 700, '\"Quickly Need\"', NULL, 'nrnbC1698302472', 0, '2023-10-26 04:41:12', '2023-10-26 04:41:12'),
-(26, '1699528305190', 56, '2023-11-09 17:11:45', '2023-11-16', NULL, '', NULL, 0, '1699528305XYoCv', NULL, 0, 2300, NULL, 0, 100, 0, 0, 2400, '', NULL, 'z5n4o1699528305', 1, '2023-11-09 09:11:45', '2023-11-09 09:11:46'),
-(27, '1699528321188', 56, '2023-11-09 17:12:01', '2023-11-16', NULL, '', NULL, 0, '1699528321FgDCz', NULL, 0, 2300, NULL, 0, 100, 0, 0, 2400, '', NULL, 'PvBCk1699528321', 1, '2023-11-09 09:12:01', '2023-11-09 09:12:01'),
-(28, '1699687514368', 57, '2023-11-11 13:25:14', '2023-11-18', NULL, '', NULL, 0, '16996875142KYbd', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '47n8D1699687514', 0, '2023-11-11 05:25:14', NULL),
-(29, '1699687575330', 57, '2023-11-11 13:26:15', '2023-11-18', NULL, '', NULL, 0, '1699687575K5zil', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'bUB3S1699687575', 0, '2023-11-11 05:26:15', NULL),
-(30, '1699693131691', 55, '2023-11-11 14:58:51', '2023-11-18', NULL, '2', 1, 1, '1699693131iZK9W', 'Not Available (COD)', 3, 4200, NULL, 0, 100, 0, 0, 4300, '', NULL, 'Zequd1699693131', 1, '2023-11-11 06:58:51', '2023-11-21 03:04:12'),
-(31, '1700540104707', 60, '2023-11-21 10:15:04', '2023-11-28', NULL, '1', 1, 1, '1700540104BFmxK', 'Not Available (COD)', 3, 951, NULL, 0, 100, 0, 0, 1051, '', NULL, 'E3qVz1700540104', 1, '2023-11-21 02:15:04', '2023-11-21 03:04:10'),
-(32, '1700542711487', 60, '2023-11-21 10:58:31', '2023-11-28', NULL, '1', 1, 1, '1700542711sKzBS', 'Not Available (COD)', 3, 2796, NULL, 0, 60, 0, 0, 2856, '', NULL, 'kQDZI1700542711', 1, '2023-11-21 02:58:31', '2023-11-21 03:04:06'),
-(33, '1700543070814', 60, '2023-11-21 11:04:30', '2023-11-28', NULL, '1', 1, 1, '1700543070XaD3V', 'Not Available (COD)', 4, 600, NULL, 0, 100, 0, 0, 700, '', NULL, 'yAa0y1700543070', 1, '2023-11-21 03:04:30', '2023-11-21 03:04:45'),
-(34, '1700543349864', 60, '2023-11-21 11:09:09', '2023-11-28', NULL, '1', NULL, 0, '1700543349KtnK0', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'bi61z1700543349', 0, '2023-11-21 03:09:09', NULL),
-(35, '1700543538137', 60, '2023-11-21 11:12:18', '2023-11-28', NULL, '2', NULL, 0, '1700543538oexkJ', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'M6RJ91700543538', 0, '2023-11-21 03:12:18', NULL),
-(36, '1700543658469', 60, '2023-11-21 11:14:18', '2023-11-28', NULL, '2', 1, 1, '1700543658ZujSK', 'Not Available (COD)', 1, 3000, 'Abc124', 200, 0, 0, 0, 2900, '', NULL, 'PSZSs1700543658', 1, '2023-11-21 03:14:18', '2023-11-21 03:19:04'),
-(37, '1700544014781', 60, '2023-11-21 11:20:14', '2023-11-28', NULL, '2', NULL, 0, '1700544014LoP0q', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'fxex81700544014', 0, '2023-11-21 03:20:14', NULL),
-(38, '1700544054682', 60, '2023-11-21 11:20:54', '2023-11-28', NULL, '2', NULL, 0, '1700544054FvyK0', NULL, 4, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'x9BGl1700544054', 0, '2023-11-21 03:20:54', '2023-11-21 03:23:27'),
-(39, '1700544129663', 60, '2023-11-21 11:22:09', '2023-11-28', NULL, '2', 1, 1, '1700544129JgjkM', 'Not Available (COD)', 0, 1000, NULL, 0, 0, 0, 0, 1060, '', NULL, 'c86pQ1700544129', 1, '2023-11-21 03:22:09', '2023-11-21 03:22:13'),
-(40, '1700544644344', 60, '2023-11-21 11:30:44', '2023-11-28', NULL, '2', 1, 1, '1700544644nQZFK', 'Not Available (COD)', 0, 5600, NULL, 0, 0, 0, 0, 5600, '', NULL, 'K3qcu1700544644', 1, '2023-11-21 03:30:44', '2023-11-21 03:30:49'),
-(41, '1700979755941', 45, '2023-11-26 12:22:35', '2023-12-03', NULL, '', NULL, 0, '1700979755PPTsw', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '6MswU1700979755', 0, '2023-11-26 04:22:35', NULL),
-(42, '1700979790785', 45, '2023-11-26 12:23:10', '2023-12-03', NULL, '', NULL, 0, '17009797906Fcx7', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'z2WFN1700979790', 0, '2023-11-26 04:23:10', NULL),
-(43, '1700979841959', 45, '2023-11-26 12:24:01', '2023-12-03', NULL, '', NULL, 0, '1700979841UUxc1', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'KWg4X1700979841', 0, '2023-11-26 04:24:01', NULL),
-(44, '1700979846105', 45, '2023-11-26 12:24:06', '2023-12-03', NULL, '', NULL, 0, '1700979846CflGX', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'adrVY1700979846', 0, '2023-11-26 04:24:06', NULL),
-(45, '1700980240725', 45, '2023-11-26 12:30:40', '2023-12-03', NULL, '', NULL, 0, '170098024004i4B', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'Pd1YF1700980240', 0, '2023-11-26 04:30:40', NULL),
-(46, '1700980245494', 45, '2023-11-26 12:30:45', '2023-12-03', NULL, '', NULL, 0, '17009802458cGCk', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '0W0a61700980245', 0, '2023-11-26 04:30:45', NULL),
-(47, '1700980514477', 45, '2023-11-26 12:35:14', '2023-12-03', NULL, '', NULL, 0, '1700980514b6EpB', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'GLgji1700980514', 0, '2023-11-26 04:35:14', NULL),
-(48, '1700980605105', 45, '2023-11-26 12:36:45', '2023-12-03', NULL, '', NULL, 0, '1700980605S4Qzm', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 's9UFM1700980605', 0, '2023-11-26 04:36:45', NULL),
-(49, '1700980623352', 45, '2023-11-26 12:37:03', '2023-12-03', NULL, '', NULL, 0, '1700980623HdIxo', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'Ijg4r1700980623', 0, '2023-11-26 04:37:03', NULL),
-(50, '1700980742876', 45, '2023-11-26 12:39:02', '2023-12-03', NULL, '', NULL, 0, '1700980742WeyzA', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '20jOG1700980742', 0, '2023-11-26 04:39:02', NULL),
-(51, '1700980862801', 45, '2023-11-26 12:41:02', '2023-12-03', NULL, '1', NULL, 0, '1700980862vbQZ5', NULL, 0, 700, 'OFF20', 0, 0, 0, 0, 700, '\"Quickly Need\"', NULL, 'uL9v41700980862', 0, '2023-11-26 04:41:02', '2023-11-26 04:41:02'),
-(52, '1700980990348', 45, '2023-11-26 12:43:10', '2023-12-03', NULL, '', NULL, 0, '1700980990BkJTR', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'UbA0h1700980990', 0, '2023-11-26 04:43:10', NULL),
-(53, '1700981006599', 45, '2023-11-26 12:43:26', '2023-12-03', NULL, '', NULL, 0, '1700981006iMfO5', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '6C8zr1700981006', 0, '2023-11-26 04:43:26', NULL),
-(54, '1700981017696', 45, '2023-11-26 12:43:37', '2023-12-03', NULL, '1', NULL, 0, '1700981017XLcFg', NULL, 0, 700, 'OFF20', 0, 0, 0, 0, 700, '\"Quickly Need\"', NULL, 'txJGn1700981017', 0, '2023-11-26 04:43:37', '2023-11-26 04:43:37'),
-(55, '1700981021108', 45, '2023-11-26 12:43:41', '2023-12-03', NULL, '1', NULL, 0, '1700981021GbTaI', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, '430L61700981021', 0, '2023-11-26 04:43:41', NULL),
-(56, '1700981038593', 45, '2023-11-26 12:43:58', '2023-12-03', NULL, '', NULL, 0, '17009810380Tcjb', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'SbFBY1700981038', 0, '2023-11-26 04:43:58', NULL),
-(57, '1700981043410', 45, '2023-11-26 12:44:03', '2023-12-03', NULL, '', NULL, 0, '1700981043BqcdZ', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'T6BQN1700981043', 0, '2023-11-26 04:44:03', NULL),
-(58, '1700981047111', 45, '2023-11-26 12:44:07', '2023-12-03', NULL, '', NULL, 0, '17009810473ONiD', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'HmdMi1700981047', 0, '2023-11-26 04:44:07', NULL),
-(59, '1700981051323', 45, '2023-11-26 12:44:11', '2023-12-03', NULL, '', NULL, 0, '1700981051udcQA', NULL, 0, 700, NULL, 0, 0, 0, 0, 700, '', NULL, '6hihV1700981051', 0, '2023-11-26 04:44:11', '2023-11-26 04:44:11'),
-(60, '1700981057642', 45, '2023-11-26 12:44:17', '2023-12-03', NULL, '', NULL, 0, '1700981057CFrei', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '6u4mN1700981057', 0, '2023-11-26 04:44:17', NULL),
-(61, '1700981062537', 45, '2023-11-26 12:44:22', '2023-12-03', NULL, '', NULL, 0, '1700981062u7Kwv', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'lzspa1700981062', 0, '2023-11-26 04:44:22', NULL),
-(62, '1700981065286', 45, '2023-11-26 12:44:25', '2023-12-03', NULL, '', NULL, 0, '1700981065yoe83', NULL, 0, 700, NULL, 0, 0, 0, 0, 700, '', NULL, '4KWOY1700981065', 0, '2023-11-26 04:44:25', '2023-11-26 04:44:25'),
-(63, '1700981069234', 45, '2023-11-26 12:44:29', '2023-12-03', NULL, '', NULL, 0, '1700981069zwpq5', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'nFaN21700981069', 0, '2023-11-26 04:44:29', NULL),
-(64, '1700981073335', 45, '2023-11-26 12:44:33', '2023-12-03', NULL, '', NULL, 0, '1700981073RRHDK', NULL, 0, 700, NULL, 0, 0, 0, 0, 700, '', NULL, 'Pmhjw1700981073', 0, '2023-11-26 04:44:33', '2023-11-26 04:44:33'),
-(65, '1700981815977', 45, '2023-11-26 12:56:55', '2023-12-03', NULL, '', NULL, 0, '1700981815WYvEn', NULL, 0, 700, NULL, 0, 0, 0, 0, 700, '', NULL, 'i73RH1700981815', 0, '2023-11-26 04:56:55', '2023-11-26 04:56:55'),
-(66, '1700981827795', 45, '2023-11-26 12:57:07', '2023-12-03', NULL, '2', 1, 1, '1700981827owm3C', 'Not Available (COD)', 0, 932, NULL, 0, 0, 0, 0, 932, '', NULL, 'Gx8CR1700981827', 1, '2023-11-26 04:57:07', '2023-11-26 04:57:12'),
-(67, '1701053891725', 45, '2023-11-27 08:58:11', '2023-12-04', NULL, '', NULL, 0, '1701053891HLRHk', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'exzqJ1701053891', 0, '2023-11-27 00:58:11', NULL),
-(68, '1701053969134', 45, '2023-11-27 08:59:29', '2023-12-04', NULL, '', NULL, 0, '1701053969EkJTq', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'EvFif1701053969', 0, '2023-11-27 00:59:29', NULL),
-(69, '1701053990555', 45, '2023-11-27 08:59:50', '2023-12-04', NULL, '', NULL, 0, '17010539902548W', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'yf5OJ1701053990', 0, '2023-11-27 00:59:50', NULL),
-(70, '1701053993104', 45, '2023-11-27 08:59:53', '2023-12-04', NULL, '', NULL, 0, '17010539931Ksj5', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '7mK2i1701053993', 0, '2023-11-27 00:59:53', NULL),
-(71, '1701054020449', 45, '2023-11-27 09:00:20', '2023-12-04', NULL, '', NULL, 0, '1701054020kTCxw', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'vrnsz1701054020', 0, '2023-11-27 01:00:20', NULL),
-(72, '1701054023508', 45, '2023-11-27 09:00:23', '2023-12-04', NULL, '', NULL, 0, '1701054023ILt0h', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'h0PBk1701054023', 0, '2023-11-27 01:00:23', NULL),
-(73, '1701054036136', 45, '2023-11-27 09:00:36', '2023-12-04', NULL, '', NULL, 0, '1701054036niWS1', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'ddpMC1701054036', 0, '2023-11-27 01:00:36', NULL),
-(74, '1701054043895', 45, '2023-11-27 09:00:43', '2023-12-04', NULL, '', NULL, 0, '17010540432w6HR', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'NQaIY1701054043', 0, '2023-11-27 01:00:43', NULL),
-(75, '1701054121493', 45, '2023-11-27 09:02:01', '2023-12-04', NULL, '', NULL, 0, '1701054121KoXF3', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'Q3WSX1701054121', 0, '2023-11-27 01:02:01', NULL),
-(76, '1701054122972', 45, '2023-11-27 09:02:02', '2023-12-04', NULL, '', NULL, 0, '1701054122cIDY3', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '9R6LG1701054122', 0, '2023-11-27 01:02:02', NULL),
-(77, '1701054147306', 45, '2023-11-27 09:02:27', '2023-12-04', NULL, '', NULL, 0, '17010541475Q5GA', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '69EVQ1701054147', 0, '2023-11-27 01:02:27', NULL),
-(78, '1701054180466', 45, '2023-11-27 09:03:00', '2023-12-04', NULL, '', NULL, 0, '1701054180n9ydv', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'O4BCH1701054180', 0, '2023-11-27 01:03:00', NULL),
-(79, '1701054192539', 45, '2023-11-27 09:03:12', '2023-12-04', NULL, '', NULL, 0, '1701054192BYA6k', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'hqn4o1701054192', 0, '2023-11-27 01:03:12', NULL),
-(80, '1701054231376', 45, '2023-11-27 09:03:51', '2023-12-04', NULL, '', NULL, 0, '1701054231OWEIA', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'OrrqJ1701054231', 0, '2023-11-27 01:03:51', NULL),
-(81, '1701054253111', 45, '2023-11-27 09:04:13', '2023-12-04', NULL, '', NULL, 0, '1701054253sqyZA', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'L8FKG1701054253', 0, '2023-11-27 01:04:13', NULL),
-(82, '1701054306581', 45, '2023-11-27 09:05:06', '2023-12-04', NULL, '', NULL, 0, '1701054306SlRyX', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'pyQCR1701054306', 0, '2023-11-27 01:05:06', NULL),
-(83, '1701054594720', 45, '2023-11-27 09:09:54', '2023-12-04', NULL, '', NULL, 0, '17010545945SCs6', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, '2yX3J1701054594', 0, '2023-11-27 01:09:54', NULL),
-(84, '1701054618792', 45, '2023-11-27 09:10:18', '2023-12-04', NULL, '', NULL, 0, '1701054618FQsbM', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'hZLek1701054618', 0, '2023-11-27 01:10:18', NULL),
-(85, '1701054934386', 45, '2023-11-27 09:15:34', '2023-12-04', NULL, '', NULL, 0, '1701054934e0sCZ', NULL, 0, 3495, NULL, 0, 0, 0, 0, 3495, '', NULL, 'VvS0x1701054934', 0, '2023-11-27 01:15:34', '2023-11-27 01:15:34'),
-(86, '1701054964423', 45, '2023-11-27 09:16:04', '2023-12-04', NULL, '', NULL, 0, '1701054964BXqO1', NULL, 0, 3495, NULL, 0, 0, 0, 0, 3495, '', NULL, 'P7HaV1701054964', 0, '2023-11-27 01:16:04', '2023-11-27 01:16:04'),
-(87, '1701055070315', 45, '2023-11-27 09:17:50', '2023-12-04', NULL, '', NULL, 0, '1701055070hrqua', NULL, 0, 3495, NULL, 0, 0, 0, 0, 3495, '', NULL, 'xwPzz1701055070', 0, '2023-11-27 01:17:50', '2023-11-27 01:17:50'),
-(88, '1701055114702', 45, '2023-11-27 09:18:34', '2023-12-04', NULL, '', NULL, 0, '1701055114hPfco', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'giORf1701055114', 1, '2023-11-27 01:18:34', '2023-11-27 01:18:34'),
-(89, '1701055117297', 45, '2023-11-27 09:18:37', '2023-12-04', NULL, '', NULL, 0, '1701055117khOaS', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, '8ESIa1701055117', 1, '2023-11-27 01:18:37', '2023-11-27 01:18:37'),
-(90, '1701055141938', 45, '2023-11-27 09:19:01', '2023-12-04', NULL, '', NULL, 0, '1701055141qnlju', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'X1CPE1701055141', 1, '2023-11-27 01:19:01', '2023-11-27 01:19:01'),
-(91, '1701055176407', 45, '2023-11-27 09:19:36', '2023-12-04', NULL, '', NULL, 0, '1701055176sFf0j', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'My50p1701055176', 1, '2023-11-27 01:19:36', '2023-11-27 01:19:36'),
-(92, '1701055220964', 45, '2023-11-27 09:20:20', '2023-12-04', NULL, '', NULL, 0, '17010552200dgJy', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, '7z40W1701055220', 1, '2023-11-27 01:20:20', '2023-11-27 01:20:20'),
-(93, '1701055264546', 45, '2023-11-27 09:21:04', '2023-12-04', NULL, '', NULL, 0, '1701055264jk2Qg', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'yYHFt1701055264', 1, '2023-11-27 01:21:04', '2023-11-27 01:21:04'),
-(94, '1701055327331', 45, '2023-11-27 09:22:07', '2023-12-04', NULL, '', NULL, 0, '17010553270tszm', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'DC68V1701055327', 1, '2023-11-27 01:22:07', '2023-11-27 01:22:08'),
-(95, '1701057817904', 66, '2023-11-27 10:03:37', '2023-12-04', NULL, '', NULL, 0, '1701057817mWW8s', NULL, 0, 8490, NULL, 0, 100, 0, 0, 8590, '', NULL, 'YRwwk1701057817', 1, '2023-11-27 02:03:37', '2023-11-27 02:03:37'),
-(96, '1701061692769', 66, '2023-11-27 11:08:12', '2023-12-04', NULL, '', NULL, 0, '1701061692JVvRF', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'BYmEl1701061692', 1, '2023-11-27 03:08:12', '2023-11-27 03:08:12'),
-(97, '1701061700350', 66, '2023-11-27 11:08:20', '2023-12-04', NULL, '', NULL, 0, '1701061700gDiYH', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'pNg3A1701061700', 1, '2023-11-27 03:08:20', '2023-11-27 03:08:20'),
-(98, '1701062009182', 45, '2023-11-27 11:13:29', '2023-12-04', NULL, '', NULL, 0, '1701062009caFVm', NULL, 0, 4495, NULL, 0, 100, 0, 0, 4595, '', NULL, 'XyXe51701062009', 1, '2023-11-27 03:13:29', '2023-11-27 03:13:29'),
-(99, '1701062032494', 45, '2023-11-27 11:13:52', '2023-12-04', NULL, '', NULL, 0, '1701062032a425p', NULL, 0, 4495, NULL, 0, 100, 0, 0, 4595, '', NULL, 'Zy7oO1701062032', 1, '2023-11-27 03:13:52', '2023-11-27 03:13:52'),
-(100, '1701062116310', 66, '2023-11-27 11:15:16', '2023-12-04', NULL, '', NULL, 0, '1701062116LLexs', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'YDRbS1701062116', 1, '2023-11-27 03:15:16', '2023-11-27 03:15:17'),
-(101, '1701103426886', 45, '2023-11-27 22:43:46', '2023-12-04', NULL, '', NULL, 0, '1701103426kuk20', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'tEWRT1701103426', 0, '2023-11-27 14:43:46', NULL),
-(102, '1701103466239', 45, '2023-11-27 22:44:26', '2023-12-04', NULL, '', NULL, 0, '1701103466qI3sP', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'EQ9xe1701103466', 0, '2023-11-27 14:44:26', NULL),
-(103, '1701104364451', 45, '2023-11-27 22:59:24', '2023-12-04', NULL, '', NULL, 0, '17011043648L03X', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'il58A1701104364', 1, '2023-11-27 14:59:24', '2023-11-27 14:59:24'),
-(104, '1701104387207', 45, '2023-11-27 22:59:47', '2023-12-04', NULL, '', NULL, 0, '1701104387nK6F6', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, '3U5e41701104387', 1, '2023-11-27 14:59:47', '2023-11-27 14:59:48'),
-(105, '1701104413442', 45, '2023-11-27 23:00:13', '2023-12-04', NULL, '', NULL, 0, '1701104413hQDjX', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'ckOlV1701104413', 1, '2023-11-27 15:00:13', '2023-11-27 15:00:13'),
-(106, '1701105303265', 45, '2023-11-27 23:15:03', '2023-12-04', NULL, '', NULL, 0, '17011053034EW4I', NULL, 0, 6990, NULL, 0, 100, 0, 0, 7090, '', NULL, 'RPoG41701105303', 1, '2023-11-27 15:15:03', '2023-11-27 15:15:03'),
-(107, '1701147204250', 1, '2023-11-28 10:53:24', '2023-12-05', NULL, '', NULL, 0, '17011472040KvET', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'o542r1701147204', 1, '2023-11-28 02:53:24', '2023-11-28 02:53:25'),
-(108, '1701147212376', 1, '2023-11-28 10:53:32', '2023-12-05', NULL, '', NULL, 0, '1701147212bGvGJ', NULL, 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'fJH9P1701147212', 1, '2023-11-28 02:53:32', '2023-11-28 02:53:32'),
-(109, '1701161855479', 60, '2023-11-28 14:57:35', '2023-12-05', NULL, '', NULL, 0, '1701161855uRz1N', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'qKuKH1701161855', 0, '2023-11-28 06:57:35', NULL),
-(110, '1701162227638', 45, '2023-11-28 15:03:47', '2023-12-05', NULL, '1', NULL, 0, '1701162227yErwP', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '\"Quickly Need\"', NULL, 'r4iHA1701162227', 0, '2023-11-28 07:03:47', NULL),
-(111, '1701231835226', 60, '2023-11-29 10:23:55', '2023-12-06', NULL, '', NULL, 0, '1701231835JynlQ', NULL, 0, 5990, NULL, 0, 100, 0, 0, 6090, '', NULL, 'S1YvW1701231835', 1, '2023-11-29 02:23:55', '2023-11-29 02:23:55'),
-(112, '1701231842953', 60, '2023-11-29 10:24:02', '2023-12-06', NULL, '', NULL, 0, '1701231842LrTEh', NULL, 0, 5990, NULL, 0, 100, 0, 0, 6090, '', NULL, 'Jam5M1701231842', 1, '2023-11-29 02:24:02', '2023-11-29 02:24:02'),
-(113, '1701314900601', 45, '2023-11-30 09:28:20', '2023-12-07', NULL, '', NULL, 0, '1701314900gHye4', NULL, 0, 17475, NULL, 0, 100, 0, 0, 17575, '', NULL, 'adLBV1701314900', 1, '2023-11-30 01:28:20', '2023-11-30 01:28:20'),
-(114, '1701321730840', 66, '2023-11-30 11:22:10', '2023-12-07', NULL, '', NULL, 0, '1701321730nIonL', NULL, 0, 48930, NULL, 0, 100, 0, 0, 49030, '', NULL, 'IMxa51701321730', 1, '2023-11-30 03:22:10', '2023-11-30 03:22:10'),
-(115, '1701321786771', 66, '2023-11-30 11:23:06', '2023-12-07', NULL, '', NULL, 0, '1701321786UqWKB', NULL, 0, 5990, NULL, 0, 100, 0, 0, 6090, '', NULL, 'W6uwM1701321786', 1, '2023-11-30 03:23:06', '2023-11-30 03:23:06'),
-(116, '1701339288482', 55, '2023-11-30 16:14:48', '2023-12-07', NULL, '1', 1, 1, '1701339288JHWiR', 'Not Available (COD)', 0, 3495, NULL, 0, 100, 0, 0, 3595, '', NULL, 'cFEEx1701339288', 1, '2023-11-30 08:14:48', '2023-11-30 08:14:53'),
-(117, '1701410561441', 45, '2023-12-01 12:02:41', '2023-12-08', NULL, '', NULL, 0, '1701410561jeXd0', NULL, 0, 1495, NULL, 0, 100, 0, 0, 1595, '', NULL, 'VXIDI1701410561', 1, '2023-12-01 04:02:41', '2023-12-01 04:02:41'),
-(118, '1701584699524', 60, '2023-12-03 12:24:59', '2023-12-10', NULL, '', NULL, 0, '1701584699TIxff', NULL, 0, 4495, NULL, 0, 100, 0, 0, 4595, '', NULL, 'g4aRB1701584699', 1, '2023-12-03 04:24:59', '2023-12-03 04:24:59'),
-(119, '1701586583938', 78, '2023-12-03 12:56:23', '2023-12-10', NULL, '', NULL, 0, '17015865834HVXc', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'ny2UX1701586583', 0, '2023-12-03 04:56:23', NULL),
-(120, '1701588664141', 78, '2023-12-03 13:31:04', '2023-12-10', NULL, '', NULL, 0, '1701588664c1lAM', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'fiq6n1701588664', 0, '2023-12-03 05:31:04', NULL),
-(121, '1701588680504', 78, '2023-12-03 13:31:20', '2023-12-10', NULL, '', NULL, 0, '1701588680AtCT4', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'JVmjd1701588680', 0, '2023-12-03 05:31:20', NULL),
-(122, '1701857723551', 45, '2023-12-06 16:15:23', '2023-12-13', NULL, '', NULL, 0, '1701857723Y5qY7', NULL, 0, 2995, NULL, 0, 100, 0, 0, 3095, '', NULL, 'D1HJL1701857723', 1, '2023-12-06 08:15:23', '2023-12-06 08:15:24'),
-(123, '1701940071962', 45, '2023-12-07 15:07:51', '2023-12-14', NULL, '', NULL, 0, '1701940071c4Uj6', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'tzFxx1701940071', 0, '2023-12-07 07:07:51', NULL),
-(124, '1702553841860', 45, '2023-12-14 17:37:21', '2023-12-21', NULL, '', NULL, 0, '1702553841nGzze', NULL, 0, 9480, NULL, 0, 100, 0, 0, 9580, '', NULL, 'IDGiA1702553841', 1, '2023-12-14 09:37:21', '2023-12-14 09:37:21'),
-(125, '1702793227587', 45, '2023-12-17 12:07:07', '2023-12-24', NULL, '', NULL, 0, '1702793227KTHi5', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'pibgL1702793227', 0, '2023-12-17 04:07:07', NULL),
-(126, '1702876227719', 79, '2023-12-18 11:10:27', '2023-12-25', NULL, '', NULL, 0, '1702876227FdPwv', NULL, 0, 4995, NULL, 0, 60, 0, 0, 5055, '', NULL, 'zE0FI1702876227', 1, '2023-12-18 03:10:27', '2023-12-18 03:10:27'),
-(127, '1702899482709', 45, '2023-12-18 17:38:02', '2023-12-25', NULL, '', NULL, 0, '1702899482RLFHI', NULL, 0, 6990, NULL, 0, 60, 0, 0, 7050, '', NULL, 'y9fGX1702899482', 1, '2023-12-18 09:38:02', '2023-12-18 09:38:02'),
-(128, '1702900200473', 45, '2023-12-18 17:50:00', '2023-12-25', NULL, '1', NULL, 0, '1702900200qEC83', NULL, 0, 700, 'OFF20', 0, 0, 0, 0, 700, '\"Quickly Need\"', NULL, 'ZEr1P1702900200', 0, '2023-12-18 09:50:00', '2023-12-18 09:50:00'),
-(129, '1702912565122', 80, '2023-12-18 21:16:05', '2023-12-25', NULL, '', NULL, 0, '1702912565XM0qs', NULL, 0, 0, NULL, 0, 0, 0, 0, 0, '', NULL, 'OBmVa1702912565', 0, '2023-12-18 13:16:05', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -1342,90 +1149,6 @@ CREATE TABLE `order_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_id`, `warrenty_id`, `device_condition_id`, `unit_id`, `qty`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-17 23:49:13', NULL),
-(2, 1, 2, 0, NULL, 0, 0, 0, 1, 0, 0, 1, 19500, 19500, '2023-07-17 23:49:13', NULL),
-(3, 2, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 06:12:27', NULL),
-(4, 3, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 06:25:52', NULL),
-(5, 6, 1, 5, NULL, 226, 2, 2, 1, 1, 0, 1, 115000, 115000, '2023-07-18 08:34:22', NULL),
-(8, 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 200, 200, '2023-07-26 04:30:02', NULL),
-(24, 9, 1, 5, 0, 226, 2, 2, 1, 1, 0, 2, 115000, 230000, NULL, '2023-10-22 09:17:45'),
-(25, 9, 1, 1, 0, 226, 4, 2, 1, 1, 0, 3, 105000, 315000, NULL, '2023-10-22 09:17:45'),
-(26, 9, 21, 6, 6, 0, 0, 0, 8, 0, 2, 1, 100, 100, NULL, '2023-10-22 09:17:45'),
-(27, 14, 28, 0, NULL, 0, 0, 0, 0, 0, 1, 1, 1290, 1290, '2023-10-25 06:33:56', NULL),
-(28, 19, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:05:30', NULL),
-(29, 20, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:16:36', NULL),
-(30, 21, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:16:53', NULL),
-(31, 23, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:17:55', NULL),
-(32, 24, 24, 12, NULL, 0, 0, 0, 0, 0, 2, 2, 700, 1400, '2023-10-26 04:18:03', NULL),
-(33, 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-10-26 04:41:12', NULL),
-(34, 26, 31, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 2300, 2300, '2023-11-09 09:11:45', NULL),
-(35, 27, 31, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 2300, 2300, '2023-11-09 09:12:01', NULL),
-(36, 30, 38, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 3, 1400, 4200, '2023-11-11 06:58:51', NULL),
-(37, 31, 203, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 1, 951, 951, '2023-11-21 02:15:04', NULL),
-(38, 32, 197, 0, 0, 0, 0, 0, 0, 0, 2, 3, 932, 932, '2023-11-21 02:58:31', NULL),
-(39, 33, 34, 0, 0, 0, 0, 0, 0, 0, 1, 4, 150, 150, '2023-11-21 03:04:30', NULL),
-(40, 36, 44, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 3, 1000, 3000, '2023-11-21 03:14:18', NULL),
-(41, 39, 45, 0, 0, 0, 0, 0, 0, 0, 1, 2, 500, 500, '2023-11-21 03:22:09', NULL),
-(42, 40, 31, 6, 5, NULL, NULL, NULL, NULL, NULL, 1, 2, 2300, 4600, '2023-11-21 03:30:44', NULL),
-(43, 40, 44, 0, 0, NULL, NULL, NULL, NULL, NULL, 1, 1, 1000, 1000, '2023-11-21 03:30:44', NULL),
-(44, 51, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-11-26 04:41:02', NULL),
-(45, 54, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-11-26 04:43:37', NULL),
-(46, 59, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-11-26 04:44:11', NULL),
-(47, 62, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-11-26 04:44:25', NULL),
-(48, 64, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-11-26 04:44:33', NULL),
-(49, 65, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-11-26 04:56:55', NULL),
-(50, 66, 197, 0, 0, 0, 0, 0, 0, 0, 2, 1, 932, 932, '2023-11-26 04:57:07', NULL),
-(51, 85, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:15:34', NULL),
-(52, 86, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:16:04', NULL),
-(53, 87, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:17:50', NULL),
-(54, 88, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:18:34', NULL),
-(55, 89, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:18:37', NULL),
-(56, 90, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:19:01', NULL),
-(57, 91, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:19:36', NULL),
-(58, 92, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:20:20', NULL),
-(59, 93, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:21:04', NULL),
-(60, 94, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 01:22:07', NULL),
-(61, 95, 209, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 3495, 3495, '2023-11-27 02:03:37', NULL),
-(62, 95, 155, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 4995, 4995, '2023-11-27 02:03:37', NULL),
-(63, 96, 210, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 3495, 3495, '2023-11-27 03:08:12', NULL),
-(64, 97, 210, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 3495, 3495, '2023-11-27 03:08:20', NULL),
-(65, 98, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 03:13:29', NULL),
-(66, 98, 44, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1000, 1000, '2023-11-27 03:13:29', NULL),
-(67, 99, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 03:13:52', NULL),
-(68, 99, 44, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1000, 1000, '2023-11-27 03:13:52', NULL),
-(69, 100, 210, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 3495, 3495, '2023-11-27 03:15:16', NULL),
-(70, 103, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 14:59:24', NULL),
-(71, 104, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 14:59:47', NULL),
-(72, 105, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 15:00:13', NULL),
-(73, 106, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 15:15:03', NULL),
-(74, 106, 211, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-27 15:15:03', NULL),
-(75, 107, 211, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-28 02:53:24', NULL),
-(76, 108, 211, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-11-28 02:53:32', NULL),
-(77, 111, 207, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 2995, 5990, '2023-11-29 02:23:55', NULL),
-(78, 112, 207, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 2995, 5990, '2023-11-29 02:24:02', NULL),
-(79, 113, 213, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 5, 3495, 17475, '2023-11-30 01:28:20', NULL),
-(80, 114, 209, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, 3495, 17475, '2023-11-30 03:22:10', NULL),
-(81, 114, 209, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 9, 3495, 31455, '2023-11-30 03:22:10', NULL),
-(82, 115, 214, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 2995, 5990, '2023-11-30 03:23:06', NULL),
-(83, 116, 210, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3495, 3495, '2023-11-30 08:14:48', NULL),
-(84, 117, 217, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1495, 1495, '2023-12-01 04:02:41', NULL),
-(85, 118, 220, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 4495, 4495, '2023-12-03 04:24:59', NULL),
-(86, 122, 214, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 2995, 2995, '2023-12-06 08:15:23', NULL),
-(87, 123, 214, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 2995, 2995, '2023-12-07 07:07:51', NULL),
-(88, 123, 219, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 4795, 4795, '2023-12-07 07:07:51', NULL),
-(89, 124, 211, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 3495, 3495, '2023-12-14 09:37:21', NULL),
-(90, 124, 217, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 1495, 2990, '2023-12-14 09:37:21', NULL),
-(91, 124, 207, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 2995, 2995, '2023-12-14 09:37:21', NULL),
-(92, 126, 218, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 4995, 4995, '2023-12-18 03:10:27', NULL),
-(93, 127, 211, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 3495, 6990, '2023-12-18 09:38:02', NULL),
-(94, 128, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 700, 700, '2023-12-18 09:50:00', NULL),
-(95, 129, 217, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1495, 1495, '2023-12-18 13:16:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -1456,25 +1179,6 @@ CREATE TABLE `order_payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `order_payments`
---
-
-INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `val_id`, `amount`, `card_type`, `store_amount`, `card_no`, `bank_tran_id`, `status`, `tran_date`, `currency`, `card_issuer`, `card_brand`, `card_sub_brand`, `card_issuer_country`, `store_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 'COD', NULL, NULL, '134600', NULL, '134600', NULL, NULL, 'VALID', '2023-07-17 19:49:13', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-17 23:49:13', NULL),
-(2, 6, 'COD', NULL, NULL, '115100', NULL, '115100', NULL, NULL, 'VALID', '2023-07-18 14:34:22', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-18 08:34:22', NULL),
-(3, 9, 'COD', NULL, NULL, '545100', NULL, '545100', NULL, NULL, 'VALID', '2023-07-18 14:54:42', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-07-18 08:54:42', NULL),
-(4, 14, 'COD', NULL, NULL, '1390', NULL, '1390', NULL, NULL, 'VALID', '2023-10-25 14:33:57', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-10-25 06:33:57', NULL),
-(5, 30, 'COD', NULL, NULL, '4300', NULL, '4300', NULL, NULL, 'VALID', '2023-11-11 14:58:56', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-11-11 06:58:56', NULL),
-(6, 31, 'COD', NULL, NULL, '1051', NULL, '1051', NULL, NULL, 'VALID', '2023-11-21 10:15:21', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-11-21 02:15:21', NULL),
-(7, 32, 'COD', NULL, NULL, '2856', NULL, '2856', NULL, NULL, 'VALID', '2023-11-21 10:58:36', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-11-21 02:58:36', NULL),
-(8, 33, 'COD', NULL, NULL, '700', NULL, '700', NULL, NULL, 'VALID', '2023-11-21 11:04:35', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-11-21 03:04:35', NULL),
-(9, 36, 'COD', NULL, NULL, '2900', NULL, '2900', NULL, NULL, 'VALID', '2023-11-21 11:14:23', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-11-21 03:14:23', NULL),
-(10, 39, 'COD', NULL, NULL, '1060', NULL, '1060', NULL, NULL, 'VALID', '2023-11-21 11:22:13', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-11-21 03:22:13', NULL),
-(11, 40, 'COD', NULL, NULL, '5600', NULL, '5600', NULL, NULL, 'VALID', '2023-11-21 11:30:49', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-11-21 03:30:49', NULL),
-(12, 66, 'COD', NULL, NULL, '932', NULL, '932', NULL, NULL, 'VALID', '2023-11-26 12:57:12', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-11-26 04:57:12', NULL),
-(13, 116, 'COD', NULL, NULL, '3595', NULL, '3595', NULL, NULL, 'VALID', '2023-11-30 16:14:53', 'BDT', NULL, NULL, NULL, NULL, NULL, '2023-11-30 08:14:53', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -1488,156 +1192,6 @@ CREATE TABLE `order_progress` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `order_progress`
---
-
-INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, '2023-07-17 23:49:13', NULL),
-(2, 2, 0, '2023-07-18 06:12:27', NULL),
-(3, 3, 0, '2023-07-18 06:25:52', NULL),
-(4, 4, 0, '2023-07-18 08:29:36', NULL),
-(5, 5, 0, '2023-07-18 08:31:37', NULL),
-(6, 6, 0, '2023-07-18 08:34:22', NULL),
-(7, 7, 0, '2023-07-18 08:43:27', NULL),
-(8, 8, 0, '2023-07-18 08:48:24', NULL),
-(9, 9, 0, '2023-07-18 08:54:41', NULL),
-(10, 10, 0, '2023-07-18 09:38:23', NULL),
-(11, 11, 0, '2023-07-18 09:38:52', NULL),
-(12, 12, 0, '2023-07-18 09:41:13', NULL),
-(13, 13, 0, '2023-07-26 04:30:02', NULL),
-(14, 13, 1, '2023-08-06 08:15:39', NULL),
-(15, 13, 2, '2023-10-22 08:14:45', NULL),
-(16, 14, 0, '2023-10-25 06:33:56', NULL),
-(17, 15, 0, '2023-10-26 04:04:16', NULL),
-(18, 16, 0, '2023-10-26 04:04:50', NULL),
-(19, 17, 0, '2023-10-26 04:05:10', NULL),
-(20, 18, 0, '2023-10-26 04:05:21', NULL),
-(21, 19, 0, '2023-10-26 04:05:30', NULL),
-(22, 20, 0, '2023-10-26 04:16:36', NULL),
-(23, 21, 0, '2023-10-26 04:16:53', NULL),
-(24, 22, 0, '2023-10-26 04:17:31', NULL),
-(25, 23, 0, '2023-10-26 04:17:55', NULL),
-(26, 24, 0, '2023-10-26 04:18:03', NULL),
-(27, 25, 0, '2023-10-26 04:41:12', NULL),
-(28, 26, 0, '2023-11-09 09:11:45', NULL),
-(29, 27, 0, '2023-11-09 09:12:01', NULL),
-(30, 28, 0, '2023-11-11 05:25:14', NULL),
-(31, 29, 0, '2023-11-11 05:26:15', NULL),
-(32, 30, 0, '2023-11-11 06:58:51', NULL),
-(33, 30, 1, '2023-11-13 05:14:36', NULL),
-(34, 13, 3, '2023-11-13 05:14:52', NULL),
-(35, 31, 0, '2023-11-21 02:15:04', NULL),
-(36, 32, 0, '2023-11-21 02:58:31', NULL),
-(37, 32, 1, '2023-11-21 03:03:02', NULL),
-(38, 31, 1, '2023-11-21 03:03:11', NULL),
-(39, 32, 2, '2023-11-21 03:03:18', NULL),
-(40, 31, 2, '2023-11-21 03:03:31', NULL),
-(41, 30, 2, '2023-11-21 03:03:34', NULL),
-(42, 32, 3, '2023-11-21 03:04:06', NULL),
-(43, 31, 3, '2023-11-21 03:04:10', NULL),
-(44, 30, 3, '2023-11-21 03:04:12', NULL),
-(45, 33, 0, '2023-11-21 03:04:30', NULL),
-(46, 33, 4, '2023-11-21 03:04:45', NULL),
-(47, 34, 0, '2023-11-21 03:09:09', NULL),
-(48, 35, 0, '2023-11-21 03:12:18', NULL),
-(49, 36, 0, '2023-11-21 03:14:18', NULL),
-(50, 36, 1, '2023-11-21 03:19:04', NULL),
-(51, 37, 0, '2023-11-21 03:20:14', NULL),
-(52, 38, 0, '2023-11-21 03:20:54', NULL),
-(53, 39, 0, '2023-11-21 03:22:09', NULL),
-(54, 38, 4, '2023-11-21 03:23:27', NULL),
-(55, 40, 0, '2023-11-21 03:30:44', NULL),
-(56, 41, 0, '2023-11-26 04:22:35', NULL),
-(57, 42, 0, '2023-11-26 04:23:10', NULL),
-(58, 43, 0, '2023-11-26 04:24:01', NULL),
-(59, 44, 0, '2023-11-26 04:24:06', NULL),
-(60, 45, 0, '2023-11-26 04:30:40', NULL),
-(61, 46, 0, '2023-11-26 04:30:45', NULL),
-(62, 47, 0, '2023-11-26 04:35:14', NULL),
-(63, 48, 0, '2023-11-26 04:36:45', NULL),
-(64, 49, 0, '2023-11-26 04:37:03', NULL),
-(65, 50, 0, '2023-11-26 04:39:02', NULL),
-(66, 51, 0, '2023-11-26 04:41:02', NULL),
-(67, 52, 0, '2023-11-26 04:43:10', NULL),
-(68, 53, 0, '2023-11-26 04:43:26', NULL),
-(69, 54, 0, '2023-11-26 04:43:37', NULL),
-(70, 55, 0, '2023-11-26 04:43:41', NULL),
-(71, 56, 0, '2023-11-26 04:43:58', NULL),
-(72, 57, 0, '2023-11-26 04:44:03', NULL),
-(73, 58, 0, '2023-11-26 04:44:07', NULL),
-(74, 59, 0, '2023-11-26 04:44:11', NULL),
-(75, 60, 0, '2023-11-26 04:44:17', NULL),
-(76, 61, 0, '2023-11-26 04:44:22', NULL),
-(77, 62, 0, '2023-11-26 04:44:25', NULL),
-(78, 63, 0, '2023-11-26 04:44:29', NULL),
-(79, 64, 0, '2023-11-26 04:44:33', NULL),
-(80, 65, 0, '2023-11-26 04:56:55', NULL),
-(81, 66, 0, '2023-11-26 04:57:07', NULL),
-(82, 67, 0, '2023-11-27 00:58:11', NULL),
-(83, 68, 0, '2023-11-27 00:59:29', NULL),
-(84, 69, 0, '2023-11-27 00:59:50', NULL),
-(85, 70, 0, '2023-11-27 00:59:53', NULL),
-(86, 71, 0, '2023-11-27 01:00:20', NULL),
-(87, 72, 0, '2023-11-27 01:00:23', NULL),
-(88, 73, 0, '2023-11-27 01:00:36', NULL),
-(89, 74, 0, '2023-11-27 01:00:43', NULL),
-(90, 75, 0, '2023-11-27 01:02:01', NULL),
-(91, 76, 0, '2023-11-27 01:02:02', NULL),
-(92, 77, 0, '2023-11-27 01:02:27', NULL),
-(93, 78, 0, '2023-11-27 01:03:00', NULL),
-(94, 79, 0, '2023-11-27 01:03:12', NULL),
-(95, 80, 0, '2023-11-27 01:03:51', NULL),
-(96, 81, 0, '2023-11-27 01:04:13', NULL),
-(97, 82, 0, '2023-11-27 01:05:06', NULL),
-(98, 83, 0, '2023-11-27 01:09:54', NULL),
-(99, 84, 0, '2023-11-27 01:10:18', NULL),
-(100, 85, 0, '2023-11-27 01:15:34', NULL),
-(101, 86, 0, '2023-11-27 01:16:04', NULL),
-(102, 87, 0, '2023-11-27 01:17:50', NULL),
-(103, 88, 0, '2023-11-27 01:18:34', NULL),
-(104, 89, 0, '2023-11-27 01:18:37', NULL),
-(105, 90, 0, '2023-11-27 01:19:01', NULL),
-(106, 91, 0, '2023-11-27 01:19:36', NULL),
-(107, 92, 0, '2023-11-27 01:20:20', NULL),
-(108, 93, 0, '2023-11-27 01:21:04', NULL),
-(109, 94, 0, '2023-11-27 01:22:07', NULL),
-(110, 95, 0, '2023-11-27 02:03:37', NULL),
-(111, 96, 0, '2023-11-27 03:08:12', NULL),
-(112, 97, 0, '2023-11-27 03:08:20', NULL),
-(113, 98, 0, '2023-11-27 03:13:29', NULL),
-(114, 99, 0, '2023-11-27 03:13:52', NULL),
-(115, 100, 0, '2023-11-27 03:15:16', NULL),
-(116, 101, 0, '2023-11-27 14:43:46', NULL),
-(117, 102, 0, '2023-11-27 14:44:26', NULL),
-(118, 103, 0, '2023-11-27 14:59:24', NULL),
-(119, 104, 0, '2023-11-27 14:59:47', NULL),
-(120, 105, 0, '2023-11-27 15:00:13', NULL),
-(121, 106, 0, '2023-11-27 15:15:03', NULL),
-(122, 107, 0, '2023-11-28 02:53:24', NULL),
-(123, 108, 0, '2023-11-28 02:53:32', NULL),
-(124, 109, 0, '2023-11-28 06:57:35', NULL),
-(125, 110, 0, '2023-11-28 07:03:47', NULL),
-(126, 111, 0, '2023-11-29 02:23:55', NULL),
-(127, 112, 0, '2023-11-29 02:24:02', NULL),
-(128, 113, 0, '2023-11-30 01:28:20', NULL),
-(129, 114, 0, '2023-11-30 03:22:10', NULL),
-(130, 115, 0, '2023-11-30 03:23:06', NULL),
-(131, 116, 0, '2023-11-30 08:14:48', NULL),
-(132, 117, 0, '2023-12-01 04:02:41', NULL),
-(133, 118, 0, '2023-12-03 04:24:59', NULL),
-(134, 119, 0, '2023-12-03 04:56:23', NULL),
-(135, 120, 0, '2023-12-03 05:31:04', NULL),
-(136, 121, 0, '2023-12-03 05:31:20', NULL),
-(137, 122, 0, '2023-12-06 08:15:23', NULL),
-(138, 123, 0, '2023-12-07 07:07:51', NULL),
-(139, 124, 0, '2023-12-14 09:37:21', NULL),
-(140, 125, 0, '2023-12-17 04:07:07', NULL),
-(141, 126, 0, '2023-12-18 03:10:27', NULL),
-(142, 127, 0, '2023-12-18 09:38:02', NULL),
-(143, 128, 0, '2023-12-18 09:50:00', NULL),
-(144, 129, 0, '2023-12-18 13:16:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -2223,16 +1777,118 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
-(31, 11, 50, NULL, 34, NULL, 'Visionary even-keeled firmware', '287', 'productImages/34.png', '[\"32.png\",\"24.png\",\"26.png\",\"37.png\"]', 'Quia et enim praesentium officiis. Voluptas vel fuga autem sint. Sed est nemo ut adipisci corporis. Accusamus tempora ut deleniti autem voluptatem minus.', 'Voluptate totam quas animi odio mollitia. Quas ea excepturi ut rem. Minima inventore aut nobis quia error. Debitis nostrum blanditiis tempore sint illo beatae harum. Tempore rem perspiciatis doloremque exercitationem corporis sapiente. Tempore velit impedit sed perferendis consectetur. Non et ut molestiae vitae vero molestiae.', 'Eveniet voluptatem in quos aliquid unde voluptatibus. Ullam quo possimus maiores excepturi dolor est. Et quasi dolorem deserunt soluta voluptates quis. Facilis cum vero qui autem nesciunt.', 'Molestias illo ipsum doloremque delectus. Perspiciatis maxime est est placeat. Exercitationem et et in laboriosam inventore et. Consequatur dolorem laudantium numquam corrupti laboriosam ut expedita.', 346, 336, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1702899958idGmf', 6, 'Visionary even-keeled firmware', 'product,demo', NULL, 1, 0, 1, '2023-12-18 11:45:58', NULL),
-(32, 15, 51, NULL, 32, NULL, 'Future-proofed 24hour conglomeration', '792', 'productImages/35.png', NULL, 'Aut perspiciatis sit non voluptatem illum dolores. Delectus omnis omnis eligendi. Dignissimos delectus quas qui non est. Ad sit expedita praesentium ducimus.', 'Quam ut quaerat deserunt sit ducimus ab error aut. Et nostrum animi perferendis odio libero libero. Fugiat vitae laborum dolorum est facilis accusantium et quaerat. Sunt vitae commodi quos error. Consequatur officiis voluptatem doloribus ut.', 'Tempore debitis numquam ipsum. Perferendis omnis et et. Eveniet assumenda repellat iste maiores id similique.', 'Sequi sequi accusantium laborum placeat nemo sunt. Adipisci suscipit ullam nulla ut eum qui nobis repellat. Ut fugit qui maiores molestiae. Est qui id delectus fugiat molestiae quo iste.', 438, 428, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17028999581ryYi', 6, 'Future-proofed 24hour conglomeration', 'product,demo', NULL, 1, 1, 1, '2023-12-18 11:45:58', NULL),
-(33, 11, 49, NULL, 42, NULL, 'Virtual 4thgeneration groupware', '954', 'productImages/22.png', '[\"25.png\",\"35.png\",\"31.png\",\"34.png\"]', 'Sint molestiae cumque totam non. Ducimus ea in aliquid aperiam. Voluptatem est consequatur omnis. Doloribus eaque impedit itaque qui placeat dolores aliquam.', 'Maiores quibusdam ducimus ex. Dolorum exercitationem et vitae enim id est. Quibusdam qui aliquid non enim. Est cum similique molestias temporibus et officiis.', 'Iste accusantium illo consequatur quidem est eum et. Harum ut quidem et delectus a. Amet ut officia velit sed maiores voluptatem. Voluptates assumenda et hic dolorum.', 'Libero qui facere nesciunt voluptas quo quis. Optio officia itaque omnis dolores rerum. Inventore qui nobis aut laudantium aut expedita molestiae.', 188, 178, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1702899958EciE9', 9, 'Virtual 4thgeneration groupware', 'product,demo', NULL, 1, 0, 1, '2023-12-18 11:45:58', NULL),
-(34, 15, 51, NULL, 41, NULL, 'Down-sized local archive', '941', 'productImages/30.png', NULL, 'Eius laborum voluptas id et voluptates omnis omnis eum. Similique in laudantium laudantium aut qui vel.', 'Sit inventore officia occaecati molestias adipisci dolorem. Nulla explicabo inventore ut est. Quod voluptas nam et itaque et beatae nostrum. Ullam explicabo rem qui in. Ipsam libero et autem consequatur voluptas tempora modi odio. Exercitationem consequatur enim ipsa mollitia explicabo. Autem sequi ut sit neque. At optio ad eveniet illum laboriosam modi eum.', 'Id nesciunt facere qui molestias. Ut hic cum beatae amet vel aut et. Omnis dolores aut sed culpa eum. Aut eveniet eligendi architecto hic.', 'Et minima quaerat quia voluptate. Asperiores voluptas consequatur adipisci rerum mollitia omnis iste. Totam ipsum non harum quis.', 823, 813, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1702899958f6KX0', 9, 'Down-sized local archive', 'product,demo', NULL, 1, 1, 1, '2023-12-18 11:45:58', NULL),
-(35, 15, 51, NULL, 32, NULL, 'Inverse uniform portal', '109', 'productImages/40.png', '[\"33.png\",\"25.png\",\"31.png\",\"23.png\"]', 'Enim non quas perspiciatis eveniet vitae aut quia delectus. Sit quo qui minima. Sit optio aliquid repellat omnis. Cum voluptates rerum et quia adipisci consequatur ea.', 'Eius cupiditate dignissimos id molestias. Et aut ut vel nihil. Velit libero dolorum sit illo. Aperiam et iusto cupiditate ducimus a totam. Ipsa autem perspiciatis dolorum qui aut. Qui minima explicabo qui aut dolorem voluptatem. Deserunt aut et voluptatem. Quasi consectetur at assumenda. Dolorum aut voluptas ea totam a quidem et.', 'Est vitae aut facere fuga. Qui qui ut quod vero explicabo culpa.', 'Atque voluptatem hic laboriosam debitis quod quis adipisci. Repellendus deserunt aliquid quis et aut consequatur. Id id suscipit sint quo doloremque. Doloremque sunt labore vel.', 512, 502, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1702899958qELx6', 8, 'Inverse uniform portal', 'product,demo', NULL, 1, 0, 1, '2023-12-18 11:45:58', NULL),
-(36, 10, 48, NULL, 27, NULL, 'Digitized solution-oriented customerloyalty', '299', 'productImages/27.png', NULL, 'Ducimus aut earum aspernatur temporibus magnam. Autem autem dolorem animi perferendis. Mollitia sapiente rerum minima consectetur. Aliquam repellendus aspernatur fugiat dolorum atque illo.', 'Quasi voluptatibus dignissimos pariatur consequatur possimus. Omnis quasi deserunt nesciunt. Repudiandae debitis deserunt impedit facilis. Esse iure natus natus praesentium placeat quis aut. Est culpa aliquid eligendi nostrum laboriosam repellendus odio dolorum. Dolorem cupiditate est voluptatem est eligendi. Exercitationem vero accusantium quidem fuga enim. Dolores eligendi iusto placeat.', 'Placeat voluptates optio voluptate et perferendis minima. Temporibus laudantium vel autem. Magni blanditiis asperiores hic corrupti. Et mollitia similique dignissimos vel autem quidem eaque.', 'Quis quis mollitia ullam cupiditate ut rerum. Est aut voluptatum quia sit et rerum. Incidunt ducimus est aut veniam dolore velit eaque. Labore enim qui repudiandae illum.', 329, 319, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1702899958RQm7X', 6, 'Digitized solution-oriented customerloyalty', 'product,demo', NULL, 1, 1, 1, '2023-12-18 11:45:58', NULL),
-(37, 11, 49, NULL, 40, NULL, 'Multi-lateral maximized time-frame', '367', 'productImages/24.png', '[\"27.png\",\"30.png\",\"32.png\",\"39.png\"]', 'Quod sed soluta repudiandae aliquam et dolores quis. Quia enim et et et. Voluptatum dolor non hic quis incidunt non adipisci.', 'Est totam eos sed. Voluptatem ut dolore neque quaerat aliquid dignissimos. Sint ut quam repudiandae voluptate ipsam ex. Impedit et doloribus recusandae autem iusto incidunt. Inventore quo error repellat hic qui error. Qui rerum velit aperiam. Voluptates error eos eos ex excepturi. Hic dignissimos sit tempore voluptatem quos iusto.', 'Et repellendus provident temporibus eius est consequuntur. Architecto rerum qui non cum quia ut.', 'Est suscipit repellat et voluptas cum ut. Et consequatur optio dolore molestiae vero fugit. Corporis corrupti molestiae tempore debitis omnis.', 178, 168, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '17028999584ZbYu', 6, 'Multi-lateral maximized time-frame', 'product,demo', NULL, 1, 0, 1, '2023-12-18 11:45:58', NULL),
-(38, 11, 50, NULL, 36, NULL, 'Synergized solution-oriented hub', '403', 'productImages/40.png', NULL, 'Quia ullam magni et sunt eos est. Quasi eum et aperiam voluptas rem aliquam quasi illum. Voluptas quas doloremque unde tempora ab perspiciatis.', 'Vitae quam et est sed blanditiis est inventore rerum. Doloribus et in itaque minima quo. Eveniet error quia sunt et dolor tempore velit. Omnis sequi nihil aut vitae sunt. Assumenda omnis fugit quisquam et maiores.', 'Aut illum nam ea quibusdam. Qui sint nam doloremque praesentium ex sit. Voluptatum et est atque sed harum nihil. Dolore sequi adipisci aut esse perspiciatis amet aliquid.', 'Culpa velit dolor temporibus reiciendis quasi dignissimos corrupti labore. A dolores nihil qui fugiat ipsam quam.', 446, 436, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1702899958GRVuK', 8, 'Synergized solution-oriented hub', 'product,demo', NULL, 1, 1, 1, '2023-12-18 11:45:58', NULL),
-(39, 10, 48, NULL, 37, NULL, 'Future-proofed solution-oriented hub', '885', 'productImages/36.png', '[\"29.png\",\"30.png\",\"37.png\",\"37.png\"]', 'Quod minima eaque nesciunt cumque aut. Nihil consectetur magni corporis. Fugit aspernatur atque quia magni.', 'Accusantium earum quod tempora quia. Modi autem modi molestias ut exercitationem qui. Eveniet aut voluptates laboriosam qui ab esse. Aut in illo sunt vel et cum. Sequi dolor et odio ratione minus quae. Labore reiciendis excepturi nemo maiores nemo. Hic eos facere aut molestiae quasi exercitationem laborum.', 'Rerum rerum odio exercitationem sit dolore aut. Est amet aut ratione rem doloribus cumque non vel. Sed officiis in quisquam animi odio rerum quia et. Rerum autem unde quibusdam aut.', 'Quaerat aut assumenda culpa aliquam vero voluptas quidem. Perferendis molestiae consequatur quasi ipsa quidem. Minima laboriosam et voluptate facilis sint eius excepturi eius.', 775, 765, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1702899958UzK41', 9, 'Future-proofed solution-oriented hub', 'product,demo', NULL, 1, 0, 1, '2023-12-18 11:45:58', NULL),
-(40, 10, 47, NULL, 42, NULL, 'Automated static task-force', '786', 'productImages/22.png', NULL, 'Sed fugiat laboriosam et ut consectetur nostrum. Optio sit ex et consequuntur. Suscipit quasi non earum qui qui.', 'Et neque in et ut aut. Et labore maxime ab voluptate odio officiis maxime. Corporis provident et molestiae enim magnam dolorum inventore. Sunt eaque qui laudantium qui et hic. Excepturi eligendi nemo ea atque distinctio voluptates et. Aut et et quis voluptate tempora debitis qui. Aut neque quibusdam voluptas.', 'Et autem quos magni excepturi porro nesciunt fuga. Et ab dolorem sunt. Quisquam atque vel sequi at accusantium ratione.', 'Modi explicabo autem tempora. Voluptatibus odio magni officia consequatur consequatur id. Velit deserunt iure illum veniam. Totam modi asperiores nesciunt eius maiores quod.', 585, 575, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1702899959UcRpq', 9, 'Automated static task-force', 'product,demo', NULL, 1, 1, 1, '2023-12-18 11:45:59', NULL);
+(41, 25, NULL, NULL, 2, NULL, 'Realigned static implementation', '946', 'productImages/28.png', '[\"28.png\",\"30.png\",\"38.png\",\"23.png\"]', 'Deserunt nihil pariatur sequi ut sint velit doloremque. Eos possimus reprehenderit sunt autem. Possimus libero ut quo quae voluptates perspiciatis id nihil.', 'Velit quo sapiente rerum aut omnis. Fugit quia corrupti temporibus. Vel nihil quae voluptatem dicta sequi. Vel consequatur aspernatur delectus molestiae sit consequatur reiciendis. Non aperiam mollitia omnis natus ea quod tempore. Doloremque qui qui delectus quo eveniet aperiam veritatis doloremque. Aliquam assumenda non tempore non dolores. Reiciendis tempora quam voluptas et at occaecati.', 'Dolor dicta excepturi architecto quas sint. Est est qui sit dolore ut officia. Incidunt rerum aut voluptatum autem autem reiciendis quam.', 'Cumque reiciendis cupiditate temporibus autem aspernatur laborum delectus. Repellat rerum molestias praesentium. In eligendi ut eos deserunt repudiandae.', 711, 701, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '17040057315lNzo', 8, 'Realigned static implementation', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:31', NULL),
+(42, 23, NULL, NULL, 4, NULL, 'Facetoface reciprocal infrastructure', '212', 'productImages/33.png', NULL, 'Est iure non perferendis odit veniam iusto. Voluptatem aut qui et. Rem officia error enim quae ab voluptatum. Non ea est occaecati.', 'Velit accusantium sit quod numquam. Blanditiis et quis iste. Atque voluptas qui voluptas numquam in. Aut neque esse assumenda delectus et in. Rerum aliquam qui sed. Numquam possimus tempore incidunt iure totam. Id et pariatur quaerat tempore unde aut in. Laudantium nostrum amet repellendus corporis assumenda id. Voluptas doloribus doloribus ratione magnam. Nihil pariatur labore rerum aperiam.', 'Quo dolores et reiciendis. Corporis dignissimos repellendus quis odio corporis veritatis.', 'Ut recusandae nemo consequatur illum ad. Sit et enim est. Delectus eum qui iure autem.', 685, 675, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704005731ilVyS', 6, 'Facetoface reciprocal infrastructure', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:31', NULL),
+(43, 30, NULL, NULL, 6, NULL, 'Advanced cohesive localareanetwork', '566', 'productImages/34.png', '[\"26.png\",\"40.png\",\"32.png\",\"33.png\"]', 'Quo libero doloribus modi. Corporis voluptate est dolor. Sit eaque temporibus modi ut explicabo et dolores.', 'Voluptatum laborum dolorem ea quod eum. Vitae eveniet assumenda minima omnis eos quod. Sit vel vero omnis. Rerum ut unde veritatis et sed explicabo. Excepturi eaque quos fuga nesciunt aut pariatur. In et rem excepturi numquam. Nostrum ab distinctio quibusdam magni. Ullam consequatur provident et quia nobis est. Eius expedita officiis in voluptatem incidunt.', 'Et dolorem veniam itaque eius. Sapiente ex ut alias sunt fugit. Blanditiis sint possimus tenetur magni sint aperiam.', 'Unde est voluptatem aliquid dolorem dolorum maxime rem. Nam eos repellat et eius hic. Culpa repellat aliquam ex architecto voluptatem.', 750, 740, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704005731JO4ld', 7, 'Advanced cohesive localareanetwork', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:31', NULL),
+(44, 28, NULL, NULL, 2, NULL, 'Ergonomic interactive product', '838', 'productImages/25.png', NULL, 'Laudantium ratione harum voluptas. Itaque excepturi et harum cupiditate asperiores qui. Saepe quisquam dolor itaque id aperiam sit.', 'Voluptate tempora quo sed. Accusamus sint dicta sit. Fugit distinctio quidem quo ratione odio voluptas nihil exercitationem. Iusto velit repellat doloremque qui dolor quia mollitia esse. Facilis velit corporis quam magni qui. Ullam eos mollitia sequi quia. Maxime voluptas harum dolorem aut. Omnis exercitationem cum ipsa nisi et at. Explicabo libero corrupti repellendus iusto voluptates.', 'Rerum minus veritatis illo consequatur et nostrum qui. Ipsa voluptatibus consequuntur aut facere cum quod et. Vero ea beatae quae at incidunt. Ducimus aut vel inventore.', 'Exercitationem sapiente ipsum temporibus suscipit id saepe. Sit illo odio asperiores rerum provident magni. Qui repellendus ut repellendus aliquam. Atque autem voluptas placeat at at occaecati qui.', 835, 825, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704005731ntdBK', 9, 'Ergonomic interactive product', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:31', NULL),
+(45, 31, NULL, NULL, 2, NULL, 'Down-sized homogeneous structure', '477', 'productImages/33.png', '[\"31.png\",\"25.png\",\"31.png\",\"34.png\"]', 'Itaque ut veritatis voluptate aut. Laborum veniam nulla alias asperiores asperiores. Quisquam officia asperiores iste quaerat recusandae suscipit. Consequuntur officia veniam enim est.', 'Sit accusamus accusantium neque minima. Dicta vel tenetur et voluptas debitis qui. Delectus sit voluptates sed iure rerum. Magnam nobis reiciendis sit et sunt laboriosam suscipit. Ullam ex modi eos dolorum qui eos et sit. Voluptatem et ut aspernatur. Dolor ratione nam ut eos. Distinctio soluta molestiae totam illo sint cumque. Alias hic alias beatae.', 'Ex non facere necessitatibus. Rerum minus sunt omnis expedita quos ipsa optio. Pariatur laboriosam repudiandae tempora molestias consequatur. Autem maiores rerum autem et.', 'Et temporibus non et dolores pariatur atque repellendus odit. Repellat eos voluptatem quidem aut quia dolores ullam. Rerum est reiciendis beatae sapiente nihil occaecati dolorem minus.', 109, 99, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704005731dv0Qv', 9, 'Down-sized homogeneous structure', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:31', NULL),
+(46, 24, NULL, NULL, 7, NULL, 'Ameliorated 4thgeneration matrices', '486', 'productImages/37.png', NULL, 'Voluptate cumque itaque libero sapiente at laborum quis. Et modi unde iure repellendus nam. Assumenda qui ratione ipsa exercitationem laborum deleniti. Atque voluptatem tempora aut temporibus.', 'Dolorem cupiditate autem maxime praesentium. Aut dolor rerum ut at odio. Alias corrupti velit omnis rerum non ea officia rerum. Autem nostrum sit iure exercitationem velit sit molestiae. Fugit et rerum accusamus ut maxime provident. Quo eos beatae sit et esse et. At eum provident mollitia minus ea architecto.', 'Aut velit similique ut dicta deserunt maxime amet. Distinctio exercitationem ad nemo omnis. Sunt qui dolor qui ea atque. Optio totam et accusamus molestiae ut.', 'Quo corporis qui vel quas soluta ducimus adipisci. Sed odio ut dolorem veritatis.', 413, 403, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704005731IMbPE', 8, 'Ameliorated 4thgeneration matrices', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:31', NULL),
+(47, 31, NULL, NULL, 5, NULL, 'Balanced bi-directional database', '242', 'productImages/32.png', '[\"31.png\",\"37.png\",\"25.png\",\"22.png\"]', 'Enim aperiam et doloremque enim commodi eveniet. Cumque enim dicta quod et velit eos vero. Et quo deserunt ea. Voluptas amet sed voluptatibus rerum.', 'Corrupti quas architecto voluptate odio illo ex. Velit quibusdam natus nostrum ullam sapiente aut sed. Ipsa alias nam illum eaque sed. Asperiores quod dolorem sunt deleniti voluptatum. Doloribus doloremque officia quisquam tempora ipsum molestiae. Molestias aut fuga aut et magnam. Accusantium minima ea consequatur quia. Soluta consequuntur ipsam minima iusto sunt.', 'Cum aut quis non voluptatem illum ea. Aperiam voluptatem quaerat sit consectetur iure. Quae omnis minus ut cumque corrupti. Ut assumenda rerum odio dicta facilis quo recusandae.', 'Doloremque alias omnis iusto. Et voluptatem sint culpa nisi sapiente. Sit aut qui est sed non. Sapiente cupiditate ipsum quae repellat animi.', 458, 448, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704005731P31kC', 6, 'Balanced bi-directional database', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:31', NULL),
+(48, 21, NULL, NULL, 6, NULL, 'Intuitive logistical function', '465', 'productImages/25.png', NULL, 'Et deserunt est molestiae id qui. Voluptatem hic voluptas doloribus non ex ipsa eum. Velit quis nam sapiente quae. Possimus eaque nostrum modi neque labore.', 'Autem ipsum porro quia qui. Ut atque sequi amet nihil vitae impedit aut. Voluptatem in necessitatibus est qui. Eius sunt id quia dignissimos. Voluptatem totam incidunt cumque nisi. Dolor neque repellat nisi qui optio dolorem. Consequatur soluta error fugiat aut.', 'Sunt minima minima reiciendis velit assumenda sed. Est dolor similique nam et consequuntur. Ut at rerum fugiat eum.', 'Sunt voluptatem tempora fuga ipsum molestiae. Ad itaque vitae et veritatis animi ab et est. Temporibus sit quidem laboriosam. Excepturi odio cum non eum molestias.', 499, 489, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704005731Grm1n', 6, 'Intuitive logistical function', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:31', NULL),
+(49, 32, NULL, NULL, 2, NULL, 'Intuitive motivating opensystem', '315', 'productImages/39.png', '[\"21.png\",\"35.png\",\"25.png\",\"27.png\"]', 'Ut ea officia itaque eligendi nemo suscipit. Voluptas nobis nihil autem. Tempora ullam culpa maiores eligendi.', 'Aliquam rem quaerat earum labore ut aut. Occaecati doloremque labore natus eum a unde architecto omnis. Optio tenetur ipsam nesciunt magni. Rerum laborum quisquam aut consequatur. Deleniti veniam in saepe illo molestias cupiditate vel soluta. Perspiciatis deserunt laboriosam aut nobis. Est eius quo quia dolor ab occaecati incidunt esse.', 'Earum sunt nisi voluptates aut ex fuga. Eos qui molestias facere asperiores qui. Enim vero magnam nobis placeat nam velit provident. A nostrum autem officia veritatis.', 'Et neque magni et sed quaerat placeat libero. Minus est nostrum reprehenderit harum facilis exercitationem. Harum doloremque aut a commodi similique rerum.', 677, 667, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704005731khBK3', 6, 'Intuitive motivating opensystem', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:31', NULL),
+(50, 29, NULL, NULL, 7, NULL, 'Streamlined 24hour initiative', '231', 'productImages/32.png', NULL, 'Architecto atque a tempora quaerat. Distinctio quasi eos praesentium maxime. Itaque excepturi nesciunt consectetur dignissimos.', 'Facilis omnis id dolore animi expedita perferendis et. Molestiae unde cumque nihil ex quasi. Consectetur esse dignissimos est magnam debitis fugit enim. Nostrum aliquid quisquam est. Quas placeat magnam tempore aut. Sed non autem ad incidunt in nihil corporis.', 'Quod et sed commodi aliquam velit reiciendis. Amet earum praesentium facilis natus aut voluptatem. Modi aliquam dolor quo excepturi cumque.', 'Tempora asperiores sed aut aut id voluptatem porro. Enim sapiente quia atque totam porro. Aperiam dolor temporibus itaque tempora quod facilis.', 733, 723, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704005731CiY0b', 7, 'Streamlined 24hour initiative', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:31', NULL),
+(51, 29, NULL, NULL, 2, NULL, 'Multi-channelled impactful database', '166', 'productImages/22.png', '[\"21.png\",\"27.png\",\"24.png\",\"21.png\"]', 'Qui enim aut reiciendis at corrupti ex dolore. Repellendus aspernatur nemo assumenda quia autem. Modi non suscipit eum est itaque corrupti perspiciatis.', 'Totam quia aliquam quo ut aut tempora. Quos earum est quibusdam quas et asperiores aliquid. Quia sit qui nihil temporibus qui. Consectetur sit fugit reprehenderit consequatur. Quia placeat omnis eaque vero vel quasi. Quae voluptas facere et est delectus doloribus consequuntur. Sed eius non quaerat qui.', 'Rerum optio ea in explicabo alias. Qui sequi molestias veniam explicabo. Aliquam sit laborum porro id. Ullam reiciendis quae velit soluta aut neque quidem.', 'Minima sit laudantium et id et aliquam tempora. Sequi ratione et nihil. Voluptatem excepturi iste qui cumque voluptates ullam et.', 142, 132, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '17040057315SfWt', 6, 'Multi-channelled impactful database', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:31', NULL),
+(52, 17, 58, NULL, 7, NULL, 'Future-proofed system-worthy matrices', '557', 'productImages/26.png', NULL, 'Distinctio quisquam ipsa voluptatem aut. Quo reiciendis quas harum dolorem voluptas. Sed necessitatibus dolore ratione vitae iste.', 'Aut eum maiores necessitatibus inventore voluptas maxime. Omnis dolor corrupti blanditiis ea tenetur. Voluptas inventore eaque tempore nesciunt magnam. Ut id rem reprehenderit non quo. Placeat hic dolor omnis dolorem dignissimos porro. Praesentium impedit quisquam ex quisquam quo ex a. Laborum dolorem ut enim.', 'Et deserunt ratione placeat inventore aliquam doloribus ut. Sapiente aliquam nihil a hic.', 'Sed possimus sed dolorem numquam provident. Qui quasi qui voluptas. At in illum accusantium at. Voluptates et ullam illo dolorem et quia necessitatibus fuga.', 256, 246, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704005731mQyEr', 8, 'Future-proofed system-worthy matrices', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:31', NULL),
+(53, 28, NULL, NULL, 2, NULL, 'Diverse disintermediate matrix', '928', 'productImages/33.png', '[\"29.png\",\"26.png\",\"32.png\",\"37.png\"]', 'Ea eum dolores est voluptatum cumque. Atque esse maiores perspiciatis excepturi dolor et debitis dolor. Et iusto sint accusamus voluptas tenetur quia molestias.', 'Cum optio expedita earum facilis tenetur consequuntur atque porro. Molestiae occaecati vel ad dolores nihil et labore. Fugit et quidem qui quis minima. Ut velit accusamus est dolorum.', 'Provident sequi dolores molestiae enim quisquam velit fugiat eos. Voluptas odio nobis unde sunt nihil fugiat. Dolorem quos est dolorem ut.', 'Magni consequuntur nostrum eum a aspernatur quisquam voluptas. Quia dignissimos repellat magni consequatur alias dignissimos. Quia iusto repellendus reiciendis.', 278, 268, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704005731MdQ3m', 6, 'Diverse disintermediate matrix', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:31', NULL),
+(54, 28, NULL, NULL, 7, NULL, 'Ergonomic optimal moderator', '994', 'productImages/40.png', NULL, 'Quisquam et autem assumenda omnis minus. Ut velit ducimus animi ea eius impedit. Minus dolor eveniet id distinctio nihil laudantium eius est. Qui et et praesentium et consequuntur neque ea et.', 'A voluptates omnis rem assumenda dolore cumque ipsam nisi. Possimus est magnam a corrupti. Rerum optio deleniti nisi quis quasi quo. Fugiat reiciendis voluptatem aut culpa. Enim laboriosam assumenda sed nostrum repudiandae. Ab quibusdam dolores sapiente qui. Cumque aut mollitia natus eligendi quidem. Est voluptatem cupiditate aut rerum modi quasi alias.', 'Eos deleniti magni similique quia autem. Facere deleniti quia labore nam molestiae unde impedit odit. Autem sed autem dolore maiores. Placeat ipsa amet ipsa sed explicabo repellat.', 'Quos omnis id ut illum nostrum quisquam. Accusamus impedit adipisci rerum consequatur quidem provident nemo. A quos aut ab ullam quas quia temporibus.', 543, 533, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '170400573187VZa', 7, 'Ergonomic optimal moderator', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:31', NULL),
+(55, 28, NULL, NULL, 6, NULL, 'Configurable fault-tolerant complexity', '886', 'productImages/38.png', '[\"33.png\",\"29.png\",\"39.png\",\"28.png\"]', 'Consequatur autem quaerat doloribus quam. Non facere culpa similique hic.', 'Qui et voluptate tempore ipsum totam. Reprehenderit aspernatur dolorem similique quia at consequatur eum unde. Ut repellendus in quidem porro architecto quia. Quia nemo molestias odio aut. Velit aperiam nihil delectus quia illo et reprehenderit. Qui officiis eum est laborum consequatur porro similique. A quia asperiores et qui est.', 'In et accusamus dicta. Eius quia harum amet nihil cumque corporis. Facere voluptas dolorum sed in saepe.', 'Animi ipsam dolore voluptatem. Ab ut eum officiis consequuntur aut in consectetur. Aliquid harum amet dignissimos molestiae qui.', 800, 790, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704005731TGO41', 8, 'Configurable fault-tolerant complexity', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:31', NULL),
+(56, 29, NULL, NULL, 1, NULL, 'Profound background adapter', '126', 'productImages/33.png', NULL, 'Eaque impedit blanditiis et soluta. Rerum soluta hic odio sunt officia. Qui non in provident tempora.', 'Nisi perferendis quas voluptas dolores. Accusamus velit culpa dolores excepturi et. Saepe quaerat enim qui numquam. Impedit ea deserunt qui eius nam rerum. Ullam ea qui ut ratione qui error. Sed cumque ea accusantium omnis et et porro laudantium. Qui nostrum optio ducimus dolorem impedit saepe porro. Nisi est itaque quo expedita totam. Odio est accusantium commodi minima.', 'Adipisci rerum dolorum ut delectus aliquam. Quisquam assumenda qui esse nobis et qui atque. Esse culpa accusantium quod dolore animi nobis non.', 'Odio quaerat qui velit eos. Ea accusamus error id debitis ipsum impedit. Enim dolorem sint tenetur atque. Voluptatem impedit autem repudiandae dolores perspiciatis velit.', 915, 905, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704005732j550a', 7, 'Profound background adapter', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:32', NULL),
+(57, 30, NULL, NULL, 4, NULL, 'Public-key bi-directional attitude', '447', 'productImages/25.png', '[\"39.png\",\"30.png\",\"21.png\",\"21.png\"]', 'Adipisci qui tempora velit est deleniti itaque at. Ad reiciendis quidem blanditiis quod nihil laborum sit sed. Est modi vero voluptas non quis.', 'Et tenetur aut ut similique. Qui porro commodi soluta sit iure fuga consectetur eum. Ea et in est harum. Earum dolores necessitatibus cumque dolorum deserunt laboriosam sed ipsum. Sed perspiciatis numquam similique numquam. Dolor repellat aperiam aliquam explicabo totam. Eum nostrum in facere ducimus rerum.', 'Est magni porro qui cumque. Modi tempora nobis sit voluptatem ut est. Odio cupiditate eius deserunt quia. Iusto magnam dolores cum mollitia.', 'Quas unde esse omnis. Impedit voluptas est ea. Sit praesentium at et rerum dolorem harum similique.', 683, 673, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704005732KRhTq', 6, 'Public-key bi-directional attitude', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:32', NULL),
+(58, 21, NULL, NULL, 2, NULL, 'Persistent actuating productivity', '716', 'productImages/38.png', NULL, 'At sit dolores ipsam odit. Animi possimus vitae dolore natus. Dolorem sequi autem quia minima harum ipsam voluptatem sit.', 'Odio ratione corrupti ad vitae sit temporibus. Qui placeat impedit et sapiente consectetur velit sapiente voluptatem. Nihil minima aliquid numquam dignissimos error. Sequi commodi omnis odit amet illo. Voluptatem deleniti sequi architecto aliquam. Perspiciatis dolore laudantium aut et sint.', 'Unde similique est non voluptatum. Placeat est temporibus earum velit. Suscipit itaque id ut modi voluptates et porro. Ad aut qui officiis necessitatibus.', 'Et debitis aliquam tenetur illo recusandae ab libero. Amet enim quam temporibus laboriosam molestiae dignissimos. Non ut consequuntur similique est dolor eum inventore consequatur.', 414, 404, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704005732p7WZV', 6, 'Persistent actuating productivity', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:32', NULL),
+(59, 23, NULL, NULL, 1, NULL, 'Open-architected analyzing analyzer', '333', 'productImages/37.png', '[\"31.png\",\"39.png\",\"31.png\",\"37.png\"]', 'Quas sit magnam soluta. Nam aperiam ut saepe nobis sit est eos. Id alias ullam quam omnis maxime. Quis id ex modi. Modi dolores ut et voluptates voluptates voluptatem ducimus in.', 'Temporibus saepe facilis ab fuga sit tenetur. Eum rem animi sit nulla. Natus aut sit sed sunt dolorum fugiat impedit. Repellat repudiandae vitae quod quia pariatur. Est temporibus doloremque eaque culpa laborum doloremque. Animi ex consequuntur perspiciatis aut. Aliquam fuga cumque explicabo fugiat nisi. Nihil quasi magni omnis optio voluptates commodi. Ea incidunt veritatis excepturi et.', 'Officia voluptate aperiam aspernatur accusantium incidunt alias qui qui. Quia omnis perferendis itaque culpa. Et rerum neque voluptatem est tempora dignissimos. Asperiores tempore sed incidunt.', 'Quia nisi quam et quo vero numquam earum earum. Nobis doloribus nihil eius. Occaecati enim qui quia vel.', 482, 472, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704005732bHAfB', 9, 'Open-architected analyzing analyzer', 'product,demo', NULL, 1, 0, 1, '2023-12-31 06:55:32', NULL),
+(60, 31, NULL, NULL, 4, NULL, 'Universal human-resource challenge', '666', 'productImages/21.png', NULL, 'Porro voluptates veritatis porro nostrum iure. Maxime illo id quibusdam magni quibusdam. Placeat nesciunt occaecati est unde cumque dolores. Qui dolor aut officia.', '<p>Minima eius et sed. Qui dolores quibusdam iste reprehenderit. Voluptatem ut distinctio dolorum earum nesciunt molestias. Rerum eius quasi corrupti voluptas. Aperiam sequi incidunt rem aliquid totam. Atque eveniet vel consequatur quibusdam ea est voluptates. Sunt quidem impedit voluptate temporibus aut voluptatem aut.</p>', '<p>Voluptatem et deleniti animi minima odit aut. Maxime blanditiis maiores quia sed tenetur cumque. Expedita fugiat quis deleniti rerum rerum.</p>', '<p>Eum dignissimos totam voluptate natus corrupti voluptatem nostrum at. Facere iusto ratione sit ut aperiam architecto deserunt. Sed aut ratione cumque nemo sunt voluptas.</p>', 565, 555, 0, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '17040057321poqd', 9, 'Universal human-resource challenge', 'product,demo', NULL, 1, 1, 1, '2023-12-31 06:55:32', '2023-12-31 12:10:04'),
+(61, 28, NULL, NULL, 1, NULL, 'Ameliorated human-resource groupware', '403', 'productImages/34.png', '[\"36.png\",\"36.png\",\"40.png\",\"29.png\"]', 'Numquam vel nostrum harum. Possimus ducimus aliquid labore magni odio ex. Nihil at omnis libero nemo sit.', 'Est excepturi facere ullam cumque. Deserunt eligendi quasi dolor. Ut pariatur veniam at. Et ut recusandae sint et. Dolore eum nisi a et magnam qui est quis. Aut quis quae aut. Et voluptate consectetur sint est. Quas sit dolores nihil tempore quas fugiat numquam alias. Eaque et est quos similique ex qui.', 'Qui sed mollitia molestiae necessitatibus. Quis facere fugiat consequuntur quo nulla quia. Qui minima est aperiam illo. Sit sapiente repudiandae qui sed voluptate labore quis corrupti.', 'Distinctio sapiente repudiandae doloribus id accusamus natus ut. Et sunt sit sit. Ut iusto fugiat et quia officia autem. Quis perspiciatis molestiae doloribus sint vel architecto.', 799, 789, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '17040849013KCFf', 9, 'Ameliorated human-resource groupware', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:01', NULL),
+(62, 18, 60, NULL, 5, NULL, 'Multi-lateral contextually-based projection', '292', 'productImages/32.png', NULL, 'Nesciunt reprehenderit commodi labore eaque. Molestiae rerum doloribus quia nisi dolorem similique. Quis nostrum cum ut.', 'Molestiae et quaerat veniam voluptatibus nihil. Recusandae est occaecati totam veritatis a. Eveniet laboriosam sunt et consequatur consequatur. Assumenda magnam natus dicta dicta sint. Accusantium debitis atque dolor cum ut. Ut voluptas dolor eum. Veniam nisi voluptatibus earum.', 'Et perspiciatis facilis non. Ipsa aliquid sit accusantium voluptas. Et a eos maxime nihil in optio.', 'Minus rem reiciendis fugiat autem maiores ipsam non. Facilis odit et et commodi fuga ut. Reprehenderit occaecati molestiae nihil aut consectetur cupiditate.', 211, 201, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704084901A3QK5', 6, 'Multi-lateral contextually-based projection', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:01', NULL),
+(63, 29, NULL, NULL, 3, NULL, 'Right-sized foreground complexity', '271', 'productImages/39.png', '[\"36.png\",\"23.png\",\"23.png\",\"28.png\"]', 'Consequatur modi eligendi nam molestiae a. Ab veniam autem quae accusamus in. Omnis velit possimus nulla aut iure.', 'Dicta facilis aut aperiam sint sit accusamus odit. Qui ipsam voluptas excepturi ipsum non ullam at amet. Error cum incidunt quisquam voluptas quia eum occaecati. Quia natus libero rem repudiandae eum. Eaque facilis consectetur qui est dolorem voluptatum laborum. Nihil voluptatibus qui nemo omnis nisi voluptate voluptatibus.', 'Accusantium quia voluptate voluptas perspiciatis placeat amet et autem. Repudiandae sunt rerum ad blanditiis. Recusandae libero distinctio qui quia nostrum sunt. Vero sapiente soluta nihil.', 'Deleniti omnis expedita ut illo aperiam. Magnam nam iusto rerum et eius aspernatur. Qui deserunt magni maiores. Quia facere voluptates soluta excepturi.', 958, 948, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704084901jjHp1', 6, 'Right-sized foreground complexity', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:01', NULL),
+(64, 20, NULL, NULL, 6, NULL, 'Universal 24hour time-frame', '261', 'productImages/32.png', NULL, 'Et alias quas et sint. Tenetur officiis voluptatem error optio ut quibusdam sed. Rerum odio recusandae reiciendis exercitationem.', 'Ea veniam voluptas officiis ut quae ut. Unde molestiae rerum laborum aliquid voluptatem accusantium possimus omnis. Reiciendis consequatur labore modi laboriosam rerum animi. Facere ipsum aut fugiat consectetur. Accusantium sit et necessitatibus expedita est. Id est ipsum iure repudiandae est culpa.', 'Qui nihil minus totam a deserunt voluptatum. Sed voluptatem eveniet ipsa ipsum molestiae nobis quibusdam. Enim molestiae eum a et tempora rerum omnis. Ut nesciunt sit maiores odio.', 'Quibusdam saepe dolores earum itaque expedita. Quos blanditiis iure aliquam rerum molestiae quis possimus.', 207, 197, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704084901aN4V0', 6, 'Universal 24hour time-frame', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:01', NULL),
+(65, 26, NULL, NULL, 4, NULL, 'Organized empowering benchmark', '553', 'productImages/27.png', '[\"29.png\",\"34.png\",\"34.png\",\"30.png\"]', 'Quasi omnis ipsam dolores dolorem sunt consequatur. Hic earum in quia et iure occaecati voluptatem vitae. Est aut omnis voluptatem.', 'Laudantium temporibus modi aperiam est ut. Harum doloremque necessitatibus veritatis voluptas et. Voluptatem id rerum et nam molestiae. Id vitae ipsum molestiae vero. Aut vel tempora ut vitae autem voluptatem. Quo consequatur maxime velit ut sunt quidem. Ratione in hic cum est tempore culpa.', 'Et est fuga vero vel consequatur. Architecto commodi quis perspiciatis nam sunt. Ipsa ipsum dolores dolores reprehenderit. Praesentium aut unde quidem.', 'Commodi quo corporis et ullam rem. Aperiam fugiat in autem. Necessitatibus quasi ut non consequatur. Reprehenderit tempore accusantium alias ratione maiores.', 599, 589, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '17040849016lQNZ', 6, 'Organized empowering benchmark', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:01', NULL),
+(66, 32, NULL, NULL, 3, NULL, 'Polarised client-server projection', '327', 'productImages/34.png', NULL, 'Hic consequatur dolorem repellendus praesentium quisquam rerum ratione. Ipsam unde voluptatem sunt tempora omnis pariatur harum est. Natus est consectetur possimus fuga.', 'Sequi consequatur ad sit esse hic ipsum. Aut voluptatem nemo qui cupiditate. Assumenda vel magnam necessitatibus voluptatem non id assumenda. Non aspernatur autem incidunt quidem possimus. Autem modi molestiae earum. Id consequatur aut esse praesentium fugit. Rerum aut voluptas aut impedit aut tenetur mollitia explicabo.', 'Et repudiandae fuga et aut ut magni iusto error. Non et repudiandae quas exercitationem autem provident. Libero ex qui et id.', 'Et et adipisci voluptatum nemo voluptatem deleniti odio quia. Eveniet tempore exercitationem laborum nihil inventore reiciendis ut. Labore ab accusantium assumenda est incidunt nulla quod.', 502, 492, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704084901PwfvN', 8, 'Polarised client-server projection', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:01', NULL),
+(67, 21, NULL, NULL, 1, NULL, 'Optimized fault-tolerant benchmark', '978', 'productImages/38.png', '[\"34.png\",\"35.png\",\"32.png\",\"30.png\"]', 'Sunt nulla sapiente laborum. Sunt omnis et soluta quis distinctio quae eum. Qui sint tenetur sequi modi error quis occaecati.', 'Et sequi repellendus voluptate quos at. Vel omnis at quibusdam blanditiis. Repellendus maiores qui et et voluptatem ipsam. Ad consequatur aut laborum numquam quaerat veritatis. Non exercitationem debitis velit vero. Exercitationem rem consequatur veniam deserunt ut omnis.', 'Necessitatibus et optio dolores animi inventore enim. Sit atque commodi quod aperiam. Architecto distinctio autem perferendis possimus voluptate.', 'Voluptatem necessitatibus molestias cum. Voluptatibus accusamus laudantium quibusdam nesciunt aut et accusamus. Nisi corrupti id voluptas rerum maxime quas.', 279, 269, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704084901ROp8U', 8, 'Optimized fault-tolerant benchmark', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:01', NULL),
+(68, 23, NULL, NULL, 3, NULL, 'Operative encompassing forecast', '328', 'productImages/33.png', NULL, 'Similique voluptatem voluptas quae saepe soluta ut iusto. Voluptas et aperiam quasi ad. Repellat repudiandae maxime explicabo aut id rerum sed.', 'Occaecati dolor qui ut sequi vero mollitia assumenda. Et est tempora consectetur et. Aut non veritatis cum iure dolores omnis omnis. Illum et possimus impedit maxime culpa amet. Vel saepe laborum quasi officia maxime quis et. Laboriosam ratione repellat laudantium dolor. Odio quia sapiente molestias quia veritatis ut ut. Voluptate sunt accusamus perspiciatis unde voluptatem praesentium quam esse.', 'Impedit voluptatem quam doloremque in. Et nisi consequuntur voluptatem sed.', 'Tempore molestias saepe et veniam maxime velit cum ut. Dolorem aspernatur saepe consectetur sed et corrupti consectetur. Commodi maxime quas voluptatibus fuga ut vero.', 643, 633, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704084901YXGi6', 7, 'Operative encompassing forecast', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:01', NULL),
+(69, 25, NULL, NULL, 6, NULL, 'Horizontal static openarchitecture', '870', 'productImages/29.png', '[\"21.png\",\"24.png\",\"22.png\",\"39.png\"]', 'Est tempora est maxime fuga accusamus ut id possimus. Odio sed consequatur eos labore voluptas aut aut. Deleniti doloribus enim nihil ab praesentium ullam. Eveniet vero inventore sed sunt.', 'Aliquid quia ut maxime eveniet ut nihil eum. Inventore hic voluptas sint nihil. Quam a voluptates quis. Rem voluptatum voluptas quod aut. Repellendus et alias a et dolor enim. Dolorum a aspernatur nulla tempora eos commodi vel. Nesciunt voluptatem ut iure non et. Qui et laudantium reiciendis dolores quod facilis qui.', 'Sapiente numquam quo officia odit delectus vero neque ut. Sapiente similique aliquam non dolorum ut dolor minima. Et ea eos sit in possimus alias deleniti autem.', 'Et et tempora rerum natus. Voluptas id saepe omnis earum consequatur. Amet mollitia distinctio a vel.', 814, 804, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704084902FDdwK', 7, 'Horizontal static openarchitecture', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:02', NULL),
+(70, 20, NULL, NULL, 3, NULL, 'Sharable solution-oriented knowledgebase', '123', 'productImages/21.png', NULL, 'Atque qui tempora et. Rerum hic vitae iure consectetur. Et accusantium est veritatis veniam iure rerum temporibus.', 'Ex laboriosam eos quod. Eos libero nam non qui ullam laboriosam. Ea error quia quaerat ex rerum aperiam omnis. Sed error soluta optio eos quasi. Ut quo sunt officiis expedita.', 'Maxime aut labore sit enim. Eaque mollitia sed velit. Sunt est vitae id voluptas eum. Voluptatem et voluptate eos rerum eligendi.', 'Qui qui eius velit velit. Officiis voluptates aliquam consectetur voluptatem. Illo laboriosam nemo eius sequi dolorem consectetur. Esse necessitatibus quia rem neque ab eum.', 947, 937, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704084902LFuTq', 8, 'Sharable solution-oriented knowledgebase', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:02', NULL),
+(71, 22, NULL, NULL, 4, NULL, 'Profound neutral securedline', '695', 'productImages/29.png', '[\"40.png\",\"31.png\",\"26.png\",\"27.png\"]', 'Corporis omnis rerum minima. Ipsa eveniet illo labore perspiciatis. Excepturi numquam quis perspiciatis blanditiis delectus. Aut aut voluptatem omnis odit sunt.', 'Et perspiciatis qui animi et soluta. Maiores beatae sit ducimus corrupti. Vel vero est sit tempore. Vel temporibus ratione ipsum eveniet aliquam eaque. Ducimus in aut necessitatibus at voluptates voluptates. Vel dolores omnis non qui. Et ad porro aperiam quas soluta fuga facere. Sit quia in consequatur autem fuga ut fuga. Qui sit alias cupiditate.', 'Modi tempora ea qui distinctio architecto. Vel sit rerum voluptatem dolore. Aliquid quos aut culpa quasi velit dolorem.', 'Tenetur quia dicta est assumenda. Enim minus nisi totam saepe. Eius delectus ipsa reprehenderit sed qui.', 760, 750, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704084902UyGUQ', 9, 'Profound neutral securedline', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:02', NULL),
+(72, 30, NULL, NULL, 6, NULL, 'Organized national success', '405', 'productImages/34.png', NULL, 'Consequatur adipisci repellat temporibus dicta debitis. Est ipsum aliquid aut omnis accusamus totam. Fuga provident voluptatibus possimus est quis iusto occaecati id.', 'Nam quaerat excepturi ea sit. Omnis beatae quia natus maxime amet vel expedita qui. Quasi ipsum quos voluptate voluptatem aliquam nemo et qui. Ea aperiam quia nulla saepe unde amet vitae fugit. Soluta et dolorum magnam ex corporis praesentium. Suscipit maxime unde illo consequuntur. Fugit dolores in tempore rem est.', 'Cumque non illo voluptatum id consequatur. Labore soluta nesciunt illo molestiae. Ut alias sed rerum quidem culpa qui. Modi vero modi et ut perferendis nesciunt eius.', 'Doloribus aliquam quos distinctio velit. Distinctio quibusdam sit delectus consectetur. Ut expedita sed et harum amet architecto. Ut consectetur doloremque rem corrupti dolorum provident et.', 908, 898, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704084902LYHLx', 6, 'Organized national success', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:02', NULL),
+(73, 27, NULL, NULL, 3, NULL, 'Intuitive national task-force', '465', 'productImages/32.png', '[\"32.png\",\"23.png\",\"39.png\",\"29.png\"]', 'Incidunt ut minus velit reprehenderit et modi. Atque laudantium similique consectetur enim.', 'Eum hic perferendis nam porro et tempora. Quia qui autem veritatis molestias doloremque et quas sapiente. Cupiditate iusto necessitatibus aliquam occaecati aut. Nihil consequatur molestiae in repudiandae qui at. Consequatur libero cumque sapiente doloribus. Quam molestiae sed vitae et. Id nisi aut facere.', 'Molestiae qui sunt esse quo pariatur. Ut aliquid explicabo ut debitis fugit quam deserunt. Adipisci id corporis beatae voluptas maiores quae aliquam. Corrupti optio dolores qui.', 'Vel et nobis et aperiam veniam sit vero. Dolorum fuga est minus est molestiae atque impedit. Fuga suscipit eveniet modi blanditiis.', 793, 783, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704084902z2gKw', 8, 'Intuitive national task-force', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:02', NULL),
+(74, 28, NULL, NULL, 1, NULL, 'Reduced radical core', '108', 'productImages/24.png', NULL, 'Assumenda minus quod voluptatem iure veritatis. Vel fugiat ut cumque rerum. Possimus dolor molestias aliquid vel nemo. Optio consequuntur ab iusto. Assumenda sapiente at laboriosam suscipit.', 'Ut nihil laudantium et voluptatem eius quia. Sit harum aspernatur nihil ratione similique qui suscipit omnis. Deleniti temporibus est est deleniti quibusdam. Natus odit est quibusdam qui accusantium sed voluptates. Iusto consequatur qui harum quam sunt maxime molestias. Quia beatae reiciendis autem vel ipsam at. Est similique ipsum sunt voluptate consequatur.', 'Non ipsum et vitae voluptatem dolores. Sit minima commodi eaque in eius est pariatur. Odio omnis iure repudiandae.', 'Ut velit qui sequi tempore. Quam itaque dicta est consequatur. Voluptas eum sequi tenetur deleniti totam assumenda.', 733, 723, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704084902eJKwt', 7, 'Reduced radical core', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:02', NULL),
+(75, 31, NULL, NULL, 7, NULL, 'Devolved multi-state array', '104', 'productImages/40.png', '[\"22.png\",\"27.png\",\"33.png\",\"30.png\"]', 'Deserunt illo consectetur aliquam quia. Ut quia ut excepturi qui. Cupiditate cupiditate omnis debitis non quos quibusdam.', 'Explicabo voluptates quia voluptas ullam. Provident at ut quo at. Rerum impedit est qui ipsa ut voluptas dolorem consequuntur. Vitae et nisi id occaecati sit consequatur dolorum. Maxime quo facilis non ut sint minima ut qui. Dicta quia nam saepe amet.', 'Ullam similique autem tenetur tempore ut. Dolorem odit itaque sit totam vel ducimus similique. Perspiciatis quos porro vero corrupti.', 'Temporibus tempore cumque ad omnis. Voluptatem sunt neque nulla quos autem odio. Soluta necessitatibus est illo quaerat quia alias nobis. Omnis eos consequatur qui aliquam temporibus.', 506, 496, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704084902iee1x', 7, 'Devolved multi-state array', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:02', NULL),
+(76, 28, NULL, NULL, 2, NULL, 'Organic motivating access', '121', 'productImages/24.png', NULL, 'Id magnam modi quos voluptas. Nihil dolorem vel aut sapiente qui amet. Minus impedit eum perspiciatis corrupti perspiciatis deleniti. Repellat laudantium nostrum expedita expedita.', 'Non debitis molestiae odit ullam dolore qui placeat itaque. A est accusamus qui non. Non velit quis eum molestias et dolorum sunt. Sed esse eum placeat excepturi aut eum quibusdam. Magni provident et rem rerum iure. Pariatur aliquid fuga qui quia sunt harum. A dicta est accusamus id qui quibusdam et. Itaque quis deleniti aut et saepe nobis.', 'Cum quae dicta numquam. Ex praesentium occaecati fugit est. Quia vel sed inventore ullam. Repellendus sit quod iure laudantium sit ut mollitia.', 'Minima et molestiae ut autem cumque. Error officiis debitis assumenda labore molestias. Fugiat dignissimos sint beatae tenetur qui sit sapiente.', 472, 462, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '17040849024Z65i', 6, 'Organic motivating access', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:02', NULL),
+(77, 29, NULL, NULL, 3, NULL, 'Adaptive human-resource software', '941', 'productImages/23.png', '[\"22.png\",\"40.png\",\"39.png\",\"28.png\"]', 'Voluptatem non quasi omnis eos rem facere. Autem facere nulla vel corporis fuga. Iusto exercitationem nemo occaecati beatae ullam dolorem.', 'Totam sit recusandae ratione aut occaecati. Ipsa molestias harum excepturi consectetur quia accusantium reiciendis. Neque autem aut aut suscipit at et. Omnis ullam corrupti dolores maiores non. Atque est veritatis quasi natus animi. Id aut sit exercitationem qui et. Est sed totam autem eligendi sit. Quasi dolores voluptatem magni nisi non.', 'Nesciunt libero dolorem reiciendis sit. Sequi fugit fugit quia voluptatem laborum commodi.', 'Sit nesciunt quas quas possimus aspernatur. Quod saepe libero eaque laboriosam. Voluptatibus provident rerum eum quia hic quidem et.', 845, 835, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704084902M3N8G', 6, 'Adaptive human-resource software', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:02', NULL),
+(78, 31, NULL, NULL, 1, NULL, 'Front-line reciprocal function', '584', 'productImages/22.png', NULL, 'Rerum rerum fugiat officia beatae. Consectetur ducimus sapiente perferendis quo. Error a modi unde maiores nam. Facere debitis laudantium illum culpa nihil aliquid.', 'Qui quia amet vitae ut sed temporibus veniam voluptate. Sit debitis incidunt quis et. Nisi beatae ea quia. Ullam ad aut omnis qui reiciendis minus. Doloremque sit nihil velit sunt tempora accusamus. Sit sit minima ullam molestiae laudantium inventore et. Est perferendis molestiae voluptatem adipisci placeat provident. Eos ratione quae est aut.', 'Culpa commodi aliquid sint facere quod. Ut odio aspernatur aut labore sed provident. Aut ut sit dolores velit aspernatur.', 'Non dolorem beatae consequatur accusantium et iste. Illo veniam consequuntur est perspiciatis. Sed omnis quas doloribus aspernatur corrupti ut eaque debitis.', 900, 890, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704084902WTeg5', 9, 'Front-line reciprocal function', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:02', NULL),
+(79, 27, NULL, NULL, 6, NULL, 'Front-line system-worthy methodology', '721', 'productImages/39.png', '[\"37.png\",\"23.png\",\"24.png\",\"28.png\"]', 'Qui ut reiciendis omnis itaque voluptas id ullam quam. Voluptatem corporis tenetur laborum rem.', 'Maiores dolorem ipsam a molestiae voluptate ex. Consequatur dolorem est quos iusto sunt eos. Modi dolorum adipisci qui quia natus animi est. Molestias provident quibusdam ut aut adipisci deleniti. Omnis consectetur exercitationem molestiae sit omnis earum. Odio aut consequatur quis. Officiis quisquam totam qui et molestiae optio.', 'Minima error provident debitis enim. Dolor alias vero vero in consequuntur quia. Consequatur natus et non consequatur. Sunt ab quia quo suscipit.', 'Laudantium laborum id ut. Velit aut blanditiis molestiae corrupti aliquid facere. Fuga rerum voluptatibus sint consequatur unde eos.', 462, 452, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704084902hhjAX', 9, 'Front-line system-worthy methodology', 'product,demo', NULL, 1, 0, 1, '2024-01-01 04:55:02', NULL),
+(80, 19, NULL, NULL, 6, NULL, 'Integrated needs-based matrices', '868', 'productImages/33.png', NULL, 'Molestias cum minima deleniti qui voluptas et totam quod. Quae nam magni labore ut. In blanditiis accusantium consectetur excepturi ea.', 'Tempora tempore sunt aut nisi. Temporibus maxime maxime quibusdam aut. Quisquam vel est fugit molestiae a eos. Id repudiandae ex aut omnis atque nihil. Ducimus inventore laudantium odit. Cum laboriosam dolores voluptas. Aut consequatur nihil porro dolores reprehenderit veniam qui. Corporis et sed qui impedit doloribus qui.', 'Voluptatem aut eaque similique veniam sed rerum. Nesciunt et quis aut. Earum quis culpa nostrum dicta quia modi quibusdam. At at voluptas impedit.', 'Rerum in provident qui. Vel et recusandae fugiat laboriosam. Voluptatem consequuntur quaerat dolores fugit ratione.', 847, 837, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704084902dZ8xN', 8, 'Integrated needs-based matrices', 'product,demo', NULL, 1, 1, 1, '2024-01-01 04:55:02', NULL),
+(81, 22, NULL, NULL, 2, NULL, 'Mandatory 3rdgeneration function', '616', 'productImages/37.png', '[\"29.png\",\"39.png\",\"34.png\",\"36.png\"]', 'Provident voluptatem quae sit libero. Perspiciatis qui sapiente accusamus doloribus numquam quia tenetur. Aut rerum sunt aspernatur voluptates reiciendis libero. Ipsa voluptas fugiat repudiandae.', 'Cum laboriosam laboriosam atque molestias neque est consequuntur. Modi harum id nulla eos. Illo commodi provident inventore placeat eos et nulla. Ea qui aliquid odit vel. Eveniet dolorum ut illum velit quia sit veritatis. Dolorum et magnam sed aut hic saepe porro. Possimus odit sunt nemo incidunt aut nihil eveniet.', 'Et numquam libero minus sed rerum eligendi. Aut cupiditate eos eos aut.', 'Fugiat et animi sit ut. Aperiam quo sit quis repellat. Velit mollitia vel quia est et in omnis cum. Soluta suscipit nesciunt et dignissimos sapiente id.', 957, 947, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178326kuAqq', 6, 'Mandatory 3rdgeneration function', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:06', NULL),
+(82, 24, NULL, NULL, 1, NULL, 'Integrated radical protocol', '605', 'productImages/28.png', NULL, 'Enim rerum dolorem at voluptatum dolores. Deserunt aut maxime optio eum. Eaque dolorem in et est in consequatur.', 'Tenetur in facilis at eveniet animi ad. Officia quibusdam dolorum qui. Aut nobis blanditiis sunt aut aliquid consequatur. Nemo molestiae laudantium voluptas veniam omnis in. Qui porro dolor eaque dolorem culpa deleniti. Ipsam dolore et laudantium pariatur sed ullam. Illo sapiente et rerum cumque alias. Mollitia et corrupti quasi corrupti voluptatum neque.', 'Ratione eum possimus consequuntur consequatur ab voluptatem dolore. Non id eligendi esse pariatur. Molestiae et dignissimos sed quod nobis.', 'Vel amet in dolore cupiditate similique aut. Ipsum qui dolor qui blanditiis animi dicta aut. Omnis occaecati alias qui rem. Aut non facere sequi ipsum deleniti ea.', 962, 952, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178326ObaXd', 6, 'Integrated radical protocol', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:06', NULL),
+(83, 23, NULL, NULL, 3, NULL, 'Operative systematic securedline', '111', 'productImages/21.png', '[\"37.png\",\"38.png\",\"21.png\",\"22.png\"]', 'Quaerat quos qui dignissimos et aut iste. Sequi reprehenderit omnis enim qui ducimus quam. Voluptatem rerum et eum totam laudantium. Velit commodi rerum sit.', 'Suscipit eaque labore et et provident est. Alias eum aut est omnis ipsa. Perferendis perferendis et eveniet dicta qui reprehenderit voluptatem dolores. Distinctio saepe aut officiis voluptatem minus quasi occaecati. Officia expedita culpa aspernatur ea officia commodi non. Sit fugiat est facilis aut eaque nam alias neque. Beatae culpa fuga sit animi corporis.', 'Facilis quo voluptatem non. Culpa quo voluptatem itaque quam ad. Veritatis illo ex ipsum cum ullam quis voluptas.', 'Delectus aspernatur facilis aliquid natus dolorem. Quo et voluptatem doloremque fuga sint totam fugiat voluptatem. Quis et alias aut perferendis voluptas consequatur quae corrupti.', 307, 297, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178326fX3py', 7, 'Operative systematic securedline', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:06', NULL),
+(84, 23, NULL, NULL, 3, NULL, 'Streamlined zerodefect functionalities', '837', 'productImages/28.png', NULL, 'Impedit hic aliquam veritatis aut amet et. Rerum rerum voluptas in aut accusamus sapiente laborum. Nihil quia odio ratione nihil voluptatum et.', 'Reiciendis nostrum qui id corporis voluptatem fuga. Soluta repudiandae autem dolorem suscipit labore tenetur. Dolorem laboriosam ut fuga ipsam omnis. Quos eum suscipit nobis omnis voluptate. Eveniet atque nobis natus ut. Vel voluptates aperiam perspiciatis cumque beatae cum ut vitae. Dignissimos eius consequuntur omnis corporis velit. Voluptates dolorem quia quia vitae optio neque.', 'Blanditiis dolores suscipit in tenetur qui alias. Ut eos doloribus ut pariatur ut. Iste veniam dolorem explicabo fugiat omnis nemo. Maiores ducimus officia eius rerum.', 'Accusamus culpa exercitationem provident perferendis quae eum non. Quia inventore soluta assumenda dolorem. Omnis velit error facilis exercitationem. Culpa aut eaque quam blanditiis.', 436, 426, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178326CXfFf', 8, 'Streamlined zerodefect functionalities', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:06', NULL),
+(85, 20, NULL, NULL, 5, NULL, 'Streamlined optimizing software', '420', 'productImages/30.png', '[\"32.png\",\"25.png\",\"29.png\",\"27.png\"]', 'Maiores quasi dignissimos ea aut enim laboriosam molestias et. Dolores quia laborum nostrum sunt et. Rerum ipsum voluptates repellat rerum aut beatae ea.', 'Reprehenderit et assumenda esse dolores placeat nostrum. Dolorem harum repudiandae est laboriosam nam eos nesciunt. Hic odit omnis voluptas pariatur incidunt. Dolor eligendi aliquam eveniet animi dolor delectus. Et eaque error est similique consequuntur id. Ut qui repellendus tempora aut asperiores voluptate. Ducimus qui a omnis.', 'Quos quam similique saepe minus id. Aut rerum placeat omnis minus eaque voluptas. Soluta voluptas voluptatem quia dolore hic omnis. Velit exercitationem qui maiores nobis reiciendis aut.', 'Repellendus veritatis inventore maxime temporibus rerum. In neque consequuntur sit dignissimos mollitia occaecati et. Dolorem ea deleniti totam et aut neque explicabo.', 325, 315, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178326JAKG6', 9, 'Streamlined optimizing software', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:06', NULL);
+INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
+(86, 29, NULL, NULL, 4, NULL, 'Automated clear-thinking application', '397', 'productImages/37.png', NULL, 'Molestiae vero incidunt quia autem. Qui aut aut sunt iure voluptas.', 'Distinctio illum ut harum quia ad sit minima. Velit provident veniam fugit molestiae exercitationem. Tempore fugiat quia minima in. Ipsam sed in sit rem voluptatem dolorum eius labore. Quisquam excepturi perspiciatis molestiae. Numquam distinctio est corrupti. Et hic est tempora nesciunt qui. Dignissimos molestiae in tempore harum.', 'Pariatur necessitatibus distinctio sit et delectus. Voluptatibus nobis sapiente dolorem ab exercitationem doloribus rerum. Explicabo alias cum nesciunt sint aut.', 'Cupiditate alias perferendis pariatur. Est ullam ea odit architecto. Numquam pariatur est quos. Enim dolor explicabo dolores ab ut vel sit.', 697, 687, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178327hYkad', 9, 'Automated clear-thinking application', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:07', NULL),
+(87, 30, NULL, NULL, 2, NULL, 'Digitized client-driven access', '222', 'productImages/26.png', '[\"35.png\",\"40.png\",\"30.png\",\"31.png\"]', 'Aspernatur non alias eaque placeat necessitatibus excepturi. Dolorem rerum quibusdam hic odio et itaque. Rerum architecto quisquam rerum voluptatem esse quae unde sit.', 'Asperiores inventore qui est eaque. Architecto autem voluptas nostrum fugit. Asperiores optio magnam asperiores. Laudantium voluptatem quisquam provident temporibus eligendi fugiat. Aut ut voluptatem consectetur odio ut. Corrupti qui est rerum sed. Eveniet unde optio dolore rerum ut.', 'Quis omnis aliquam quibusdam repudiandae. Accusantium et neque voluptatem in voluptas repellendus harum quia. Aut error nam corrupti iure libero et. Aut ad neque porro quae neque eligendi numquam.', 'Reprehenderit ullam excepturi ex. Porro eos at illo. Et maiores iste doloribus qui velit magnam. Ad mollitia sed a rerum modi consequuntur quibusdam.', 382, 372, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17041783276dJQO', 7, 'Digitized client-driven access', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:07', NULL),
+(88, 19, NULL, NULL, 2, NULL, 'Reactive methodical encoding', '878', 'productImages/22.png', NULL, 'Amet repellat eius ut reiciendis. Nemo aut odit ut. In nemo recusandae vitae.', 'Non magni impedit et eveniet et debitis. Quia nam omnis pariatur quisquam sunt. Eius veniam ipsa quos explicabo. Dolores praesentium sit quisquam animi. Deserunt totam accusamus minima deleniti sapiente facilis. Velit possimus pariatur doloremque explicabo labore. Repellendus culpa minus in odio consequatur sunt.', 'Est eos fugit quis dolorem. Aut ipsa qui quia reprehenderit consequuntur totam aliquid. Et magni nostrum sunt odit et. Numquam neque occaecati magni et aliquid id voluptates.', 'Est veritatis expedita fugiat fuga ratione libero autem qui. Perspiciatis id rem et eos. Et laudantium repudiandae et aut doloribus quaerat.', 643, 633, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178327FQKC7', 9, 'Reactive methodical encoding', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:07', NULL),
+(89, 27, NULL, NULL, 1, NULL, 'Stand-alone stable concept', '228', 'productImages/36.png', '[\"32.png\",\"33.png\",\"24.png\",\"31.png\"]', 'Culpa esse consequatur nam omnis voluptas. Voluptas voluptatum occaecati tenetur maiores aliquid. Ut quia quasi qui impedit aspernatur.', 'Dolor et fugiat quae molestias natus reprehenderit odio. Culpa voluptate iusto in consequuntur id dolorem. Non velit ratione dolorem excepturi porro commodi id dolorum. Non eligendi nisi accusamus et laudantium doloremque alias. Dolore omnis asperiores nisi aut minus rerum. Ducimus nemo possimus natus temporibus sequi neque dolore sint.', 'Commodi sit officia placeat enim nihil. Quidem non saepe doloribus. Voluptas laboriosam repellendus quae harum voluptate aut occaecati dolor.', 'Quos aut autem sunt. Iusto labore ut quisquam et. Aspernatur quis exercitationem sed voluptatum laudantium et. Soluta excepturi dignissimos odio ea fugiat placeat.', 807, 797, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178327ACWFx', 6, 'Stand-alone stable concept', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:07', NULL),
+(90, 32, NULL, NULL, 7, NULL, 'Focused user-facing neural-net', '646', 'productImages/39.png', NULL, 'Quia eaque voluptas doloremque tempore aut voluptatem et. Qui eum assumenda quo veritatis magnam dolore iste. Dignissimos veritatis ut nisi veritatis qui eos. Amet aut repellat non quasi.', 'Sed eaque ratione in neque ad tempore. Laudantium aperiam error ut fuga minima rerum recusandae voluptate. Saepe velit magnam tenetur enim harum at tempora. Mollitia ut nisi aut sed blanditiis ea blanditiis debitis. Provident dolore quod qui repudiandae velit dolorum. Explicabo est exercitationem dolor. Iure omnis id sed facilis.', 'Laborum ducimus dolores eos numquam officia quam perspiciatis. Animi aut repellat modi maxime. Suscipit ipsum impedit consequatur excepturi quo.', 'Sed et quam labore non deserunt quod. Mollitia consectetur ex est totam molestias debitis cum. Quaerat et sint sit sint occaecati maxime.', 880, 870, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178327m2KEL', 7, 'Focused user-facing neural-net', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:07', NULL),
+(91, 21, NULL, NULL, 5, NULL, 'Adaptive intermediate encryption', '257', 'productImages/31.png', '[\"31.png\",\"27.png\",\"23.png\",\"37.png\"]', 'Voluptatem debitis voluptate provident est quod. Voluptate modi voluptates quibusdam asperiores non.', 'Enim quos ratione commodi molestiae repellendus velit aut. Sit accusamus deserunt laudantium consequatur qui. Sunt autem magnam neque odio. Unde sapiente iusto corrupti ea et sunt. Excepturi quae blanditiis sint architecto nemo molestias. Similique numquam vitae optio numquam et perferendis accusantium. Et eum quia recusandae nisi.', 'Quo placeat sit optio blanditiis. Expedita nobis minima repellat ducimus quibusdam corporis velit. Consequatur voluptas et fuga voluptatum.', 'Quasi nemo quo esse iure maiores optio qui. Delectus odit voluptate veniam enim non. Maxime delectus id aliquam animi temporibus fugit.', 329, 319, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178327J7NIN', 6, 'Adaptive intermediate encryption', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:07', NULL),
+(92, 32, NULL, NULL, 6, NULL, 'Team-oriented foreground internetsolution', '712', 'productImages/32.png', NULL, 'Omnis autem voluptates dolores quis. Ut at alias iure harum. Molestiae eveniet sit alias enim.', 'Porro perspiciatis dolor perferendis sed ab. Voluptate labore quibusdam voluptatem est qui enim. Cupiditate velit distinctio vitae eum. Repudiandae non et explicabo non nisi similique. Suscipit libero distinctio suscipit aperiam quasi repellat voluptas. A aut eos maiores suscipit voluptates dolores rerum vel. Voluptatem et earum facilis et. Nihil dolorem non enim voluptatem.', 'Occaecati officiis aliquam voluptatem facere illo. Veniam nostrum tempore ipsa et. Quasi eum tempora inventore rerum sint temporibus.', 'Aliquid enim ut dolorem. Eum excepturi officia quia non asperiores rem explicabo culpa. Vel eos deleniti quia perspiciatis aperiam temporibus qui autem. Quidem et est debitis velit vero nisi.', 239, 229, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178327SKXdr', 6, 'Team-oriented foreground internetsolution', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:07', NULL),
+(93, 30, NULL, NULL, 3, NULL, 'Monitored optimizing encoding', '574', 'productImages/35.png', '[\"37.png\",\"27.png\",\"40.png\",\"27.png\"]', 'Voluptatem nulla id accusantium veniam optio. Nostrum optio enim adipisci ut sunt rerum. Molestiae numquam est voluptatem tenetur animi rem.', 'Cumque recusandae et temporibus quae ut deserunt. Nihil accusantium consectetur omnis repellat. Quae velit alias praesentium quo. Ducimus impedit quia cum omnis qui possimus. Ut voluptates veritatis minima vitae quia. Molestiae nobis nam harum. Molestiae impedit quidem animi ipsam.', 'Nihil velit voluptas accusamus iusto. Labore magnam provident ea. Hic et quasi eum corporis enim quae ut. Doloremque eos nam accusamus ut ipsam ratione deserunt rerum.', 'Sint quisquam iure est aliquam. Aut rem sunt accusantium praesentium et ullam. Eos est non sunt nisi. Hic ipsum libero sequi fuga repudiandae. Nesciunt iste et quis.', 472, 462, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178327qsusl', 9, 'Monitored optimizing encoding', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:07', NULL),
+(94, 24, NULL, NULL, 3, NULL, 'Versatile user-facing matrices', '278', 'productImages/34.png', NULL, 'Dolor unde vero sit et sint voluptatem quos. Dolor voluptatem culpa id similique voluptatem omnis laudantium. Iusto ipsam aliquid soluta a. Voluptas et ut quia qui.', 'Et suscipit voluptatem ipsa recusandae. Tenetur veritatis harum eum aliquid autem sequi. Nostrum suscipit quaerat deleniti esse eius ea. Porro magni deserunt est rerum similique. Est quia omnis iusto qui. Cumque dicta eos aut. Natus aut est nam deleniti qui optio cum. Dolore earum aut eum sed eum. Velit qui dolor et repellat aut dolor. Facere nobis et inventore ut.', 'Voluptate deserunt neque ipsam illo. Excepturi molestiae quo sit autem nemo voluptas incidunt. Nam dolorem ut aliquid sed quia nulla repellat. Aut ex nulla odio pariatur dolores non.', 'Sapiente ut earum autem consectetur et libero nisi dolor. Recusandae enim et facilis corporis illo nihil. Veniam inventore sit dolorem est. Dignissimos dolore voluptatum repudiandae est.', 806, 796, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178327Jmmif', 7, 'Versatile user-facing matrices', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:07', NULL),
+(95, 23, NULL, NULL, 1, NULL, 'Multi-tiered fault-tolerant budgetarymanagement', '128', 'productImages/33.png', '[\"26.png\",\"30.png\",\"38.png\",\"32.png\"]', 'Exercitationem aut consequuntur quia est autem. Natus voluptatem autem earum eum eum beatae rem. Veniam iste ea quos consequatur perspiciatis quia dolorem.', 'Similique eaque est quia minus aspernatur. Blanditiis dolores harum quis. Quibusdam aut nihil est reprehenderit eos. Cupiditate maxime laborum qui quis aliquam a cumque. Eaque sequi occaecati eveniet et vel et officiis. Quaerat aut voluptate perferendis.', 'Voluptas inventore ullam facilis voluptatem ratione quam cum. Iusto velit quasi reiciendis et explicabo maxime sed. Quia non est repellat officia.', 'Et omnis minima reiciendis at reprehenderit iure. Dolorem culpa vel minima. Iusto sint voluptas corrupti ut possimus beatae omnis. Quas ullam sit voluptas aliquid veritatis.', 777, 767, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178327tYbRL', 9, 'Multi-tiered fault-tolerant budgetarymanagement', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:07', NULL),
+(96, 32, NULL, NULL, 2, NULL, 'Multi-layered disintermediate toolset', '222', 'productImages/28.png', NULL, 'Atque vero ratione asperiores ea fugiat. Molestiae dolorem id pariatur quidem aut et. Ipsum sit nostrum eaque officiis optio vero omnis.', 'Laudantium libero dolorum excepturi voluptas aut blanditiis. Harum consectetur veritatis explicabo ipsa modi suscipit impedit aut. Totam esse dignissimos iure et. Culpa inventore atque aut ut. Et explicabo similique dolor modi veritatis aut ut. Possimus omnis vitae exercitationem. Ducimus ad inventore iure id.', 'Natus illum vel eum enim earum quo enim. Similique magni dicta ut et laborum. Beatae molestiae qui optio.', 'Dolore eos sunt id maxime nemo expedita. Id voluptatum ab numquam ut dolores. Exercitationem dolor qui modi nihil quia.', 856, 846, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178327spa2w', 8, 'Multi-layered disintermediate toolset', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:07', NULL),
+(97, 24, NULL, NULL, 7, NULL, 'Realigned eco-centric support', '725', 'productImages/30.png', '[\"25.png\",\"36.png\",\"28.png\",\"37.png\"]', 'Ut quia non necessitatibus dignissimos. Cumque maxime ut molestiae. Fugiat inventore ab blanditiis.', 'Debitis iusto hic aut. Autem neque dolores minima aut occaecati. Sint laboriosam magnam eum ut sed cupiditate est doloremque. Ipsa hic nihil veniam nulla. Ea et fuga perferendis dolores architecto. Est iste ipsum sunt. Aut corporis deleniti tempora. Facere quo pariatur voluptatem quis deleniti sit repellendus omnis. Eligendi voluptatem omnis ut sed quos.', 'Tenetur dolor rerum consequatur et ut. Autem voluptatem magnam harum ut repudiandae. Qui et id voluptatum debitis quis.', 'Similique deserunt voluptatum amet nulla distinctio quam. Consequatur nihil consequuntur accusamus. Maxime molestiae nesciunt quas et alias animi qui.', 793, 783, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17041783272wVSr', 9, 'Realigned eco-centric support', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:07', NULL),
+(98, 32, NULL, NULL, 7, NULL, 'Total bottom-line adapter', '945', 'productImages/39.png', NULL, 'Sunt accusantium dolorem molestiae et similique. Animi voluptate aut natus eos facere. Rem saepe sed consequatur rerum. Repudiandae illum dolorum accusamus fugit quo consectetur aut.', 'Est esse libero dolor. Quas voluptatem ea labore quas quis voluptatum qui. Ullam consequatur ea unde ut in. Iste et vitae placeat deserunt incidunt sapiente quia possimus. Atque officiis enim eos ea. Velit et impedit harum expedita quia. Nostrum doloremque atque recusandae ipsum veritatis.', 'Enim sunt exercitationem et. Sit aut quos expedita nam voluptatem molestiae repellendus quam. Non aperiam ut et.', 'Ad atque et reprehenderit illum et mollitia eaque aut. Temporibus aspernatur dicta est quaerat delectus quibusdam. Nobis dolor necessitatibus perspiciatis voluptas vel esse.', 451, 441, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178327TGakn', 9, 'Total bottom-line adapter', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:07', NULL),
+(99, 18, 61, NULL, 6, NULL, 'Centralized content-based application', '674', 'productImages/39.png', '[\"26.png\",\"32.png\",\"27.png\",\"25.png\"]', 'Ex aut rerum libero facilis ducimus quo. Occaecati laborum velit soluta. Aut maxime dolorum modi fuga molestias laborum. Vitae rerum facilis culpa.', 'Mollitia harum odit qui sint ea ipsam doloremque. Necessitatibus ut et earum placeat quo sunt quasi. Magni accusamus aut maiores ut est quia. Sit deleniti dolorem ullam eum sequi eligendi. Quis aut ea alias aut doloribus. Neque rerum ab et dicta. Qui sequi omnis ea delectus. Quae qui veniam quia. Non consequatur voluptatem ut enim doloremque praesentium veritatis incidunt.', 'Voluptatibus quos non similique maxime quae. Perspiciatis molestiae autem aut. Soluta cum qui in sit repellat a.', 'Eos nihil optio necessitatibus quia officia qui quo. Placeat placeat deserunt et consequatur. Dolor qui inventore ipsa blanditiis modi.', 730, 720, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17041783279ziCJ', 9, 'Centralized content-based application', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:07', NULL),
+(100, 30, NULL, NULL, 3, NULL, 'User-friendly analyzing migration', '450', 'productImages/36.png', NULL, 'Porro maiores fugiat suscipit ea accusantium voluptatem qui. Quia odit molestias est dolor. Vero optio qui saepe incidunt.', 'Maiores animi et quis distinctio ipsa sint neque. Eos quasi ut accusamus voluptatem omnis. Illo fuga aspernatur sit et temporibus aut quia. Aliquam esse eius fuga omnis ut aut. Omnis veniam quasi est placeat. Illo tempore deleniti qui libero et eos quia. Minima assumenda rerum sed dolorum molestias vel qui.', 'Exercitationem id vitae deserunt rerum sed praesentium nulla. Magnam laborum itaque culpa rerum laborum voluptatibus. Eveniet voluptates est eius quis. Ab veniam inventore sunt.', 'Nostrum provident qui veniam voluptatem eligendi nemo earum. Fuga veniam qui omnis. Aliquam nihil accusantium ut ipsa molestias commodi.', 661, 651, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178327HpazI', 8, 'User-friendly analyzing migration', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:07', NULL),
+(101, 18, 60, NULL, 5, NULL, 'Grass-roots stable protocol', '641', 'productImages/34.png', '[\"36.png\",\"26.png\",\"32.png\",\"26.png\"]', 'Temporibus eos excepturi eos corporis doloremque est libero nihil. Ea quidem adipisci voluptates. Aut quisquam excepturi et adipisci quas aliquid nam.', 'Molestias praesentium sit non beatae eligendi. Quidem nobis cumque earum sint cupiditate consectetur. Possimus excepturi tenetur at delectus hic. Laboriosam animi distinctio aspernatur velit. Quaerat qui quia suscipit optio ratione consequatur accusamus id. Aut neque quo quia quisquam ullam consequuntur. Soluta libero et et a aut sed. Molestiae dolorum blanditiis doloribus voluptates possimus.', 'Ipsa et rerum velit corrupti molestiae ex. Ut recusandae veniam eligendi est. Et facere voluptatem voluptatem nisi tempora. Culpa quisquam vitae necessitatibus id veniam dignissimos in vel.', 'Tempora qui id eum hic rerum sit. Est dignissimos facere perspiciatis consequatur. Praesentium delectus maiores aut minima sed. Ipsa omnis pariatur in eaque maxime non aut.', 488, 478, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178367VLIQN', 8, 'Grass-roots stable protocol', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(102, 22, NULL, NULL, 6, NULL, 'Implemented leadingedge moratorium', '222', 'productImages/35.png', NULL, 'Necessitatibus quisquam id praesentium non commodi. Ipsum iure nobis consectetur repudiandae at. Pariatur vel ipsa provident neque sed rerum. Suscipit repellendus et dolor.', 'Saepe vel porro asperiores mollitia. Et earum laboriosam omnis. Illo enim quod qui aut et asperiores optio. Dolorum ducimus reprehenderit aut ab repellat numquam consectetur nihil. Reiciendis commodi consequatur nihil adipisci quam laudantium recusandae. Qui voluptate dolore odio vero.', 'Qui quasi sint qui. Dolorem est laudantium eos mollitia et quod sit dolor. Id officiis est explicabo ut cum quas alias.', 'Eveniet itaque illum in iusto consectetur. A a optio sit non non nihil. Et qui qui ut fugiat ut necessitatibus sit.', 573, 563, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178367FKAGK', 9, 'Implemented leadingedge moratorium', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(103, 27, NULL, NULL, 5, NULL, 'Customizable well-modulated help-desk', '708', 'productImages/25.png', '[\"28.png\",\"29.png\",\"34.png\",\"38.png\"]', 'Fugiat cumque laboriosam inventore quia at. Quia quia architecto expedita sunt est nihil laboriosam. Nemo est soluta sit ab tempora quam.', 'Libero illo deleniti possimus delectus quis. Qui quod et vero et. Pariatur ut sed saepe modi eos qui. Quis molestias aut excepturi quo cupiditate quia nihil. Ut non delectus cum consequatur. Maxime occaecati et sunt consectetur hic est. Voluptas quidem ea qui fugiat maiores iste. Et dolorem cum velit asperiores sed quae. Facere consectetur qui tenetur illum.', 'Eos unde pariatur amet. Ut qui aut corporis mollitia. Ut aliquid ut illo sint. Voluptatem eum natus a et saepe perspiciatis aut. Natus eum maxime sed corporis sit doloribus assumenda.', 'Perferendis sapiente et dicta vero voluptatum sed. Illum velit iusto mollitia nobis commodi. Reprehenderit voluptatibus dolorem molestiae ut ea. Dicta mollitia veniam corrupti itaque esse.', 719, 709, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '17041783676Pcj8', 8, 'Customizable well-modulated help-desk', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(104, 31, NULL, NULL, 1, NULL, 'Sharable value-added blockchain', '380', 'productImages/40.png', NULL, 'Minus veritatis aut ut qui rerum qui velit. Et consequatur saepe natus atque tempore. Ullam eum molestiae eaque velit magnam.', 'Nemo veniam sapiente omnis dolore illum et molestiae. Labore aut quis iure labore vero non. Et nihil nihil sit quo sapiente sed molestias. Quia omnis tempore vel rerum. Et fugit aut fugit rerum et. Dicta soluta ut vero laborum temporibus. Reprehenderit quae inventore aspernatur asperiores. Ex nulla ad rem debitis.', 'Aliquam cumque animi soluta recusandae. Aut eveniet quis minus voluptatem. Velit doloremque nihil nobis vitae illum. Nisi perspiciatis numquam ut vitae optio officia libero aspernatur.', 'Asperiores recusandae sed eligendi beatae. Omnis cum quo aliquid magnam recusandae. Et deleniti voluptatibus corrupti sapiente a unde voluptatem.', 342, 332, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178367Ib3EH', 6, 'Sharable value-added blockchain', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(105, 18, 64, NULL, 5, NULL, 'Customizable zeroadministration database', '361', 'productImages/24.png', '[\"31.png\",\"24.png\",\"37.png\",\"36.png\"]', 'Natus molestias est sint voluptatibus. Tempore doloribus itaque aut sequi deserunt. Distinctio quia earum illum facere occaecati est.', 'Repudiandae quisquam adipisci recusandae ea. Iusto aut qui occaecati et aut dolore molestias. Tenetur perferendis voluptas voluptatem debitis. Aut voluptatem labore voluptatem voluptas voluptas id. Dolor soluta minus necessitatibus omnis odio reiciendis. Explicabo qui ut velit expedita explicabo.', 'Qui omnis nostrum porro aut ea rerum porro. Dolorem consequatur earum ut ut necessitatibus. Consequatur odit sit incidunt saepe.', 'At sapiente facere exercitationem et eveniet. Voluptate voluptas est libero voluptatem voluptatibus.', 464, 454, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178367jEUhp', 7, 'Customizable zeroadministration database', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(106, 24, NULL, NULL, 3, NULL, 'Secured optimal frame', '264', 'productImages/35.png', NULL, 'Porro qui sunt accusantium sapiente enim suscipit enim. Ut est voluptatem qui impedit autem. Voluptas voluptas possimus alias qui non iure. Minima et dolores ipsa non dolorem.', 'Maiores doloremque sit est. Consectetur autem quos ipsa dolorem at est minus. Sit aperiam et repellendus nisi quidem laboriosam ipsa. Consequuntur necessitatibus inventore nulla harum. Quisquam a quia amet deleniti. Cum doloribus porro nihil sit tempore dolorem provident. Nobis qui eligendi sunt numquam.', 'Et earum reprehenderit praesentium totam cum. Dolores harum qui dignissimos dolore. Inventore vitae amet quam consequatur omnis.', 'Dignissimos ea architecto consequuntur pariatur ipsum. Praesentium sit beatae sed numquam laborum. Vel molestiae necessitatibus aut nobis.', 796, 786, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178367bLncU', 8, 'Secured optimal frame', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(107, 19, NULL, NULL, 4, NULL, 'Reduced object-oriented productivity', '219', 'productImages/32.png', '[\"30.png\",\"28.png\",\"40.png\",\"37.png\"]', 'At sint libero odit. Voluptate commodi totam perferendis quia. At illo doloremque non.', 'Eum porro nisi qui ullam corporis. Eius numquam sed voluptatum eos assumenda aperiam error. Voluptate corporis quo sunt eaque necessitatibus natus dolores. Aut molestias architecto fugit consequuntur molestias. Unde voluptatem omnis amet earum eius in aperiam. Eligendi similique eum velit distinctio suscipit sit velit et. Autem dolorum qui nobis voluptatem.', 'Sunt nobis sed tempora dicta quaerat tempore. Dolore in illo qui est est. Neque sit nihil dolorum reiciendis quisquam vel fuga. Quidem dignissimos quo perferendis reiciendis repellat.', 'Enim ea deleniti explicabo tenetur alias facere. Nostrum quidem itaque ullam molestiae molestias alias consequuntur.', 405, 395, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '17041783670NbVp', 7, 'Reduced object-oriented productivity', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(108, 20, NULL, NULL, 4, NULL, 'Assimilated radical project', '716', 'productImages/39.png', NULL, 'Voluptate non dolorum voluptatem adipisci. Quos aspernatur incidunt non velit architecto sed. Velit consequatur consectetur similique adipisci quibusdam distinctio.', 'Non consequatur soluta culpa ex. Tempora sit itaque necessitatibus consequatur qui. Asperiores eum sed a quo aliquid. Vitae hic dolorum vitae voluptatibus aut. Est officia culpa quo neque natus. Eveniet sunt dolor blanditiis corrupti velit corrupti ea. Nulla nemo voluptatibus tempora dolores optio. Voluptates nobis distinctio magnam voluptatem quas.', 'Non commodi necessitatibus quos recusandae ea cupiditate voluptas dicta. Sit libero omnis nihil culpa in ipsa consequatur impedit. Earum voluptate quam sit voluptatem. Molestias a ut dicta ut.', 'Fugit et corrupti qui molestiae ut saepe. Perspiciatis facilis incidunt alias est dolorem deleniti quo.', 427, 417, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178367nKmpQ', 9, 'Assimilated radical project', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(109, 27, NULL, NULL, 3, NULL, 'Multi-channelled eco-centric productivity', '348', 'productImages/22.png', '[\"25.png\",\"27.png\",\"39.png\",\"30.png\"]', 'Nulla dicta architecto tempora natus. Quaerat asperiores eius quis non tempora. Sint aut ipsum ut perferendis iusto alias deserunt.', 'Qui natus excepturi officiis porro veniam repellendus est. Tempore aliquam officiis sit ut. Porro sapiente cupiditate fuga aut. Velit ducimus sequi harum ut fugit quae. Omnis sed corrupti et non nihil. Dicta reprehenderit atque eveniet mollitia quia enim debitis necessitatibus.', 'Ut laborum ipsum dolores quisquam. Et exercitationem qui id illo quis. Iste voluptatibus distinctio voluptates doloribus omnis.', 'Quasi recusandae numquam a eveniet non. Minus est esse quo cumque possimus aspernatur possimus aut. Autem accusantium quis labore ipsum beatae. Similique explicabo et soluta aperiam.', 940, 930, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178367FbACB', 7, 'Multi-channelled eco-centric productivity', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(110, 30, NULL, NULL, 4, NULL, 'Balanced neutral attitude', '654', 'productImages/22.png', NULL, 'Animi laudantium sunt est sit possimus optio magni quia. Illum dolores est asperiores quisquam quas accusantium. Iste ipsam odio et incidunt pariatur.', 'Autem velit ut qui recusandae error voluptas quae. Quibusdam neque voluptate repellendus voluptate. Dolorum omnis est quis dolorem qui vel corrupti quibusdam. Expedita fuga odio repellendus aut quia voluptatem libero sit. Debitis asperiores dolor autem neque.', 'Dolore voluptates architecto sequi architecto non quaerat natus. Amet amet quasi dolorem rerum dignissimos. Sunt voluptatibus dolorem porro.', 'Recusandae quo ab assumenda praesentium repudiandae deserunt. Qui unde quia voluptatem cumque et iure ut. Ut asperiores est qui qui sunt.', 224, 214, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178367lFRyp', 9, 'Balanced neutral attitude', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(111, 25, NULL, NULL, 5, NULL, 'Devolved real-time software', '592', 'productImages/24.png', '[\"31.png\",\"23.png\",\"32.png\",\"26.png\"]', 'Maxime velit eaque architecto aut assumenda. Consequatur voluptas et accusantium ea molestias optio. Ducimus asperiores cum minus sunt voluptatem consequatur.', 'Minus eveniet ratione harum impedit officia consequatur dolore est. Id modi mollitia tempore facere occaecati. Magnam suscipit consectetur autem molestiae. Fugit sunt iste veritatis sit totam debitis et sunt. Eligendi sit unde veritatis inventore. Eos vero totam quis distinctio distinctio. Aperiam at velit quia. Sint animi facere voluptates et quibusdam sit.', 'Voluptatem impedit porro et impedit autem nobis. Illum veritatis minus similique facilis. Non vel veritatis velit illo.', 'Aliquam sed corporis et consequatur voluptatem alias. Et excepturi natus repudiandae ad explicabo id. Consequatur nobis consequatur non ea dolores enim.', 990, 980, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178367h026v', 6, 'Devolved real-time software', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(112, 23, NULL, NULL, 6, NULL, 'Front-line web-enabled flexibility', '150', 'productImages/26.png', NULL, 'Quaerat quo eos est optio laborum. Asperiores est a tempora aut. Earum id qui velit aut fuga.', 'Quia fugiat ratione repellat. Omnis aspernatur magnam reprehenderit et corrupti. Sit sunt corrupti nihil aliquid. Magni exercitationem tenetur omnis cupiditate ullam. In similique perspiciatis doloribus et dolor. Temporibus voluptatum totam aut eveniet qui omnis dolores voluptatem. Ex iste cumque voluptas distinctio.', 'Officia accusantium ullam ipsa expedita facere voluptas. Omnis possimus aut libero molestiae minus qui odit. Est nihil perspiciatis officiis repudiandae.', 'Dolor molestias sequi et doloribus consequatur voluptates. Aut totam qui asperiores delectus voluptate ut. Quia dolorum aut doloribus labore aliquid illum. Voluptatem quaerat ex numquam.', 454, 444, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178367hdy30', 8, 'Front-line web-enabled flexibility', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(113, 20, NULL, NULL, 7, NULL, 'Implemented upward-trending initiative', '236', 'productImages/33.png', '[\"37.png\",\"22.png\",\"25.png\",\"22.png\"]', 'Dicta voluptate quo cumque ab. Voluptate nam fugiat voluptates et delectus.', 'Repudiandae rerum nihil omnis consequatur. Incidunt earum et sit. A eius non atque perferendis aspernatur sed. Nulla eius quod alias laboriosam accusamus. Eligendi tenetur non tempora quibusdam. Nihil architecto asperiores quaerat itaque deleniti.', 'Qui pariatur pariatur ipsa commodi eum. Accusantium consequatur blanditiis dolor aut. Nihil delectus et enim a veritatis numquam natus.', 'Mollitia maxime ut et alias. Cupiditate numquam iure beatae. Ratione sequi labore esse. Aut ut autem a et.', 480, 470, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178367xz1fs', 7, 'Implemented upward-trending initiative', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(114, 31, NULL, NULL, 3, NULL, 'Cross-platform radical application', '435', 'productImages/37.png', NULL, 'Cumque a exercitationem reiciendis voluptate quis ipsum expedita. Totam deserunt doloremque laudantium corrupti voluptatem ratione voluptas harum. Earum dolor quod iste enim ducimus.', 'Ipsam illo distinctio adipisci et eius. Laboriosam eum exercitationem numquam suscipit possimus. Ad aut occaecati similique ut. Assumenda rerum aliquid et tenetur. Sapiente sit dolor perferendis commodi ut. Omnis assumenda quia temporibus facilis optio velit error. Velit est magnam repellendus voluptatem enim velit. Nulla eos qui deleniti a enim reprehenderit.', 'Nobis est molestias molestiae explicabo qui voluptas. Ut vero natus ratione consequuntur mollitia rerum alias. Deleniti esse ut dolorem voluptatem aliquid molestiae sit. Nam non voluptatum illo quam.', 'Sapiente fuga rem blanditiis eaque voluptas. Earum officiis fugit dolorem aut quos optio. Accusamus ducimus aliquam dolorem incidunt recusandae aut. Eos odio voluptatum sit ut adipisci non.', 318, 308, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178367Cka6s', 8, 'Cross-platform radical application', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(115, 28, NULL, NULL, 7, NULL, 'Grass-roots 4thgeneration orchestration', '606', 'productImages/30.png', '[\"29.png\",\"30.png\",\"40.png\",\"37.png\"]', 'Sint laborum qui aut numquam. Voluptas magnam rerum quam beatae. Minus nesciunt soluta cum quia inventore dolorem qui aliquid. Distinctio placeat consequatur necessitatibus rerum enim nihil.', 'Ut non velit harum aperiam facilis officia. Impedit tenetur corrupti praesentium ipsam. Omnis et enim distinctio asperiores itaque qui officia. Nam quasi neque debitis sapiente velit est. Aperiam aliquam quibusdam minima ad sit unde. Quasi dolore et earum nobis. Est possimus deleniti et quo ipsam dignissimos. Eum saepe cupiditate sunt sunt ea.', 'Nisi et ut reiciendis ab. Cupiditate eos quidem repellat. Eligendi aut tempora consequatur odio quisquam ut accusamus. Quasi cumque magni aut officiis.', 'Deleniti fuga inventore autem laboriosam. Placeat et sint dolore sunt ut qui.', 484, 474, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178367lqvMq', 6, 'Grass-roots 4thgeneration orchestration', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(116, 18, 60, NULL, 6, NULL, 'Centralized neutral contingency', '807', 'productImages/28.png', NULL, 'Similique eos ut porro aspernatur. Et repellendus adipisci accusamus. Eveniet ducimus et autem corporis ut vero vel quisquam. Illum at quia vel est distinctio error.', 'Fugiat et facilis porro qui. Corrupti quam dolor ut quam est amet. Facere dolorum eum mollitia assumenda perferendis. Doloribus est suscipit modi sapiente atque. Quia voluptatibus laborum qui beatae. Quia eligendi qui molestias reiciendis exercitationem qui qui.', 'Sint delectus dolorum earum aspernatur ipsam sint. Accusamus voluptates a deserunt modi aut adipisci optio. Et in rerum quis ut nemo aliquam natus est.', 'Culpa quaerat aliquam fuga vero. In molestiae sit cumque nulla sed qui id. Et cupiditate omnis minus similique officia rerum exercitationem. Veniam et maxime et nostrum.', 434, 424, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178367aTqNP', 8, 'Centralized neutral contingency', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(117, 32, NULL, NULL, 5, NULL, 'Reactive zeroadministration contingency', '199', 'productImages/32.png', '[\"22.png\",\"38.png\",\"36.png\",\"33.png\"]', 'Enim consequatur numquam sit sed. Non minima commodi quisquam. Voluptatibus ut et ea temporibus. Numquam error in iure voluptatem vel eum odio.', 'Dolores facilis enim impedit at eveniet aspernatur. Nulla aut repudiandae quasi temporibus laboriosam nobis. Magnam quis mollitia dolor qui dolores. Reprehenderit doloremque quo debitis voluptate. Accusamus quidem sed voluptatem quidem quia. Vero culpa a cumque dolor. Exercitationem voluptatum maiores voluptatem est. Fuga praesentium commodi aliquid quis ducimus nihil.', 'Quibusdam illum at in quod modi dolores a. Et omnis asperiores quaerat iure quae.', 'Ea et quia numquam et beatae nisi fugiat. Repellendus distinctio non inventore est vitae aut doloribus. Ut minus qui nisi explicabo.', 126, 116, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178367mV76Y', 7, 'Reactive zeroadministration contingency', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(118, 26, NULL, NULL, 2, NULL, 'Triple-buffered logistical moratorium', '372', 'productImages/34.png', NULL, 'Labore aut delectus quia sit. Adipisci nihil deleniti cupiditate. Blanditiis aut ducimus animi ut sed maxime. Qui voluptate iusto numquam.', 'Libero eveniet et maiores doloremque voluptatem ipsum. Eaque aut enim harum et. Earum doloribus ut veniam vel culpa. Impedit occaecati cum et dolorem magni et. Fuga ex ut et. Dolorem omnis velit sint voluptas quae nisi. Et explicabo iusto ea incidunt ducimus adipisci rerum. Dicta illum quia qui. Quis unde quo eaque cum nam velit veritatis. Sit assumenda placeat quia quis.', 'Modi quod perspiciatis animi enim inventore. Est qui cumque veritatis dolorum ea. Ea in odio vel consequatur autem et quis dolores.', 'Fuga ut voluptas voluptas neque doloribus fugit. Ab ea ipsam ad similique voluptatem qui. Quas aut voluptas et. Et quia architecto qui eius aut natus. Explicabo doloremque et minima.', 138, 128, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178367wdjmY', 8, 'Triple-buffered logistical moratorium', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(119, 30, NULL, NULL, 6, NULL, 'Configurable methodical artificialintelligence', '602', 'productImages/31.png', '[\"38.png\",\"29.png\",\"38.png\",\"36.png\"]', 'In excepturi illum sunt. Inventore et quia tempora qui enim. Aut est ducimus sapiente sint rerum et voluptates.', 'Corporis sed ut cupiditate iste et est odit. Occaecati quaerat magnam animi fuga. Delectus qui qui animi. Architecto fugit optio sed necessitatibus. Minus quos labore qui in odit vero facere. Ab eius in omnis optio at. Pariatur quos maxime tempora quia qui vel. Laborum ut dolorem modi. Similique inventore odit asperiores magni. Eius sint ut omnis rerum. Maxime nobis at dolor.', 'Voluptatem a tenetur blanditiis quia minima non numquam. Laudantium nulla vitae autem hic cupiditate repellendus. Voluptates pariatur nesciunt at libero ut.', 'Minus culpa officiis velit aperiam ut nam officiis fugiat. Et et nam id natus eum aut fugit. Tempore deleniti vel voluptas et ut ipsa.', 151, 141, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17041783673RPBd', 6, 'Configurable methodical artificialintelligence', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(120, 17, 55, 3, 3, NULL, 'Seamless intangible monitoring', '351', 'productImages/38.png', NULL, 'Voluptatum quo ea debitis accusamus. Fuga harum vitae est sit quam officia odit. In laudantium magnam ratione.', 'Quidem deleniti minus quidem dolor. Sequi consequatur accusamus vel fugit ea ipsum veniam. Vel aut a labore voluptatem tempore deleniti. Voluptatibus id veniam dignissimos. Accusantium nulla provident autem quisquam non culpa. Maxime explicabo et quos sapiente. Quia consequatur ut aut porro quis non.', 'Minima et sint beatae quae aliquid. Hic repellendus esse vitae mollitia neque molestias. Minima explicabo quis assumenda sint.', 'Mollitia est enim pariatur magnam id. Architecto omnis sit dignissimos ad. Dolor dolorem exercitationem iure. Rem quisquam libero illum voluptates corrupti velit.', 976, 966, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178367Yi8LR', 8, 'Seamless intangible monitoring', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
+(121, 30, NULL, NULL, 4, NULL, 'Visionary value-added focusgroup', '475', 'productImages/37.png', '[\"33.png\",\"37.png\",\"38.png\",\"21.png\"]', 'Quia ratione nihil maxime sequi quibusdam sed itaque. Deserunt quam mollitia ratione neque cum perferendis ullam.', 'Deleniti sint aliquid autem ex. Eligendi aut et nobis est. Quos ea iusto illum est reprehenderit commodi. Et quia rerum maiores perspiciatis nam soluta. Eveniet dolores non temporibus eius aut provident rerum odit. Porro repellat facilis consequatur mollitia libero.', 'Placeat optio dolorem libero ipsa. Est accusamus unde quia eligendi sit ad. Rerum officia ea est qui est.', 'Facere aperiam voluptate et tempore doloribus minima. Quos aut quia molestias laboriosam nobis sed enim. Dicta occaecati nihil veritatis aliquam. Ullam rerum quia eaque sunt numquam.', 902, 892, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178433tP0js', 7, 'Visionary value-added focusgroup', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
+(122, 27, NULL, NULL, 6, NULL, 'Networked even-keeled standardization', '680', 'productImages/34.png', NULL, 'Non quia autem veniam sint quod excepturi. Deserunt sit ut et cumque. Voluptas est nihil nobis vitae aut facilis facere omnis.', 'Et et delectus suscipit accusantium necessitatibus voluptatem qui repellendus. Quisquam a natus optio saepe quisquam aut accusamus. Sed ut et facere eum dicta. Dolore deleniti facere et iusto. Velit placeat ullam est. Ut id aut iusto a quis. Debitis fugit veniam sit et. Sed dolor officiis temporibus temporibus dolor fugit. Aperiam id est tenetur ut architecto est totam incidunt.', 'Laborum earum sequi dolorum maiores aut. Labore occaecati repellendus aspernatur quis beatae sit quidem.', 'Est nobis quidem fugit voluptas. Itaque et quisquam quia quia ipsam. Dignissimos suscipit dolor nisi error sunt et cupiditate.', 818, 808, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178433cNjhI', 6, 'Networked even-keeled standardization', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', NULL),
+(123, 20, NULL, NULL, 3, NULL, 'Assimilated multimedia migration', '537', 'productImages/38.png', '[\"39.png\",\"32.png\",\"37.png\",\"24.png\"]', 'Sunt aut veniam dolorum praesentium et molestiae. Id nemo voluptas magni quis corporis beatae qui et. Dolorum nihil reiciendis porro ut.', 'Quibusdam tempora sapiente vel nesciunt nam labore. Et voluptas inventore praesentium molestiae. Et quam eos officiis hic vel pariatur enim consequatur. Consequatur repellat inventore voluptatem. Aut dignissimos atque voluptas illo et mollitia. Illo exercitationem mollitia eum necessitatibus.', 'Cum soluta enim ea rerum natus repellendus. Ipsa aut aut dolor est saepe. Laudantium vero ab ratione provident perspiciatis qui maiores. Quam asperiores ad commodi atque quas voluptas.', 'Nemo blanditiis aut pariatur excepturi in perferendis. Quaerat quae amet perferendis quia quasi autem voluptatem. Ad illo consequuntur sequi.', 426, 416, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178433aI0wu', 6, 'Assimilated multimedia migration', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
+(124, 17, 59, NULL, 4, NULL, 'Centralized eco-centric paradigm', '788', 'productImages/21.png', NULL, 'Est rerum sit libero adipisci inventore. Facere qui sed nam. Pariatur repudiandae veniam quis sint repellat. Natus harum exercitationem iusto est. Dolor aut odit quibusdam.', 'Et possimus est id eaque qui earum iure. Voluptatum quisquam voluptas rem tenetur autem voluptate ullam. Aut sit saepe eum tenetur optio ut. Occaecati in neque necessitatibus est non minima. Maiores culpa ut vel consequatur quidem. Harum illum aut velit officiis. Illo cumque libero corrupti rerum blanditiis tenetur. Neque et omnis dolor doloribus modi dolorem.', 'Qui sint qui porro accusamus. Dolores quia rem velit voluptates libero. Sit nihil ut reprehenderit cupiditate. Numquam quae et voluptas eos molestiae.', 'Nostrum enim iusto vel ipsa aut cumque. Pariatur nobis voluptates ipsa minus. Nesciunt quia quaerat nobis in. Odit iusto reprehenderit libero reiciendis qui cupiditate.', 952, 942, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178433XPZwZ', 7, 'Centralized eco-centric paradigm', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', NULL),
+(125, 24, NULL, NULL, 2, NULL, 'Networked 6thgeneration database', '769', 'productImages/30.png', '[\"33.png\",\"21.png\",\"25.png\",\"40.png\"]', 'Et ut omnis officiis consequatur illum. Impedit modi dolorem dolores a et. Aut sequi omnis non quia libero.', 'Iure aut quae quos adipisci magnam magni ad. Itaque sed dolores porro. Voluptatem autem minima rerum sunt ratione ut facere. Nihil velit aut aut autem dolor. Et qui non doloribus. Excepturi culpa consectetur fugiat aut praesentium est qui eligendi. Maiores sit repellendus suscipit soluta est et.', 'Beatae error ea sint dolorem est. Omnis eum aut possimus nisi. Rerum rem dolores voluptatem placeat.', 'Nisi harum harum placeat unde nisi omnis. Qui quaerat et nihil. Qui repudiandae voluptatum ut suscipit eum aut.', 620, 610, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178433R341Z', 6, 'Networked 6thgeneration database', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
+(126, 20, NULL, NULL, 7, NULL, 'Persistent demand-driven framework', '943', 'productImages/UB0zv1704278299.png', NULL, 'Vel velit ducimus cumque corporis. Non reiciendis tempore sed incidunt non. Vel eum natus qui aut sint.', '<p>Dolorem voluptas aut sint iusto optio sit. Sapiente magni ea necessitatibus dolore. Corporis sint culpa aut dolorum ut et. Doloremque reiciendis eveniet veritatis ducimus voluptatem delectus. Omnis architecto mollitia provident quis harum officia.</p>', '<p>Debitis laborum animi vero voluptate dolores. Nobis sit eum quasi dolor. Temporibus nemo vitae illum velit tempore fuga dolores.</p>', '<p>Et corporis rerum facere harum dolore cumque. Impedit similique ut commodi veritatis. Autem inventore aut aliquam veniam pariatur porro. Sapiente labore repudiandae nihil.</p>', 971, 961, 0, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178433KWBRt', 7, 'Persistent demand-driven framework', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', '2024-01-03 10:38:55'),
+(127, 28, NULL, NULL, 4, NULL, 'Advanced client-driven complexity', '841', 'productImages/34.png', '[\"31.png\",\"37.png\",\"26.png\",\"33.png\"]', 'Non quo tempore et nulla. Quia aut sed dicta consectetur veniam quam. Et maxime repellendus sit in.', 'Occaecati et tenetur est. Soluta est expedita consectetur voluptatibus error. Voluptatem nostrum aut ab consequatur assumenda. Sit doloremque repellat dolores excepturi alias. Et maiores officia at dignissimos et. Dolor quam quo earum similique. Sit optio voluptate iste.', 'Dolorem enim minus dignissimos eveniet. Numquam eos quia eum sed dolorem doloremque iure voluptatem. Nihil dolorem qui tempore sed inventore maiores molestiae.', 'Dolores quia aliquam quam voluptatem. Cumque ut possimus nobis quis eum harum neque quas. Dolor sequi labore eligendi assumenda est accusamus. Unde quae et eius quia.', 391, 381, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '17041784335Rk3H', 6, 'Advanced client-driven complexity', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
+(128, 28, NULL, NULL, 2, NULL, 'Multi-layered local solution', '194', 'productImages/31.png', NULL, 'Sed amet quis est omnis. Cumque culpa minus amet aliquam non officia. Assumenda aut in voluptatum veniam et et sit. Velit qui eos aperiam.', 'Commodi numquam non veritatis at beatae sint non. Omnis blanditiis deleniti eos qui nulla sit. Quisquam deleniti totam sint ut rerum reprehenderit. Quasi placeat aspernatur sint nulla repellendus veniam. Recusandae exercitationem voluptatum dolores aut dolorum dolorem. Eum aliquam similique vel delectus. Similique repudiandae quo non quam consequatur facere consectetur.', 'Possimus fugit ipsam rerum in voluptas qui. Possimus et praesentium similique eligendi quia. Aut et et veniam maiores velit. Omnis veniam placeat tenetur.', 'Rem autem nihil quibusdam corrupti nam. Iure explicabo sequi eos id eligendi quae delectus iste. Consequuntur autem sunt dolore in.', 458, 448, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178433AaTW4', 7, 'Multi-layered local solution', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', NULL),
+(129, 30, NULL, NULL, 7, NULL, 'Phased exuding moratorium', '166', 'productImages/31.png', '[\"39.png\",\"24.png\",\"30.png\",\"35.png\"]', 'Amet qui quibusdam ipsa rerum. Itaque repudiandae ab blanditiis est enim. Aspernatur eveniet nemo soluta repudiandae iusto placeat velit quia. Non illum repellendus provident.', 'Laborum rerum vel perspiciatis rerum. Voluptatem et qui consequatur commodi vel dignissimos. Fugit a possimus corporis fuga non velit. Ut vel aut eum eos cupiditate ipsum quae. Ea dolor eos molestiae eos placeat. Quo dolore aperiam veniam ducimus est dolorem.', 'Quisquam ea veritatis rerum molestiae ex ipsam. Ut totam exercitationem autem sint explicabo. Qui eum ut quo placeat. Nulla exercitationem et dicta tempora fugiat atque et.', 'Rerum ipsa odio ut voluptatum dignissimos eius laboriosam. Nobis quo tempora voluptas qui aut dolores ducimus et. Nihil dolores optio repudiandae.', 707, 697, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178433vi9GH', 7, 'Phased exuding moratorium', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
+(130, 23, NULL, NULL, 7, NULL, 'Intuitive analyzing orchestration', '126', 'productImages/26.png', NULL, 'Eligendi fugit fuga rem. Quos aut repellendus voluptas ut. Qui voluptates ut aliquam dolorum sed non minus vel. Rerum rerum beatae id aut modi.', 'Quia corporis animi qui similique. Nobis officia dignissimos est reprehenderit ut qui sed voluptate. Eos qui autem magni quo delectus. Earum quo aspernatur earum provident a rerum velit. Nulla laboriosam velit saepe est aut hic alias delectus.', 'Id ut magnam error aut et enim. Vero enim et ut sed corrupti maxime iure et. Totam dicta eos voluptatem non mollitia.', 'Error at necessitatibus facilis molestiae illo non reiciendis. Repudiandae quisquam ipsam blanditiis harum et sint. Eum et sequi sed nostrum. Qui culpa incidunt similique similique nemo cumque et.', 869, 859, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17041784334jlnz', 6, 'Intuitive analyzing orchestration', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', NULL);
+INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
+(131, 20, NULL, NULL, 7, NULL, 'Extended object-oriented protocol', '213', 'productImages/24.png', '[\"33.png\",\"24.png\",\"36.png\",\"24.png\"]', 'Illo sed iure porro doloremque rem quisquam. Rerum magni id dolore quis. Quibusdam est eligendi possimus est soluta temporibus. Autem quisquam in eum dolores ducimus.', 'Odit mollitia iure perspiciatis dolor et enim. Ut dicta consequatur suscipit vel provident. Vero earum quia inventore harum magnam enim repellendus expedita. Sapiente voluptates nisi maiores odio omnis et. Omnis est qui non nam id dolor dolor. Illo error provident ut numquam qui. Itaque quibusdam qui numquam amet dolor. Doloremque ullam dolores laborum et debitis.', 'Deleniti aut deserunt in illum. Sed sunt sunt dolor mollitia sit molestiae quia. Ipsum assumenda perferendis ea quidem nam.', 'Ut modi molestias quia corporis placeat tempore. Aut quod quod molestiae illum perspiciatis dolore. Voluptate vel ullam non harum.', 417, 407, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178433qighH', 7, 'Extended object-oriented protocol', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
+(132, 18, 60, NULL, 6, NULL, 'Object-based hybrid standardization', '321', 'productImages/28.png', NULL, 'Dolores deserunt magnam et est. Dolorum explicabo earum consectetur voluptas laudantium. Est eligendi et est ratione et quisquam.', 'Illum aspernatur laboriosam mollitia. Quia eos et nobis quos. Rerum reiciendis adipisci aut. Consequatur possimus autem eligendi error voluptatem repellat. Non sunt distinctio eos exercitationem. Qui libero aspernatur qui.', 'Voluptatum odit illum alias id voluptas. Omnis ut iusto aliquam vitae soluta molestiae quasi. Sequi ratione architecto sed qui libero omnis. Ab libero consectetur laboriosam ut deserunt ut molestiae.', 'Ut libero et aspernatur libero praesentium est vel esse. Quam ducimus a sed quis. Voluptatum sunt iusto et facilis.', 890, 880, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178433mu4yX', 9, 'Object-based hybrid standardization', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', NULL),
+(133, 19, NULL, NULL, 1, NULL, 'Triple-buffered heuristic task-force', '971', 'productImages/39.png', '[\"29.png\",\"31.png\",\"29.png\",\"35.png\"]', 'Illo qui sit quam nobis expedita itaque dolores. Enim voluptate expedita dolorem. Hic labore aut ut vel autem inventore. Molestias est tempore incidunt laborum debitis sit.', 'Velit molestiae voluptatem unde. Facilis quo suscipit dicta. Odit corrupti temporibus commodi et vel quo necessitatibus. Esse porro dicta quia autem expedita ipsum est impedit. Accusantium dolores et expedita animi repudiandae. Possimus facilis omnis sit beatae est. Laborum id et dolorem molestiae.', 'Sunt eligendi reprehenderit sequi itaque autem autem non. Autem sunt id dolores ut. Itaque eius qui consequatur accusamus.', 'Voluptatem sed aspernatur cupiditate. Est voluptas veniam doloribus sit modi. Et dignissimos repellendus amet dolorem.', 292, 282, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178433qnuiD', 6, 'Triple-buffered heuristic task-force', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
+(134, 28, NULL, NULL, 4, NULL, 'Team-oriented maximized neural-net', '873', 'productImages/25.png', NULL, 'Nulla alias ipsa dolorum. Et delectus dolorem quam. Assumenda atque voluptatum quia.', 'Magnam ipsam et nihil. Et libero suscipit facere rerum nemo aut. Asperiores quaerat unde consectetur sit in. Quae delectus atque corporis quas voluptatem. Porro adipisci quae illum eius enim. Culpa sunt ex ut quae optio. Repellat earum quia et nesciunt. Sit id est eveniet omnis rerum nihil. Asperiores et nihil qui doloribus voluptas ut reiciendis velit.', 'Aliquam corporis quos ipsum molestiae. Quia est est dolor dolor ut consequatur. Quo est culpa molestias asperiores.', 'Est quia rerum voluptate. Ea voluptatem officia voluptatibus qui. Sed ea excepturi molestiae deserunt.', 684, 674, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178433jouk3', 7, 'Team-oriented maximized neural-net', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', NULL),
+(135, 31, NULL, NULL, 4, NULL, 'Triple-buffered interactive approach', '642', 'productImages/32.png', '[\"22.png\",\"22.png\",\"22.png\",\"38.png\"]', 'Laboriosam ut magnam eos ut numquam labore omnis. Ex possimus illo placeat. Sunt eveniet dolorum quaerat similique ad modi eaque. Commodi numquam est voluptas culpa molestiae.', 'Numquam ut et impedit. Repellendus sint rerum omnis fugiat laboriosam quae quasi suscipit. Est vel expedita sit provident. Debitis tenetur molestias assumenda impedit. Pariatur totam voluptatum sit harum et cupiditate. Mollitia iste quis aut vel sit ea. Velit amet officiis provident facilis placeat. Recusandae architecto occaecati minima quaerat et. Sunt magni culpa cumque tenetur iste.', 'Ut itaque mollitia quia sapiente sunt nulla. Impedit facere sed sit quia. Totam facere et ut dolorem vitae. Dolorum animi ut eius asperiores. Sit consectetur laborum in.', 'Incidunt culpa aperiam possimus reiciendis dicta temporibus voluptatem blanditiis. Explicabo reprehenderit eos consectetur commodi repellendus.', 295, 285, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178433jhujw', 6, 'Triple-buffered interactive approach', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
+(136, 18, 60, NULL, 7, NULL, 'iPhone 15 Pro', 'Iphone-15-Pro', 'productImages/26.png', NULL, 'Qui cumque maxime maiores est expedita. Eius sint quaerat voluptatem id nulla optio debitis. In sit consectetur voluptatem. Officiis quas maiores dolor recusandae.', '<p>Nihil doloremque quia quia quibusdam sint reprehenderit. Veniam esse sunt eos. Voluptas facilis et quidem repudiandae in dolorem qui. Ut nostrum sunt eaque minima. Qui optio totam iusto voluptatem illo et. Accusamus velit excepturi unde iste et ex. Illo cumque tempore laborum expedita aliquam. Quia tenetur ut velit dolore.</p>', '<p>Incidunt ut velit ut sint aut nulla impedit animi. Animi sunt mollitia quisquam sit ea minus fugit deleniti. Animi ut veritatis qui rem. Dolor vel iure nesciunt temporibus.</p>', '<p>Corrupti consequuntur sed et sequi a. Accusamus quia minus sequi. Nostrum libero autem enim illo. Laudantium ea cum sit velit reiciendis ex.</p>', 610, 600, 0, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178433sV6Ha', 9, 'Integrated transitional superstructure', 'product,demo', 'Integrated transitional superstructure Integrated transitional superstructure Integrated transitional superstructure', 1, 1, 1, '2024-01-02 06:53:53', '2024-01-04 10:05:58'),
+(137, 20, NULL, NULL, 3, NULL, 'Digitized 24/7 support', '914', 'productImages/21.png', '[\"21.png\",\"21.png\",\"31.png\",\"27.png\"]', 'Explicabo qui qui necessitatibus eos cumque unde repellat fuga. Sint nobis est quidem corporis debitis tenetur facere sit. Et minima quae voluptas. Repellendus perferendis vitae quae itaque.', 'A ex non excepturi consequatur illum qui rem eligendi. Sit aut laboriosam voluptatem. Qui sit id in sapiente ea. Repellendus laboriosam vel voluptates voluptas modi aut et in. Repellendus fugiat autem sit voluptatum blanditiis est mollitia. Et et doloremque omnis dolorem.', 'Quia totam quas nam dolorem ea dolorum non. Asperiores veritatis minus enim est et quas qui et. Ut id sed quasi consectetur adipisci.', 'Omnis consequatur sunt quia recusandae ut. Cum itaque ea non sed id. Accusantium aut sequi corrupti et debitis. Aut voluptates magnam temporibus nostrum saepe minus sit et.', 392, 382, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178433ftesS', 6, 'Digitized 24/7 support', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
+(138, 26, NULL, NULL, 4, NULL, 'Right-sized multi-state instructionset', '123', 'productImages/34.png', NULL, 'Voluptas voluptatem eius ut deleniti repudiandae facilis beatae. Aut rerum iusto aliquam beatae. Quo veniam rerum corrupti est alias et blanditiis neque. Odio aspernatur est corporis voluptas nam.', 'Dignissimos provident et quisquam unde. Unde et tempora maxime dolore est expedita. Voluptates dolores magnam itaque explicabo necessitatibus harum ut. Accusamus beatae dolorem voluptatibus est iusto rerum itaque. Ut totam rerum explicabo perspiciatis expedita optio sint. Sit earum et sequi ut voluptas et. Dolor animi sed quo officia et. Velit distinctio quia odit facilis.', 'Et enim sed eligendi omnis doloremque. Minus officiis sapiente beatae voluptatem temporibus corrupti temporibus. Sit omnis veritatis non perferendis dolorem eaque placeat eius.', 'Minima nemo esse dolorem veritatis. Quis qui dignissimos ut numquam. Quia consectetur ut voluptatem labore laboriosam quisquam illo.', 625, 615, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178434C2C8y', 8, 'Right-sized multi-state instructionset', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
+(139, 22, NULL, NULL, 3, NULL, 'Synergistic fault-tolerant superstructure', '512', 'productImages/32.png', '[\"30.png\",\"35.png\",\"25.png\",\"21.png\"]', 'Deleniti cumque voluptatem debitis impedit voluptatem ipsa sequi. Ducimus ut veniam eum numquam. Est qui et sequi laudantium. Cumque et omnis cupiditate quia et eius ratione velit.', 'Non porro dicta quis. Consequatur tempore numquam rem maiores in consectetur amet. Sequi facilis voluptates aut atque ipsa natus. Hic cupiditate et aut voluptatem facere eius id odio. Non ratione expedita porro necessitatibus rerum et. Ipsa quod consequatur tempore molestiae velit. Nam non magni ullam qui eligendi.', 'Et dolor nemo est nihil expedita cupiditate et. Nemo rerum mollitia quos dolorum. Id adipisci inventore quo saepe aut.', 'Iste rem corporis eius molestias sed laudantium. Quia quos nam expedita impedit iusto expedita.', 407, 397, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178434V2MIB', 8, 'Synergistic fault-tolerant superstructure', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', NULL),
+(140, 32, NULL, NULL, 2, NULL, 'Up-sized static extranet', '432', 'productImages/22.png', NULL, 'Placeat iure odit et maxime et sed omnis. Error quae ad ex accusamus aut ad tempore rerum. Ipsa ex in eveniet maxime possimus nostrum ullam. Nostrum cum ut non temporibus animi.', 'Molestias et cum veritatis officiis labore. Ut velit quisquam possimus rerum. Officiis id maxime illo. Aut cumque nemo eum omnis maxime doloribus. Ipsam ea quia et ullam assumenda unde. Officia omnis nemo voluptatem voluptatem. Qui totam et libero sed sit.', 'Maiores repudiandae rerum excepturi et fugit iure. Ipsum veniam perferendis quidem doloribus. Minus recusandae ullam ratione omnis. Et quo et et iusto adipisci accusantium ut.', 'Sapiente corporis et corrupti in ex consequuntur eos vel. Vel earum omnis dolores.', 624, 614, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178434wXAhr', 7, 'Up-sized static extranet', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
+(141, 20, NULL, NULL, 2, NULL, 'Reactive assymetric customerloyalty', '118', 'productImages/29.png', '[\"34.png\",\"29.png\",\"23.png\",\"27.png\"]', 'Labore dolorum quasi quaerat nam quaerat laborum labore atque. Nostrum eos voluptatem iure aut reiciendis atque consectetur.', 'Nihil sed culpa nisi nam autem. Ut suscipit ut veniam. Eius consectetur voluptas reprehenderit reiciendis voluptatum et magni. Quae sed ratione velit ex quia. Laboriosam nam voluptatem aliquam voluptatem fuga quasi. Sapiente aliquid beatae reiciendis. Numquam qui eum et inventore ut occaecati iste. Id molestiae est non blanditiis est.', 'Repellendus molestias consectetur non. Eum non cum est assumenda sapiente et repellendus. Consequuntur sint est repellendus dolor. Ipsa quo adipisci nisi.', 'Animi numquam quod reiciendis quam neque ea porro. Incidunt consequatur culpa ea possimus officia. Iste sequi alias laudantium.', 237, 227, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178434TQBKB', 9, 'Reactive assymetric customerloyalty', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', NULL),
+(142, 17, 59, NULL, 7, NULL, 'Inverse non-volatile collaboration', '901', 'productImages/29.png', NULL, 'Corrupti dolores consequuntur eum nulla optio quis. Perspiciatis exercitationem consequatur et dignissimos. Dolores voluptas dolorum velit iusto beatae et iusto.', 'Cupiditate id est at. Et sed ullam tenetur rerum eum voluptatibus minus perspiciatis. Tempora explicabo molestiae porro nesciunt. Dicta harum tempora ut suscipit maxime doloribus. Neque alias velit eum aperiam. Enim et sed eveniet unde ut sequi. Molestiae ipsum qui laboriosam.', 'Fugiat doloremque natus perferendis. Ex doloremque delectus quo in repudiandae harum aperiam. Minima est id neque aut.', 'Qui fugiat perspiciatis nobis. Voluptatibus aliquam dolorem odio aliquam. Nostrum sed sed libero ullam. Magni nihil facilis quidem facilis nobis sit.', 123, 113, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178434gEpVk', 9, 'Inverse non-volatile collaboration', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
+(143, 28, NULL, NULL, 6, NULL, 'Configurable eco-centric extranet', '139', 'productImages/21.png', '[\"24.png\",\"35.png\",\"37.png\",\"23.png\"]', 'Quidem iste dolorum eius culpa quasi ea illum. Quis voluptatum ex rem. Architecto repellendus eligendi aut doloribus doloremque velit.', 'Cum in rerum eaque ipsa facere. Nemo non numquam iste alias dolores. Omnis aut iure reiciendis quasi saepe reprehenderit. Et reprehenderit aut officiis sed sint inventore voluptas. Veritatis eum libero atque ad amet sit. Deserunt et illo qui at amet. Doloremque molestiae omnis asperiores quasi doloribus.', 'Nostrum dolore enim iusto maxime error asperiores dolores. Ut eos accusamus temporibus neque maxime veritatis. Eius libero praesentium dolores odio libero amet commodi.', 'Maxime rerum in cumque ullam in quae. Iusto nulla sint sequi ipsam. Maiores accusamus accusamus non eligendi recusandae commodi error. Nostrum qui minima fuga quo dolore sed ullam.', 771, 761, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178434kBloC', 6, 'Configurable eco-centric extranet', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', NULL),
+(144, 24, NULL, NULL, 4, NULL, 'Optimized background frame', '561', 'productImages/27.png', NULL, 'Enim alias molestiae dicta ullam numquam. Sequi itaque sit vel. Qui eum voluptas enim explicabo est optio.', 'Quod commodi autem facere et. Ut consectetur aut aspernatur ipsum error impedit. Qui corporis aliquam quia veritatis voluptatibus voluptatum voluptatibus rerum. Eum in dolorem dolores culpa quae quo. Iste ipsum repudiandae magni qui. Architecto quasi itaque voluptatem quia magnam voluptates. Quia voluptatem dolor voluptate voluptatum modi. Temporibus error cupiditate aliquam corrupti.', 'Eum aspernatur sit earum. Dolores rem animi explicabo deleniti. Et blanditiis non porro dolorum aut aut nesciunt. Soluta voluptas ducimus dolor.', 'Et voluptatem ut est ex non. Voluptas doloribus deserunt nemo quisquam aliquam facere. A ut corporis expedita ex placeat non assumenda. Voluptatibus est maxime quasi eveniet fugit quae sit.', 201, 191, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178434yelF0', 7, 'Optimized background frame', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
+(145, 19, NULL, NULL, 1, NULL, 'Profound directional application', '894', 'productImages/25.png', '[\"25.png\",\"33.png\",\"34.png\",\"24.png\"]', 'Vitae magnam maxime voluptatem. Consectetur et temporibus ullam et occaecati itaque. Eveniet distinctio doloremque ut suscipit optio velit distinctio.', 'Voluptatibus ratione doloremque quam dolorem incidunt. Harum eum ad quo voluptatem. Ad quas est eum omnis. Totam consequatur aut ipsum ut ipsum repellat ut. Debitis consectetur ea neque in esse voluptates. Sed nulla ipsam sit ex consequatur sed id. Sed qui totam eligendi possimus qui.', 'Vitae ipsa explicabo maiores ut sit dolor. Sed rerum eos minus tenetur. Voluptas enim consequuntur itaque et harum. Ut consectetur consequuntur consequatur incidunt itaque.', 'Est quaerat occaecati laborum eligendi est minus. Natus architecto possimus nulla quo ducimus eaque. Omnis distinctio libero cupiditate ratione fugit. Maiores et mollitia aut ut est ipsum optio sit.', 107, 97, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178434V9cD5', 9, 'Profound directional application', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', NULL),
+(146, 17, 59, NULL, 2, NULL, 'Proactive didactic alliance', '527', 'productImages/24.png', NULL, 'Molestiae nemo id magnam. Aperiam voluptas aut molestias eveniet. Odio totam voluptatem eum autem quia alias. Autem voluptatem rem et est aperiam magnam.', 'Repellendus quo excepturi non repudiandae cum quod. Sequi perspiciatis voluptas eos aspernatur. Et numquam magnam quaerat omnis. Tenetur deleniti quasi consequuntur porro. Nemo qui assumenda corporis pariatur consequatur dolor. Rerum voluptas laborum recusandae quis iure a. Illo doloremque impedit aliquam laudantium dicta laboriosam voluptas. Ut consequatur debitis praesentium nam et.', 'Ipsum et et quas dolorem doloremque quis asperiores. Eligendi dolorem totam incidunt odio ab eos voluptate. Aut suscipit consequatur dolor fugiat praesentium.', 'Animi aliquam fuga voluptas sunt. Consequatur quis ipsum eos alias ut consequuntur nesciunt. Voluptas laudantium laborum distinctio aut et possimus minima vel.', 238, 228, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178434Zlquo', 8, 'Proactive didactic alliance', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
+(147, 32, NULL, NULL, 7, NULL, 'Triple-buffered 3rdgeneration model', '711', 'productImages/22.png', '[\"37.png\",\"21.png\",\"25.png\",\"27.png\"]', 'Fuga ut ex repudiandae dolorum eum error consectetur tenetur. Rerum iste nulla eum enim error velit sint. Aut quos rerum ea et laudantium quam.', '<p>Tempore in neque quas quidem velit iusto. Nulla quos quasi illo sed enim. Laboriosam voluptas deserunt minima error error. Laboriosam unde est enim earum. Atque vero suscipit harum tempora vel. Ut amet voluptates soluta dolor quasi praesentium. Exercitationem qui id et neque. Ipsam impedit odio sit eum ut excepturi culpa sapiente.</p>', '<p>Fugit doloremque adipisci enim esse qui aut. Eaque expedita et nam. Fugiat asperiores voluptate quis consequatur voluptatem veritatis ex.</p>', '<p>Laborum quia eveniet harum voluptatem consequatur iste omnis. Eos officia consequuntur omnis cupiditate aperiam ipsam. Officiis ad voluptas repudiandae. Consequatur aut iste quia eius et.</p>', 237, 227, 0, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178434MVQpD', 8, 'Triple-buffered 3rdgeneration model', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', '2024-01-02 09:00:34'),
+(148, 28, NULL, NULL, 3, NULL, 'Fundamental zerotolerance conglomeration', '425', 'productImages/24.png', NULL, 'Illo dicta est animi quibusdam cumque. Quisquam dolore aut quas autem. Vel commodi fugit libero sit harum voluptatum. Officia culpa ut voluptas recusandae.', '<p>Accusamus nulla minus voluptatum reprehenderit. Praesentium autem tempora et tempora rerum eum et. Dolores ducimus ducimus et molestiae. Sunt non laborum dolorem. Optio possimus rerum minus. Laborum quisquam quo et amet optio odio.</p>', '<p>Autem voluptatibus quo placeat aspernatur iure. Hic nulla rerum libero quaerat numquam et eos. Sed necessitatibus quibusdam aut.</p>', '<p>Esse ex et tempore modi ut. Ut mollitia aut voluptas nostrum. A deleniti asperiores rem aut nihil quibusdam aspernatur odio.</p>', 927, 917, 0, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178434FWyO7', 8, 'Fundamental zerotolerance conglomeration', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', '2024-01-03 05:38:25'),
+(149, 29, NULL, NULL, 5, NULL, 'Reduced attitude-oriented capacity', '803', 'productImages/35.png', '[\"32.png\",\"28.png\",\"26.png\",\"32.png\"]', 'Omnis ipsum et aspernatur. Exercitationem nostrum soluta laborum. Dolore quasi omnis enim fugit rem vel est molestiae. Non ratione illo voluptatem.', '<p>Ipsam non quos ipsam ad. Quia corporis alias ea voluptatem sed officiis consequatur eius. Voluptatem consequatur ut consectetur molestiae laudantium nam quam. Est blanditiis velit in et in voluptatem. Magnam minus corrupti veniam et est aut. Incidunt ratione amet sunt ducimus laboriosam ut omnis. Minima excepturi libero dolorem veritatis sequi nisi sed.</p>', '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>veritatis sequi nisi sed.</td>\r\n			<td>veritatis sequi nisi sed.</td>\r\n		</tr>\r\n		<tr>\r\n			<td>veritatis sequi nisi sed.</td>\r\n			<td>veritatis sequi nisi sed.</td>\r\n		</tr>\r\n		<tr>\r\n			<td>veritatis sequi nisi sed.</td>\r\n			<td>veritatis sequi nisi sed.</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>', '<p>Commodi veniam facere repudiandae ratione ut non. Vel nulla nostrum libero sunt impedit quo. Illum et et aut iusto esse.</p>', 675, 665, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178434JCXmm', 9, 'Reduced attitude-oriented capacity', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', '2024-01-02 09:42:33'),
+(150, 21, NULL, NULL, 4, NULL, 'Streamlined demand-driven service-desk', '374', 'productImages/32.png', NULL, 'Quam ut totam odio atque eius optio. Odio in ut hic voluptate et quae qui. Aut tempora illum nesciunt harum. Exercitationem fugit perferendis similique cupiditate illo nostrum.', 'Officia non voluptas sequi quia. Dolorum iste sint vitae ducimus ullam minima. Porro sint expedita et possimus minima fugit. Reiciendis quia similique sit qui. Iusto sit corrupti eligendi sit libero ea aut. Sint odit sint et dolorum temporibus eos. Ut dolores rerum enim iste iusto fugit unde.', 'Hic qui consequatur illum ut. Itaque ducimus nemo eos nam. Odio nisi voluptates provident distinctio. Nisi labore sed quos.', 'Dolore molestias voluptatem quis ut. Pariatur id accusamus harum autem corrupti. Dolores qui porro ea.', 758, 748, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178434iiJhc', 9, 'Streamlined demand-driven service-desk', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -2253,26 +1909,226 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
-(61, 31, '32.png', '2023-12-18 11:45:58', NULL),
-(62, 31, '24.png', '2023-12-18 11:45:58', NULL),
-(63, 31, '26.png', '2023-12-18 11:45:58', NULL),
-(64, 31, '37.png', '2023-12-18 11:45:58', NULL),
-(65, 33, '25.png', '2023-12-18 11:45:58', NULL),
-(66, 33, '35.png', '2023-12-18 11:45:58', NULL),
-(67, 33, '31.png', '2023-12-18 11:45:58', NULL),
-(68, 33, '34.png', '2023-12-18 11:45:58', NULL),
-(69, 35, '33.png', '2023-12-18 11:45:58', NULL),
-(70, 35, '25.png', '2023-12-18 11:45:58', NULL),
-(71, 35, '31.png', '2023-12-18 11:45:58', NULL),
-(72, 35, '23.png', '2023-12-18 11:45:58', NULL),
-(73, 37, '27.png', '2023-12-18 11:45:58', NULL),
-(74, 37, '30.png', '2023-12-18 11:45:58', NULL),
-(75, 37, '32.png', '2023-12-18 11:45:58', NULL),
-(76, 37, '39.png', '2023-12-18 11:45:58', NULL),
-(77, 39, '29.png', '2023-12-18 11:45:58', NULL),
-(78, 39, '30.png', '2023-12-18 11:45:58', NULL),
-(79, 39, '37.png', '2023-12-18 11:45:58', NULL),
-(80, 39, '37.png', '2023-12-18 11:45:58', NULL);
+(81, 41, '28.png', '2023-12-31 06:55:31', NULL),
+(82, 41, '30.png', '2023-12-31 06:55:31', NULL),
+(83, 41, '38.png', '2023-12-31 06:55:31', NULL),
+(84, 41, '23.png', '2023-12-31 06:55:31', NULL),
+(85, 43, '26.png', '2023-12-31 06:55:31', NULL),
+(86, 43, '40.png', '2023-12-31 06:55:31', NULL),
+(87, 43, '32.png', '2023-12-31 06:55:31', NULL),
+(88, 43, '33.png', '2023-12-31 06:55:31', NULL),
+(89, 45, '31.png', '2023-12-31 06:55:31', NULL),
+(90, 45, '25.png', '2023-12-31 06:55:31', NULL),
+(91, 45, '31.png', '2023-12-31 06:55:31', NULL),
+(92, 45, '34.png', '2023-12-31 06:55:31', NULL),
+(93, 47, '31.png', '2023-12-31 06:55:31', NULL),
+(94, 47, '37.png', '2023-12-31 06:55:31', NULL),
+(95, 47, '25.png', '2023-12-31 06:55:31', NULL),
+(96, 47, '22.png', '2023-12-31 06:55:31', NULL),
+(97, 49, '21.png', '2023-12-31 06:55:31', NULL),
+(98, 49, '35.png', '2023-12-31 06:55:31', NULL),
+(99, 49, '25.png', '2023-12-31 06:55:31', NULL),
+(100, 49, '27.png', '2023-12-31 06:55:31', NULL),
+(101, 51, '21.png', '2023-12-31 06:55:31', NULL),
+(102, 51, '27.png', '2023-12-31 06:55:31', NULL),
+(103, 51, '24.png', '2023-12-31 06:55:31', NULL),
+(104, 51, '21.png', '2023-12-31 06:55:31', NULL),
+(105, 53, '29.png', '2023-12-31 06:55:31', NULL),
+(106, 53, '26.png', '2023-12-31 06:55:31', NULL),
+(107, 53, '32.png', '2023-12-31 06:55:31', NULL),
+(108, 53, '37.png', '2023-12-31 06:55:31', NULL),
+(109, 55, '33.png', '2023-12-31 06:55:32', NULL),
+(110, 55, '29.png', '2023-12-31 06:55:32', NULL),
+(111, 55, '39.png', '2023-12-31 06:55:32', NULL),
+(112, 55, '28.png', '2023-12-31 06:55:32', NULL),
+(113, 57, '39.png', '2023-12-31 06:55:32', NULL),
+(114, 57, '30.png', '2023-12-31 06:55:32', NULL),
+(115, 57, '21.png', '2023-12-31 06:55:32', NULL),
+(116, 57, '21.png', '2023-12-31 06:55:32', NULL),
+(117, 59, '31.png', '2023-12-31 06:55:32', NULL),
+(118, 59, '39.png', '2023-12-31 06:55:32', NULL),
+(119, 59, '31.png', '2023-12-31 06:55:32', NULL),
+(120, 59, '37.png', '2023-12-31 06:55:32', NULL),
+(121, 61, '36.png', '2024-01-01 04:55:01', NULL),
+(122, 61, '36.png', '2024-01-01 04:55:01', NULL),
+(123, 61, '40.png', '2024-01-01 04:55:01', NULL),
+(124, 61, '29.png', '2024-01-01 04:55:01', NULL),
+(125, 63, '36.png', '2024-01-01 04:55:01', NULL),
+(126, 63, '23.png', '2024-01-01 04:55:01', NULL),
+(127, 63, '23.png', '2024-01-01 04:55:01', NULL),
+(128, 63, '28.png', '2024-01-01 04:55:01', NULL),
+(129, 65, '29.png', '2024-01-01 04:55:01', NULL),
+(130, 65, '34.png', '2024-01-01 04:55:01', NULL),
+(131, 65, '34.png', '2024-01-01 04:55:01', NULL),
+(132, 65, '30.png', '2024-01-01 04:55:01', NULL),
+(133, 67, '34.png', '2024-01-01 04:55:01', NULL),
+(134, 67, '35.png', '2024-01-01 04:55:01', NULL),
+(135, 67, '32.png', '2024-01-01 04:55:01', NULL),
+(136, 67, '30.png', '2024-01-01 04:55:01', NULL),
+(137, 69, '21.png', '2024-01-01 04:55:02', NULL),
+(138, 69, '24.png', '2024-01-01 04:55:02', NULL),
+(139, 69, '22.png', '2024-01-01 04:55:02', NULL),
+(140, 69, '39.png', '2024-01-01 04:55:02', NULL),
+(141, 71, '40.png', '2024-01-01 04:55:02', NULL),
+(142, 71, '31.png', '2024-01-01 04:55:02', NULL),
+(143, 71, '26.png', '2024-01-01 04:55:02', NULL),
+(144, 71, '27.png', '2024-01-01 04:55:02', NULL),
+(145, 73, '32.png', '2024-01-01 04:55:02', NULL),
+(146, 73, '23.png', '2024-01-01 04:55:02', NULL),
+(147, 73, '39.png', '2024-01-01 04:55:02', NULL),
+(148, 73, '29.png', '2024-01-01 04:55:02', NULL),
+(149, 75, '22.png', '2024-01-01 04:55:02', NULL),
+(150, 75, '27.png', '2024-01-01 04:55:02', NULL),
+(151, 75, '33.png', '2024-01-01 04:55:02', NULL),
+(152, 75, '30.png', '2024-01-01 04:55:02', NULL),
+(153, 77, '22.png', '2024-01-01 04:55:02', NULL),
+(154, 77, '40.png', '2024-01-01 04:55:02', NULL),
+(155, 77, '39.png', '2024-01-01 04:55:02', NULL),
+(156, 77, '28.png', '2024-01-01 04:55:02', NULL),
+(157, 79, '37.png', '2024-01-01 04:55:02', NULL),
+(158, 79, '23.png', '2024-01-01 04:55:02', NULL),
+(159, 79, '24.png', '2024-01-01 04:55:02', NULL),
+(160, 79, '28.png', '2024-01-01 04:55:02', NULL),
+(161, 81, '29.png', '2024-01-02 06:52:06', NULL),
+(162, 81, '39.png', '2024-01-02 06:52:06', NULL),
+(163, 81, '34.png', '2024-01-02 06:52:06', NULL),
+(164, 81, '36.png', '2024-01-02 06:52:06', NULL),
+(165, 83, '37.png', '2024-01-02 06:52:06', NULL),
+(166, 83, '38.png', '2024-01-02 06:52:06', NULL),
+(167, 83, '21.png', '2024-01-02 06:52:06', NULL),
+(168, 83, '22.png', '2024-01-02 06:52:06', NULL),
+(169, 85, '32.png', '2024-01-02 06:52:06', NULL),
+(170, 85, '25.png', '2024-01-02 06:52:07', NULL),
+(171, 85, '29.png', '2024-01-02 06:52:07', NULL),
+(172, 85, '27.png', '2024-01-02 06:52:07', NULL),
+(173, 87, '35.png', '2024-01-02 06:52:07', NULL),
+(174, 87, '40.png', '2024-01-02 06:52:07', NULL),
+(175, 87, '30.png', '2024-01-02 06:52:07', NULL),
+(176, 87, '31.png', '2024-01-02 06:52:07', NULL),
+(177, 89, '32.png', '2024-01-02 06:52:07', NULL),
+(178, 89, '33.png', '2024-01-02 06:52:07', NULL),
+(179, 89, '24.png', '2024-01-02 06:52:07', NULL),
+(180, 89, '31.png', '2024-01-02 06:52:07', NULL),
+(181, 91, '31.png', '2024-01-02 06:52:07', NULL),
+(182, 91, '27.png', '2024-01-02 06:52:07', NULL),
+(183, 91, '23.png', '2024-01-02 06:52:07', NULL),
+(184, 91, '37.png', '2024-01-02 06:52:07', NULL),
+(185, 93, '37.png', '2024-01-02 06:52:07', NULL),
+(186, 93, '27.png', '2024-01-02 06:52:07', NULL),
+(187, 93, '40.png', '2024-01-02 06:52:07', NULL),
+(188, 93, '27.png', '2024-01-02 06:52:07', NULL),
+(189, 95, '26.png', '2024-01-02 06:52:07', NULL),
+(190, 95, '30.png', '2024-01-02 06:52:07', NULL),
+(191, 95, '38.png', '2024-01-02 06:52:07', NULL),
+(192, 95, '32.png', '2024-01-02 06:52:07', NULL),
+(193, 97, '25.png', '2024-01-02 06:52:07', NULL),
+(194, 97, '36.png', '2024-01-02 06:52:07', NULL),
+(195, 97, '28.png', '2024-01-02 06:52:07', NULL),
+(196, 97, '37.png', '2024-01-02 06:52:07', NULL),
+(197, 99, '26.png', '2024-01-02 06:52:07', NULL),
+(198, 99, '32.png', '2024-01-02 06:52:07', NULL),
+(199, 99, '27.png', '2024-01-02 06:52:07', NULL),
+(200, 99, '25.png', '2024-01-02 06:52:07', NULL),
+(201, 101, '36.png', '2024-01-02 06:52:47', NULL),
+(202, 101, '26.png', '2024-01-02 06:52:47', NULL),
+(203, 101, '32.png', '2024-01-02 06:52:47', NULL),
+(204, 101, '26.png', '2024-01-02 06:52:47', NULL),
+(205, 103, '28.png', '2024-01-02 06:52:47', NULL),
+(206, 103, '29.png', '2024-01-02 06:52:47', NULL),
+(207, 103, '34.png', '2024-01-02 06:52:47', NULL),
+(208, 103, '38.png', '2024-01-02 06:52:47', NULL),
+(209, 105, '31.png', '2024-01-02 06:52:47', NULL),
+(210, 105, '24.png', '2024-01-02 06:52:47', NULL),
+(211, 105, '37.png', '2024-01-02 06:52:47', NULL),
+(212, 105, '36.png', '2024-01-02 06:52:47', NULL),
+(213, 107, '30.png', '2024-01-02 06:52:47', NULL),
+(214, 107, '28.png', '2024-01-02 06:52:47', NULL),
+(215, 107, '40.png', '2024-01-02 06:52:47', NULL),
+(216, 107, '37.png', '2024-01-02 06:52:47', NULL),
+(217, 109, '25.png', '2024-01-02 06:52:47', NULL),
+(218, 109, '27.png', '2024-01-02 06:52:47', NULL),
+(219, 109, '39.png', '2024-01-02 06:52:47', NULL),
+(220, 109, '30.png', '2024-01-02 06:52:47', NULL),
+(221, 111, '31.png', '2024-01-02 06:52:47', NULL),
+(222, 111, '23.png', '2024-01-02 06:52:47', NULL),
+(223, 111, '32.png', '2024-01-02 06:52:47', NULL),
+(224, 111, '26.png', '2024-01-02 06:52:47', NULL),
+(225, 113, '37.png', '2024-01-02 06:52:47', NULL),
+(226, 113, '22.png', '2024-01-02 06:52:47', NULL),
+(227, 113, '25.png', '2024-01-02 06:52:47', NULL),
+(228, 113, '22.png', '2024-01-02 06:52:47', NULL),
+(229, 115, '29.png', '2024-01-02 06:52:47', NULL),
+(230, 115, '30.png', '2024-01-02 06:52:47', NULL),
+(231, 115, '40.png', '2024-01-02 06:52:47', NULL),
+(232, 115, '37.png', '2024-01-02 06:52:47', NULL),
+(233, 117, '22.png', '2024-01-02 06:52:47', NULL),
+(234, 117, '38.png', '2024-01-02 06:52:47', NULL),
+(235, 117, '36.png', '2024-01-02 06:52:47', NULL),
+(236, 117, '33.png', '2024-01-02 06:52:47', NULL),
+(237, 119, '38.png', '2024-01-02 06:52:47', NULL),
+(238, 119, '29.png', '2024-01-02 06:52:47', NULL),
+(239, 119, '38.png', '2024-01-02 06:52:47', NULL),
+(240, 119, '36.png', '2024-01-02 06:52:47', NULL),
+(241, 121, '33.png', '2024-01-02 06:53:53', NULL),
+(242, 121, '37.png', '2024-01-02 06:53:53', NULL),
+(243, 121, '38.png', '2024-01-02 06:53:53', NULL),
+(244, 121, '21.png', '2024-01-02 06:53:53', NULL),
+(245, 123, '39.png', '2024-01-02 06:53:53', NULL),
+(246, 123, '32.png', '2024-01-02 06:53:53', NULL),
+(247, 123, '37.png', '2024-01-02 06:53:53', NULL),
+(248, 123, '24.png', '2024-01-02 06:53:53', NULL),
+(249, 125, '33.png', '2024-01-02 06:53:53', NULL),
+(250, 125, '21.png', '2024-01-02 06:53:53', NULL),
+(251, 125, '25.png', '2024-01-02 06:53:53', NULL),
+(252, 125, '40.png', '2024-01-02 06:53:53', NULL),
+(253, 127, '31.png', '2024-01-02 06:53:53', NULL),
+(254, 127, '37.png', '2024-01-02 06:53:53', NULL),
+(255, 127, '26.png', '2024-01-02 06:53:53', NULL),
+(256, 127, '33.png', '2024-01-02 06:53:53', NULL),
+(257, 129, '39.png', '2024-01-02 06:53:53', NULL),
+(258, 129, '24.png', '2024-01-02 06:53:53', NULL),
+(259, 129, '30.png', '2024-01-02 06:53:53', NULL),
+(260, 129, '35.png', '2024-01-02 06:53:53', NULL),
+(261, 131, '33.png', '2024-01-02 06:53:53', NULL),
+(262, 131, '24.png', '2024-01-02 06:53:53', NULL),
+(263, 131, '36.png', '2024-01-02 06:53:53', NULL),
+(264, 131, '24.png', '2024-01-02 06:53:53', NULL),
+(265, 133, '29.png', '2024-01-02 06:53:53', NULL),
+(266, 133, '31.png', '2024-01-02 06:53:53', NULL),
+(267, 133, '29.png', '2024-01-02 06:53:53', NULL),
+(268, 133, '35.png', '2024-01-02 06:53:53', NULL),
+(269, 135, '22.png', '2024-01-02 06:53:53', NULL),
+(270, 135, '22.png', '2024-01-02 06:53:53', NULL),
+(271, 135, '22.png', '2024-01-02 06:53:53', NULL),
+(272, 135, '38.png', '2024-01-02 06:53:53', NULL),
+(273, 137, '21.png', '2024-01-02 06:53:54', NULL),
+(274, 137, '21.png', '2024-01-02 06:53:54', NULL),
+(275, 137, '31.png', '2024-01-02 06:53:54', NULL),
+(276, 137, '27.png', '2024-01-02 06:53:54', NULL),
+(277, 139, '30.png', '2024-01-02 06:53:54', NULL),
+(278, 139, '35.png', '2024-01-02 06:53:54', NULL),
+(279, 139, '25.png', '2024-01-02 06:53:54', NULL),
+(280, 139, '21.png', '2024-01-02 06:53:54', NULL),
+(281, 141, '34.png', '2024-01-02 06:53:54', NULL),
+(282, 141, '29.png', '2024-01-02 06:53:54', NULL),
+(283, 141, '23.png', '2024-01-02 06:53:54', NULL),
+(284, 141, '27.png', '2024-01-02 06:53:54', NULL),
+(285, 143, '24.png', '2024-01-02 06:53:54', NULL),
+(286, 143, '35.png', '2024-01-02 06:53:54', NULL),
+(287, 143, '37.png', '2024-01-02 06:53:54', NULL),
+(288, 143, '23.png', '2024-01-02 06:53:54', NULL),
+(289, 145, '25.png', '2024-01-02 06:53:54', NULL),
+(290, 145, '33.png', '2024-01-02 06:53:54', NULL),
+(291, 145, '34.png', '2024-01-02 06:53:54', NULL),
+(292, 145, '24.png', '2024-01-02 06:53:54', NULL),
+(293, 147, '37.png', '2024-01-02 06:53:54', NULL),
+(294, 147, '21.png', '2024-01-02 06:53:54', NULL),
+(295, 147, '25.png', '2024-01-02 06:53:54', NULL),
+(296, 147, '27.png', '2024-01-02 06:53:54', NULL),
+(297, 149, '32.png', '2024-01-02 06:53:54', NULL),
+(298, 149, '28.png', '2024-01-02 06:53:54', NULL),
+(299, 149, '26.png', '2024-01-02 06:53:54', NULL),
+(300, 149, '32.png', '2024-01-02 06:53:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -2309,6 +2165,14 @@ CREATE TABLE `product_question_answers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `product_question_answers`
+--
+
+INSERT INTO `product_question_answers` (`id`, `product_id`, `full_name`, `email`, `question`, `answer`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 149, 'Md Fahim Hossain', 'alifhossain174@gmail.com', 'Can i purchase this product using EMI facilities of One Bank ?', 'Yes sir you can purchase this product using One bank\'s EMI facilities', '2jSOq1704192958', '2024-01-02 10:55:58', '2024-01-02 10:56:48'),
+(2, 136, 'asdasd', 'asdasd', 'asdasd', 'asdasdsd', 'IXgZa1704361924', '2024-01-04 09:52:04', '2024-01-04 09:52:27');
+
 -- --------------------------------------------------------
 
 --
@@ -2333,26 +2197,226 @@ CREATE TABLE `product_reviews` (
 --
 
 INSERT INTO `product_reviews` (`id`, `product_id`, `user_id`, `rating`, `review`, `reply`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(61, 32, 1, 5, 'Assimilated coherent workforce', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(62, 32, 1, 4, 'Synergized empowering portal', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(63, 32, 1, 4, 'Monitored neutral standardization', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(64, 32, 1, 1, 'Focused object-oriented adapter', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(65, 34, 1, 1, 'Cloned systematic success', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(66, 34, 1, 2, 'Object-based neutral conglomeration', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(67, 34, 1, 2, 'Phased client-server openarchitecture', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(68, 34, 1, 3, 'Devolved context-sensitive toolset', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(69, 36, 1, 2, 'Expanded demand-driven workforce', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(70, 36, 1, 2, 'Object-based value-added encryption', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(71, 36, 1, 2, 'Monitored demand-driven interface', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(72, 36, 1, 2, 'Focused radical emulation', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(73, 38, 1, 5, 'Virtual needs-based artificialintelligence', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(74, 38, 1, 5, 'Profit-focused background artificialintelligence', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(75, 38, 1, 1, 'Object-based systematic blockchain', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(76, 38, 1, 2, 'Intuitive regional productivity', 'thanks', '', 1, '2023-12-18 11:45:58', NULL),
-(77, 40, 1, 2, 'Digitized zerotolerance artificialintelligence', 'thanks', '', 1, '2023-12-18 11:45:59', NULL),
-(78, 40, 1, 2, 'Business-focused bi-directional service-desk', 'thanks', '', 1, '2023-12-18 11:45:59', NULL),
-(79, 40, 1, 2, 'Automated context-sensitive parallelism', 'thanks', '', 1, '2023-12-18 11:45:59', NULL),
-(80, 40, 1, 5, 'Reduced web-enabled approach', 'thanks', '', 1, '2023-12-18 11:45:59', NULL);
+(81, 42, 1, 5, 'Secured foreground productivity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(82, 42, 1, 5, 'Up-sized mobile flexibility', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(83, 42, 1, 5, 'Cross-group value-added productivity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(84, 42, 1, 3, 'Organized intangible task-force', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(85, 44, 1, 3, 'Monitored intangible paradigm', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(86, 44, 1, 2, 'Managed systemic workforce', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(87, 44, 1, 2, 'Open-source bandwidth-monitored structure', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(88, 44, 1, 4, 'Compatible maximized software', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(89, 46, 1, 4, 'Switchable coherent budgetarymanagement', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(90, 46, 1, 2, 'Assimilated actuating migration', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(91, 46, 1, 3, 'Public-key bi-directional alliance', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(92, 46, 1, 2, 'User-friendly global firmware', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(93, 48, 1, 1, 'Right-sized dedicated complexity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(94, 48, 1, 4, 'Up-sized context-sensitive capacity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(95, 48, 1, 4, 'Networked disintermediate artificialintelligence', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(96, 48, 1, 1, 'Open-source neutral monitoring', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(97, 50, 1, 2, 'Vision-oriented dedicated service-desk', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(98, 50, 1, 4, 'Customizable radical time-frame', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(99, 50, 1, 5, 'Proactive modular knowledgebase', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(100, 50, 1, 5, 'Synergized contextually-based collaboration', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(101, 52, 1, 2, 'Enterprise-wide empowering orchestration', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(102, 52, 1, 3, 'Streamlined grid-enabled emulation', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(103, 52, 1, 4, 'User-friendly grid-enabled middleware', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(104, 52, 1, 5, 'Seamless object-oriented focusgroup', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(105, 54, 1, 2, 'Multi-layered 3rdgeneration hierarchy', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(106, 54, 1, 5, 'Re-engineered responsive infrastructure', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(107, 54, 1, 2, 'Stand-alone zerodefect extranet', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(108, 54, 1, 4, 'Innovative incremental workforce', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(109, 56, 1, 2, 'Reactive logistical instructionset', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(110, 56, 1, 2, 'Business-focused homogeneous artificialintelligence', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(111, 56, 1, 4, 'Virtual secondary archive', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(112, 56, 1, 4, 'Managed incremental internetsolution', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(113, 58, 1, 3, 'Secured discrete framework', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(114, 58, 1, 2, 'De-engineered system-worthy extranet', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(115, 58, 1, 5, 'Synchronised 3rdgeneration core', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(116, 58, 1, 4, 'Grass-roots system-worthy policy', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(117, 60, 1, 2, 'Digitized stable core', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(118, 60, 1, 1, 'Reverse-engineered global time-frame', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(119, 60, 1, 1, 'Team-oriented analyzing knowledgebase', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(120, 60, 1, 5, 'Ameliorated solution-oriented hardware', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(121, 62, 1, 2, 'Right-sized solution-oriented knowledgeuser', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(122, 62, 1, 4, 'Profit-focused client-server ability', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(123, 62, 1, 5, 'Multi-layered nextgeneration encoding', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(124, 62, 1, 5, 'Optional responsive groupware', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(125, 64, 1, 5, 'Open-source needs-based website', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(126, 64, 1, 4, 'Re-contextualized transitional localareanetwork', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(127, 64, 1, 4, 'Robust multi-state support', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(128, 64, 1, 2, 'Secured local circuit', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(129, 66, 1, 5, 'Secured 24/7 website', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(130, 66, 1, 4, 'Right-sized asynchronous matrix', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(131, 66, 1, 3, 'Balanced systemic analyzer', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(132, 66, 1, 2, 'Optional background definition', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(133, 68, 1, 1, 'Integrated bottom-line functionalities', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(134, 68, 1, 2, 'Operative nextgeneration systemengine', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(135, 68, 1, 5, 'Profound asynchronous architecture', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(136, 68, 1, 5, 'Customer-focused user-facing emulation', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(137, 70, 1, 1, 'Adaptive zerodefect time-frame', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(138, 70, 1, 1, 'Balanced systemic internetsolution', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(139, 70, 1, 4, 'Balanced 24hour processimprovement', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(140, 70, 1, 2, 'Configurable zerodefect paradigm', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(141, 72, 1, 2, 'Phased regional parallelism', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(142, 72, 1, 5, 'Re-contextualized neutral function', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(143, 72, 1, 4, 'Business-focused didactic encryption', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(144, 72, 1, 5, 'User-centric encompassing analyzer', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(145, 74, 1, 4, 'Self-enabling fault-tolerant data-warehouse', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(146, 74, 1, 4, 'Optimized motivating forecast', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(147, 74, 1, 4, 'Fully-configurable nextgeneration matrix', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(148, 74, 1, 1, 'Re-contextualized context-sensitive portal', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(149, 76, 1, 1, 'Multi-tiered transitional application', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(150, 76, 1, 2, 'Polarised needs-based forecast', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(151, 76, 1, 4, 'Secured coherent algorithm', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(152, 76, 1, 3, 'Focused value-added strategy', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(153, 78, 1, 4, 'Advanced hybrid processimprovement', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(154, 78, 1, 3, 'Progressive clear-thinking utilisation', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(155, 78, 1, 2, 'Adaptive bi-directional parallelism', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(156, 78, 1, 5, 'Facetoface bifurcated methodology', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(157, 80, 1, 3, 'Programmable human-resource adapter', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(158, 80, 1, 1, 'Re-contextualized bifurcated throughput', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(159, 80, 1, 5, 'Phased content-based migration', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(160, 80, 1, 2, 'Programmable non-volatile frame', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(161, 82, 1, 2, 'Open-source multi-tasking time-frame', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(162, 82, 1, 3, 'Configurable methodical orchestration', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(163, 82, 1, 5, 'Profound fault-tolerant ability', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(164, 82, 1, 2, 'Synergized mission-critical superstructure', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(165, 84, 1, 1, 'Persevering client-server circuit', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(166, 84, 1, 5, 'Secured multimedia website', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(167, 84, 1, 2, 'Organized system-worthy middleware', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(168, 84, 1, 4, 'Integrated executive leverage', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(169, 86, 1, 3, 'Triple-buffered disintermediate processimprovement', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(170, 86, 1, 5, 'Sharable motivating task-force', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(171, 86, 1, 3, 'Fully-configurable didactic budgetarymanagement', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(172, 86, 1, 2, 'Multi-channelled multi-tasking website', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(173, 88, 1, 1, 'Streamlined discrete strategy', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(174, 88, 1, 4, 'Visionary 3rdgeneration analyzer', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(175, 88, 1, 4, 'Fully-configurable 5thgeneration migration', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(176, 88, 1, 5, 'Extended client-server algorithm', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(177, 90, 1, 5, 'Stand-alone secondary task-force', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(178, 90, 1, 2, 'Switchable solution-oriented portal', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(179, 90, 1, 3, 'Virtual local strategy', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(180, 90, 1, 2, 'Ergonomic explicit frame', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(181, 92, 1, 2, 'Up-sized actuating encoding', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(182, 92, 1, 4, 'De-engineered mission-critical info-mediaries', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(183, 92, 1, 5, 'Upgradable coherent GraphicalUserInterface', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(184, 92, 1, 2, 'Switchable context-sensitive website', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(185, 94, 1, 1, 'Organic full-range superstructure', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(186, 94, 1, 5, 'Cross-platform static utilisation', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(187, 94, 1, 5, 'Switchable zerodefect leverage', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(188, 94, 1, 2, 'Mandatory tangible concept', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(189, 96, 1, 4, 'Public-key mobile info-mediaries', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(190, 96, 1, 2, 'Networked bi-directional moderator', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(191, 96, 1, 2, 'Adaptive holistic adapter', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(192, 96, 1, 4, 'Diverse neutral definition', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(193, 98, 1, 1, 'Business-focused human-resource encryption', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(194, 98, 1, 3, 'Self-enabling secondary parallelism', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(195, 98, 1, 4, 'Right-sized secondary circuit', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(196, 98, 1, 1, 'Fully-configurable mission-critical project', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(197, 100, 1, 1, 'Realigned tertiary forecast', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(198, 100, 1, 3, 'Optional impactful intranet', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(199, 100, 1, 5, 'Universal encompassing encoding', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(200, 100, 1, 4, 'Synergistic zerodefect implementation', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(201, 102, 1, 1, 'Reverse-engineered clear-thinking leverage', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(202, 102, 1, 2, 'Stand-alone asynchronous groupware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(203, 102, 1, 5, 'Cross-platform eco-centric GraphicInterface', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(204, 102, 1, 2, 'Reverse-engineered disintermediate standardization', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(205, 104, 1, 1, 'Programmable methodical matrix', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(206, 104, 1, 2, 'Reverse-engineered disintermediate knowledgebase', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(207, 104, 1, 3, 'Enhanced bi-directional middleware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(208, 104, 1, 2, 'Grass-roots non-volatile frame', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(209, 106, 1, 2, 'Reverse-engineered 24hour processimprovement', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(210, 106, 1, 2, 'Profit-focused even-keeled matrices', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(211, 106, 1, 2, 'Phased discrete migration', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(212, 106, 1, 5, 'Synergized static analyzer', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(213, 108, 1, 2, 'Digitized 24/7 groupware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(214, 108, 1, 3, 'Upgradable user-facing help-desk', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(215, 108, 1, 5, 'Secured cohesive website', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(216, 108, 1, 4, 'Assimilated eco-centric matrices', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(217, 110, 1, 1, 'Organized mobile opensystem', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(218, 110, 1, 3, 'Future-proofed 24/7 policy', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(219, 110, 1, 2, 'Reactive upward-trending protocol', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(220, 110, 1, 1, 'Distributed coherent customerloyalty', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(221, 112, 1, 5, 'Diverse grid-enabled interface', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(222, 112, 1, 5, 'Polarised motivating challenge', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(223, 112, 1, 5, 'Cross-platform 3rdgeneration model', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(224, 112, 1, 1, 'Up-sized national frame', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(225, 114, 1, 3, 'Centralized bandwidth-monitored hub', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(226, 114, 1, 3, 'Synergistic well-modulated architecture', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(227, 114, 1, 2, 'Universal encompassing project', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(228, 114, 1, 4, 'Innovative discrete blockchain', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(229, 116, 1, 4, 'Down-sized client-driven pricingstructure', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(230, 116, 1, 2, 'Re-contextualized directional protocol', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(231, 116, 1, 5, 'Business-focused actuating utilisation', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(232, 116, 1, 4, 'Focused impactful product', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(233, 118, 1, 4, 'Advanced tertiary support', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(234, 118, 1, 4, 'Grass-roots transitional focusgroup', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(235, 118, 1, 1, 'Universal zerotolerance help-desk', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(236, 118, 1, 5, 'Programmable 24/7 localareanetwork', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(237, 120, 1, 3, 'Decentralized solution-oriented challenge', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(238, 120, 1, 1, 'Digitized value-added firmware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(239, 120, 1, 5, 'Customizable client-server algorithm', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(240, 120, 1, 4, 'Operative tangible capacity', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(241, 122, 1, 1, 'Extended multi-tasking portal', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(242, 122, 1, 3, 'Adaptive demand-driven software', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(243, 122, 1, 3, 'Object-based bi-directional capability', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(244, 122, 1, 1, 'Team-oriented content-based firmware', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(245, 124, 1, 5, 'Public-key context-sensitive solution', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(246, 124, 1, 5, 'Front-line mobile encoding', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(247, 124, 1, 5, 'Self-enabling maximized projection', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(248, 124, 1, 1, 'Exclusive solution-oriented blockchain', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(249, 126, 1, 2, 'Seamless even-keeled neural-net', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(250, 126, 1, 3, 'Fully-configurable client-server access', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(251, 126, 1, 3, 'Switchable homogeneous securedline', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(252, 126, 1, 5, 'Advanced bi-directional model', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(253, 128, 1, 2, 'Self-enabling neutral GraphicalUserInterface', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(254, 128, 1, 4, 'Function-based directional knowledgeuser', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(255, 128, 1, 3, 'Operative homogeneous structure', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(256, 128, 1, 4, 'Re-contextualized mobile matrices', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(257, 130, 1, 1, 'Enhanced transitional conglomeration', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(258, 130, 1, 2, 'Synchronised optimizing interface', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(259, 130, 1, 3, 'Optimized neutral model', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(260, 130, 1, 2, 'Quality-focused cohesive instructionset', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(261, 132, 1, 4, 'Inverse cohesive structure', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(262, 132, 1, 5, 'Facetoface foreground initiative', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(263, 132, 1, 1, 'Vision-oriented fault-tolerant hub', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(264, 132, 1, 4, 'Public-key eco-centric processimprovement', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(265, 134, 1, 2, 'Cloned intangible policy', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(266, 134, 1, 3, 'Robust attitude-oriented internetsolution', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(267, 134, 1, 3, 'Cross-group even-keeled hub', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(268, 134, 1, 4, 'Innovative attitude-oriented matrix', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(269, 136, 1, 3, 'Front-line assymetric project', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(270, 136, 1, 2, 'Operative radical circuit', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(271, 136, 1, 4, 'Customer-focused impactful forecast', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(272, 136, 1, 3, 'Horizontal cohesive complexity', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(273, 138, 1, 4, 'Exclusive full-range task-force', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(274, 138, 1, 2, 'Organic holistic encoding', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(275, 138, 1, 3, 'Cross-platform coherent website', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(276, 138, 1, 1, 'Function-based real-time architecture', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(277, 140, 1, 5, 'Optional static productivity', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(278, 140, 1, 5, 'Optimized dedicated project', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(279, 140, 1, 1, 'Horizontal analyzing internetsolution', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(280, 140, 1, 3, 'Switchable high-level analyzer', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(281, 142, 1, 1, 'Profit-focused modular function', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(282, 142, 1, 1, 'Total dedicated function', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(283, 142, 1, 1, 'Reverse-engineered local intranet', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(284, 142, 1, 2, 'De-engineered regional customerloyalty', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(285, 144, 1, 4, 'Reverse-engineered bifurcated leverage', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(286, 144, 1, 1, 'Cross-platform human-resource emulation', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(287, 144, 1, 1, 'Total 6thgeneration analyzer', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(288, 144, 1, 5, 'Object-based 24hour implementation', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(289, 146, 1, 5, 'Pre-emptive incremental database', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(290, 146, 1, 3, 'Public-key 24/7 parallelism', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(291, 146, 1, 5, 'Phased clear-thinking infrastructure', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(292, 146, 1, 5, 'Pre-emptive real-time processimprovement', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(293, 148, 1, 1, 'Monitored real-time methodology', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(294, 148, 1, 4, 'Open-architected object-oriented product', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(295, 148, 1, 4, 'Fundamental empowering synergy', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(296, 148, 1, 1, 'Streamlined system-worthy structure', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(297, 150, 1, 1, 'Profound bifurcated interface', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(298, 150, 1, 5, 'Quality-focused composite complexity', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(299, 150, 1, 1, 'Polarised even-keeled portal', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(300, 150, 1, 3, 'Extended local paradigm', 'thanks', '', 1, '2024-01-02 06:53:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -2409,26 +2473,224 @@ CREATE TABLE `product_variants` (
 --
 
 INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_type_id`, `stock`, `price`, `discounted_price`, `warrenty_id`, `device_condition_id`, `created_at`, `updated_at`) VALUES
-(61, 32, '40.png', 5, 3, 127, 4, 10, 1000, 438, 428, 7, 6, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(62, 32, '23.png', 5, 3, 127, 4, 10, 1000, 438, 428, 7, 6, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(63, 32, '40.png', 5, 3, 127, 4, 10, 1000, 438, 428, 7, 6, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(64, 32, '39.png', 5, 3, 127, 4, 10, 1000, 438, 428, 7, 6, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(65, 34, '27.png', 6, 4, 146, 4, 4, 1000, 823, 813, 8, 4, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(66, 34, '35.png', 6, 4, 146, 4, 4, 1000, 823, 813, 8, 4, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(67, 34, '31.png', 6, 4, 146, 4, 4, 1000, 823, 813, 8, 4, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(68, 34, '24.png', 6, 4, 146, 4, 4, 1000, 823, 813, 8, 4, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(69, 36, '40.png', 6, 6, 208, 4, 10, 1000, 329, 319, 7, 4, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(70, 36, '30.png', 6, 6, 208, 4, 10, 1000, 329, 319, 7, 4, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(71, 36, '39.png', 6, 6, 208, 4, 10, 1000, 329, 319, 7, 4, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(72, 36, '36.png', 6, 6, 208, 4, 10, 1000, 329, 319, 7, 4, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(73, 38, '35.png', 12, 3, 148, 1, 9, 1000, 446, 436, 8, 6, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(74, 38, '22.png', 12, 3, 148, 1, 9, 1000, 446, 436, 8, 6, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(75, 38, '38.png', 12, 3, 148, 1, 9, 1000, 446, 436, 8, 6, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(76, 38, '22.png', 12, 3, 148, 1, 9, 1000, 446, 436, 8, 6, '2023-12-18 11:45:58', '2023-12-18 11:45:58'),
-(77, 40, '40.png', 5, 4, 223, 2, 10, 1000, 585, 575, 8, 1, '2023-12-18 11:45:59', '2023-12-18 11:45:59'),
-(78, 40, '24.png', 5, 4, 223, 2, 10, 1000, 585, 575, 8, 1, '2023-12-18 11:45:59', '2023-12-18 11:45:59'),
-(79, 40, '37.png', 5, 4, 223, 2, 10, 1000, 585, 575, 8, 1, '2023-12-18 11:45:59', '2023-12-18 11:45:59'),
-(80, 40, '31.png', 5, 4, 223, 2, 10, 1000, 585, 575, 8, 1, '2023-12-18 11:45:59', '2023-12-18 11:45:59');
+(81, 42, '29.png', 4, 3, 11, 1, 7, 1000, 685, 675, 7, 7, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(82, 42, '25.png', 4, 3, 11, 1, 7, 1000, 685, 675, 7, 7, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(83, 42, '32.png', 4, 3, 11, 1, 7, 1000, 685, 675, 7, 7, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(84, 42, '39.png', 4, 3, 11, 1, 7, 1000, 685, 675, 7, 7, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(85, 44, '35.png', 9, 5, 88, 2, 10, 1000, 835, 825, 7, 1, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(86, 44, '23.png', 9, 5, 88, 2, 10, 1000, 835, 825, 7, 1, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(87, 44, '34.png', 9, 5, 88, 2, 10, 1000, 835, 825, 7, 1, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(88, 44, '39.png', 9, 5, 88, 2, 10, 1000, 835, 825, 7, 1, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(89, 46, '33.png', 9, 4, 147, 1, 9, 1000, 413, 403, 1, 3, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(90, 46, '36.png', 9, 4, 147, 1, 9, 1000, 413, 403, 1, 3, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(91, 46, '25.png', 9, 4, 147, 1, 9, 1000, 413, 403, 1, 3, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(92, 46, '38.png', 9, 4, 147, 1, 9, 1000, 413, 403, 1, 3, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(93, 48, '25.png', 11, 5, 34, 1, 2, 1000, 499, 489, 1, 4, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(94, 48, '32.png', 11, 5, 34, 1, 2, 1000, 499, 489, 1, 4, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(95, 48, '35.png', 11, 5, 34, 1, 2, 1000, 499, 489, 1, 4, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(96, 48, '21.png', 11, 5, 34, 1, 2, 1000, 499, 489, 1, 4, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(97, 50, '27.png', 1, 6, 84, 3, 9, 1000, 733, 723, 2, 6, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(98, 50, '35.png', 1, 6, 84, 3, 9, 1000, 733, 723, 2, 6, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(99, 50, '21.png', 1, 6, 84, 3, 9, 1000, 733, 723, 2, 6, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(100, 50, '33.png', 1, 6, 84, 3, 9, 1000, 733, 723, 2, 6, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(101, 52, '28.png', 14, 6, 122, 2, 1, 1000, 256, 246, 8, 3, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(102, 52, '21.png', 14, 6, 122, 2, 1, 1000, 256, 246, 8, 3, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(103, 52, '31.png', 14, 6, 122, 2, 1, 1000, 256, 246, 8, 3, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(104, 52, '30.png', 14, 6, 122, 2, 1, 1000, 256, 246, 8, 3, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(105, 54, '33.png', 5, 3, 96, 1, 2, 1000, 543, 533, 1, 4, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(106, 54, '36.png', 5, 3, 96, 1, 2, 1000, 543, 533, 1, 4, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(107, 54, '36.png', 5, 3, 96, 1, 2, 1000, 543, 533, 1, 4, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(108, 54, '38.png', 5, 3, 96, 1, 2, 1000, 543, 533, 1, 4, '2023-12-31 06:55:31', '2023-12-31 06:55:31'),
+(109, 56, '27.png', 9, 3, 33, 1, 2, 1000, 915, 905, 7, 1, '2023-12-31 06:55:32', '2023-12-31 06:55:32'),
+(110, 56, '23.png', 9, 3, 33, 1, 2, 1000, 915, 905, 7, 1, '2023-12-31 06:55:32', '2023-12-31 06:55:32'),
+(111, 56, '26.png', 9, 3, 33, 1, 2, 1000, 915, 905, 7, 1, '2023-12-31 06:55:32', '2023-12-31 06:55:32'),
+(112, 56, '23.png', 9, 3, 33, 1, 2, 1000, 915, 905, 7, 1, '2023-12-31 06:55:32', '2023-12-31 06:55:32'),
+(113, 58, '32.png', 8, 4, 13, 3, 3, 1000, 414, 404, 7, 6, '2023-12-31 06:55:32', '2023-12-31 06:55:32'),
+(114, 58, '37.png', 8, 4, 13, 3, 3, 1000, 414, 404, 7, 6, '2023-12-31 06:55:32', '2023-12-31 06:55:32'),
+(115, 58, '36.png', 8, 4, 13, 3, 3, 1000, 414, 404, 7, 6, '2023-12-31 06:55:32', '2023-12-31 06:55:32'),
+(116, 58, '39.png', 8, 4, 13, 3, 3, 1000, 414, 404, 7, 6, '2023-12-31 06:55:32', '2023-12-31 06:55:32'),
+(117, 60, '33.png', 1, NULL, 14, 3, 6, 1000, 565, 555, 2, 6, '2023-12-31 06:55:32', '2023-12-31 12:10:04'),
+(118, 60, '26.png', 1, NULL, 14, 3, 6, 1000, 565, 555, 2, 6, '2023-12-31 06:55:32', '2023-12-31 12:10:04'),
+(119, 60, '34.png', 1, NULL, 14, 3, 6, 1000, 565, 555, 2, 6, '2023-12-31 06:55:32', '2023-12-31 12:10:04'),
+(120, 60, '26.png', 1, NULL, 14, 3, 6, 1000, 565, 555, 2, 6, '2023-12-31 06:55:32', '2023-12-31 12:10:04'),
+(121, 62, '28.png', 1, 4, 152, 2, 5, 1000, 211, 201, 2, 4, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(122, 62, '37.png', 1, 4, 152, 2, 5, 1000, 211, 201, 2, 4, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(123, 62, '29.png', 1, 4, 152, 2, 5, 1000, 211, 201, 2, 4, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(124, 62, '23.png', 1, 4, 152, 2, 5, 1000, 211, 201, 2, 4, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(125, 64, '24.png', 13, 5, 237, 2, 4, 1000, 207, 197, 8, 4, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(126, 64, '28.png', 13, 5, 237, 2, 4, 1000, 207, 197, 8, 4, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(127, 64, '25.png', 13, 5, 237, 2, 4, 1000, 207, 197, 8, 4, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(128, 64, '29.png', 13, 5, 237, 2, 4, 1000, 207, 197, 8, 4, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(129, 66, '26.png', 6, 6, 106, 4, 7, 1000, 502, 492, 1, 6, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(130, 66, '30.png', 6, 6, 106, 4, 7, 1000, 502, 492, 1, 6, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(131, 66, '27.png', 6, 6, 106, 4, 7, 1000, 502, 492, 1, 6, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(132, 66, '35.png', 6, 6, 106, 4, 7, 1000, 502, 492, 1, 6, '2024-01-01 04:55:01', '2024-01-01 04:55:01'),
+(133, 68, '40.png', 14, 3, 225, 4, 7, 1000, 643, 633, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(134, 68, '30.png', 14, 3, 225, 4, 7, 1000, 643, 633, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(135, 68, '25.png', 14, 3, 225, 4, 7, 1000, 643, 633, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(136, 68, '22.png', 14, 3, 225, 4, 7, 1000, 643, 633, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(137, 70, '29.png', 7, 5, 201, 1, 8, 1000, 947, 937, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(138, 70, '22.png', 7, 5, 201, 1, 8, 1000, 947, 937, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(139, 70, '37.png', 7, 5, 201, 1, 8, 1000, 947, 937, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(140, 70, '38.png', 7, 5, 201, 1, 8, 1000, 947, 937, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(141, 72, '37.png', 7, 6, 215, 1, 1, 1000, 908, 898, 2, 3, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(142, 72, '23.png', 7, 6, 215, 1, 1, 1000, 908, 898, 2, 3, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(143, 72, '23.png', 7, 6, 215, 1, 1, 1000, 908, 898, 2, 3, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(144, 72, '28.png', 7, 6, 215, 1, 1, 1000, 908, 898, 2, 3, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(145, 74, '30.png', 15, 6, 179, 3, 5, 1000, 733, 723, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(146, 74, '31.png', 15, 6, 179, 3, 5, 1000, 733, 723, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(147, 74, '39.png', 15, 6, 179, 3, 5, 1000, 733, 723, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(148, 74, '35.png', 15, 6, 179, 3, 5, 1000, 733, 723, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(149, 76, '30.png', 8, 4, 191, 3, 10, 1000, 472, 462, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(150, 76, '37.png', 8, 4, 191, 3, 10, 1000, 472, 462, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(151, 76, '26.png', 8, 4, 191, 3, 10, 1000, 472, 462, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(152, 76, '33.png', 8, 4, 191, 3, 10, 1000, 472, 462, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(153, 78, '30.png', 7, 4, 134, 2, 1, 1000, 900, 890, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(154, 78, '28.png', 7, 4, 134, 2, 1, 1000, 900, 890, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(155, 78, '37.png', 7, 4, 134, 2, 1, 1000, 900, 890, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(156, 78, '40.png', 7, 4, 134, 2, 1, 1000, 900, 890, 7, 7, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(157, 80, '35.png', 12, 5, 224, 4, 1, 1000, 847, 837, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(158, 80, '31.png', 12, 5, 224, 4, 1, 1000, 847, 837, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(159, 80, '22.png', 12, 5, 224, 4, 1, 1000, 847, 837, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(160, 80, '29.png', 12, 5, 224, 4, 1, 1000, 847, 837, 8, 1, '2024-01-01 04:55:02', '2024-01-01 04:55:02'),
+(161, 82, '28.png', 10, 5, 63, 3, 7, 1000, 962, 952, 1, 1, '2024-01-02 06:52:06', '2024-01-02 06:52:06'),
+(162, 82, '37.png', 10, 5, 63, 3, 7, 1000, 962, 952, 1, 1, '2024-01-02 06:52:06', '2024-01-02 06:52:06'),
+(163, 82, '36.png', 10, 5, 63, 3, 7, 1000, 962, 952, 1, 1, '2024-01-02 06:52:06', '2024-01-02 06:52:06'),
+(164, 82, '36.png', 10, 5, 63, 3, 7, 1000, 962, 952, 1, 1, '2024-01-02 06:52:06', '2024-01-02 06:52:06'),
+(165, 84, '33.png', 4, 4, 52, 2, 3, 1000, 436, 426, 2, 7, '2024-01-02 06:52:06', '2024-01-02 06:52:06'),
+(166, 84, '28.png', 4, 4, 52, 2, 3, 1000, 436, 426, 2, 7, '2024-01-02 06:52:06', '2024-01-02 06:52:06'),
+(167, 84, '28.png', 4, 4, 52, 2, 3, 1000, 436, 426, 2, 7, '2024-01-02 06:52:06', '2024-01-02 06:52:06'),
+(168, 84, '33.png', 4, 4, 52, 2, 3, 1000, 436, 426, 2, 7, '2024-01-02 06:52:06', '2024-01-02 06:52:06'),
+(169, 86, '21.png', 8, 3, 170, 2, 2, 1000, 697, 687, 8, 4, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(170, 86, '25.png', 8, 3, 170, 2, 2, 1000, 697, 687, 8, 4, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(171, 86, '33.png', 8, 3, 170, 2, 2, 1000, 697, 687, 8, 4, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(172, 86, '23.png', 8, 3, 170, 2, 2, 1000, 697, 687, 8, 4, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(173, 88, '37.png', 13, 6, 223, 1, 5, 1000, 643, 633, 8, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(174, 88, '38.png', 13, 6, 223, 1, 5, 1000, 643, 633, 8, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(175, 88, '31.png', 13, 6, 223, 1, 5, 1000, 643, 633, 8, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(176, 88, '37.png', 13, 6, 223, 1, 5, 1000, 643, 633, 8, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(177, 90, '32.png', 12, 5, 12, 3, 5, 1000, 880, 870, 3, 3, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(178, 90, '28.png', 12, 5, 12, 3, 5, 1000, 880, 870, 3, 3, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(179, 90, '26.png', 12, 5, 12, 3, 5, 1000, 880, 870, 3, 3, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(180, 90, '34.png', 12, 5, 12, 3, 5, 1000, 880, 870, 3, 3, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(181, 92, '35.png', 2, 6, 93, 4, 1, 1000, 239, 229, 1, 6, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(182, 92, '24.png', 2, 6, 93, 4, 1, 1000, 239, 229, 1, 6, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(183, 92, '37.png', 2, 6, 93, 4, 1, 1000, 239, 229, 1, 6, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(184, 92, '23.png', 2, 6, 93, 4, 1, 1000, 239, 229, 1, 6, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(185, 94, '36.png', 1, 4, 131, 2, 1, 1000, 806, 796, 2, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(186, 94, '38.png', 1, 4, 131, 2, 1, 1000, 806, 796, 2, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(187, 94, '38.png', 1, 4, 131, 2, 1, 1000, 806, 796, 2, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(188, 94, '31.png', 1, 4, 131, 2, 1, 1000, 806, 796, 2, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(189, 96, '31.png', 1, 4, 202, 4, 9, 1000, 856, 846, 3, 3, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(190, 96, '28.png', 1, 4, 202, 4, 9, 1000, 856, 846, 3, 3, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(191, 96, '21.png', 1, 4, 202, 4, 9, 1000, 856, 846, 3, 3, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(192, 96, '31.png', 1, 4, 202, 4, 9, 1000, 856, 846, 3, 3, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(193, 98, '37.png', 1, 4, 135, 4, 10, 1000, 451, 441, 8, 7, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(194, 98, '23.png', 1, 4, 135, 4, 10, 1000, 451, 441, 8, 7, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(195, 98, '21.png', 1, 4, 135, 4, 10, 1000, 451, 441, 8, 7, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(196, 98, '27.png', 1, 4, 135, 4, 10, 1000, 451, 441, 8, 7, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(197, 100, '22.png', 13, 3, 144, 3, 4, 1000, 661, 651, 7, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(198, 100, '39.png', 13, 3, 144, 3, 4, 1000, 661, 651, 7, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(199, 100, '27.png', 13, 3, 144, 3, 4, 1000, 661, 651, 7, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(200, 100, '28.png', 13, 3, 144, 3, 4, 1000, 661, 651, 7, 1, '2024-01-02 06:52:07', '2024-01-02 06:52:07'),
+(201, 102, '25.png', 6, 3, 11, 4, 3, 1000, 573, 563, 1, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(202, 102, '32.png', 6, 3, 11, 4, 3, 1000, 573, 563, 1, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(203, 102, '22.png', 6, 3, 11, 4, 3, 1000, 573, 563, 1, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(204, 102, '21.png', 6, 3, 11, 4, 3, 1000, 573, 563, 1, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(205, 104, '35.png', 12, 6, 186, 1, 2, 1000, 342, 332, 3, 3, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(206, 104, '27.png', 12, 6, 186, 1, 2, 1000, 342, 332, 3, 3, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(207, 104, '35.png', 12, 6, 186, 1, 2, 1000, 342, 332, 3, 3, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(208, 104, '32.png', 12, 6, 186, 1, 2, 1000, 342, 332, 3, 3, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(209, 106, '36.png', 2, 4, 238, 2, 1, 1000, 796, 786, 8, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(210, 106, '22.png', 2, 4, 238, 2, 1, 1000, 796, 786, 8, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(211, 106, '31.png', 2, 4, 238, 2, 1, 1000, 796, 786, 8, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(212, 106, '21.png', 2, 4, 238, 2, 1, 1000, 796, 786, 8, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(213, 108, '27.png', 8, 3, 66, 1, 5, 1000, 427, 417, 1, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(214, 108, '26.png', 8, 3, 66, 1, 5, 1000, 427, 417, 1, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(215, 108, '26.png', 8, 3, 66, 1, 5, 1000, 427, 417, 1, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(216, 108, '30.png', 8, 3, 66, 1, 5, 1000, 427, 417, 1, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(217, 110, '21.png', 2, 4, 142, 2, 10, 1000, 224, 214, 1, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(218, 110, '22.png', 2, 4, 142, 2, 10, 1000, 224, 214, 1, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(219, 110, '31.png', 2, 4, 142, 2, 10, 1000, 224, 214, 1, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(220, 110, '25.png', 2, 4, 142, 2, 10, 1000, 224, 214, 1, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(221, 112, '37.png', 15, 6, 183, 1, 2, 1000, 454, 444, 8, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(222, 112, '24.png', 15, 6, 183, 1, 2, 1000, 454, 444, 8, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(223, 112, '38.png', 15, 6, 183, 1, 2, 1000, 454, 444, 8, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(224, 112, '21.png', 15, 6, 183, 1, 2, 1000, 454, 444, 8, 1, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(225, 114, '25.png', 3, 3, 72, 2, 2, 1000, 318, 308, 3, 6, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(226, 114, '40.png', 3, 3, 72, 2, 2, 1000, 318, 308, 3, 6, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(227, 114, '31.png', 3, 3, 72, 2, 2, 1000, 318, 308, 3, 6, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(228, 114, '30.png', 3, 3, 72, 2, 2, 1000, 318, 308, 3, 6, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(229, 116, '30.png', 10, 3, 23, 4, 9, 1000, 434, 424, 1, 7, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(230, 116, '23.png', 10, 3, 23, 4, 9, 1000, 434, 424, 1, 7, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(231, 116, '30.png', 10, 3, 23, 4, 9, 1000, 434, 424, 1, 7, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(232, 116, '21.png', 10, 3, 23, 4, 9, 1000, 434, 424, 1, 7, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(233, 118, '38.png', 11, 4, 223, 2, 8, 1000, 138, 128, 7, 3, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(234, 118, '28.png', 11, 4, 223, 2, 8, 1000, 138, 128, 7, 3, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(235, 118, '24.png', 11, 4, 223, 2, 8, 1000, 138, 128, 7, 3, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(236, 118, '39.png', 11, 4, 223, 2, 8, 1000, 138, 128, 7, 3, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(237, 120, '39.png', 5, 6, 104, 2, 6, 1000, 976, 966, 7, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(238, 120, '28.png', 5, 6, 104, 2, 6, 1000, 976, 966, 7, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(239, 120, '22.png', 5, 6, 104, 2, 6, 1000, 976, 966, 7, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(240, 120, '32.png', 5, 6, 104, 2, 6, 1000, 976, 966, 7, 4, '2024-01-02 06:52:47', '2024-01-02 06:52:47'),
+(241, 122, '40.png', 13, 5, 90, 1, 3, 1000, 818, 808, 7, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(242, 122, '38.png', 13, 5, 90, 1, 3, 1000, 818, 808, 7, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(243, 122, '29.png', 13, 5, 90, 1, 3, 1000, 818, 808, 7, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(244, 122, '21.png', 13, 5, 90, 1, 3, 1000, 818, 808, 7, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(245, 124, '39.png', 3, 4, 222, 3, 10, 1000, 952, 942, 1, 7, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(246, 124, '34.png', 3, 4, 222, 3, 10, 1000, 952, 942, 1, 7, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(247, 124, '40.png', 3, 4, 222, 3, 10, 1000, 952, 942, 1, 7, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(248, 124, '23.png', 3, 4, 222, 3, 10, 1000, 952, 942, 1, 7, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(249, 126, '24.png', 3, NULL, 72, 1, 4, 1000, 971, 961, 1, 6, '2024-01-02 06:53:53', '2024-01-03 10:38:55'),
+(250, 126, '39.png', 3, NULL, 72, 1, 4, 1000, 971, 961, 1, 6, '2024-01-02 06:53:53', '2024-01-03 10:38:55'),
+(251, 126, '23.png', 3, NULL, 72, 1, 4, 1000, 971, 961, 1, 6, '2024-01-02 06:53:53', '2024-01-03 10:38:55'),
+(252, 126, '24.png', 3, NULL, 72, 1, 4, 1000, 971, 961, 1, 6, '2024-01-02 06:53:53', '2024-01-03 10:38:55'),
+(253, 128, '26.png', 6, 4, 95, 2, 2, 1000, 458, 448, 2, 3, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(254, 128, '26.png', 6, 4, 95, 2, 2, 1000, 458, 448, 2, 3, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(255, 128, '38.png', 6, 4, 95, 2, 2, 1000, 458, 448, 2, 3, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(256, 128, '31.png', 6, 4, 95, 2, 2, 1000, 458, 448, 2, 3, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(257, 130, '39.png', 8, 5, 233, 1, 2, 1000, 869, 859, 2, 3, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(258, 130, '23.png', 8, 5, 233, 1, 2, 1000, 869, 859, 2, 3, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(259, 130, '30.png', 8, 5, 233, 1, 2, 1000, 869, 859, 2, 3, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(260, 130, '33.png', 8, 5, 233, 1, 2, 1000, 869, 859, 2, 3, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(261, 132, '32.png', 11, 6, 90, 4, 9, 1000, 890, 880, 3, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(262, 132, '37.png', 11, 6, 90, 4, 9, 1000, 890, 880, 3, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(263, 132, '28.png', 11, 6, 90, 4, 9, 1000, 890, 880, 3, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(264, 132, '30.png', 11, 6, 90, 4, 9, 1000, 890, 880, 3, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(265, 134, '38.png', 14, 3, 79, 4, 5, 1000, 684, 674, 1, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(266, 134, '21.png', 14, 3, 79, 4, 5, 1000, 684, 674, 1, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(267, 134, '37.png', 14, 3, 79, 4, 5, 1000, 684, 674, 1, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(268, 134, '32.png', 14, 3, 79, 4, 5, 1000, 684, 674, 1, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
+(269, 136, '1704277715eeISr.jpg', 2, NULL, 226, 2, 3, 1000, 610, 600, 1, 1, '2024-01-02 06:53:53', '2024-01-04 10:05:58'),
+(270, 136, '22.png', 1, NULL, 107, 4, 3, 1000, 610, 600, 1, 1, '2024-01-02 06:53:53', '2024-01-04 10:05:58'),
+(273, 138, '33.png', 2, 5, 237, 1, 8, 1000, 625, 615, 8, 7, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(274, 138, '30.png', 2, 5, 237, 1, 8, 1000, 625, 615, 8, 7, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(275, 138, '27.png', 2, 5, 237, 1, 8, 1000, 625, 615, 8, 7, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(276, 138, '21.png', 2, 5, 237, 1, 8, 1000, 625, 615, 8, 7, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(277, 140, '33.png', 5, 4, 75, 2, 3, 1000, 624, 614, 2, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(278, 140, '28.png', 5, 4, 75, 2, 3, 1000, 624, 614, 2, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(279, 140, '21.png', 5, 4, 75, 2, 3, 1000, 624, 614, 2, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(280, 140, '24.png', 5, 4, 75, 2, 3, 1000, 624, 614, 2, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(281, 142, '24.png', 10, 4, 2, 4, 2, 1000, 123, 113, 7, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(282, 142, '21.png', 10, 4, 2, 4, 2, 1000, 123, 113, 7, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(283, 142, '28.png', 10, 4, 2, 4, 2, 1000, 123, 113, 7, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(284, 142, '34.png', 10, 4, 2, 4, 2, 1000, 123, 113, 7, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(285, 144, '30.png', 4, 5, 16, 3, 8, 1000, 201, 191, 7, 1, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(286, 144, '24.png', 4, 5, 16, 3, 8, 1000, 201, 191, 7, 1, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(287, 144, '38.png', 4, 5, 16, 3, 8, 1000, 201, 191, 7, 1, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(288, 144, '38.png', 4, 5, 16, 3, 8, 1000, 201, 191, 7, 1, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(289, 146, '21.png', 6, 3, 34, 4, 2, 1000, 238, 228, 2, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(290, 146, '31.png', 6, 3, 34, 4, 2, 1000, 238, 228, 2, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(291, 146, '36.png', 6, 3, 34, 4, 2, 1000, 238, 228, 2, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(292, 146, '40.png', 6, 3, 34, 4, 2, 1000, 238, 228, 2, 3, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(293, 148, '35.png', 11, NULL, 107, NULL, 3, 1000, 927, 917, 8, 4, '2024-01-02 06:53:54', '2024-01-03 05:38:25'),
+(294, 148, '27.png', 9, NULL, 226, NULL, 4, 1000, 927, 917, 8, 1, '2024-01-02 06:53:54', '2024-01-03 05:38:25'),
+(295, 148, '35.png', 11, NULL, 226, NULL, 6, 1000, 927, 917, 8, 4, '2024-01-02 06:53:54', '2024-01-03 05:38:25'),
+(296, 148, '39.png', 2, NULL, 99, NULL, 6, 1000, 927, 917, 8, 4, '2024-01-02 06:53:54', '2024-01-03 05:38:25'),
+(297, 150, '26.png', 11, 3, 123, 4, 6, 1000, 758, 748, 1, 6, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(298, 150, '23.png', 11, 3, 123, 4, 6, 1000, 758, 748, 1, 6, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(299, 150, '40.png', 11, 3, 123, 4, 6, 1000, 758, 748, 1, 6, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(300, 150, '21.png', 11, 3, 123, 4, 6, 1000, 758, 748, 1, 6, '2024-01-02 06:53:54', '2024-01-02 06:53:54');
 
 -- --------------------------------------------------------
 
@@ -2491,7 +2753,7 @@ CREATE TABLE `promotional_banners` (
 --
 
 INSERT INTO `promotional_banners` (`id`, `icon`, `heading`, `heading_color`, `title`, `title_color`, `description`, `description_color`, `url`, `btn_text`, `btn_text_color`, `btn_bg_color`, `background_color`, `product_image`, `background_image`, `video_url`, `started_at`, `end_at`, `time_bg_color`, `time_font_color`, `created_at`, `updated_at`) VALUES
-(1, 'banner/t7HK11697610309.png', 'Hurry up and Get 25% Discount', '#ee2761', 'Deals Of The Day', '#000000', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore', '#606060', '#', 'Show Collection', '#ffffff', '#ee2761', '#ffffff', 'banner/c4raa1697614018.webp', 'banner/6ELHo1699334128.jpg', 'http://127.0.0.1:8000/view/promotional/banner', '2023-10-19 11:00:41', '2024-11-07 21:00:00', '#efeff1', '#000000', '2023-06-13 10:08:55', '2023-11-07 05:15:28');
+(1, 'banner/GFLRO1704082099.svg', 'Don’t Miss!!', '#000000', 'Enhance Your Music Experience', '#000000', NULL, '#606060', '#', 'Check It Out', '#ffffff', '#ee2761', '#eeeeee', 'banner/xAArZ1704083089.png', NULL, NULL, '2024-01-01 00:00:00', '2024-01-10 23:59:59', '#efeff1', '#000000', '2023-06-13 10:08:55', '2024-01-01 04:24:49');
 
 -- --------------------------------------------------------
 
@@ -2596,58 +2858,6 @@ CREATE TABLE `shipping_infos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `shipping_infos`
---
-
-INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `gender`, `address`, `thana`, `post_code`, `city`, `country`, `created_at`, `updated_at`) VALUES
-(2, 1, 'Reduan', '01850453321', 'reduan@getup.com.bd', 'undefined', 'kapasgola', NULL, '12334', 'Chattogram', 'Bangladesh', '2023-07-17 23:49:13', NULL),
-(3, 6, 'Reduan', '01850453321', 'admin@gmil.com', 'undefined', 'kapasgola', NULL, '12334', 'Chattogram', 'Bangladesh', '2023-07-18 08:34:22', NULL),
-(4, 9, 'Reduan', '01850453322', 'admin@gmil.com', 'undefined', 'Flat A2, House 4 Rd No. 10', NULL, '1000', 'Mymensingh', 'Bangladesh', '2023-07-18 08:54:41', '2023-10-22 09:17:45'),
-(9, 14, 'bh', 'hh', 'bb', NULL, 'hh', 'Gopalganj Sadar', NULL, 'Gopalganj', NULL, '2023-10-25 06:33:57', NULL),
-(11, 26, 'GetUp Limited', '+880168355497001', 'getuplimited@gmail.com', NULL, 'F-42, South Banasree, Khilgaon', NULL, NULL, NULL, NULL, '2023-11-09 09:11:46', NULL),
-(12, 27, 'GetUp Limited', '+880168355497001', 'getuplimited@gmail.com', NULL, 'F-42, South Banasree, Khilgaon', NULL, NULL, NULL, NULL, '2023-11-09 09:12:01', NULL),
-(13, 30, 'Arif', '98666776778', 'dcsuperstar22@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '2023-11-11 06:58:51', NULL),
-(14, 31, 'Vasha Mony', '01712945462', 'redwonaislam113@gmail.com', NULL, 'Dilalpur', 'Pabna Sadar', NULL, 'Pabna', NULL, '2023-11-21 02:15:06', NULL),
-(15, 32, 'Vasha Mony', '01712945462', 'redwonaislam113@gmail.com', NULL, 'Adorsonagar', 'Mohammadpur', NULL, 'Dhaka', NULL, '2023-11-21 02:58:32', NULL),
-(16, 33, 'Vasha Mony', '01712945462', 'redwonaislam113@gmail.com', NULL, 'Dilalpur', 'Sujanagar', NULL, 'Pabna', NULL, '2023-11-21 03:04:31', NULL),
-(19, 36, 'Vasha Mony', '01712945462', 'redwonaislam113@gmail.com', NULL, 'Dilalpur', 'Sujanagar', NULL, 'Pabna', NULL, '2023-11-21 03:14:19', NULL),
-(21, 0, 'Vasha Mony', '01712945462', 'redwonaislam113@gmail.com', NULL, 'Dilalpur', 'Sujanagar', NULL, 'Pabna', NULL, '2023-11-21 03:20:55', NULL),
-(22, 39, 'Vasha Mony', '01712945462', 'redwonaislam113@gmail.com', NULL, 'Adorsonagar', 'Mohammadpur', NULL, 'Dhaka', NULL, '2023-11-21 03:22:09', NULL),
-(23, 40, 'Vasha Mony', '01712945462', 'redwonaislam113@gmail.com', NULL, 'Dilalpur', 'Sujanagar', NULL, 'Pabna', NULL, '2023-11-21 03:30:45', NULL),
-(24, 66, 'Fahim islam', '01850453647', 'alifhossain174@gmail.com', NULL, 'Flat A2, House 4 Rd No. 10', 'Dohar', NULL, 'Dhaka', NULL, '2023-11-26 04:57:08', NULL),
-(25, 88, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 01:18:34', NULL),
-(26, 89, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 01:18:37', NULL),
-(27, 90, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 01:19:01', NULL),
-(28, 91, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 01:19:36', NULL),
-(29, 92, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 01:20:20', NULL),
-(30, 93, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 01:21:04', NULL),
-(31, 94, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 01:22:08', NULL),
-(32, 95, NULL, '01712945462', 'aframawa2021@gmail.com', NULL, 'Ramchandrapur', NULL, NULL, 'Pabna', NULL, '2023-11-27 02:03:37', NULL),
-(33, 96, NULL, '01712945462', 'aframawa2021@gmail.com', NULL, 'Pabna', NULL, NULL, 'Pabna', NULL, '2023-11-27 03:08:12', NULL),
-(34, 97, NULL, '01712945462', 'aframawa2021@gmail.com', NULL, 'Pabna', NULL, NULL, 'Pabna', NULL, '2023-11-27 03:08:20', NULL),
-(35, 98, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 03:13:29', NULL),
-(36, 99, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 03:13:52', NULL),
-(37, 100, NULL, '125787', 'aframawa2021@gmail.com', NULL, 'Pabna', NULL, NULL, NULL, NULL, '2023-11-27 03:15:17', NULL),
-(38, 103, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 14:59:24', NULL),
-(39, 104, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 14:59:48', NULL),
-(40, 105, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 15:00:13', NULL),
-(41, 106, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-11-27 15:15:03', NULL),
-(42, 107, NULL, '01969005036', 'admin@gmail.com', NULL, 'Bada', NULL, NULL, 'Bhola', NULL, '2023-11-28 02:53:25', NULL),
-(43, 108, NULL, '01969005036', 'admin@gmail.com', NULL, 'Bada', NULL, NULL, 'Bhola', NULL, '2023-11-28 02:53:32', NULL),
-(44, 111, NULL, '01712945462', 'redwonaislam113@gmail.com', NULL, 'sw', NULL, NULL, 'Cumilla', NULL, '2023-11-29 02:23:55', NULL),
-(45, 112, NULL, '01712945462', 'redwonaislam113@gmail.com', NULL, 'sw', NULL, NULL, 'Cumilla', NULL, '2023-11-29 02:24:02', NULL),
-(46, 113, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, 'Faridpur', NULL, '2023-11-30 01:28:20', NULL),
-(47, 114, NULL, '12345', 'aframawa2021@gmail.com', NULL, 'Pabna', NULL, NULL, NULL, NULL, '2023-11-30 03:22:10', NULL),
-(48, 115, NULL, '3e24', 'aframawa2021@gmail.com', NULL, 'Pabna', NULL, NULL, NULL, NULL, '2023-11-30 03:23:06', NULL),
-(49, 116, 'Arif', '98666776778', 'dcsuperstar22@gmail.com', NULL, 'nn', 'Islampur', NULL, 'Jamalpur', NULL, '2023-11-30 08:14:48', NULL),
-(50, 117, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-12-01 04:02:41', NULL),
-(51, 118, NULL, '01712945462', 'redwonaislam113@gmail.com', NULL, 'kjhbadda', NULL, NULL, 'Faridpur', NULL, '2023-12-03 04:24:59', NULL),
-(52, 122, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, NULL, NULL, '2023-12-06 08:15:24', NULL),
-(53, 124, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, 'Natore', NULL, '2023-12-14 09:37:21', NULL),
-(54, 126, NULL, '01626317700', 'getup.rayhan@gmail.com', NULL, 'Dhaka', NULL, NULL, 'Dhaka', NULL, '2023-12-18 03:10:27', NULL),
-(55, 127, NULL, '01850453647', 'alifhossain174@gmail.com', NULL, 'Uttara, Dhaka-1229', NULL, NULL, 'Dhaka', NULL, '2023-12-18 09:38:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -2819,12 +3029,16 @@ CREATE TABLE `subcategories` (
 --
 
 INSERT INTO `subcategories` (`id`, `category_id`, `name`, `icon`, `image`, `slug`, `status`, `featured`, `created_at`, `updated_at`) VALUES
-(47, 10, 'Pant', 'subcategory_images/UBgSl1698644671.png', NULL, 'pant', 1, 1, '2023-10-30 03:41:14', '2023-10-30 03:44:31'),
-(48, 10, 'Shirt', 'subcategory_images/YdphN1698644609.png', NULL, 'shirt', 1, 1, '2023-10-30 03:41:25', '2023-11-06 06:44:30'),
-(49, 11, 'Tops', 'subcategory_images/YGG7T1698644599.png', NULL, 'tops', 1, 1, '2023-10-30 03:41:38', '2023-11-06 06:44:20'),
-(50, 11, 'Bottom dress', 'subcategory_images/cEHlx1698644587.png', NULL, 'lower', 1, 1, '2023-10-30 03:41:52', '2023-11-06 06:44:07'),
-(51, 15, 'Summer', 'subcategory_images/0xJvX1699249542.jpg', NULL, 'summer', 1, 1, '2023-11-06 03:45:42', '2023-11-06 03:48:42'),
-(54, 15, 'Winter', 'subcategory_images/CWuGI1699260056.jpg', NULL, 'winter', 1, 1, '2023-11-06 05:02:24', '2023-11-06 06:40:56');
+(55, 17, 'All Laptop', NULL, NULL, 'all-laptop', 1, 0, '2023-12-31 06:19:29', NULL),
+(56, 17, 'Gaming Laptop', NULL, NULL, 'gaming-laptop', 1, 0, '2023-12-31 06:19:39', NULL),
+(57, 17, 'Premium Ultrabook', NULL, NULL, 'premium-ultrabook', 1, 0, '2023-12-31 06:19:52', NULL),
+(58, 17, 'Laptop Bag', NULL, NULL, 'laptop-bag', 1, 0, '2023-12-31 06:20:01', NULL),
+(59, 17, 'laptop Accessories', NULL, NULL, 'laptop-accessories', 1, 0, '2023-12-31 06:20:12', NULL),
+(60, 18, 'Iphone', NULL, NULL, 'iphone', 1, 0, '2023-12-31 06:20:29', NULL),
+(61, 18, 'Xiaomi', NULL, NULL, 'xiaomi', 1, 0, '2023-12-31 06:20:40', NULL),
+(62, 18, 'Samsung', NULL, NULL, 'samsung', 1, 0, '2023-12-31 06:20:48', NULL),
+(63, 18, 'Oneplus', NULL, NULL, 'oneplus', 1, 0, '2023-12-31 06:20:55', NULL),
+(64, 18, 'Realme', NULL, NULL, 'realme', 1, 0, '2023-12-31 06:21:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -8678,13 +8892,13 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -8702,7 +8916,7 @@ ALTER TABLE `blog_categories`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `carts`
@@ -8714,13 +8928,13 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `child_categories`
 --
 ALTER TABLE `child_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `colors`
@@ -8822,25 +9036,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -8864,13 +9078,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 
 --
 -- AUTO_INCREMENT for table `product_models`
@@ -8882,13 +9096,13 @@ ALTER TABLE `product_models`
 -- AUTO_INCREMENT for table `product_question_answers`
 --
 ALTER TABLE `product_question_answers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 
 --
 -- AUTO_INCREMENT for table `product_sizes`
@@ -8900,7 +9114,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`
@@ -8930,7 +9144,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sims`
@@ -8972,7 +9186,7 @@ ALTER TABLE `storage_types`
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `subscribed_users`

@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class GeneralInfoController extends Controller
 {
@@ -127,7 +128,13 @@ class GeneralInfoController extends Controller
             $get_image = $request->file('payment_banner');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('company_logo/');
-            $get_image->move($location, $image_name);
+
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 25);
+            }
+
             $paymentBanner = "company_logo/" . $image_name;
         }
 
@@ -203,16 +210,34 @@ class GeneralInfoController extends Controller
     }
 
     public function seoHomePage(){
-        $data = GeneralInfo::where('id', 1)->select('meta_title', 'meta_keywords', 'meta_description')->first();
+        $data = GeneralInfo::where('id', 1)->select('meta_title', 'meta_keywords', 'meta_description', 'meta_og_title', 'meta_og_description', 'meta_og_image')->first();
         return view('backend.general_info.seo_homepage', compact('data'));
     }
 
     public function updateSeoHomePage(Request $request){
 
+        $data = GeneralInfo::where('id', 1)->first();
+        $meta_og_image = $data->meta_og_image;
+        if ($request->hasFile('meta_og_image')){
+
+            if($data->meta_og_image != '' && file_exists(public_path($data->meta_og_image))){
+                unlink(public_path($data->meta_og_image));
+            }
+
+            $get_image = $request->file('meta_og_image');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('company_logo/');
+            $get_image->move($location, $image_name);
+            $meta_og_image = "company_logo/" . $image_name;
+        }
+
         GeneralInfo::where('id', 1)->update([
             'meta_title' => $request->meta_title,
             'meta_keywords' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
+            'meta_og_title' => $request->meta_og_title,
+            'meta_og_description' => $request->meta_og_description,
+            'meta_og_image' => $meta_og_image,
             'updated_at' => Carbon::now()
         ]);
 

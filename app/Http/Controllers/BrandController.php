@@ -34,9 +34,9 @@ class BrandController extends Controller
                     })
                     ->editColumn('featured', function($data) {
                         if($data->featured == 0){
-                            return '<button class="btn btn-sm btn-danger rounded">Not Featured</button>';
+                            return '<a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" title="Not Featured" data-original-title="Featured" class="btn-sm btn-danger rounded featureBtn">Not Featured</a>';
                         } else {
-                            return '<button class="btn btn-sm btn-success rounded">Featured</button>';
+                            return '<a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" title="Featured" data-original-title="Featured" class="btn-sm btn-success rounded featureBtn">Featured</a>';
                         }
                     })
                     ->editColumn('categories', function($data) {
@@ -65,11 +65,11 @@ class BrandController extends Controller
                     ->addColumn('action', function($data){
                         $btn = ' <a href="'.url('edit/brand').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
                         $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
-                        if($data->featured == 0){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" title="Featured" data-original-title="Featured" class="btn-sm btn-success rounded featureBtn"><i class="feather-chevrons-up"></i></a>';
-                        } else {
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" title="Featured" data-original-title="Featured" class="btn-sm btn-danger rounded featureBtn"><i class="feather-chevrons-down"></i></a>';
-                        }
+                        // if($data->featured == 0){
+                        //     $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" title="Featured" data-original-title="Featured" class="btn-sm btn-success rounded featureBtn"><i class="feather-chevrons-up"></i></a>';
+                        // } else {
+                        //     $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" title="Featured" data-original-title="Featured" class="btn-sm btn-danger rounded featureBtn"><i class="feather-chevrons-down"></i></a>';
+                        // }
 
                         return $btn;
                     })
@@ -200,6 +200,7 @@ class BrandController extends Controller
             'subcategories' => $request->subcategories ? implode(",", $request->subcategories) : null,
             'slug' => Generate::Slug($request->name),
             'status' => $request->status,
+            'featured' => $request->featured,
             'updated_at' => Carbon::now()
         ]);
 

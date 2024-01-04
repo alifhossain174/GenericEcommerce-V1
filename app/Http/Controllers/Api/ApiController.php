@@ -1454,7 +1454,7 @@ class ApiController extends BaseController
         $data = DB::table('orders')->where('user_id', auth()->user()->id)->where('slug', $slug)->first();
         return response()->json([
             'success' => true,
-            'date' => new OrderResource($data)
+            'data' => new OrderResource($data)
         ], 200);
     }
 

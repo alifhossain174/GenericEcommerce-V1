@@ -47,6 +47,10 @@ class CreateGeneralInfosTable extends Migration
             $table->string('meta_keywords')->nullable();
             $table->longText('meta_description')->nullable();
 
+            $table->string('meta_og_title')->nullable();
+            $table->string('meta_og_image')->nullable();
+            $table->longText('meta_og_description')->nullable();
+
             // social media links
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
