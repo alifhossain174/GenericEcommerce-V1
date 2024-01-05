@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
+use Intervention\Image\Facades\Image;
 
 class BannerController extends Controller
 {
@@ -51,7 +52,14 @@ class BannerController extends Controller
             $get_image = $request->file('image');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('banner/');
-            $get_image->move($location, $image_name);
+
+            // $get_image->move($location, $image_name);
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 25);
+            }
+
             $image = "banner/" . $image_name;
         }
 
@@ -110,8 +118,14 @@ class BannerController extends Controller
             $get_image = $request->file('image');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('banner/');
-            // Image::make($get_image)->save($location . $image_name, 80);
-            $get_image->move($location, $image_name);
+
+            // $get_image->move($location, $image_name);
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 25);
+            }
+
             $image = "banner/" . $image_name;
         }
 
@@ -197,7 +211,14 @@ class BannerController extends Controller
             $get_image = $request->file('image');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('banner/');
-            $get_image->move($location, $image_name);
+
+            // $get_image->move($location, $image_name);
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 25);
+            }
+
             $image = "banner/" . $image_name;
         }
 
@@ -246,8 +267,14 @@ class BannerController extends Controller
             $get_image = $request->file('image');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('banner/');
-            // Image::make($get_image)->save($location . $image_name, 80);
-            $get_image->move($location, $image_name);
+
+            // $get_image->move($location, $image_name);
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 25);
+            }
+
             $image = "banner/" . $image_name;
         }
 
@@ -315,7 +342,12 @@ class BannerController extends Controller
             $get_image = $request->file('icon');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('banner/');
-            $get_image->move($location, $image_name);
+            // $get_image->move($location, $image_name);
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 25);
+            }
             $icon = "banner/" . $image_name;
         }
 
@@ -329,7 +361,12 @@ class BannerController extends Controller
             $get_image = $request->file('product_image');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('banner/');
-            $get_image->move($location, $image_name);
+            // $get_image->move($location, $image_name);
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 25);
+            }
             $product_image = "banner/" . $image_name;
         }
 
@@ -343,7 +380,12 @@ class BannerController extends Controller
             $get_image = $request->file('background_image');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('banner/');
-            $get_image->move($location, $image_name);
+            // $get_image->move($location, $image_name);
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 25);
+            }
             $background_image = "banner/" . $image_name;
         }
 
