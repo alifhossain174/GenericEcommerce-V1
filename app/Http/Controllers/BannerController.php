@@ -57,7 +57,7 @@ class BannerController extends Controller
             if($get_image->getClientOriginalExtension() == 'svg'){
                 $get_image->move($location, $image_name);
             } else {
-                Image::make($get_image)->save($location . $image_name, 25);
+                Image::make($get_image)->save($location . $image_name, 60);
             }
 
             $image = "banner/" . $image_name;
@@ -123,7 +123,7 @@ class BannerController extends Controller
             if($get_image->getClientOriginalExtension() == 'svg'){
                 $get_image->move($location, $image_name);
             } else {
-                Image::make($get_image)->save($location . $image_name, 25);
+                Image::make($get_image)->save($location . $image_name, 60);
             }
 
             $image = "banner/" . $image_name;
@@ -216,7 +216,7 @@ class BannerController extends Controller
             if($get_image->getClientOriginalExtension() == 'svg'){
                 $get_image->move($location, $image_name);
             } else {
-                Image::make($get_image)->save($location . $image_name, 25);
+                Image::make($get_image)->save($location . $image_name, 60);
             }
 
             $image = "banner/" . $image_name;
@@ -272,7 +272,7 @@ class BannerController extends Controller
             if($get_image->getClientOriginalExtension() == 'svg'){
                 $get_image->move($location, $image_name);
             } else {
-                Image::make($get_image)->save($location . $image_name, 25);
+                Image::make($get_image)->save($location . $image_name, 60);
             }
 
             $image = "banner/" . $image_name;
@@ -346,7 +346,7 @@ class BannerController extends Controller
             if($get_image->getClientOriginalExtension() == 'svg'){
                 $get_image->move($location, $image_name);
             } else {
-                Image::make($get_image)->save($location . $image_name, 25);
+                Image::make($get_image)->save($location . $image_name, 60);
             }
             $icon = "banner/" . $image_name;
         }
@@ -365,7 +365,7 @@ class BannerController extends Controller
             if($get_image->getClientOriginalExtension() == 'svg'){
                 $get_image->move($location, $image_name);
             } else {
-                Image::make($get_image)->save($location . $image_name, 25);
+                Image::make($get_image)->save($location . $image_name, 60);
             }
             $product_image = "banner/" . $image_name;
         }
@@ -384,7 +384,7 @@ class BannerController extends Controller
             if($get_image->getClientOriginalExtension() == 'svg'){
                 $get_image->move($location, $image_name);
             } else {
-                Image::make($get_image)->save($location . $image_name, 25);
+                Image::make($get_image)->save($location . $image_name, 60);
             }
             $background_image = "banner/" . $image_name;
         }
