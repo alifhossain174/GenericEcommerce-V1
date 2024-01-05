@@ -53,6 +53,7 @@
                                     <th class="text-center">Banner</th>
                                     <th class="text-center">Categories</th>
                                     <th class="text-center">Subcategories</th>
+                                    <th class="text-center">Childcategories</th>
                                     <th class="text-center">Slug</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Featured</th>
@@ -115,6 +116,7 @@
                 },
                 {data: 'categories', name: 'categories'},
                 {data: 'subcategories', name: 'subcategories'},
+                {data: 'childcategories', name: 'childcategories'},
                 {data: 'slug', name: 'slug'},
                 {data: 'status', name: 'status'},
                 {data: 'featured', name: 'featured'},

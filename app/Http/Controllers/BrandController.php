@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\ChildCategory;
 use App\Models\ProductModel;
 use App\Models\Subcategory;
 use Carbon\Carbon;
@@ -61,6 +62,17 @@ class BrandController extends Controller
                         }
                         return $subcategoryString;
                     })
+                    ->editColumn('childcategories', function($data) {
+                        $childcategoryString = '';
+                        $childcategoryArray = explode(",",$data->childcategories);
+                        foreach($childcategoryArray as $item){
+                            $childcatInfo = ChildCategory::where('id', $item)->first();
+                            if($childcatInfo){
+                                $childcategoryString .= '<button class="btn btn-sm btn-primary rounded" style="padding: .10rem .5rem;">'.$childcatInfo->name.'</button> ';
+                            }
+                        }
+                        return $childcategoryString;
+                    })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
                         $btn = ' <a href="'.url('edit/brand').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
@@ -73,7 +85,7 @@ class BrandController extends Controller
 
                         return $btn;
                     })
-                    ->rawColumns(['action', 'logo', 'featured', 'status', 'categories', 'subcategories'])
+                    ->rawColumns(['action', 'logo', 'featured', 'status', 'categories', 'subcategories', 'childcategories'])
                     ->make(true);
         }
         return view('backend.brand.view');
@@ -116,6 +128,7 @@ class BrandController extends Controller
             'banner' => $banner,
             'categories' => $request->categories ? implode(",", $request->categories) : null,
             'subcategories' => $request->subcategories ? implode(",", $request->subcategories) : null,
+            'childcategories' => $request->childcategories ? implode(",", $request->childcategories) : null,
             'slug' => Generate::Slug($request->name),
             'featured' => 0,
             'serial' => Brand::min('serial') - 1,
@@ -198,6 +211,7 @@ class BrandController extends Controller
             'banner' => $banner,
             'categories' => $request->categories ? implode(",", $request->categories) : null,
             'subcategories' => $request->subcategories ? implode(",", $request->subcategories) : null,
+            'childcategories' => $request->childcategories ? implode(",", $request->childcategories) : null,
             'slug' => Generate::Slug($request->name),
             'status' => $request->status,
             'featured' => $request->featured,

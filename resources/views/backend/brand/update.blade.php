@@ -101,6 +101,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="childcategories" class="col-sm-2 col-form-label">Childcategories</label>
+                            <div class="col-sm-10">
+                                @php
+                                    $childcategories = App\Models\ChildCategory::get();
+                                @endphp
+                                <select name="childcategories[]" data-toggle="select2" class="form-control" id="childcategories" multiple>
+                                    @foreach ($childcategories as $childcategory)
+                                    <option value="{{$childcategory->id}}" @if(str_contains($data->childcategories, $childcategory->id)) selected @endif>{{$childcategory->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="colFormLabe0" class="col-sm-2 col-form-label">Feature Status</label>
                             <div class="col-sm-3">
                                 <select name="featured" class="form-control" id="colFormLabe0" required>

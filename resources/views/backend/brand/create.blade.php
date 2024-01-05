@@ -91,6 +91,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="childcategories" class="col-sm-2 col-form-label">Childcategories</label>
+                            <div class="col-sm-10">
+                                <select name="childcategories[]" data-toggle="select2" class="form-control" id="childcategories" multiple>
+                                    @php
+                                        echo App\Models\ChildCategory::getDropDownList('name');
+                                    @endphp
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Save Brand</button>
                         </div>
