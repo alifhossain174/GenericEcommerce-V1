@@ -42,3 +42,7 @@ ALTER TABLE `brands` ADD `categories` VARCHAR(255) NULL DEFAULT NULL AFTER `bann
 ==================04.01.23======================
 ALTER TABLE `general_infos` ADD `meta_og_title` VARCHAR(255) NULL DEFAULT NULL AFTER `meta_description`, ADD `meta_og_image` VARCHAR(255) NULL DEFAULT NULL AFTER `meta_og_title`, ADD `meta_og_description` VARCHAR(255) NULL DEFAULT NULL AFTER `meta_og_image`;
 ================================================
+
+==================06.01.23======================
+ALTER TABLE `brands` ADD `childcategories` VARCHAR(255) NULL DEFAULT NULL AFTER `subcategories`;
+================================================

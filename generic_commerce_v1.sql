@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2024 at 12:32 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Generation Time: Jan 05, 2024 at 09:42 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `about_us` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `banner_bg` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `section_sub_title` varchar(255) DEFAULT NULL,
-  `section_title` varchar(255) DEFAULT NULL,
-  `section_description` longtext DEFAULT NULL,
-  `btn_icon_class` varchar(255) DEFAULT NULL,
-  `btn_text` varchar(255) DEFAULT NULL,
-  `btn_link` varchar(255) DEFAULT NULL,
+  `banner_bg` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `section_sub_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `section_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `section_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_icon_class` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -57,17 +57,17 @@ INSERT INTO `about_us` (`id`, `banner_bg`, `image`, `section_sub_title`, `sectio
 CREATE TABLE `banners` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Sliders; 2=>Banners',
-  `image` varchar(255) NOT NULL,
-  `link` varchar(255) DEFAULT NULL,
-  `position` varchar(255) DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
-  `sub_title` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `btn_text` varchar(255) DEFAULT NULL,
-  `btn_link` varchar(255) DEFAULT NULL,
-  `text_position` varchar(255) DEFAULT NULL,
-  `slug` varchar(255) NOT NULL,
+  `sub_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `serial` double NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -81,7 +81,7 @@ INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub
 (14, 1, 'banner/jvqRt1704003868.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'ySd3d1704003868', -1, '2023-12-31 06:24:28', '2023-12-31 10:35:27'),
 (15, 1, 'banner/yOjHH1704003871.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'vcoVV1704003871', -2, '2023-12-31 06:24:31', '2023-12-31 10:35:23'),
 (16, 1, 'banner/aE4B91704003874.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'fPvoV1704003874', -3, '2023-12-31 06:24:34', '2023-12-31 10:35:19'),
-(17, 1, 'banner/ccb2G1704003877.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'a4ISa1704003877', -4, '2023-12-31 06:24:37', '2023-12-31 10:35:14'),
+(17, 1, 'banner/YYhJc1704486979.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'a4ISa1704003877', -4, '2023-12-31 06:24:37', '2024-01-05 20:36:19'),
 (18, 2, 'banner/IoxtE1704019137.svg', 'http://127.0.0.1:8000', 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, 'bzEmE1704019137', 4, '2023-12-31 10:38:57', '2023-12-31 11:46:07'),
 (19, 2, 'banner/quMkS1704019147.svg', 'http://127.0.0.1:8000/', 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, 'W8HX01704019147', 3, '2023-12-31 10:39:07', '2023-12-31 11:46:07'),
 (20, 2, 'banner/sKFJT1704022858.png', '#', 'middle', 1, NULL, 'Xiaomi 12 Pro', 'Xiaomi 12 Pro Will be Available at a Special Offer Starting December 01, 2022', 'Learn More', '#', 'left', 'hpfsb1704022858', 1, '2023-12-31 11:40:58', '2023-12-31 11:46:07'),
@@ -96,11 +96,11 @@ INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub
 CREATE TABLE `billing_addresses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `post_code` varchar(255) DEFAULT NULL,
-  `thana` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `post_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thana` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -114,12 +114,12 @@ CREATE TABLE `billing_addresses` (
 CREATE TABLE `blogs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `short_description` mediumtext DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  `tags` varchar(255) DEFAULT NULL,
-  `slug` varchar(255) NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `short_description` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tags` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -142,8 +142,8 @@ INSERT INTO `blogs` (`id`, `category_id`, `image`, `title`, `short_description`,
 
 CREATE TABLE `blog_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
   `serial` tinyint(4) NOT NULL DEFAULT 1,
@@ -168,15 +168,16 @@ INSERT INTO `blog_categories` (`id`, `name`, `slug`, `status`, `featured`, `seri
 
 CREATE TABLE `brands` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `logo` varchar(255) DEFAULT NULL,
-  `banner` varchar(255) DEFAULT NULL,
-  `categories` varchar(255) DEFAULT NULL,
-  `subcategories` varchar(255) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `categories` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subcategories` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `childcategories` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=> Not Featured; 1=> Featured',
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=> Inactive; 1=> Active',
   `serial` tinyint(4) NOT NULL DEFAULT 1,
-  `slug` varchar(255) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -185,14 +186,14 @@ CREATE TABLE `brands` (
 -- Dumping data for table `brands`
 --
 
-INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `categories`, `subcategories`, `featured`, `status`, `serial`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Samsung', NULL, NULL, '17,18', '62', 1, 1, -1, 'samsung', '2023-12-31 06:30:57', '2023-12-31 11:52:30'),
-(2, 'Xiaomi', 'brand_images/CB5Zj1704014683.png', NULL, '18', '61', 1, 1, -2, 'xiaomi', '2023-12-31 06:36:07', '2023-12-31 11:52:28'),
-(3, 'Redmi', NULL, NULL, '18', '61', 0, 1, -3, 'redmi', '2023-12-31 06:37:13', '2023-12-31 06:38:05'),
-(4, 'Vivo', NULL, NULL, '18', NULL, 0, 1, -4, 'vivo', '2023-12-31 06:37:18', '2023-12-31 06:38:15'),
-(5, 'Oppo', NULL, NULL, '18', NULL, 0, 1, -5, 'oppo', '2023-12-31 06:37:25', '2023-12-31 06:39:07'),
-(6, 'Techno', NULL, NULL, '18', NULL, 0, 1, -6, 'techno', '2023-12-31 06:37:33', '2023-12-31 11:01:18'),
-(7, 'Apple', NULL, NULL, '18', '60', 1, 1, -7, 'apple', '2023-12-31 06:39:52', '2023-12-31 11:52:25');
+INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `categories`, `subcategories`, `childcategories`, `featured`, `status`, `serial`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'Samsung', NULL, NULL, '17,18', '62', NULL, 1, 1, -1, 'samsung', '2023-12-31 06:30:57', '2023-12-31 11:52:30'),
+(2, 'Xiaomi', 'brand_images/CB5Zj1704014683.png', NULL, '18', '61', NULL, 1, 1, -2, 'xiaomi', '2023-12-31 06:36:07', '2023-12-31 11:52:28'),
+(3, 'Redmi', NULL, NULL, '18', '61', NULL, 0, 1, -3, 'redmi', '2023-12-31 06:37:13', '2023-12-31 06:38:05'),
+(4, 'Vivo', NULL, NULL, '18', NULL, NULL, 0, 1, -4, 'vivo', '2023-12-31 06:37:18', '2023-12-31 06:38:15'),
+(5, 'Oppo', NULL, NULL, '18', NULL, NULL, 0, 1, -5, 'oppo', '2023-12-31 06:37:25', '2023-12-31 06:39:07'),
+(6, 'Techno', NULL, NULL, '18', NULL, NULL, 0, 1, -6, 'techno', '2023-12-31 06:37:33', '2023-12-31 11:01:18'),
+(7, 'Apple', NULL, NULL, '18', '60', NULL, 1, 1, -7, 'apple', '2023-12-31 06:39:52', '2023-12-31 11:52:25');
 
 -- --------------------------------------------------------
 
@@ -202,7 +203,7 @@ INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `categories`, `subcategori
 
 CREATE TABLE `carts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `user_unique_cart_no` varchar(255) NOT NULL,
+  `user_unique_cart_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `color_id` int(11) DEFAULT NULL COMMENT 'Variant',
   `size_id` int(11) DEFAULT NULL,
@@ -234,10 +235,10 @@ INSERT INTO `carts` (`id`, `user_unique_cart_no`, `product_id`, `color_id`, `siz
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  `banner_image` varchar(255) DEFAULT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
   `serial` tinyint(4) NOT NULL DEFAULT 1,
@@ -277,8 +278,8 @@ CREATE TABLE `child_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
   `subcategory_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -302,8 +303,8 @@ INSERT INTO `child_categories` (`id`, `category_id`, `subcategory_id`, `name`, `
 
 CREATE TABLE `colors` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -337,10 +338,10 @@ INSERT INTO `colors` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `config_setups` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `code` varchar(255) DEFAULT NULL,
-  `industry` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `industry` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -366,11 +367,11 @@ INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`,
 
 CREATE TABLE `contact_requests` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `company_name` varchar(255) DEFAULT NULL,
-  `message` longtext DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Served; 1=>Served',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -390,7 +391,7 @@ CREATE TABLE `country` (
   `iso3` char(3) DEFAULT NULL,
   `numcode` smallint(6) DEFAULT NULL,
   `phonecode` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `country`
@@ -645,7 +646,7 @@ INSERT INTO `country` (`id`, `iso`, `name`, `nicename`, `iso3`, `numcode`, `phon
 
 CREATE TABLE `device_conditions` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `serial` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -677,7 +678,7 @@ CREATE TABLE `districts` (
   `lon` varchar(15) DEFAULT NULL,
   `url` varchar(50) NOT NULL,
   `delivery_charge` double NOT NULL DEFAULT 100
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `districts`
@@ -760,7 +761,7 @@ CREATE TABLE `divisions` (
   `name` varchar(25) NOT NULL,
   `bn_name` varchar(25) NOT NULL,
   `url` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `divisions`
@@ -784,14 +785,14 @@ INSERT INTO `divisions` (`id`, `name`, `bn_name`, `url`) VALUES
 
 CREATE TABLE `email_configures` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `host` varchar(255) NOT NULL,
+  `host` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `port` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `mail_from_name` varchar(255) DEFAULT NULL,
-  `mail_from_email` varchar(255) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mail_from_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_from_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `encryption` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>None; 1=>TLS; 2=>SSL',
-  `slug` varchar(255) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -812,9 +813,9 @@ INSERT INTO `email_configures` (`id`, `host`, `port`, `email`, `password`, `mail
 
 CREATE TABLE `email_templates` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `template_image` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `template_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
   `serial` double NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -837,11 +838,11 @@ INSERT INTO `email_templates` (`id`, `type`, `template_image`, `title`, `status`
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -853,10 +854,10 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `faqs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `question` varchar(255) NOT NULL,
-  `answer` longtext NOT NULL,
+  `question` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
-  `slug` varchar(255) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -883,11 +884,11 @@ INSERT INTO `faqs` (`id`, `question`, `answer`, `status`, `slug`, `created_at`, 
 
 CREATE TABLE `flags` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
-  `slug` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -910,58 +911,58 @@ INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `create
 
 CREATE TABLE `general_infos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `logo` varchar(255) DEFAULT NULL,
-  `logo_dark` varchar(255) DEFAULT NULL,
-  `fav_icon` varchar(255) DEFAULT NULL,
-  `tab_title` varchar(255) DEFAULT NULL,
-  `company_name` varchar(255) DEFAULT NULL,
-  `short_description` longtext DEFAULT NULL,
-  `contact` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `address` longtext DEFAULT NULL,
-  `google_map_link` longtext DEFAULT NULL,
-  `play_store_link` varchar(255) DEFAULT NULL,
-  `app_store_link` varchar(255) DEFAULT NULL,
-  `footer_copyright_text` varchar(255) DEFAULT NULL,
-  `payment_banner` varchar(255) DEFAULT NULL,
-  `primary_color` varchar(255) DEFAULT NULL,
-  `secondary_color` varchar(255) DEFAULT NULL,
-  `tertiary_color` varchar(255) DEFAULT NULL,
-  `title_color` varchar(255) DEFAULT NULL,
-  `paragraph_color` varchar(255) DEFAULT NULL,
-  `border_color` varchar(255) DEFAULT NULL,
-  `meta_title` varchar(255) DEFAULT NULL,
-  `meta_keywords` varchar(255) DEFAULT NULL,
-  `meta_description` longtext DEFAULT NULL,
-  `meta_og_title` varchar(255) DEFAULT NULL,
-  `meta_og_image` varchar(255) DEFAULT NULL,
-  `meta_og_description` varchar(255) DEFAULT NULL,
-  `custom_css` longtext DEFAULT NULL,
-  `custom_js` longtext DEFAULT NULL,
-  `header_script` longtext DEFAULT NULL,
-  `footer_script` longtext DEFAULT NULL,
-  `facebook` varchar(255) DEFAULT NULL,
-  `instagram` varchar(255) DEFAULT NULL,
-  `twitter` varchar(255) DEFAULT NULL,
-  `linkedin` varchar(255) DEFAULT NULL,
-  `youtube` varchar(255) DEFAULT NULL,
-  `messenger` varchar(255) DEFAULT NULL,
-  `whatsapp` varchar(255) DEFAULT NULL,
-  `telegram` varchar(255) DEFAULT NULL,
-  `tiktok` varchar(255) DEFAULT NULL,
-  `pinterest` varchar(255) DEFAULT NULL,
-  `viber` varchar(255) DEFAULT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo_dark` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fav_icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tab_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `short_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `google_map_link` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `play_store_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `app_store_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `footer_copyright_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment_banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `primary_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `secondary_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tertiary_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `paragraph_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `border_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_og_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_og_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_og_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `custom_css` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `custom_js` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `header_script` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `footer_script` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instagram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `youtube` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `messenger` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `whatsapp` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telegram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tiktok` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pinterest` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `viber` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `google_analytic_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
-  `google_analytic_tracking_id` varchar(255) DEFAULT NULL,
+  `google_analytic_tracking_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `google_tag_manager_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
-  `google_tag_manager_id` varchar(255) DEFAULT NULL,
+  `google_tag_manager_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fb_pixel_status` tinyint(4) NOT NULL DEFAULT 0,
-  `fb_pixel_app_id` varchar(255) DEFAULT NULL,
+  `fb_pixel_app_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tawk_chat_status` tinyint(4) NOT NULL DEFAULT 0,
-  `tawk_chat_link` varchar(255) DEFAULT NULL,
+  `tawk_chat_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `crisp_chat_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
-  `crisp_website_id` varchar(255) DEFAULT NULL,
-  `about_us` longtext DEFAULT NULL,
+  `crisp_website_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about_us` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -981,8 +982,8 @@ INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`,
 
 CREATE TABLE `google_recaptchas` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `captcha_site_key` varchar(255) DEFAULT NULL,
-  `captcha_secret_key` varchar(255) DEFAULT NULL,
+  `captcha_site_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `captcha_secret_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1003,7 +1004,7 @@ INSERT INTO `google_recaptchas` (`id`, `captcha_site_key`, `captcha_secret_key`,
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1082,11 +1083,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `notifications` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `server_key` varchar(255) NOT NULL,
-  `fcm_url` varchar(255) NOT NULL,
-  `topic` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` longtext DEFAULT NULL,
+  `server_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fcm_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `topic` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1099,27 +1100,27 @@ CREATE TABLE `notifications` (
 
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `order_no` varchar(255) NOT NULL,
+  `order_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `order_date` datetime NOT NULL,
   `estimated_dd` date DEFAULT NULL,
   `delivery_date` datetime DEFAULT NULL,
-  `delivery_method` varchar(255) DEFAULT NULL COMMENT '1=>Home Delivery; 2=>Store Pickup',
+  `delivery_method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '1=>Home Delivery; 2=>Store Pickup',
   `payment_method` tinyint(4) DEFAULT NULL COMMENT '1=>cash_on_delivery; 2=>bkash; 3=>nagad; 4=>Card',
   `payment_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Unpaid; 1=>Payment Success; 2=>Payment Failed',
-  `trx_id` varchar(255) DEFAULT NULL COMMENT 'Created By SodaiNagar',
-  `bank_tran_id` varchar(255) DEFAULT NULL COMMENT 'KEEP THIS bank_tran_id FOR REFUNDING ISSUE',
+  `trx_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Created By SodaiNagar',
+  `bank_tran_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'KEEP THIS bank_tran_id FOR REFUNDING ISSUE',
   `order_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>pending/processing; 1=>confirmed; 2=>intransit; 3=>delivered; 4=>cancel',
   `sub_total` double NOT NULL DEFAULT 0,
-  `coupon_code` varchar(255) DEFAULT NULL,
+  `coupon_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `discount` double NOT NULL DEFAULT 0,
   `delivery_fee` double NOT NULL DEFAULT 0,
   `vat` double NOT NULL DEFAULT 0,
   `tax` double NOT NULL DEFAULT 0,
   `total` double NOT NULL DEFAULT 0,
-  `order_note` longtext DEFAULT NULL COMMENT 'Order Note By Customer',
-  `order_remarks` longtext DEFAULT NULL,
-  `slug` varchar(255) NOT NULL,
+  `order_note` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Order Note By Customer',
+  `order_remarks` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `complete_order` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Incomplete Order (Address Missing); 1=>Complete Order (Address Given)',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1159,22 +1160,22 @@ CREATE TABLE `order_details` (
 CREATE TABLE `order_payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
-  `payment_through` varchar(255) NOT NULL DEFAULT 'SSL COMMERZ',
-  `tran_id` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `val_id` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `amount` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_type` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `store_amount` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_no` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `bank_tran_id` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `status` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `tran_date` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `currency` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_issuer` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_brand` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_sub_brand` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_issuer_country` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `store_id` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `payment_through` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'SSL COMMERZ',
+  `tran_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `val_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `amount` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `store_amount` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `bank_tran_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `tran_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `currency` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_issuer` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_brand` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_sub_brand` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_issuer_country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `store_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1200,8 +1201,8 @@ CREATE TABLE `order_progress` (
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1213,11 +1214,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `payment_gateways` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `provider_name` varchar(255) NOT NULL,
-  `api_key` varchar(255) DEFAULT NULL COMMENT 'StoreID/ApiKey',
-  `secret_key` varchar(255) DEFAULT NULL COMMENT 'StorePassword/SecretKey',
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
+  `provider_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `api_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'StoreID/ApiKey',
+  `secret_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'StorePassword/SecretKey',
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `live` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Test/Sandbox; 1=>Product/Live',
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1242,9 +1243,9 @@ INSERT INTO `payment_gateways` (`id`, `provider_name`, `api_key`, `secret_key`, 
 
 CREATE TABLE `permission_routes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `route` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `method` varchar(255) DEFAULT NULL,
+  `route` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1612,11 +1613,11 @@ INSERT INTO `permission_routes` (`id`, `route`, `name`, `method`, `created_at`, 
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1745,26 +1746,26 @@ CREATE TABLE `products` (
   `childcategory_id` bigint(20) UNSIGNED DEFAULT NULL,
   `brand_id` bigint(20) UNSIGNED DEFAULT NULL,
   `model_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(255) DEFAULT NULL,
-  `image` varchar(255) NOT NULL,
-  `multiple_images` varchar(255) DEFAULT NULL,
-  `short_description` longtext DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  `specification` longtext DEFAULT NULL,
-  `warrenty_policy` longtext DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `multiple_images` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `short_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `specification` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `warrenty_policy` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `price` double NOT NULL DEFAULT 0,
   `discount_price` double NOT NULL DEFAULT 0,
   `stock` double NOT NULL DEFAULT 0,
   `unit_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `tags` varchar(255) DEFAULT NULL,
-  `video_url` varchar(255) DEFAULT NULL,
+  `tags` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `warrenty_id` tinyint(4) DEFAULT NULL,
-  `slug` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `flag_id` tinyint(4) DEFAULT NULL,
-  `meta_title` varchar(255) DEFAULT NULL,
-  `meta_keywords` varchar(255) DEFAULT NULL,
-  `meta_description` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `has_variant` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>No Variant; 1=>Product Has variant based on Colors, Region etc.',
   `is_demo` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>original; 1=>Demo',
@@ -1888,7 +1889,58 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (147, 32, NULL, NULL, 7, NULL, 'Triple-buffered 3rdgeneration model', '711', 'productImages/22.png', '[\"37.png\",\"21.png\",\"25.png\",\"27.png\"]', 'Fuga ut ex repudiandae dolorum eum error consectetur tenetur. Rerum iste nulla eum enim error velit sint. Aut quos rerum ea et laudantium quam.', '<p>Tempore in neque quas quidem velit iusto. Nulla quos quasi illo sed enim. Laboriosam voluptas deserunt minima error error. Laboriosam unde est enim earum. Atque vero suscipit harum tempora vel. Ut amet voluptates soluta dolor quasi praesentium. Exercitationem qui id et neque. Ipsam impedit odio sit eum ut excepturi culpa sapiente.</p>', '<p>Fugit doloremque adipisci enim esse qui aut. Eaque expedita et nam. Fugiat asperiores voluptate quis consequatur voluptatem veritatis ex.</p>', '<p>Laborum quia eveniet harum voluptatem consequatur iste omnis. Eos officia consequuntur omnis cupiditate aperiam ipsam. Officiis ad voluptas repudiandae. Consequatur aut iste quia eius et.</p>', 237, 227, 0, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178434MVQpD', 8, 'Triple-buffered 3rdgeneration model', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', '2024-01-02 09:00:34'),
 (148, 28, NULL, NULL, 3, NULL, 'Fundamental zerotolerance conglomeration', '425', 'productImages/24.png', NULL, 'Illo dicta est animi quibusdam cumque. Quisquam dolore aut quas autem. Vel commodi fugit libero sit harum voluptatum. Officia culpa ut voluptas recusandae.', '<p>Accusamus nulla minus voluptatum reprehenderit. Praesentium autem tempora et tempora rerum eum et. Dolores ducimus ducimus et molestiae. Sunt non laborum dolorem. Optio possimus rerum minus. Laborum quisquam quo et amet optio odio.</p>', '<p>Autem voluptatibus quo placeat aspernatur iure. Hic nulla rerum libero quaerat numquam et eos. Sed necessitatibus quibusdam aut.</p>', '<p>Esse ex et tempore modi ut. Ut mollitia aut voluptas nostrum. A deleniti asperiores rem aut nihil quibusdam aspernatur odio.</p>', 927, 917, 0, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178434FWyO7', 8, 'Fundamental zerotolerance conglomeration', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', '2024-01-03 05:38:25'),
 (149, 29, NULL, NULL, 5, NULL, 'Reduced attitude-oriented capacity', '803', 'productImages/35.png', '[\"32.png\",\"28.png\",\"26.png\",\"32.png\"]', 'Omnis ipsum et aspernatur. Exercitationem nostrum soluta laborum. Dolore quasi omnis enim fugit rem vel est molestiae. Non ratione illo voluptatem.', '<p>Ipsam non quos ipsam ad. Quia corporis alias ea voluptatem sed officiis consequatur eius. Voluptatem consequatur ut consectetur molestiae laudantium nam quam. Est blanditiis velit in et in voluptatem. Magnam minus corrupti veniam et est aut. Incidunt ratione amet sunt ducimus laboriosam ut omnis. Minima excepturi libero dolorem veritatis sequi nisi sed.</p>', '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>veritatis sequi nisi sed.</td>\r\n			<td>veritatis sequi nisi sed.</td>\r\n		</tr>\r\n		<tr>\r\n			<td>veritatis sequi nisi sed.</td>\r\n			<td>veritatis sequi nisi sed.</td>\r\n		</tr>\r\n		<tr>\r\n			<td>veritatis sequi nisi sed.</td>\r\n			<td>veritatis sequi nisi sed.</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>', '<p>Commodi veniam facere repudiandae ratione ut non. Vel nulla nostrum libero sunt impedit quo. Illum et et aut iusto esse.</p>', 675, 665, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178434JCXmm', 9, 'Reduced attitude-oriented capacity', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', '2024-01-02 09:42:33'),
-(150, 21, NULL, NULL, 4, NULL, 'Streamlined demand-driven service-desk', '374', 'productImages/32.png', NULL, 'Quam ut totam odio atque eius optio. Odio in ut hic voluptate et quae qui. Aut tempora illum nesciunt harum. Exercitationem fugit perferendis similique cupiditate illo nostrum.', 'Officia non voluptas sequi quia. Dolorum iste sint vitae ducimus ullam minima. Porro sint expedita et possimus minima fugit. Reiciendis quia similique sit qui. Iusto sit corrupti eligendi sit libero ea aut. Sint odit sint et dolorum temporibus eos. Ut dolores rerum enim iste iusto fugit unde.', 'Hic qui consequatur illum ut. Itaque ducimus nemo eos nam. Odio nisi voluptates provident distinctio. Nisi labore sed quos.', 'Dolore molestias voluptatem quis ut. Pariatur id accusamus harum autem corrupti. Dolores qui porro ea.', 758, 748, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178434iiJhc', 9, 'Streamlined demand-driven service-desk', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL);
+(150, 21, NULL, NULL, 4, NULL, 'Streamlined demand-driven service-desk', '374', 'productImages/32.png', NULL, 'Quam ut totam odio atque eius optio. Odio in ut hic voluptate et quae qui. Aut tempora illum nesciunt harum. Exercitationem fugit perferendis similique cupiditate illo nostrum.', 'Officia non voluptas sequi quia. Dolorum iste sint vitae ducimus ullam minima. Porro sint expedita et possimus minima fugit. Reiciendis quia similique sit qui. Iusto sit corrupti eligendi sit libero ea aut. Sint odit sint et dolorum temporibus eos. Ut dolores rerum enim iste iusto fugit unde.', 'Hic qui consequatur illum ut. Itaque ducimus nemo eos nam. Odio nisi voluptates provident distinctio. Nisi labore sed quos.', 'Dolore molestias voluptatem quis ut. Pariatur id accusamus harum autem corrupti. Dolores qui porro ea.', 758, 748, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178434iiJhc', 9, 'Streamlined demand-driven service-desk', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
+(151, 19, NULL, NULL, 4, NULL, 'Assimilated zerodefect openarchitecture', '268', 'productImages/22.png', '[\"23.png\",\"38.png\",\"31.png\",\"37.png\"]', 'Aut possimus amet atque repellendus molestiae. Impedit est velit exercitationem dolor. Dolorum nihil odit excepturi nam et.', 'Culpa nostrum quibusdam beatae dolorum modi voluptatem. Velit necessitatibus culpa enim sit placeat quidem voluptatum facere. Exercitationem sint facilis et est. Sunt a reprehenderit quod accusantium fuga. Nihil vel nostrum molestiae enim voluptate rem impedit. Et et mollitia nulla tempore harum. Aut qui voluptatem dignissimos dolores ratione dolorem.', 'Alias accusamus voluptates autem voluptatem. Commodi suscipit voluptas doloremque id. Et sit et id non. Nisi modi aut amet sequi asperiores quo in.', 'Odio ut quis consequatur et. Distinctio nulla est et error nihil. Corporis exercitationem sit ipsum et molestiae qui non. Neque nobis qui delectus dolores sunt minima id sit.', 272, 262, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704487141dpB65', 8, 'Assimilated zerodefect openarchitecture', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:01', NULL),
+(152, 23, NULL, NULL, 4, NULL, 'Inverse directional ability', '300', 'productImages/29.png', NULL, 'Voluptas facere fugit voluptatum sequi voluptate quia ea. Reiciendis quis aut recusandae magni reiciendis. Culpa hic fugiat qui adipisci totam assumenda.', 'Sit sed ratione minus qui aliquid velit eaque. Autem suscipit eum voluptas doloremque tempora consectetur non. Vero delectus dolorum sint et. Sequi et aut quia id. Inventore quia aperiam enim. Corrupti quam omnis sed pariatur earum sed dolorem. Magnam consequatur eum et fugiat. Quaerat mollitia ipsa dolores qui.', 'Laborum autem doloribus accusamus nostrum voluptas id dicta. Enim quis itaque consequatur facere aspernatur id alias. Molestias quia consequatur suscipit nesciunt quis.', 'Ut eius fuga dolorem vel. Cupiditate molestiae saepe deserunt autem corporis quo vitae. Quia dicta voluptas est nobis. Ea tenetur quos dolores. Totam quia iusto eos voluptatem est nihil optio.', 354, 344, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704487141nmC7v', 7, 'Inverse directional ability', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:01', NULL),
+(153, 27, NULL, NULL, 2, NULL, 'Versatile uniform flexibility', '779', 'productImages/25.png', '[\"40.png\",\"27.png\",\"36.png\",\"25.png\"]', 'Est dicta atque ea. Dolore corrupti nesciunt quibusdam ut. Voluptas est autem iusto tenetur odio enim.', 'Quia quia eveniet minima enim architecto. Consequatur nesciunt reiciendis in omnis enim officia ut. Ex ab aliquam voluptas nam quibusdam. Fuga doloribus est quos laudantium tempore sunt soluta. Non iste voluptatem et et et sed. Ut asperiores ea consectetur fugiat. Nobis molestiae dolorem suscipit sunt voluptatum nemo. Rerum dolore ut qui.', 'Aut beatae accusamus sint quia. Totam in mollitia et architecto dolorem illum voluptatem. Non qui ipsam fuga quod ratione amet. Perferendis aut eveniet labore molestiae corrupti earum suscipit et.', 'Iste vel assumenda rerum quia. Et quo est iste nemo excepturi. Quia alias odio ad debitis tempora voluptatibus. Optio omnis unde dolorem quisquam qui.', 332, 322, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704487142TeOR2', 8, 'Versatile uniform flexibility', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:02', NULL),
+(154, 19, NULL, NULL, 4, NULL, 'Distributed interactive success', '238', 'productImages/32.png', NULL, 'Quia incidunt sit et est a eveniet. Non laboriosam et consequuntur provident unde doloremque ut. Fugiat consequatur magnam sed reprehenderit dolorum dolores.', 'Facilis numquam soluta delectus incidunt. Autem possimus voluptas explicabo id sint iste assumenda. Omnis et ut qui consequatur. Error non consectetur natus hic. Sint consequuntur ut quaerat nemo ipsa veniam. Voluptatem commodi error laboriosam atque soluta. Mollitia laboriosam earum quis voluptas quis neque soluta a. Eaque explicabo qui molestias a quasi odit molestiae.', 'Totam error nulla et temporibus quia. Libero exercitationem sed mollitia voluptatibus cupiditate. Delectus optio harum odio voluptatem explicabo.', 'Dolor ea nostrum tempore cumque assumenda mollitia. Hic hic qui et cupiditate harum occaecati deserunt. Molestias ut qui asperiores asperiores ratione reiciendis modi.', 593, 583, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704487142EafCj', 7, 'Distributed interactive success', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:02', NULL),
+(155, 25, NULL, NULL, 2, NULL, 'Reduced systematic capacity', '849', 'productImages/38.png', '[\"28.png\",\"34.png\",\"29.png\",\"27.png\"]', 'Eligendi quibusdam pariatur corporis provident odit. Dolorum suscipit sunt illo et. Consectetur deserunt ut est porro facere odio. Tempore adipisci sed sed ex quo quia.', 'In eaque totam consequatur voluptate. Aut est sit velit et sit nesciunt corrupti. Ut vero ad saepe ipsa. Corrupti at ratione sit quaerat sapiente et quibusdam. Illo beatae repellat qui quia voluptatibus et. Sint accusamus aperiam et sit voluptatem dolorem. Placeat fuga quia totam ducimus.', 'Consectetur excepturi eveniet assumenda voluptate eum amet. Nostrum dolorem odio voluptas facere sunt ex facere. Aut tempora cum eum molestias facere perspiciatis.', 'Commodi architecto earum quia atque et soluta. Cupiditate sed qui aut dolorum. Nulla sequi doloribus nisi eius tempore.', 676, 666, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704487142VayoA', 7, 'Reduced systematic capacity', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:02', NULL),
+(156, 30, NULL, NULL, 2, NULL, 'Optional solution-oriented application', '496', 'productImages/27.png', NULL, 'Quis voluptas repudiandae nisi est. Provident atque provident vel natus.', 'Cumque et fugiat vitae fuga. Asperiores quis odio autem error. Dolorem aliquam et et aut ullam perferendis iste. Quia aliquam maxime eius quae. A praesentium asperiores sit assumenda quam perferendis eaque tempora. Quisquam deserunt voluptates sint quo minus laborum tempore. Veniam sit aspernatur tempora magni eos. Neque aut minima necessitatibus necessitatibus facilis velit.', 'Quis iusto est quia sunt sint quia. Ipsa dolore et enim quos numquam repellendus natus. Numquam culpa aut repudiandae quisquam cupiditate nemo.', 'Quos eligendi aut molestiae totam. Voluptatem dolorem et necessitatibus voluptates sapiente. Provident laudantium reiciendis reprehenderit cumque molestias.', 378, 368, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704487142jEZts', 6, 'Optional solution-oriented application', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:02', NULL),
+(157, 18, 64, NULL, 5, NULL, 'Implemented homogeneous methodology', '271', 'productImages/25.png', '[\"31.png\",\"31.png\",\"23.png\",\"26.png\"]', 'Tenetur quo deserunt numquam non nemo doloremque. Explicabo et assumenda laudantium est et dolore. Iste esse cupiditate tempore et ducimus aut.', 'Mollitia mollitia ut id quis sunt quaerat eum id. Ut pariatur exercitationem illo quisquam. Et reprehenderit asperiores beatae qui dolorem. Provident provident et ex minima. Ea quod eveniet quos est. Hic enim laboriosam illo et. Voluptas in molestiae rerum ut ut aliquid corrupti.', 'Eum et suscipit officia inventore. Necessitatibus illum nam ex veniam culpa aut non. Id temporibus enim harum natus illum et et iste. Sunt molestiae expedita qui.', 'Praesentium et nemo enim odio. Ipsa dolores ratione veritatis sunt consequatur possimus. Repellat quis consectetur explicabo placeat provident fugit explicabo.', 223, 213, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704487142qk78O', 7, 'Implemented homogeneous methodology', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:02', NULL),
+(158, 22, NULL, NULL, 5, NULL, 'Reverse-engineered multimedia migration', '212', 'productImages/21.png', NULL, 'Deleniti exercitationem et eum quo sit quis. Aut dolorem veritatis aut voluptatibus sint. Dolores eveniet voluptatibus molestiae.', 'Quis rerum corporis ab pariatur. Ex non et et sint eum. Illo eum quibusdam non culpa quam. Dolore consectetur voluptas optio ullam libero veniam. Deleniti qui ea praesentium quis enim ut alias voluptas. Commodi culpa laboriosam neque sint molestias impedit qui. Tempore nam repudiandae necessitatibus nesciunt consequatur voluptate officia. Sint qui quasi sit minima voluptatem alias.', 'Est similique quod aut atque. Veritatis incidunt deserunt saepe nisi. Odit velit esse omnis neque ut.', 'Ut sit sunt fugit quidem consectetur nostrum quasi provident. Odio sit deserunt aut et. Voluptate consectetur natus eum earum. Omnis eos qui ut dolores quia sint soluta.', 878, 868, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '17044871427tKln', 9, 'Reverse-engineered multimedia migration', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:02', NULL),
+(159, 17, 58, NULL, 5, NULL, 'Centralized exuding circuit', '956', 'productImages/30.png', '[\"21.png\",\"33.png\",\"36.png\",\"40.png\"]', 'Et tempore nihil quia et voluptatem voluptates omnis. Nostrum ut sint harum error alias et. Iure sint dignissimos officiis libero beatae.', 'Corrupti atque dignissimos laudantium doloremque architecto occaecati et. Animi ea minus libero omnis ut perferendis incidunt earum. Perspiciatis laboriosam occaecati sit eius. Ut facere autem doloremque impedit a quia. Omnis voluptatem veritatis non corrupti consequatur veniam. Fuga repellat cum sit quas dicta nisi enim ut.', 'Rem aut autem est eum ratione esse. Est id et facere dolore suscipit.', 'Quas nihil reprehenderit odio pariatur dolorem sed earum. Rem quisquam saepe possimus iure sed modi. Enim consequatur beatae in est deleniti quas.', 431, 421, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704487142SbeYm', 6, 'Centralized exuding circuit', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:02', NULL),
+(160, 23, NULL, NULL, 4, NULL, 'Expanded real-time flexibility', '765', 'productImages/31.png', NULL, 'Est velit impedit laboriosam omnis. Ut praesentium corrupti aspernatur quisquam. Repellendus vel nesciunt nam sed eaque veniam.', 'Omnis vel magni autem voluptatem est laborum repellendus. Ducimus explicabo magni architecto qui. Porro est ut ea eveniet. Voluptatem harum reiciendis aliquid.', 'Officia officia itaque iusto dolor quia velit. Voluptatibus cupiditate eum et aperiam nam iusto ea. Qui odio eos architecto alias sapiente doloremque. Rerum saepe praesentium aliquam sed harum quis.', 'Et sint ut voluptates officiis autem hic nisi. Sit ratione debitis molestiae illo porro provident tempora in. Qui eum magni est.', 425, 415, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704487142QgQbz', 8, 'Expanded real-time flexibility', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:02', NULL),
+(161, 32, NULL, NULL, 7, NULL, 'Switchable hybrid installation', '529', 'productImages/40.png', '[\"27.png\",\"28.png\",\"34.png\",\"39.png\"]', 'Enim ut voluptatem minima sapiente. Quia adipisci repudiandae nihil in qui. Vel debitis ut nulla iusto dolores corrupti sint. Autem earum quas assumenda quo minima. Sed et ut velit.', 'Molestiae culpa possimus ducimus itaque id aut dolores. Reiciendis nobis exercitationem necessitatibus impedit voluptates maiores. Accusantium quo nobis neque minima eos corporis. Commodi repellendus ullam et dolor inventore ullam. Sed voluptas sunt omnis rem est ut nemo fuga. Facilis quos molestias vero. Autem tempora ut et officia.', 'Ut enim molestiae possimus aut. Quidem placeat dolores qui sunt. A aut autem blanditiis incidunt dolor dolor laborum.', 'Quas corporis nemo sapiente voluptatem et. Suscipit iste ea quia dolores. Sed et corrupti ea et quidem aut aut.', 952, 942, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704487142MC4MP', 6, 'Switchable hybrid installation', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:02', NULL),
+(162, 31, NULL, NULL, 4, NULL, 'Enterprise-wide responsive extranet', '207', 'productImages/30.png', NULL, 'Impedit asperiores magnam error illum quia. Est quibusdam qui consequatur quis enim. Quibusdam rerum voluptas commodi dolores tempora molestiae et. Sapiente aut harum beatae earum quis vel ut.', 'Cupiditate et quae iste eligendi. Dolorum ut tenetur quam sequi dolorum rerum quaerat. Labore et qui voluptas iusto ex similique. Aliquam inventore omnis inventore. Enim animi culpa dolorum nisi quam iusto. Exercitationem officia quis saepe et assumenda placeat qui.', 'Dolores nesciunt est similique officiis voluptatem. Quisquam exercitationem repellat enim quia. Et dolorum aperiam quos harum voluptatem.', 'Rerum necessitatibus dolor et minus magnam. Consequuntur temporibus nostrum officiis dolorum animi totam. Neque deleniti quasi vero esse ut. Sed quae unde et blanditiis omnis.', 695, 685, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704487142tjW8V', 8, 'Enterprise-wide responsive extranet', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:02', NULL),
+(163, 21, NULL, NULL, 4, NULL, 'Adaptive full-range installation', '930', 'productImages/35.png', '[\"36.png\",\"29.png\",\"28.png\",\"33.png\"]', 'Odit vitae et explicabo pariatur recusandae. Saepe est natus quia ut quisquam provident quam. Sunt ut et quis est. Voluptas dolore voluptatem corrupti necessitatibus soluta ipsa.', 'Deserunt omnis fuga et quasi cumque itaque sapiente. Quibusdam et id quae recusandae illo maxime beatae sit. Laudantium ut maiores voluptatem esse. Soluta repudiandae iste est. Consequatur et nostrum quia consectetur corporis. Placeat voluptas tempora quisquam. Ut officia ut ipsam fugit voluptates nisi libero.', 'Ut consequatur aliquid deleniti officia adipisci magni. Totam et dolorem eligendi repudiandae nemo aut. Et animi est rem illo vel.', 'Temporibus in a natus earum quam porro. Tempore et voluptatibus temporibus doloremque quos vero et. Culpa facilis magni repellendus odit a quia porro rem.', 349, 339, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704487143dzvec', 8, 'Adaptive full-range installation', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:03', NULL),
+(164, 28, NULL, NULL, 2, NULL, 'Self-enabling system-worthy knowledgebase', '700', 'productImages/40.png', NULL, 'Et quod minima iste omnis eos maxime. Maxime quod nisi quia qui debitis aut. Laboriosam esse temporibus architecto a odit sit.', 'Ut ipsum amet at ea quam aliquid saepe. Dolor repellendus exercitationem quibusdam debitis dolore ea veniam. Similique voluptate alias et. Iste aut dolores esse voluptatibus. Velit ipsam quia eos harum consequatur. Voluptatum nihil fugiat cum nulla dicta id. Expedita nesciunt numquam explicabo doloremque porro soluta impedit.', 'Vero et ut ut ea. Mollitia sapiente dolor voluptatem eos qui neque est. Dicta veritatis et nisi excepturi et voluptatem eius. Iste fuga corporis qui ea fugit ut magnam.', 'At qui ut corrupti quisquam dignissimos sapiente dolore est. Enim deserunt soluta libero et magnam.', 202, 192, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704487143qufwG', 6, 'Self-enabling system-worthy knowledgebase', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:03', NULL),
+(165, 18, 64, NULL, 6, NULL, 'Assimilated empowering conglomeration', '763', 'productImages/29.png', '[\"27.png\",\"29.png\",\"28.png\",\"38.png\"]', 'Fuga occaecati tempora vitae quia sit eius consequatur. Neque aut sunt qui tempora dolore quo. Ex repudiandae rerum eum. Dolor quas dolor voluptas.', 'Rem ipsa dolores aut explicabo nesciunt ut. Nobis hic eveniet atque magnam mollitia. Dolorem eius consequatur incidunt voluptas impedit non voluptas. Minima consectetur non iste cupiditate est aut facere. Eos quia itaque aliquid quam repellat voluptate labore. A et explicabo aut odit. Aut rerum dolorum quia illum eius provident sit.', 'Officiis animi perspiciatis nam. Molestiae fugit est eum dolorem. Dicta consectetur aut quo. Ducimus recusandae nam dolorem autem.', 'Ratione et saepe consequuntur id sed est. Sunt magni vitae nisi dolorum vitae quaerat vitae. Consequatur et voluptate architecto veritatis voluptatem placeat.', 401, 391, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704487143uIw5g', 9, 'Assimilated empowering conglomeration', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:03', NULL),
+(166, 22, NULL, NULL, 1, NULL, 'Innovative human-resource GraphicalUserInterface', '348', 'productImages/28.png', NULL, 'Alias suscipit voluptatibus maiores rerum libero. Ea minus vitae eligendi impedit numquam. Aliquam repellat veritatis magnam odit quo quis ea. Quisquam non corporis vel labore qui.', 'Non eveniet qui quod ipsam placeat labore. Placeat velit accusamus ratione fugiat dolor. Dicta nesciunt enim labore voluptatem ducimus dolorem. Architecto nostrum eaque est. Quidem repellat veritatis atque sequi incidunt repudiandae atque. Fugiat nam nesciunt dignissimos quasi voluptatibus est natus. Ipsum cupiditate itaque nobis asperiores id distinctio. Molestiae quia optio molestiae qui aut.', 'Ex eum at iste assumenda dignissimos porro et. Et voluptas ut ipsam. Deserunt quia atque deserunt laboriosam debitis sint.', 'Nihil numquam dolor impedit et magni magnam at. Voluptatibus sed hic unde velit qui facilis aspernatur. Odit ducimus repellendus natus dolorem consequatur. Laborum reprehenderit suscipit harum magni.', 440, 430, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704487143DAmbR', 9, 'Innovative human-resource GraphicalUserInterface', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:03', NULL),
+(167, 17, 56, NULL, 2, NULL, 'Stand-alone regional model', '794', 'productImages/27.png', '[\"37.png\",\"27.png\",\"28.png\",\"30.png\"]', 'Qui in occaecati magnam. Quia tenetur corporis nihil non quas reiciendis eos. Totam et aut aut. Vel adipisci quos nemo rerum distinctio. Nemo eos voluptas excepturi.', 'Fuga quaerat sit amet et perspiciatis. Vero ex magni sit eveniet possimus. Veritatis porro nulla eveniet numquam. Adipisci error nobis error. Non dolor voluptatem id quibusdam ratione sapiente consectetur. Fuga vel eveniet assumenda inventore ratione. Cumque dolorem laborum sit ut optio.', 'Odit iusto consectetur sapiente accusamus tempora reprehenderit ut. Nesciunt sunt qui id qui. Aut temporibus minus aut. Qui id pariatur sit sunt et vero officia.', 'Nobis sit cum et repellendus. Et culpa iste dolores beatae expedita et. Quos explicabo qui quis fugiat.', 643, 633, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '17044871435FXf5', 7, 'Stand-alone regional model', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:03', NULL),
+(168, 24, NULL, NULL, 6, NULL, 'Decentralized non-volatile core', '914', 'productImages/22.png', NULL, 'Esse nesciunt quis impedit quia modi consequatur. Atque est laudantium doloremque laboriosam et. Nesciunt aliquid saepe et.', 'Sequi ut et exercitationem est qui minima. A qui aspernatur sunt iusto occaecati rerum. In omnis officia voluptatum voluptates amet cumque. Dignissimos rerum eum voluptatem. Consectetur nesciunt est eos et est. Aperiam et excepturi nobis porro et temporibus quia. Cum dolor laboriosam accusamus sed neque est odio.', 'Et nulla quae eum ut amet. Dolorem qui adipisci similique ut neque dicta. Necessitatibus harum enim voluptate magni tenetur nemo.', 'Est qui iure nulla culpa eius. Iusto ut in natus neque quam veniam vel. Necessitatibus qui sint accusamus. Cum qui explicabo dolores molestiae et. Dolorum id dolore sint ut sunt.', 204, 194, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '170448714373DfQ', 8, 'Decentralized non-volatile core', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:03', NULL),
+(169, 18, 61, NULL, 6, NULL, 'Streamlined regional budgetarymanagement', '332', 'productImages/39.png', '[\"24.png\",\"25.png\",\"30.png\",\"30.png\"]', 'Qui eum temporibus voluptatem iusto. Sit vel magnam sunt eligendi non similique. Impedit officiis ratione neque est sed voluptatem dolores.', 'Suscipit nesciunt neque asperiores qui. Doloribus dolore et numquam et qui eveniet. Aut hic dolorem fugiat praesentium earum aut aut. Qui sint numquam non quis rerum. Dolores itaque non in quia tenetur distinctio consequuntur. Molestiae libero ad aspernatur dignissimos eos aliquam et. Illum quod exercitationem animi quaerat. Tempora consectetur a totam assumenda.', 'Quia numquam velit et. Eaque maxime iusto quis. Rem sunt officiis facilis optio.', 'Molestias et quos provident nemo iure. Atque vel ut est. Eos rerum saepe voluptatem officia sapiente aut. Eius eveniet labore cum a animi vel ab.', 243, 233, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704487143LHg0V', 8, 'Streamlined regional budgetarymanagement', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:03', NULL),
+(170, 30, NULL, NULL, 3, NULL, 'Total multi-tasking matrix', '820', 'productImages/31.png', NULL, 'Cum voluptatibus dolores impedit qui quia. Ea beatae fuga sit doloribus a cumque. Eaque saepe eum rerum facilis et eligendi totam numquam.', 'Dignissimos quis voluptatem odio id expedita temporibus illum. Eos soluta sequi quo minima dolor inventore nam. Incidunt hic quisquam nesciunt eveniet voluptatibus fugit nobis. Ea quasi vitae inventore ex blanditiis. Omnis dolore alias at ipsam.', 'Aut consectetur ex omnis beatae. Modi et provident libero quia aliquam voluptatem. Reprehenderit inventore aperiam commodi sed vel.', 'Molestiae iste dignissimos itaque labore iure facilis. Qui sunt a in atque sint qui deserunt. Non quod soluta illo sed rerum. Fugit eius beatae officia deleniti quod.', 388, 378, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '17044871439SXUc', 9, 'Total multi-tasking matrix', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:03', NULL),
+(171, 22, NULL, NULL, 3, NULL, 'Persistent mobile knowledgeuser', '748', 'productImages/21.png', '[\"34.png\",\"36.png\",\"37.png\",\"22.png\"]', 'Vero voluptates dolorem et similique velit. Aliquam nihil est sit sunt nesciunt dignissimos saepe.', 'Dolores nobis et ipsum et qui excepturi voluptas. Expedita est iusto quod aut optio sapiente qui voluptatem. Accusantium voluptatem quia corporis quidem voluptatem qui odio. Quas asperiores voluptatem nobis et incidunt accusamus dolorem. Recusandae laborum hic impedit est laboriosam. Aperiam recusandae nesciunt amet.', 'Animi voluptas et sint animi. Molestias neque est fugiat et. Fugit tenetur facilis ex totam est facilis. Fuga pariatur a delectus aut porro nisi culpa non.', 'Aliquid sit eius laudantium atque assumenda voluptatem. Repudiandae dolorum modi dolor. Aspernatur unde id consectetur voluptatem. Ipsam voluptatem illo at voluptas. Et ut ipsa unde voluptatem.', 157, 147, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17044871445WgMg', 9, 'Persistent mobile knowledgeuser', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:04', NULL),
+(172, 21, NULL, NULL, 5, NULL, 'Multi-tiered maximized access', '470', 'productImages/31.png', NULL, 'Doloremque non deleniti id sit modi. Voluptas neque ipsa ut qui. Veniam omnis voluptatum maiores non. Dolores impedit ut fugit quae odio rerum.', 'Libero voluptas repudiandae reprehenderit quia fugiat nisi et est. Rem animi similique delectus reiciendis quo. Maxime ut aut nihil aut qui suscipit qui. Rerum dolores ipsam consequatur ipsam non quia.', 'Dolores animi animi ad aut omnis totam exercitationem. Amet sunt eos fuga quis et ipsa autem pariatur. Expedita perferendis vel animi vel. Labore molestiae sint impedit labore velit voluptas rem.', 'Ipsum ratione nobis deserunt iure voluptatibus eius asperiores at. Harum minima corrupti consequatur dolorum voluptates exercitationem quis mollitia. Quis et quis suscipit officia minus at ullam.', 605, 595, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704487144pGOxK', 9, 'Multi-tiered maximized access', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:04', NULL),
+(173, 29, NULL, NULL, 7, NULL, 'Multi-layered foreground toolset', '216', 'productImages/37.png', '[\"30.png\",\"24.png\",\"38.png\",\"36.png\"]', 'Excepturi enim neque doloremque aut. Occaecati minus fugit voluptatem ut.', 'Est quas laboriosam et ea nostrum enim. Perferendis quo dolorem dolorem magni. Ut error ea autem. Molestias nesciunt enim nihil aliquid facilis quasi. Quam iste et quas eveniet pariatur deserunt ullam. Tempore quo dolor quia et recusandae quo fugit. Cupiditate reiciendis quibusdam recusandae ratione tenetur. Fugiat iure voluptas vel modi non sit ex. Soluta incidunt atque veniam inventore ipsa in.', 'Et blanditiis occaecati porro quia sint. Explicabo doloribus voluptates dolorem autem. Aut qui facere omnis corporis a.', 'Esse alias id ex dolorem cupiditate totam corporis. Veritatis illum aut aut fugit animi. Quis delectus vero autem aut quo et velit.', 143, 133, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17044871440232X', 6, 'Multi-layered foreground toolset', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:04', NULL),
+(174, 23, NULL, NULL, 4, NULL, 'Seamless secondary knowledgebase', '149', 'productImages/35.png', NULL, 'Voluptatem laboriosam consequatur laudantium nihil architecto nostrum autem. Maxime impedit vel voluptas enim. Et dolor ex ut iure sit rerum ea.', 'Debitis provident eum animi eum molestiae. Veniam ut sint et nemo adipisci. Officia ut eos rerum reprehenderit quis qui eveniet. Quisquam rerum reiciendis aut impedit. Soluta asperiores voluptatem molestiae quaerat aut.', 'Assumenda pariatur vitae et porro sunt at consequatur. Molestiae aliquid sed ut eveniet. Dolor necessitatibus consectetur qui ut minus eum nostrum est.', 'Et culpa consequatur ut aut ea. Qui suscipit impedit impedit. Commodi repudiandae porro officiis voluptas fuga. Et ut quia inventore ut.', 156, 146, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704487144GqJL8', 7, 'Seamless secondary knowledgebase', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:04', NULL);
+INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
+(175, 22, NULL, NULL, 1, NULL, 'Profit-focused secondary blockchain', '814', 'productImages/22.png', '[\"37.png\",\"24.png\",\"24.png\",\"34.png\"]', 'In sint eum sed veniam quibusdam in. Quisquam est ut distinctio ad iusto earum voluptatem.', 'Suscipit illo at repellendus. Vitae nostrum occaecati minima temporibus tempore beatae doloremque atque. Voluptatem amet ut atque unde odio aperiam assumenda. Similique est voluptate similique autem. Hic odio molestiae eos. Soluta ipsum perferendis eos ipsum.', 'Voluptates delectus voluptate molestias placeat. Quidem quis et voluptas amet quis molestiae. Cupiditate sint assumenda accusamus ea aspernatur fugiat.', 'In non sunt sapiente inventore odio. Minus voluptatem quis assumenda iste sed. Tempora aliquam debitis sint sit porro facere aspernatur recusandae.', 666, 656, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704487144Jnlad', 6, 'Profit-focused secondary blockchain', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:04', NULL),
+(176, 19, NULL, NULL, 1, NULL, 'Enterprise-wide tangible concept', '499', 'productImages/34.png', NULL, 'Dicta minus enim nostrum. In ea qui enim distinctio. Eveniet id culpa sit consequatur minima.', 'Ad in repellat ea dolore. Dolor rem id modi non aut architecto. Dolore iste asperiores harum quod omnis ut. Itaque voluptatem sit est impedit vitae aliquid et unde. Sint reprehenderit amet doloremque vel enim voluptates veniam qui. Sed aut non eum aperiam at facilis. Neque iure labore ut dolorem quo. Dicta nemo et voluptatem blanditiis.', 'Quidem dolorum ipsum eveniet unde quod molestias. Sunt sed qui dolorem dolor nobis.', 'Sit dicta quibusdam fugit suscipit atque error id. Sit sed maxime modi ut ipsam. Harum pariatur nihil nemo. Animi consequatur ea ut dolores.', 644, 634, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704487144DuDpF', 6, 'Enterprise-wide tangible concept', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:04', NULL),
+(177, 22, NULL, NULL, 6, NULL, 'Customer-focused intermediate protocol', '261', 'productImages/31.png', '[\"22.png\",\"23.png\",\"38.png\",\"39.png\"]', 'Ut earum rerum doloremque odit commodi odio suscipit. Nihil ut quia sint a consequuntur. Sapiente qui sed dolores dolorum velit odio sint totam.', 'Repudiandae nostrum earum et nostrum illo. Dolor dignissimos nulla cumque nihil qui. Quia ratione soluta recusandae necessitatibus enim quod dolorum. Id commodi ab quasi totam fugit. Et asperiores sit accusamus sed eos expedita et. Voluptatem qui cum et placeat amet. Excepturi qui numquam sequi ut dignissimos sunt sunt.', 'Blanditiis labore fugit fugit nam id. Ut et a doloremque qui aut. Vel earum sit ut harum quas et. Iusto voluptatum et totam.', 'Dolores at adipisci et mollitia ut et. Et exercitationem dolor id similique et earum. Numquam temporibus et eum eaque consequatur aut illo.', 993, 983, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704487144fjV9b', 6, 'Customer-focused intermediate protocol', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:04', NULL),
+(178, 28, NULL, NULL, 3, NULL, 'Centralized optimal customerloyalty', '208', 'productImages/37.png', NULL, 'Veritatis aperiam cupiditate non a quo. Sapiente cupiditate corrupti aut. Sit at architecto dolorem et ut dolores iusto. Corporis voluptatem magni vitae esse sed quaerat est.', 'Dolore ipsa delectus nulla fugit adipisci odit id. Ut molestias nemo reprehenderit numquam nihil dolor soluta aut. Error et corrupti iure omnis saepe excepturi id reiciendis.', 'Sunt possimus dolorem velit deserunt. Minus et id repudiandae et sunt. Atque dolorum vel eveniet aut omnis suscipit consequatur a. Accusamus magnam aut ut est laudantium quam sint.', 'Doloribus cumque est et autem. Aut quibusdam minus natus nisi autem et ut. Sed accusantium fuga iste et. Dolorem atque qui sed rerum quasi sit.', 522, 512, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704487145XTgb2', 7, 'Centralized optimal customerloyalty', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:05', NULL),
+(179, 25, NULL, NULL, 4, NULL, 'Reverse-engineered heuristic systemengine', '624', 'productImages/32.png', '[\"21.png\",\"37.png\",\"37.png\",\"39.png\"]', 'Fugit sit quam cumque corrupti sit error. Distinctio facere est doloribus libero. Id quam ipsum officia quos. Nihil optio accusantium error.', 'Asperiores aut sit et iure. Pariatur qui commodi impedit provident quibusdam omnis. Eum ut velit quis fuga rerum dignissimos adipisci. Dolorum et sunt praesentium enim beatae repellendus. Enim ex aspernatur maxime vel eaque repellat qui.', 'Et modi molestiae fugit vel officia totam consequatur sapiente. Est eos reprehenderit saepe dolorem.', 'Pariatur in nam vero minus aspernatur. Adipisci consequatur autem sit consequuntur. Delectus quia debitis voluptates illo veritatis. Explicabo et perspiciatis harum similique quasi.', 389, 379, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704487145xvrgO', 7, 'Reverse-engineered heuristic systemengine', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:05', NULL),
+(180, 28, NULL, NULL, 1, NULL, 'Diverse homogeneous matrices', '583', 'productImages/38.png', NULL, 'Repellendus adipisci nulla rerum velit distinctio sint quae sequi. Reprehenderit quos sint ut voluptatem quo. Animi iste quia id nostrum molestiae dolores architecto aut.', 'Tempore molestiae provident aperiam porro sed sequi. Magnam tempore adipisci velit aspernatur est eos consequuntur. Ab at excepturi ut excepturi id. Aut quisquam distinctio aut officiis sed. Consequatur aliquid aliquam ullam. Voluptatibus blanditiis omnis earum necessitatibus rerum enim et.', 'Consequuntur est et cum numquam aliquid. At quas alias voluptatem accusantium ut. Deleniti omnis eum dicta. Nemo culpa officia illum ut expedita provident.', 'Enim voluptatem rerum animi magnam perspiciatis. Error ex ut officia veniam et itaque. Sunt possimus voluptatibus perferendis eum tenetur.', 177, 167, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704487145C11TV', 7, 'Diverse homogeneous matrices', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:05', NULL),
+(181, 22, NULL, NULL, 1, NULL, 'Visionary nextgeneration hardware', '550', 'productImages/34.png', '[\"40.png\",\"36.png\",\"25.png\",\"37.png\"]', 'Numquam consequuntur consectetur in vel. Quae ab aperiam fuga quasi porro modi. Libero mollitia rerum sunt aut voluptatibus labore vel doloribus. Magnam nisi nam atque eum quia saepe vero.', 'Aperiam maxime amet reprehenderit quo quod. Debitis libero dicta aut molestiae corporis officiis. Est blanditiis sed incidunt error aspernatur sint id cupiditate. Rem aspernatur eum sint magnam impedit recusandae impedit.', 'Quasi omnis quam quam perspiciatis asperiores. Et incidunt eligendi nostrum aut consequatur. Earum ea voluptatem voluptatem dolore.', 'Aliquid aperiam optio qui ipsa incidunt. Dignissimos qui rem facere at. Assumenda accusamus nihil mollitia praesentium.', 877, 867, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704487145sAZ9Y', 7, 'Visionary nextgeneration hardware', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:05', NULL),
+(182, 23, NULL, NULL, 1, NULL, 'Function-based hybrid localareanetwork', '870', 'productImages/34.png', NULL, 'Velit deleniti aspernatur voluptate excepturi voluptates. Ut sit eligendi veniam autem corporis eum molestiae. Adipisci possimus ut error sed corrupti et.', 'Eveniet incidunt fugit nobis ut illum iusto officia soluta. Et sequi accusantium ullam laboriosam est earum. Et omnis expedita quibusdam nulla quis quod. Voluptas qui non qui voluptatum et debitis est. Ab odit possimus est consequatur harum qui. Laboriosam alias harum explicabo eius. Accusamus labore aut ea cumque inventore nihil.', 'Velit eum et ad accusamus. Voluptatem quam itaque sit qui. Corrupti sed animi itaque. Repellendus nesciunt ut et ullam expedita libero. Enim voluptas dolores repudiandae maiores nihil.', 'In eveniet et labore. Deserunt molestias omnis ratione sit molestiae. Blanditiis et accusamus reiciendis rem tenetur commodi. Ducimus amet repellat itaque eaque voluptatem vel aspernatur.', 909, 899, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704487145b9M7L', 6, 'Function-based hybrid localareanetwork', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:05', NULL),
+(183, 24, NULL, NULL, 1, NULL, 'Multi-tiered coherent collaboration', '351', 'productImages/28.png', '[\"28.png\",\"27.png\",\"40.png\",\"36.png\"]', 'Sunt voluptates enim consectetur. Qui in voluptate reprehenderit reiciendis. Ut temporibus et fuga eius.', 'Dolorem ab sunt soluta optio sint deserunt saepe quia. Blanditiis reprehenderit at provident pariatur ipsum. Placeat voluptatem quo accusamus laborum vero deleniti. Velit provident consequuntur aspernatur perspiciatis et dolorem. Amet magni ut provident libero sint reprehenderit aut. Aut inventore nesciunt maxime unde eius laboriosam nihil.', 'Earum ipsa repellat perferendis dicta soluta temporibus officiis. Quisquam dolor ut eos. Facilis dicta sequi qui ea ea at. Aut aliquid voluptatem tenetur reiciendis enim dicta.', 'Quam inventore soluta quia. Ducimus facere commodi quam dignissimos iusto corrupti aut aut. Et ut aut adipisci nihil omnis numquam magni nam.', 116, 106, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704487145tTNNY', 7, 'Multi-tiered coherent collaboration', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:05', NULL),
+(184, 26, NULL, NULL, 6, NULL, 'Multi-channelled bottom-line approach', '606', 'productImages/35.png', NULL, 'Placeat voluptates dolorem dolores fugit quae eveniet praesentium saepe. Voluptas ratione culpa ex qui. Iure omnis molestias soluta neque voluptatibus. Ut iusto dolores nihil iure harum.', 'Labore et dolorem aperiam eveniet. Eius eum et rerum quos deleniti. Rerum reprehenderit nam fuga. Minus reiciendis qui id officiis neque quisquam et. Ut optio blanditiis corporis impedit. Culpa ratione eum magni maiores ducimus non eaque qui. Et voluptatibus assumenda soluta assumenda temporibus animi reiciendis. Esse consequuntur alias culpa voluptatem in. Qui maxime consequatur eum ut.', 'Qui quasi deserunt est omnis. Non itaque reprehenderit pariatur nobis earum. Eius placeat consequatur dolor officiis. Molestiae ut ut odit placeat ratione consequatur mollitia.', 'Ipsam eveniet aut doloremque debitis sunt delectus fugiat. Vitae deserunt earum placeat error laboriosam dolor explicabo.', 691, 681, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704487145s20T2', 8, 'Multi-channelled bottom-line approach', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:05', NULL),
+(185, 28, NULL, NULL, 5, NULL, 'Business-focused national neural-net', '420', 'productImages/27.png', '[\"33.png\",\"38.png\",\"33.png\",\"39.png\"]', 'Consequatur minima sit aspernatur sed ut consequatur. Non quae aspernatur qui voluptas reprehenderit sit. Ipsum minus eos laborum quo.', 'Inventore laborum optio sapiente perspiciatis. Aut in maxime assumenda consequatur et quidem. Et vel eos voluptas aut sapiente. Labore et velit aliquam adipisci minus natus quidem. Praesentium et aut quas aut et autem. Voluptas blanditiis porro iure nam eius.', 'Suscipit dolor voluptatum nemo magni aut. Quae et officiis quia qui laborum. Et voluptatem molestiae quod perspiciatis est distinctio quidem. Quasi accusamus praesentium ut recusandae quidem.', 'Eius dolor unde tempora. Sed est enim similique nobis suscipit dignissimos. Facere modi ipsum sint in in error similique.', 285, 275, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '17044871451JtBy', 8, 'Business-focused national neural-net', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:05', NULL),
+(186, 18, 61, NULL, 6, NULL, 'Total methodical emulation', '823', 'productImages/36.png', NULL, 'Voluptatum vel perferendis dolorem cumque sed. Incidunt rem hic reprehenderit. Exercitationem consequatur accusantium repellat corrupti. Nulla facere quis nisi omnis omnis voluptatem.', 'Ipsam enim totam aspernatur animi qui voluptas. Possimus porro qui et provident non. Consequatur explicabo est corporis sequi. Sit id quis dolorem eum. Est veritatis sed alias est est alias. Iste eveniet molestiae et eligendi et. Nostrum mollitia molestiae similique nam. Culpa ut voluptas similique eius tempora ab voluptatem aut.', 'Quia tempore fugiat quia. Et repellat eaque explicabo est impedit modi illo aut. Molestiae autem commodi tenetur et provident eligendi non iure.', 'Totam ut nulla autem reprehenderit. Qui voluptatem odit non voluptatibus. Consequatur harum in modi qui sed voluptas aliquam.', 347, 337, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704487146wjQox', 9, 'Total methodical emulation', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:06', NULL),
+(187, 20, NULL, NULL, 2, NULL, 'Facetoface zerotolerance ability', '227', 'productImages/35.png', '[\"30.png\",\"28.png\",\"31.png\",\"33.png\"]', 'Porro adipisci laborum sunt incidunt exercitationem. Et harum vero dolores. Omnis iusto rerum aspernatur ab.', 'Est soluta harum unde sint quis. Quisquam eligendi beatae sunt quia maxime hic dolorem. Possimus qui nihil aliquid repellendus ea. Libero vel perferendis est officiis mollitia quo debitis ad.', 'Dolorem vel sed vitae quidem laboriosam. Temporibus corrupti rerum id sed rerum at porro eligendi. Quia provident impedit soluta. Dolore et quia commodi perspiciatis quos fugiat nam.', 'Labore corrupti autem dignissimos sed quia reprehenderit culpa. Dolorum et necessitatibus laborum voluptatem est. Et minima sunt et id. Ea quo mollitia placeat aut reiciendis.', 164, 154, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '17044871469LNCl', 8, 'Facetoface zerotolerance ability', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:06', NULL),
+(188, 29, NULL, NULL, 2, NULL, 'Persistent bandwidth-monitored synergy', '646', 'productImages/29.png', NULL, 'Deserunt et deleniti qui praesentium quia voluptas. Accusamus porro necessitatibus recusandae ut eos odio. Dolore ea tenetur dolor occaecati porro sit. Sapiente itaque eos ipsum ut minus.', 'Expedita molestiae enim eum. Rem in expedita optio corrupti numquam consequatur. Enim ea voluptatem sit. Ipsa ad est cumque. Corrupti nostrum quam itaque voluptatem numquam. Rerum nihil delectus blanditiis ut cupiditate autem possimus repellendus. Natus repellat hic dolores qui alias consequuntur iste. Laborum itaque a laborum laboriosam.', 'Eos delectus ducimus qui ut voluptate. Et labore alias nostrum quod velit eum. Illum ullam impedit cumque odit qui soluta aperiam.', 'Iure dolorum in et porro. Deleniti laudantium consequuntur consequatur consequatur. Quis ut culpa cupiditate voluptatem non.', 466, 456, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704487146BQujE', 6, 'Persistent bandwidth-monitored synergy', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:06', NULL),
+(189, 29, NULL, NULL, 3, NULL, 'Automated global attitude', '734', 'productImages/32.png', '[\"37.png\",\"37.png\",\"30.png\",\"39.png\"]', 'Distinctio porro et debitis aliquid qui voluptatem eius. Excepturi deleniti saepe maiores est. Perspiciatis occaecati consequuntur dolorum. Veniam impedit neque veniam quia veritatis neque.', 'Velit at doloremque voluptatum asperiores. Voluptatem doloremque et illum libero at iusto. Maxime quis quam labore sunt sunt aut. Veniam molestiae et nobis similique voluptatem. Delectus labore nesciunt rerum quia quo. Assumenda veritatis tempora quas explicabo nobis. Voluptatem similique rerum nobis aut rerum.', 'Est cumque autem rerum esse. Quibusdam fugit ut consequatur unde odio laudantium. Recusandae quia iusto dolore non ducimus quae dolorem.', 'Dignissimos odit est sint laudantium rem ad voluptatum consectetur. Velit vitae recusandae mollitia a id facilis a. Cumque similique voluptas esse.', 147, 137, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704487146nzAky', 8, 'Automated global attitude', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:06', NULL),
+(190, 26, NULL, NULL, 5, NULL, 'Enhanced attitude-oriented analyzer', '813', 'productImages/28.png', NULL, 'Ex quas numquam et fugit. Maiores voluptatem inventore iure enim occaecati odit et aspernatur. Itaque qui quis ut nihil vel. Enim laboriosam sit omnis.', 'Enim repudiandae incidunt soluta perspiciatis officia dolorem iure. Sint error quia inventore ex quis laudantium. Aut libero voluptatem et temporibus. Cumque omnis qui voluptatum dolor dolore. Optio atque cum reiciendis. Vitae odio animi voluptate praesentium est fugit error. Quo officiis sunt sed velit ut. Fuga magnam magni temporibus vel nisi illo animi.', 'Neque similique quibusdam quasi. Ratione esse voluptas natus autem explicabo voluptatum.', 'Quis sed hic aut aperiam similique corrupti ab. Quis et aliquam numquam minus ipsam. Quas voluptate voluptas molestias eum. Nisi et non sed voluptas qui. Sint omnis dolores labore.', 275, 265, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704487146UYIz7', 8, 'Enhanced attitude-oriented analyzer', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:06', NULL),
+(191, 25, NULL, NULL, 6, NULL, 'Future-proofed system-worthy contingency', '906', 'productImages/24.png', '[\"38.png\",\"24.png\",\"24.png\",\"37.png\"]', 'Illum sed quos reiciendis vitae ipsum. Aliquid eligendi est vero cumque minima numquam. Qui repudiandae ea et consequuntur nisi architecto. Incidunt saepe cupiditate necessitatibus animi esse.', 'In perspiciatis odit quia ut rerum voluptatum aut. Temporibus ratione architecto eum repellendus. Adipisci accusamus quaerat iure. Id praesentium et recusandae magni qui. Magni voluptatum et eveniet ut possimus cupiditate. Ut consequuntur et non suscipit ad enim in.', 'Odio qui ipsa beatae facilis. Eligendi voluptates distinctio error voluptatem. Voluptatem fugiat et est hic ipsum. Eligendi omnis voluptatum non expedita aut rerum facere.', 'Minima consequatur velit laboriosam incidunt accusantium cumque vero. Id quo ipsum aliquid ut quo. Dolores impedit nesciunt vitae.', 167, 157, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704487146bjRwm', 6, 'Future-proofed system-worthy contingency', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:06', NULL),
+(192, 20, NULL, NULL, 1, NULL, 'Managed cohesive forecast', '686', 'productImages/40.png', NULL, 'Neque libero eum architecto explicabo. In et voluptatem ut quia ad qui. Dignissimos necessitatibus quia eius autem dolorem. Est rerum aliquid dolorem minima.', 'Rerum veniam esse molestias dolorum eum nihil. Tenetur et sint quos commodi rem et pariatur. Velit alias voluptatem corrupti in. Earum ut numquam corrupti corporis. Dolores qui quis et tempore deleniti dolor. Voluptates veritatis voluptatem dolorem quo. Delectus enim temporibus dignissimos sed ab est. Architecto placeat quis hic est aut quia perferendis.', 'Autem nemo debitis et ratione. Maxime libero quo provident. Magnam ea ipsa et magni.', 'Voluptas qui aut est inventore. Id laboriosam ut asperiores aliquam dicta. Vel non porro natus aut totam.', 395, 385, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704487146FfMjb', 7, 'Managed cohesive forecast', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:06', NULL),
+(193, 20, NULL, NULL, 1, NULL, 'Grass-roots responsive policy', '597', 'productImages/21.png', '[\"31.png\",\"21.png\",\"26.png\",\"31.png\"]', 'Et sint itaque odio. Quis accusamus eos ut distinctio excepturi rerum tempore.', 'Tempora eaque corrupti a minus eos qui. Sunt dolorum debitis et ex omnis non accusantium. Voluptates atque beatae aut. Labore aut distinctio porro expedita alias est enim. Sunt qui quos dicta in. Unde aspernatur ut assumenda nam. Veniam ea incidunt aut voluptatum voluptas in in.', 'Molestias non assumenda ut recusandae distinctio explicabo recusandae ut. Sit voluptatem et ducimus sint beatae qui eum. Quod assumenda qui blanditiis est labore corrupti dolore.', 'Quia odit cum qui consequatur. Consequuntur omnis asperiores est. Sint atque accusamus consequuntur autem.', 746, 736, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704487146nkgi0', 7, 'Grass-roots responsive policy', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:06', NULL),
+(194, 29, NULL, NULL, 5, NULL, 'Multi-tiered tertiary definition', '343', 'productImages/24.png', NULL, 'Quos velit hic modi consequatur possimus laboriosam. Ut dolores a harum. Facilis expedita sapiente ab sed nulla.', 'Consequatur necessitatibus et ad aperiam ut in. Sequi odit alias quo aut. In eligendi reiciendis autem vel eos harum in. Officiis consectetur quidem animi molestiae aut rem eligendi. Magnam et sapiente quisquam voluptatibus deleniti sint pariatur. Eos architecto voluptatem at. Facere consequatur modi rerum harum sint dolores.', 'Mollitia voluptas et beatae sit voluptas id facilis assumenda. Doloribus qui ea aut et ipsum ut. Tempore quidem reiciendis dolor illum sint aut. Blanditiis sit ut ut sunt rem.', 'Eveniet earum qui in labore natus eos nihil. Esse beatae sed deleniti dolores optio sed. Qui sapiente aut incidunt dolor velit hic.', 579, 569, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704487146AZO45', 9, 'Multi-tiered tertiary definition', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:06', NULL),
+(195, 25, NULL, NULL, 1, NULL, 'Multi-layered optimal alliance', '637', 'productImages/40.png', '[\"31.png\",\"26.png\",\"26.png\",\"30.png\"]', 'Voluptatem assumenda sint ut autem. Provident assumenda enim eum.', 'Aperiam nihil quia corrupti consequatur. Laborum sed et sapiente suscipit voluptatibus reprehenderit. Vero aliquam et sint eaque itaque veritatis. Voluptate recusandae aliquid quibusdam quam aut beatae iure fugit. Voluptatem et molestiae ut vitae nostrum. Reprehenderit eius voluptatem incidunt quae et.', 'Distinctio officiis voluptatem omnis dolorum et. Aut nemo voluptatem repellat nulla velit consectetur. Unde et atque incidunt quis. Blanditiis ea vel hic unde dolore quos.', 'Eius deserunt impedit voluptatem tempora est. Sunt autem omnis quam repellendus vel in ipsam. Error similique non ipsam fugit dolores qui voluptatem incidunt. Pariatur dolore maxime minus.', 105, 95, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '17044871465KwLT', 6, 'Multi-layered optimal alliance', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:06', NULL),
+(196, 28, NULL, NULL, 5, NULL, 'Sharable fresh-thinking task-force', '111', 'productImages/33.png', NULL, 'Et sunt rem error dolores cupiditate omnis quasi. Omnis ipsam sint eum maxime. Facilis voluptate voluptatem repudiandae ratione ut.', 'Et laboriosam autem quaerat porro ratione. Delectus possimus iste ut necessitatibus. Quia autem atque eligendi aut placeat rerum ullam. Ea dolore molestiae totam corporis voluptatum dolores sunt. Magnam laudantium incidunt earum delectus laborum rerum. Unde voluptates aliquam eum expedita. Perspiciatis odio eos maxime quia ex.', 'Quaerat rerum natus rem saepe possimus. Et quas ea ut perspiciatis commodi suscipit quis eos. Qui qui quod itaque nobis quae assumenda recusandae debitis.', 'Nihil doloremque et dignissimos et laboriosam nemo. Quo molestias odio natus deserunt dicta et rerum. Consequatur quaerat iure voluptatem autem ullam.', 502, 492, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704487147Q13jf', 8, 'Sharable fresh-thinking task-force', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:07', NULL),
+(197, 29, NULL, NULL, 1, NULL, 'Programmable didactic toolset', '288', 'productImages/24.png', '[\"32.png\",\"33.png\",\"29.png\",\"35.png\"]', 'Et placeat vel dignissimos ullam qui enim. Harum laborum sit fugiat error blanditiis. Iste eum ducimus aut totam qui.', 'Enim numquam blanditiis repellendus sed minima et nostrum. Voluptatum consectetur nam non totam reprehenderit voluptatem. Rem quam et fugit eos necessitatibus ea maiores voluptas. Omnis aut sed blanditiis delectus aut sit tenetur. Ab a ea incidunt sit incidunt quod minus earum. Veritatis nulla minima laborum sapiente. Non nisi temporibus odio.', 'Minus veniam incidunt voluptates excepturi non alias. Expedita iste sunt aut et. Facilis quis enim eum. Aliquam accusantium ipsum vero cum ut iusto. Nisi est omnis eligendi laudantium quo esse.', 'Explicabo in suscipit esse sunt dolorum eligendi quos. Sed dignissimos ea in. Beatae assumenda quisquam reprehenderit est rem atque.', 447, 437, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704487147yZEpk', 9, 'Programmable didactic toolset', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:07', NULL),
+(198, 24, NULL, NULL, 6, NULL, 'Polarised client-server access', '255', 'productImages/26.png', NULL, 'Omnis nam sit occaecati neque tempora vel ea. Possimus et dolor expedita eum minus impedit. Pariatur et dicta enim nostrum.', 'Et cum vero id et. Ut omnis et enim. Nobis adipisci sunt est necessitatibus praesentium perferendis natus veniam. Nulla officiis perferendis architecto excepturi possimus natus natus nemo. Aut sed odit corporis eos quam facilis. Iure ea qui qui error dicta iusto deserunt. Nesciunt sed facilis earum quos quam culpa sed quis. Est sed aliquam velit et est eaque.', 'Consequatur aut quo optio ipsum sequi eligendi. Omnis ex qui et cumque omnis. Quos aperiam soluta commodi est. Quia aut dignissimos in quo illo officiis ipsum nesciunt.', 'Quidem suscipit est libero ut. Sint beatae numquam soluta recusandae cumque quae. Incidunt in aspernatur amet nisi dolorum est error.', 713, 703, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704487147V4pC3', 9, 'Polarised client-server access', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:07', NULL),
+(199, 25, NULL, NULL, 2, NULL, 'Cross-group radical task-force', '235', 'productImages/36.png', '[\"32.png\",\"23.png\",\"32.png\",\"32.png\"]', 'Vitae molestiae consequuntur animi voluptas perspiciatis. Itaque est iure quia aut exercitationem non rerum. Ullam odit repudiandae quidem quisquam.', 'Ducimus ipsam ipsum illo explicabo placeat repellat quia. Accusamus animi hic dolorum quas porro autem doloribus id. Iste quia similique odit assumenda inventore inventore doloribus voluptatem. Culpa et non eaque explicabo ut. Et quae dolores rerum incidunt odit quo aliquam. Temporibus dicta voluptates non aspernatur. Voluptates accusamus cum rerum.', 'Porro autem impedit voluptatem. Impedit similique est perferendis. Qui voluptatem eius voluptatum quo.', 'Accusantium ut aut tempora dolorum eos voluptas. Dolores ullam maiores consectetur repellat rerum aperiam distinctio. Dolorem perferendis soluta eveniet maxime. Aut itaque voluptatem molestias est.', 404, 394, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704487147MDtUZ', 7, 'Cross-group radical task-force', 'product,demo', NULL, 1, 0, 1, '2024-01-05 20:39:07', NULL),
+(200, 30, NULL, NULL, 2, NULL, 'User-friendly exuding matrix', '835', 'productImages/29.png', NULL, 'Autem quos explicabo vel. Minus rerum voluptatem sint assumenda aut ducimus. Rerum blanditiis ratione quo totam blanditiis non ea modi. Totam quae nobis tenetur et est impedit dolor.', 'Excepturi optio sapiente qui eaque qui. Eius sed ut doloremque qui est dolores. Minima quia minima sint maiores. Assumenda et repellat vero vel delectus totam. Vitae omnis quo suscipit distinctio molestiae sunt. Nihil et ipsa nam non sapiente. Velit ab exercitationem voluptas dolores ea.', 'Esse molestias quasi ducimus qui hic non nostrum molestias. Neque accusantium rerum debitis ullam aperiam sint error. Saepe autem quia odio assumenda rem eius.', 'Nihil repudiandae in culpa accusantium. Ipsum modi assumenda officiis omnis veniam sed. Vel sint velit incidunt.', 939, 929, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '17044871475CZRg', 6, 'User-friendly exuding matrix', 'product,demo', NULL, 1, 1, 1, '2024-01-05 20:39:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -1899,7 +1951,7 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 CREATE TABLE `product_images` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2128,7 +2180,107 @@ INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `update
 (297, 149, '32.png', '2024-01-02 06:53:54', NULL),
 (298, 149, '28.png', '2024-01-02 06:53:54', NULL),
 (299, 149, '26.png', '2024-01-02 06:53:54', NULL),
-(300, 149, '32.png', '2024-01-02 06:53:54', NULL);
+(300, 149, '32.png', '2024-01-02 06:53:54', NULL),
+(301, 151, '23.png', '2024-01-05 20:39:01', NULL),
+(302, 151, '38.png', '2024-01-05 20:39:01', NULL),
+(303, 151, '31.png', '2024-01-05 20:39:01', NULL),
+(304, 151, '37.png', '2024-01-05 20:39:01', NULL),
+(305, 153, '40.png', '2024-01-05 20:39:02', NULL),
+(306, 153, '27.png', '2024-01-05 20:39:02', NULL),
+(307, 153, '36.png', '2024-01-05 20:39:02', NULL),
+(308, 153, '25.png', '2024-01-05 20:39:02', NULL),
+(309, 155, '28.png', '2024-01-05 20:39:02', NULL),
+(310, 155, '34.png', '2024-01-05 20:39:02', NULL),
+(311, 155, '29.png', '2024-01-05 20:39:02', NULL),
+(312, 155, '27.png', '2024-01-05 20:39:02', NULL),
+(313, 157, '31.png', '2024-01-05 20:39:02', NULL),
+(314, 157, '31.png', '2024-01-05 20:39:02', NULL),
+(315, 157, '23.png', '2024-01-05 20:39:02', NULL),
+(316, 157, '26.png', '2024-01-05 20:39:02', NULL),
+(317, 159, '21.png', '2024-01-05 20:39:02', NULL),
+(318, 159, '33.png', '2024-01-05 20:39:02', NULL),
+(319, 159, '36.png', '2024-01-05 20:39:02', NULL),
+(320, 159, '40.png', '2024-01-05 20:39:02', NULL),
+(321, 161, '27.png', '2024-01-05 20:39:02', NULL),
+(322, 161, '28.png', '2024-01-05 20:39:02', NULL),
+(323, 161, '34.png', '2024-01-05 20:39:02', NULL),
+(324, 161, '39.png', '2024-01-05 20:39:02', NULL),
+(325, 163, '36.png', '2024-01-05 20:39:03', NULL),
+(326, 163, '29.png', '2024-01-05 20:39:03', NULL),
+(327, 163, '28.png', '2024-01-05 20:39:03', NULL),
+(328, 163, '33.png', '2024-01-05 20:39:03', NULL),
+(329, 165, '27.png', '2024-01-05 20:39:03', NULL),
+(330, 165, '29.png', '2024-01-05 20:39:03', NULL),
+(331, 165, '28.png', '2024-01-05 20:39:03', NULL),
+(332, 165, '38.png', '2024-01-05 20:39:03', NULL),
+(333, 167, '37.png', '2024-01-05 20:39:03', NULL),
+(334, 167, '27.png', '2024-01-05 20:39:03', NULL),
+(335, 167, '28.png', '2024-01-05 20:39:03', NULL),
+(336, 167, '30.png', '2024-01-05 20:39:03', NULL),
+(337, 169, '24.png', '2024-01-05 20:39:03', NULL),
+(338, 169, '25.png', '2024-01-05 20:39:03', NULL),
+(339, 169, '30.png', '2024-01-05 20:39:03', NULL),
+(340, 169, '30.png', '2024-01-05 20:39:03', NULL),
+(341, 171, '34.png', '2024-01-05 20:39:04', NULL),
+(342, 171, '36.png', '2024-01-05 20:39:04', NULL),
+(343, 171, '37.png', '2024-01-05 20:39:04', NULL),
+(344, 171, '22.png', '2024-01-05 20:39:04', NULL),
+(345, 173, '30.png', '2024-01-05 20:39:04', NULL),
+(346, 173, '24.png', '2024-01-05 20:39:04', NULL),
+(347, 173, '38.png', '2024-01-05 20:39:04', NULL),
+(348, 173, '36.png', '2024-01-05 20:39:04', NULL),
+(349, 175, '37.png', '2024-01-05 20:39:04', NULL),
+(350, 175, '24.png', '2024-01-05 20:39:04', NULL),
+(351, 175, '24.png', '2024-01-05 20:39:04', NULL),
+(352, 175, '34.png', '2024-01-05 20:39:04', NULL),
+(353, 177, '22.png', '2024-01-05 20:39:04', NULL),
+(354, 177, '23.png', '2024-01-05 20:39:04', NULL),
+(355, 177, '38.png', '2024-01-05 20:39:04', NULL),
+(356, 177, '39.png', '2024-01-05 20:39:04', NULL),
+(357, 179, '21.png', '2024-01-05 20:39:05', NULL),
+(358, 179, '37.png', '2024-01-05 20:39:05', NULL),
+(359, 179, '37.png', '2024-01-05 20:39:05', NULL),
+(360, 179, '39.png', '2024-01-05 20:39:05', NULL),
+(361, 181, '40.png', '2024-01-05 20:39:05', NULL),
+(362, 181, '36.png', '2024-01-05 20:39:05', NULL),
+(363, 181, '25.png', '2024-01-05 20:39:05', NULL),
+(364, 181, '37.png', '2024-01-05 20:39:05', NULL),
+(365, 183, '28.png', '2024-01-05 20:39:05', NULL),
+(366, 183, '27.png', '2024-01-05 20:39:05', NULL),
+(367, 183, '40.png', '2024-01-05 20:39:05', NULL),
+(368, 183, '36.png', '2024-01-05 20:39:05', NULL),
+(369, 185, '33.png', '2024-01-05 20:39:05', NULL),
+(370, 185, '38.png', '2024-01-05 20:39:05', NULL),
+(371, 185, '33.png', '2024-01-05 20:39:05', NULL),
+(372, 185, '39.png', '2024-01-05 20:39:05', NULL),
+(373, 187, '30.png', '2024-01-05 20:39:06', NULL),
+(374, 187, '28.png', '2024-01-05 20:39:06', NULL),
+(375, 187, '31.png', '2024-01-05 20:39:06', NULL),
+(376, 187, '33.png', '2024-01-05 20:39:06', NULL),
+(377, 189, '37.png', '2024-01-05 20:39:06', NULL),
+(378, 189, '37.png', '2024-01-05 20:39:06', NULL),
+(379, 189, '30.png', '2024-01-05 20:39:06', NULL),
+(380, 189, '39.png', '2024-01-05 20:39:06', NULL),
+(381, 191, '38.png', '2024-01-05 20:39:06', NULL),
+(382, 191, '24.png', '2024-01-05 20:39:06', NULL),
+(383, 191, '24.png', '2024-01-05 20:39:06', NULL),
+(384, 191, '37.png', '2024-01-05 20:39:06', NULL),
+(385, 193, '31.png', '2024-01-05 20:39:06', NULL),
+(386, 193, '21.png', '2024-01-05 20:39:06', NULL),
+(387, 193, '26.png', '2024-01-05 20:39:06', NULL),
+(388, 193, '31.png', '2024-01-05 20:39:06', NULL),
+(389, 195, '31.png', '2024-01-05 20:39:06', NULL),
+(390, 195, '26.png', '2024-01-05 20:39:06', NULL),
+(391, 195, '26.png', '2024-01-05 20:39:06', NULL),
+(392, 195, '30.png', '2024-01-05 20:39:06', NULL),
+(393, 197, '32.png', '2024-01-05 20:39:07', NULL),
+(394, 197, '33.png', '2024-01-05 20:39:07', NULL),
+(395, 197, '29.png', '2024-01-05 20:39:07', NULL),
+(396, 197, '35.png', '2024-01-05 20:39:07', NULL),
+(397, 199, '32.png', '2024-01-05 20:39:07', NULL),
+(398, 199, '23.png', '2024-01-05 20:39:07', NULL),
+(399, 199, '32.png', '2024-01-05 20:39:07', NULL),
+(400, 199, '32.png', '2024-01-05 20:39:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -2139,10 +2291,10 @@ INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `update
 CREATE TABLE `product_models` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `brand_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(255) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
-  `slug` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2156,11 +2308,11 @@ CREATE TABLE `product_models` (
 CREATE TABLE `product_question_answers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `question` longtext DEFAULT NULL,
-  `answer` longtext DEFAULT NULL,
-  `slug` varchar(255) NOT NULL,
+  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `question` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `answer` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2184,9 +2336,9 @@ CREATE TABLE `product_reviews` (
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `rating` double NOT NULL DEFAULT 0,
-  `review` longtext DEFAULT NULL,
-  `reply` longtext DEFAULT NULL,
-  `slug` varchar(255) NOT NULL,
+  `review` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reply` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Pending; 1=>Approved',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2416,7 +2568,107 @@ INSERT INTO `product_reviews` (`id`, `product_id`, `user_id`, `rating`, `review`
 (297, 150, 1, 1, 'Profound bifurcated interface', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
 (298, 150, 1, 5, 'Quality-focused composite complexity', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
 (299, 150, 1, 1, 'Polarised even-keeled portal', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(300, 150, 1, 3, 'Extended local paradigm', 'thanks', '', 1, '2024-01-02 06:53:54', NULL);
+(300, 150, 1, 3, 'Extended local paradigm', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(301, 152, 1, 5, 'Multi-channelled responsive flexibility', 'thanks', '', 1, '2024-01-05 20:39:01', NULL),
+(302, 152, 1, 1, 'Visionary grid-enabled monitoring', 'thanks', '', 1, '2024-01-05 20:39:01', NULL),
+(303, 152, 1, 3, 'Robust national policy', 'thanks', '', 1, '2024-01-05 20:39:01', NULL),
+(304, 152, 1, 2, 'Diverse web-enabled database', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(305, 154, 1, 4, 'Switchable reciprocal productivity', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(306, 154, 1, 3, 'User-centric foreground framework', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(307, 154, 1, 4, 'Advanced methodical challenge', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(308, 154, 1, 5, 'Optimized clear-thinking approach', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(309, 156, 1, 5, 'Up-sized foreground challenge', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(310, 156, 1, 4, 'Customer-focused 24/7 matrices', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(311, 156, 1, 2, 'Digitized national project', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(312, 156, 1, 4, 'Automated full-range strategy', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(313, 158, 1, 4, 'Optional fresh-thinking function', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(314, 158, 1, 1, 'Open-source multi-tasking paradigm', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(315, 158, 1, 3, 'Up-sized assymetric implementation', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(316, 158, 1, 1, 'Open-architected high-level knowledgebase', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(317, 160, 1, 2, 'User-friendly fault-tolerant instructionset', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(318, 160, 1, 2, 'Organized uniform benchmark', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(319, 160, 1, 4, 'Proactive upward-trending forecast', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(320, 160, 1, 3, 'Expanded client-server database', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(321, 162, 1, 3, 'Programmable regional software', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(322, 162, 1, 5, 'Streamlined exuding intranet', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(323, 162, 1, 2, 'Up-sized full-range firmware', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(324, 162, 1, 4, 'Synergistic motivating middleware', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(325, 164, 1, 3, 'Reactive value-added knowledgeuser', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(326, 164, 1, 2, 'Right-sized heuristic forecast', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(327, 164, 1, 5, 'Customizable foreground approach', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(328, 164, 1, 5, 'Organic logistical capacity', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(329, 166, 1, 3, 'Synchronised leadingedge infrastructure', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(330, 166, 1, 5, 'Synergized stable focusgroup', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(331, 166, 1, 4, 'Open-architected holistic concept', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(332, 166, 1, 3, 'Re-engineered static data-warehouse', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(333, 168, 1, 5, 'User-centric solution-oriented localareanetwork', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(334, 168, 1, 4, 'Triple-buffered mobile approach', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(335, 168, 1, 5, 'Assimilated upward-trending data-warehouse', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(336, 168, 1, 4, 'Team-oriented disintermediate structure', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(337, 170, 1, 1, 'Expanded reciprocal interface', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(338, 170, 1, 1, 'Ameliorated solution-oriented groupware', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(339, 170, 1, 2, 'Inverse tertiary localareanetwork', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(340, 170, 1, 5, 'Optimized fault-tolerant project', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(341, 172, 1, 2, 'Multi-lateral fault-tolerant frame', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(342, 172, 1, 1, 'Front-line static parallelism', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(343, 172, 1, 3, 'Customizable multi-state success', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(344, 172, 1, 4, 'Horizontal motivating encoding', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(345, 174, 1, 1, 'Automated bifurcated database', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(346, 174, 1, 3, 'Intuitive regional solution', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(347, 174, 1, 3, 'Focused encompassing interface', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(348, 174, 1, 5, 'Compatible eco-centric monitoring', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(349, 176, 1, 5, 'Horizontal responsive model', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(350, 176, 1, 5, 'Polarised context-sensitive hub', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(351, 176, 1, 4, 'Managed foreground portal', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(352, 176, 1, 4, 'Switchable attitude-oriented openarchitecture', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(353, 178, 1, 2, 'Visionary national installation', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(354, 178, 1, 2, 'Proactive non-volatile GraphicInterface', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(355, 178, 1, 2, 'Focused cohesive throughput', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(356, 178, 1, 1, 'Re-contextualized empowering matrices', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(357, 180, 1, 5, 'Optional high-level artificialintelligence', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(358, 180, 1, 5, 'Future-proofed mission-critical encoding', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(359, 180, 1, 1, 'Automated mission-critical architecture', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(360, 180, 1, 2, 'Public-key tangible data-warehouse', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(361, 182, 1, 3, 'Monitored well-modulated superstructure', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(362, 182, 1, 2, 'Digitized scalable policy', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(363, 182, 1, 5, 'Synchronised interactive matrix', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(364, 182, 1, 2, 'Open-source 6thgeneration matrix', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(365, 184, 1, 5, 'Quality-focused fault-tolerant migration', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(366, 184, 1, 1, 'Pre-emptive client-driven architecture', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(367, 184, 1, 4, 'Profound demand-driven function', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(368, 184, 1, 5, 'Self-enabling non-volatile adapter', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(369, 186, 1, 1, 'Versatile radical alliance', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(370, 186, 1, 5, 'Sharable multi-tasking contingency', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(371, 186, 1, 1, 'Grass-roots system-worthy approach', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(372, 186, 1, 4, 'Organized even-keeled productivity', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(373, 188, 1, 5, 'Mandatory multi-state benchmark', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(374, 188, 1, 2, 'Pre-emptive bifurcated framework', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(375, 188, 1, 2, 'Horizontal client-driven instructionset', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(376, 188, 1, 5, 'Diverse analyzing circuit', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(377, 190, 1, 2, 'Enterprise-wide regional installation', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(378, 190, 1, 5, 'Cross-platform multi-tasking opensystem', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(379, 190, 1, 4, 'Fully-configurable fresh-thinking groupware', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(380, 190, 1, 5, 'Team-oriented systematic flexibility', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(381, 192, 1, 1, 'Synergistic motivating success', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(382, 192, 1, 4, 'Upgradable bandwidth-monitored GraphicInterface', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(383, 192, 1, 2, 'Enterprise-wide 24hour complexity', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(384, 192, 1, 4, 'Virtual multi-tasking benchmark', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(385, 194, 1, 2, 'Streamlined discrete interface', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(386, 194, 1, 4, 'Persevering secondary intranet', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(387, 194, 1, 4, 'Extended web-enabled challenge', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(388, 194, 1, 1, 'Organized foreground synergy', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(389, 196, 1, 2, 'Vision-oriented transitional groupware', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(390, 196, 1, 3, 'Virtual optimizing localareanetwork', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(391, 196, 1, 3, 'Seamless radical forecast', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(392, 196, 1, 1, 'Team-oriented disintermediate frame', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(393, 198, 1, 1, 'Reverse-engineered composite openarchitecture', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(394, 198, 1, 1, 'De-engineered asynchronous algorithm', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(395, 198, 1, 2, 'Managed eco-centric analyzer', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(396, 198, 1, 5, 'Open-source human-resource contingency', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(397, 200, 1, 3, 'Reverse-engineered impactful knowledgeuser', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(398, 200, 1, 2, 'Persistent tangible superstructure', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(399, 200, 1, 1, 'Synergized tertiary solution', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(400, 200, 1, 1, 'Enterprise-wide multimedia artificialintelligence', 'thanks', '', 1, '2024-01-05 20:39:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -2426,9 +2678,9 @@ INSERT INTO `product_reviews` (`id`, `product_id`, `user_id`, `rating`, `review`
 
 CREATE TABLE `product_sizes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
-  `slug` varchar(255) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `serial` double NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2453,7 +2705,7 @@ INSERT INTO `product_sizes` (`id`, `name`, `status`, `slug`, `serial`, `created_
 CREATE TABLE `product_variants` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `color_id` bigint(20) UNSIGNED DEFAULT NULL,
   `size_id` int(11) DEFAULT NULL,
   `region_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -2690,7 +2942,107 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_i
 (297, 150, '26.png', 11, 3, 123, 4, 6, 1000, 758, 748, 1, 6, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
 (298, 150, '23.png', 11, 3, 123, 4, 6, 1000, 758, 748, 1, 6, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
 (299, 150, '40.png', 11, 3, 123, 4, 6, 1000, 758, 748, 1, 6, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
-(300, 150, '21.png', 11, 3, 123, 4, 6, 1000, 758, 748, 1, 6, '2024-01-02 06:53:54', '2024-01-02 06:53:54');
+(300, 150, '21.png', 11, 3, 123, 4, 6, 1000, 758, 748, 1, 6, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
+(302, 152, '32.png', 4, 5, 59, 4, 10, 1000, 354, 344, 1, 3, '2024-01-05 20:39:01', '2024-01-05 20:39:01'),
+(303, 152, '36.png', 4, 5, 59, 4, 10, 1000, 354, 344, 1, 3, '2024-01-05 20:39:01', '2024-01-05 20:39:01'),
+(304, 152, '28.png', 4, 5, 59, 4, 10, 1000, 354, 344, 1, 3, '2024-01-05 20:39:01', '2024-01-05 20:39:01'),
+(305, 152, '27.png', 4, 5, 59, 4, 10, 1000, 354, 344, 1, 3, '2024-01-05 20:39:01', '2024-01-05 20:39:01'),
+(306, 154, '40.png', 6, 3, 45, 4, 2, 1000, 593, 583, 1, 4, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(307, 154, '36.png', 6, 3, 45, 4, 2, 1000, 593, 583, 1, 4, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(308, 154, '40.png', 6, 3, 45, 4, 2, 1000, 593, 583, 1, 4, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(309, 154, '38.png', 6, 3, 45, 4, 2, 1000, 593, 583, 1, 4, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(310, 156, '29.png', 8, 6, 237, 3, 10, 1000, 378, 368, 8, 7, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(311, 156, '40.png', 8, 6, 237, 3, 10, 1000, 378, 368, 8, 7, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(312, 156, '38.png', 8, 6, 237, 3, 10, 1000, 378, 368, 8, 7, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(313, 156, '37.png', 8, 6, 237, 3, 10, 1000, 378, 368, 8, 7, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(314, 158, '22.png', 3, 4, 231, 4, 3, 1000, 878, 868, 8, 6, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(315, 158, '35.png', 3, 4, 231, 4, 3, 1000, 878, 868, 8, 6, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(316, 158, '39.png', 3, 4, 231, 4, 3, 1000, 878, 868, 8, 6, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(317, 158, '30.png', 3, 4, 231, 4, 3, 1000, 878, 868, 8, 6, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(318, 160, '28.png', 12, 4, 150, 2, 4, 1000, 425, 415, 7, 1, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(319, 160, '31.png', 12, 4, 150, 2, 4, 1000, 425, 415, 7, 1, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(320, 160, '35.png', 12, 4, 150, 2, 4, 1000, 425, 415, 7, 1, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(321, 160, '23.png', 12, 4, 150, 2, 4, 1000, 425, 415, 7, 1, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(322, 162, '21.png', 11, 6, 115, 1, 7, 1000, 695, 685, 2, 7, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(323, 162, '26.png', 11, 6, 115, 1, 7, 1000, 695, 685, 2, 7, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(324, 162, '25.png', 11, 6, 115, 1, 7, 1000, 695, 685, 2, 7, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(325, 162, '33.png', 11, 6, 115, 1, 7, 1000, 695, 685, 2, 7, '2024-01-05 20:39:02', '2024-01-05 20:39:02'),
+(326, 164, '34.png', 12, 3, 122, 1, 8, 1000, 202, 192, 8, 4, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(327, 164, '26.png', 12, 3, 122, 1, 8, 1000, 202, 192, 8, 4, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(328, 164, '21.png', 12, 3, 122, 1, 8, 1000, 202, 192, 8, 4, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(329, 164, '24.png', 12, 3, 122, 1, 8, 1000, 202, 192, 8, 4, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(330, 166, '23.png', 2, 4, 193, 1, 3, 1000, 440, 430, 8, 6, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(331, 166, '38.png', 2, 4, 193, 1, 3, 1000, 440, 430, 8, 6, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(332, 166, '34.png', 2, 4, 193, 1, 3, 1000, 440, 430, 8, 6, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(333, 166, '30.png', 2, 4, 193, 1, 3, 1000, 440, 430, 8, 6, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(334, 168, '40.png', 4, 6, 131, 4, 9, 1000, 204, 194, 7, 6, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(335, 168, '21.png', 4, 6, 131, 4, 9, 1000, 204, 194, 7, 6, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(336, 168, '29.png', 4, 6, 131, 4, 9, 1000, 204, 194, 7, 6, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(337, 168, '38.png', 4, 6, 131, 4, 9, 1000, 204, 194, 7, 6, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(338, 170, '36.png', 3, 5, 130, 2, 7, 1000, 388, 378, 8, 3, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(339, 170, '22.png', 3, 5, 130, 2, 7, 1000, 388, 378, 8, 3, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(340, 170, '33.png', 3, 5, 130, 2, 7, 1000, 388, 378, 8, 3, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(341, 170, '29.png', 3, 5, 130, 2, 7, 1000, 388, 378, 8, 3, '2024-01-05 20:39:03', '2024-01-05 20:39:03'),
+(342, 172, '29.png', 9, 4, 29, 4, 7, 1000, 605, 595, 8, 6, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(343, 172, '35.png', 9, 4, 29, 4, 7, 1000, 605, 595, 8, 6, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(344, 172, '39.png', 9, 4, 29, 4, 7, 1000, 605, 595, 8, 6, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(345, 172, '33.png', 9, 4, 29, 4, 7, 1000, 605, 595, 8, 6, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(346, 174, '28.png', 11, 3, 69, 4, 10, 1000, 156, 146, 7, 3, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(347, 174, '36.png', 11, 3, 69, 4, 10, 1000, 156, 146, 7, 3, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(348, 174, '34.png', 11, 3, 69, 4, 10, 1000, 156, 146, 7, 3, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(349, 174, '34.png', 11, 3, 69, 4, 10, 1000, 156, 146, 7, 3, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(350, 176, '39.png', 9, 4, 121, 1, 2, 1000, 644, 634, 7, 4, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(351, 176, '38.png', 9, 4, 121, 1, 2, 1000, 644, 634, 7, 4, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(352, 176, '25.png', 9, 4, 121, 1, 2, 1000, 644, 634, 7, 4, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(353, 176, '22.png', 9, 4, 121, 1, 2, 1000, 644, 634, 7, 4, '2024-01-05 20:39:04', '2024-01-05 20:39:04'),
+(354, 178, '25.png', 15, 4, 219, 4, 1, 1000, 522, 512, 2, 6, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(355, 178, '37.png', 15, 4, 219, 4, 1, 1000, 522, 512, 2, 6, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(356, 178, '36.png', 15, 4, 219, 4, 1, 1000, 522, 512, 2, 6, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(357, 178, '23.png', 15, 4, 219, 4, 1, 1000, 522, 512, 2, 6, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(358, 180, '32.png', 6, 5, 80, 1, 10, 1000, 177, 167, 8, 4, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(359, 180, '39.png', 6, 5, 80, 1, 10, 1000, 177, 167, 8, 4, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(360, 180, '40.png', 6, 5, 80, 1, 10, 1000, 177, 167, 8, 4, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(361, 180, '35.png', 6, 5, 80, 1, 10, 1000, 177, 167, 8, 4, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(362, 182, '40.png', 4, 5, 44, 4, 3, 1000, 909, 899, 1, 1, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(363, 182, '28.png', 4, 5, 44, 4, 3, 1000, 909, 899, 1, 1, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(364, 182, '22.png', 4, 5, 44, 4, 3, 1000, 909, 899, 1, 1, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(365, 182, '25.png', 4, 5, 44, 4, 3, 1000, 909, 899, 1, 1, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(366, 184, '33.png', 11, 4, 140, 3, 10, 1000, 691, 681, 1, 4, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(367, 184, '38.png', 11, 4, 140, 3, 10, 1000, 691, 681, 1, 4, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(368, 184, '35.png', 11, 4, 140, 3, 10, 1000, 691, 681, 1, 4, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(369, 184, '32.png', 11, 4, 140, 3, 10, 1000, 691, 681, 1, 4, '2024-01-05 20:39:05', '2024-01-05 20:39:05'),
+(370, 186, '32.png', 10, 4, 72, 1, 2, 1000, 347, 337, 2, 3, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(371, 186, '30.png', 10, 4, 72, 1, 2, 1000, 347, 337, 2, 3, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(372, 186, '23.png', 10, 4, 72, 1, 2, 1000, 347, 337, 2, 3, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(373, 186, '24.png', 10, 4, 72, 1, 2, 1000, 347, 337, 2, 3, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(374, 188, '38.png', 4, 4, 23, 2, 6, 1000, 466, 456, 1, 7, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(375, 188, '30.png', 4, 4, 23, 2, 6, 1000, 466, 456, 1, 7, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(376, 188, '23.png', 4, 4, 23, 2, 6, 1000, 466, 456, 1, 7, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(377, 188, '27.png', 4, 4, 23, 2, 6, 1000, 466, 456, 1, 7, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(378, 190, '22.png', 14, 5, 198, 4, 4, 1000, 275, 265, 3, 7, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(379, 190, '32.png', 14, 5, 198, 4, 4, 1000, 275, 265, 3, 7, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(380, 190, '23.png', 14, 5, 198, 4, 4, 1000, 275, 265, 3, 7, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(381, 190, '34.png', 14, 5, 198, 4, 4, 1000, 275, 265, 3, 7, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(382, 192, '25.png', 14, 4, 113, 1, 6, 1000, 395, 385, 7, 3, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(383, 192, '24.png', 14, 4, 113, 1, 6, 1000, 395, 385, 7, 3, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(384, 192, '39.png', 14, 4, 113, 1, 6, 1000, 395, 385, 7, 3, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(385, 192, '28.png', 14, 4, 113, 1, 6, 1000, 395, 385, 7, 3, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(386, 194, '40.png', 6, 5, 40, 3, 4, 1000, 579, 569, 8, 1, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(387, 194, '23.png', 6, 5, 40, 3, 4, 1000, 579, 569, 8, 1, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(388, 194, '37.png', 6, 5, 40, 3, 4, 1000, 579, 569, 8, 1, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(389, 194, '28.png', 6, 5, 40, 3, 4, 1000, 579, 569, 8, 1, '2024-01-05 20:39:06', '2024-01-05 20:39:06'),
+(390, 196, '24.png', 4, 4, 97, 4, 3, 1000, 502, 492, 3, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(391, 196, '34.png', 4, 4, 97, 4, 3, 1000, 502, 492, 3, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(392, 196, '33.png', 4, 4, 97, 4, 3, 1000, 502, 492, 3, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(393, 196, '36.png', 4, 4, 97, 4, 3, 1000, 502, 492, 3, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(394, 198, '34.png', 13, 5, 65, 2, 9, 1000, 713, 703, 3, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(395, 198, '22.png', 13, 5, 65, 2, 9, 1000, 713, 703, 3, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(396, 198, '30.png', 13, 5, 65, 2, 9, 1000, 713, 703, 3, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(397, 198, '30.png', 13, 5, 65, 2, 9, 1000, 713, 703, 3, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(398, 200, '34.png', 11, 6, 226, 2, 3, 1000, 939, 929, 7, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(399, 200, '22.png', 11, 6, 226, 2, 3, 1000, 939, 929, 7, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(400, 200, '31.png', 11, 6, 226, 2, 3, 1000, 939, 929, 7, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07'),
+(401, 200, '22.png', 11, 6, 226, 2, 3, 1000, 939, 929, 7, 3, '2024-01-05 20:39:07', '2024-01-05 20:39:07');
 
 -- --------------------------------------------------------
 
@@ -2700,7 +3052,7 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_i
 
 CREATE TABLE `product_warrenties` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `serial` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2725,25 +3077,25 @@ INSERT INTO `product_warrenties` (`id`, `name`, `serial`, `created_at`, `updated
 
 CREATE TABLE `promotional_banners` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  `heading` varchar(255) DEFAULT NULL,
-  `heading_color` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `title_color` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `description_color` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  `btn_text` varchar(255) DEFAULT NULL,
-  `btn_text_color` varchar(255) DEFAULT NULL,
-  `btn_bg_color` varchar(255) DEFAULT NULL,
-  `background_color` varchar(255) DEFAULT NULL,
-  `product_image` varchar(255) DEFAULT NULL,
-  `background_image` varchar(255) DEFAULT NULL,
-  `video_url` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `heading` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `heading_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_text_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_bg_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `background_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `background_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `started_at` datetime DEFAULT NULL,
   `end_at` datetime DEFAULT NULL,
-  `time_bg_color` varchar(255) DEFAULT NULL,
-  `time_font_color` varchar(255) DEFAULT NULL,
+  `time_bg_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `time_font_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2763,16 +3115,16 @@ INSERT INTO `promotional_banners` (`id`, `icon`, `heading`, `heading_color`, `ti
 
 CREATE TABLE `promo_codes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  `code` varchar(255) NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `effective_date` date NOT NULL,
   `expire_date` date NOT NULL,
   `type` tinyint(4) NOT NULL COMMENT '1=>Amount; 2=>Percentage',
   `value` double NOT NULL DEFAULT 0,
   `minimum_order_amount` double DEFAULT NULL,
-  `slug` varchar(255) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2797,10 +3149,10 @@ INSERT INTO `promo_codes` (`id`, `icon`, `title`, `description`, `code`, `effect
 CREATE TABLE `role_permissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
-  `role_name` varchar(255) DEFAULT NULL,
+  `role_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `route` varchar(255) NOT NULL,
-  `route_name` varchar(255) DEFAULT NULL,
+  `route` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `route_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2846,15 +3198,15 @@ INSERT INTO `role_permissions` (`id`, `role_id`, `role_name`, `permission_id`, `
 CREATE TABLE `shipping_infos` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
-  `full_name` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `gender` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `thana` varchar(255) DEFAULT NULL,
-  `post_code` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
+  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thana` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `post_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2867,7 +3219,7 @@ CREATE TABLE `shipping_infos` (
 
 CREATE TABLE `sims` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2890,12 +3242,12 @@ INSERT INTO `sims` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `sms_gateways` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `provider_name` varchar(255) NOT NULL,
-  `api_endpoint` varchar(255) NOT NULL,
-  `api_key` varchar(255) DEFAULT NULL,
-  `secret_key` varchar(255) DEFAULT NULL,
-  `sender_id` varchar(255) DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `api_endpoint` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `api_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `secret_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sender_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2918,10 +3270,10 @@ INSERT INTO `sms_gateways` (`id`, `image`, `provider_name`, `api_endpoint`, `api
 CREATE TABLE `sms_histories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `template_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `template_title` varchar(255) DEFAULT NULL,
-  `template_description` longtext DEFAULT NULL,
+  `template_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `template_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sending_type` tinyint(4) DEFAULT NULL COMMENT '1=>Individual; 2=>Everyone',
-  `individual_contact` varchar(255) DEFAULT NULL,
+  `individual_contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sms_receivers` tinyint(4) DEFAULT NULL COMMENT '1=>Having No Order; 2=>Having Orders',
   `min_order` double DEFAULT NULL,
   `max_order` double DEFAULT NULL,
@@ -2939,8 +3291,8 @@ CREATE TABLE `sms_histories` (
 
 CREATE TABLE `sms_templates` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2954,13 +3306,13 @@ CREATE TABLE `sms_templates` (
 CREATE TABLE `social_logins` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `fb_login_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Inactive; 1=>Active',
-  `fb_app_id` varchar(255) DEFAULT NULL,
-  `fb_app_secret` varchar(255) DEFAULT NULL,
-  `fb_redirect_url` varchar(255) DEFAULT NULL,
+  `fb_app_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb_app_secret` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb_redirect_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gmail_login_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Inactive; 1=>Active',
-  `gmail_client_id` varchar(255) DEFAULT NULL,
-  `gmail_secret_id` varchar(255) DEFAULT NULL,
-  `gmail_redirect_url` varchar(255) DEFAULT NULL,
+  `gmail_client_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gmail_secret_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gmail_redirect_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2980,10 +3332,10 @@ INSERT INTO `social_logins` (`id`, `fb_login_status`, `fb_app_id`, `fb_app_secre
 
 CREATE TABLE `storage_types` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ram` varchar(255) DEFAULT NULL,
-  `rom` varchar(255) DEFAULT NULL,
-  `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=>Inactive; 1=>Active',
-  `slug` varchar(255) NOT NULL,
+  `ram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `rom` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1' COMMENT '0=>Inactive; 1=>Active',
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `serial` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3014,10 +3366,10 @@ INSERT INTO `storage_types` (`id`, `ram`, `rom`, `status`, `slug`, `serial`, `cr
 CREATE TABLE `subcategories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -3048,7 +3400,7 @@ INSERT INTO `subcategories` (`id`, `category_id`, `name`, `icon`, `image`, `slug
 
 CREATE TABLE `subscribed_users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3086,8 +3438,8 @@ CREATE TABLE `support_messages` (
   `support_ticket_id` bigint(20) UNSIGNED NOT NULL,
   `sender_id` bigint(20) UNSIGNED NOT NULL,
   `sender_type` tinyint(4) NOT NULL COMMENT '1=>Support Agent; 2=>Customer',
-  `message` longtext DEFAULT NULL,
-  `attachment` varchar(255) DEFAULT NULL,
+  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3100,13 +3452,13 @@ CREATE TABLE `support_messages` (
 
 CREATE TABLE `support_tickets` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ticket_no` varchar(255) NOT NULL,
+  `ticket_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `support_taken_by` bigint(20) UNSIGNED NOT NULL COMMENT 'user_id',
-  `subject` varchar(255) NOT NULL,
-  `message` longtext DEFAULT NULL,
-  `attachment` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Pending;1=>In Progress;2=>Solved;3=>Rejected;4=>On Hold',
-  `slug` varchar(255) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3119,10 +3471,10 @@ CREATE TABLE `support_tickets` (
 
 CREATE TABLE `terms_and_policies` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `terms` longtext DEFAULT NULL,
-  `privacy_policy` longtext DEFAULT NULL,
-  `shipping_policy` longtext DEFAULT NULL,
-  `return_policy` longtext DEFAULT NULL,
+  `terms` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `privacy_policy` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_policy` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `return_policy` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3142,11 +3494,11 @@ INSERT INTO `terms_and_policies` (`id`, `terms`, `privacy_policy`, `shipping_pol
 
 CREATE TABLE `testimonials` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `description` longtext NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `rating` double NOT NULL,
-  `customer_name` varchar(255) NOT NULL,
-  `customer_image` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `customer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3172,7 +3524,7 @@ CREATE TABLE `unions` (
   `name` varchar(25) NOT NULL,
   `bn_name` varchar(25) NOT NULL,
   `url` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `unions`
@@ -7734,7 +8086,7 @@ INSERT INTO `unions` (`id`, `upazilla_id`, `name`, `bn_name`, `url`) VALUES
 
 CREATE TABLE `units` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -7764,7 +8116,7 @@ CREATE TABLE `upazilas` (
   `name` varchar(25) NOT NULL,
   `bn_name` varchar(25) NOT NULL,
   `url` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `upazilas`
@@ -8274,18 +8626,18 @@ INSERT INTO `upazilas` (`id`, `district_id`, `name`, `bn_name`, `url`) VALUES
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `verification_code` varchar(255) DEFAULT NULL COMMENT 'Used for Forget Password Verification',
-  `password` varchar(255) DEFAULT NULL,
-  `provider_name` varchar(255) DEFAULT NULL,
-  `provider_id` varchar(255) DEFAULT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
+  `verification_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Used for Forget Password Verification',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 3 COMMENT '1=>Admin; 2=>User/Shop; 3=>Customer',
-  `address` longtext DEFAULT NULL,
+  `address` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `balance` double NOT NULL DEFAULT 0 COMMENT 'In BDT',
   `delete_request_submitted` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>No; 1=>Yes',
   `delete_request_submitted_at` datetime DEFAULT NULL,
@@ -8322,15 +8674,15 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 CREATE TABLE `user_addresses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `address_type` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `address` longtext DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `state` varchar(255) DEFAULT NULL,
-  `post_code` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `slug` varchar(255) NOT NULL,
+  `address_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `post_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -8356,13 +8708,13 @@ INSERT INTO `user_addresses` (`id`, `user_id`, `address_type`, `name`, `address`
 CREATE TABLE `user_cards` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `type` varchar(255) DEFAULT NULL COMMENT '1=>Visa; 2=>Master',
-  `card_name` varchar(255) NOT NULL,
-  `card_no` varchar(255) NOT NULL,
-  `expiry_date` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '1=>Visa; 2=>Master',
+  `card_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `card_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expiry_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `default` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Default; 0=>Not',
-  `slug` varchar(255) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -8375,8 +8727,8 @@ CREATE TABLE `user_cards` (
 
 CREATE TABLE `user_roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` longtext DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -8401,10 +8753,10 @@ CREATE TABLE `user_role_permissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `role_name` varchar(255) DEFAULT NULL,
+  `role_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `route` varchar(255) NOT NULL,
-  `route_name` varchar(255) DEFAULT NULL,
+  `route` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `route_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -8462,7 +8814,7 @@ CREATE TABLE `wish_lists` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -9078,13 +9430,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=401;
 
 --
 -- AUTO_INCREMENT for table `product_models`
@@ -9102,7 +9454,7 @@ ALTER TABLE `product_question_answers`
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=401;
 
 --
 -- AUTO_INCREMENT for table `product_sizes`
@@ -9114,7 +9466,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=402;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`
