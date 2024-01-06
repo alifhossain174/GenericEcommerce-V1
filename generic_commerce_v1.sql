@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2024 at 09:42 PM
+-- Generation Time: Jan 06, 2024 at 07:45 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -187,10 +187,10 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `categories`, `subcategories`, `childcategories`, `featured`, `status`, `serial`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Samsung', NULL, NULL, '17,18', '62', NULL, 1, 1, -1, 'samsung', '2023-12-31 06:30:57', '2023-12-31 11:52:30'),
-(2, 'Xiaomi', 'brand_images/CB5Zj1704014683.png', NULL, '18', '61', NULL, 1, 1, -2, 'xiaomi', '2023-12-31 06:36:07', '2023-12-31 11:52:28'),
+(1, 'Samsung', NULL, NULL, '17,18', '62', '1,3', 1, 1, -1, 'samsung', '2023-12-31 06:30:57', '2024-01-05 20:50:48'),
+(2, 'Xiaomi', 'brand_images/CB5Zj1704014683.png', NULL, '18', '61', NULL, 1, 1, -2, 'xiaomi', '2023-12-31 06:36:07', '2024-01-05 20:46:43'),
 (3, 'Redmi', NULL, NULL, '18', '61', NULL, 0, 1, -3, 'redmi', '2023-12-31 06:37:13', '2023-12-31 06:38:05'),
-(4, 'Vivo', NULL, NULL, '18', NULL, NULL, 0, 1, -4, 'vivo', '2023-12-31 06:37:18', '2023-12-31 06:38:15'),
+(4, 'Vivo', NULL, NULL, '18', NULL, '2,3', 0, 1, -4, 'vivo', '2023-12-31 06:37:18', '2024-01-05 21:02:50'),
 (5, 'Oppo', NULL, NULL, '18', NULL, NULL, 0, 1, -5, 'oppo', '2023-12-31 06:37:25', '2023-12-31 06:39:07'),
 (6, 'Techno', NULL, NULL, '18', NULL, NULL, 0, 1, -6, 'techno', '2023-12-31 06:37:33', '2023-12-31 11:01:18'),
 (7, 'Apple', NULL, NULL, '18', '60', NULL, 1, 1, -7, 'apple', '2023-12-31 06:39:52', '2023-12-31 11:52:25');
@@ -9268,7 +9268,7 @@ ALTER TABLE `blog_categories`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `carts`
