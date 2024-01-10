@@ -91,4 +91,17 @@ class SupportController extends Controller
             'data' => SupportMessageResource::collection($data),
         ], 200);
     }
+
+    public function uploadSupportTicketFile(Request $request){
+        if ($request->hasFile('attachment')){
+            $get_attachment = $request->file('attachment');
+            $attachment_name = str::random(5) . time() . '.' . $get_attachment->getClientOriginalExtension();
+            $location = public_path('support_ticket_attachments/');
+            $get_attachment->move($location, $attachment_name);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Uploaded Successfully',
+        ], 200);
+    }
 }

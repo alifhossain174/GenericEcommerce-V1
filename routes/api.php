@@ -133,6 +133,7 @@ Route::group(['namespace' => 'Api'], function () {
 
 
     // support ticket api routes
+    Route::post('upload/support/ticket/file', [SupportController::class, 'uploadSupportTicketFile']);
     Route::middleware('auth:sanctum')->group( function () {
         Route::post('submit/support/ticket', [SupportController::class, 'submitSupportTicket']);
         Route::post('send/support/ticket/message', [SupportController::class, 'sendSupportTicketMessage']);
