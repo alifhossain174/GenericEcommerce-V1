@@ -95,7 +95,7 @@ class SupportController extends Controller
     public function uploadSupportTicketFile(Request $request){
         if ($request->hasFile('attachment')){
             $get_attachment = $request->file('attachment');
-            $attachment_name = $get_attachment->getClientOriginalName() . '.' . $get_attachment->getClientOriginalExtension();
+            $attachment_name = $get_attachment->getClientOriginalName();
             $location = public_path('support_ticket_attachments/');
             $get_attachment->move($location, $attachment_name);
         }
