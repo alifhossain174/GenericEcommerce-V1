@@ -249,4 +249,17 @@ class ProfileController extends Controller
             'message' => "Account Delete Request Submitted"
         ], 200);
     }
+
+    public function uploadProfilePhoto(Request $request){
+        if ($request->hasFile('image')){
+            $get_attachment = $request->file('image');
+            $attachment_name = $get_attachment->getClientOriginalName();
+            $location = public_path('userProfileImages/');
+            $get_attachment->move($location, $attachment_name);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Uploaded Successfully',
+        ], 200);
+    }
 }

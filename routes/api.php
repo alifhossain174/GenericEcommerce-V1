@@ -25,6 +25,7 @@ Route::group(['namespace' => 'Api'], function () {
 
 
     Route::post('subscribe/for/updates', [ApiController::class, 'subscriptionForUpdates']);
+    Route::post('upload/profile/photo', [ProfileController::class, 'uploadProfilePhoto']);
     Route::middleware('auth:sanctum')->group( function () {
         Route::get('user/profile/info', [ApiController::class, 'userProfileInfo']);
         Route::post('user/profile/update', [ApiController::class, 'userProfileUpdate']); //for app only
