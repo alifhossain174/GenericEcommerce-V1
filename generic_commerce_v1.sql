@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2024 at 05:20 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Jan 11, 2024 at 04:54 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `about_us` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `banner_bg` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `section_sub_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `section_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `section_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `btn_icon_class` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `btn_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `btn_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_bg` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `section_sub_title` varchar(255) DEFAULT NULL,
+  `section_title` varchar(255) DEFAULT NULL,
+  `section_description` longtext DEFAULT NULL,
+  `btn_icon_class` varchar(255) DEFAULT NULL,
+  `btn_text` varchar(255) DEFAULT NULL,
+  `btn_link` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -57,17 +57,17 @@ INSERT INTO `about_us` (`id`, `banner_bg`, `image`, `section_sub_title`, `sectio
 CREATE TABLE `banners` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Sliders; 2=>Banners',
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `position` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
-  `sub_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `btn_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `btn_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `text_position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_title` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `btn_text` varchar(255) DEFAULT NULL,
+  `btn_link` varchar(255) DEFAULT NULL,
+  `text_position` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
   `serial` double NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -96,14 +96,27 @@ INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub
 CREATE TABLE `billing_addresses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `post_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `thana` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `post_code` varchar(255) DEFAULT NULL,
+  `thana` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `billing_addresses`
+--
+
+INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `thana`, `city`, `country`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rajshahi', '6100', 'Bagha', 'Rajshahi', 'Bangladesh', '2024-01-10 06:03:24', NULL),
+(2, 3, 'Rajshahi', '6100', 'Bagha', 'Rajshahi', 'Bangladesh', '2024-01-10 06:04:05', NULL),
+(3, 4, 'Rajshahi', '7100', 'Bagha', 'Rajshahi', 'Bangladesh', '2024-01-10 06:59:11', NULL),
+(4, 5, 'Rajshahi', '7100', 'Bagha', 'Rajshahi', 'Bangladesh', '2024-01-10 07:00:52', NULL),
+(5, 6, 'khilkhet', NULL, 'Fakirhat', 'Bagerhat', 'Bangladesh', '2024-01-10 11:24:16', NULL),
+(6, 7, 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', '1254', 'Savar', 'Dhaka', 'Bangladesh', '2024-01-10 11:36:10', NULL),
+(7, 8, 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', '1254', 'Savar', 'Dhaka', 'Bangladesh', '2024-01-10 14:05:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -114,12 +127,12 @@ CREATE TABLE `billing_addresses` (
 CREATE TABLE `blogs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `short_description` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tags` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `short_description` mediumtext DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `tags` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -142,8 +155,8 @@ INSERT INTO `blogs` (`id`, `category_id`, `image`, `title`, `short_description`,
 
 CREATE TABLE `blog_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
   `serial` tinyint(4) NOT NULL DEFAULT 1,
@@ -168,16 +181,16 @@ INSERT INTO `blog_categories` (`id`, `name`, `slug`, `status`, `featured`, `seri
 
 CREATE TABLE `brands` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `categories` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `subcategories` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `childcategories` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `banner` varchar(255) DEFAULT NULL,
+  `categories` varchar(255) DEFAULT NULL,
+  `subcategories` varchar(255) DEFAULT NULL,
+  `childcategories` varchar(255) DEFAULT NULL,
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=> Not Featured; 1=> Featured',
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=> Inactive; 1=> Active',
   `serial` tinyint(4) NOT NULL DEFAULT 1,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -203,7 +216,7 @@ INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `categories`, `subcategori
 
 CREATE TABLE `carts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `user_unique_cart_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_unique_cart_no` varchar(255) NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `color_id` int(11) DEFAULT NULL COMMENT 'Variant',
   `size_id` int(11) DEFAULT NULL,
@@ -235,10 +248,10 @@ INSERT INTO `carts` (`id`, `user_unique_cart_no`, `product_id`, `color_id`, `siz
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `banner_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `banner_image` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
   `serial` tinyint(4) NOT NULL DEFAULT 1,
@@ -278,8 +291,8 @@ CREATE TABLE `child_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
   `subcategory_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -303,8 +316,8 @@ INSERT INTO `child_categories` (`id`, `category_id`, `subcategory_id`, `name`, `
 
 CREATE TABLE `colors` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -338,10 +351,10 @@ INSERT INTO `colors` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `config_setups` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `industry` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  `industry` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -367,11 +380,11 @@ INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`,
 
 CREATE TABLE `contact_requests` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `company_name` varchar(255) DEFAULT NULL,
+  `message` longtext DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Served; 1=>Served',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -391,7 +404,7 @@ CREATE TABLE `country` (
   `iso3` char(3) DEFAULT NULL,
   `numcode` smallint(6) DEFAULT NULL,
   `phonecode` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `country`
@@ -646,7 +659,7 @@ INSERT INTO `country` (`id`, `iso`, `name`, `nicename`, `iso3`, `numcode`, `phon
 
 CREATE TABLE `device_conditions` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
   `serial` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -678,7 +691,7 @@ CREATE TABLE `districts` (
   `lon` varchar(15) DEFAULT NULL,
   `url` varchar(50) NOT NULL,
   `delivery_charge` double NOT NULL DEFAULT 100
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `districts`
@@ -761,7 +774,7 @@ CREATE TABLE `divisions` (
   `name` varchar(25) NOT NULL,
   `bn_name` varchar(25) NOT NULL,
   `url` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `divisions`
@@ -785,14 +798,14 @@ INSERT INTO `divisions` (`id`, `name`, `bn_name`, `url`) VALUES
 
 CREATE TABLE `email_configures` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `host` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `host` varchar(255) NOT NULL,
   `port` int(11) NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mail_from_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mail_from_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `mail_from_name` varchar(255) DEFAULT NULL,
+  `mail_from_email` varchar(255) DEFAULT NULL,
   `encryption` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>None; 1=>TLS; 2=>SSL',
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -803,7 +816,7 @@ CREATE TABLE `email_configures` (
 --
 
 INSERT INTO `email_configures` (`id`, `host`, `port`, `email`, `password`, `mail_from_name`, `mail_from_email`, `encryption`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(6, 'smtp.gmail.com', 587, 'getupadgency@gmail.com', 'qrRFO6vSKj6Otuq3XBPp1do=', 'Getup', 'getupadgency@gmail.com', 1, '1697948605aqOMD', 1, '2023-10-22 04:23:25', '2023-10-22 04:33:50');
+(7, 'smtp.gmail.com', 587, 'getupadgency@gmail.com', 'qrRFO6vSKj6Otuq3XBPp1Q==', 'Getup', 'getupadgency@gmail.com', 1, '1704698055cIVXT', 1, '2024-01-08 07:14:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -813,9 +826,9 @@ INSERT INTO `email_configures` (`id`, `host`, `port`, `email`, `password`, `mail
 
 CREATE TABLE `email_templates` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `template_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `template_image` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
   `serial` double NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -838,11 +851,11 @@ INSERT INTO `email_templates` (`id`, `type`, `template_image`, `title`, `status`
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -854,10 +867,10 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `faqs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `question` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `answer` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `answer` longtext NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -884,11 +897,11 @@ INSERT INTO `faqs` (`id`, `question`, `answer`, `status`, `slug`, `created_at`, 
 
 CREATE TABLE `flags` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -911,58 +924,58 @@ INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `create
 
 CREATE TABLE `general_infos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `logo_dark` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fav_icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tab_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `short_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `google_map_link` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `play_store_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `app_store_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `footer_copyright_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment_banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `primary_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `secondary_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tertiary_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `paragraph_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `border_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_og_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_og_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_og_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `custom_css` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `custom_js` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `header_script` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `footer_script` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `instagram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `linkedin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `youtube` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `messenger` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `whatsapp` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telegram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tiktok` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pinterest` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `viber` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `logo_dark` varchar(255) DEFAULT NULL,
+  `fav_icon` varchar(255) DEFAULT NULL,
+  `tab_title` varchar(255) DEFAULT NULL,
+  `company_name` varchar(255) DEFAULT NULL,
+  `short_description` longtext DEFAULT NULL,
+  `contact` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `address` longtext DEFAULT NULL,
+  `google_map_link` longtext DEFAULT NULL,
+  `play_store_link` varchar(255) DEFAULT NULL,
+  `app_store_link` varchar(255) DEFAULT NULL,
+  `footer_copyright_text` varchar(255) DEFAULT NULL,
+  `payment_banner` varchar(255) DEFAULT NULL,
+  `primary_color` varchar(255) DEFAULT NULL,
+  `secondary_color` varchar(255) DEFAULT NULL,
+  `tertiary_color` varchar(255) DEFAULT NULL,
+  `title_color` varchar(255) DEFAULT NULL,
+  `paragraph_color` varchar(255) DEFAULT NULL,
+  `border_color` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `meta_description` longtext DEFAULT NULL,
+  `meta_og_title` varchar(255) DEFAULT NULL,
+  `meta_og_image` varchar(255) DEFAULT NULL,
+  `meta_og_description` varchar(255) DEFAULT NULL,
+  `custom_css` longtext DEFAULT NULL,
+  `custom_js` longtext DEFAULT NULL,
+  `header_script` longtext DEFAULT NULL,
+  `footer_script` longtext DEFAULT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
+  `instagram` varchar(255) DEFAULT NULL,
+  `twitter` varchar(255) DEFAULT NULL,
+  `linkedin` varchar(255) DEFAULT NULL,
+  `youtube` varchar(255) DEFAULT NULL,
+  `messenger` varchar(255) DEFAULT NULL,
+  `whatsapp` varchar(255) DEFAULT NULL,
+  `telegram` varchar(255) DEFAULT NULL,
+  `tiktok` varchar(255) DEFAULT NULL,
+  `pinterest` varchar(255) DEFAULT NULL,
+  `viber` varchar(255) DEFAULT NULL,
   `google_analytic_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
-  `google_analytic_tracking_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `google_analytic_tracking_id` varchar(255) DEFAULT NULL,
   `google_tag_manager_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
-  `google_tag_manager_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `google_tag_manager_id` varchar(255) DEFAULT NULL,
   `fb_pixel_status` tinyint(4) NOT NULL DEFAULT 0,
-  `fb_pixel_app_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb_pixel_app_id` varchar(255) DEFAULT NULL,
   `tawk_chat_status` tinyint(4) NOT NULL DEFAULT 0,
-  `tawk_chat_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tawk_chat_link` varchar(255) DEFAULT NULL,
   `crisp_chat_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
-  `crisp_website_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `about_us` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `crisp_website_id` varchar(255) DEFAULT NULL,
+  `about_us` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -982,8 +995,8 @@ INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`,
 
 CREATE TABLE `google_recaptchas` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `captcha_site_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `captcha_secret_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `captcha_site_key` varchar(255) DEFAULT NULL,
+  `captcha_secret_key` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1004,7 +1017,7 @@ INSERT INTO `google_recaptchas` (`id`, `captcha_site_key`, `captcha_secret_key`,
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1083,11 +1096,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `notifications` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `server_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fcm_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `topic` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `server_key` varchar(255) NOT NULL,
+  `fcm_url` varchar(255) NOT NULL,
+  `topic` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1100,31 +1113,45 @@ CREATE TABLE `notifications` (
 
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `order_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_no` varchar(255) NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `order_date` datetime NOT NULL,
   `estimated_dd` date DEFAULT NULL,
   `delivery_date` datetime DEFAULT NULL,
-  `delivery_method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '1=>Home Delivery; 2=>Store Pickup',
+  `delivery_method` varchar(255) DEFAULT NULL COMMENT '1=>Home Delivery; 2=>Store Pickup',
   `payment_method` tinyint(4) DEFAULT NULL COMMENT '1=>cash_on_delivery; 2=>bkash; 3=>nagad; 4=>Card',
   `payment_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Unpaid; 1=>Payment Success; 2=>Payment Failed',
-  `trx_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Created By SodaiNagar',
-  `bank_tran_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'KEEP THIS bank_tran_id FOR REFUNDING ISSUE',
+  `trx_id` varchar(255) DEFAULT NULL COMMENT 'Created By SodaiNagar',
+  `bank_tran_id` varchar(255) DEFAULT NULL COMMENT 'KEEP THIS bank_tran_id FOR REFUNDING ISSUE',
   `order_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>pending/processing; 1=>confirmed; 2=>intransit; 3=>delivered; 4=>cancel',
   `sub_total` double NOT NULL DEFAULT 0,
-  `coupon_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `coupon_code` varchar(255) DEFAULT NULL,
   `discount` double NOT NULL DEFAULT 0,
   `delivery_fee` double NOT NULL DEFAULT 0,
   `vat` double NOT NULL DEFAULT 0,
   `tax` double NOT NULL DEFAULT 0,
   `total` double NOT NULL DEFAULT 0,
-  `order_note` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Order Note By Customer',
-  `order_remarks` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_note` longtext DEFAULT NULL COMMENT 'Order Note By Customer',
+  `order_remarks` longtext DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
   `complete_order` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Incomplete Order (Address Missing); 1=>Complete Order (Address Given)',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_no`, `user_id`, `order_date`, `estimated_dd`, `delivery_date`, `delivery_method`, `payment_method`, `payment_status`, `trx_id`, `bank_tran_id`, `order_status`, `sub_total`, `coupon_code`, `discount`, `delivery_fee`, `vat`, `tax`, `total`, `order_note`, `order_remarks`, `slug`, `complete_order`, `created_at`, `updated_at`) VALUES
+(1, '1704866370746', 88, '2024-01-10 11:59:30', '2024-01-17', NULL, '1', 1, 1, '1704866370fYIuj', NULL, 4, 713, '0', 0, 100, 0, 0, 813, NULL, NULL, 't8nNa1704866370', 1, '2024-01-10 05:59:30', '2024-01-10 08:54:06'),
+(2, '1704866604502', 88, '2024-01-10 12:03:24', '2024-01-17', NULL, '1', 1, 1, '1704866604QCJZx', NULL, 0, 713, '0', 0, 100, 0, 0, 813, NULL, NULL, '6gN2Y1704866604', 1, '2024-01-10 06:03:24', NULL),
+(3, '1704866645134', 88, '2024-01-10 12:04:05', '2024-01-17', NULL, '1', 1, 1, '1704866645ZsEBm', NULL, 1, 713, '0', 0, 100, 0, 0, 813, NULL, NULL, 'KuAAM1704866645', 1, '2024-01-10 06:04:05', '2024-01-10 08:53:20'),
+(4, '1704869951653', 88, '2024-01-10 12:59:11', '2024-01-17', NULL, '1', 1, 1, '17048699519zFC7', NULL, 2, 713, '0', 0, 100, 0, 0, 813, 'asdasdd', NULL, 'BsP351704869951', 1, '2024-01-10 06:59:11', '2024-01-10 08:53:25'),
+(5, '1704870052229', 88, '2024-01-10 13:00:52', '2024-01-17', NULL, '2', 1, 0, '1704870052vps2F', NULL, 3, 713, '0', 0, 100, 0, 0, 813, 'asdasdd', NULL, 'u8tUx1704870052', 1, '2024-01-10 07:00:52', '2024-01-10 08:23:10'),
+(6, '1704885856191', 88, '2024-01-10 17:24:16', '2024-01-17', NULL, '1', 1, 1, '17048858569sQph', NULL, 0, 113, '0', 0, 100, 0, 0, 213, 'Test order', NULL, 'kYY3e1704885856', 1, '2024-01-10 11:24:16', NULL),
+(7, '1704886570259', 88, '2024-01-10 17:36:10', '2024-01-17', NULL, '1', 1, 1, '1704886570j5byw', NULL, 0, 1435, '0', 0, 60, 0, 0, 1495, 'Urgent Need', NULL, 'kLtnM1704886570', 1, '2024-01-10 11:36:10', NULL),
+(8, '1704895548878', 88, '2024-01-10 20:05:48', '2024-01-17', NULL, '1', 1, 1, '17048955483lIpo', NULL, 0, 700, 'OFFER20', 50, 60, 0, 0, 760, NULL, NULL, 'WLudq1704895548', 1, '2024-01-10 14:05:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -1151,6 +1178,24 @@ CREATE TABLE `order_details` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_id`, `warrenty_id`, `device_condition_id`, `unit_id`, `qty`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
+(1, 2, 142, 10, 4, 2, 4, 2, 7, 3, 2, 1, 113, 113, '2024-01-10 06:03:24', NULL),
+(2, 2, 136, 2, NULL, 226, 2, 3, 1, 1, 1, 1, 600, 600, '2024-01-10 06:03:24', NULL),
+(3, 3, 142, 10, 4, 2, 4, 2, 7, 3, 2, 1, 113, 113, '2024-01-10 06:04:05', NULL),
+(4, 3, 136, 2, NULL, 226, 2, 3, 1, 1, 1, 1, 600, 600, '2024-01-10 06:04:05', NULL),
+(5, 4, 136, 2, NULL, 226, 2, 3, 1, 1, 1, 1, 600, 600, '2024-01-10 06:59:11', NULL),
+(6, 4, 142, 10, 4, 2, 4, 2, 7, 3, 2, 1, 113, 113, '2024-01-10 06:59:11', NULL),
+(7, 5, 136, 2, NULL, 226, 2, 3, 1, 1, 1, 1, 600, 600, '2024-01-10 07:00:52', NULL),
+(8, 5, 142, 10, 4, 2, 4, 2, 7, 3, 2, 1, 113, 113, '2024-01-10 07:00:52', NULL),
+(9, 6, 142, 10, 4, 2, 4, 2, 7, 3, 2, 1, 113, 113, '2024-01-10 11:24:16', NULL),
+(10, 7, 115, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 474, 474, '2024-01-10 11:36:10', NULL),
+(11, 7, 126, 3, NULL, 72, 1, 4, 1, 6, 8, 1, 961, 961, '2024-01-10 11:36:10', NULL),
+(12, 8, 136, 1, NULL, 107, 4, 3, 1, 1, 1, 1, 700, 700, '2024-01-10 14:05:48', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1160,25 +1205,37 @@ CREATE TABLE `order_details` (
 CREATE TABLE `order_payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
-  `payment_through` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'SSL COMMERZ',
-  `tran_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `val_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `amount` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `store_amount` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `bank_tran_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `tran_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `currency` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_issuer` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_brand` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_sub_brand` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `card_issuer_country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
-  `store_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `payment_through` varchar(255) NOT NULL DEFAULT 'SSL COMMERZ',
+  `tran_id` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `val_id` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `amount` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_type` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `store_amount` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_no` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `bank_tran_id` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `status` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `tran_date` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `currency` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_issuer` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_brand` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_sub_brand` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `card_issuer_country` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
+  `store_id` varchar(255) DEFAULT NULL COMMENT 'Response From Payment Gateway',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_payments`
+--
+
+INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `val_id`, `amount`, `card_type`, `store_amount`, `card_no`, `bank_tran_id`, `status`, `tran_date`, `currency`, `card_issuer`, `card_brand`, `card_sub_brand`, `card_issuer_country`, `store_id`, `created_at`, `updated_at`) VALUES
+(1, 3, 'COD', '1704866645ZsEBm', NULL, '813', NULL, '813', NULL, NULL, 'VALID', '2024-01-10 12:04:05', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-01-10 06:04:05', NULL),
+(2, 4, 'COD', '17048699519zFC7', NULL, '813', NULL, '813', NULL, NULL, 'VALID', '2024-01-10 12:59:11', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-01-10 06:59:11', NULL),
+(3, 5, 'COD', '1704870052vps2F', NULL, '813', NULL, '813', NULL, NULL, 'VALID', '2024-01-10 13:00:52', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-01-10 07:00:52', NULL),
+(4, 6, 'COD', '17048858569sQph', NULL, '213', NULL, '213', NULL, NULL, 'VALID', '2024-01-10 17:24:16', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-01-10 11:24:16', NULL),
+(5, 7, 'COD', '1704886570j5byw', NULL, '1495', NULL, '1495', NULL, NULL, 'VALID', '2024-01-10 17:36:10', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-01-10 11:36:10', NULL),
+(6, 8, 'COD', '17048955483lIpo', NULL, '760', NULL, '760', NULL, NULL, 'VALID', '2024-01-10 20:05:48', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-01-10 14:05:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -1194,6 +1251,27 @@ CREATE TABLE `order_progress` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `order_progress`
+--
+
+INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, '2024-01-10 05:59:30', NULL),
+(2, 2, 0, '2024-01-10 06:03:24', NULL),
+(3, 3, 0, '2024-01-10 06:04:05', NULL),
+(4, 4, 0, '2024-01-10 06:59:11', NULL),
+(5, 5, 0, '2024-01-10 07:00:52', NULL),
+(6, 5, 1, '2024-01-10 08:23:02', NULL),
+(7, 5, 2, '2024-01-10 08:23:07', NULL),
+(8, 5, 3, '2024-01-10 08:23:10', NULL),
+(9, 4, 1, '2024-01-10 08:53:18', NULL),
+(10, 3, 1, '2024-01-10 08:53:20', NULL),
+(11, 4, 2, '2024-01-10 08:53:25', NULL),
+(12, 1, 4, '2024-01-10 08:54:06', NULL),
+(13, 6, 0, '2024-01-10 11:24:16', NULL),
+(14, 7, 0, '2024-01-10 11:36:10', NULL),
+(15, 8, 0, '2024-01-10 14:05:48', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1201,8 +1279,8 @@ CREATE TABLE `order_progress` (
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1214,11 +1292,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `payment_gateways` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `provider_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `api_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'StoreID/ApiKey',
-  `secret_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'StorePassword/SecretKey',
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider_name` varchar(255) NOT NULL,
+  `api_key` varchar(255) DEFAULT NULL COMMENT 'StoreID/ApiKey',
+  `secret_key` varchar(255) DEFAULT NULL COMMENT 'StorePassword/SecretKey',
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `live` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Test/Sandbox; 1=>Product/Live',
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1243,9 +1321,9 @@ INSERT INTO `payment_gateways` (`id`, `provider_name`, `api_key`, `secret_key`, 
 
 CREATE TABLE `permission_routes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `route` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `route` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `method` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1613,11 +1691,11 @@ INSERT INTO `permission_routes` (`id`, `route`, `name`, `method`, `created_at`, 
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1746,26 +1824,26 @@ CREATE TABLE `products` (
   `childcategory_id` bigint(20) UNSIGNED DEFAULT NULL,
   `brand_id` bigint(20) UNSIGNED DEFAULT NULL,
   `model_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `multiple_images` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `short_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `specification` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `warrenty_policy` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
+  `multiple_images` varchar(255) DEFAULT NULL,
+  `short_description` longtext DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `specification` longtext DEFAULT NULL,
+  `warrenty_policy` longtext DEFAULT NULL,
   `price` double NOT NULL DEFAULT 0,
   `discount_price` double NOT NULL DEFAULT 0,
   `stock` double NOT NULL DEFAULT 0,
   `unit_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `tags` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `video_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tags` varchar(255) DEFAULT NULL,
+  `video_url` varchar(255) DEFAULT NULL,
   `warrenty_id` tinyint(4) DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `flag_id` tinyint(4) DEFAULT NULL,
-  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `has_variant` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>No Variant; 1=>Product Has variant based on Colors, Region etc.',
   `is_demo` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>original; 1=>Demo',
@@ -1853,7 +1931,7 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (112, 23, NULL, NULL, 6, NULL, 'Front-line web-enabled flexibility', '150', 'productImages/26.png', NULL, 'Quaerat quo eos est optio laborum. Asperiores est a tempora aut. Earum id qui velit aut fuga.', 'Quia fugiat ratione repellat. Omnis aspernatur magnam reprehenderit et corrupti. Sit sunt corrupti nihil aliquid. Magni exercitationem tenetur omnis cupiditate ullam. In similique perspiciatis doloribus et dolor. Temporibus voluptatum totam aut eveniet qui omnis dolores voluptatem. Ex iste cumque voluptas distinctio.', 'Officia accusantium ullam ipsa expedita facere voluptas. Omnis possimus aut libero molestiae minus qui odit. Est nihil perspiciatis officiis repudiandae.', 'Dolor molestias sequi et doloribus consequatur voluptates. Aut totam qui asperiores delectus voluptate ut. Quia dolorum aut doloribus labore aliquid illum. Voluptatem quaerat ex numquam.', 454, 444, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178367hdy30', 8, 'Front-line web-enabled flexibility', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
 (113, 20, NULL, NULL, 7, NULL, 'Implemented upward-trending initiative', '236', 'productImages/33.png', '[\"37.png\",\"22.png\",\"25.png\",\"22.png\"]', 'Dicta voluptate quo cumque ab. Voluptate nam fugiat voluptates et delectus.', 'Repudiandae rerum nihil omnis consequatur. Incidunt earum et sit. A eius non atque perferendis aspernatur sed. Nulla eius quod alias laboriosam accusamus. Eligendi tenetur non tempora quibusdam. Nihil architecto asperiores quaerat itaque deleniti.', 'Qui pariatur pariatur ipsa commodi eum. Accusantium consequatur blanditiis dolor aut. Nihil delectus et enim a veritatis numquam natus.', 'Mollitia maxime ut et alias. Cupiditate numquam iure beatae. Ratione sequi labore esse. Aut ut autem a et.', 480, 470, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178367xz1fs', 7, 'Implemented upward-trending initiative', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
 (114, 31, NULL, NULL, 3, NULL, 'Cross-platform radical application', '435', 'productImages/37.png', NULL, 'Cumque a exercitationem reiciendis voluptate quis ipsum expedita. Totam deserunt doloremque laudantium corrupti voluptatem ratione voluptas harum. Earum dolor quod iste enim ducimus.', 'Ipsam illo distinctio adipisci et eius. Laboriosam eum exercitationem numquam suscipit possimus. Ad aut occaecati similique ut. Assumenda rerum aliquid et tenetur. Sapiente sit dolor perferendis commodi ut. Omnis assumenda quia temporibus facilis optio velit error. Velit est magnam repellendus voluptatem enim velit. Nulla eos qui deleniti a enim reprehenderit.', 'Nobis est molestias molestiae explicabo qui voluptas. Ut vero natus ratione consequuntur mollitia rerum alias. Deleniti esse ut dolorem voluptatem aliquid molestiae sit. Nam non voluptatum illo quam.', 'Sapiente fuga rem blanditiis eaque voluptas. Earum officiis fugit dolorem aut quos optio. Accusamus ducimus aliquam dolorem incidunt recusandae aut. Eos odio voluptatum sit ut adipisci non.', 318, 308, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178367Cka6s', 8, 'Cross-platform radical application', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
-(115, 28, NULL, NULL, 7, NULL, 'Grass-roots 4thgeneration orchestration', '606', 'productImages/30.png', '[\"29.png\",\"30.png\",\"40.png\",\"37.png\"]', 'Sint laborum qui aut numquam. Voluptas magnam rerum quam beatae. Minus nesciunt soluta cum quia inventore dolorem qui aliquid. Distinctio placeat consequatur necessitatibus rerum enim nihil.', 'Ut non velit harum aperiam facilis officia. Impedit tenetur corrupti praesentium ipsam. Omnis et enim distinctio asperiores itaque qui officia. Nam quasi neque debitis sapiente velit est. Aperiam aliquam quibusdam minima ad sit unde. Quasi dolore et earum nobis. Est possimus deleniti et quo ipsam dignissimos. Eum saepe cupiditate sunt sunt ea.', 'Nisi et ut reiciendis ab. Cupiditate eos quidem repellat. Eligendi aut tempora consequatur odio quisquam ut accusamus. Quasi cumque magni aut officiis.', 'Deleniti fuga inventore autem laboriosam. Placeat et sint dolore sunt ut qui.', 484, 474, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178367lqvMq', 6, 'Grass-roots 4thgeneration orchestration', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
+(115, 28, NULL, NULL, 7, NULL, 'Grass-roots 4thgeneration orchestration', '606', 'productImages/30.png', '[\"29.png\",\"30.png\",\"40.png\",\"37.png\"]', 'Sint laborum qui aut numquam. Voluptas magnam rerum quam beatae. Minus nesciunt soluta cum quia inventore dolorem qui aliquid. Distinctio placeat consequatur necessitatibus rerum enim nihil.', 'Ut non velit harum aperiam facilis officia. Impedit tenetur corrupti praesentium ipsam. Omnis et enim distinctio asperiores itaque qui officia. Nam quasi neque debitis sapiente velit est. Aperiam aliquam quibusdam minima ad sit unde. Quasi dolore et earum nobis. Est possimus deleniti et quo ipsam dignissimos. Eum saepe cupiditate sunt sunt ea.', 'Nisi et ut reiciendis ab. Cupiditate eos quidem repellat. Eligendi aut tempora consequatur odio quisquam ut accusamus. Quasi cumque magni aut officiis.', 'Deleniti fuga inventore autem laboriosam. Placeat et sint dolore sunt ut qui.', 484, 474, 999, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178367lqvMq', 6, 'Grass-roots 4thgeneration orchestration', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
 (116, 18, 60, NULL, 6, NULL, 'Centralized neutral contingency', '807', 'productImages/28.png', NULL, 'Similique eos ut porro aspernatur. Et repellendus adipisci accusamus. Eveniet ducimus et autem corporis ut vero vel quisquam. Illum at quia vel est distinctio error.', 'Fugiat et facilis porro qui. Corrupti quam dolor ut quam est amet. Facere dolorum eum mollitia assumenda perferendis. Doloribus est suscipit modi sapiente atque. Quia voluptatibus laborum qui beatae. Quia eligendi qui molestias reiciendis exercitationem qui qui.', 'Sint delectus dolorum earum aspernatur ipsam sint. Accusamus voluptates a deserunt modi aut adipisci optio. Et in rerum quis ut nemo aliquam natus est.', 'Culpa quaerat aliquam fuga vero. In molestiae sit cumque nulla sed qui id. Et cupiditate omnis minus similique officia rerum exercitationem. Veniam et maxime et nostrum.', 434, 424, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178367aTqNP', 8, 'Centralized neutral contingency', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
 (117, 32, NULL, NULL, 5, NULL, 'Reactive zeroadministration contingency', '199', 'productImages/32.png', '[\"22.png\",\"38.png\",\"36.png\",\"33.png\"]', 'Enim consequatur numquam sit sed. Non minima commodi quisquam. Voluptatibus ut et ea temporibus. Numquam error in iure voluptatem vel eum odio.', 'Dolores facilis enim impedit at eveniet aspernatur. Nulla aut repudiandae quasi temporibus laboriosam nobis. Magnam quis mollitia dolor qui dolores. Reprehenderit doloremque quo debitis voluptate. Accusamus quidem sed voluptatem quidem quia. Vero culpa a cumque dolor. Exercitationem voluptatum maiores voluptatem est. Fuga praesentium commodi aliquid quis ducimus nihil.', 'Quibusdam illum at in quod modi dolores a. Et omnis asperiores quaerat iure quae.', 'Ea et quia numquam et beatae nisi fugiat. Repellendus distinctio non inventore est vitae aut doloribus. Ut minus qui nisi explicabo.', 126, 116, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178367mV76Y', 7, 'Reactive zeroadministration contingency', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:52:47', NULL),
 (118, 26, NULL, NULL, 2, NULL, 'Triple-buffered logistical moratorium', '372', 'productImages/34.png', NULL, 'Labore aut delectus quia sit. Adipisci nihil deleniti cupiditate. Blanditiis aut ducimus animi ut sed maxime. Qui voluptate iusto numquam.', 'Libero eveniet et maiores doloremque voluptatem ipsum. Eaque aut enim harum et. Earum doloribus ut veniam vel culpa. Impedit occaecati cum et dolorem magni et. Fuga ex ut et. Dolorem omnis velit sint voluptas quae nisi. Et explicabo iusto ea incidunt ducimus adipisci rerum. Dicta illum quia qui. Quis unde quo eaque cum nam velit veritatis. Sit assumenda placeat quia quis.', 'Modi quod perspiciatis animi enim inventore. Est qui cumque veritatis dolorum ea. Ea in odio vel consequatur autem et quis dolores.', 'Fuga ut voluptas voluptas neque doloribus fugit. Ab ea ipsam ad similique voluptatem qui. Quas aut voluptas et. Et quia architecto qui eius aut natus. Explicabo doloremque et minima.', 138, 128, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178367wdjmY', 8, 'Triple-buffered logistical moratorium', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:52:47', NULL),
@@ -1864,7 +1942,7 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (123, 20, NULL, NULL, 3, NULL, 'Assimilated multimedia migration', '537', 'productImages/38.png', '[\"39.png\",\"32.png\",\"37.png\",\"24.png\"]', 'Sunt aut veniam dolorum praesentium et molestiae. Id nemo voluptas magni quis corporis beatae qui et. Dolorum nihil reiciendis porro ut.', 'Quibusdam tempora sapiente vel nesciunt nam labore. Et voluptas inventore praesentium molestiae. Et quam eos officiis hic vel pariatur enim consequatur. Consequatur repellat inventore voluptatem. Aut dignissimos atque voluptas illo et mollitia. Illo exercitationem mollitia eum necessitatibus.', 'Cum soluta enim ea rerum natus repellendus. Ipsa aut aut dolor est saepe. Laudantium vero ab ratione provident perspiciatis qui maiores. Quam asperiores ad commodi atque quas voluptas.', 'Nemo blanditiis aut pariatur excepturi in perferendis. Quaerat quae amet perferendis quia quasi autem voluptatem. Ad illo consequuntur sequi.', 426, 416, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178433aI0wu', 6, 'Assimilated multimedia migration', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
 (124, 17, 59, NULL, 4, NULL, 'Centralized eco-centric paradigm', '788', 'productImages/21.png', NULL, 'Est rerum sit libero adipisci inventore. Facere qui sed nam. Pariatur repudiandae veniam quis sint repellat. Natus harum exercitationem iusto est. Dolor aut odit quibusdam.', 'Et possimus est id eaque qui earum iure. Voluptatum quisquam voluptas rem tenetur autem voluptate ullam. Aut sit saepe eum tenetur optio ut. Occaecati in neque necessitatibus est non minima. Maiores culpa ut vel consequatur quidem. Harum illum aut velit officiis. Illo cumque libero corrupti rerum blanditiis tenetur. Neque et omnis dolor doloribus modi dolorem.', 'Qui sint qui porro accusamus. Dolores quia rem velit voluptates libero. Sit nihil ut reprehenderit cupiditate. Numquam quae et voluptas eos molestiae.', 'Nostrum enim iusto vel ipsa aut cumque. Pariatur nobis voluptates ipsa minus. Nesciunt quia quaerat nobis in. Odit iusto reprehenderit libero reiciendis qui cupiditate.', 952, 942, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178433XPZwZ', 7, 'Centralized eco-centric paradigm', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', NULL),
 (125, 24, NULL, NULL, 2, NULL, 'Networked 6thgeneration database', '769', 'productImages/30.png', '[\"33.png\",\"21.png\",\"25.png\",\"40.png\"]', 'Et ut omnis officiis consequatur illum. Impedit modi dolorem dolores a et. Aut sequi omnis non quia libero.', 'Iure aut quae quos adipisci magnam magni ad. Itaque sed dolores porro. Voluptatem autem minima rerum sunt ratione ut facere. Nihil velit aut aut autem dolor. Et qui non doloribus. Excepturi culpa consectetur fugiat aut praesentium est qui eligendi. Maiores sit repellendus suscipit soluta est et.', 'Beatae error ea sint dolorem est. Omnis eum aut possimus nisi. Rerum rem dolores voluptatem placeat.', 'Nisi harum harum placeat unde nisi omnis. Qui quaerat et nihil. Qui repudiandae voluptatum ut suscipit eum aut.', 620, 610, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178433R341Z', 6, 'Networked 6thgeneration database', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
-(126, 20, NULL, NULL, 7, NULL, 'Persistent demand-driven framework', '943', 'productImages/UB0zv1704278299.png', NULL, 'Vel velit ducimus cumque corporis. Non reiciendis tempore sed incidunt non. Vel eum natus qui aut sint.', '<p>Dolorem voluptas aut sint iusto optio sit. Sapiente magni ea necessitatibus dolore. Corporis sint culpa aut dolorum ut et. Doloremque reiciendis eveniet veritatis ducimus voluptatem delectus. Omnis architecto mollitia provident quis harum officia.</p>', '<p>Debitis laborum animi vero voluptate dolores. Nobis sit eum quasi dolor. Temporibus nemo vitae illum velit tempore fuga dolores.</p>', '<p>Et corporis rerum facere harum dolore cumque. Impedit similique ut commodi veritatis. Autem inventore aut aliquam veniam pariatur porro. Sapiente labore repudiandae nihil.</p>', 971, 961, 0, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178433KWBRt', 7, 'Persistent demand-driven framework', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', '2024-01-03 10:38:55'),
+(126, 20, NULL, NULL, 7, NULL, 'Persistent demand-driven framework', '943', 'productImages/UB0zv1704278299.png', NULL, 'Vel velit ducimus cumque corporis. Non reiciendis tempore sed incidunt non. Vel eum natus qui aut sint.', '<p>Dolorem voluptas aut sint iusto optio sit. Sapiente magni ea necessitatibus dolore. Corporis sint culpa aut dolorum ut et. Doloremque reiciendis eveniet veritatis ducimus voluptatem delectus. Omnis architecto mollitia provident quis harum officia.</p>', '<p>Debitis laborum animi vero voluptate dolores. Nobis sit eum quasi dolor. Temporibus nemo vitae illum velit tempore fuga dolores.</p>', '<p>Et corporis rerum facere harum dolore cumque. Impedit similique ut commodi veritatis. Autem inventore aut aliquam veniam pariatur porro. Sapiente labore repudiandae nihil.</p>', 971, 961, -1, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178433KWBRt', 7, 'Persistent demand-driven framework', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', '2024-01-03 10:38:55'),
 (127, 28, NULL, NULL, 4, NULL, 'Advanced client-driven complexity', '841', 'productImages/34.png', '[\"31.png\",\"37.png\",\"26.png\",\"33.png\"]', 'Non quo tempore et nulla. Quia aut sed dicta consectetur veniam quam. Et maxime repellendus sit in.', 'Occaecati et tenetur est. Soluta est expedita consectetur voluptatibus error. Voluptatem nostrum aut ab consequatur assumenda. Sit doloremque repellat dolores excepturi alias. Et maiores officia at dignissimos et. Dolor quam quo earum similique. Sit optio voluptate iste.', 'Dolorem enim minus dignissimos eveniet. Numquam eos quia eum sed dolorem doloremque iure voluptatem. Nihil dolorem qui tempore sed inventore maiores molestiae.', 'Dolores quia aliquam quam voluptatem. Cumque ut possimus nobis quis eum harum neque quas. Dolor sequi labore eligendi assumenda est accusamus. Unde quae et eius quia.', 391, 381, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '17041784335Rk3H', 6, 'Advanced client-driven complexity', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
 (128, 28, NULL, NULL, 2, NULL, 'Multi-layered local solution', '194', 'productImages/31.png', NULL, 'Sed amet quis est omnis. Cumque culpa minus amet aliquam non officia. Assumenda aut in voluptatum veniam et et sit. Velit qui eos aperiam.', 'Commodi numquam non veritatis at beatae sint non. Omnis blanditiis deleniti eos qui nulla sit. Quisquam deleniti totam sint ut rerum reprehenderit. Quasi placeat aspernatur sint nulla repellendus veniam. Recusandae exercitationem voluptatum dolores aut dolorum dolorem. Eum aliquam similique vel delectus. Similique repudiandae quo non quam consequatur facere consectetur.', 'Possimus fugit ipsam rerum in voluptas qui. Possimus et praesentium similique eligendi quia. Aut et et veniam maiores velit. Omnis veniam placeat tenetur.', 'Rem autem nihil quibusdam corrupti nam. Iure explicabo sequi eos id eligendi quae delectus iste. Consequuntur autem sunt dolore in.', 458, 448, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178433AaTW4', 7, 'Multi-layered local solution', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', NULL),
 (129, 30, NULL, NULL, 7, NULL, 'Phased exuding moratorium', '166', 'productImages/31.png', '[\"39.png\",\"24.png\",\"30.png\",\"35.png\"]', 'Amet qui quibusdam ipsa rerum. Itaque repudiandae ab blanditiis est enim. Aspernatur eveniet nemo soluta repudiandae iusto placeat velit quia. Non illum repellendus provident.', 'Laborum rerum vel perspiciatis rerum. Voluptatem et qui consequatur commodi vel dignissimos. Fugit a possimus corporis fuga non velit. Ut vel aut eum eos cupiditate ipsum quae. Ea dolor eos molestiae eos placeat. Quo dolore aperiam veniam ducimus est dolorem.', 'Quisquam ea veritatis rerum molestiae ex ipsam. Ut totam exercitationem autem sint explicabo. Qui eum ut quo placeat. Nulla exercitationem et dicta tempora fugiat atque et.', 'Rerum ipsa odio ut voluptatum dignissimos eius laboriosam. Nobis quo tempora voluptas qui aut dolores ducimus et. Nihil dolores optio repudiandae.', 707, 697, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178433vi9GH', 7, 'Phased exuding moratorium', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
@@ -1875,13 +1953,13 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (133, 19, NULL, NULL, 1, NULL, 'Triple-buffered heuristic task-force', '971', 'productImages/39.png', '[\"29.png\",\"31.png\",\"29.png\",\"35.png\"]', 'Illo qui sit quam nobis expedita itaque dolores. Enim voluptate expedita dolorem. Hic labore aut ut vel autem inventore. Molestias est tempore incidunt laborum debitis sit.', 'Velit molestiae voluptatem unde. Facilis quo suscipit dicta. Odit corrupti temporibus commodi et vel quo necessitatibus. Esse porro dicta quia autem expedita ipsum est impedit. Accusantium dolores et expedita animi repudiandae. Possimus facilis omnis sit beatae est. Laborum id et dolorem molestiae.', 'Sunt eligendi reprehenderit sequi itaque autem autem non. Autem sunt id dolores ut. Itaque eius qui consequatur accusamus.', 'Voluptatem sed aspernatur cupiditate. Est voluptas veniam doloribus sit modi. Et dignissimos repellendus amet dolorem.', 292, 282, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178433qnuiD', 6, 'Triple-buffered heuristic task-force', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
 (134, 28, NULL, NULL, 4, NULL, 'Team-oriented maximized neural-net', '873', 'productImages/25.png', NULL, 'Nulla alias ipsa dolorum. Et delectus dolorem quam. Assumenda atque voluptatum quia.', 'Magnam ipsam et nihil. Et libero suscipit facere rerum nemo aut. Asperiores quaerat unde consectetur sit in. Quae delectus atque corporis quas voluptatem. Porro adipisci quae illum eius enim. Culpa sunt ex ut quae optio. Repellat earum quia et nesciunt. Sit id est eveniet omnis rerum nihil. Asperiores et nihil qui doloribus voluptas ut reiciendis velit.', 'Aliquam corporis quos ipsum molestiae. Quia est est dolor dolor ut consequatur. Quo est culpa molestias asperiores.', 'Est quia rerum voluptate. Ea voluptatem officia voluptatibus qui. Sed ea excepturi molestiae deserunt.', 684, 674, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178433jouk3', 7, 'Team-oriented maximized neural-net', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:53', NULL),
 (135, 31, NULL, NULL, 4, NULL, 'Triple-buffered interactive approach', '642', 'productImages/32.png', '[\"22.png\",\"22.png\",\"22.png\",\"38.png\"]', 'Laboriosam ut magnam eos ut numquam labore omnis. Ex possimus illo placeat. Sunt eveniet dolorum quaerat similique ad modi eaque. Commodi numquam est voluptas culpa molestiae.', 'Numquam ut et impedit. Repellendus sint rerum omnis fugiat laboriosam quae quasi suscipit. Est vel expedita sit provident. Debitis tenetur molestias assumenda impedit. Pariatur totam voluptatum sit harum et cupiditate. Mollitia iste quis aut vel sit ea. Velit amet officiis provident facilis placeat. Recusandae architecto occaecati minima quaerat et. Sunt magni culpa cumque tenetur iste.', 'Ut itaque mollitia quia sapiente sunt nulla. Impedit facere sed sit quia. Totam facere et ut dolorem vitae. Dolorum animi ut eius asperiores. Sit consectetur laborum in.', 'Incidunt culpa aperiam possimus reiciendis dicta temporibus voluptatem blanditiis. Explicabo reprehenderit eos consectetur commodi repellendus.', 295, 285, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178433jhujw', 6, 'Triple-buffered interactive approach', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
-(136, 18, 60, NULL, 7, NULL, 'iPhone 15 Pro', 'Iphone-15-Pro', 'productImages/26.png', NULL, 'Qui cumque maxime maiores est expedita. Eius sint quaerat voluptatem id nulla optio debitis. In sit consectetur voluptatem. Officiis quas maiores dolor recusandae.', '<p>Nihil doloremque quia quia quibusdam sint reprehenderit. Veniam esse sunt eos. Voluptas facilis et quidem repudiandae in dolorem qui. Ut nostrum sunt eaque minima. Qui optio totam iusto voluptatem illo et. Accusamus velit excepturi unde iste et ex. Illo cumque tempore laborum expedita aliquam. Quia tenetur ut velit dolore.</p>', '<p>Incidunt ut velit ut sint aut nulla impedit animi. Animi sunt mollitia quisquam sit ea minus fugit deleniti. Animi ut veritatis qui rem. Dolor vel iure nesciunt temporibus.</p>', '<p>Corrupti consequuntur sed et sequi a. Accusamus quia minus sequi. Nostrum libero autem enim illo. Laudantium ea cum sit velit reiciendis ex.</p>', 610, 600, 0, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178433sV6Ha', 9, 'Integrated transitional superstructure', 'product,demo', 'Integrated transitional superstructure Integrated transitional superstructure Integrated transitional superstructure', 1, 1, 1, '2024-01-02 06:53:53', '2024-01-04 10:05:58'),
+(136, 18, 60, NULL, 7, NULL, 'iPhone 15 Pro', 'Iphone-15-Pro', 'productImages/26.png', NULL, 'Qui cumque maxime maiores est expedita. Eius sint quaerat voluptatem id nulla optio debitis. In sit consectetur voluptatem. Officiis quas maiores dolor recusandae.', '<p>Nihil doloremque quia quia quibusdam sint reprehenderit. Veniam esse sunt eos. Voluptas facilis et quidem repudiandae in dolorem qui. Ut nostrum sunt eaque minima. Qui optio totam iusto voluptatem illo et. Accusamus velit excepturi unde iste et ex. Illo cumque tempore laborum expedita aliquam. Quia tenetur ut velit dolore.</p>', '<p>Incidunt ut velit ut sint aut nulla impedit animi. Animi sunt mollitia quisquam sit ea minus fugit deleniti. Animi ut veritatis qui rem. Dolor vel iure nesciunt temporibus.</p>', '<p>Corrupti consequuntur sed et sequi a. Accusamus quia minus sequi. Nostrum libero autem enim illo. Laudantium ea cum sit velit reiciendis ex.</p>', 650, 600, -5, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178433sV6Ha', 9, 'Integrated transitional superstructure', 'product,demo', 'Integrated transitional superstructure Integrated transitional superstructure Integrated transitional superstructure', 1, 1, 1, '2024-01-02 06:53:53', '2024-01-10 04:28:36'),
 (137, 20, NULL, NULL, 3, NULL, 'Digitized 24/7 support', '914', 'productImages/21.png', '[\"21.png\",\"21.png\",\"31.png\",\"27.png\"]', 'Explicabo qui qui necessitatibus eos cumque unde repellat fuga. Sint nobis est quidem corporis debitis tenetur facere sit. Et minima quae voluptas. Repellendus perferendis vitae quae itaque.', 'A ex non excepturi consequatur illum qui rem eligendi. Sit aut laboriosam voluptatem. Qui sit id in sapiente ea. Repellendus laboriosam vel voluptates voluptas modi aut et in. Repellendus fugiat autem sit voluptatum blanditiis est mollitia. Et et doloremque omnis dolorem.', 'Quia totam quas nam dolorem ea dolorum non. Asperiores veritatis minus enim est et quas qui et. Ut id sed quasi consectetur adipisci.', 'Omnis consequatur sunt quia recusandae ut. Cum itaque ea non sed id. Accusantium aut sequi corrupti et debitis. Aut voluptates magnam temporibus nostrum saepe minus sit et.', 392, 382, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178433ftesS', 6, 'Digitized 24/7 support', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:53', NULL),
 (138, 26, NULL, NULL, 4, NULL, 'Right-sized multi-state instructionset', '123', 'productImages/34.png', NULL, 'Voluptas voluptatem eius ut deleniti repudiandae facilis beatae. Aut rerum iusto aliquam beatae. Quo veniam rerum corrupti est alias et blanditiis neque. Odio aspernatur est corporis voluptas nam.', 'Dignissimos provident et quisquam unde. Unde et tempora maxime dolore est expedita. Voluptates dolores magnam itaque explicabo necessitatibus harum ut. Accusamus beatae dolorem voluptatibus est iusto rerum itaque. Ut totam rerum explicabo perspiciatis expedita optio sint. Sit earum et sequi ut voluptas et. Dolor animi sed quo officia et. Velit distinctio quia odit facilis.', 'Et enim sed eligendi omnis doloremque. Minus officiis sapiente beatae voluptatem temporibus corrupti temporibus. Sit omnis veritatis non perferendis dolorem eaque placeat eius.', 'Minima nemo esse dolorem veritatis. Quis qui dignissimos ut numquam. Quia consectetur ut voluptatem labore laboriosam quisquam illo.', 625, 615, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178434C2C8y', 8, 'Right-sized multi-state instructionset', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
 (139, 22, NULL, NULL, 3, NULL, 'Synergistic fault-tolerant superstructure', '512', 'productImages/32.png', '[\"30.png\",\"35.png\",\"25.png\",\"21.png\"]', 'Deleniti cumque voluptatem debitis impedit voluptatem ipsa sequi. Ducimus ut veniam eum numquam. Est qui et sequi laudantium. Cumque et omnis cupiditate quia et eius ratione velit.', 'Non porro dicta quis. Consequatur tempore numquam rem maiores in consectetur amet. Sequi facilis voluptates aut atque ipsa natus. Hic cupiditate et aut voluptatem facere eius id odio. Non ratione expedita porro necessitatibus rerum et. Ipsa quod consequatur tempore molestiae velit. Nam non magni ullam qui eligendi.', 'Et dolor nemo est nihil expedita cupiditate et. Nemo rerum mollitia quos dolorum. Id adipisci inventore quo saepe aut.', 'Iste rem corporis eius molestias sed laudantium. Quia quos nam expedita impedit iusto expedita.', 407, 397, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1704178434V2MIB', 8, 'Synergistic fault-tolerant superstructure', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', NULL),
 (140, 32, NULL, NULL, 2, NULL, 'Up-sized static extranet', '432', 'productImages/22.png', NULL, 'Placeat iure odit et maxime et sed omnis. Error quae ad ex accusamus aut ad tempore rerum. Ipsa ex in eveniet maxime possimus nostrum ullam. Nostrum cum ut non temporibus animi.', 'Molestias et cum veritatis officiis labore. Ut velit quisquam possimus rerum. Officiis id maxime illo. Aut cumque nemo eum omnis maxime doloribus. Ipsam ea quia et ullam assumenda unde. Officia omnis nemo voluptatem voluptatem. Qui totam et libero sed sit.', 'Maiores repudiandae rerum excepturi et fugit iure. Ipsum veniam perferendis quidem doloribus. Minus recusandae ullam ratione omnis. Et quo et et iusto adipisci accusantium ut.', 'Sapiente corporis et corrupti in ex consequuntur eos vel. Vel earum omnis dolores.', 624, 614, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1704178434wXAhr', 7, 'Up-sized static extranet', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
 (141, 20, NULL, NULL, 2, NULL, 'Reactive assymetric customerloyalty', '118', 'productImages/29.png', '[\"34.png\",\"29.png\",\"23.png\",\"27.png\"]', 'Labore dolorum quasi quaerat nam quaerat laborum labore atque. Nostrum eos voluptatem iure aut reiciendis atque consectetur.', 'Nihil sed culpa nisi nam autem. Ut suscipit ut veniam. Eius consectetur voluptas reprehenderit reiciendis voluptatum et magni. Quae sed ratione velit ex quia. Laboriosam nam voluptatem aliquam voluptatem fuga quasi. Sapiente aliquid beatae reiciendis. Numquam qui eum et inventore ut occaecati iste. Id molestiae est non blanditiis est.', 'Repellendus molestias consectetur non. Eum non cum est assumenda sapiente et repellendus. Consequuntur sint est repellendus dolor. Ipsa quo adipisci nisi.', 'Animi numquam quod reiciendis quam neque ea porro. Incidunt consequatur culpa ea possimus officia. Iste sequi alias laudantium.', 237, 227, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178434TQBKB', 9, 'Reactive assymetric customerloyalty', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', NULL),
-(142, 17, 59, NULL, 7, NULL, 'Inverse non-volatile collaboration', '901', 'productImages/29.png', NULL, 'Corrupti dolores consequuntur eum nulla optio quis. Perspiciatis exercitationem consequatur et dignissimos. Dolores voluptas dolorum velit iusto beatae et iusto.', 'Cupiditate id est at. Et sed ullam tenetur rerum eum voluptatibus minus perspiciatis. Tempora explicabo molestiae porro nesciunt. Dicta harum tempora ut suscipit maxime doloribus. Neque alias velit eum aperiam. Enim et sed eveniet unde ut sequi. Molestiae ipsum qui laboriosam.', 'Fugiat doloremque natus perferendis. Ex doloremque delectus quo in repudiandae harum aperiam. Minima est id neque aut.', 'Qui fugiat perspiciatis nobis. Voluptatibus aliquam dolorem odio aliquam. Nostrum sed sed libero ullam. Magni nihil facilis quidem facilis nobis sit.', 123, 113, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178434gEpVk', 9, 'Inverse non-volatile collaboration', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
+(142, 17, 59, NULL, 7, NULL, 'Inverse non-volatile collaboration', '901', 'productImages/29.png', NULL, 'Corrupti dolores consequuntur eum nulla optio quis. Perspiciatis exercitationem consequatur et dignissimos. Dolores voluptas dolorum velit iusto beatae et iusto.', 'Cupiditate id est at. Et sed ullam tenetur rerum eum voluptatibus minus perspiciatis. Tempora explicabo molestiae porro nesciunt. Dicta harum tempora ut suscipit maxime doloribus. Neque alias velit eum aperiam. Enim et sed eveniet unde ut sequi. Molestiae ipsum qui laboriosam.', 'Fugiat doloremque natus perferendis. Ex doloremque delectus quo in repudiandae harum aperiam. Minima est id neque aut.', 'Qui fugiat perspiciatis nobis. Voluptatibus aliquam dolorem odio aliquam. Nostrum sed sed libero ullam. Magni nihil facilis quidem facilis nobis sit.', 123, 113, 995, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1704178434gEpVk', 9, 'Inverse non-volatile collaboration', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
 (143, 28, NULL, NULL, 6, NULL, 'Configurable eco-centric extranet', '139', 'productImages/21.png', '[\"24.png\",\"35.png\",\"37.png\",\"23.png\"]', 'Quidem iste dolorum eius culpa quasi ea illum. Quis voluptatum ex rem. Architecto repellendus eligendi aut doloribus doloremque velit.', 'Cum in rerum eaque ipsa facere. Nemo non numquam iste alias dolores. Omnis aut iure reiciendis quasi saepe reprehenderit. Et reprehenderit aut officiis sed sint inventore voluptas. Veritatis eum libero atque ad amet sit. Deserunt et illo qui at amet. Doloremque molestiae omnis asperiores quasi doloribus.', 'Nostrum dolore enim iusto maxime error asperiores dolores. Ut eos accusamus temporibus neque maxime veritatis. Eius libero praesentium dolores odio libero amet commodi.', 'Maxime rerum in cumque ullam in quae. Iusto nulla sint sequi ipsam. Maiores accusamus accusamus non eligendi recusandae commodi error. Nostrum qui minima fuga quo dolore sed ullam.', 771, 761, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178434kBloC', 6, 'Configurable eco-centric extranet', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', NULL),
 (144, 24, NULL, NULL, 4, NULL, 'Optimized background frame', '561', 'productImages/27.png', NULL, 'Enim alias molestiae dicta ullam numquam. Sequi itaque sit vel. Qui eum voluptas enim explicabo est optio.', 'Quod commodi autem facere et. Ut consectetur aut aspernatur ipsum error impedit. Qui corporis aliquam quia veritatis voluptatibus voluptatum voluptatibus rerum. Eum in dolorem dolores culpa quae quo. Iste ipsum repudiandae magni qui. Architecto quasi itaque voluptatem quia magnam voluptates. Quia voluptatem dolor voluptate voluptatum modi. Temporibus error cupiditate aliquam corrupti.', 'Eum aspernatur sit earum. Dolores rem animi explicabo deleniti. Et blanditiis non porro dolorum aut aut nesciunt. Soluta voluptas ducimus dolor.', 'Et voluptatem ut est ex non. Voluptas doloribus deserunt nemo quisquam aliquam facere. A ut corporis expedita ex placeat non assumenda. Voluptatibus est maxime quasi eveniet fugit quae sit.', 201, 191, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1704178434yelF0', 7, 'Optimized background frame', 'product,demo', NULL, 1, 1, 1, '2024-01-02 06:53:54', NULL),
 (145, 19, NULL, NULL, 1, NULL, 'Profound directional application', '894', 'productImages/25.png', '[\"25.png\",\"33.png\",\"34.png\",\"24.png\"]', 'Vitae magnam maxime voluptatem. Consectetur et temporibus ullam et occaecati itaque. Eveniet distinctio doloremque ut suscipit optio velit distinctio.', 'Voluptatibus ratione doloremque quam dolorem incidunt. Harum eum ad quo voluptatem. Ad quas est eum omnis. Totam consequatur aut ipsum ut ipsum repellat ut. Debitis consectetur ea neque in esse voluptates. Sed nulla ipsam sit ex consequatur sed id. Sed qui totam eligendi possimus qui.', 'Vitae ipsa explicabo maiores ut sit dolor. Sed rerum eos minus tenetur. Voluptas enim consequuntur itaque et harum. Ut consectetur consequuntur consequatur incidunt itaque.', 'Est quaerat occaecati laborum eligendi est minus. Natus architecto possimus nulla quo ducimus eaque. Omnis distinctio libero cupiditate ratione fugit. Maiores et mollitia aut ut est ipsum optio sit.', 107, 97, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1704178434V9cD5', 9, 'Profound directional application', 'product,demo', NULL, 1, 0, 1, '2024-01-02 06:53:54', NULL),
@@ -1951,7 +2029,7 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 CREATE TABLE `product_images` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2291,10 +2369,10 @@ INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `update
 CREATE TABLE `product_models` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `brand_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `code` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2308,11 +2386,11 @@ CREATE TABLE `product_models` (
 CREATE TABLE `product_question_answers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `question` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `answer` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `question` longtext DEFAULT NULL,
+  `answer` longtext DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2336,9 +2414,9 @@ CREATE TABLE `product_reviews` (
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `rating` double NOT NULL DEFAULT 0,
-  `review` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `reply` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review` longtext DEFAULT NULL,
+  `reply` longtext DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Pending; 1=>Approved',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2349,326 +2427,327 @@ CREATE TABLE `product_reviews` (
 --
 
 INSERT INTO `product_reviews` (`id`, `product_id`, `user_id`, `rating`, `review`, `reply`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(81, 42, 1, 5, 'Secured foreground productivity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(82, 42, 1, 5, 'Up-sized mobile flexibility', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(83, 42, 1, 5, 'Cross-group value-added productivity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(84, 42, 1, 3, 'Organized intangible task-force', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(85, 44, 1, 3, 'Monitored intangible paradigm', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(86, 44, 1, 2, 'Managed systemic workforce', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(87, 44, 1, 2, 'Open-source bandwidth-monitored structure', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(88, 44, 1, 4, 'Compatible maximized software', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(89, 46, 1, 4, 'Switchable coherent budgetarymanagement', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(90, 46, 1, 2, 'Assimilated actuating migration', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(91, 46, 1, 3, 'Public-key bi-directional alliance', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(92, 46, 1, 2, 'User-friendly global firmware', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(93, 48, 1, 1, 'Right-sized dedicated complexity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(94, 48, 1, 4, 'Up-sized context-sensitive capacity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(95, 48, 1, 4, 'Networked disintermediate artificialintelligence', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(96, 48, 1, 1, 'Open-source neutral monitoring', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(97, 50, 1, 2, 'Vision-oriented dedicated service-desk', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(98, 50, 1, 4, 'Customizable radical time-frame', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(99, 50, 1, 5, 'Proactive modular knowledgebase', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(100, 50, 1, 5, 'Synergized contextually-based collaboration', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(101, 52, 1, 2, 'Enterprise-wide empowering orchestration', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(102, 52, 1, 3, 'Streamlined grid-enabled emulation', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(103, 52, 1, 4, 'User-friendly grid-enabled middleware', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(104, 52, 1, 5, 'Seamless object-oriented focusgroup', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(105, 54, 1, 2, 'Multi-layered 3rdgeneration hierarchy', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(106, 54, 1, 5, 'Re-engineered responsive infrastructure', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(107, 54, 1, 2, 'Stand-alone zerodefect extranet', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(108, 54, 1, 4, 'Innovative incremental workforce', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
-(109, 56, 1, 2, 'Reactive logistical instructionset', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(110, 56, 1, 2, 'Business-focused homogeneous artificialintelligence', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(111, 56, 1, 4, 'Virtual secondary archive', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(112, 56, 1, 4, 'Managed incremental internetsolution', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(113, 58, 1, 3, 'Secured discrete framework', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(114, 58, 1, 2, 'De-engineered system-worthy extranet', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(115, 58, 1, 5, 'Synchronised 3rdgeneration core', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(116, 58, 1, 4, 'Grass-roots system-worthy policy', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(117, 60, 1, 2, 'Digitized stable core', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(118, 60, 1, 1, 'Reverse-engineered global time-frame', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(119, 60, 1, 1, 'Team-oriented analyzing knowledgebase', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(120, 60, 1, 5, 'Ameliorated solution-oriented hardware', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
-(121, 62, 1, 2, 'Right-sized solution-oriented knowledgeuser', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(122, 62, 1, 4, 'Profit-focused client-server ability', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(123, 62, 1, 5, 'Multi-layered nextgeneration encoding', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(124, 62, 1, 5, 'Optional responsive groupware', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(125, 64, 1, 5, 'Open-source needs-based website', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(126, 64, 1, 4, 'Re-contextualized transitional localareanetwork', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(127, 64, 1, 4, 'Robust multi-state support', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(128, 64, 1, 2, 'Secured local circuit', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(129, 66, 1, 5, 'Secured 24/7 website', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(130, 66, 1, 4, 'Right-sized asynchronous matrix', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(131, 66, 1, 3, 'Balanced systemic analyzer', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(132, 66, 1, 2, 'Optional background definition', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
-(133, 68, 1, 1, 'Integrated bottom-line functionalities', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(134, 68, 1, 2, 'Operative nextgeneration systemengine', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(135, 68, 1, 5, 'Profound asynchronous architecture', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(136, 68, 1, 5, 'Customer-focused user-facing emulation', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(137, 70, 1, 1, 'Adaptive zerodefect time-frame', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(138, 70, 1, 1, 'Balanced systemic internetsolution', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(139, 70, 1, 4, 'Balanced 24hour processimprovement', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(140, 70, 1, 2, 'Configurable zerodefect paradigm', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(141, 72, 1, 2, 'Phased regional parallelism', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(142, 72, 1, 5, 'Re-contextualized neutral function', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(143, 72, 1, 4, 'Business-focused didactic encryption', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(144, 72, 1, 5, 'User-centric encompassing analyzer', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(145, 74, 1, 4, 'Self-enabling fault-tolerant data-warehouse', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(146, 74, 1, 4, 'Optimized motivating forecast', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(147, 74, 1, 4, 'Fully-configurable nextgeneration matrix', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(148, 74, 1, 1, 'Re-contextualized context-sensitive portal', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(149, 76, 1, 1, 'Multi-tiered transitional application', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(150, 76, 1, 2, 'Polarised needs-based forecast', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(151, 76, 1, 4, 'Secured coherent algorithm', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(152, 76, 1, 3, 'Focused value-added strategy', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(153, 78, 1, 4, 'Advanced hybrid processimprovement', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(154, 78, 1, 3, 'Progressive clear-thinking utilisation', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(155, 78, 1, 2, 'Adaptive bi-directional parallelism', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(156, 78, 1, 5, 'Facetoface bifurcated methodology', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(157, 80, 1, 3, 'Programmable human-resource adapter', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(158, 80, 1, 1, 'Re-contextualized bifurcated throughput', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(159, 80, 1, 5, 'Phased content-based migration', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(160, 80, 1, 2, 'Programmable non-volatile frame', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
-(161, 82, 1, 2, 'Open-source multi-tasking time-frame', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
-(162, 82, 1, 3, 'Configurable methodical orchestration', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
-(163, 82, 1, 5, 'Profound fault-tolerant ability', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
-(164, 82, 1, 2, 'Synergized mission-critical superstructure', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
-(165, 84, 1, 1, 'Persevering client-server circuit', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
-(166, 84, 1, 5, 'Secured multimedia website', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
-(167, 84, 1, 2, 'Organized system-worthy middleware', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
-(168, 84, 1, 4, 'Integrated executive leverage', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
-(169, 86, 1, 3, 'Triple-buffered disintermediate processimprovement', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(170, 86, 1, 5, 'Sharable motivating task-force', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(171, 86, 1, 3, 'Fully-configurable didactic budgetarymanagement', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(172, 86, 1, 2, 'Multi-channelled multi-tasking website', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(173, 88, 1, 1, 'Streamlined discrete strategy', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(174, 88, 1, 4, 'Visionary 3rdgeneration analyzer', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(175, 88, 1, 4, 'Fully-configurable 5thgeneration migration', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(176, 88, 1, 5, 'Extended client-server algorithm', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(177, 90, 1, 5, 'Stand-alone secondary task-force', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(178, 90, 1, 2, 'Switchable solution-oriented portal', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(179, 90, 1, 3, 'Virtual local strategy', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(180, 90, 1, 2, 'Ergonomic explicit frame', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(181, 92, 1, 2, 'Up-sized actuating encoding', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(182, 92, 1, 4, 'De-engineered mission-critical info-mediaries', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(183, 92, 1, 5, 'Upgradable coherent GraphicalUserInterface', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(184, 92, 1, 2, 'Switchable context-sensitive website', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(185, 94, 1, 1, 'Organic full-range superstructure', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(186, 94, 1, 5, 'Cross-platform static utilisation', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(187, 94, 1, 5, 'Switchable zerodefect leverage', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(188, 94, 1, 2, 'Mandatory tangible concept', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(189, 96, 1, 4, 'Public-key mobile info-mediaries', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(190, 96, 1, 2, 'Networked bi-directional moderator', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(191, 96, 1, 2, 'Adaptive holistic adapter', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(192, 96, 1, 4, 'Diverse neutral definition', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(193, 98, 1, 1, 'Business-focused human-resource encryption', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(194, 98, 1, 3, 'Self-enabling secondary parallelism', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(195, 98, 1, 4, 'Right-sized secondary circuit', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(196, 98, 1, 1, 'Fully-configurable mission-critical project', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(197, 100, 1, 1, 'Realigned tertiary forecast', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(198, 100, 1, 3, 'Optional impactful intranet', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(199, 100, 1, 5, 'Universal encompassing encoding', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(200, 100, 1, 4, 'Synergistic zerodefect implementation', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
-(201, 102, 1, 1, 'Reverse-engineered clear-thinking leverage', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(202, 102, 1, 2, 'Stand-alone asynchronous groupware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(203, 102, 1, 5, 'Cross-platform eco-centric GraphicInterface', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(204, 102, 1, 2, 'Reverse-engineered disintermediate standardization', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(205, 104, 1, 1, 'Programmable methodical matrix', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(206, 104, 1, 2, 'Reverse-engineered disintermediate knowledgebase', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(207, 104, 1, 3, 'Enhanced bi-directional middleware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(208, 104, 1, 2, 'Grass-roots non-volatile frame', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(209, 106, 1, 2, 'Reverse-engineered 24hour processimprovement', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(210, 106, 1, 2, 'Profit-focused even-keeled matrices', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(211, 106, 1, 2, 'Phased discrete migration', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(212, 106, 1, 5, 'Synergized static analyzer', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(213, 108, 1, 2, 'Digitized 24/7 groupware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(214, 108, 1, 3, 'Upgradable user-facing help-desk', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(215, 108, 1, 5, 'Secured cohesive website', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(216, 108, 1, 4, 'Assimilated eco-centric matrices', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(217, 110, 1, 1, 'Organized mobile opensystem', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(218, 110, 1, 3, 'Future-proofed 24/7 policy', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(219, 110, 1, 2, 'Reactive upward-trending protocol', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(220, 110, 1, 1, 'Distributed coherent customerloyalty', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(221, 112, 1, 5, 'Diverse grid-enabled interface', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(222, 112, 1, 5, 'Polarised motivating challenge', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(223, 112, 1, 5, 'Cross-platform 3rdgeneration model', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(224, 112, 1, 1, 'Up-sized national frame', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(225, 114, 1, 3, 'Centralized bandwidth-monitored hub', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(226, 114, 1, 3, 'Synergistic well-modulated architecture', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(227, 114, 1, 2, 'Universal encompassing project', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(228, 114, 1, 4, 'Innovative discrete blockchain', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(229, 116, 1, 4, 'Down-sized client-driven pricingstructure', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(230, 116, 1, 2, 'Re-contextualized directional protocol', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(231, 116, 1, 5, 'Business-focused actuating utilisation', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(232, 116, 1, 4, 'Focused impactful product', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(233, 118, 1, 4, 'Advanced tertiary support', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(234, 118, 1, 4, 'Grass-roots transitional focusgroup', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(235, 118, 1, 1, 'Universal zerotolerance help-desk', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(236, 118, 1, 5, 'Programmable 24/7 localareanetwork', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(237, 120, 1, 3, 'Decentralized solution-oriented challenge', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(238, 120, 1, 1, 'Digitized value-added firmware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(239, 120, 1, 5, 'Customizable client-server algorithm', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(240, 120, 1, 4, 'Operative tangible capacity', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
-(241, 122, 1, 1, 'Extended multi-tasking portal', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(242, 122, 1, 3, 'Adaptive demand-driven software', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(243, 122, 1, 3, 'Object-based bi-directional capability', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(244, 122, 1, 1, 'Team-oriented content-based firmware', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(245, 124, 1, 5, 'Public-key context-sensitive solution', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(246, 124, 1, 5, 'Front-line mobile encoding', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(247, 124, 1, 5, 'Self-enabling maximized projection', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(248, 124, 1, 1, 'Exclusive solution-oriented blockchain', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(249, 126, 1, 2, 'Seamless even-keeled neural-net', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(250, 126, 1, 3, 'Fully-configurable client-server access', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(251, 126, 1, 3, 'Switchable homogeneous securedline', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(252, 126, 1, 5, 'Advanced bi-directional model', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(253, 128, 1, 2, 'Self-enabling neutral GraphicalUserInterface', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(254, 128, 1, 4, 'Function-based directional knowledgeuser', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(255, 128, 1, 3, 'Operative homogeneous structure', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(256, 128, 1, 4, 'Re-contextualized mobile matrices', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(257, 130, 1, 1, 'Enhanced transitional conglomeration', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(258, 130, 1, 2, 'Synchronised optimizing interface', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(259, 130, 1, 3, 'Optimized neutral model', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(260, 130, 1, 2, 'Quality-focused cohesive instructionset', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(261, 132, 1, 4, 'Inverse cohesive structure', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(262, 132, 1, 5, 'Facetoface foreground initiative', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(263, 132, 1, 1, 'Vision-oriented fault-tolerant hub', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(264, 132, 1, 4, 'Public-key eco-centric processimprovement', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(265, 134, 1, 2, 'Cloned intangible policy', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(266, 134, 1, 3, 'Robust attitude-oriented internetsolution', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(267, 134, 1, 3, 'Cross-group even-keeled hub', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(268, 134, 1, 4, 'Innovative attitude-oriented matrix', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(269, 136, 1, 3, 'Front-line assymetric project', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(270, 136, 1, 2, 'Operative radical circuit', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(271, 136, 1, 4, 'Customer-focused impactful forecast', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(272, 136, 1, 3, 'Horizontal cohesive complexity', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
-(273, 138, 1, 4, 'Exclusive full-range task-force', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(274, 138, 1, 2, 'Organic holistic encoding', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(275, 138, 1, 3, 'Cross-platform coherent website', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(276, 138, 1, 1, 'Function-based real-time architecture', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(277, 140, 1, 5, 'Optional static productivity', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(278, 140, 1, 5, 'Optimized dedicated project', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(279, 140, 1, 1, 'Horizontal analyzing internetsolution', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(280, 140, 1, 3, 'Switchable high-level analyzer', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(281, 142, 1, 1, 'Profit-focused modular function', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(282, 142, 1, 1, 'Total dedicated function', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(283, 142, 1, 1, 'Reverse-engineered local intranet', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(284, 142, 1, 2, 'De-engineered regional customerloyalty', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(285, 144, 1, 4, 'Reverse-engineered bifurcated leverage', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(286, 144, 1, 1, 'Cross-platform human-resource emulation', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(287, 144, 1, 1, 'Total 6thgeneration analyzer', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(288, 144, 1, 5, 'Object-based 24hour implementation', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(289, 146, 1, 5, 'Pre-emptive incremental database', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(290, 146, 1, 3, 'Public-key 24/7 parallelism', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(291, 146, 1, 5, 'Phased clear-thinking infrastructure', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(292, 146, 1, 5, 'Pre-emptive real-time processimprovement', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(293, 148, 1, 1, 'Monitored real-time methodology', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(294, 148, 1, 4, 'Open-architected object-oriented product', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(295, 148, 1, 4, 'Fundamental empowering synergy', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(296, 148, 1, 1, 'Streamlined system-worthy structure', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(297, 150, 1, 1, 'Profound bifurcated interface', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(298, 150, 1, 5, 'Quality-focused composite complexity', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(299, 150, 1, 1, 'Polarised even-keeled portal', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(300, 150, 1, 3, 'Extended local paradigm', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
-(301, 152, 1, 5, 'Multi-channelled responsive flexibility', 'thanks', '', 1, '2024-01-05 20:39:01', NULL),
-(302, 152, 1, 1, 'Visionary grid-enabled monitoring', 'thanks', '', 1, '2024-01-05 20:39:01', NULL),
-(303, 152, 1, 3, 'Robust national policy', 'thanks', '', 1, '2024-01-05 20:39:01', NULL),
-(304, 152, 1, 2, 'Diverse web-enabled database', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(305, 154, 1, 4, 'Switchable reciprocal productivity', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(306, 154, 1, 3, 'User-centric foreground framework', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(307, 154, 1, 4, 'Advanced methodical challenge', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(308, 154, 1, 5, 'Optimized clear-thinking approach', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(309, 156, 1, 5, 'Up-sized foreground challenge', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(310, 156, 1, 4, 'Customer-focused 24/7 matrices', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(311, 156, 1, 2, 'Digitized national project', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(312, 156, 1, 4, 'Automated full-range strategy', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(313, 158, 1, 4, 'Optional fresh-thinking function', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(314, 158, 1, 1, 'Open-source multi-tasking paradigm', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(315, 158, 1, 3, 'Up-sized assymetric implementation', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(316, 158, 1, 1, 'Open-architected high-level knowledgebase', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(317, 160, 1, 2, 'User-friendly fault-tolerant instructionset', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(318, 160, 1, 2, 'Organized uniform benchmark', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(319, 160, 1, 4, 'Proactive upward-trending forecast', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(320, 160, 1, 3, 'Expanded client-server database', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(321, 162, 1, 3, 'Programmable regional software', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(322, 162, 1, 5, 'Streamlined exuding intranet', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(323, 162, 1, 2, 'Up-sized full-range firmware', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
-(324, 162, 1, 4, 'Synergistic motivating middleware', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(325, 164, 1, 3, 'Reactive value-added knowledgeuser', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(326, 164, 1, 2, 'Right-sized heuristic forecast', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(327, 164, 1, 5, 'Customizable foreground approach', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(328, 164, 1, 5, 'Organic logistical capacity', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(329, 166, 1, 3, 'Synchronised leadingedge infrastructure', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(330, 166, 1, 5, 'Synergized stable focusgroup', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(331, 166, 1, 4, 'Open-architected holistic concept', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(332, 166, 1, 3, 'Re-engineered static data-warehouse', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(333, 168, 1, 5, 'User-centric solution-oriented localareanetwork', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(334, 168, 1, 4, 'Triple-buffered mobile approach', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(335, 168, 1, 5, 'Assimilated upward-trending data-warehouse', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(336, 168, 1, 4, 'Team-oriented disintermediate structure', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(337, 170, 1, 1, 'Expanded reciprocal interface', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(338, 170, 1, 1, 'Ameliorated solution-oriented groupware', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(339, 170, 1, 2, 'Inverse tertiary localareanetwork', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(340, 170, 1, 5, 'Optimized fault-tolerant project', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
-(341, 172, 1, 2, 'Multi-lateral fault-tolerant frame', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(342, 172, 1, 1, 'Front-line static parallelism', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(343, 172, 1, 3, 'Customizable multi-state success', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(344, 172, 1, 4, 'Horizontal motivating encoding', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(345, 174, 1, 1, 'Automated bifurcated database', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(346, 174, 1, 3, 'Intuitive regional solution', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(347, 174, 1, 3, 'Focused encompassing interface', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(348, 174, 1, 5, 'Compatible eco-centric monitoring', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(349, 176, 1, 5, 'Horizontal responsive model', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(350, 176, 1, 5, 'Polarised context-sensitive hub', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(351, 176, 1, 4, 'Managed foreground portal', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(352, 176, 1, 4, 'Switchable attitude-oriented openarchitecture', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
-(353, 178, 1, 2, 'Visionary national installation', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(354, 178, 1, 2, 'Proactive non-volatile GraphicInterface', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(355, 178, 1, 2, 'Focused cohesive throughput', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(356, 178, 1, 1, 'Re-contextualized empowering matrices', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(357, 180, 1, 5, 'Optional high-level artificialintelligence', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(358, 180, 1, 5, 'Future-proofed mission-critical encoding', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(359, 180, 1, 1, 'Automated mission-critical architecture', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(360, 180, 1, 2, 'Public-key tangible data-warehouse', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(361, 182, 1, 3, 'Monitored well-modulated superstructure', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(362, 182, 1, 2, 'Digitized scalable policy', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(363, 182, 1, 5, 'Synchronised interactive matrix', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(364, 182, 1, 2, 'Open-source 6thgeneration matrix', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(365, 184, 1, 5, 'Quality-focused fault-tolerant migration', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(366, 184, 1, 1, 'Pre-emptive client-driven architecture', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(367, 184, 1, 4, 'Profound demand-driven function', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(368, 184, 1, 5, 'Self-enabling non-volatile adapter', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
-(369, 186, 1, 1, 'Versatile radical alliance', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(370, 186, 1, 5, 'Sharable multi-tasking contingency', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(371, 186, 1, 1, 'Grass-roots system-worthy approach', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(372, 186, 1, 4, 'Organized even-keeled productivity', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(373, 188, 1, 5, 'Mandatory multi-state benchmark', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(374, 188, 1, 2, 'Pre-emptive bifurcated framework', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(375, 188, 1, 2, 'Horizontal client-driven instructionset', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(376, 188, 1, 5, 'Diverse analyzing circuit', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(377, 190, 1, 2, 'Enterprise-wide regional installation', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(378, 190, 1, 5, 'Cross-platform multi-tasking opensystem', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(379, 190, 1, 4, 'Fully-configurable fresh-thinking groupware', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(380, 190, 1, 5, 'Team-oriented systematic flexibility', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(381, 192, 1, 1, 'Synergistic motivating success', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(382, 192, 1, 4, 'Upgradable bandwidth-monitored GraphicInterface', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(383, 192, 1, 2, 'Enterprise-wide 24hour complexity', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(384, 192, 1, 4, 'Virtual multi-tasking benchmark', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(385, 194, 1, 2, 'Streamlined discrete interface', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(386, 194, 1, 4, 'Persevering secondary intranet', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(387, 194, 1, 4, 'Extended web-enabled challenge', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(388, 194, 1, 1, 'Organized foreground synergy', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
-(389, 196, 1, 2, 'Vision-oriented transitional groupware', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(390, 196, 1, 3, 'Virtual optimizing localareanetwork', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(391, 196, 1, 3, 'Seamless radical forecast', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(392, 196, 1, 1, 'Team-oriented disintermediate frame', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(393, 198, 1, 1, 'Reverse-engineered composite openarchitecture', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(394, 198, 1, 1, 'De-engineered asynchronous algorithm', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(395, 198, 1, 2, 'Managed eco-centric analyzer', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(396, 198, 1, 5, 'Open-source human-resource contingency', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(397, 200, 1, 3, 'Reverse-engineered impactful knowledgeuser', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(398, 200, 1, 2, 'Persistent tangible superstructure', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(399, 200, 1, 1, 'Synergized tertiary solution', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
-(400, 200, 1, 1, 'Enterprise-wide multimedia artificialintelligence', 'thanks', '', 1, '2024-01-05 20:39:07', NULL);
+(81, 42, 33, 5, 'Secured foreground productivity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(82, 42, 33, 5, 'Up-sized mobile flexibility', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(83, 42, 33, 5, 'Cross-group value-added productivity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(84, 42, 33, 3, 'Organized intangible task-force', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(85, 44, 33, 3, 'Monitored intangible paradigm', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(86, 44, 33, 2, 'Managed systemic workforce', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(87, 44, 33, 2, 'Open-source bandwidth-monitored structure', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(88, 44, 33, 4, 'Compatible maximized software', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(89, 46, 33, 4, 'Switchable coherent budgetarymanagement', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(90, 46, 33, 2, 'Assimilated actuating migration', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(91, 46, 33, 3, 'Public-key bi-directional alliance', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(92, 46, 33, 2, 'User-friendly global firmware', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(93, 48, 33, 1, 'Right-sized dedicated complexity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(94, 48, 33, 4, 'Up-sized context-sensitive capacity', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(95, 48, 33, 4, 'Networked disintermediate artificialintelligence', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(96, 48, 33, 1, 'Open-source neutral monitoring', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(97, 50, 33, 2, 'Vision-oriented dedicated service-desk', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(98, 50, 33, 4, 'Customizable radical time-frame', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(99, 50, 33, 5, 'Proactive modular knowledgebase', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(100, 50, 33, 5, 'Synergized contextually-based collaboration', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(101, 52, 33, 2, 'Enterprise-wide empowering orchestration', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(102, 52, 33, 3, 'Streamlined grid-enabled emulation', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(103, 52, 33, 4, 'User-friendly grid-enabled middleware', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(104, 52, 33, 5, 'Seamless object-oriented focusgroup', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(105, 54, 33, 2, 'Multi-layered 3rdgeneration hierarchy', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(106, 54, 33, 5, 'Re-engineered responsive infrastructure', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(107, 54, 33, 2, 'Stand-alone zerodefect extranet', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(108, 54, 33, 4, 'Innovative incremental workforce', 'thanks', '', 1, '2023-12-31 06:55:31', NULL),
+(109, 56, 33, 2, 'Reactive logistical instructionset', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(110, 56, 33, 2, 'Business-focused homogeneous artificialintelligence', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(111, 56, 33, 4, 'Virtual secondary archive', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(112, 56, 33, 4, 'Managed incremental internetsolution', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(113, 58, 33, 3, 'Secured discrete framework', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(114, 58, 33, 2, 'De-engineered system-worthy extranet', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(115, 58, 33, 5, 'Synchronised 3rdgeneration core', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(116, 58, 33, 4, 'Grass-roots system-worthy policy', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(117, 60, 33, 2, 'Digitized stable core', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(118, 60, 33, 1, 'Reverse-engineered global time-frame', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(119, 60, 33, 1, 'Team-oriented analyzing knowledgebase', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(120, 60, 33, 5, 'Ameliorated solution-oriented hardware', 'thanks', '', 1, '2023-12-31 06:55:32', NULL),
+(121, 62, 33, 2, 'Right-sized solution-oriented knowledgeuser', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(122, 62, 33, 4, 'Profit-focused client-server ability', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(123, 62, 33, 5, 'Multi-layered nextgeneration encoding', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(124, 62, 33, 5, 'Optional responsive groupware', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(125, 64, 33, 5, 'Open-source needs-based website', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(126, 64, 33, 4, 'Re-contextualized transitional localareanetwork', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(127, 64, 33, 4, 'Robust multi-state support', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(128, 64, 33, 2, 'Secured local circuit', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(129, 66, 33, 5, 'Secured 24/7 website', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(130, 66, 33, 4, 'Right-sized asynchronous matrix', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(131, 66, 33, 3, 'Balanced systemic analyzer', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(132, 66, 33, 2, 'Optional background definition', 'thanks', '', 1, '2024-01-01 04:55:01', NULL),
+(133, 68, 33, 1, 'Integrated bottom-line functionalities', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(134, 68, 33, 2, 'Operative nextgeneration systemengine', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(135, 68, 33, 5, 'Profound asynchronous architecture', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(136, 68, 33, 5, 'Customer-focused user-facing emulation', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(137, 70, 33, 1, 'Adaptive zerodefect time-frame', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(138, 70, 33, 1, 'Balanced systemic internetsolution', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(139, 70, 33, 4, 'Balanced 24hour processimprovement', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(140, 70, 33, 2, 'Configurable zerodefect paradigm', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(141, 72, 33, 2, 'Phased regional parallelism', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(142, 72, 33, 5, 'Re-contextualized neutral function', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(143, 72, 33, 4, 'Business-focused didactic encryption', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(144, 72, 33, 5, 'User-centric encompassing analyzer', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(145, 74, 33, 4, 'Self-enabling fault-tolerant data-warehouse', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(146, 74, 33, 4, 'Optimized motivating forecast', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(147, 74, 33, 4, 'Fully-configurable nextgeneration matrix', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(148, 74, 33, 1, 'Re-contextualized context-sensitive portal', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(149, 76, 33, 1, 'Multi-tiered transitional application', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(150, 76, 33, 2, 'Polarised needs-based forecast', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(151, 76, 33, 4, 'Secured coherent algorithm', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(152, 76, 33, 3, 'Focused value-added strategy', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(153, 78, 33, 4, 'Advanced hybrid processimprovement', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(154, 78, 33, 3, 'Progressive clear-thinking utilisation', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(155, 78, 33, 2, 'Adaptive bi-directional parallelism', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(156, 78, 33, 5, 'Facetoface bifurcated methodology', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(157, 80, 33, 3, 'Programmable human-resource adapter', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(158, 80, 33, 1, 'Re-contextualized bifurcated throughput', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(159, 80, 33, 5, 'Phased content-based migration', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(160, 80, 33, 2, 'Programmable non-volatile frame', 'thanks', '', 1, '2024-01-01 04:55:02', NULL),
+(161, 82, 33, 2, 'Open-source multi-tasking time-frame', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(162, 82, 33, 3, 'Configurable methodical orchestration', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(163, 82, 33, 5, 'Profound fault-tolerant ability', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(164, 82, 33, 2, 'Synergized mission-critical superstructure', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(165, 84, 33, 1, 'Persevering client-server circuit', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(166, 84, 33, 5, 'Secured multimedia website', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(167, 84, 33, 2, 'Organized system-worthy middleware', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(168, 84, 33, 4, 'Integrated executive leverage', 'thanks', '', 1, '2024-01-02 06:52:06', NULL),
+(169, 86, 33, 3, 'Triple-buffered disintermediate processimprovement', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(170, 86, 33, 5, 'Sharable motivating task-force', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(171, 86, 33, 3, 'Fully-configurable didactic budgetarymanagement', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(172, 86, 33, 2, 'Multi-channelled multi-tasking website', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(173, 88, 33, 1, 'Streamlined discrete strategy', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(174, 88, 33, 4, 'Visionary 3rdgeneration analyzer', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(175, 88, 33, 4, 'Fully-configurable 5thgeneration migration', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(176, 88, 33, 5, 'Extended client-server algorithm', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(177, 90, 33, 5, 'Stand-alone secondary task-force', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(178, 90, 33, 2, 'Switchable solution-oriented portal', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(179, 90, 33, 3, 'Virtual local strategy', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(180, 90, 33, 2, 'Ergonomic explicit frame', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(181, 92, 33, 2, 'Up-sized actuating encoding', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(182, 92, 33, 4, 'De-engineered mission-critical info-mediaries', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(183, 92, 33, 5, 'Upgradable coherent GraphicalUserInterface', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(184, 92, 33, 2, 'Switchable context-sensitive website', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(185, 94, 33, 1, 'Organic full-range superstructure', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(186, 94, 33, 5, 'Cross-platform static utilisation', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(187, 94, 33, 5, 'Switchable zerodefect leverage', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(188, 94, 33, 2, 'Mandatory tangible concept', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(189, 96, 33, 4, 'Public-key mobile info-mediaries', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(190, 96, 33, 2, 'Networked bi-directional moderator', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(191, 96, 33, 2, 'Adaptive holistic adapter', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(192, 96, 33, 4, 'Diverse neutral definition', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(193, 98, 33, 1, 'Business-focused human-resource encryption', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(194, 98, 33, 3, 'Self-enabling secondary parallelism', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(195, 98, 33, 4, 'Right-sized secondary circuit', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(196, 98, 33, 1, 'Fully-configurable mission-critical project', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(197, 100, 33, 1, 'Realigned tertiary forecast', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(198, 100, 33, 3, 'Optional impactful intranet', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(199, 100, 33, 5, 'Universal encompassing encoding', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(200, 100, 33, 4, 'Synergistic zerodefect implementation', 'thanks', '', 1, '2024-01-02 06:52:07', NULL),
+(201, 102, 33, 1, 'Reverse-engineered clear-thinking leverage', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(202, 102, 33, 2, 'Stand-alone asynchronous groupware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(203, 102, 33, 5, 'Cross-platform eco-centric GraphicInterface', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(204, 102, 33, 2, 'Reverse-engineered disintermediate standardization', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(205, 104, 33, 1, 'Programmable methodical matrix', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(206, 104, 33, 2, 'Reverse-engineered disintermediate knowledgebase', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(207, 104, 33, 3, 'Enhanced bi-directional middleware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(208, 104, 33, 2, 'Grass-roots non-volatile frame', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(209, 106, 33, 2, 'Reverse-engineered 24hour processimprovement', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(210, 106, 33, 2, 'Profit-focused even-keeled matrices', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(211, 106, 33, 2, 'Phased discrete migration', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(212, 106, 33, 5, 'Synergized static analyzer', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(213, 108, 33, 2, 'Digitized 24/7 groupware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(214, 108, 33, 3, 'Upgradable user-facing help-desk', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(215, 108, 33, 5, 'Secured cohesive website', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(216, 108, 33, 4, 'Assimilated eco-centric matrices', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(217, 110, 33, 1, 'Organized mobile opensystem', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(218, 110, 33, 3, 'Future-proofed 24/7 policy', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(219, 110, 33, 2, 'Reactive upward-trending protocol', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(220, 110, 33, 1, 'Distributed coherent customerloyalty', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(221, 112, 33, 5, 'Diverse grid-enabled interface', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(222, 112, 33, 5, 'Polarised motivating challenge', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(223, 112, 33, 5, 'Cross-platform 3rdgeneration model', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(224, 112, 33, 1, 'Up-sized national frame', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(225, 114, 33, 3, 'Centralized bandwidth-monitored hub', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(226, 114, 33, 3, 'Synergistic well-modulated architecture', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(227, 114, 33, 2, 'Universal encompassing project', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(228, 114, 33, 4, 'Innovative discrete blockchain', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(229, 116, 33, 4, 'Down-sized client-driven pricingstructure', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(230, 116, 33, 2, 'Re-contextualized directional protocol', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(231, 116, 33, 5, 'Business-focused actuating utilisation', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(232, 116, 33, 4, 'Focused impactful product', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(233, 118, 33, 4, 'Advanced tertiary support', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(234, 118, 33, 4, 'Grass-roots transitional focusgroup', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(235, 118, 33, 1, 'Universal zerotolerance help-desk', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(236, 118, 33, 5, 'Programmable 24/7 localareanetwork', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(237, 120, 33, 3, 'Decentralized solution-oriented challenge', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(238, 120, 33, 1, 'Digitized value-added firmware', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(239, 120, 33, 5, 'Customizable client-server algorithm', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(240, 120, 33, 4, 'Operative tangible capacity', 'thanks', '', 1, '2024-01-02 06:52:47', NULL),
+(241, 122, 33, 1, 'Extended multi-tasking portal', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(242, 122, 33, 3, 'Adaptive demand-driven software', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(243, 122, 33, 3, 'Object-based bi-directional capability', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(244, 122, 33, 1, 'Team-oriented content-based firmware', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(245, 124, 33, 5, 'Public-key context-sensitive solution', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(246, 124, 33, 5, 'Front-line mobile encoding', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(247, 124, 33, 5, 'Self-enabling maximized projection', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(248, 124, 33, 1, 'Exclusive solution-oriented blockchain', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(249, 126, 33, 2, 'Seamless even-keeled neural-net', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(250, 126, 33, 3, 'Fully-configurable client-server access', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(251, 126, 33, 3, 'Switchable homogeneous securedline', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(252, 126, 33, 5, 'Advanced bi-directional model', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(253, 128, 33, 2, 'Self-enabling neutral GraphicalUserInterface', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(254, 128, 33, 4, 'Function-based directional knowledgeuser', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(255, 128, 33, 3, 'Operative homogeneous structure', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(256, 128, 33, 4, 'Re-contextualized mobile matrices', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(257, 130, 33, 1, 'Enhanced transitional conglomeration', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(258, 130, 33, 2, 'Synchronised optimizing interface', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(259, 130, 33, 3, 'Optimized neutral model', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(260, 130, 33, 2, 'Quality-focused cohesive instructionset', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(261, 132, 33, 4, 'Inverse cohesive structure', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(262, 132, 33, 5, 'Facetoface foreground initiative', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(263, 132, 33, 1, 'Vision-oriented fault-tolerant hub', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(264, 132, 33, 4, 'Public-key eco-centric processimprovement', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(265, 134, 33, 2, 'Cloned intangible policy', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(266, 134, 33, 3, 'Robust attitude-oriented internetsolution', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(267, 134, 33, 3, 'Cross-group even-keeled hub', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(268, 134, 33, 4, 'Innovative attitude-oriented matrix', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(269, 136, 33, 3, 'Front-line assymetric project', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(270, 136, 33, 2, 'Operative radical circuit', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(271, 136, 33, 4, 'Customer-focused impactful forecast', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(272, 136, 33, 3, 'Horizontal cohesive complexity', 'thanks', '', 1, '2024-01-02 06:53:53', NULL),
+(273, 138, 33, 4, 'Exclusive full-range task-force', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(274, 138, 33, 2, 'Organic holistic encoding', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(275, 138, 33, 3, 'Cross-platform coherent website', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(276, 138, 33, 1, 'Function-based real-time architecture', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(277, 140, 33, 5, 'Optional static productivity', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(278, 140, 33, 5, 'Optimized dedicated project', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(279, 140, 33, 1, 'Horizontal analyzing internetsolution', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(280, 140, 33, 3, 'Switchable high-level analyzer', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(281, 142, 33, 1, 'Profit-focused modular function', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(282, 142, 33, 1, 'Total dedicated function', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(283, 142, 33, 1, 'Reverse-engineered local intranet', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(284, 142, 33, 2, 'De-engineered regional customerloyalty', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(285, 144, 33, 4, 'Reverse-engineered bifurcated leverage', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(286, 144, 33, 1, 'Cross-platform human-resource emulation', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(287, 144, 33, 1, 'Total 6thgeneration analyzer', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(288, 144, 33, 5, 'Object-based 24hour implementation', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(289, 146, 33, 5, 'Pre-emptive incremental database', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(290, 146, 33, 3, 'Public-key 24/7 parallelism', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(291, 146, 33, 5, 'Phased clear-thinking infrastructure', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(292, 146, 33, 5, 'Pre-emptive real-time processimprovement', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(293, 148, 33, 1, 'Monitored real-time methodology', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(294, 148, 33, 4, 'Open-architected object-oriented product', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(295, 148, 33, 4, 'Fundamental empowering synergy', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(296, 148, 33, 1, 'Streamlined system-worthy structure', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(297, 150, 33, 1, 'Profound bifurcated interface', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(298, 150, 33, 5, 'Quality-focused composite complexity', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(299, 150, 33, 1, 'Polarised even-keeled portal', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(300, 150, 33, 3, 'Extended local paradigm', 'thanks', '', 1, '2024-01-02 06:53:54', NULL),
+(301, 152, 33, 5, 'Multi-channelled responsive flexibility', 'thanks', '', 1, '2024-01-05 20:39:01', NULL),
+(302, 152, 33, 1, 'Visionary grid-enabled monitoring', 'thanks', '', 1, '2024-01-05 20:39:01', NULL),
+(303, 152, 33, 3, 'Robust national policy', 'thanks', '', 1, '2024-01-05 20:39:01', NULL),
+(304, 152, 33, 2, 'Diverse web-enabled database', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(305, 154, 33, 4, 'Switchable reciprocal productivity', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(306, 154, 33, 3, 'User-centric foreground framework', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(307, 154, 33, 4, 'Advanced methodical challenge', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(308, 154, 33, 5, 'Optimized clear-thinking approach', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(309, 156, 33, 5, 'Up-sized foreground challenge', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(310, 156, 33, 4, 'Customer-focused 24/7 matrices', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(311, 156, 33, 2, 'Digitized national project', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(312, 156, 33, 4, 'Automated full-range strategy', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(313, 158, 33, 4, 'Optional fresh-thinking function', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(314, 158, 33, 1, 'Open-source multi-tasking paradigm', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(315, 158, 33, 3, 'Up-sized assymetric implementation', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(316, 158, 33, 1, 'Open-architected high-level knowledgebase', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(317, 160, 33, 2, 'User-friendly fault-tolerant instructionset', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(318, 160, 33, 2, 'Organized uniform benchmark', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(319, 160, 33, 4, 'Proactive upward-trending forecast', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(320, 160, 33, 3, 'Expanded client-server database', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(321, 162, 33, 3, 'Programmable regional software', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(322, 162, 33, 5, 'Streamlined exuding intranet', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(323, 162, 33, 2, 'Up-sized full-range firmware', 'thanks', '', 1, '2024-01-05 20:39:02', NULL),
+(324, 162, 33, 4, 'Synergistic motivating middleware', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(325, 164, 33, 3, 'Reactive value-added knowledgeuser', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(326, 164, 33, 2, 'Right-sized heuristic forecast', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(327, 164, 33, 5, 'Customizable foreground approach', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(328, 164, 33, 5, 'Organic logistical capacity', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(329, 166, 33, 3, 'Synchronised leadingedge infrastructure', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(330, 166, 33, 5, 'Synergized stable focusgroup', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(331, 166, 33, 4, 'Open-architected holistic concept', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(332, 166, 33, 3, 'Re-engineered static data-warehouse', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(333, 168, 33, 5, 'User-centric solution-oriented localareanetwork', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(334, 168, 33, 4, 'Triple-buffered mobile approach', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(335, 168, 33, 5, 'Assimilated upward-trending data-warehouse', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(336, 168, 33, 4, 'Team-oriented disintermediate structure', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(337, 170, 33, 1, 'Expanded reciprocal interface', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(338, 170, 33, 1, 'Ameliorated solution-oriented groupware', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(339, 170, 33, 2, 'Inverse tertiary localareanetwork', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(340, 170, 33, 5, 'Optimized fault-tolerant project', 'thanks', '', 1, '2024-01-05 20:39:03', NULL),
+(341, 172, 33, 2, 'Multi-lateral fault-tolerant frame', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(342, 172, 33, 1, 'Front-line static parallelism', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(343, 172, 33, 3, 'Customizable multi-state success', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(344, 172, 33, 4, 'Horizontal motivating encoding', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(345, 174, 33, 1, 'Automated bifurcated database', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(346, 174, 33, 3, 'Intuitive regional solution', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(347, 174, 33, 3, 'Focused encompassing interface', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(348, 174, 33, 5, 'Compatible eco-centric monitoring', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(349, 176, 33, 5, 'Horizontal responsive model', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(350, 176, 33, 5, 'Polarised context-sensitive hub', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(351, 176, 33, 4, 'Managed foreground portal', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(352, 176, 33, 4, 'Switchable attitude-oriented openarchitecture', 'thanks', '', 1, '2024-01-05 20:39:04', NULL),
+(353, 178, 33, 2, 'Visionary national installation', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(354, 178, 33, 2, 'Proactive non-volatile GraphicInterface', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(355, 178, 33, 2, 'Focused cohesive throughput', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(356, 178, 33, 1, 'Re-contextualized empowering matrices', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(357, 180, 33, 5, 'Optional high-level artificialintelligence', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(358, 180, 33, 5, 'Future-proofed mission-critical encoding', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(359, 180, 33, 1, 'Automated mission-critical architecture', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(360, 180, 33, 2, 'Public-key tangible data-warehouse', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(361, 182, 33, 3, 'Monitored well-modulated superstructure', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(362, 182, 33, 2, 'Digitized scalable policy', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(363, 182, 33, 5, 'Synchronised interactive matrix', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(364, 182, 33, 2, 'Open-source 6thgeneration matrix', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(365, 184, 33, 5, 'Quality-focused fault-tolerant migration', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(366, 184, 33, 1, 'Pre-emptive client-driven architecture', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(367, 184, 33, 4, 'Profound demand-driven function', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(368, 184, 33, 5, 'Self-enabling non-volatile adapter', 'thanks', '', 1, '2024-01-05 20:39:05', NULL),
+(369, 186, 33, 1, 'Versatile radical alliance', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(370, 186, 33, 5, 'Sharable multi-tasking contingency', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(371, 186, 33, 1, 'Grass-roots system-worthy approach', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(372, 186, 33, 4, 'Organized even-keeled productivity', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(373, 188, 33, 5, 'Mandatory multi-state benchmark', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(374, 188, 33, 2, 'Pre-emptive bifurcated framework', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(375, 188, 33, 2, 'Horizontal client-driven instructionset', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(376, 188, 33, 5, 'Diverse analyzing circuit', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(377, 190, 33, 2, 'Enterprise-wide regional installation', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(378, 190, 33, 5, 'Cross-platform multi-tasking opensystem', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(379, 190, 33, 4, 'Fully-configurable fresh-thinking groupware', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(380, 190, 33, 5, 'Team-oriented systematic flexibility', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(381, 192, 33, 1, 'Synergistic motivating success', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(382, 192, 33, 4, 'Upgradable bandwidth-monitored GraphicInterface', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(383, 192, 33, 2, 'Enterprise-wide 24hour complexity', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(384, 192, 33, 4, 'Virtual multi-tasking benchmark', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(385, 194, 33, 2, 'Streamlined discrete interface', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(386, 194, 33, 4, 'Persevering secondary intranet', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(387, 194, 33, 4, 'Extended web-enabled challenge', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(388, 194, 33, 1, 'Organized foreground synergy', 'thanks', '', 1, '2024-01-05 20:39:06', NULL),
+(389, 196, 33, 2, 'Vision-oriented transitional groupware', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(390, 196, 33, 3, 'Virtual optimizing localareanetwork', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(391, 196, 33, 3, 'Seamless radical forecast', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(392, 196, 33, 1, 'Team-oriented disintermediate frame', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(393, 198, 33, 1, 'Reverse-engineered composite openarchitecture', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(394, 198, 33, 1, 'De-engineered asynchronous algorithm', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(395, 198, 33, 2, 'Managed eco-centric analyzer', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(396, 198, 33, 5, 'Open-source human-resource contingency', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(397, 200, 33, 3, 'Reverse-engineered impactful knowledgeuser', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(398, 200, 33, 2, 'Persistent tangible superstructure', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(399, 200, 33, 1, 'Synergized tertiary solution', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(400, 200, 33, 1, 'Enterprise-wide multimedia artificialintelligence', 'thanks', '', 1, '2024-01-05 20:39:07', NULL),
+(401, 136, 88, 4, 'Feel free to share your opinion about this product.', NULL, '', 0, '2024-01-10 06:56:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -2678,9 +2757,9 @@ INSERT INTO `product_reviews` (`id`, `product_id`, `user_id`, `rating`, `review`
 
 CREATE TABLE `product_sizes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `serial` double NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2705,7 +2784,7 @@ INSERT INTO `product_sizes` (`id`, `name`, `status`, `slug`, `serial`, `created_
 CREATE TABLE `product_variants` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `color_id` bigint(20) UNSIGNED DEFAULT NULL,
   `size_id` int(11) DEFAULT NULL,
   `region_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -2913,8 +2992,8 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_i
 (266, 134, '21.png', 14, 3, 79, 4, 5, 1000, 684, 674, 1, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
 (267, 134, '37.png', 14, 3, 79, 4, 5, 1000, 684, 674, 1, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
 (268, 134, '32.png', 14, 3, 79, 4, 5, 1000, 684, 674, 1, 4, '2024-01-02 06:53:53', '2024-01-02 06:53:53'),
-(269, 136, '1704277715eeISr.jpg', 2, NULL, 226, 2, 3, 1000, 610, 600, 1, 1, '2024-01-02 06:53:53', '2024-01-04 10:05:58'),
-(270, 136, '22.png', 1, NULL, 107, 4, 3, 1000, 610, 600, 1, 1, '2024-01-02 06:53:53', '2024-01-04 10:05:58'),
+(269, 136, '1704277715eeISr.jpg', 2, NULL, 226, 2, 3, 1000, 650, 600, 1, 1, '2024-01-02 06:53:53', '2024-01-10 04:28:36'),
+(270, 136, '22.png', 1, NULL, 107, 4, 3, 1000, 750, 700, 1, 1, '2024-01-02 06:53:53', '2024-01-10 04:28:36'),
 (273, 138, '33.png', 2, 5, 237, 1, 8, 1000, 625, 615, 8, 7, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
 (274, 138, '30.png', 2, 5, 237, 1, 8, 1000, 625, 615, 8, 7, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
 (275, 138, '27.png', 2, 5, 237, 1, 8, 1000, 625, 615, 8, 7, '2024-01-02 06:53:54', '2024-01-02 06:53:54'),
@@ -3052,7 +3131,7 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_i
 
 CREATE TABLE `product_warrenties` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
   `serial` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3077,25 +3156,25 @@ INSERT INTO `product_warrenties` (`id`, `name`, `serial`, `created_at`, `updated
 
 CREATE TABLE `promotional_banners` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `heading` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `heading_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `btn_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `btn_text_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `btn_bg_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `background_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `product_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `background_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `video_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `heading` varchar(255) DEFAULT NULL,
+  `heading_color` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `title_color` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `description_color` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `btn_text` varchar(255) DEFAULT NULL,
+  `btn_text_color` varchar(255) DEFAULT NULL,
+  `btn_bg_color` varchar(255) DEFAULT NULL,
+  `background_color` varchar(255) DEFAULT NULL,
+  `product_image` varchar(255) DEFAULT NULL,
+  `background_image` varchar(255) DEFAULT NULL,
+  `video_url` varchar(255) DEFAULT NULL,
   `started_at` datetime DEFAULT NULL,
   `end_at` datetime DEFAULT NULL,
-  `time_bg_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `time_font_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `time_bg_color` varchar(255) DEFAULT NULL,
+  `time_font_color` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3115,16 +3194,16 @@ INSERT INTO `promotional_banners` (`id`, `icon`, `heading`, `heading_color`, `ti
 
 CREATE TABLE `promo_codes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `code` varchar(255) NOT NULL,
   `effective_date` date NOT NULL,
   `expire_date` date NOT NULL,
   `type` tinyint(4) NOT NULL COMMENT '1=>Amount; 2=>Percentage',
   `value` double NOT NULL DEFAULT 0,
   `minimum_order_amount` double DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3137,8 +3216,8 @@ CREATE TABLE `promo_codes` (
 INSERT INTO `promo_codes` (`id`, `icon`, `title`, `description`, `code`, `effective_date`, `expire_date`, `type`, `value`, `minimum_order_amount`, `slug`, `status`, `created_at`, `updated_at`) VALUES
 (1, NULL, '25% off', 'happy shoping', 'Off25', '2023-07-03', '2023-11-30', 2, 25, NULL, 'J0vnY1688367426', 0, '2023-07-03 16:57:06', '2023-12-24 04:48:09'),
 (2, NULL, 'OFF 100', '100 taka off', 'OFF100', '2023-07-09', '2023-11-30', 1, 100, NULL, '2EtEa1688804325', 0, '2023-07-08 18:18:45', '2023-12-24 04:48:09'),
-(3, NULL, 'Aut doloremque et ut', 'Exercitation quibusd', '95ASD', '2023-12-30', '2023-12-31', 2, 35, 399, 'wLSY11703393709', 1, '2023-12-24 04:55:09', '2023-12-24 05:03:26'),
-(4, 'promoImages/Am8aQ1703396267.png', '20% off', 'During this sale, we\'re offering 25% OFF this summary. Make sure you don\'t miss it.', 'Offer20', '2023-12-29', '2023-12-31', 1, 20, 399, '2nbz71703395917', 1, '2023-12-24 05:31:57', '2023-12-24 05:37:47');
+(3, NULL, 'Aut doloremque et ut', 'Exercitation quibusd', '95ASD', '2023-12-30', '2023-12-31', 2, 35, 399, 'wLSY11703393709', 0, '2023-12-24 04:55:09', '2024-01-09 06:01:12'),
+(4, 'promoImages/Am8aQ1703396267.png', '20 TAKA OFF', 'During this sale, we\'re offering 20 Taka OFF this summary. Make sure you don\'t miss it.', 'OFFER20', '2024-01-01', '2024-01-31', 1, 50, 200, '2nbz71703395917', 1, '2023-12-24 05:31:57', '2024-01-09 06:02:00');
 
 -- --------------------------------------------------------
 
@@ -3149,10 +3228,10 @@ INSERT INTO `promo_codes` (`id`, `icon`, `title`, `description`, `code`, `effect
 CREATE TABLE `role_permissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
-  `role_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role_name` varchar(255) DEFAULT NULL,
   `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `route` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `route_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `route` varchar(255) NOT NULL,
+  `route_name` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3198,18 +3277,31 @@ INSERT INTO `role_permissions` (`id`, `role_id`, `role_name`, `permission_id`, `
 CREATE TABLE `shipping_infos` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
-  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `thana` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `post_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `full_name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `thana` varchar(255) DEFAULT NULL,
+  `post_code` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `shipping_infos`
+--
+
+INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `gender`, `address`, `thana`, `post_code`, `city`, `country`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Md. Fahim Hossain', '01969005035', 'fahimmit05@gmail.com', NULL, 'Rajshahi', 'Bagha', '6100', 'Rajshahi', 'Bangladesh', '2024-01-10 06:03:24', NULL),
+(2, 3, 'Md. Fahim Hossain', '01969005035', 'fahimmit05@gmail.com', NULL, 'Rajshahi', 'Bagha', '6100', 'Rajshahi', 'Bangladesh', '2024-01-10 06:04:05', NULL),
+(3, 4, 'Md. Fahim Hossain', '01969005035', 'fahimmit05@gmail.com', NULL, 'Rajshahi', 'Bagha', '7100', 'Rajshahi', 'Bangladesh', '2024-01-10 06:59:11', NULL),
+(4, 5, 'Md. Fahim Hossain', '01969005035', 'fahimmit05@gmail.com', NULL, 'Rajshahi', 'Bagha', '7100', 'Rajshahi', 'Bangladesh', '2024-01-10 07:00:52', NULL),
+(5, 6, 'Md. Fahim Hossain', '01969005035', 'fahimmit05@gmail.com', NULL, 'khilkhet', 'Fakirhat', NULL, 'Bagerhat', 'Bangladesh', '2024-01-10 11:24:16', NULL),
+(6, 7, 'Md. Fahim Hossain', '2132132132133', 'fahimmit05@gmail.com', NULL, 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', 'Savar', '1254', 'Dhaka', 'Bangladesh', '2024-01-10 11:36:10', NULL),
+(7, 8, 'Md. Fahim Hossain', '01969005035', 'fahimmit05@gmail.com', NULL, 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', 'Savar', '1254', 'Dhaka', 'Bangladesh', '2024-01-10 14:05:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -3219,7 +3311,7 @@ CREATE TABLE `shipping_infos` (
 
 CREATE TABLE `sims` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3242,12 +3334,12 @@ INSERT INTO `sims` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `sms_gateways` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `provider_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `api_endpoint` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `api_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `secret_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sender_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `provider_name` varchar(255) NOT NULL,
+  `api_endpoint` varchar(255) NOT NULL,
+  `api_key` varchar(255) DEFAULT NULL,
+  `secret_key` varchar(255) DEFAULT NULL,
+  `sender_id` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3270,10 +3362,10 @@ INSERT INTO `sms_gateways` (`id`, `image`, `provider_name`, `api_endpoint`, `api
 CREATE TABLE `sms_histories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `template_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `template_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `template_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `template_title` varchar(255) DEFAULT NULL,
+  `template_description` longtext DEFAULT NULL,
   `sending_type` tinyint(4) DEFAULT NULL COMMENT '1=>Individual; 2=>Everyone',
-  `individual_contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `individual_contact` varchar(255) DEFAULT NULL,
   `sms_receivers` tinyint(4) DEFAULT NULL COMMENT '1=>Having No Order; 2=>Having Orders',
   `min_order` double DEFAULT NULL,
   `max_order` double DEFAULT NULL,
@@ -3291,8 +3383,8 @@ CREATE TABLE `sms_histories` (
 
 CREATE TABLE `sms_templates` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3306,13 +3398,13 @@ CREATE TABLE `sms_templates` (
 CREATE TABLE `social_logins` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `fb_login_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Inactive; 1=>Active',
-  `fb_app_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fb_app_secret` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fb_redirect_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb_app_id` varchar(255) DEFAULT NULL,
+  `fb_app_secret` varchar(255) DEFAULT NULL,
+  `fb_redirect_url` varchar(255) DEFAULT NULL,
   `gmail_login_status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Inactive; 1=>Active',
-  `gmail_client_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gmail_secret_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gmail_redirect_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gmail_client_id` varchar(255) DEFAULT NULL,
+  `gmail_secret_id` varchar(255) DEFAULT NULL,
+  `gmail_redirect_url` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3322,7 +3414,7 @@ CREATE TABLE `social_logins` (
 --
 
 INSERT INTO `social_logins` (`id`, `fb_login_status`, `fb_app_id`, `fb_app_secret`, `fb_redirect_url`, `gmail_login_status`, `gmail_client_id`, `gmail_secret_id`, `gmail_redirect_url`, `created_at`, `updated_at`) VALUES
-(1, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2023-10-05 06:00:25', '2023-10-23 05:44:31');
+(1, 0, NULL, NULL, NULL, 1, '423916750406-30drlsaqobgs5fc792ie199a9pbbpicd.apps.googleusercontent.com', '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', '/auth/google/callback', '2023-10-05 06:00:25', '2024-01-08 09:46:30');
 
 -- --------------------------------------------------------
 
@@ -3332,10 +3424,10 @@ INSERT INTO `social_logins` (`id`, `fb_login_status`, `fb_app_id`, `fb_app_secre
 
 CREATE TABLE `storage_types` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rom` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1' COMMENT '0=>Inactive; 1=>Active',
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ram` varchar(255) DEFAULT NULL,
+  `rom` varchar(255) DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=>Inactive; 1=>Active',
+  `slug` varchar(255) NOT NULL,
   `serial` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3366,10 +3458,10 @@ INSERT INTO `storage_types` (`id`, `ram`, `rom`, `status`, `slug`, `serial`, `cr
 CREATE TABLE `subcategories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -3400,7 +3492,7 @@ INSERT INTO `subcategories` (`id`, `category_id`, `name`, `icon`, `image`, `slug
 
 CREATE TABLE `subscribed_users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3425,7 +3517,14 @@ INSERT INTO `subscribed_users` (`id`, `email`, `created_at`, `updated_at`) VALUE
 (19, 'alifhossain174@gmail.com', '2023-11-09 06:42:13', NULL),
 (20, 'alifhossain174@gmail.com', '2023-11-09 06:54:05', NULL),
 (21, 'alifhossain174@gmail.com', '2023-11-09 06:57:59', NULL),
-(22, 'alifhossain174@gmail.com', '2023-12-18 11:58:04', NULL);
+(22, 'alifhossain174@gmail.com', '2023-12-18 11:58:04', NULL),
+(23, 'fahimmit05@gmail.com', '2024-01-10 06:03:24', NULL),
+(24, 'fahimmit05@gmail.com', '2024-01-10 06:04:05', NULL),
+(25, 'fahimmit05@gmail.com', '2024-01-10 06:59:11', NULL),
+(26, 'fahimmit05@gmail.com', '2024-01-10 07:00:52', NULL),
+(27, 'fahimmit05@gmail.com', '2024-01-10 11:24:16', NULL),
+(28, 'fahimmit05@gmail.com', '2024-01-10 11:36:10', NULL),
+(29, 'fahimmit05@gmail.com', '2024-01-10 14:05:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -3438,8 +3537,8 @@ CREATE TABLE `support_messages` (
   `support_ticket_id` bigint(20) UNSIGNED NOT NULL,
   `sender_id` bigint(20) UNSIGNED NOT NULL,
   `sender_type` tinyint(4) NOT NULL COMMENT '1=>Support Agent; 2=>Customer',
-  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` longtext DEFAULT NULL,
+  `attachment` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3452,13 +3551,13 @@ CREATE TABLE `support_messages` (
 
 CREATE TABLE `support_tickets` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ticket_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ticket_no` varchar(255) NOT NULL,
   `support_taken_by` bigint(20) UNSIGNED NOT NULL COMMENT 'user_id',
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` longtext DEFAULT NULL,
+  `attachment` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Pending;1=>In Progress;2=>Solved;3=>Rejected;4=>On Hold',
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3471,10 +3570,10 @@ CREATE TABLE `support_tickets` (
 
 CREATE TABLE `terms_and_policies` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `terms` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `privacy_policy` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `shipping_policy` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `return_policy` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `terms` longtext DEFAULT NULL,
+  `privacy_policy` longtext DEFAULT NULL,
+  `shipping_policy` longtext DEFAULT NULL,
+  `return_policy` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3494,11 +3593,11 @@ INSERT INTO `terms_and_policies` (`id`, `terms`, `privacy_policy`, `shipping_pol
 
 CREATE TABLE `testimonials` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext NOT NULL,
   `rating` double NOT NULL,
-  `customer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_name` varchar(255) NOT NULL,
+  `customer_image` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3524,7 +3623,7 @@ CREATE TABLE `unions` (
   `name` varchar(25) NOT NULL,
   `bn_name` varchar(25) NOT NULL,
   `url` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `unions`
@@ -8086,7 +8185,7 @@ INSERT INTO `unions` (`id`, `upazilla_id`, `name`, `bn_name`, `url`) VALUES
 
 CREATE TABLE `units` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -8116,7 +8215,7 @@ CREATE TABLE `upazilas` (
   `name` varchar(25) NOT NULL,
   `bn_name` varchar(25) NOT NULL,
   `url` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `upazilas`
@@ -8626,18 +8725,18 @@ INSERT INTO `upazilas` (`id`, `district_id`, `name`, `bn_name`, `url`) VALUES
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `verification_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Used for Forget Password Verification',
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `provider_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `provider_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `verification_code` varchar(255) DEFAULT NULL COMMENT 'Used for Forget Password Verification',
+  `password` varchar(255) DEFAULT NULL,
+  `provider_name` varchar(255) DEFAULT NULL,
+  `provider_id` varchar(255) DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 3 COMMENT '1=>Admin; 2=>User/Shop; 3=>Customer',
-  `address` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` longtext DEFAULT NULL,
   `balance` double NOT NULL DEFAULT 0 COMMENT 'In BDT',
   `delete_request_submitted` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>No; 1=>Yes',
   `delete_request_submitted_at` datetime DEFAULT NULL,
@@ -8659,11 +8758,15 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (34, NULL, 'Istiak Ahamed Sifat', '01580331693', 'istiakahamed30@gmail.com', NULL, NULL, '$2y$10$YqA0JvBZBWRSi22n6ue4VeggAfeG7zJqFWuqEKJzFr1.VpmWkcNSe', NULL, NULL, NULL, 2, 'Ali nekir dewry, Nazimuddin Road, Dhaka.', 0, 0, NULL, 1, '2023-07-15 19:55:06', '2023-12-18 11:04:50'),
 (35, 'userProfileImages/2eYoO1689479533.jpg', 'Ariful', '01643533365', 'ariful@gmail.com', NULL, '772114', '$2y$10$x5m3cQUgd.RHgHWAT7iCu.GMovOLWNBrT9lnB8orb54P5QeU0ls/6', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-16 13:51:25', '2023-07-19 04:38:59'),
 (36, NULL, 'TestUser By Getup', '01969005039', 'test@gmail.com', NULL, NULL, '$2y$10$/9ZP9Bi/GH51I6kZyZTDVefcQI1dAJSOnv/SlPEIT2YPQgIkgiky2', NULL, NULL, NULL, 2, 'Dhaka, Bangladesh', 0, 0, NULL, 0, '2023-07-18 08:17:43', '2023-11-09 05:38:08'),
-(45, NULL, 'Md Fahim Hossain', '01969005041', 'alifhossain174@gmail.com', '2023-10-22 05:47:07', '926152', '$2y$10$XlL/0J.FotoN/14AFx2Zt.xTesgTYBb5XCCG1aLarpIvIIbetp6CC', NULL, NULL, NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 05:20:33', '2023-12-18 11:56:15'),
+(45, NULL, 'Md Fahim Hossain', '01969005041', 'alifhossain174@gmail.com', '2024-01-10 05:32:30', '276379', '$2y$12$97i8G9GQINIPaz.ATIZBuOoHWgaQcacSEEA3i2hm5UZt4B27zoRQq', NULL, NULL, NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 05:20:33', '2024-01-10 05:32:30'),
 (47, NULL, 'Md Fahim Hossain', '01969005035', NULL, '2023-10-22 06:11:03', '269200', '$2y$10$ryL5dk9r0et950I4Ux6PXOF11a8L/R5xuGohH5u7yzT2ol3niUWyi', NULL, NULL, NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 06:08:52', '2023-10-22 06:11:03'),
 (49, NULL, 'gyuvvyvt', NULL, 'gugug@gmail.com', NULL, '905201', '$2y$10$PtjpDvvP1tpv7o5XI.ZLH.Ga9I5.7ri14aGQIammYShOCtqfL4TNy', NULL, NULL, NULL, 3, 'vhvhv', 0, 0, NULL, 0, '2023-10-23 09:25:59', NULL),
 (50, NULL, 'ub', 'bubbu&t.gik', NULL, NULL, '473080', '$2y$10$X.P55zHGNauDZ73s9rM1W.1x2b472wYgpPD968p0tGqV3xltRcRCa', NULL, NULL, NULL, 3, 'uvu', 0, 0, NULL, 0, '2023-10-23 09:28:29', NULL),
-(55, 'userProfileImages/zs2911698216503.jpg', 'Arif', '98666776778', 'dcsuperstar22@gmail.com', '2023-10-25 02:00:12', '973071', '$2y$10$hiI/K.pthRSg4U85.dMCW.0jZ5OFmsGqHadIv0uPP0zr0aySd32zC', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2023-10-25 01:55:10', '2023-10-25 06:39:48');
+(88, 'userProfileImages/pIFpL1704942806.png', 'Md. Fahim Hossain', NULL, 'fahimmit05@gmail.com', '2024-01-08 09:41:34', NULL, '$2y$12$Fgzsix1PTdHT6W0O1xGriODp0IqH8Uz/nQbYwYoZc/qZVIwgN3.ra', 'google', '116750798120712918592', NULL, 3, 'Gulshan-1, Dhaka', 0, 0, NULL, 1, NULL, NULL),
+(95, NULL, 'Clayton Leach', NULL, 'livir@mailinator.com', '2024-01-08 10:04:36', '182695', '$2y$12$Y.r3C/KlGvsxV2XyCXgPd.xIXFtH4fzr8olHIzD/UceWElae16h.i', NULL, NULL, NULL, 3, 'Quo et impedit temp', 0, 0, NULL, 0, '2024-01-08 10:04:08', '2024-01-08 10:04:36'),
+(96, NULL, 'Britanney Landry', NULL, 'ruvuse@mailinator.com', '2024-01-08 10:18:02', '164129', '$2y$12$yvx1EqdCf7KTiVhLiRofvOi3XU6hQKBNzR8SMN7.zEB7NWknZ1uaC', NULL, NULL, NULL, 3, 'Debitis in perferend', 0, 0, NULL, 0, '2024-01-08 10:16:13', '2024-01-08 10:18:02'),
+(97, NULL, 'Daquan Avila', NULL, 'zakic@mailinator.com', '2024-01-08 10:18:39', '442927', '$2y$12$SJSoQtRZ0XT5PJxdesWH0uFt0bxVfiCdURFqpbmrx9RaA2awWQG2q', NULL, NULL, NULL, 3, 'Est architecto dolor', 0, 0, NULL, 0, '2024-01-08 10:18:26', '2024-01-08 10:18:39'),
+(99, NULL, 'Warren Johnson', NULL, 'kyrobotu@mailinator.com', NULL, '173396', '$2y$12$bqJ0KnteTADF8kjT8dcds.4e11ZmS7qcrwU7Py3wfgNKj9uSXpEeC', NULL, NULL, NULL, 3, 'Elit tempora eligen', 0, 0, NULL, 0, '2024-01-09 07:57:34', '2024-01-09 07:57:34');
 
 -- --------------------------------------------------------
 
@@ -8674,15 +8777,15 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 CREATE TABLE `user_addresses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `address_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `post_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address_type` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `address` longtext DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `post_code` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -8708,13 +8811,13 @@ INSERT INTO `user_addresses` (`id`, `user_id`, `address_type`, `name`, `address`
 CREATE TABLE `user_cards` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '1=>Visa; 2=>Master',
-  `card_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `card_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `expiry_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) DEFAULT NULL COMMENT '1=>Visa; 2=>Master',
+  `card_name` varchar(255) NOT NULL,
+  `card_no` varchar(255) NOT NULL,
+  `expiry_date` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL,
   `default` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1=>Default; 0=>Not',
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -8727,8 +8830,8 @@ CREATE TABLE `user_cards` (
 
 CREATE TABLE `user_roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -8753,10 +8856,10 @@ CREATE TABLE `user_role_permissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `role_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role_name` varchar(255) DEFAULT NULL,
   `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `route` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `route_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `route` varchar(255) NOT NULL,
+  `route_name` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -8814,7 +8917,7 @@ CREATE TABLE `wish_lists` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -9250,7 +9353,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -9334,7 +9437,7 @@ ALTER TABLE `divisions`
 -- AUTO_INCREMENT for table `email_configures`
 --
 ALTER TABLE `email_configures`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `email_templates`
@@ -9388,25 +9491,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -9454,7 +9557,7 @@ ALTER TABLE `product_question_answers`
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=401;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=402;
 
 --
 -- AUTO_INCREMENT for table `product_sizes`
@@ -9496,7 +9599,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sims`
@@ -9544,7 +9647,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `subscribed_users`
 --
 ALTER TABLE `subscribed_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `support_messages`
@@ -9592,7 +9695,7 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`
@@ -9622,7 +9725,7 @@ ALTER TABLE `user_role_permissions`
 -- AUTO_INCREMENT for table `wish_lists`
 --
 ALTER TABLE `wish_lists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
