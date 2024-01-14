@@ -233,7 +233,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="tawk_chat_link">Tawk Chat Link</label>
+                                            <label for="tawk_chat_link">Tawk.to Property ID</label>
                                             <input type="text" class="form-control" value="{{$generalInfo->tawk_chat_link}}" id="tawk_chat_link" name="tawk_chat_link" placeholder="ex. https://embed.tawk.to/5a7c31ed7591465c7077c48/default">
                                         </div>
 
