@@ -90,7 +90,7 @@ class PromoCodeController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
                         $btn = ' <a href="'.url('edit/promo/code').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
-                        // $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         return $btn;
                     })
                     ->rawColumns(['action', 'status'])
@@ -161,5 +161,18 @@ class PromoCodeController extends Controller
 
         Toastr::success('Promo Code Updated', 'Success');
         return redirect('/view/all/promo/codes');
+    }
+
+    public function removePromoCode($slug){
+
+        $data = PromoCode::where('slug', $slug)->first();
+        if($data->icon){
+            if(file_exists(public_path($data->icon))){
+                unlink(public_path($data->icon));
+            }
+        }
+        PromoCode::where('slug', $slug)->delete();
+        return response()->json(['success' => 'Category deleted successfully.']);
+
     }
 }

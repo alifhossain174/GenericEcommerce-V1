@@ -116,6 +116,24 @@
             ],
         });
 
+
+        $('body').on('click', '.deleteBtn', function () {
+            var slug = $(this).data("id");
+            if(confirm("Are You sure want to delete !")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('remove/promo/code') }}"+'/'+slug,
+                    success: function (data) {
+                        table.draw(false);
+                        toastr.error("Data has been Deleted", "Deleted Successfully");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                    }
+                });
+            }
+        });
+
     </script>
 
 @endsection

@@ -33,12 +33,7 @@
                     <div class="row">
                         <div class="col-sm-3 mb-2 mb-sm-0">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link active show" id="v-pills-gr-tab" data-toggle="pill" href="#v-pills-gr" role="tab" aria-controls="v-pills-gr"
-                                    aria-selected="true">
-                                    <i class="mdi mdi-home-variant d-lg-none d-block"></i>
-                                    <span class="d-none d-lg-block">Google Recaptcha</span>
-                                </a>
-                                <a class="nav-link" id="v-pills-ga-tab" data-toggle="pill" href="#v-pills-ga" role="tab" aria-controls="v-pills-ga"
+                                <a class="nav-link active show" id="v-pills-ga-tab" data-toggle="pill" href="#v-pills-ga" role="tab" aria-controls="v-pills-ga"
                                     aria-selected="false">
                                     <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
                                     <span class="d-none d-lg-block">Google Analytic</span>
@@ -48,15 +43,21 @@
                                     <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
                                     <span class="d-none d-lg-block">Google Tag Manager</span>
                                 </a>
-                                <a class="nav-link" id="v-pills-sl-tab" data-toggle="pill" href="#v-pills-sl" role="tab" aria-controls="v-pills-sl"
-                                    aria-selected="false">
-                                    <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
-                                    <span class="d-none d-lg-block">Social Login</span>
-                                </a>
                                 <a class="nav-link" id="v-pills-fp-tab" data-toggle="pill" href="#v-pills-fp" role="tab" aria-controls="v-pills-fp"
                                     aria-selected="false">
                                     <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
                                     <span class="d-none d-lg-block">Facebook Pixel</span>
+                                </a>
+
+                                <a class="nav-link" id="v-pills-gr-tab" data-toggle="pill" href="#v-pills-gr" role="tab" aria-controls="v-pills-gr"
+                                    aria-selected="true">
+                                    <i class="mdi mdi-home-variant d-lg-none d-block"></i>
+                                    <span class="d-none d-lg-block">Google Recaptcha</span>
+                                </a>
+                                <a class="nav-link" id="v-pills-sl-tab" data-toggle="pill" href="#v-pills-sl" role="tab" aria-controls="v-pills-sl"
+                                    aria-selected="false">
+                                    <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
+                                    <span class="d-none d-lg-block">Social Login</span>
                                 </a>
                                 <a class="nav-link" id="v-pills-tawk-tab" data-toggle="pill" href="#v-pills-tawk" role="tab" aria-controls="v-pills-tawk"
                                     aria-selected="false">
@@ -73,33 +74,7 @@
 
                         <div class="col-sm-9">
                             <div class="tab-content" id="v-pills-tabContent">
-                                <div class="tab-pane fade active show" id="v-pills-gr" role="tabpanel" aria-labelledby="v-pills-gr-tab">
-                                    <form action="{{url('update/google/recaptcha')}}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="captcha_status">Allow Recaptcha</label>
-                                            <select id="captcha_status" class="form-control" name="captcha_status" required>
-                                                <option value="1" @if($googleRecaptcha->status == 1) selected @endif>Enable Recaptcha</option>
-                                                <option value="0" @if($googleRecaptcha->status == 0) selected @endif>Disable Recaptcha</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="captcha_site_key">Captcha Site Key</label>
-                                            <input type="text" class="form-control" value="{{$googleRecaptcha->captcha_site_key}}" id="captcha_site_key" name="captcha_site_key" placeholder="ex. 6LcVO6cbAAAAOzIEwPlU66nL1rxD4VAS38tjpBX">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="captcha_secret_key">Captcha Secret Key</label>
-                                            <input type="text" class="form-control" value="{{$googleRecaptcha->captcha_secret_key}}" id="captcha_secret_key" name="captcha_secret_key" placeholder="ex. 6LcVO6cbAAAALVNrpZfNRfd0Gy_9a_fJRLiMVUI">
-                                        </div>
-
-                                        <div class="form-group mb-2">
-                                            <button type="submit" class="btn btn-info">✓ Update</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-ga" role="tabpanel" aria-labelledby="v-pills-ga-tab">
+                                <div class="tab-pane fade active show" id="v-pills-ga" role="tabpanel" aria-labelledby="v-pills-ga-tab">
                                     <form action="{{url('update/google/analytic')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
@@ -134,6 +109,55 @@
                                         <div class="form-group">
                                             <label for="google_analytic_tracking_id">Google Tag Manager ID</label>
                                             <input type="text" class="form-control" value="{{$generalInfo->google_tag_manager_id}}" id="google_tag_manager_id" name="google_tag_manager_id" placeholder="ex. GTM-546FMKZS">
+                                        </div>
+
+                                        <div class="form-group mb-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-fp" role="tabpanel" aria-labelledby="v-pills-fp-tab">
+                                    <form action="{{url('update/facebook/pixel')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="fb_pixel_status">Allow Facebook Pixel</label>
+                                            <select id="fb_pixel_status" class="form-control" name="fb_pixel_status" required>
+                                                <option value="1" @if($generalInfo->fb_pixel_status == 1) selected @endif>Enable Facebook Pixel</option>
+                                                <option value="0" @if($generalInfo->fb_pixel_status == 0) selected @endif>Disable Facebook Pixel</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="fb_pixel_app_id">Facebook App Id</label>
+                                            <input type="text" class="form-control" value="{{$generalInfo->fb_pixel_app_id}}" id="fb_pixel_app_id" name="fb_pixel_app_id" placeholder="ex. 97291160691059">
+                                        </div>
+
+                                        <div class="form-group mb-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                                <div class="tab-pane fade" id="v-pills-gr" role="tabpanel" aria-labelledby="v-pills-gr-tab">
+                                    <form action="{{url('update/google/recaptcha')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="captcha_status">Allow Recaptcha</label>
+                                            <select id="captcha_status" class="form-control" name="captcha_status" required>
+                                                <option value="1" @if($googleRecaptcha->status == 1) selected @endif>Enable Recaptcha</option>
+                                                <option value="0" @if($googleRecaptcha->status == 0) selected @endif>Disable Recaptcha</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="captcha_site_key">Captcha Site Key</label>
+                                            <input type="text" class="form-control" value="{{$googleRecaptcha->captcha_site_key}}" id="captcha_site_key" name="captcha_site_key" placeholder="ex. 6LcVO6cbAAAAOzIEwPlU66nL1rxD4VAS38tjpBX">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="captcha_secret_key">Captcha Secret Key</label>
+                                            <input type="text" class="form-control" value="{{$googleRecaptcha->captcha_secret_key}}" id="captcha_secret_key" name="captcha_secret_key" placeholder="ex. 6LcVO6cbAAAALVNrpZfNRfd0Gy_9a_fJRLiMVUI">
                                         </div>
 
                                         <div class="form-group mb-2">
@@ -197,27 +221,6 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="tab-pane fade" id="v-pills-fp" role="tabpanel" aria-labelledby="v-pills-fp-tab">
-                                    <form action="{{url('update/facebook/pixel')}}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="fb_pixel_status">Allow Facebook Pixel</label>
-                                            <select id="fb_pixel_status" class="form-control" name="fb_pixel_status" required>
-                                                <option value="1" @if($generalInfo->fb_pixel_status == 1) selected @endif>Enable Facebook Pixel</option>
-                                                <option value="0" @if($generalInfo->fb_pixel_status == 0) selected @endif>Disable Facebook Pixel</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="fb_pixel_app_id">Facebook App Id</label>
-                                            <input type="text" class="form-control" value="{{$generalInfo->fb_pixel_app_id}}" id="fb_pixel_app_id" name="fb_pixel_app_id" placeholder="ex. 97291160691059">
-                                        </div>
-
-                                        <div class="form-group mb-2">
-                                            <button type="submit" class="btn btn-info">✓ Update</button>
-                                        </div>
-                                    </form>
-                                </div>
                                 <div class="tab-pane fade" id="v-pills-tawk" role="tabpanel" aria-labelledby="v-pills-tawk-tab">
                                     <form action="{{url('update/tawk/chat/info')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
@@ -230,7 +233,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="tawk_chat_link">Tawk Chat Link</label>
+                                            <label for="tawk_chat_link">Tawk.to Direct Chat Link</label>
                                             <input type="text" class="form-control" value="{{$generalInfo->tawk_chat_link}}" id="tawk_chat_link" name="tawk_chat_link" placeholder="ex. https://embed.tawk.to/5a7c31ed7591465c7077c48/default">
                                         </div>
 
