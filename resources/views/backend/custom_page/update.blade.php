@@ -47,7 +47,7 @@
 
                                 <div class="form-group">
                                     <label for="meta_keywords">Page Meta Keywords <small class="text-info font-weight-bolder">(SEO)</small></label>
-                                    <input type="text" id="meta_keywords" data-role="tagsinput" value="{{$data->meta_keywords}}" name="meta_keywords" class="form-control">
+                                    <input type="text" id="meta_keywords" data-role="tagsinput" value="{{$data->meta_keyword}}" name="meta_keywords" class="form-control">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('meta_keywords')
                                             {{ $message }}
