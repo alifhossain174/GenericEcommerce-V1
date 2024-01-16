@@ -186,8 +186,7 @@
     <li><a href="{{ url('/view/payment/history') }}"><i class="feather-dollar-sign"></i><span>Payment History</span></a></li>
 
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate
-                Report</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/sales/report') }}">Sales Report</a></li>
         </ul>
@@ -242,16 +241,14 @@
                     @endphp)</a></li>
         </ul>
     </li>
-    <li><a href="{{ url('/view/all/contact/requests') }}"><i class="feather-phone-forwarded"></i><span>Contact
-                Request</span></a></li>
-    <li><a href="{{ url('/view/all/subscribed/users') }}"><i class="feather-user-check"></i><span>Subscribed
-                Users</span></a></li>
+    <li><a href="{{ url('/view/all/contact/requests') }}"><i class="feather-phone-forwarded"></i><span>Contact Request</span></a></li>
+    <li><a href="{{ url('/view/all/subscribed/users') }}"><i class="feather-user-check"></i><span>Subscribed Users</span></a></li>
+
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders &
-                Banners</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-image"></i><span>Sliders & Banners</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/view/all/sliders') }}">View All Sliders</a></li>
             <li><a href="{{ url('/view/all/banners') }}">View All Banners</a></li>
@@ -259,16 +256,14 @@
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i
-                class="feather-message-square"></i><span>Testimonials</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li>
             <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li>
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage
-                Blogs</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li>
             <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li>
@@ -276,13 +271,19 @@
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms &
-                Policies</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-alert-triangle"></i><span>Terms & Policies</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/terms/and/condition') }}">Terms & Condition</a></li>
             <li><a href="{{ url('/view/privacy/policy') }}">Privacy Policy</a></li>
             <li><a href="{{ url('/view/shipping/policy') }}">Shipping Policy</a></li>
             <li><a href="{{ url('/view/return/policy') }}">Return Policy</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-plus"></i><span>Cutom Pages</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/create/new/page') }}">Create New Page</a></li>
+            <li><a href="{{ url('/view/all/pages') }}">View All Pages</a></li>
         </ul>
     </li>
     <li><a href="{{ url('/about/us/page') }}"><i class="feather-globe"></i><span>About Us</span></a></li>

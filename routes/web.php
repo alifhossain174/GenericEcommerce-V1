@@ -28,6 +28,7 @@ use App\Http\Controllers\PermissionRoutesController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\DeliveryChargeController;
+use App\Http\Controllers\CustomPageController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
 
@@ -369,6 +370,15 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::post('update/upazila/info', [DeliveryChargeController::class, 'updateUpazilaInfo'])->name('UpdateUpazilaInfo');
     Route::post('save/new/upazila', [DeliveryChargeController::class, 'saveNewUpazila'])->name('SaveNewUpazila');
     Route::get('delete/upazila/{id}', [DeliveryChargeController::class, 'deleteUpazila'])->name('DeleteUpazila');
+
+
+    // custom page
+    Route::get('create/new/page', [CustomPageController::class, 'createNewPage'])->name('CreateNewPage');
+    Route::post('save/custom/page', [CustomPageController::class, 'saveCustomPage'])->name('SaveCustomPage');
+    Route::get('view/all/pages', [CustomPageController::class, 'viewCustomPages'])->name('ViewCustomPages');
+    Route::get('delete/custom/page/{slug}', [CustomPageController::class, 'deleteCustomPage'])->name('DeleteCustomPage');
+    Route::get('edit/custom/page/{slug}', [CustomPageController::class, 'editCustomPage'])->name('EditCustomPage');
+    Route::post('update/custom/page', [CustomPageController::class, 'updateCustomPage'])->name('UpdateCustomPage');
 
 
     // generate report

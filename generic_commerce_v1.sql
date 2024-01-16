@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2024 at 10:31 AM
+-- Generation Time: Jan 16, 2024 at 12:30 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -252,7 +252,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`, `featured`, `show_on_navbar`, `serial`, `created_at`, `updated_at`) VALUES
-(17, 'Laptop', 'category_images/wNTXD1704003160.svg', NULL, 'laptop', 1, 1, 1, 1, '2023-12-31 06:12:40', '2023-12-31 06:25:04'),
+(17, 'Laptop', 'category_images/wNTXD1704003160.svg', NULL, 'laptop', 1, 1, 0, 1, '2023-12-31 06:12:40', '2024-01-16 09:42:43'),
 (18, 'Mobile', 'category_images/MLOUm1704003277.svg', NULL, 'mobile', 1, 1, 1, 1, '2023-12-31 06:14:37', '2023-12-31 06:25:07'),
 (19, 'Gadget', 'category_images/rHVtn1704003317.svg', NULL, 'gadget', 1, 1, 1, 1, '2023-12-31 06:15:17', '2023-12-31 06:25:09'),
 (20, 'Cable', 'category_images/UlwHJ1704003328.svg', NULL, 'cable', 1, 0, 1, 1, '2023-12-31 06:15:28', NULL),
@@ -638,6 +638,33 @@ INSERT INTO `country` (`id`, `iso`, `name`, `nicename`, `iso3`, `numcode`, `phon
 (237, 'YE', 'YEMEN', 'Yemen', 'YEM', 887, 967),
 (238, 'ZM', 'ZAMBIA', 'Zambia', 'ZMB', 894, 260),
 (239, 'ZW', 'ZIMBABWE', 'Zimbabwe', 'ZWE', 716, 263);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `custom_pages`
+--
+
+CREATE TABLE `custom_pages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `page_title` varchar(255) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_keyword` varchar(255) DEFAULT NULL,
+  `meta_description` longtext DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `custom_pages`
+--
+
+INSERT INTO `custom_pages` (`id`, `image`, `page_title`, `description`, `slug`, `status`, `meta_title`, `meta_keyword`, `meta_description`, `created_at`, `updated_at`) VALUES
+(1, 'custom_pages/G85nz1705403195.jpg', 'News & Trending Topics', '<p>বাংলাদেশের অন্যতম প্রাচীন ও ঐতিহ্যবাহী মহানগরী। বাংলাদেশের সবচেয়ে সুন্দর ও পরিস্কার পরিছন্ন নগরী রাজশাহী। এটি <a href=\"https://bn.wikipedia.org/w/index.php?title=%E0%A6%B8%E0%A6%AE%E0%A6%B8%E0%A7%8D%E0%A6%A4_%E0%A6%89%E0%A6%A4%E0%A7%8D%E0%A6%A4%E0%A6%B0%E0%A6%AC%E0%A6%99%E0%A7%8D%E0%A6%97%E0%A7%87%E0%A6%B0&amp;action=edit&amp;redlink=1\">সমস্ত উত্তরবঙ্গের</a> সবচেয়ে বড় শহর। রাজশাহী শহর <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%AA%E0%A6%A6%E0%A7%8D%E0%A6%AE%E0%A6%BE\">পদ্মা</a> নদীর তীরে অবস্থিত। এটি <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%B0%E0%A6%BE%E0%A6%9C%E0%A6%B6%E0%A6%BE%E0%A6%B9%E0%A7%80_%E0%A6%AC%E0%A6%BF%E0%A6%AD%E0%A6%BE%E0%A6%97\">রাজশাহী বিভাগের</a> বিভাগীয় শহর। বর্তমানে বাংলাদেশের অন্যতম সুন্দর শহরের পাশাপাশি সিল্কসিটি, গ্রীণসিটি, ক্লিনসিটি ও শিক্ষা নগরী রাজশাহী। বাংলাদেশের শহরগুলোর মধ্যে সবচেয়ে কম বায়ু দূষণের শহর রাজশাহী। রাজশাহী শহরের নিকটে প্রাচীন বাংলার বেশ কয়েকটি <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%B0%E0%A6%BE%E0%A6%9C%E0%A6%A7%E0%A6%BE%E0%A6%A8%E0%A7%80\">রাজধানী</a> শহর অবস্থিত। এদের মাঝে <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%97%E0%A7%8C%E0%A6%A1%E0%A6%BC\">লক্ষ্ণৌতি</a> বা লক্ষণাবতী, <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%AE%E0%A6%B9%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%A5%E0%A6%BE%E0%A6%A8%E0%A6%97%E0%A6%A1%E0%A6%BC\">মহাস্থানগড়</a> ইত্যাদি উল্লেখযোগ্য। রাজশাহী তার আকর্ষণীয় <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%B0%E0%A7%87%E0%A6%B6%E0%A6%AE%E0%A7%80%E0%A6%AC%E0%A6%B8%E0%A7%8D%E0%A6%A4%E0%A7%8D%E0%A6%B0\">রেশমীবস্ত্র</a>, <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%86%E0%A6%AE\">আম</a>, <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%B2%E0%A6%BF%E0%A6%9A%E0%A7%81\">লিচু</a> এবং মিষ্টান্নসামগ্রীর জন্য প্রসিদ্ধ। <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%B0%E0%A6%BE%E0%A6%9C%E0%A6%B6%E0%A6%BE%E0%A6%B9%E0%A7%80_%E0%A6%B0%E0%A7%87%E0%A6%B6%E0%A6%AE\">রেশমীবস্ত্রের</a> কারণে রাজশাহীকে <strong>রেশম নগরী</strong> নামেও ডাকা হয়। রাজশাহী শহরে উল্লেখযোগ্য সংখ্যক শিক্ষাপ্রতিষ্ঠান রয়েছে, যাদের অনেকগুলোর খ্যাতি দেশের গণ্ডি ছাড়িয়ে বিদেশেও ছড়িয়ে পড়েছে। এর মধ্যে বাংলাদেশের দ্বিতীয় বৃহততম বিশ্ববিদ্যালয় <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%AE%E0%A6%B8%E0%A6%9C%E0%A6%BF%E0%A6%A6\">রাজশাহী বিশ্ববিদ্যালয়</a> ও দেশসেরা <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%AE%E0%A6%B8%E0%A6%9C%E0%A6%BF%E0%A6%A6\">রাজশাহী কলেজ</a> এ শহরে অবস্থিত। দেশের এবং দেশের বাইরের বিভিন্ন জায়গা থেকে রাজশাহীতে পড়াশোনার জন্য অনেক শিক্ষার্থী আসেন। রাজশাহী শহরে এবং এর আশেপাশে বেশ কিছু বিখ্যাত ও ঐতিহাসিক <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%AE%E0%A6%B8%E0%A6%9C%E0%A6%BF%E0%A6%A6\">মসজিদ</a>, <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%AE%E0%A6%A8%E0%A7%8D%E0%A6%A6%E0%A6%BF%E0%A6%B0\">মন্দির</a> ও উপাসনালয় তথা ঐতিহাসিক স্থাপনা রয়েছে। শহরটি <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%A8%E0%A6%93%E0%A6%B9%E0%A6%BE%E0%A6%9F%E0%A6%BE\">নওহাটা</a> এবং <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%95%E0%A6%BE%E0%A6%9F%E0%A6%BE%E0%A6%96%E0%A6%BE%E0%A6%B2%E0%A7%80\">কাটাখালী</a> এ দুটি স্যাটেলাইট টাউন বা <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%89%E0%A6%AA%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%B9_%E0%A6%B6%E0%A6%B9%E0%A6%B0\">উপগ্রহ শহর</a> দ্বারা বেষ্টিত। এ দুটি শহর এবং রাজশাহী শহর একসাথে প্রায় ১৮ লাখ জনসংখ্যার একটি <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%AE%E0%A6%B9%E0%A6%BE%E0%A6%A8%E0%A6%97%E0%A6%B0_%E0%A6%8F%E0%A6%B2%E0%A6%BE%E0%A6%95%E0%A6%BE\">মহানগর এলাকায়</a> পরিণত হয়েছে। জনসংখ্যার বিচারে এটি বর্তমানে তৃতীয় বৃহত্তম শহর এবং নগর আয়তনে এটি চতুর্থ বৃহত্তম শহর। বর্তমানে রাজশাহী শহরের নগরায়নের হার উল্লেখযোগ্য হারে বাড়ছে। রাজশাহী <a href=\"https://bn.wikipedia.org/wiki/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0_%E0%A6%B6%E0%A6%B9%E0%A6%B0\">বাংলাদেশের শহরগুলির</a> মধ্যে সবচেয়ে পরিচ্ছন্ন এবং সবুজ।</p>', 'news-trending-topics', 1, 'Rajshahi', NULL, 'Rajshahi City', '2024-01-16 11:30:42', '2024-01-16 11:30:42');
 
 -- --------------------------------------------------------
 
@@ -1074,7 +1101,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (94, '2023_10_18_135527_create_about_us_table', 45),
 (95, '2023_10_22_122627_create_product_sizes_table', 46),
 (96, '2023_11_08_144020_create_email_templates_table', 47),
-(97, '2023_12_17_125055_create_config_setups_table', 48);
+(97, '2023_12_17_125055_create_config_setups_table', 48),
+(98, '2024_01_16_155239_create_custom_pages_table', 49);
 
 -- --------------------------------------------------------
 
@@ -8928,6 +8956,12 @@ ALTER TABLE `country`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `custom_pages`
+--
+ALTER TABLE `custom_pages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `device_conditions`
 --
 ALTER TABLE `device_conditions`
@@ -9337,6 +9371,12 @@ ALTER TABLE `country`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
 
 --
+-- AUTO_INCREMENT for table `custom_pages`
+--
+ALTER TABLE `custom_pages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `device_conditions`
 --
 ALTER TABLE `device_conditions`
@@ -9400,7 +9440,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `notifications`

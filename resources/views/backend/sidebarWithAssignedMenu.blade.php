@@ -78,6 +78,11 @@
 
     // $webPagesModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%about/us/page%')->orWhere('route', 'like', '%view/all/faqs%')->get();
     $blogModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%blog/categories%')->orWhere('route', 'like', '%add/new/blog%')->orWhere('route', 'like', '%view/all/blogs%')->get();
+    $customPageModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
+                                                ->where('route', 'like', '%create/new/page%')
+                                                ->orWhere('route', 'like', '%view/all/pages%')
+                                                ->get();
+
     $backupModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%backup%')->get();
 
     $reportModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%sales/report%')->get();
@@ -406,7 +411,7 @@
     @if(checkAuth("view/all/subscribed/users")) <li><a href="{{ url('/view/all/subscribed/users') }}"><i class="feather-user-check"></i><span>Subscribed Users</span></a></li> @endif
 
 
-    @if(count($sliderBannerModule) > 0 || count($termsPolicyModule) > 0 || count($testimonialModule) > 0 || checkAuth("about/us/page") || checkAuth("view/all/faqs") || count($blogModule) > 0)
+    @if(count($sliderBannerModule) > 0 || count($termsPolicyModule) > 0 || count($testimonialModule) > 0 || count($customPageModule) > 0 || checkAuth("about/us/page") || checkAuth("view/all/faqs") || count($blogModule) > 0)
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Content Management</li>
     @endif
@@ -418,6 +423,27 @@
             @if(checkAuth("view/all/sliders")) <li><a href="{{ url('/view/all/sliders') }}">View All Sliders</a></li> @endif
             @if(checkAuth("view/all/banners")) <li><a href="{{ url('/view/all/banners') }}">View All Banners</a></li> @endif
             @if(checkAuth("view/promotional/banner")) <li><a href="{{ url('/view/promotional/banner') }}">Promotional Banner</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    @if ($testimonialModule && count($testimonialModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("add/testimonial")) <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li> @endif
+            @if(checkAuth("view/testimonials")) <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li> @endif
+        </ul>
+    </li>
+    @endif
+
+    @if ($blogModule && count($blogModule) > 0)
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("blog/categories")) <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li> @endif
+            @if(checkAuth("add/new/blog")) <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li> @endif
+            @if(checkAuth("view/all/blogs")) <li><a href="{{ url('/view/all/blogs') }}">View All Blogs</a></li> @endif
         </ul>
     </li>
     @endif
@@ -434,12 +460,12 @@
     </li>
     @endif
 
-    @if ($testimonialModule && count($testimonialModule) > 0)
+    @if ($customPageModule && count($customPageModule) > 0)
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-message-square"></i><span>Testimonials</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-plus"></i><span>Cutom Pages</span></a>
         <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("add/testimonial")) <li><a href="{{ url('/add/testimonial') }}">Add New Testimonial</a></li> @endif
-            @if(checkAuth("view/testimonials")) <li><a href="{{ url('/view/testimonials') }}">View All Testimonials</a></li> @endif
+            @if(checkAuth("create/new/page")) <li><a href="{{ url('/create/new/page') }}">Create New Page</a></li> @endif
+            @if(checkAuth("view/all/pages")) <li><a href="{{ url('/view/all/pages') }}">View All Pages</a></li> @endif
         </ul>
     </li>
     @endif
@@ -448,16 +474,7 @@
     @if(checkAuth("view/all/faqs")) <li><a href="{{ url('/view/all/faqs') }}"><i class="far fa-question-circle"></i><span>FAQ's</span></a></li> @endif
 
 
-    @if ($blogModule && count($blogModule) > 0)
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-text"></i><span>Manage Blogs</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("blog/categories")) <li><a href="{{ url('/blog/categories') }}">Blog Categories</a></li> @endif
-            @if(checkAuth("add/new/blog")) <li><a href="{{ url('/add/new/blog') }}">Write a Blog</a></li> @endif
-            @if(checkAuth("view/all/blogs")) <li><a href="{{ url('/view/all/blogs') }}">View All Blogs</a></li> @endif
-        </ul>
-    </li>
-    @endif
+
 
 
     @if(checkAuth("view/permission/routes") || checkAuth("view/user/roles") || checkAuth("view/user/role/permission") || checkAuth("view/system/users"))

@@ -51,4 +51,5 @@ ALTER TABLE `brands` ADD `childcategories` VARCHAR(255) NULL DEFAULT NULL AFTER 
 ALTER TABLE `upazilas` CHANGE `bn_name` `bn_name` VARCHAR(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
 ALTER TABLE `upazilas` CHANGE `url` `url` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
 ALTER TABLE `categories` ADD `show_on_navbar` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '1=>Yes; 0=>No' AFTER `featured`;
+New Table Added named "custom_pages"
 ================================================
