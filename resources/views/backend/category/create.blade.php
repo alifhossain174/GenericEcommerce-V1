@@ -47,20 +47,28 @@
                             </div>
                         </div>
 
-
-                        {{-- <div class="input-group">
-                            <span class="input-group-btn">
-                                <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
-                                    <i class="fi fi-rr-picture"></i> Set hero image
-                                </a>
-                            </span>
-                            <input id="thumbnail" class="form-control" type="text" name="hero_img">
+                        <div class="form-group row">
+                            <label for="featured" class="col-sm-2 col-form-label">Feature Category</label>
+                            <div class="col-sm-3">
+                                <select name="featured" class="form-control" id="featured">
+                                    <option value="">Select One</option>
+                                    <option value="1">Yes Featured</option>
+                                    <option value="0">Not Featured</option>
+                                </select>
+                                <div class="invalid-feedback" style="display: block;">
+                                    @error('featured')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
-                        <small class="text-muted">Please upload jpg, jpeg, png file.</small> --}}
 
 
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Save Category</button>
+                        <div class="form-group row pt-3">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Save Category</button>
+                            </div>
                         </div>
                     </form>
                 </div>

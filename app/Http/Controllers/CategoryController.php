@@ -45,10 +45,12 @@ class CategoryController extends Controller
 
         Category::insert([
             'name' => $request->name,
+            'featured' => $request->featured ? $request->featured : 0,
             'icon' => $icon,
             'banner_image' => $categoryBanner,
             'slug' => Generate::Slug($request->name),
             'status' => 1,
+            'serial' => Category::min('serial') - 1,
             'created_at' => Carbon::now()
         ]);
 
@@ -70,9 +72,9 @@ class CategoryController extends Controller
                     })
                     ->editColumn('featured', function($data) {
                         if($data->featured == 0){
-                            return '<button class="btn btn-sm btn-danger rounded">Not Featured</button>';
+                            return '<span class="badge badge-pill p-2 badge-danger" style="font-size: 11px;">Not Featured</span>';
                         } else {
-                            return '<button class="btn btn-sm btn-success rounded">Featured</button>';
+                            return '<span class="badge badge-pill p-2 badge-success" style="font-size: 11px;">Featured</span>';
                         }
                     })
                     ->addIndexColumn()
@@ -80,11 +82,11 @@ class CategoryController extends Controller
                         $btn = ' <a href="'.url('edit/category').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
                         $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
 
-                        if($data->featured == 0){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" title="Featured" data-original-title="Featured" class="btn-sm btn-success rounded featureBtn"><i class="feather-chevrons-up"></i></a>';
-                        } else {
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" title="Featured" data-original-title="Featured" class="btn-sm btn-danger rounded featureBtn"><i class="feather-chevrons-down"></i></a>';
-                        }
+                        // if($data->featured == 0){
+                        //     $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" title="Featured" data-original-title="Featured" class="btn-sm btn-success rounded featureBtn"><i class="feather-chevrons-up"></i></a>';
+                        // } else {
+                        //     $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" title="Featured" data-original-title="Featured" class="btn-sm btn-danger rounded featureBtn"><i class="feather-chevrons-down"></i></a>';
+                        // }
 
                         return $btn;
                     })
@@ -178,6 +180,7 @@ class CategoryController extends Controller
             'banner_image' => $categoryBanner,
             'slug' => Generate::Slug($request->slug),
             'status' => $request->status,
+            'featured' => $request->featured ? $request->featured : 0,
             'updated_at' => Carbon::now()
         ]);
 
