@@ -31,7 +31,7 @@
                             <div class="col-lg-5">
 
                                 <div class="form-group">
-                                    <label for="colFormLabel" class="col-form-label">Page Feature Image</label>
+                                    <label for="colFormLabel" class="col-form-label">Page Feature Image (1112px X 400px)</label>
                                     <input type="file" name="image" class="dropify" data-height="250" data-max-file-size="1M" accept="image/*"/>
                                 </div>
 
