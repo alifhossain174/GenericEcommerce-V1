@@ -43,7 +43,7 @@ class CustomPageController extends Controller
             'slug' => $slug,
             'status' => 1,
             'meta_title' => $request->meta_title,
-            'meta_keyword' => $request->meta_keyword,
+            'meta_keyword' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
             'created_at' => Carbon::now()
         ]);
@@ -126,7 +126,7 @@ class CustomPageController extends Controller
             'slug' => $slug,
             'status' => $request->status,
             'meta_title' => $request->meta_title,
-            'meta_keyword' => $request->meta_keyword,
+            'meta_keyword' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
             'created_at' => Carbon::now()
         ]);
