@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
-use DataTables;
+use Yajra\DataTables\DataTables;
 
 class FaqController extends Controller
 {

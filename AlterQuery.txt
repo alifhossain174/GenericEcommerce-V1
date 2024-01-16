@@ -46,3 +46,8 @@ ALTER TABLE `general_infos` ADD `meta_og_title` VARCHAR(255) NULL DEFAULT NULL A
 ==================06.01.23======================
 ALTER TABLE `brands` ADD `childcategories` VARCHAR(255) NULL DEFAULT NULL AFTER `subcategories`;
 ================================================
+
+==================16.01.24======================
+ALTER TABLE `upazilas` CHANGE `bn_name` `bn_name` VARCHAR(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `upazilas` CHANGE `url` `url` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+================================================

@@ -116,7 +116,7 @@
             processing: true,
             serverSide: true,
             pageLength: 15,
-            // stateSave: true,
+            stateSave: true,
             lengthMenu: [15, 25, 50, 100],
 
             ajax: "{{ url('view/delivery/charges') }}",

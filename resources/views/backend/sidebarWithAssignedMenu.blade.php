@@ -319,6 +319,7 @@
     @if(checkAuth("view/all/customers")) <li><a href="{{ url('/view/all/customers') }}"><i class="feather-users"></i><span>Customers</span></a></li> @endif
     @if(checkAuth("view/customers/wishlist")) <li><a href="{{ url('/view/customers/wishlist') }}"><i class="feather-heart"></i><span>Customer's Wishlist</span></a></li> @endif
     @if(checkAuth("view/delivery/charges")) <li><a href="{{ url('/view/delivery/charges') }}"><i class="feather-truck"></i><span>Delivery Charges</span></a></li> @endif
+    @if(checkAuth("view/upazila/thana")) <li><a href="{{ url('/view/upazila/thana') }}"><i class="dripicons-location"></i><span>Upazila & Thana</span></a></li> @endif
 
     @if ($reportModule && count($reportModule) > 0)
     <li>
