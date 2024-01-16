@@ -46,6 +46,7 @@ class CategoryController extends Controller
         Category::insert([
             'name' => $request->name,
             'featured' => $request->featured ? $request->featured : 0,
+            'show_on_navbar' => $request->show_on_navbar ? $request->show_on_navbar : 1,
             'icon' => $icon,
             'banner_image' => $categoryBanner,
             'slug' => Generate::Slug($request->name),
@@ -72,9 +73,16 @@ class CategoryController extends Controller
                     })
                     ->editColumn('featured', function($data) {
                         if($data->featured == 0){
-                            return '<span class="badge badge-pill p-2 badge-danger" style="font-size: 11px;">Not Featured</span>';
+                            return '<span class="badge badge-pill p-2 badge-danger" style="font-size: 11px; border-radius: 4px;">Not Featured</span>';
                         } else {
-                            return '<span class="badge badge-pill p-2 badge-success" style="font-size: 11px;">Featured</span>';
+                            return '<span class="badge badge-pill p-2 badge-success" style="font-size: 11px; border-radius: 4px;">Featured</span>';
+                        }
+                    })
+                    ->editColumn('show_on_navbar', function($data) {
+                        if($data->show_on_navbar == 1){
+                            return '<span class="badge badge-pill p-2 badge-success" style="font-size: 11px; border-radius: 4px;">Yes</span>';
+                        } else {
+                            return '<span class="badge badge-pill p-2 badge-danger" style="font-size: 11px; border-radius: 4px;">No</span>';
                         }
                     })
                     ->addIndexColumn()
@@ -90,7 +98,7 @@ class CategoryController extends Controller
 
                         return $btn;
                     })
-                    ->rawColumns(['action', 'icon', 'featured'])
+                    ->rawColumns(['action', 'icon', 'featured', 'show_on_navbar'])
                     ->make(true);
         }
         return view('backend.category.view');
@@ -130,6 +138,7 @@ class CategoryController extends Controller
     }
 
     public function updateCategory(Request $request){
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'status' => 'required',
@@ -181,6 +190,7 @@ class CategoryController extends Controller
             'slug' => Generate::Slug($request->slug),
             'status' => $request->status,
             'featured' => $request->featured ? $request->featured : 0,
+            'show_on_navbar' => $request->show_on_navbar,
             'updated_at' => Carbon::now()
         ]);
 

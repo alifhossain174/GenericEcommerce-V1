@@ -81,6 +81,22 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="show_on_navbar" class="col-sm-2 col-form-label">Show On Navbar</label>
+                            <div class="col-sm-3">
+                                <select name="show_on_navbar" class="form-control" id="show_on_navbar" required>
+                                    <option value="">Select One</option>
+                                    <option value="1" @if($category->show_on_navbar == 1) selected @endif>Yes</option>
+                                    <option value="0" @if($category->show_on_navbar == 0) selected @endif>No</option>
+                                </select>
+                                <div class="invalid-feedback" style="display: block;">
+                                    @error('show_on_navbar')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Slug</label>
                             <div class="col-sm-3">
                                 <input type="text" name="slug" class="form-control" value="{{$category->slug}}" required/>

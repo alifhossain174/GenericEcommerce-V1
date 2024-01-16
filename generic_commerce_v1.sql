@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2024 at 08:05 AM
+-- Generation Time: Jan 16, 2024 at 10:31 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -241,6 +241,7 @@ CREATE TABLE `categories` (
   `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
   `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
+  `show_on_navbar` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Yes; 0=>No',
   `serial` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -250,23 +251,23 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`, `featured`, `serial`, `created_at`, `updated_at`) VALUES
-(17, 'Laptop', 'category_images/wNTXD1704003160.svg', NULL, 'laptop', 1, 1, 1, '2023-12-31 06:12:40', '2023-12-31 06:25:04'),
-(18, 'Mobile', 'category_images/MLOUm1704003277.svg', NULL, 'mobile', 1, 1, 1, '2023-12-31 06:14:37', '2023-12-31 06:25:07'),
-(19, 'Gadget', 'category_images/rHVtn1704003317.svg', NULL, 'gadget', 1, 1, 1, '2023-12-31 06:15:17', '2023-12-31 06:25:09'),
-(20, 'Cable', 'category_images/UlwHJ1704003328.svg', NULL, 'cable', 1, 0, 1, '2023-12-31 06:15:28', NULL),
-(21, 'Sound Equipment', 'category_images/gylXj1704003364.svg', NULL, 'sound-equipment', 1, 0, 1, '2023-12-31 06:16:04', NULL),
-(22, 'Monitor', 'category_images/moTUm1704003386.svg', NULL, 'monitor', 1, 1, 1, '2023-12-31 06:16:19', '2023-12-31 06:25:16'),
-(23, 'Tablet', 'category_images/CDYTX1704003437.svg', NULL, 'tablet', 1, 1, 1, '2023-12-31 06:17:17', '2023-12-31 06:25:19'),
-(24, 'Camera', 'category_images/oqwe01704003463.svg', NULL, 'camera', 1, 1, 1, '2023-12-31 06:17:43', '2023-12-31 06:25:20'),
-(25, 'Security', 'category_images/ifQud1704003474.svg', NULL, 'security', 1, 0, 1, '2023-12-31 06:17:54', NULL),
-(26, 'Software', 'category_images/Rx7hY1704003482.svg', NULL, 'software', 1, 0, 1, '2023-12-31 06:18:02', NULL),
-(27, 'Accessories', 'category_images/4J34Y1704003492.svg', NULL, 'accessories', 1, 1, 1, '2023-12-31 06:18:12', '2023-12-31 06:25:27'),
-(28, 'Gaming', 'category_images/dwB4t1704003507.svg', NULL, 'gaming', 1, 0, 1, '2023-12-31 06:18:27', NULL),
-(29, 'Desktop', 'category_images/1h5EG1704003512.svg', NULL, 'desktop', 1, 1, 1, '2023-12-31 06:18:32', '2023-12-31 06:25:32'),
-(30, 'Component', 'category_images/cs1k61704003520.svg', NULL, 'component', 1, 0, 1, '2023-12-31 06:18:40', NULL),
-(31, 'UPS', 'category_images/ysrEj1704003527.svg', NULL, 'ups', 1, 0, 1, '2023-12-31 06:18:47', NULL),
-(32, 'TV / AC', 'category_images/H4XIb1704003538.svg', NULL, 'tv-ac', 1, 0, 1, '2023-12-31 06:18:58', NULL);
+INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`, `featured`, `show_on_navbar`, `serial`, `created_at`, `updated_at`) VALUES
+(17, 'Laptop', 'category_images/wNTXD1704003160.svg', NULL, 'laptop', 1, 1, 1, 1, '2023-12-31 06:12:40', '2023-12-31 06:25:04'),
+(18, 'Mobile', 'category_images/MLOUm1704003277.svg', NULL, 'mobile', 1, 1, 1, 1, '2023-12-31 06:14:37', '2023-12-31 06:25:07'),
+(19, 'Gadget', 'category_images/rHVtn1704003317.svg', NULL, 'gadget', 1, 1, 1, 1, '2023-12-31 06:15:17', '2023-12-31 06:25:09'),
+(20, 'Cable', 'category_images/UlwHJ1704003328.svg', NULL, 'cable', 1, 0, 1, 1, '2023-12-31 06:15:28', NULL),
+(21, 'Sound Equipment', 'category_images/gylXj1704003364.svg', NULL, 'sound-equipment', 1, 0, 1, 1, '2023-12-31 06:16:04', NULL),
+(22, 'Monitor', 'category_images/moTUm1704003386.svg', NULL, 'monitor', 1, 1, 1, 1, '2023-12-31 06:16:19', '2023-12-31 06:25:16'),
+(23, 'Tablet', 'category_images/CDYTX1704003437.svg', NULL, 'tablet', 1, 1, 1, 1, '2023-12-31 06:17:17', '2023-12-31 06:25:19'),
+(24, 'Camera', 'category_images/oqwe01704003463.svg', NULL, 'camera', 1, 1, 1, 1, '2023-12-31 06:17:43', '2023-12-31 06:25:20'),
+(25, 'Security', 'category_images/ifQud1704003474.svg', NULL, 'security', 1, 0, 1, 1, '2023-12-31 06:17:54', NULL),
+(26, 'Software', 'category_images/Rx7hY1704003482.svg', NULL, 'software', 1, 0, 1, 1, '2023-12-31 06:18:02', NULL),
+(27, 'Accessories', 'category_images/4J34Y1704003492.svg', NULL, 'accessories', 1, 1, 1, 1, '2023-12-31 06:18:12', '2023-12-31 06:25:27'),
+(28, 'Gaming', 'category_images/dwB4t1704003507.svg', NULL, 'gaming', 1, 0, 1, 1, '2023-12-31 06:18:27', '2024-01-16 09:14:16'),
+(29, 'Desktop', 'category_images/1h5EG1704003512.svg', NULL, 'desktop', 1, 1, 1, 1, '2023-12-31 06:18:32', '2023-12-31 06:25:32'),
+(30, 'Component', 'category_images/cs1k61704003520.svg', NULL, 'component', 1, 0, 1, 1, '2023-12-31 06:18:40', NULL),
+(31, 'UPS', 'category_images/ysrEj1704003527.svg', NULL, 'ups', 1, 0, 1, 1, '2023-12-31 06:18:47', NULL),
+(32, 'TV / AC', 'category_images/H4XIb1704003538.svg', NULL, 'tv-ac', 1, 0, 1, 1, '2023-12-31 06:18:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -9303,7 +9304,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `child_categories`
@@ -9609,7 +9610,7 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `upazilas`
 --
 ALTER TABLE `upazilas`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=499;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=500;
 
 --
 -- AUTO_INCREMENT for table `users`

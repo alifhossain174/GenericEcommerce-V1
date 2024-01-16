@@ -63,6 +63,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="show_on_navbar" class="col-sm-2 col-form-label">Show On Navbar</label>
+                            <div class="col-sm-3">
+                                <select name="show_on_navbar" class="form-control" id="show_on_navbar">
+                                    <option value="">Select One</option>
+                                    <option value="1" selected>Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                                <div class="invalid-feedback" style="display: block;">
+                                    @error('show_on_navbar')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="form-group row pt-3">
                             <div class="col-sm-2"></div>

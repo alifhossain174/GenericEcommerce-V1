@@ -52,6 +52,7 @@
                                     <th class="text-center">Banner Image</th>
                                     <th class="text-center">Slug</th>
                                     <th class="text-center">Featured</th>
+                                    <th class="text-center">Show On Navbar</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
@@ -113,6 +114,7 @@
                 },
                 {data: 'slug', name: 'slug'},
                 {data: 'featured', name: 'featured'},
+                {data: 'show_on_navbar', name: 'show_on_navbar'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
