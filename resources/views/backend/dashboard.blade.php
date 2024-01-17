@@ -144,7 +144,7 @@
     <div class="row">
         <div class="col-xl-6">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="min-height: 435px;">
 
                     <h4 class="card-title">Recent Customers</h4>
 
@@ -160,6 +160,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if(count($orderPayments) > 0)
                                 @foreach ($recentCustomers as $customer)
                                     <tr>
                                         <td class="table-user">
@@ -184,6 +185,11 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                @else
+                                <tr>
+                                    <td colspan="5" class="text-center">No Transaction Found</td>
+                                </tr>
+                                @endif
                             </tbody>
                         </table>
                     </div>
