@@ -187,7 +187,7 @@
                                 @endforeach
                                 @else
                                 <tr>
-                                    <td colspan="5" class="text-center">No Transaction Found</td>
+                                    <td colspan="5" class="text-center">No Customers Found</td>
                                 </tr>
                                 @endif
                             </tbody>
