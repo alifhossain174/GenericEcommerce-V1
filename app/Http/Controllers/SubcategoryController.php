@@ -72,9 +72,9 @@ class SubcategoryController extends Controller
             return Datatables::of($data)
                     ->editColumn('status', function($data) {
                         if($data->status == 1){
-                            return 'Active';
+                            return '<span style="color:green; font-weight: 600">Active</span>';
                         } else {
-                            return 'Inactive';
+                            return '<span style="color:#DF3554; font-weight: 600">Inactive</span>';
                         }
                     })
                     ->editColumn('featured', function($data) {
@@ -98,7 +98,7 @@ class SubcategoryController extends Controller
 
                         return $btn;
                     })
-                    ->rawColumns(['action', 'icon', 'featured'])
+                    ->rawColumns(['action', 'icon', 'featured', 'status'])
                     ->make(true);
         }
         return view('backend.subcategory.view');

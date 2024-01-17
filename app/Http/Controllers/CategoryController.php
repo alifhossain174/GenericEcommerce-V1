@@ -71,6 +71,16 @@ class CategoryController extends Controller
                             return '<span style="color:#DF3554; font-weight: 600">Inactive</span>';
                         }
                     })
+                    ->editColumn('icon', function($data) {
+                        if($data->icon && file_exists(public_path($data->icon))){
+                            return $data->icon;
+                        }
+                    })
+                    ->editColumn('banner_image', function($data) {
+                        if($data->banner_image && file_exists(public_path($data->banner_image))){
+                            return $data->banner_image;
+                        }
+                    })
                     ->editColumn('featured', function($data) {
                         if($data->featured == 0){
                             return '<span class="badge badge-pill p-2 badge-danger" style="font-size: 11px; border-radius: 4px;">Not Featured</span>';
@@ -199,7 +209,7 @@ class CategoryController extends Controller
     }
 
     public function rearrangeCategory(){
-        $categories = Category::where('status', 1)->orderBy('serial', 'asc')->get();
+        $categories = Category::orderBy('serial', 'asc')->get();
         return view('backend.category.rearrange', compact('categories'));
     }
 

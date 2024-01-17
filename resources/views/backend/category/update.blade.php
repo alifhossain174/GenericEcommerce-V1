@@ -4,12 +4,14 @@
     <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
 @endsection
 
+
 @section('page_title')
     Category
 @endsection
 @section('page_heading')
     Update Category
 @endsection
+
 
 @section('content')
     <div class="row">
@@ -132,10 +134,10 @@
         @endif
 
         @if($category->banner_image && file_exists(public_path($category->banner_image)))
-            $(".dropify-preview").eq(0).css("display", "block");
-            $(".dropify-clear").eq(0).css("display", "block");
-            $(".dropify-filename-inner").eq(0).html("{{$category->banner_image}}");
-            $("span.dropify-render").eq(0).html("<img src='{{url($category->banner_image)}}'>");
+            $(".dropify-preview").eq(1).css("display", "block");
+            $(".dropify-clear").eq(1).css("display", "block");
+            $(".dropify-filename-inner").eq(1).html("{{$category->banner_image}}");
+            $("span.dropify-render").eq(1).html("<img src='{{url($category->banner_image)}}'>");
         @endif
     </script>
 @endsection

@@ -648,10 +648,10 @@ class ProductController extends Controller
         for($i = 1; $i<=$request->products; $i++){
 
             $title = $faker->catchPhrase();
-            $categoryId = Category::select('id')->inRandomOrder()->limit(1)->get();
-            $subcategoryId = Subcategory::where('category_id', isset($categoryId[0]) ? $categoryId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
+            $categoryId = Category::where('status', 1)->select('id')->inRandomOrder()->limit(1)->get();
+            $subcategoryId = Subcategory::where('status', 1)->where('category_id', isset($categoryId[0]) ? $categoryId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
             $childCategoryId = ChildCategory::where('subcategory_id', isset($subcategoryId[0]) ? $subcategoryId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
-            $brandId = Brand::select('id')->inRandomOrder()->limit(1)->get();
+            $brandId = Brand::where('status', 1)->select('id')->inRandomOrder()->limit(1)->get();
             $modelId = ProductModel::where('brand_id', isset($brandId[0]) ? $brandId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
             $unitId = Unit::select('id')->inRandomOrder()->limit(1)->get();
             $warrentyId = ProductWarrenty::select('id')->inRandomOrder()->limit(1)->get();
