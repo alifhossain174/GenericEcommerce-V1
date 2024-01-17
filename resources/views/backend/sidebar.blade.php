@@ -280,7 +280,7 @@
         </ul>
     </li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-plus"></i><span>Cutom Pages</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-plus"></i><span>Custom Pages</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/create/new/page') }}">Create New Page</a></li>
             <li><a href="{{ url('/view/all/pages') }}">View All Pages</a></li>

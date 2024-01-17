@@ -462,7 +462,7 @@
 
     @if ($customPageModule && count($customPageModule) > 0)
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-plus"></i><span>Cutom Pages</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-file-plus"></i><span>Custom Pages</span></a>
         <ul class="sub-menu" aria-expanded="false">
             @if(checkAuth("create/new/page")) <li><a href="{{ url('/create/new/page') }}">Create New Page</a></li> @endif
             @if(checkAuth("view/all/pages")) <li><a href="{{ url('/view/all/pages') }}">View All Pages</a></li> @endif
