@@ -41,7 +41,7 @@
                                 <div class="row">
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label for="image">Cover Image <span class="text-danger">*</span></label> @if(file_exists(public_path($data->image))) <img src="{{url($data->image)}}" alt="Blog Cover Image" height="20px"> @endif
+                                            <label for="image">Cover Image <span class="text-danger">*</span></label>
                                             <input type="file" name="image" class="dropify" data-height="200" data-max-file-size="1M" accept="image/*"/>
                                         </div>
                                     </div>
@@ -159,6 +159,13 @@
             filebrowserUploadMethod: 'form',
             height: 300,
         });
+
+        @if($data->image && file_exists(public_path($data->image)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{$data->image}}");
+            $("span.dropify-render").eq(0).html("<img src='{{url($data->image)}}'>");
+        @endif
 
     </script>
 @endsection

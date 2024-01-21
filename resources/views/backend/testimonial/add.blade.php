@@ -29,15 +29,31 @@
                                 </div>
                             </div>
                             <div class="col-lg-8 border-right">
-                                <div class="form-group">
-                                    <label for="name">Customer Name <span class="text-danger">*</span></label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter Product Name Here" required>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('name')
-                                            {{ $message }}
-                                        @enderror
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="name">Customer Name <span class="text-danger">*</span></label>
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Product Name Here" required>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('name')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="designation">Designation</label>
+                                            <input type="text" id="designation" name="designation" class="form-control" placeholder="Designation">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('designation')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="rating">Rating <span class="text-danger">*</span></label>
                                     <select name="rating" class="form-control" id="rating" required>

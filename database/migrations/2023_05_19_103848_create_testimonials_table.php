@@ -18,6 +18,7 @@ class CreateTestimonialsTable extends Migration
             $table->longText("description");
             $table->double("rating");
             $table->string("customer_name");
+            $table->string("designation")->nullable();
             $table->string("customer_image");
             $table->string("slug");
             $table->timestamps();

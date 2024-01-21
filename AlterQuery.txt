@@ -53,3 +53,7 @@ ALTER TABLE `upazilas` CHANGE `url` `url` VARCHAR(50) CHARACTER SET utf8 COLLATE
 ALTER TABLE `categories` ADD `show_on_navbar` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '1=>Yes; 0=>No' AFTER `featured`;
 New Table Added named "custom_pages"
 ================================================
+
+==================21.01.24======================
+ALTER TABLE `testimonials` ADD `designation` VARCHAR(255) NULL DEFAULT NULL AFTER `customer_name`;
+================================================

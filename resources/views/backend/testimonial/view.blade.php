@@ -8,33 +8,11 @@
             padding: 0px;
             border-radius: 4px;
         }
+        table.dataTable tbody td{
+            text-align: center !important;
+        }
         table.dataTable tbody td:nth-child(1){
-            text-align: center !important;
             font-weight: 600;
-        }
-        table.dataTable tbody td:nth-child(2){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(3){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(4){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(5){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(6){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(7){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(8){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(9){
-            text-align: center !important;
         }
         tfoot {
             display: table-header-group !important;
@@ -72,6 +50,7 @@
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Image</th>
                                     <th class="text-center">Customer</th>
+                                    <th class="text-center">Designation</th>
                                     <th class="text-center">Rating</th>
                                     <th class="text-center">Testimonial</th>
                                     <th class="text-center">Action</th>
@@ -121,6 +100,10 @@
                     data: 'customer_name',
                     name: 'customer_name'
                 }, //orderable: true, searchable: true
+                {
+                    data: 'designation',
+                    name: 'designation'
+                },
                 {
                     data: 'rating',
                     name: 'rating'

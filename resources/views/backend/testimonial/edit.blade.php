@@ -26,22 +26,37 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="image">Customer Image <span class="text-danger">*</span></label>
-                                    @if ($data->customer_image)
-                                    <img src="{{url($data->customer_image)}}" class="img-fluid">
-                                    @endif
                                     <input type="file" name="image" class="dropify" data-height="200" data-max-file-size="1M" accept="image/*"/>
                                 </div>
                             </div>
                             <div class="col-lg-8 border-right">
-                                <div class="form-group">
-                                    <label for="name">Customer Name <span class="text-danger">*</span></label>
-                                    <input type="text" id="name" value="{{$data->customer_name}}" name="name" class="form-control" placeholder="Enter Product Name Here" required>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('name')
-                                            {{ $message }}
-                                        @enderror
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="name">Customer Name <span class="text-danger">*</span></label>
+                                            <input type="text" id="name" value="{{$data->customer_name}}" name="name" class="form-control" placeholder="Enter Product Name Here" required>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('name')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="designation">Designation</label>
+                                            <input type="text" id="designation" value="{{$data->designation}}"  name="designation" class="form-control" placeholder="Designation">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('designation')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
+
                                 <div class="form-group">
                                     <label for="rating">Rating <span class="text-danger">*</span></label>
                                     <select name="rating" class="form-control" id="rating" required>
@@ -109,5 +124,14 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        @if($data->customer_image && file_exists(public_path($data->customer_image)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{$data->customer_image}}");
+            $("span.dropify-render").eq(0).html("<img src='{{url($data->customer_image)}}'>");
+        @endif
     </script>
 @endsection

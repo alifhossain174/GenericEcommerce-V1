@@ -63,6 +63,7 @@ class TestimonialController extends Controller
             'description' => $request->description,
             'rating' => $request->rating,
             'customer_name' => $request->name,
+            'designation' => $request->designation,
             'customer_image' => $image,
             'slug' => str::random(5) . time(),
             'created_at' => Carbon::now(),
@@ -116,6 +117,7 @@ class TestimonialController extends Controller
         $data->description = $request->description;
         $data->rating = $request->rating;
         $data->customer_name = $request->name;
+        $data->designation = $request->designation;
         $data->updated_at = Carbon::now();
         $data->save();
 
