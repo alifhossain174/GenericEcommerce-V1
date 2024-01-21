@@ -257,7 +257,9 @@ class BlogController extends Controller
         $blog->short_description = $request->short_description;
         $blog->description = $request->description;
         $blog->tags = $request->tags;
-        $blog->slug = $slug.time();
+        if($blog->title != $request->title){
+            $blog->slug = $slug.time();
+        }
         $blog->status = $request->status;
         $blog->updated_at = Carbon::now();
         $blog->save();
