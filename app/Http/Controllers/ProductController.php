@@ -655,7 +655,7 @@ class ProductController extends Controller
             $modelId = ProductModel::where('brand_id', isset($brandId[0]) ? $brandId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
             $unitId = Unit::select('id')->inRandomOrder()->limit(1)->get();
             $warrentyId = ProductWarrenty::select('id')->inRandomOrder()->limit(1)->get();
-            $flagId = Flag::select('id')->inRandomOrder()->limit(1)->get();
+            $flagId = Flag::select('id')->where('status', 1)->inRandomOrder()->limit(1)->get();
             $colorId = Color::select('id')->inRandomOrder()->limit(1)->get();
             $sizeId = ProductSize::select('id')->inRandomOrder()->limit(1)->get();
             $regionId = DB::table('country')->select('id')->inRandomOrder()->limit(1)->get();
