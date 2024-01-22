@@ -1790,25 +1790,17 @@ class ApiController extends BaseController
                                     ->get();
 
         $similarCategories = array();
+        $similarSubCategories = array();
+        $similarChildCategories = array();
+
         $index = 0;
         foreach($similarOrderedProducts as $item){
             $similarCategories[$index] = $item->category_id;
-            $index++;
-        }
-
-        $similarSubCategories = array();
-        $index = 0;
-        foreach($similarOrderedProducts as $item){
             $similarSubCategories[$index] = $item->subcategory_id;
-            $index++;
-        }
-
-        $similarChildCategories = array();
-        $index = 0;
-        foreach($similarOrderedProducts as $item){
             $similarChildCategories[$index] = $item->childcategory_id;
             $index++;
         }
+
         // calculating already ordered products category end
 
 
