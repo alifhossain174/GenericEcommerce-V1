@@ -24,7 +24,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Sohibd\Laravelslug\Generate;
 use Illuminate\Support\Str;
-use Image;
+use Intervention\Image\Facades\Image;
 use Yajra\DataTables\DataTables;
 
 use Faker\Generator;
@@ -55,8 +55,13 @@ class ProductController extends Controller
             $get_image = $request->file('image');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('productImages/');
-            // Image::make($get_image)->save($location . $image_name, 80);
-            $get_image->move($location, $image_name);
+
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 60);
+            }
+
             $image = "productImages/" . $image_name;
         }
 
@@ -104,7 +109,15 @@ class ProductController extends Controller
                 $name = NULL;
                 if(isset($request->file('product_variant_image')[$i]) && $request->file('product_variant_image')[$i]){
                     $name = time().str::random(5).'.'.$request->file('product_variant_image')[$i]->extension();
-                    $request->file('product_variant_image')[$i]->move(public_path('productImages'), $name);
+                    $location = public_path('productImages/');
+                    $get_image = $request->file('product_variant_image')[$i];
+
+                    if($request->file('product_variant_image')[$i]->extension() == 'svg'){
+                        $get_image->move($location, $name);
+                    } else {
+                        Image::make($get_image)->save($location . $name, 60);
+                    }
+
                 }
 
                 if($i == 0){ // saving the base variant price & warrenty As product main price & warrenty for filtering
@@ -148,7 +161,14 @@ class ProductController extends Controller
                 foreach($request->file('photos') as $file)
                 {
                     $name = time().str::random(5).'.'.$file->extension();
-                    $file->move(public_path('productImages'), $name);
+                    $location = public_path('productImages/');
+
+                    if($file->extension() == 'svg'){
+                        $file->move($location, $name);
+                    } else {
+                        Image::make($file)->save($location . $name, 60);
+                    }
+
                     $files[] = $name;
                 }
                 $product->multiple_images = json_encode($files);
@@ -324,8 +344,13 @@ class ProductController extends Controller
             $get_image = $request->file('image');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('productImages/');
-            // Image::make($get_image)->save($location . $image_name, 80);
-            $get_image->move($location, $image_name);
+
+            if($get_image->getClientOriginalExtension() == 'svg'){
+                $get_image->move($location, $image_name);
+            } else {
+                Image::make($get_image)->save($location . $image_name, 60);
+            }
+
             $image = "productImages/" . $image_name;
         }
 
@@ -398,7 +423,15 @@ class ProductController extends Controller
                     $name = $variantInfo->image;
                     if(isset($request->file('product_variant_image')[$i])){
                         $name = time().str::random(5).'.'.$request->file('product_variant_image')[$i]->extension();
-                        $request->file('product_variant_image')[$i]->move(public_path('productImages'), $name);
+                        $location = public_path('productImages/');
+                        $get_image = $request->file('product_variant_image')[$i];
+
+                        if($get_image->extension() == 'svg'){
+                            $get_image->move($location, $name);
+                        } else {
+                            Image::make($get_image)->save($location . $name, 60);
+                        }
+
                     }
 
                     $variantInfo->image = $name;
@@ -420,7 +453,15 @@ class ProductController extends Controller
                     $name = NULL;
                     if(isset($request->file('product_variant_image')[$i]) && $request->file('product_variant_image')[$i]){
                         $name = time().str::random(5).'.'.$request->file('product_variant_image')[$i]->extension();
-                        $request->file('product_variant_image')[$i]->move(public_path('productImages'), $name);
+
+                        $location = public_path('productImages/');
+                        $get_image = $request->file('product_variant_image')[$i];
+
+                        if($get_image->extension() == 'svg'){
+                            $get_image->move($location, $name);
+                        } else {
+                            Image::make($get_image)->save($location . $name, 60);
+                        }
                     }
 
                     ProductVariant::insert([
@@ -492,7 +533,14 @@ class ProductController extends Controller
                 foreach($request->file('photos') as $file)
                 {
                     $name = time().str::random(5).'.'.$file->extension();
-                    $file->move(public_path('productImages'), $name);
+                    $location = public_path('productImages/');
+
+                    if($file->extension() == 'svg'){
+                        $file->move($location, $name);
+                    } else {
+                        Image::make($file)->save($location . $name, 60);
+                    }
+
                     $files[] = $name;
 
                     ProductImage::insert([
