@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2024 at 06:49 AM
+-- Generation Time: Jan 28, 2024 at 06:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -942,9 +942,9 @@ CREATE TABLE `flags` (
 --
 
 INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `created_at`, `updated_at`) VALUES
-(6, NULL, 'Featured', 1, 1, 'featured-ySqYL-1705837407', '2023-10-18 04:50:19', '2024-01-21 11:43:27'),
+(6, NULL, 'Featured', 1, 0, 'featured-ySqYL-1705837407', '2023-10-18 04:50:19', '2024-01-28 05:54:45'),
 (7, NULL, 'Trending', 1, 0, 'trending-DqmQh-1705901243', '2023-10-18 04:50:26', '2024-01-22 05:27:23'),
-(8, NULL, 'New Arrival', 1, 0, 'new-arrival-2lpLH-1697604635', '2023-10-18 04:50:35', '2023-12-31 12:22:29'),
+(8, NULL, 'New Arrival', 1, 1, 'new-arrival-2lpLH-1697604635', '2023-10-18 04:50:35', '2024-01-28 05:54:48'),
 (11, NULL, 'Best Sales', 1, 0, 'discounted-items-oyOF2-1705837399', '2023-11-06 03:05:45', '2024-01-21 11:43:19'),
 (12, NULL, 'Discounted Items', 1, 0, 'discounted-items-qpIot-1706418082', '2024-01-28 05:01:22', NULL);
 
@@ -1017,7 +1017,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/XnmO41706417269.svg', 'company_logo/7Eivq1706417272.svg', 'company_logo/yKX0b1706417275.svg', 'TechShop - Ecommerce', 'FEJMO', NULL, '01977851889', 'contact@fejmo.com', 'Road-7, Block-H, House-81, Banani, Dhaka 1213', NULL, 'https://play.google.com/store/apps/details?id=com.getup.fejmo', NULL, '© FEJMO 2023 All right reserved', 'company_logo/GVgni1704081652.png', '#262626', '#f3f6f4', '#ffffff', '#262626', '#383838', '#eeeeee', 'Fejmo- Online Ecommerce Shopping', 'fejmo,ecommerce,shopping,online', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', 'Fejmo- Online Ecommerce Shopping', 'company_logo/mFtlm1706417475.svg', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com/fejmo?mibextid=LQQJ4d', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 0, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 0, NULL, 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, NULL, NULL, '2024-01-28 04:52:35');
+(1, 'company_logo/XnmO41706417269.svg', 'company_logo/7Eivq1706417272.svg', 'company_logo/yKX0b1706417275.svg', 'TechShop - Ecommerce', 'FEJMO', NULL, '01977851889', 'contact@fejmo.com', 'Road-7, Block-H, House-81, Banani, Dhaka 1213', NULL, 'https://play.google.com/store/apps/details?id=com.getup.fejmo', NULL, '© FEJMO 2023 All right reserved', 'company_logo/GVgni1704081652.png', '#262626', '#393939', '#ffffff', '#262626', '#383838', '#eeeeee', 'Fejmo- Online Ecommerce Shopping', 'fejmo,ecommerce,shopping,online', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', 'Fejmo- Online Ecommerce Shopping', 'company_logo/mFtlm1706417475.svg', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com/fejmo?mibextid=LQQJ4d', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 0, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 0, NULL, 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, NULL, NULL, '2024-01-28 05:53:41');
 
 -- --------------------------------------------------------
 
@@ -8011,7 +8011,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
-(1, '', 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57');
+(1, '', 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57'),
+(64, NULL, 'Md. Fahim Hossain', NULL, 'alifhossain174@gmail.com', '2024-01-28 05:57:25', NULL, '$2y$12$XuTvueMKj6o7bTALgw6ZIuab95M7rVvTZYSthJwipJhY9Qo2JbOGu', 'google', '106763512174170963935', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8959,7 +8960,7 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`
