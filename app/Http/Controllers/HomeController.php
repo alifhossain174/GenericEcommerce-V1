@@ -48,7 +48,7 @@ class HomeController extends Controller
         for($i=0; $i<=8; $i++){
             $orderStartDate = date("Y-m", strtotime("-$i month", strtotime(date("Y-m"))))."-01 00:00:00";
             $orderEndDate = date("Y-m-t", strtotime("-$i month", strtotime(date("Y-m"))))." 23:59:59";
-            $totalOrderAmount[$i] = Order::whereBetween('order_date', [$orderStartDate, $orderEndDate])->sum('total');
+            $totalOrderAmount[$i] = Order::whereBetween('order_date', [$orderStartDate, $orderEndDate])->where('order_status', '!=', 4)->sum('total');
         }
 
         $todaysOrder = array();
