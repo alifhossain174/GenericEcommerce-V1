@@ -59,6 +59,11 @@
                                     <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
                                     <span class="d-none d-lg-block">Social Login</span>
                                 </a>
+                                <a class="nav-link" id="v-pills-messenger-chat-tab" data-toggle="pill" href="#v-pills-messenger-chat" role="tab" aria-controls="v-pills-messenger-chat"
+                                    aria-selected="false">
+                                    <i class="mdi mdi-account-circle d-lg-none d-block"></i>
+                                    <span class="d-none d-lg-block">Messenger Chat Plugin</span>
+                                </a>
                                 <a class="nav-link" id="v-pills-tawk-tab" data-toggle="pill" href="#v-pills-tawk" role="tab" aria-controls="v-pills-tawk"
                                     aria-selected="false">
                                     <i class="mdi mdi-account-circle d-lg-none d-block"></i>
@@ -217,6 +222,27 @@
                                         </div>
 
                                         <div class="form-group mb-2 pt-2">
+                                            <button type="submit" class="btn btn-info">✓ Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-messenger-chat" role="tabpanel" aria-labelledby="v-pills-messenger-chat-tab">
+                                    <form action="{{url('update/messenger/chat/info')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="tawk_chat_status">Allow Messenger Chat Plugin</label>
+                                            <select id="tawk_chat_status" class="form-control" name="messenger_chat_status" required>
+                                                <option value="1" @if($generalInfo->messenger_chat_status == 1) selected @endif>Enable Messenger Chat Plugin</option>
+                                                <option value="0" @if($generalInfo->messenger_chat_status == 0) selected @endif>Disable Messenger Chat Plugin</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="tawk_chat_link">Facebook Page ID</label>
+                                            <input type="text" class="form-control" value="{{$generalInfo->fb_page_id}}" id="fb_page_id" name="fb_page_id" placeholder="e.g. 65498765432165">
+                                        </div>
+
+                                        <div class="form-group mb-2">
                                             <button type="submit" class="btn btn-info">✓ Update</button>
                                         </div>
                                     </form>

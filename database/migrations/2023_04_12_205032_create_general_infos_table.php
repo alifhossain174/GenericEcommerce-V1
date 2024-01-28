@@ -76,6 +76,10 @@ class CreateGeneralInfosTable extends Migration
             $table->tinyInteger('fb_pixel_status')->default(0)->comment("1=>Active; 0=>Inactive");
             $table->string('fb_pixel_app_id')->nullable();
 
+            // facebook pixel
+            $table->tinyInteger('messenger_chat_status')->default(0)->comment("1=>Active; 0=>Inactive");
+            $table->string('fb_page_id')->nullable();
+
             // Tawk.to
             $table->tinyInteger('tawk_chat_status')->default(0)->comment("1=>Active; 0=>Inactive");
             $table->string('tawk_chat_link')->nullable();

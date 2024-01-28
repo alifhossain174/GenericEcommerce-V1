@@ -331,6 +331,17 @@ class GeneralInfoController extends Controller
         return back();
     }
 
+    public function updateMessengerChat(Request $request){
+        GeneralInfo::where('id', 1)->update([
+            'messenger_chat_status' => $request->messenger_chat_status,
+            'fb_page_id' => $request->fb_page_id,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Messenger Chat Info Updated', 'Success');
+        return back();
+    }
+
     public function updateTawkChat(Request $request){
         GeneralInfo::where('id', 1)->update([
             'tawk_chat_status' => $request->tawk_chat_status,
