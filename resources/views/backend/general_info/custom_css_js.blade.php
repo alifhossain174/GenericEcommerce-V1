@@ -41,28 +41,28 @@
                     <form class="needs-validation" method="POST" action="{{url('update/custom/css/js')}}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="form-group row mt-3">
-                            <label for="custom_css" class="col-sm-2 col-form-label">Write Custom CSS</label>
-                            <div class="col-sm-10">
-                                <textarea name="custom_css" class="form-control" id="code_editor_css" style="cursor: pointer">{{$data->custom_css}}</textarea>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group mt-3">
+                                    <label for="custom_css" class="col-form-label">Write Custom CSS</label>
+                                    <textarea name="custom_css" class="form-control" id="code_editor_css" style="cursor: pointer">{{$data->custom_css}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group mt-3">
+                                    <label for="header_script" class="col-form-label">Header Custom Script</label>
+                                    <textarea name="header_script" class="form-control" id="header_script" style="cursor: pointer">{{$data->header_script}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group mt-3">
+                                    <label for="footer_script" class="col-form-label">Footer Custom Script</label>
+                                    <textarea name="footer_script" class="form-control" id="footer_script" style="cursor: pointer">{{$data->footer_script}}</textarea>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group row mt-3">
-                            <label for="header_script" class="col-sm-2 col-form-label">Header Custom Script</label>
-                            <div class="col-sm-10">
-                                <textarea name="header_script" class="form-control" id="header_script" style="cursor: pointer">{{$data->header_script}}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mt-3">
-                            <label for="footer_script" class="col-sm-2 col-form-label">Footer Custom Script</label>
-                            <div class="col-sm-10">
-                                <textarea name="footer_script" class="form-control" id="footer_script" style="cursor: pointer">{{$data->footer_script}}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group text-center pt-3 mt-3">
+                        <div class="form-group text-center pt-3">
                             <a href="{{url('/home')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
                             <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i class="fas fa-save"></i> Update Code</button>
                         </div>
@@ -84,7 +84,7 @@
             autoCloseTags: true,
             autoCloseBrackets: true
         });
-        editor.setSize("100%", "200");
+        editor.setSize("100%", "600");
 
         var textareas = document.getElementById("header_script");
         editor = CodeMirror.fromTextArea(textareas, {
@@ -94,7 +94,7 @@
             autoCloseTags: true,
             autoCloseBrackets: true
         });
-        editor.setSize("100%", "200");
+        editor.setSize("100%", "600");
 
         var textareas = document.getElementById("footer_script");
         editor = CodeMirror.fromTextArea(textareas, {
@@ -104,6 +104,6 @@
             autoCloseTags: true,
             autoCloseBrackets: true
         });
-        editor.setSize("100%", "200");
+        editor.setSize("100%", "600");
     </script>
 @endsection
