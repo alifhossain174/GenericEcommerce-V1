@@ -92,8 +92,8 @@ class HomeController extends Controller
             $orderRatioEndDate = date("Y-m-t", strtotime("-$i month", strtotime(date("Y-m"))))." 23:59:59";
 
             $countOrdersRatioDate[$i] = date("M-y", strtotime("-$i month", strtotime(date("Y-m"))));
-            $countOrdersRatioSuccess[$i] = Order::whereBetween('order_date', [$orderRatioStartDate, $orderRatioEndDate])->where('payment_status', 0)->count();
-            $countOrdersRatioFailed[$i] = Order::whereBetween('order_date', [$orderRatioStartDate, $orderRatioEndDate])->where('payment_status', '!=', 0)->count();
+            $countOrdersRatioSuccess[$i] = Order::whereBetween('order_date', [$orderRatioStartDate, $orderRatioEndDate])->where('order_status', 4)->count();
+            $countOrdersRatioFailed[$i] = Order::whereBetween('order_date', [$orderRatioStartDate, $orderRatioEndDate])->where('order_status', '!=', 4)->count();
         }
         // success and failed order ratio end
 
