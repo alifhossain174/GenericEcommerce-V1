@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2024 at 02:07 PM
+-- Generation Time: Jan 28, 2024 at 06:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -78,16 +78,9 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title`, `title`, `description`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(14, 1, 'banner/jvqRt1704003868.jpg', 'http://127.0.0.1:8000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ySd3d1704003868', -1, '2023-12-31 06:24:28', '2023-12-31 10:35:27'),
-(15, 1, 'banner/yOjHH1704003871.jpg', 'http://127.0.0.1:8000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'vcoVV1704003871', -2, '2023-12-31 06:24:31', '2023-12-31 10:35:23'),
-(16, 1, 'banner/aE4B91704003874.jpg', 'http://127.0.0.1:8000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'fPvoV1704003874', -3, '2023-12-31 06:24:34', '2023-12-31 10:35:19'),
-(17, 1, 'banner/YYhJc1704486979.jpg', 'http://127.0.0.1:8000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'a4ISa1704003877', -4, '2023-12-31 06:24:37', '2024-01-05 20:36:19'),
-(18, 2, 'banner/IoxtE1704019137.svg', 'http://127.0.0.1:8000/page/news-trending-topics', 'top', 0, NULL, NULL, NULL, NULL, NULL, NULL, 'bzEmE1704019137', 4, '2023-12-31 10:38:57', '2024-01-16 11:52:59'),
-(19, 2, 'banner/quMkS1704019147.svg', 'http://127.0.0.1:8000/page/news-trending-topics', 'top', 0, NULL, NULL, NULL, NULL, NULL, NULL, 'W8HX01704019147', 3, '2023-12-31 10:39:07', '2024-01-16 11:52:55'),
-(20, 2, 'banner/sKFJT1704022858.png', '#', 'middle', 0, NULL, 'Xiaomi 12 Pro', 'Xiaomi 12 Pro Will be Available at a Special Offer Starting December 01, 2022', 'Learn More', '#', 'left', 'hpfsb1704022858', 1, '2023-12-31 11:40:58', '2023-12-31 11:46:07'),
-(21, 2, 'banner/bfctK1704022897.png', '#', 'middle', 0, NULL, 'Galaxy S21 FE', 'Galaxy S21 FE 5G Will be Available at a Special Offer Starting December 16, 2022', 'Learn More', '#', 'left', '2wDJF1704022897', 2, '2023-12-31 11:41:37', '2023-12-31 11:48:29'),
 (22, 1, 'banner/PjnVA1705474931.jpg', '#', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'PISLd1705474931', -5, '2024-01-17 07:02:11', '2024-01-23 12:09:45'),
-(23, 1, 'banner/DXJVr1705474936.png', '#', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'QtjsB1705474936', -6, '2024-01-17 07:02:16', NULL);
+(23, 1, 'banner/DXJVr1705474936.png', '#', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'QtjsB1705474936', -6, '2024-01-17 07:02:16', '2024-01-24 11:11:30'),
+(24, 1, 'banner/DqjjU1706094680.png', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'wkSMd1706094680', -7, '2024-01-24 11:11:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -189,30 +182,23 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `categories`, `subcategories`, `childcategories`, `featured`, `status`, `serial`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Samsung', NULL, NULL, '17,18', '62', '1,3', 1, 0, -1, 'samsung', '2023-12-31 06:30:57', '2024-01-05 20:50:48'),
-(2, 'Xiaomi', 'brand_images/CB5Zj1704014683.png', NULL, '18', '61', NULL, 1, 0, -2, 'xiaomi', '2023-12-31 06:36:07', '2024-01-05 20:46:43'),
-(3, 'Redmi', NULL, NULL, '18', '61', NULL, 0, 0, -3, 'redmi', '2023-12-31 06:37:13', '2023-12-31 06:38:05'),
-(4, 'Vivo', NULL, NULL, '18', NULL, '2,3', 0, 0, -4, 'vivo', '2023-12-31 06:37:18', '2024-01-05 21:02:50'),
-(5, 'Oppo', NULL, NULL, '18', NULL, NULL, 0, 0, -5, 'oppo', '2023-12-31 06:37:25', '2023-12-31 06:39:07'),
-(6, 'Techno', NULL, NULL, '18', NULL, NULL, 0, 0, -6, 'techno', '2023-12-31 06:37:33', '2023-12-31 11:01:18'),
-(7, 'Apple', NULL, NULL, '18', '60', NULL, 1, 0, -7, 'apple', '2023-12-31 06:39:52', '2023-12-31 11:52:25'),
-(9, 'Cats Eye', 'brand_images/RYZRC1705474571.png', NULL, NULL, NULL, NULL, 0, 1, -8, 'cats-eye', '2024-01-17 06:56:11', NULL),
-(10, 'Richman', 'brand_images/gRAM91705474580.png', NULL, NULL, NULL, NULL, 0, 1, -9, 'richman', '2024-01-17 06:56:20', NULL),
-(11, 'Yellow', 'brand_images/4E58h1705474589.webp', NULL, NULL, NULL, NULL, 0, 1, -10, 'yellow', '2024-01-17 06:56:29', NULL),
-(12, 'Ecstasy', 'brand_images/5R3tY1705474595.png', NULL, NULL, NULL, NULL, 0, 1, -11, 'ecstasy', '2024-01-17 06:56:35', NULL),
-(13, 'Rang Bangladesh', 'brand_images/zpBC61705474605.gif', NULL, NULL, NULL, NULL, 0, 1, -12, 'rang-bangladesh', '2024-01-17 06:56:45', NULL),
-(14, 'Kay Kraft', 'brand_images/QJalm1705474613.png', NULL, NULL, NULL, NULL, 0, 1, -13, 'kay-kraft', '2024-01-17 06:56:53', NULL),
-(15, 'Dorjibari', 'brand_images/pCqPW1705474620.jpg', NULL, NULL, NULL, NULL, 0, 1, -14, 'dorjibari', '2024-01-17 06:57:00', NULL),
-(16, 'Aarong', 'brand_images/NvpGN1705474628.webp', NULL, NULL, NULL, NULL, 0, 1, -15, 'aarong', '2024-01-17 06:57:08', NULL),
-(17, 'Bibiana', 'brand_images/q8rKR1705474636.jpg', NULL, NULL, NULL, NULL, 0, 1, -16, 'bibiana', '2024-01-17 06:57:16', NULL),
-(18, 'Artisti', 'brand_images/vPaEm1705474644.png', NULL, NULL, NULL, NULL, 0, 1, -17, 'artisti', '2024-01-17 06:57:24', NULL),
-(19, 'Le Reve', 'brand_images/07sxG1705474653.png', NULL, NULL, NULL, NULL, 0, 1, -18, 'le-reve', '2024-01-17 06:57:33', NULL),
-(20, 'GentlePark', 'brand_images/oGRdP1705474658.png', NULL, NULL, NULL, NULL, 0, 1, -19, 'gentlepark', '2024-01-17 06:57:38', NULL),
-(21, 'ILLIYEEN Fashion', 'brand_images/xXvY61705474665.png', NULL, NULL, NULL, NULL, 0, 1, -20, 'illiyeen-fashion', '2024-01-17 06:57:45', NULL),
-(22, 'Twelve Clothing', 'brand_images/jCgGt1705474673.webp', NULL, NULL, NULL, NULL, 0, 1, -21, 'twelve-clothing', '2024-01-17 06:57:53', NULL),
-(23, 'Grameencheck', 'brand_images/j5wZa1705474680.png', NULL, NULL, NULL, NULL, 0, 1, -22, 'grameencheck', '2024-01-17 06:58:00', NULL),
-(24, 'Grameen Uniqlo', 'brand_images/LoREs1705474687.svg', NULL, NULL, NULL, NULL, 0, 1, -23, 'grameen-uniqlo', '2024-01-17 06:58:07', NULL),
-(25, 'Anjan’s', 'brand_images/vIaPM1705474694.png', NULL, NULL, NULL, NULL, 0, 1, -24, 'anjan’s', '2024-01-17 06:58:14', NULL);
+(26, 'Aarong', 'brand_images/NvpGN1705474628.webp', NULL, NULL, NULL, NULL, 0, 1, -15, 'aarong', '2024-01-17 06:57:08', NULL),
+(27, 'Cats Eye', 'brand_images/RYZRC1705474571.png', NULL, NULL, NULL, NULL, 0, 1, -8, 'cats-eye', '2024-01-17 06:56:11', NULL),
+(28, 'Richman', 'brand_images/gRAM91705474580.png', NULL, NULL, NULL, NULL, 0, 1, -9, 'richman', '2024-01-17 06:56:20', NULL),
+(29, 'Yellow', 'brand_images/4E58h1705474589.webp', NULL, NULL, NULL, NULL, 0, 1, -10, 'yellow', '2024-01-17 06:56:29', NULL),
+(30, 'Ecstasy', 'brand_images/5R3tY1705474595.png', NULL, NULL, NULL, NULL, 0, 1, -11, 'ecstasy', '2024-01-17 06:56:35', NULL),
+(31, 'Rang Bangladesh', 'brand_images/zpBC61705474605.gif', NULL, NULL, NULL, NULL, 0, 1, -12, 'rang-bangladesh', '2024-01-17 06:56:45', NULL),
+(32, 'Kay Kraft', 'brand_images/QJalm1705474613.png', NULL, NULL, NULL, NULL, 0, 1, -13, 'kay-kraft', '2024-01-17 06:56:53', NULL),
+(33, 'Dorjibari', 'brand_images/pCqPW1705474620.jpg', NULL, NULL, NULL, NULL, 0, 1, -14, 'dorjibari', '2024-01-17 06:57:00', NULL),
+(34, 'Anjan’s', 'brand_images/vIaPM1705474694.png', NULL, NULL, NULL, NULL, 0, 1, -24, 'anjan’s', '2024-01-17 06:58:14', NULL),
+(35, 'Bibiana', 'brand_images/q8rKR1705474636.jpg', NULL, NULL, NULL, NULL, 0, 1, -16, 'bibiana', '2024-01-17 06:57:16', NULL),
+(36, 'Artisti', 'brand_images/vPaEm1705474644.png', NULL, NULL, NULL, NULL, 0, 1, -17, 'artisti', '2024-01-17 06:57:24', NULL),
+(37, 'Le Reve', 'brand_images/07sxG1705474653.png', NULL, NULL, NULL, NULL, 0, 1, -18, 'le-reve', '2024-01-17 06:57:33', NULL),
+(38, 'GentlePark', 'brand_images/oGRdP1705474658.png', NULL, NULL, NULL, NULL, 0, 1, -19, 'gentlepark', '2024-01-17 06:57:38', NULL),
+(39, 'ILLIYEEN Fashion', 'brand_images/xXvY61705474665.png', NULL, NULL, NULL, NULL, 0, 1, -20, 'illiyeen-fashion', '2024-01-17 06:57:45', NULL),
+(40, 'Twelve Clothing', 'brand_images/jCgGt1705474673.webp', NULL, NULL, NULL, NULL, 0, 1, -21, 'twelve-clothing', '2024-01-17 06:57:53', NULL),
+(41, 'Grameencheck', 'brand_images/j5wZa1705474680.png', NULL, NULL, NULL, NULL, 0, 1, -22, 'grameencheck', '2024-01-17 06:58:00', NULL),
+(42, 'Grameen Uniqlo', 'brand_images/LoREs1705474687.svg', NULL, NULL, NULL, NULL, 0, 1, -23, 'grameen-uniqlo', '2024-01-17 06:58:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -271,24 +257,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`, `featured`, `show_on_navbar`, `serial`, `created_at`, `updated_at`) VALUES
-(17, 'Laptop', 'category_images/wNTXD1704003160.svg', NULL, 'laptop', 0, 1, 1, 3, '2023-12-31 06:12:40', '2024-01-17 06:25:57'),
-(18, 'Mobile', 'category_images/MLOUm1704003277.svg', NULL, 'mobile', 0, 1, 1, 4, '2023-12-31 06:14:37', '2024-01-17 06:25:57'),
-(19, 'Gadget', 'category_images/rHVtn1704003317.svg', NULL, 'gadget', 0, 1, 1, 5, '2023-12-31 06:15:17', '2024-01-17 06:25:57'),
-(20, 'Cable', 'category_images/UlwHJ1704003328.svg', NULL, 'cable', 0, 0, 1, 6, '2023-12-31 06:15:28', '2024-01-17 06:25:57'),
-(21, 'Sound Equipment', 'category_images/gylXj1704003364.svg', NULL, 'sound-equipment', 0, 0, 1, 7, '2023-12-31 06:16:04', '2024-01-17 06:25:57'),
-(22, 'Monitor', 'category_images/moTUm1704003386.svg', NULL, 'monitor', 0, 1, 1, 8, '2023-12-31 06:16:19', '2024-01-17 06:25:57'),
-(23, 'Tablet', 'category_images/CDYTX1704003437.svg', NULL, 'tablet', 0, 1, 1, 9, '2023-12-31 06:17:17', '2024-01-17 06:25:57'),
-(24, 'Camera', 'category_images/oqwe01704003463.svg', NULL, 'camera', 0, 1, 1, 10, '2023-12-31 06:17:43', '2024-01-17 06:25:57'),
-(25, 'Security', 'category_images/ifQud1704003474.svg', NULL, 'security', 0, 0, 1, 11, '2023-12-31 06:17:54', '2024-01-17 06:25:57'),
-(26, 'Software', 'category_images/Rx7hY1704003482.svg', NULL, 'software', 0, 0, 1, 12, '2023-12-31 06:18:02', '2024-01-17 06:25:57'),
-(27, 'Accessories', 'category_images/4J34Y1704003492.svg', NULL, 'accessories', 0, 1, 1, 13, '2023-12-31 06:18:12', '2024-01-17 06:25:57'),
-(28, 'Gaming', 'category_images/dwB4t1704003507.svg', NULL, 'gaming', 0, 0, 1, 14, '2023-12-31 06:18:27', '2024-01-17 06:25:57'),
-(29, 'Desktop', 'category_images/1h5EG1704003512.svg', NULL, 'desktop', 0, 1, 1, 15, '2023-12-31 06:18:32', '2024-01-17 06:25:57'),
-(30, 'Component', 'category_images/cs1k61704003520.svg', NULL, 'component', 0, 0, 1, 16, '2023-12-31 06:18:40', '2024-01-17 06:25:57'),
-(31, 'UPS', 'category_images/ysrEj1704003527.svg', NULL, 'ups', 0, 0, 1, 17, '2023-12-31 06:18:47', '2024-01-17 06:25:57'),
-(32, 'TV / AC', 'category_images/H4XIb1704003538.svg', NULL, 'tv-ac', 0, 0, 1, 18, '2023-12-31 06:18:58', '2024-01-17 06:25:57'),
-(35, 'Men', 'category_images/HT2qj1705472695.jpg', 'category_images/CrPJh1705472322.jpg', 'men', 1, 1, 1, 1, '2024-01-17 05:42:20', '2024-01-17 06:25:57'),
-(37, 'Women', 'category_images/ywtOc1705472707.jpg', NULL, 'women', 1, 1, 1, 2, '2024-01-17 06:25:07', '2024-01-17 06:25:57');
+(10, 'Men', 'category_images/HT2qj1705472695.jpg', 'category_images/CrPJh1705472322.jpg', 'men', 1, 1, 1, 2, '2024-01-17 05:42:20', '2024-01-17 06:25:57'),
+(11, 'Women', 'category_images/ywtOc1705472707.jpg', NULL, 'women', 1, 1, 1, 1, '2024-01-17 06:25:07', '2024-01-17 06:25:57');
 
 -- --------------------------------------------------------
 
@@ -347,10 +317,24 @@ INSERT INTO `colors` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
 (9, 'Orange', '#ff8040', '2023-06-07 15:00:45', NULL),
 (10, 'off-white', '#fdfdfd', '2023-06-14 14:02:56', NULL),
 (11, 'Rock blue', '#9bb5ce', '2023-06-14 14:05:13', NULL),
-(12, 'GOLD', '#f9e5c9', '2023-06-14 14:07:01', NULL),
+(12, 'Cream', '#f9e5c9', '2023-06-14 14:07:01', '2023-11-24 04:21:23'),
 (13, 'Dusty Pink', '#c27ba0', '2023-07-09 18:26:57', NULL),
 (14, 'LightGreen', '#b6d7a8', '2023-07-25 10:05:10', '2023-07-25 10:16:12'),
-(15, 'Light Purple', '#cbc3e3', '2023-07-25 10:08:46', NULL);
+(15, 'Light Purple', '#cbc3e3', '2023-07-25 10:08:46', NULL),
+(16, 'Dark purple', '#6a329f', '2023-11-17 03:55:16', '2023-11-24 04:17:04'),
+(17, 'peach', '#ea9999', '2023-11-24 04:15:41', NULL),
+(18, 'Hot pink', '#c90076', '2023-11-24 04:18:23', '2023-12-03 08:54:24'),
+(19, 'Blue', '#2986cc', '2023-11-24 04:20:30', NULL),
+(20, 'Nevi blue', '#0b5394', '2023-11-24 04:20:56', NULL),
+(21, 'green', '#38761d', '2023-11-24 04:22:09', NULL),
+(22, 'Bottle green', '#274e13', '2023-11-24 04:22:32', NULL),
+(23, 'Parrot green', '#8fce00', '2023-11-24 04:22:58', NULL),
+(24, 'Maroon', '#660000', '2023-11-24 04:23:28', NULL),
+(25, 'Jet black', '#444444', '2023-11-24 04:24:51', NULL),
+(26, 'Mustard yellow', '#bf9000', '2023-11-24 05:49:21', NULL),
+(27, 'Sea Green', '#1b7e95', '2023-12-27 16:57:08', NULL),
+(28, 'Brown', '#c69f61', '2024-01-02 04:18:54', NULL),
+(29, 'Pink', '#e369b0', '2024-01-02 04:19:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -405,7 +389,10 @@ CREATE TABLE `contact_requests` (
 
 INSERT INTO `contact_requests` (`id`, `name`, `email`, `phone`, `company_name`, `message`, `status`, `created_at`, `updated_at`) VALUES
 (9, 'Adria Marshall', 'ryha@mailinator.com', '+1 (753) 106-1658', NULL, 'Dolor repudiandae ea', 1, '2024-01-21 05:54:03', '2024-01-21 05:56:01'),
-(10, 'Griffith Kelly', 'fexuqabex@mailinator.com', '+1 (797) 977-6063', NULL, 'Sunt corrupti ab su', 0, '2024-01-22 11:26:27', NULL);
+(10, 'Griffith Kelly', 'fexuqabex@mailinator.com', '+1 (797) 977-6063', NULL, 'Sunt corrupti ab su', 0, '2024-01-22 11:26:27', NULL),
+(11, 'Mikayla Mcmillan', 'nivylyg@mailinator.com', '+1 (303) 745-8039', NULL, 'Voluptatem libero u', 0, '2024-01-24 04:12:39', NULL),
+(12, 'Halee Carrillo', 'lutame@mailinator.com', '+1 (238) 579-6555', NULL, 'Nam ex libero sint', 0, '2024-01-24 04:12:43', NULL),
+(13, 'Tara Sanford', 'pilivesi@mailinator.com', '+1 (773) 305-6444', NULL, 'Animi non fugit om', 0, '2024-01-24 04:12:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -860,7 +847,7 @@ CREATE TABLE `email_configures` (
 --
 
 INSERT INTO `email_configures` (`id`, `host`, `port`, `email`, `password`, `mail_from_name`, `mail_from_email`, `encryption`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(6, 'smtp.gmail.com', 587, 'getupadgency@gmail.com', 'qrRFO6vSKj6Otuq3XBPp1do=', 'Getup', 'getupadgency@gmail.com', 1, '1697948605aqOMD', 1, '2023-10-22 04:23:25', '2023-10-22 04:33:50');
+(6, 'smtp.gmail.com', 587, 'getupadgency@gmail.com', 'qrRFO6vSKj6Otuq3XBPp1do=', 'Getup', 'sales@fejmo.com', 1, '1697948605aqOMD', 1, '2023-10-22 04:23:25', '2024-01-28 05:20:46');
 
 -- --------------------------------------------------------
 
@@ -955,10 +942,11 @@ CREATE TABLE `flags` (
 --
 
 INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `created_at`, `updated_at`) VALUES
-(6, NULL, 'Featured', 0, 1, 'featured-ySqYL-1705837407', '2023-10-18 04:50:19', '2024-01-21 11:43:27'),
-(7, NULL, 'Trending', 0, 0, 'trending-DqmQh-1705901243', '2023-10-18 04:50:26', '2024-01-22 05:27:23'),
+(6, NULL, 'Featured', 1, 1, 'featured-ySqYL-1705837407', '2023-10-18 04:50:19', '2024-01-21 11:43:27'),
+(7, NULL, 'Trending', 1, 0, 'trending-DqmQh-1705901243', '2023-10-18 04:50:26', '2024-01-22 05:27:23'),
 (8, NULL, 'New Arrival', 1, 0, 'new-arrival-2lpLH-1697604635', '2023-10-18 04:50:35', '2023-12-31 12:22:29'),
-(9, 'flag_icons/UIskl1699247145.png', 'Discounted Items', 0, 1, 'discounted-items-oyOF2-1705837399', '2023-11-06 03:05:45', '2024-01-21 11:43:19');
+(11, NULL, 'Best Sales', 1, 0, 'discounted-items-oyOF2-1705837399', '2023-11-06 03:05:45', '2024-01-21 11:43:19'),
+(12, NULL, 'Discounted Items', 1, 0, 'discounted-items-qpIot-1706418082', '2024-01-28 05:01:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -1029,7 +1017,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/OfOLc1704002832.png', 'company_logo/wneJl1704002832.png', 'company_logo/zeJpF1704002832.png', 'TechShop - Ecommerce', 'TechShop', 'We are committed to digitalizing your business. We provide Integrated marketing company that delivers graphics, web, and marketing solutions.', '019698855474,01326548963', 'demo@gmail.com,admin@gmail.com', 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', 'https://www.google.com/maps/dir//U.S.+Embassy,+London+33+Nine+Elms+Ln+Nine+Elms,+London+SW11+7US+United+Kingdom/@51.4825655,-0.1322369,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48760532743b90e1:0x790260718555a20c!2m2!1d-0.1322369!2d51.4825655?entry=ttu', 'https://play.google.com/store', 'https://www.apple.com/app-store/', '© 2022 Techshop', 'company_logo/GVgni1704081652.png', '#262626', '#222831', '#ffb84c', '#222831', '#252a34', '#e9eaea', 'Techshop Ecommerce', 'techshop', 'Techshop Ecommerce', 'Techshop Ecommerce', 'company_logo/QZYN11704367941.png', 'Techshop Ecommerce', '.custom{\r\n    width: 100%;\r\n    height: 100%;\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://facebook.com/asd', 'https://www.instagram.com/asd', 'https://www.twitter.com/asfasf', 'https://www.linkedin.com', 'https://www.youtube.com/asfasf', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 1, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 1, 'wqwe', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 1, NULL, NULL, NULL, '2024-01-21 06:30:32');
+(1, 'company_logo/XnmO41706417269.svg', 'company_logo/7Eivq1706417272.svg', 'company_logo/yKX0b1706417275.svg', 'TechShop - Ecommerce', 'FEJMO', NULL, '01977851889', 'contact@fejmo.com', 'Road-7, Block-H, House-81, Banani, Dhaka 1213', NULL, 'https://play.google.com/store/apps/details?id=com.getup.fejmo', NULL, '© FEJMO 2023 All right reserved', 'company_logo/GVgni1704081652.png', '#262626', '#f3f6f4', '#ffffff', '#262626', '#383838', '#eeeeee', 'Fejmo- Online Ecommerce Shopping', 'fejmo,ecommerce,shopping,online', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', 'Fejmo- Online Ecommerce Shopping', 'company_logo/mFtlm1706417475.svg', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com/fejmo?mibextid=LQQJ4d', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 0, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 0, NULL, 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, NULL, NULL, '2024-01-28 04:52:35');
 
 -- --------------------------------------------------------
 
@@ -1290,8 +1278,8 @@ CREATE TABLE `payment_gateways` (
 INSERT INTO `payment_gateways` (`id`, `provider_name`, `api_key`, `secret_key`, `username`, `password`, `live`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'ssl_commerz', 'sodai644d7015e8eb1', 'sodai644d7015e8eb1@ssl', 'alifhossain174', '12345678', 1, 1, NULL, '2023-10-18 08:16:01'),
 (2, 'stripe', '98798796546', 'ASDFGHJKLERTYUI', 'test_username', 'test_password', 1, 0, NULL, '2023-06-19 05:19:05'),
-(3, 'bkash', '654654654', 'ZWvNGXXPHOYhR', 'bkash_test_user', '85747bkash', 1, 0, NULL, '2023-10-11 05:00:38'),
-(4, 'amar_pay', '654654654', 'ZWvNGXXPHOYhR', 'amar_pay_test_user', '85747amar_pay', 1, 1, NULL, '2023-10-11 04:57:30');
+(3, 'bkash', '654654654', 'ZWvNGXXPHOYhR', 'bkash_test_user', '85747bkash', 1, 1, NULL, '2024-01-28 05:21:15'),
+(4, 'amar_pay', '654654654', 'ZWvNGXXPHOYhR', 'amar_pay_test_user', '85747amar_pay', 1, 0, NULL, '2024-01-28 05:21:15');
 
 -- --------------------------------------------------------
 
@@ -1836,67 +1824,46 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
-(922, 37, 68, NULL, 18, NULL, 'Synergized grid-enabled encoding-1', '258', 'productImages/3.png', '[\"1.png\",\"7.png\",\"12.png\",\"4.png\"]', 'Corporis aut quis sunt. At in impedit aliquid quam id ea.', 'Veniam consectetur voluptatibus qui expedita earum. Quibusdam consequatur fugiat tempora et voluptatem asperiores. Ad et aut molestias voluptas. Nesciunt impedit dolorem consectetur labore tenetur sit. Voluptatem sed est aspernatur est fuga. Fuga reiciendis non eum nihil. Qui excepturi voluptatum ea ex quos. Qui sed eos tempora.', 'Soluta aut sed nihil quibusdam recusandae quod. Labore eveniet deleniti ea omnis.', 'Modi ex dolorem recusandae exercitationem ad. Et enim tempora aliquam quo amet. Praesentium aut dolorem natus odio.', 380, 370, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983529J173x', 8, 'Synergized grid-enabled encoding-1', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(923, 37, 70, NULL, 15, NULL, 'Configurable object-oriented approach-2', '835', 'productImages/5.png', NULL, 'Qui repellat ipsam molestias sequi modi aut. Repellendus corrupti unde nihil quod doloremque.', 'Labore qui nihil et saepe. Eos ullam dicta dolorum et. Est dolores incidunt sapiente veritatis. Pariatur ut et incidunt possimus facere sit. Sapiente eos ipsa dolor ea a impedit. Dolore aut sapiente ut sunt sapiente eligendi rerum doloremque. Suscipit maiores illum id reiciendis tenetur deserunt.', 'Omnis et dicta quam veniam similique dolor illo. Quam quos est accusamus itaque rerum est porro et. Laboriosam dolorem voluptatem hic rerum corrupti laborum totam. Quia consequatur sed voluptatem in.', 'Dignissimos rerum impedit vel at unde ipsum corrupti saepe. Eius laboriosam hic ipsam vero quia labore. Qui esse ut quidem ducimus et. Illo eum qui ex.', 252, 242, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1705983529ZQ9aE', 8, 'Configurable object-oriented approach-2', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:49', NULL),
-(924, 35, NULL, NULL, 16, NULL, 'Open-architected system-worthy standardization-3', '891', 'productImages/10.png', '[\"1.png\",\"15.png\",\"3.png\",\"2.png\"]', 'Eaque quia blanditiis pariatur blanditiis aliquid et. Veritatis aperiam nesciunt quod totam. Aperiam ea labore quia vero numquam maxime.', 'Vero est architecto dolore aut quisquam cumque. Est magni id sed at laudantium quod dolores. Nihil occaecati fugiat nostrum sed saepe sed nihil. Voluptate architecto fugit nihil nostrum possimus. Consequatur eos voluptatem ut praesentium repellat hic libero. Ipsum minus qui ipsum numquam ipsam quaerat.', 'Velit unde hic consequatur a officia. Minima soluta et voluptatem est vel quis. Enim nemo amet necessitatibus unde quidem ut. Autem praesentium eum tenetur delectus veniam accusantium qui.', 'Et dicta asperiores consectetur optio eos. Rem non aspernatur aspernatur animi hic non aliquid. Quasi et voluptatem deserunt ut ipsa. Tempore itaque expedita tenetur et delectus aut officia et.', 187, 177, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1705983529BdDU3', 8, 'Open-architected system-worthy standardization-3', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(925, 37, 70, NULL, 17, NULL, 'Enterprise-wide global productivity-4', '434', 'productImages/17.png', NULL, 'Velit dolorem non voluptates. Nisi dolore sunt aut magni error numquam adipisci. Sed ducimus placeat architecto saepe numquam.', 'Ab modi porro adipisci et repudiandae minima et. Qui voluptas blanditiis ullam aut dolores. Voluptate odio ab quidem nesciunt ut blanditiis. Nesciunt asperiores repellendus aut voluptas praesentium. Aut enim dolorum et cupiditate eaque laborum ut. Quis dolor vel exercitationem earum nemo eveniet ipsam. Ut veniam sed eum tenetur amet.', 'Perspiciatis ut a voluptas nihil. Doloremque porro culpa mollitia quod.', 'Animi consectetur porro enim ea sed consequatur. Omnis maxime fuga et in sed fugiat voluptatibus omnis.', 379, 369, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1705983529M1f7n', 8, 'Enterprise-wide global productivity-4', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:49', NULL),
-(926, 37, 67, NULL, 13, NULL, 'Secured nextgeneration service-desk-5', '584', 'productImages/1.png', '[\"4.png\",\"15.png\",\"17.png\",\"13.png\"]', 'Iure quia qui voluptas eum sit odio quia. Voluptatem vel delectus veniam quaerat. Minus asperiores qui quidem. Dolorem illo labore ducimus architecto aperiam.', 'Et fugiat adipisci aperiam voluptatem sit quae. Unde quidem sed voluptate. Quisquam mollitia reiciendis velit sed fuga aut nostrum. Debitis occaecati in ea perspiciatis nam. Eos dolor ipsa perspiciatis id itaque nesciunt aut neque. Distinctio voluptatibus alias sed quos iste non. Tempora ad ea nihil sunt facere possimus.', 'Laborum explicabo sequi soluta est ad cumque necessitatibus. Et officia aspernatur similique atque repellendus consequatur.', 'Fugit impedit omnis sed. Voluptas odio et dolore non nihil aliquam. Et excepturi nemo repellat ipsum qui aut voluptates.', 917, 907, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1705983529igbxe', 8, 'Secured nextgeneration service-desk-5', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(927, 35, NULL, NULL, 20, NULL, 'Sharable directional opensystem-6', '352', 'productImages/11.png', NULL, 'Libero eveniet ipsam quo ducimus voluptates repellat omnis. Fugit ducimus in omnis ab accusamus maiores non harum. Inventore ex accusamus sit quibusdam.', 'Quae repellendus quis labore voluptatem cum. Nemo non laboriosam adipisci perspiciatis. Eos perferendis quia et et nemo. Non est officia mollitia repellat omnis tenetur modi. Animi reprehenderit excepturi qui quis odio distinctio numquam. Voluptate amet totam et ut qui inventore.', 'Corrupti rerum ut similique quis vero quisquam cumque. Voluptas culpa ducimus harum aliquam et ut. Rem dicta eos id porro rerum. Architecto dolores vitae perferendis.', 'Eaque eos molestiae est architecto non minima architecto est. Totam culpa consequatur officiis iure totam. Omnis cumque et architecto necessitatibus similique reprehenderit delectus praesentium.', 963, 953, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983529L0gEr', 8, 'Sharable directional opensystem-6', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:49', NULL),
-(928, 37, 73, NULL, 12, NULL, 'Focused explicit blockchain-7', '858', 'productImages/17.png', '[\"7.png\",\"3.png\",\"15.png\",\"8.png\"]', 'Inventore est voluptatem a. Quo voluptatem illum et excepturi repudiandae. Voluptatum earum aut omnis non delectus consectetur est.', 'Sit consequatur occaecati magnam incidunt et. Provident et sed expedita ipsum soluta error. Provident autem omnis est dignissimos. Facere ea sit cum sint atque voluptatum. Dolorem eos eveniet ipsum animi praesentium at. Sed quaerat adipisci aut et. Id placeat ut est aut blanditiis saepe quam.', 'Qui ut quaerat magnam dolores voluptates repellat accusamus. Perferendis numquam consequuntur aut. Velit ut quaerat quae vero facere dolores ratione.', 'Ut quas ut amet quia ullam dicta. Ea quibusdam a ut placeat. Sit autem deleniti et recusandae qui. Tenetur enim possimus nihil sit sit.', 192, 182, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983529z1e6Y', 8, 'Focused explicit blockchain-7', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(929, 35, NULL, NULL, 22, NULL, 'Self-enabling local pricingstructure-8', '775', 'productImages/3.png', NULL, 'Voluptas nihil odit nam reprehenderit qui. Minima fuga ut aut commodi ipsum sunt. Fugiat quia culpa qui ipsum ad. Iste ad nobis necessitatibus hic.', 'Et et tempora dolor dolores. Consequatur unde occaecati sit consequatur asperiores laborum ipsam nam. Dolores adipisci odio voluptatem amet quam. Ex eligendi ex aperiam vero nulla. Eligendi voluptatibus quam est dolores aut quia architecto. Inventore accusamus sed ut voluptatum voluptas architecto. Sint nihil explicabo et enim quis illum libero. Tenetur est exercitationem beatae error magni.', 'Enim laboriosam inventore iste. Fugit id minima facilis officia. Doloremque voluptatem expedita qui exercitationem accusamus voluptatem.', 'Aut tempora sed eum. Assumenda aut explicabo soluta non. Ipsa et et aut. Ad cumque consequatur eius pariatur accusamus nihil rem.', 875, 865, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983529cWRBi', 8, 'Self-enabling local pricingstructure-8', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:49', NULL),
-(930, 35, NULL, NULL, 18, NULL, 'Expanded grid-enabled middleware-9', '834', 'productImages/14.png', '[\"7.png\",\"5.png\",\"15.png\",\"19.png\"]', 'Molestiae sunt explicabo consequatur asperiores error doloribus a. Quas saepe repellat aspernatur. Odit officiis est corrupti non tenetur eligendi est consectetur.', 'Maiores rerum in tempore nemo perferendis eos. At minima nisi rerum dolores. Sapiente omnis et illo consequatur deserunt nostrum quo aut. Eum nostrum aut incidunt. Dolor odit incidunt rerum fugit. Qui itaque impedit omnis eveniet modi. Est ipsam voluptatem quae.', 'Voluptas quae architecto aut similique distinctio natus et. Qui debitis impedit voluptate itaque. Eius quam unde libero at fuga. A facilis quas perferendis ut maxime enim.', 'Facilis odit eligendi quos et corporis. Porro consequatur voluptatem omnis quas aut incidunt.', 669, 659, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983529p27Y5', 8, 'Expanded grid-enabled middleware-9', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(931, 35, NULL, NULL, 21, NULL, 'Reactive zerodefect artificialintelligence-10', '101', 'productImages/20.png', NULL, 'Incidunt sit autem maxime voluptatem vel aliquid. Modi eos alias quibusdam quidem. Et animi facilis pariatur cumque doloribus doloribus itaque.', 'Illum eos accusamus aspernatur debitis. Quia quo quod exercitationem. Dolor aut sit aliquid aut laudantium. Nisi sequi voluptatem sed. Praesentium facere et nihil voluptas dolorum voluptas ducimus. Et maiores sint unde cupiditate sunt reiciendis.', 'Voluptas vel libero alias nemo enim sunt possimus. Id et vel impedit id atque id. Iusto nihil ea quia. Minus dolores voluptatem non. Optio omnis harum ea dolorum qui optio vero perspiciatis.', 'Repellendus autem qui iste esse architecto aut cumque. Similique non iure qui et. Sint optio porro consectetur sint quae et est.', 568, 558, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1705983529jnArk', 8, 'Reactive zerodefect artificialintelligence-10', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:49', NULL),
-(932, 37, 69, NULL, 17, NULL, 'Profound zeroadministration toolset-11', '483', 'productImages/1.png', '[\"1.png\",\"4.png\",\"7.png\",\"8.png\"]', 'Voluptatum nam beatae ab error iure vitae est. Maiores in molestias cupiditate eaque. Nisi omnis fuga porro quasi aut soluta mollitia tenetur.', 'Dolorum aspernatur ipsum quam quis. Dolorem ipsa omnis error alias voluptatem. Eligendi sequi omnis modi suscipit quo quibusdam omnis. Impedit quo delectus non libero vel. Laborum qui nulla nisi officiis quaerat modi ea. Qui sequi quaerat neque fugiat tempore consequuntur nihil. Recusandae esse consequuntur fugit consequuntur minima sit iste. Dolores amet harum adipisci quasi.', 'In consequatur qui aspernatur eos et. Dicta et et pariatur praesentium animi doloremque. Necessitatibus ex quia voluptatem enim. A voluptas exercitationem ipsam voluptas.', 'In ipsa aut quia aliquid consectetur iure. Officia vel similique est nisi quo deserunt. Officiis aut recusandae molestiae neque. Consequatur assumenda minus libero maiores mollitia labore.', 654, 644, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983529rxSVX', 8, 'Profound zeroadministration toolset-11', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(933, 37, 67, NULL, 12, NULL, 'Programmable client-server implementation-12', '757', 'productImages/19.png', NULL, 'Perspiciatis voluptatum doloribus consequatur et aspernatur cumque fugiat. Culpa voluptates consequatur quisquam hic saepe. Consequuntur impedit eveniet laboriosam dicta.', 'Consequatur laborum et aut animi. Consectetur blanditiis necessitatibus ut velit quasi. Voluptatum repellendus et et possimus. Officiis nihil beatae mollitia vitae. Cupiditate dolor enim a sit dignissimos illum. Veritatis quis officia consequatur.', 'At repellat quisquam nihil eos facilis qui. Qui minima asperiores recusandae optio debitis illo. Quidem nulla aspernatur blanditiis assumenda. Ipsum voluptatem dolore veniam ut.', 'Ea occaecati ipsam fuga placeat animi itaque sed minus. Sit unde ea at consequatur quod. Similique numquam dicta quae dolore. Quidem consequatur cum eius sit error.', 256, 246, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983529ED639', 8, 'Programmable client-server implementation-12', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:49', NULL),
-(934, 37, 69, NULL, 18, NULL, 'Monitored bandwidth-monitored artificialintelligence-13', '542', 'productImages/19.png', '[\"9.png\",\"12.png\",\"18.png\",\"12.png\"]', 'Fugit et et omnis. Totam ea necessitatibus eaque numquam in quo. Nisi soluta nam magni placeat ut eos occaecati consequatur.', 'Repellat sint excepturi aut sint id. Iusto aut ut accusantium reprehenderit voluptate unde quae sed. Sapiente nobis ipsa quo in qui dolorum. Tenetur officiis et sit possimus deserunt. Ad et voluptas voluptatem illum numquam. Provident sed et iure exercitationem molestiae. Ab suscipit voluptatem ratione porro.', 'Quibusdam dignissimos et delectus. A veritatis placeat ut eveniet numquam. Esse possimus dolor est consequatur nesciunt odio omnis.', 'Facilis officia magni quia omnis fugit ut occaecati. Accusantium porro tempora perferendis ut ad labore ipsum. Natus deleniti nam vel odio.', 654, 644, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '170598352959pD8', 8, 'Monitored bandwidth-monitored artificialintelligence-13', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(935, 37, 66, NULL, 20, NULL, 'Business-focused executive encryption-14', '613', 'productImages/10.png', NULL, 'Voluptates odio earum eius sed ut laudantium est. At et numquam ut quod pariatur non voluptatibus. Doloribus saepe id eligendi.', 'Non dolorem illum dolorum debitis est explicabo tenetur minus. Sed unde iusto blanditiis consequuntur quo aut. Provident consequatur optio molestiae nobis hic sint. Et voluptate qui quibusdam consequatur illo totam reiciendis iure. Provident occaecati aut ut sint quia alias rerum doloremque. Nihil rerum incidunt nihil alias. Autem soluta et vitae qui consequuntur temporibus.', 'Numquam ipsam ut explicabo harum. Nihil unde ut aliquid in est id iusto cumque. Accusantium dolore at odit voluptatibus maiores.', 'Corrupti quisquam sapiente quod est odit qui enim. Accusamus rerum nesciunt maxime vel asperiores. Vitae eligendi quas rerum quos veritatis.', 692, 682, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1705983529RrLr5', 8, 'Business-focused executive encryption-14', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:49', NULL),
-(936, 35, NULL, NULL, 18, NULL, 'Right-sized modular software-15', '873', 'productImages/10.png', '[\"8.png\",\"1.png\",\"7.png\",\"6.png\"]', 'Sequi fuga veritatis iste nam praesentium repellat eum. Mollitia possimus nisi est. Asperiores ipsam enim magni soluta eum aspernatur. Eos libero asperiores commodi alias quam dolores omnis.', 'Ipsam est impedit rerum dolor omnis voluptatem. Ut placeat sunt totam ea. Autem rem velit numquam occaecati et adipisci non. Libero et animi rem. Nostrum placeat dolor ipsum veritatis. Et nulla et beatae sed enim voluptatem ipsa earum. Ratione non ipsa ipsam odit consequuntur autem libero ut.', 'Dolorem ut vitae autem at. Explicabo ut laborum eaque ut. Amet molestiae omnis mollitia nulla adipisci nulla.', 'Laudantium mollitia aut praesentium cupiditate labore rerum. Dignissimos et excepturi recusandae consequatur quo voluptates sequi. Voluptate molestias dolores libero sed. Nihil labore sequi sit in.', 714, 704, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983529H83im', 8, 'Right-sized modular software-15', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(937, 37, 73, NULL, 16, NULL, 'Cloned encompassing orchestration-16', '603', 'productImages/7.png', NULL, 'Dolorum saepe optio nihil nihil aliquam nihil eum. Beatae voluptatum consequatur sed ratione est. In recusandae itaque provident. Fugit hic odit voluptatum vel quaerat libero.', 'Non et numquam fuga eaque. Aut commodi molestiae dolorem odio. Voluptas ratione qui qui culpa ipsam nobis. Nam occaecati accusantium et distinctio ipsum est iure. Vero inventore dolores quia qui cupiditate perspiciatis excepturi harum. Nihil excepturi rerum dolor aspernatur voluptatem deserunt. Corporis iusto ad sed voluptas excepturi dolorum aut.', 'Animi omnis facilis voluptatem aspernatur qui. Dignissimos assumenda quae officia aperiam. Aut voluptatibus adipisci modi et.', 'Neque qui possimus vel a nisi ducimus qui et. Impedit sunt nihil et magnam. Cum qui natus rem dolor minus in itaque. Sed maxime asperiores aut quis aut molestias sint.', 226, 216, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17059835298g42Y', 8, 'Cloned encompassing orchestration-16', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:49', NULL),
-(938, 37, 70, NULL, 10, NULL, 'Cross-platform interactive capability-17', '820', 'productImages/4.png', '[\"13.png\",\"1.png\",\"17.png\",\"20.png\"]', 'Sit quo fuga aspernatur omnis ullam dolorem. Quis harum est dolores repellendus quia nemo. Sunt et ut velit quidem asperiores labore. Qui enim repellendus voluptas illum eum harum similique.', 'Nisi quam ut unde repellat praesentium aut. Quod eum ut et. Libero nulla repellat voluptas in quis. Doloremque occaecati iste quidem voluptatibus. Nihil maiores sit quo aliquam odit ea inventore. Perferendis provident veniam rerum voluptates. Est deserunt quae cumque sunt voluptatem et.', 'Sint blanditiis non omnis omnis sed. Et dolorem repellat mollitia qui. Neque voluptatibus asperiores odit. Exercitationem magni laudantium ut fugit. Et molestias nihil et iste consequuntur.', 'Inventore corporis dolor repellat aperiam voluptates quis ratione odio. Eos aut et est labore. Aut cum et quidem et recusandae blanditiis. Aut vero odit minus et veritatis.', 619, 609, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983529xX4mS', 8, 'Cross-platform interactive capability-17', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(939, 35, NULL, NULL, 14, NULL, 'Synergized zeroadministration ability-18', '321', 'productImages/7.png', NULL, 'At unde omnis quidem. Debitis autem ab et quia. Facilis dolorum asperiores vero eveniet sunt ea non accusamus. Assumenda dolorem magnam illum molestiae ipsam ut.', 'Ut modi sint magni quasi omnis voluptas. Deserunt aperiam omnis corrupti reprehenderit temporibus veritatis quae. Expedita distinctio facere excepturi vel. Facere repellendus impedit voluptatem et. Deleniti doloremque est qui sapiente numquam accusantium. Delectus labore neque vero fugit consequatur. Qui ipsam et ea deleniti qui.', 'Minus consequuntur aperiam voluptatum voluptatem nihil distinctio id. Inventore quia magni ipsam rerum. Inventore vel at deserunt vel. Deleniti sequi eum sint quasi.', 'Harum rerum assumenda et. Nemo dolorem sequi consectetur. Rem voluptatibus accusantium dolor et. Dolorum cupiditate et labore itaque. Repellendus qui reprehenderit reprehenderit.', 145, 135, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983529v0jAr', 8, 'Synergized zeroadministration ability-18', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:49', NULL),
-(940, 37, 68, NULL, 14, NULL, 'Versatile systemic utilisation-19', '215', 'productImages/19.png', '[\"12.png\",\"16.png\",\"19.png\",\"15.png\"]', 'Et amet placeat ipsa est. Sequi ut dolorum magni in. Aut qui quas voluptas. Voluptate dignissimos labore qui. Rerum dolorem fugit enim quis at.', 'Exercitationem quam facere dolor. Maiores illum eos deleniti quia. Necessitatibus aperiam explicabo eligendi mollitia alias. Qui sunt vero ut. Sed non adipisci porro laudantium eligendi. Ut repellat consequuntur vel illo. Exercitationem dolor velit illum dolore dolor officia deleniti quod. Beatae quia esse necessitatibus velit repellat eius asperiores. Corporis ducimus non harum saepe dolorem ab.', 'Voluptatem nemo amet porro vel quia consequatur. Provident et et in eveniet reprehenderit ipsum. Veritatis ea magni deserunt voluptas laudantium odio. Saepe et odit sunt ut velit sed aperiam nihil.', 'Eligendi assumenda voluptatem aspernatur eius facilis itaque eos. Occaecati mollitia labore voluptas pariatur natus dolorem dolorem. Voluptas doloribus est qui voluptas officia ducimus.', 668, 658, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983529tzv2h', 8, 'Versatile systemic utilisation-19', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:49', NULL),
-(941, 37, 72, NULL, 18, NULL, 'Digitized logistical openarchitecture-20', '285', 'productImages/3.png', NULL, 'Ut possimus facere ipsam ratione. Ratione ipsa facere adipisci placeat magni tempore. Officiis dolores et voluptas fugit aliquid. Alias et beatae nostrum eum dolorem saepe quisquam aut.', 'Laborum aliquid natus quos deleniti consequatur animi. Qui perspiciatis cupiditate ea quia. Iure ut sint amet cumque aspernatur. Officiis pariatur architecto corporis iste. Culpa porro aut suscipit. Delectus porro dignissimos voluptate nihil. Animi maiores dolor dolor doloribus sunt.', 'Qui consequatur repellendus nemo incidunt. Neque et maxime consequuntur qui libero laboriosam. Laborum aliquid distinctio sint necessitatibus laudantium occaecati est. Aut autem quod quia occaecati.', 'Dolorem delectus ut qui libero fugit voluptatem. Fuga esse qui eum dolorem omnis qui. Et nisi dignissimos sed enim. Iste vitae dolores eos sunt.', 266, 256, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983530zfWap', 8, 'Digitized logistical openarchitecture-20', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(942, 35, NULL, NULL, 17, NULL, 'Open-source grid-enabled product-21', '384', 'productImages/11.png', '[\"12.png\",\"8.png\",\"5.png\",\"1.png\"]', 'Ipsam non repellendus dicta voluptates tempora. Tempore fuga eos minima dolores magnam et aut voluptas.', 'Quae ratione aut ipsum asperiores sunt consectetur. Eaque asperiores voluptates at. Facilis et repellat aspernatur qui exercitationem. Placeat autem non excepturi nobis. Deleniti sunt praesentium et similique. Quos tenetur tenetur omnis quisquam sunt.', 'Esse dolore aut est deleniti velit sint eligendi qui. Voluptas neque aspernatur expedita vero minima excepturi.', 'Sint natus voluptas recusandae dolores. Iste maiores libero sunt dolorem atque ut. Velit quam ut dolorem quidem et.', 261, 251, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17059835304Cwqj', 8, 'Open-source grid-enabled product-21', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(943, 37, 68, NULL, 18, NULL, 'Streamlined transitional approach-22', '421', 'productImages/19.png', NULL, 'Quod vel dolorem tenetur quo eos sit eos. In fugiat quos necessitatibus molestiae dolor nihil animi deleniti. Quia placeat porro dolor pariatur.', 'Quibusdam placeat impedit ab est. Ratione aspernatur sit labore placeat placeat ut. Ut fugiat rem ut asperiores asperiores possimus rerum. Consequatur cumque mollitia dolor qui atque nisi incidunt occaecati. Quis sapiente sapiente consequatur eius consequatur rerum. Molestiae maiores quibusdam sint dolorem velit voluptas animi. Vitae praesentium et praesentium. Quia possimus rerum ea.', 'Quae corrupti ut deserunt voluptatem. Dolor maiores occaecati perspiciatis suscipit voluptas aut. Qui dicta quisquam ut et totam voluptatem. Ut architecto error odio dolor sapiente et.', 'Laboriosam explicabo ad explicabo eligendi eos. Error et quia eos veritatis nulla temporibus. Itaque voluptas autem autem dolorum.', 398, 388, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1705983530P6Jqy', 8, 'Streamlined transitional approach-22', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(944, 37, 65, NULL, 12, NULL, 'Compatible content-based task-force-23', '941', 'productImages/10.png', '[\"18.png\",\"14.png\",\"1.png\",\"17.png\"]', 'Accusamus non pariatur et esse est. Atque molestiae laborum voluptatum veritatis aut. Quia architecto nam minima odit deleniti. Facilis quos laboriosam rerum optio.', 'Dolore autem ea in dolorem consequatur cum. Beatae quisquam minima ut facere sed. Dolor voluptatibus est est veniam. Nemo vitae eius corrupti ut. Quo sapiente consectetur culpa delectus et. Fugiat magni nihil ut voluptate blanditiis tenetur. Saepe perspiciatis repellat est consequatur.', 'Est et dolor quia earum harum et. Hic nisi facere blanditiis molestias quisquam voluptates. Suscipit ipsa explicabo nulla natus fugit et.', 'Delectus sed nihil recusandae sed natus. Qui ut et illo recusandae dignissimos voluptatem illo et. Aliquid omnis consequuntur nesciunt deleniti explicabo vel aperiam sapiente.', 771, 761, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983530i0cGa', 8, 'Compatible content-based task-force-23', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(945, 37, 68, NULL, 25, NULL, 'Pre-emptive exuding initiative-24', '669', 'productImages/7.png', NULL, 'Illo atque nihil qui porro harum consectetur. Eligendi alias vel vel ipsam est aut recusandae. Quia porro dolores quam facere. Fugiat ea unde molestiae.', 'Nulla perspiciatis ut repellat voluptatibus. Cum dolores alias corrupti sequi reiciendis. Et repudiandae neque fugit architecto praesentium perspiciatis. Cum dicta tempora ipsam officiis. Quis cumque nihil minima enim aperiam iure. Ut saepe velit sit et nesciunt et.', 'Error non magni sunt cum. Facere distinctio nobis repellat ea ducimus in rerum. Amet laudantium neque fuga vitae asperiores adipisci libero sunt. Vero minima culpa quia est.', 'Impedit libero architecto officia eum perferendis sint. Repellendus aut quis voluptate qui voluptatem. Adipisci assumenda eum odio labore ad suscipit. Beatae et illo et labore est fugit.', 862, 852, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983530MveVe', 8, 'Pre-emptive exuding initiative-24', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(946, 35, NULL, NULL, 15, NULL, 'Realigned full-range capability-25', '389', 'productImages/5.png', '[\"5.png\",\"6.png\",\"6.png\",\"19.png\"]', 'Inventore minima sapiente et ea. Non et ducimus et a. Quam rem voluptatibus fugit ea ipsum perferendis vitae esse.', 'Nam provident qui quae sit voluptatum fuga. Debitis earum omnis rem velit eligendi. Velit sint veniam et tenetur. Provident ex consequatur corrupti consequuntur suscipit. Aspernatur inventore dolores id. Itaque dignissimos quia dicta asperiores explicabo ut. Quis enim beatae quod recusandae vitae illo temporibus.', 'Quasi nam qui laborum reiciendis molestiae provident vitae. Et et quia a et pariatur incidunt neque. Provident rem dolorem vero aut enim. Necessitatibus nihil est et eveniet molestiae.', 'Optio consectetur et eos ab. Quo eum consequatur officiis ea sit placeat. Nobis exercitationem architecto aut excepturi corporis iure aut et.', 438, 428, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983530HKHBj', 8, 'Realigned full-range capability-25', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(947, 37, 69, NULL, 15, NULL, 'Operative neutral instructionset-26', '712', 'productImages/12.png', NULL, 'Quos ex dolor corrupti pariatur et nisi ad. Nisi et deserunt qui natus nihil. Quaerat dolorum impedit ex alias labore dolorum debitis. In et ipsa qui quaerat ea.', 'Consequuntur aut recusandae id natus aperiam maiores. Magni minus dolor quisquam repudiandae qui explicabo vitae cum. Harum natus quis et et sapiente nesciunt culpa. Qui assumenda et eveniet ut explicabo consequatur non est. Nam tempore quos officia animi aut.', 'Adipisci quidem quam quasi consequuntur. Ullam numquam voluptas rerum dolor corrupti mollitia dolore. Magni voluptas distinctio consectetur error accusantium culpa.', 'Fugiat est et in maiores et sit. Ut minus eius qui. Quasi eum eligendi minus hic molestias.', 974, 964, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '17059835307OgWU', 8, 'Operative neutral instructionset-26', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(948, 35, NULL, NULL, 22, NULL, 'Optimized stable array-27', '851', 'productImages/12.png', '[\"17.png\",\"2.png\",\"9.png\",\"4.png\"]', 'Quos labore quos porro quaerat corporis. Tempore voluptas et enim et. Fuga aliquid eos voluptas et dolores sit soluta.', 'Sequi corrupti cum eos sed suscipit aut. Eos ut quos earum qui voluptatem. Consectetur distinctio ab exercitationem et ipsa voluptas. Quo a expedita dolor veniam dolor fugit. Autem similique et alias veniam debitis nihil consectetur. Error autem est sint cupiditate iure illo. Sit nisi quam quia molestiae.', 'Occaecati minus aliquam unde odit aliquam quo. Dolorem fugiat quis sunt tempora eius autem necessitatibus. Qui dolorum dicta id ab.', 'Autem unde aut tenetur. Voluptas aperiam eaque laudantium molestiae aliquid in voluptatum. Alias dicta velit consequatur molestiae aut eum dolorem quis.', 751, 741, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983530dPBRT', 8, 'Optimized stable array-27', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(949, 35, NULL, NULL, 12, NULL, 'User-friendly heuristic utilisation-28', '664', 'productImages/20.png', NULL, 'Rerum incidunt nam voluptate deleniti sit aut et. Soluta esse deleniti repellendus culpa. Blanditiis quaerat commodi provident perferendis autem.', 'Dolore tenetur deserunt occaecati explicabo. Perferendis voluptate tempore ab quia. Nihil distinctio numquam voluptatem maiores quasi quia. Voluptatibus consequuntur facilis vel consequatur quia. Facilis recusandae sed quia voluptatem. Quidem sint beatae id dolorum minus. Qui est enim autem incidunt consequuntur ipsum quod sit.', 'Beatae labore aliquid eos quis. Et consequatur illum consequatur at. Nemo sint quia quia et similique. Omnis dolorum rerum accusamus atque.', 'Quia voluptatem facere optio rem libero natus. Ducimus eum laudantium aliquam qui in pariatur incidunt qui. Aut maxime aspernatur labore velit.', 568, 558, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '17059835302HRci', 8, 'User-friendly heuristic utilisation-28', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(950, 37, 69, NULL, 9, NULL, 'Down-sized dynamic capability-29', '417', 'productImages/18.png', '[\"2.png\",\"11.png\",\"11.png\",\"15.png\"]', 'Excepturi vero tempore est asperiores unde dolorem. Earum similique qui aliquid. Quos labore hic voluptate incidunt reprehenderit reiciendis sunt. Nulla aut est eum alias est illo.', 'Ullam perspiciatis aut a quo iusto et quam. Quia nemo est sint enim. Esse ea dolorem placeat. Deserunt numquam aliquam temporibus voluptatem voluptas repellendus ea. Consequatur qui iste quam laborum dolorum qui. Perferendis voluptas mollitia doloribus. Consequatur repellat nemo iure ex quos.', 'Sit deserunt eos reiciendis voluptatem. Et velit et cum. Voluptas eum mollitia autem nam.', 'Porro consectetur explicabo vel temporibus et sit recusandae. Iste voluptas sequi pariatur et. Velit consequuntur et autem ea doloribus. Dicta aut quod praesentium tempora cum.', 787, 777, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1705983530zI2E8', 8, 'Down-sized dynamic capability-29', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(951, 37, 68, NULL, 11, NULL, 'Fully-configurable directional time-frame-30', '600', 'productImages/17.png', NULL, 'Omnis illum dolores dolor rerum eaque. Eaque aut esse delectus excepturi. Consequatur ipsum magnam aut. Ut non labore qui necessitatibus ut iure.', 'Dolore commodi nesciunt rem. Explicabo ipsam nesciunt perspiciatis dolorum. Molestiae commodi blanditiis et sit voluptatem ratione nihil. Ipsum natus aut officia qui quis commodi. Soluta est illo et hic aut placeat quo. Nulla animi nobis perferendis voluptates sunt. Placeat minus qui et voluptas.', 'Officiis et ut molestias rerum accusamus. Rerum ex et quas deserunt beatae earum corporis. Fugit ut ipsa velit aspernatur labore harum rerum.', 'Quibusdam et officia et rem aut tempore. Ut qui sit odit. Similique ut et porro officiis reprehenderit accusantium enim est.', 524, 514, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1705983530xxNzJ', 8, 'Fully-configurable directional time-frame-30', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(952, 35, NULL, NULL, 11, NULL, 'Compatible bottom-line localareanetwork-31', '616', 'productImages/19.png', '[\"2.png\",\"20.png\",\"10.png\",\"8.png\"]', 'Dolor autem magnam ea dolorum soluta ea corrupti. Et quae aut id dolorem dolorum distinctio. Fugit iure at rem consequatur dignissimos delectus. Sit quisquam quo impedit iure voluptas non quia.', 'Officia consequatur velit asperiores sequi molestiae. Aut doloribus error facere. Inventore nesciunt iste quibusdam nobis. Optio vel id aut qui facilis iste suscipit. Est voluptates temporibus sint. Natus explicabo velit quis sunt. Illum est maxime id sint quia. In sed eveniet facere. Quasi sequi fugiat quos est consequuntur. Voluptatem aliquam dolor est fugit ipsa.', 'Fugiat aut laborum sunt sint sit rerum. Qui ratione nisi aut. Ex in quae facere harum dicta accusamus sequi dolorum. Optio aut aliquam rem nihil hic facere esse.', 'Ut ullam et autem ut. Et dolore ut aut. Laudantium et exercitationem et non voluptatem dolorem id. Iure et reiciendis aut nemo ipsam beatae.', 360, 350, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983530MKPKf', 8, 'Compatible bottom-line localareanetwork-31', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(953, 37, 66, NULL, 24, NULL, 'Balanced 4thgeneration concept-32', '725', 'productImages/19.png', NULL, 'Sit nihil incidunt sed voluptatem quos cumque beatae. Ut nesciunt aut corporis sit ea corrupti. Deserunt quibusdam ea praesentium ea sunt. Sequi suscipit autem ut qui nisi.', 'Reiciendis recusandae esse laboriosam beatae numquam. Eos laborum mollitia ullam. Harum nemo et molestias eum similique dolorem. Deserunt praesentium est quis tenetur qui. Nam at eum laborum iusto nihil quia. Aut eum fugiat non. Explicabo in nihil voluptas. Nesciunt harum eaque soluta.', 'At aliquid architecto voluptatibus magni. Repellendus molestiae labore autem alias expedita reprehenderit. Dolore inventore quo velit facere. Pariatur optio aut iste.', 'Est porro ipsam quo recusandae alias debitis quia provident. At aut animi tenetur ut facere doloribus. Ullam sint perferendis natus.', 210, 200, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1705983530UWGkl', 8, 'Balanced 4thgeneration concept-32', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(954, 35, NULL, NULL, 17, NULL, 'Triple-buffered logistical openarchitecture-33', '270', 'productImages/6.png', '[\"3.png\",\"20.png\",\"13.png\",\"13.png\"]', 'Esse officia id numquam natus est. Ea harum eius sint sed accusamus optio eos. Voluptas voluptas sit voluptatem. Et blanditiis fugiat magnam esse. Corrupti iste et magni. Quae quia et sapiente qui.', 'Odio odio facilis libero ducimus odit minima quisquam. Laboriosam optio sunt voluptatum ducimus quia voluptas et. Officiis id pariatur repellendus libero eos expedita modi. Sit earum sint dicta vero fuga. Sapiente itaque eligendi ut cum voluptatibus sed. Dolores sequi et corporis eos quod voluptatem. Doloremque ratione voluptatem neque quasi.', 'Amet quaerat omnis tempore. Laudantium veniam voluptate temporibus ratione voluptatem accusamus. Autem atque distinctio et excepturi dolor.', 'Sed quisquam quaerat aperiam voluptate aut qui. Voluptatem omnis suscipit dolorem et impedit. Repudiandae unde temporibus repellendus iure.', 959, 949, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1705983530VUurl', 8, 'Triple-buffered logistical openarchitecture-33', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(955, 35, NULL, NULL, 24, NULL, 'Mandatory directional benchmark-34', '782', 'productImages/10.png', NULL, 'Et autem sed sint non debitis quos est quos. Similique doloremque ratione cupiditate quia neque. Quidem ullam ut eaque quod voluptatem et autem.', 'Odit blanditiis porro suscipit repellendus blanditiis. Et est nobis repellendus perspiciatis laudantium aut. Quia quibusdam a qui et nisi praesentium. Illo deserunt ab est ab mollitia. Deserunt earum voluptatibus nam eaque pariatur optio at. Est quisquam eum dolores quia similique et. Vitae iste optio asperiores non.', 'Sed fuga debitis quo cum nobis. Soluta quia voluptatem ut cumque. Esse aliquid perspiciatis et ut cum.', 'Perspiciatis occaecati et dolorum ipsum itaque expedita. Odit ducimus laborum tempora et. Architecto cupiditate corporis ratione et et. Nulla autem rerum et dolores iure nesciunt quo.', 203, 193, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1705983530Lb5VW', 8, 'Mandatory directional benchmark-34', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(956, 37, 71, NULL, 13, NULL, 'Networked 6thgeneration projection-35', '828', 'productImages/9.png', '[\"20.png\",\"11.png\",\"5.png\",\"15.png\"]', 'Quia nostrum quaerat tenetur sit sunt officia assumenda. Ut voluptatum accusantium laudantium placeat sed possimus eius. Adipisci molestiae esse soluta quis.', 'Unde velit velit odit consequatur voluptas debitis cum voluptates. Quasi sed possimus error aut aut unde aut. Quae enim eligendi numquam quam nisi. Natus alias nostrum autem reprehenderit quidem vitae. Molestiae nihil aperiam eos voluptas quos qui. Facere suscipit accusantium ut quia deleniti.', 'Dolor ut quasi vitae corrupti tempore. Qui voluptatem quasi dolor molestias voluptatibus et. Excepturi eius aliquid enim tempora enim et.', 'Odit cum labore saepe enim aut placeat. Occaecati aut qui corrupti modi quaerat. Tempora dolor non provident consequatur. Fugiat quia illo fuga expedita doloribus quia distinctio ea.', 171, 161, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1705983530FJsyq', 8, 'Networked 6thgeneration projection-35', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(957, 35, NULL, NULL, 14, NULL, 'Open-source foreground matrix-36', '987', 'productImages/9.png', NULL, 'Ullam repudiandae quos velit iste molestiae voluptas. Repudiandae unde minima corrupti error quaerat voluptatem. Et error eligendi modi rerum. Quaerat quia fuga quis molestiae aut rerum saepe.', 'Consequatur sit quo beatae qui quo. Omnis dicta reiciendis et illum dolorem possimus. Neque vel error quia fuga excepturi sint. Non dignissimos dolorem et cupiditate et reiciendis illum. Voluptas consequatur est velit voluptatem. Delectus sit odio ut aliquam qui. Nihil sapiente et dolores aut sed quod.', 'Fugit ut quo vel. Voluptates inventore voluptatum ex. Veritatis at itaque impedit placeat alias dolor perferendis.', 'Omnis nesciunt est impedit itaque nobis. Aliquid dolores dolores adipisci consequuntur. Non sit sit omnis sunt adipisci aliquid. Et veniam numquam harum.', 109, 99, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1705983530dWvWU', 8, 'Open-source foreground matrix-36', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(958, 37, 71, NULL, 17, NULL, 'Sharable heuristic matrices-37', '382', 'productImages/4.png', '[\"12.png\",\"17.png\",\"6.png\",\"10.png\"]', 'Porro sit quasi labore est aperiam quo dolor. Ab ullam sed aut maiores voluptas asperiores quo. Amet iste sint necessitatibus et porro esse.', 'Omnis id non qui quibusdam excepturi iste molestiae. Sapiente fuga dolores neque vero ipsa numquam harum. Voluptas blanditiis omnis vero similique excepturi maxime. Corrupti nulla voluptas enim rerum quod. Quo error dolor et nisi voluptatum maiores voluptatum.', 'Consequuntur facere reprehenderit et repellendus. Quia est laboriosam doloremque. Adipisci in voluptatem tempora illum voluptates. Earum voluptatem fugit sint maiores.', 'In quia fugiat atque blanditiis. Et deleniti incidunt aliquid praesentium eos fuga quam. Eos sint eligendi veniam earum repellat aperiam.', 688, 678, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1705983530SMPZr', 8, 'Sharable heuristic matrices-37', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(959, 37, 67, NULL, 11, NULL, 'Customer-focused explicit help-desk-38', '655', 'productImages/5.png', NULL, 'Voluptatibus provident dignissimos minus sit reprehenderit aut iste. Quaerat magnam repellat asperiores et accusantium quos voluptas et. Totam illum qui esse.', 'Tempore cupiditate voluptatem et beatae dolor. Totam debitis qui consequuntur inventore deserunt quam. Rerum voluptatum sed nam similique quos. Reiciendis ducimus cumque id sint ducimus nihil. Maiores laudantium quo corrupti pariatur molestias ea ipsa. Alias saepe placeat quas perspiciatis eos facilis. Sit labore maxime rerum esse dolorum laudantium.', 'Nesciunt ut et recusandae laborum. Voluptatum porro accusantium recusandae architecto voluptatem. Accusamus alias omnis iste et perspiciatis qui quos omnis.', 'Nisi molestiae fuga quis incidunt quibusdam qui occaecati. Rem voluptatem et eum qui fugiat. Praesentium odit labore officiis vel est molestiae sunt quia. Sapiente et in quia et libero.', 572, 562, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983530V7R6P', 8, 'Customer-focused explicit help-desk-38', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:50', NULL),
-(960, 37, 72, NULL, 14, NULL, 'Reactive system-worthy migration-39', '143', 'productImages/12.png', '[\"14.png\",\"8.png\",\"20.png\",\"15.png\"]', 'Natus aliquam adipisci dolorem ut eaque ducimus voluptates omnis. Voluptate voluptatibus vel distinctio ea repellat. Rerum delectus officia cum dolore sequi voluptates suscipit.', 'Voluptatum dolorem ratione commodi alias. Provident et eum ut natus reprehenderit. Magnam consequatur nihil accusamus a quo. Veritatis veniam at expedita distinctio quidem. Voluptatem deserunt fuga facilis quam ad nam. Et et impedit rerum amet tenetur deleniti est. Quos consectetur deserunt recusandae qui eum voluptate corporis aliquam. Sit dolorem est eum ut sed.', 'Illo aut et mollitia blanditiis suscipit excepturi autem. Beatae qui dignissimos pariatur maxime quia. Laudantium eius culpa expedita inventore aut. Eos eveniet totam enim consequatur.', 'Deserunt blanditiis magnam vitae nobis. Rem dolorum ad at. Animi et qui dolore quam nesciunt corporis neque temporibus.', 329, 319, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983530sYlZd', 8, 'Reactive system-worthy migration-39', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:50', NULL),
-(961, 35, NULL, NULL, 24, NULL, 'Extended 6thgeneration circuit-40', '153', 'productImages/2.png', NULL, 'Placeat qui amet dolor itaque esse nulla. Et quos nihil voluptatem nesciunt velit saepe. Laboriosam laudantium itaque fugiat et maxime voluptatem et provident. Temporibus dicta dignissimos aut eius.', 'Aut omnis esse mollitia autem dolor et et. Adipisci sed enim eaque unde fugit deleniti blanditiis. Explicabo doloribus fuga quasi sit aspernatur velit architecto. Eum quaerat doloremque repudiandae reiciendis nisi dolor.', 'Odio deleniti enim aut deserunt inventore animi sed optio. Dicta ut inventore vero quia. Et labore qui aspernatur.', 'Dicta dolores quo minus aut quisquam magnam ad inventore. Cupiditate quod voluptas recusandae.', 286, 276, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983531KUNF6', 8, 'Extended 6thgeneration circuit-40', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', NULL),
-(962, 35, NULL, NULL, 23, NULL, 'Ergonomic maximized archive-41', '214', 'productImages/16.png', '[\"7.png\",\"7.png\",\"16.png\",\"18.png\"]', 'Fugit voluptatibus hic consectetur qui inventore explicabo dolores. Ex ex aut odit beatae maxime modi. Aperiam officiis consequatur qui ea eos maiores.', 'Ducimus omnis mollitia cumque provident. Voluptatem aspernatur nulla accusamus incidunt voluptas. Et veritatis velit consequatur vel dicta non non atque. Temporibus ullam aut corrupti ipsa deleniti quasi. Assumenda et nihil quia aliquam consectetur dolores. Consequuntur accusantium explicabo dignissimos aut dolores maiores.', 'Voluptas ut amet illo quisquam odit non fugit. Tenetur possimus minima in deserunt natus et. Esse consequatur voluptatem fuga placeat aliquam laboriosam vel. Eos velit et voluptatem animi.', 'Veritatis ullam nostrum molestias laboriosam. Qui eligendi occaecati at hic velit ipsa ut.', 766, 756, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983531vx72I', 8, 'Ergonomic maximized archive-41', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(963, 35, NULL, NULL, 21, NULL, 'Distributed bi-directional portal-42', '244', 'productImages/10.png', NULL, 'Numquam est consectetur at voluptatum ab ullam. Et sequi molestias ut est sunt aut sit. Impedit quia voluptas incidunt incidunt corporis dolore.', 'Quo earum et dolorum. Error dolores tempore praesentium. Aut autem quos animi nesciunt nisi. Omnis aut quos minus. Consectetur architecto deserunt voluptas totam numquam autem. Velit magni sit placeat. Quia dolorum nam provident et est repudiandae quisquam. Odio nemo hic autem est maxime.', 'Rem quos et amet ad sint voluptatem. Id cum amet voluptas voluptatum adipisci. Quia culpa aut ipsa reiciendis quas.', 'Quae tempore porro repellendus ut. Quia excepturi odio porro quo molestias animi.', 846, 836, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983531bJKR2', 8, 'Distributed bi-directional portal-42', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', NULL),
-(964, 35, NULL, NULL, 22, NULL, 'Reverse-engineered responsive customerloyalty-43', '994', 'productImages/10.png', '[\"10.png\",\"2.png\",\"3.png\",\"4.png\"]', 'Vitae alias tenetur iure in. Ex omnis necessitatibus ipsum nesciunt id sed est quis. Itaque vitae magni voluptatem occaecati aut excepturi. Expedita ea nisi modi rerum.', 'Quasi aut deserunt perspiciatis eos rerum dolor molestias. Impedit libero maxime accusantium corporis ut enim dolorum quae. Aspernatur qui ipsam et. Quibusdam nemo id laborum natus hic nulla. Optio et molestias dolor inventore tenetur et. Omnis illo labore tempora aliquid totam non. Fuga dolor non voluptatem in qui nulla ex. Sed est ipsum doloribus soluta autem similique.', 'Officiis odit error error vel unde et asperiores. Eum quia rerum dicta sapiente omnis pariatur. Suscipit reiciendis nemo odit officiis facere vel. Aut dolorem est eligendi et et.', 'Et excepturi sit et aut qui et. Dolores temporibus incidunt sapiente nemo dignissimos ipsa. Cupiditate esse est suscipit.', 408, 398, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1705983531dGLAR', 8, 'Reverse-engineered responsive customerloyalty-43', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(965, 37, 69, NULL, 10, NULL, 'Horizontal encompassing intranet-44', '817', 'productImages/20.png', NULL, 'Et debitis sed molestiae et expedita. Consectetur odit sed ex sed ratione. Aut quia distinctio voluptatibus magni sed sed totam. Eos placeat est architecto minus sed voluptates occaecati.', 'Quidem laboriosam quasi est consequatur asperiores. Reiciendis laboriosam tempora qui debitis nobis. Nam et libero ut a consectetur. Eos ut dolorem aut nisi minus voluptatibus sit velit. Fugiat consequatur facilis autem error. Corporis non beatae enim. Quam deserunt et vitae repellat.', 'Corporis atque dicta unde nobis quam nisi. Optio eum quia odio laborum. Cumque illum similique dolor velit.', 'Odit dolores facilis sapiente et aut. Ex qui molestias modi nostrum. Sunt at molestias deleniti quibusdam totam nobis a.', 299, 289, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1705983531GLZ06', 8, 'Horizontal encompassing intranet-44', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', NULL);
-INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
-(966, 37, 72, NULL, 17, NULL, 'Phased 3rdgeneration infrastructure-45', '677', 'productImages/5.png', '[\"4.png\",\"16.png\",\"18.png\",\"1.png\"]', 'Nulla illum dolor sequi voluptatem facere. Autem nobis et est officiis.', 'Laudantium iusto amet dignissimos ea id. Qui dolor sunt nobis dicta. Quis numquam veniam est error aut. Provident voluptatem error id. Aut et quae voluptatibus veniam voluptatum nemo. Est non eius soluta temporibus. Autem autem fuga totam sapiente eum ratione tenetur. Voluptatem sequi quaerat ipsa ex et cupiditate sit. Aut illo numquam natus ipsa distinctio numquam veritatis.', 'Et libero dignissimos expedita deleniti. Suscipit et odio repellat beatae molestiae ducimus. Et incidunt in qui id commodi expedita iusto.', 'Voluptas fugiat aut est et. Et hic nam nemo quae ab qui vel. Dolor laboriosam necessitatibus dolore soluta doloremque neque. Odio enim ea saepe ab. Sapiente numquam in quia eveniet quo dolores sed.', 570, 560, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1705983531Zk6Xr', 8, 'Phased 3rdgeneration infrastructure-45', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(967, 37, 67, NULL, 21, NULL, 'Enterprise-wide responsive localareanetwork-46', '135', 'productImages/8.png', NULL, 'Aut velit sunt voluptas quae nesciunt. Dolor voluptates libero facilis. Molestias molestiae aliquam ut id quo.', 'Ea nisi architecto provident voluptas totam ipsam rerum. Non labore molestiae nihil enim quasi aut eveniet. Ut consequatur modi officia ipsa dicta. Facere ut quia illum autem autem porro vel quis. Sequi qui natus unde eligendi tenetur consequatur quia. Minus molestiae eos sed et alias non officia iste. Et non sit id.', 'Minus reiciendis rerum impedit quo. Corrupti repellat debitis eum praesentium.', 'Illum voluptas repudiandae omnis aliquid et mollitia. Accusamus beatae autem dolore autem maiores velit adipisci. Voluptas ad iste qui quam. Aut non nobis ut asperiores incidunt.', 440, 430, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1705983531g3eHB', 8, 'Enterprise-wide responsive localareanetwork-46', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', NULL),
-(968, 37, 68, NULL, 24, NULL, 'Devolved zerodefect interface-47', '635', 'productImages/13.png', '[\"18.png\",\"15.png\",\"12.png\",\"14.png\"]', 'Enim quia totam incidunt atque maiores. Iste quia atque totam sit nihil. Qui distinctio enim placeat architecto voluptatem cumque.', 'In nisi eveniet ea laudantium. Illum quibusdam in iusto architecto molestiae corrupti nobis perferendis. Voluptatem sunt voluptas perferendis atque perspiciatis vel exercitationem. Distinctio facilis enim atque sit qui ut fugit. Qui id et omnis similique sed est et. Occaecati et cum nobis sunt architecto. Et maiores beatae rerum quasi.', 'Repellendus libero eius aut cumque. Sed impedit ipsum id quae est iure sit. Natus totam nihil aut ut.', 'Labore voluptas iusto inventore nam quis. Et aspernatur reiciendis occaecati sunt rerum eligendi. Eos commodi architecto quam nesciunt ipsum blanditiis quia.', 217, 207, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1705983531pc0Rs', 8, 'Devolved zerodefect interface-47', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(969, 37, 66, NULL, 16, NULL, 'Enterprise-wide background ability-48', '163', 'productImages/20.png', NULL, 'Ipsam illum est at quidem praesentium. Dolorem ad libero aut dolorem ad placeat. Non alias asperiores laboriosam vero assumenda et aliquam eos. Harum sit iusto doloribus unde id reprehenderit.', 'Qui et magnam voluptatum quia eum numquam et est. Aut optio ducimus eos error. Illo iusto quos iure animi sit dolores. Mollitia eaque ut sint beatae. Nam suscipit numquam earum corrupti inventore quo vel. Unde omnis inventore beatae est dolorum ut. Aliquam deleniti quo et cumque fuga in repellat.', 'Suscipit facere amet laborum exercitationem non. Qui possimus aspernatur quis.', 'Non optio odio at eligendi rerum itaque. Eveniet accusantium mollitia qui est quia harum beatae. Maxime porro tempore sunt.', 682, 672, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1705983531ccizX', 8, 'Enterprise-wide background ability-48', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', NULL),
-(970, 37, 67, NULL, 24, NULL, 'Optional upward-trending interface-49', '976', 'productImages/18.png', '[\"15.png\",\"6.png\",\"8.png\",\"19.png\"]', 'Non quae nesciunt sed cumque. Necessitatibus ipsam optio odio aut accusantium dolorem. Est eos voluptatem fuga repellat. Architecto et assumenda fugit accusamus corporis officiis repellendus labore.', 'Pariatur vitae aut veniam aut tenetur esse. Iure sunt amet quibusdam assumenda. Sed omnis blanditiis assumenda amet cum quas placeat debitis. Nulla at fugit molestiae libero. Sit eveniet non voluptas optio ex voluptas facere nisi. Est et eveniet odit veniam possimus doloribus.', 'Nihil aut vitae ut expedita totam ab ea minima. Quis pariatur ut tempora sunt. In odio voluptas eaque molestiae voluptates quaerat voluptates.', 'Unde deleniti sit aut nihil tempora et placeat. In dolore fugiat ipsam eius aliquid non. Totam illo sed sit ut. Quo qui ea occaecati temporibus laudantium.', 988, 978, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983531jb3tD', 8, 'Optional upward-trending interface-49', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(971, 37, 71, NULL, 19, NULL, 'Integrated tangible time-frame-50', '592', 'productImages/10.png', NULL, 'Alias quia est rerum eveniet rerum et. Saepe et saepe cum quidem et qui sit vel. Enim sed minus quam corporis architecto. Voluptas architecto voluptatem aut natus.', 'Cum molestiae ea aut rem eaque qui adipisci. Vel animi dicta est architecto ut qui officia. Quia eius ut ullam dolorem minima. Soluta et asperiores natus ea molestiae. Laborum aut rerum id rerum dignissimos et et. Praesentium consequatur est consequuntur iusto et. Blanditiis vitae sint enim enim. Rem reiciendis voluptate qui culpa nostrum. Optio asperiores est quae est.', 'Inventore consectetur quo officiis et ut. Consectetur qui aut qui asperiores doloribus. Aut aut eos ut quo omnis. Quae illum qui dolorem vel vel molestiae illum.', 'Non minus quo dolores blanditiis. Cupiditate sint dolorem et totam. Vel voluptas ullam tempora velit enim optio. Temporibus tempore et ut vero magni quam.', 106, 96, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983531krzkh', 8, 'Integrated tangible time-frame-50', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', NULL),
-(972, 35, NULL, NULL, 19, NULL, 'Team-oriented value-added time-frame-51', '818', 'productImages/6.png', '[\"17.png\",\"3.png\",\"19.png\",\"2.png\"]', 'Consequatur animi cum praesentium qui est. Nesciunt exercitationem eveniet sed. Ipsum amet deserunt eius repudiandae consectetur culpa.', 'Beatae sed autem non tempore explicabo et. Est harum deserunt necessitatibus doloribus aperiam. Adipisci qui veniam reiciendis voluptatem voluptate illo. Maiores labore quae voluptas sint quos. Velit sit autem nesciunt nihil ex dignissimos. Voluptatem nihil modi aut voluptatem. Enim laudantium quidem repellendus nisi tempora.', 'Nulla recusandae aut velit molestias occaecati qui quis. Ut rerum nihil consectetur deleniti. Atque voluptatem sed qui commodi reprehenderit. Dignissimos maiores sed error nobis.', 'Omnis ut quas ut veritatis quas. A non recusandae provident in qui nobis. Consequatur nesciunt quae quod. Dolor et illo quasi et est.', 387, 377, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983531WG8tW', 8, 'Team-oriented value-added time-frame-51', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(973, 37, 69, NULL, 10, NULL, 'Optimized real-time task-force-52', '612', 'productImages/2.png', NULL, 'Voluptates mollitia sit voluptatem illo a beatae. Quasi quos quasi dolor voluptatem voluptates veritatis perferendis.', 'Qui eos in aliquid omnis omnis vero. Dolor architecto laudantium mollitia consequatur tenetur aut. Deserunt vel incidunt aliquid magnam non natus sapiente. Ratione odio omnis odit ut et aliquam omnis inventore. Et earum dicta commodi distinctio et. Dolorem ratione reiciendis est. Eveniet et nam ad quaerat perferendis aut. Labore omnis facere eaque animi.', 'Non assumenda deleniti enim velit non. Sint provident enim labore. Corrupti praesentium accusamus incidunt dignissimos voluptatibus rerum sint.', 'Fuga omnis voluptatibus autem rem ipsam laborum. Dicta ut incidunt porro et ratione aut. Ratione quo recusandae voluptas voluptatibus. Perspiciatis inventore nulla aut autem et eos neque.', 154, 144, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983531fYxsA', 8, 'Optimized real-time task-force-52', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', NULL),
-(974, 35, NULL, NULL, 20, NULL, 'Profound demand-driven superstructure-53', '614', 'productImages/13.png', '[\"2.png\",\"4.png\",\"14.png\",\"2.png\"]', 'Amet voluptatum voluptatem ipsam error. Distinctio cupiditate et eum repellat quos.', 'Et incidunt voluptas et enim nemo ut soluta assumenda. Labore eligendi eos amet saepe aut voluptas blanditiis quis. Praesentium sunt illo quo sed. Aut magni cum voluptate cumque tenetur. Est iure veniam et culpa dolor sapiente. Dolores possimus qui aut molestiae odit non optio. Sed fuga molestiae in eos odio.', 'Perferendis ut et eum ullam et id voluptatem. Animi sit ratione magni. Vitae corrupti omnis voluptatem totam sint necessitatibus quis est.', 'Ut placeat iusto sequi ea deleniti. Et minus tempore atque. Omnis est cum tenetur blanditiis nulla voluptates sunt.', 170, 160, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1705983531eQxCo', 8, 'Profound demand-driven superstructure-53', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(975, 37, 73, NULL, 21, NULL, 'Assimilated background implementation-54', '294', 'productImages/18.png', NULL, 'Cumque eos qui reprehenderit velit beatae. Voluptas sit voluptatem quae quod sunt non praesentium.', '<p>Aut dolore fugiat deserunt consequatur incidunt. Nihil corrupti et accusantium voluptatum porro voluptatum qui omnis. Voluptas est rerum voluptatem fugiat et consectetur. A eum dolorem deserunt quas enim quia magni.</p>', '<p>Perferendis maxime commodi ut rem nulla atque. Porro cum sequi quis. Voluptate sit ratione est. Nihil voluptates temporibus modi adipisci accusamus minus illo. Ut est illo nihil dolorem et eveniet.</p>', '<p>Consequatur voluptatem nihil iste nobis. Dolores nihil accusantium et tempore qui delectus. Sed et nemo numquam neque saepe recusandae.</p>', 865, 855, 0, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', NULL, '1705983531pAKJc', 8, 'Assimilated background implementation-54', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', '2024-01-23 10:48:55'),
-(976, 37, 67, NULL, 13, NULL, 'Horizontal bifurcated localareanetwork-55', '355', 'productImages/3.png', '[\"19.png\",\"20.png\",\"10.png\",\"14.png\"]', 'Qui repellat dignissimos aut quas aut culpa quidem excepturi. Corrupti beatae maxime error neque atque eos occaecati. Doloremque sunt voluptates voluptas aut.', 'Voluptas ipsa aliquam aut ut voluptates vel quos. Eos vero aspernatur corrupti rerum. Quod nesciunt fugit ea asperiores et. Officiis architecto ut sint aut et tenetur et. Aut voluptatem dolores expedita id reiciendis autem sunt. Facere ut possimus voluptate quis beatae ut. Optio consequatur sequi non eaque nulla consequatur.', 'Dolores sapiente a iste architecto nostrum qui autem. Qui est maiores sit. Quia qui pariatur ut sed laborum est recusandae. Beatae sapiente quasi vel quos cupiditate quod corporis corporis.', 'Magni earum cupiditate cupiditate dolores. Magni eius laboriosam voluptatem qui aspernatur molestias. Rerum qui in doloremque enim quo quaerat dolor.', 385, 375, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983531okt3v', 8, 'Horizontal bifurcated localareanetwork-55', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(977, 37, 68, NULL, 13, NULL, 'Integrated composite definition-56', '911', 'productImages/19.png', NULL, 'Earum aut quis qui id eum. Ipsa ducimus eius animi quo officiis sapiente. Nisi omnis et et rerum sed. Iure culpa et sed quo.', 'Ut dolores nesciunt nisi. Molestiae ratione ab quasi rerum voluptatibus deleniti. Rerum quidem architecto necessitatibus necessitatibus mollitia quidem.', 'Dignissimos eveniet perspiciatis officiis deserunt adipisci voluptatem. Repudiandae quis ut dicta. Unde vel et sint ratione vero. Explicabo debitis deserunt eum magnam sint.', 'In harum aut aperiam voluptatibus. Vero atque vel libero quaerat ut qui. Aut cum error consequuntur aperiam illo. Assumenda magni dolorem deserunt.', 929, 919, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1705983531ejRU9', 8, 'Integrated composite definition-56', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', NULL),
-(978, 37, 71, NULL, 14, NULL, 'Networked 5thgeneration approach-57', '845', 'productImages/12.png', '[\"6.png\",\"12.png\",\"4.png\",\"19.png\"]', 'A adipisci accusamus et. Accusantium architecto labore id cumque placeat pariatur nostrum aspernatur. Voluptatum voluptatem occaecati eos ut ut expedita consequatur.', 'Eos voluptatem omnis odio modi. Illum voluptatibus magni doloremque incidunt iste a. Rem et quasi tempora ea. Assumenda deleniti fugit reiciendis minima impedit nihil. Esse aut ipsa suscipit accusantium et maiores voluptatem sit. Voluptas et sit ullam odit. Neque sint rerum in error.', 'Laborum sunt et et et qui. Et animi et sunt id facere quo fugit quasi. Ea ea nobis ratione rerum sint rem. Cumque non autem doloribus sit voluptas quasi.', 'Blanditiis laudantium placeat dolorem et vitae. Sit itaque corrupti neque sint eligendi voluptatem. Non dolor amet aut perferendis.', 825, 815, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1705983531lLCpq', 8, 'Networked 5thgeneration approach-57', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(979, 35, NULL, NULL, 21, NULL, 'Multi-layered optimal website-58', '565', 'productImages/9.png', NULL, 'Ullam vel ut aperiam earum quia soluta. Sit distinctio et aut vel ut rem rerum laudantium. Facere omnis et fuga voluptate unde sit tempora.', 'Odit reprehenderit minus similique rem. Enim laborum tempore est optio et quia rem qui. Cum ut ea doloribus est eum. Qui est necessitatibus est aliquam nihil repudiandae. Suscipit quia maxime quibusdam sint asperiores consequatur. Nihil repellendus assumenda quia. Incidunt eos rem sed autem. Itaque sunt deserunt non sit odit voluptatem voluptas. Est aut iste tempora at quisquam expedita.', 'Illo iure illum non id perferendis temporibus asperiores. Odio expedita deserunt eius ut quam. Saepe nam incidunt dolores recusandae aut sint at.', 'Et et perferendis dolore qui voluptatem. Tenetur modi quos sit quae. Consectetur deserunt dolores eius sed eum tempora cumque.', 346, 336, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1705983531SpoTw', 8, 'Multi-layered optimal website-58', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:51', NULL),
-(980, 37, 66, NULL, 20, NULL, 'Seamless transitional contingency-59', '421', 'productImages/18.png', '[\"8.png\",\"8.png\",\"20.png\",\"14.png\"]', 'Sed ratione labore perspiciatis quas eos quasi. Et eaque labore repudiandae sed vel sint. Cupiditate alias unde nisi doloremque incidunt.', 'Qui nostrum sit blanditiis aut enim reiciendis dicta. Dolorum nemo eaque quidem expedita sapiente necessitatibus et. Provident quaerat deserunt vel et. Dolorum rerum ut quia tenetur ad. Dolore aut excepturi quia harum. Voluptas ipsa eius et in sunt. Voluptas mollitia repudiandae et quia. Voluptas magni aspernatur earum officia nulla sed.', 'Qui odio quis amet. Excepturi molestiae voluptatem nisi aperiam dicta. Nostrum doloribus voluptatem reprehenderit. Impedit nostrum porro nihil.', 'Numquam quod est fugit illo. Ipsam voluptatem cupiditate fuga corrupti aut beatae quos est. Numquam pariatur qui illum dolores quo. Eius rerum deleniti cupiditate blanditiis quasi quasi vero.', 712, 702, 0, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '17059835317lrgd', 8, 'Seamless transitional contingency-59', 'product,demo', NULL, 1, 0, 1, '2024-01-23 04:18:51', NULL),
-(981, 37, 73, NULL, 12, NULL, 'Switchable directional capacity-60', '136', 'productImages/2.png', NULL, 'Deleniti a molestiae et quam distinctio. Reprehenderit sed voluptatem inventore iure ut quod. Aut dolor assumenda nostrum voluptas. Veniam illo et quisquam totam et laudantium natus.', 'Esse sit debitis est nam. Culpa molestiae exercitationem adipisci voluptatum. Animi odio facilis in quia aut. Quidem quasi non sapiente reprehenderit. Voluptatibus fugiat fugit dignissimos. Et numquam ea est sint amet. Quisquam doloremque iusto aut. Enim qui qui beatae exercitationem dolorem distinctio et et.', 'At error id facilis modi qui maiores ipsa. Placeat similique iste accusamus in sint sit voluptate. Nesciunt cupiditate ut magni quos sed omnis consequatur.', 'Molestias et aut excepturi doloremque harum ipsam. Sunt sed porro quis eveniet. Odit similique sunt deserunt minus. Iusto omnis aut nemo aliquid nisi assumenda.', 338, 328, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1705983532bCCpU', 8, 'Switchable directional capacity-60', 'product,demo', NULL, 1, 1, 1, '2024-01-23 04:18:52', NULL);
+(155, 11, NULL, NULL, NULL, NULL, 'Ladies blazer set', 'gx103', 'productImages/2krYp1700113672.webp', NULL, 'Feature	Anti-wrinkle, Breathable, Anti-Static, Anti-Shrink\r\nMaterial	Spandex / Polyester\r\nStyle	Pants Suits\r\nCollar	V-neck', NULL, NULL, NULL, 4995, 0, 100, NULL, NULL, NULL, 7, 'ladies-blazer-1700113672rnV6W', 8, 'Fashion, Trending, Ladies wear, Ladies fashion wear, Elegant ladies wear', NULL, NULL, 1, 1, 0, '2023-11-16 03:47:52', '2024-01-04 02:58:35'),
+(207, 11, 56, NULL, NULL, NULL, 'Summer tunic midi dress', NULL, 'productImages/PGO4Q1700805666.webp', NULL, 'Size :   Length: 110/128     Sleeve: 54     Bust: 106     Waist: 68', '<p>Pattern type: none</p>\r\n\r\n<p>Style: casual</p>\r\n\r\n<p>Feature: Anti- Static, Anti- wrinkle, Breathable, Dry cleaning, Sustainable, Washable</p>', NULL, NULL, 2995, 0, 100, 1, NULL, NULL, NULL, 'summer-tunic-midi-dress-1700805666tQ5A6', 6, 'Fashionable, summer romantic dress, midi dress, casual, trendy', 'ew arrival, romantic dress', NULL, 1, 1, 0, '2023-11-24 04:01:06', '2023-12-31 06:58:18'),
+(208, 11, 56, NULL, 26, NULL, 'Spring Sleeveless Knitting Casual Dress', 'GY1001', 'productImages/kF3QN1700807895.webp', NULL, 'Size : \r\n  Length: 87     Bust: 60-120     Waist: 60-104', '<p>Patter type: none</p>\r\n\r\n<p>Style: casual</p>\r\n\r\n<p>Technics: crocheted</p>\r\n\r\n<p>Ferature: Anti-Static, Anti-wrinkle, Breathable, Sustainable, Washable, Dry cleaning</p>', NULL, NULL, 1795, 0, 100, 1, 'Treanding, Fashion,Western dress, lifestyle ,casual dress, spring dress', NULL, NULL, 'spring-sleeveless-knitting-casual-dress-17008078951h0yh', 6, 'Fashionable, beautiful dress, midi dress, casual, trendy', NULL, NULL, 1, 1, 0, '2023-11-24 04:38:15', '2023-12-31 06:59:34'),
+(209, 11, 56, NULL, NULL, NULL, 'Strapless Sleeveless Patchwork Casual Dress Women High Waist Feathers Midi A-Line Dress', 'GY1003', 'productImages/X18zy1700809229.webp', NULL, '3 cloros & sizes are available', '<p>Pattern type: Patchwork</p>\r\n\r\n<p>Style: Casual</p>\r\n\r\n<p>Feature: Anti-Static, Anti-wrinkle, Breathable, Sustainable, Washable</p>', NULL, NULL, 3495, 0, 100, 1, 'strepless dress, sleeveless dress, fashionable dress,feather dress', NULL, NULL, 'strapless-sleeveless-patchwork-casual-dress-women-high-waist-feathers-midi-aline-dress-1700809229YYcBy', 8, 'Fashionable, beautiful dress, midi dress, casual, trendy, feather dress, strapless dress, sleeveless dress', NULL, NULL, 1, 1, 0, '2023-11-24 05:00:29', '2023-12-31 07:15:03'),
+(211, 11, 56, NULL, NULL, NULL, 'Women\'s Sets Autumn Solid Cardigan Casual Sweater Two Piece Set', 'GY1005', 'productImages/qNUKI1700889668.webp', NULL, NULL, '<p>Fabric: worsted</p>\r\n\r\n<p>Feature: Sustainable, Anti-wrinkle, Breathable, Washable, Dry cleaning, Anti-Static</p>', NULL, NULL, 3495, 0, 100, 3, 'Treanding, Fashion,Western dress, lifestyle ,casual dress,winter wear, winter sets, fashionable winter wear', NULL, NULL, 'womens-sets-autumn-solid-cardigan-casual-sweater-two-piece-set-1700889668dsO1U', 6, 'Trending, New arrival, Fashion, winter wear, knitted dress, winter set,', 'new arrival, winter wear, fashionable winter set, colorful winter set, wintewr outfit, outgoing winter fashion', NULL, 1, 1, 0, '2023-11-25 03:21:08', '2024-01-09 02:48:26'),
+(213, 11, 56, NULL, NULL, NULL, 'Women\'s Sets Autumn Patchwork Cardigan Casual Ladies Dress', 'GY1007', 'productImages/8ZSCE1700920860.webp', NULL, NULL, '<p>Fabric type: Worsted</p>\r\n\r\n<p>Material: Spandex, Polyester</p>\r\n\r\n<p>Style: Casual</p>\r\n\r\n<p>Feature: Sustainable, Anti-wrinkle, Anti-Static, Breathable, Dry cleaning, Washable</p>\r\n\r\n<p>&nbsp;</p>', NULL, NULL, 3495, 0, 100, 3, 'Treanding, Fashion,Western dress, lifestyle ,casual dress,winter set', NULL, NULL, 'womens-sets-autumn-patchwork-cardigan-casual-ladies-dress-1700920860HSHLj', 6, 'Trending, New arrival, Fashion, winter wear, knitted dress, winter set,', 'new arrival, winter wear, fashionable winter set, wintewr outfit, outgoing winter fashion', NULL, 1, 1, 0, '2023-11-25 12:01:00', '2024-01-04 03:19:24'),
+(218, 11, 60, NULL, NULL, NULL, 'Ladies blazer set', 'DY1003', 'productImages/1NVSY1701407966.webp', NULL, NULL, '<p>Feature: Anti-wrinkle, Waterproof, Windproof</p>\r\n\r\n<p>Material: Viscose/ Polyester</p>\r\n\r\n<p>Style: Business suit</p>\r\n\r\n<p>Coller: Mandarin coller</p>', NULL, NULL, 4995, 4995, 100, 1, 'ladies business suit, ladies blazer , blazer set, women office suit, women winter wear, women winter office suit,fashionable winter wear', NULL, NULL, 'ladies-blazer-set-1701407966Gncqy', 8, 'ladies office wear, ladies business suit, ladies formal suit, business women dress, winter fashion,', 'ladies business suit, ladies formal suit, ladies office wear, ladies winter wear, fashion,lifestyle, office wear, formal set, blazer', NULL, 1, 1, 0, '2023-12-01 03:19:26', '2023-12-31 06:56:29'),
+(219, 11, 60, NULL, NULL, NULL, 'Ladies blazer set', 'DY1004', 'productImages/ykvHy1701408751.webp', NULL, 'High Quality Business Suit Office Women\'s', '<p>Feature: Anti-wrinkle</p>\r\n\r\n<p>Material: Viscose/Polyester</p>\r\n\r\n<p>Style: Pants/ Suits</p>\r\n\r\n<p>Coller: V-neck</p>', NULL, NULL, 4795, 4795, 100, 1, 'ladies business suit, ladies blazer , blazer set, women office suit, women winter wear, women winter office suit,fashionable winter wear', NULL, NULL, 'ladies-blazer-set-1701408751TssPg', 8, 'ladies office wear, ladies business suit, ladies formal suit, business women dress, winter fashion,', 'ladies business suit, ladies formal suit, ladies office wear, ladies winter wear, fashion,lifestyle, office wear, formal set, blazer', NULL, 1, 1, 0, '2023-12-01 03:32:31', '2024-01-09 03:08:34'),
+(220, 11, 60, NULL, NULL, NULL, 'Ladies blazer set', 'DY1005', 'productImages/hUDrZ1701409130.webp', NULL, 'Office clothing for women fashion casual', '<p>Feature: Anti-wrinkle</p>\r\n\r\n<p>Material: Viscose/ Polyester</p>\r\n\r\n<p>Coller: V-neck</p>\r\n\r\n<p>Style: Pants/ Suits</p>\r\n\r\n<p>&nbsp;</p>', NULL, NULL, 4495, 4495, 100, 1, 'ladies business suit, ladies blazer , blazer set, women office suit, women winter wear, women winter office suit,fashionable winter wear', NULL, NULL, 'ladies-blazer-set-1701409130Fmuzg', 8, 'ladies office wear, ladies business suit, ladies formal suit, business women dress, winter fashion,', 'ladies business suit, ladies formal suit, ladies office wear, ladies winter wear, fashion,lifestyle, office wear, formal set, blazer', NULL, 1, 1, 0, '2023-12-01 03:38:50', '2023-12-31 07:05:49'),
+(222, 11, 55, NULL, NULL, NULL, 'Sharee', 'SE1001', 'productImages/36aIz1701925732.jpg', '[\"170192573240YVD.jpg\"]', 'Beautiful jimmy choo shaaree with blouse piece', '<p>Material: Silk</p>\r\n\r\n<p>Description: Full body work with stone</p>', NULL, NULL, 12000, 9500, 1, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee', NULL, NULL, 'sharee-17019257321vRNa', 7, 'bollywood sharee, designer sharee, beautiful sharee, fashionable sharee, elegant sharee,', 'bollywood sharee, designer sharee, indian sharee, fashionable sharee, elegant sharee', NULL, 1, 0, 0, '2023-12-07 03:08:52', '2023-12-08 03:36:59'),
+(223, 11, 61, NULL, NULL, NULL, 'indo-western', NULL, 'productImages/TUyAs1701938673.jpg', '[\"1701938673sPPpu.jpg\"]', 'Ladies Beautiful Indo-Western set\'s', '<p>Material: Georgette&nbsp;</p>\r\n\r\n<p>Dress: 3 piece set</p>', NULL, NULL, 12000, 8500, 2, 1, 'trending, indian dress, indo-western dress, fashionable dress, ladies indian wear, indian fashionable dress', NULL, NULL, 'indowestern-1701938673VSJHe', 7, 'Trending, New arrival, Fashion, indian dress, indian fashion, indo-western dress, bollywood dress', 'indian dress,. fashionable dress, indo western dress, bollywood dress, celebrity party wear dress, fashionable women dress', NULL, 1, 0, 0, '2023-12-07 06:44:33', '2023-12-07 06:44:33'),
+(224, 11, 62, NULL, NULL, NULL, 'Three piece', NULL, 'productImages/t0Mw21701939170.jpg', '[\"1701939170JaaHT.jpg\"]', 'Beautiful Ladies Three piece Set', '<p>Dress: Alia three piece</p>\r\n\r\n<p>Material: Georgette</p>\r\n\r\n<p>&nbsp;</p>', NULL, NULL, 7500, 6750, 3, 1, 'indian dress, ladies dress,indian three piece, georgette three piece, party tyhree piece, alia three piece', NULL, NULL, 'three-piece-1701939170lTzzU', 7, 'Trending, New arrival, Fashion, alia three piece, indian three pioece, georgette three piece, fashionable three piece', 'indian three piece, alia three piece, beautiful three piece, georgette three piewce, fashionable three piecer', NULL, 1, 0, 0, '2023-12-07 06:52:50', '2024-01-04 02:58:35'),
+(225, 11, 63, NULL, NULL, NULL, 'Ladies Gown', 'AR1001', 'productImages/KhA5A1701939974.jpg', '[\"1703178896zl9lA.jpg\"]', 'Beautiful Ladies Gown', '<p>Material: Georgette</p>\r\n\r\n<p>Set: 2 piece ( Gown &amp; Dupatta)</p>\r\n\r\n<p>&nbsp;</p>', NULL, NULL, 12501, 7500, 100, 1, 'beautiful dress, party dress, festive dress,indian gown', NULL, NULL, 'ladies-gown-1701939974htUcI', 6, 'Trending, New arrival, Fashion, indian gown, indian dress, party dress, festive dress', 'indian gown, indian dress, party dress, festive dress, fashionable gown dress, ncelebrity fashion', NULL, 1, 0, 0, '2023-12-07 07:06:14', '2024-01-09 06:33:26'),
+(226, 11, 64, NULL, NULL, NULL, 'Ladies Skirt Set', 'GE1002', 'productImages/FeEAF1701940224.jpg', '[\"1701940224CmRR6.jpg\"]', 'Beautiful Ladies Skirt Dress', NULL, NULL, NULL, 12500, 8500, 100, 1, NULL, NULL, NULL, 'ladies-skirt-set-1701940224XNdTP', 7, 'Trending, New arrival, Fashion, ladies skirt, party dress, festive dress, fashionable dress', 'indian dress,. fashionable dress, bollywood dress, celebrity party wear dress, fashionable women dress,skirt dress', NULL, 1, 0, 0, '2023-12-07 07:10:24', '2024-01-09 01:45:35'),
+(227, 11, 65, NULL, NULL, NULL, 'Ladies Co Ord\'s', 'AR1002', 'productImages/4WtWp1701942001.jpg', '[\"1701942001fxpo8.jpg\"]', 'Beautiful Ladies Co Ord\'s For Fashionable Ladies', NULL, NULL, NULL, 4500, 3750, 100, 1, 'Treanding, Fashion,Western dress, lifestyle ,casual dress,IDIAN FASHION, COORD SET, COORD\'S', NULL, NULL, 'ladies-co-ords-1701942001OpbFT', 7, 'Trending, New arrival, Fashion, INDIAN DRESS, FASHIONABLE DRESS, CO ORD\'S', 'indian dress,. fashionable dress, bollywood dress, celebrity party wear dress, fashionable women dress,co ords , co ord sets', NULL, 1, 0, 0, '2023-12-07 07:40:01', '2024-01-03 04:03:09'),
+(228, 11, 55, NULL, NULL, NULL, 'Sharee', 'DC 1001', 'productImages/cQ2be1703697323.jpg', NULL, 'Beautiful georgette sharee with full body stoned work', '<p>Material: Georgette</p>\r\n\r\n<p>Washable, Dryable</p>', NULL, NULL, 13000, 10500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee', NULL, NULL, 'sharee-1703697323A2VOf', 8, 'Trending, New arrival, Fashion, Ssharee, indian sharee, shari bollywood,', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee', NULL, 1, 1, 0, '2023-12-27 15:15:23', '2023-12-28 01:44:45'),
+(230, 11, 55, NULL, NULL, NULL, 'Sharee', 'Dc1002', 'productImages/OlyiC1703832945.jpg', NULL, 'Ladies Chiffon Sharee with full body Stoned & Pearl work', '<p>Material: Chiffon</p>\r\n\r\n<p>Sustainable, Washable, Dryable</p>', NULL, NULL, 18000, 12500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee', NULL, NULL, 'sharee-1703832945hb4w4', 8, 'Trending, New arrival, Fashion, Indian sharee, Bollywood sharee', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee,shari,ladies party sharee', NULL, 1, 1, 0, '2023-12-29 04:55:45', '2024-01-09 01:45:35'),
+(231, 11, 55, NULL, NULL, NULL, 'Sharee', 'SS', 'productImages/RvedH1703921307.jpg', NULL, 'Ladies Georgette Sharee with Embroidered work', '<p>Material: Georgette</p>\r\n\r\n<p>Sustainable</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>', NULL, NULL, 7500, 5500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee', NULL, NULL, 'sharee-17039213079cV37', 8, 'Trending, New arrival, Fashion, Indian sharee, Bollywood sharee, party sharee, wedding season sharee,', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee,shari,ladies party sharee', 'Designer Party Sharee', 1, 1, 0, '2023-12-30 05:28:27', '2023-12-30 05:30:48'),
+(232, 11, 55, NULL, NULL, NULL, 'Sharee', 'SR', 'productImages/NycQ51703921834.jpg', NULL, 'Beautiful Georgette Sharee with full body Stoned work', '<p>Material: Georgette</p>\r\n\r\n<p>Blouse piece included</p>\r\n\r\n<p>Full body stoned work</p>\r\n\r\n<p>Sustainable</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>', NULL, NULL, 10500, 7500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee,wedding season sharee', NULL, NULL, 'sharee-1703921834QcbIm', 8, 'Trending, New arrival, Fashion, Indian sharee, Bollywood sharee', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee', NULL, 1, 1, 0, '2023-12-30 05:37:14', '2023-12-31 07:37:44'),
+(233, 11, 55, NULL, NULL, NULL, 'Sharee', 'SE1003', 'productImages/a7cTk1703922916.jpg', NULL, 'Beautiful Chiffon Sharee with full body Stoned worked', '<p>Material: Chiffon</p>\r\n\r\n<p>Sustainable</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>', NULL, NULL, 18000, 12500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee', NULL, NULL, 'sharee-17039229166ByHK', 8, 'Trending, New arrival, Fashion, Indian sharee, Bollywood sharee', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee,shari,ladies party sharee', NULL, 1, 1, 0, '2023-12-30 05:55:16', '2023-12-30 05:55:16'),
+(234, 11, 55, NULL, NULL, NULL, 'Sharee', 'SE1004', 'productImages/VXbCw1703923253.jpg', NULL, 'Beautiful Chifffon sharee with mirror cut work', '<p>Material: Chiffon</p>\r\n\r\n<p>Sustainable</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>', NULL, NULL, 12000, 9500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee', NULL, NULL, 'sharee-1703923253xQ3Kh', 8, 'Trending, New arrival, Fashion, Indian sharee, Bollywood sharee', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee,shari,ladies party sharee', NULL, 1, 1, 0, '2023-12-30 06:00:53', '2024-01-08 14:14:00'),
+(235, 11, 55, NULL, NULL, NULL, 'Sharee', 'SE1005', 'productImages/LsynS1703924148.jpg', NULL, 'Beautiful Chiffon Sharee with Stoned work', '<p>Material: Chiffon</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>\r\n\r\n<p>Sustainable</p>', NULL, NULL, 10500, 8500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee', NULL, NULL, 'sharee-1703924148FsJk4', 8, 'Trending, New arrival, Fashion, Indian sharee, Bollywood sharee', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee,shari,ladies party sharee', NULL, 1, 1, 0, '2023-12-30 06:15:48', '2024-01-02 08:52:11'),
+(236, 11, 62, NULL, NULL, NULL, 'Ladies Kurti', 'NM', 'productImages/Te8011703925248.jpg', NULL, 'Beautiful Pashmina Shawl Kurti for winter', '<p>Material: Pashmina</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>\r\n\r\n<p>&nbsp;</p>', NULL, NULL, 7000, 4500, 100, 1, 'Pasmina shawl kurti, beautiful kurti wear ,kurti , one piece,fashion, ladies fashion', NULL, NULL, 'ladies-kurti-1703925248WYa7j', 6, 'pashmina shawl kurti, kurti, one piece, fashion wear, ladies wear, ladies fashion', 'pashmina shawl kurti, winter wear,trending, fashion, casual wear, ladies kurti', NULL, 1, 1, 0, '2023-12-30 06:34:08', '2024-01-09 06:41:52'),
+(237, 11, 55, NULL, NULL, NULL, 'Sharee', 'SE1006', 'productImages/BrJKq1704175012.jpg', NULL, 'Beautiful Chiffon sharee with Rose stoned print', '<p>Material: Chiffon</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>\r\n\r\n<p>Sustainable</p>', NULL, NULL, 18000, 14500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee', NULL, NULL, 'sharee-1704175012HRnGC', 8, 'Trending, New arrival, Fashion, Indian sharee, Bollywood sharee', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee,shari,ladies party sharee', NULL, 1, 1, 0, '2024-01-02 03:56:52', '2024-01-15 13:19:13'),
+(238, 11, 55, NULL, NULL, NULL, 'Sharee', 'SE1007', 'productImages/EOSdA1704175485.jpg', NULL, 'Beautiful chiffon sharee with cutwork Stoned work', '<p>Material: Chiffon</p>\r\n\r\n<p>Sustainable</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>', NULL, NULL, 10000, 8500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee', NULL, NULL, 'sharee-1704175485pfHrc', 8, 'Trending, New arrival, Fashion, Indian sharee, Bollywood sharee', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee,shari,ladies party sharee', NULL, 1, 1, 0, '2024-01-02 04:04:45', '2024-01-09 02:08:40'),
+(239, 11, 55, NULL, NULL, NULL, 'Sharee', 'SE1009', 'productImages/OF1gi1704176235.jpg', NULL, 'Beautiful all over sequence Bollywood designer sharee', '<p>Material: Sharee</p>\r\n\r\n<p>Full body sequence work with blouse piece</p>\r\n\r\n<p>Sustainable&nbsp;</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>', NULL, NULL, 15000, 12500, 100, 1, 'sharee,beautiful sharee, designer sharee, bollywood sharee, elegant sharee, designer wear.,indian sharee, georgette sharee,sequence sharee', NULL, NULL, 'sharee-1704176235jPdVI', 8, 'Trending, New arrival, Fashion, Indian sharee, Bollywood sharee', 'sharee, designer sharee, bollywood sharee, party sharee, fashionable sharee,shari,ladies party sharee', NULL, 1, 1, 0, '2024-01-02 04:17:15', '2024-01-09 06:31:46'),
+(240, 11, 62, NULL, NULL, NULL, 'Cotton kurti', 'NK101', 'productImages/aozOK1704177060.jpg', NULL, 'Beautiful full body worked cotton Kurti', '<p>Fabric: Cotton/&nbsp;molmol</p>\r\n\r\n<p>All over worked</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>\r\n\r\n<p>&nbsp;</p>', NULL, NULL, 1500, 1250, 100, 1, 'kurti, cotton kurti, indian kuri, molmol kurti, all over worked kurti', NULL, NULL, 'cotton-kurti-1704177060onJCf', 6, 'kurti, cottton kurti, indian kurti, molmol kurti, casual wear, office wear, university wear', 'kurti, cottton kurti, indian kurti, molmol kurti, casual wear, office wear, university wear', NULL, 1, 1, 0, '2024-01-02 04:31:00', '2024-01-08 03:34:37'),
+(241, 11, 62, NULL, NULL, NULL, 'Cotton kurti', 'NK', 'productImages/sNzUg1704177377.jpg', NULL, 'Printed cotton kurti with full body worked', '<p>Material: Cotton</p>\r\n\r\n<p>Full body printed with work</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Sustainable</p>', NULL, NULL, 1500, 1250, 100, 1, 'kurti, cotton kurti, indian kuri, molmol kurti, all over worked kurti', NULL, NULL, 'cotton-kurti-1704177377S9lif', 6, 'kurti, cottton kurti, indian kurti, molmol kurti, casual wear, office wear, university wear', 'kurti, cottton kurti, indian kurti, molmol kurti, casual wear, office wear, university wear', NULL, 1, 1, 0, '2024-01-02 04:36:17', '2024-01-09 06:46:25'),
+(242, 11, 61, NULL, NULL, NULL, 'Indo western set', 'AR', 'productImages/raCqL1704177807.jpg', '[\"1704177807P0EjT.jpg\",\"17041778076ysBe.jpg\",\"1704177807sgwOv.jpg\"]', 'Beautiful Indo-western set for any festive or occasion', NULL, NULL, NULL, 15000, 10500, 100, 1, 'indian dress, indo western dress, festive dress, party dress, traditional dress,fashionable dress', NULL, NULL, 'indo-western-set-17041778074zPwB', 6, 'beautiful dress, indian dress, traditional dress, festive dress, party dress, 3 piece set, indo western dress, dresses', 'beautiful dress, indian dress, traditional dress, festive dress, party dress, 3 piece set, indo western dress, dresses', 'Traditional indo-western dress', 1, 0, 0, '2024-01-02 04:43:27', '2024-01-09 06:46:25'),
+(243, 11, 63, NULL, NULL, NULL, 'Butterfly gown', 'KM', 'productImages/ALfPQ1704178177.jpg', NULL, 'Gorgeous butterfly gown dress', NULL, NULL, NULL, 12000, 7500, 1, 1, 'indian dress, party dress, butterfly gown, festive dress, traditional dress', NULL, NULL, 'butterfly-gown-1704178177RgStX', 7, 'beautiful dress, indian dress, traditional dress, festive dress, party dress, 3 piece set, indo western dress, dresses', 'beautiful dress, indian dress, traditional dress, festive dress, party dress, 3 piece set, indo western dress, dresses', 'BEAUTIFUL bUTTERFLY STYLE GOWN', 1, 0, 0, '2024-01-02 04:49:37', '2024-01-02 04:49:37'),
+(244, 11, 62, NULL, NULL, NULL, 'Three piece', 'NK102', 'productImages/wRkqt1704180146.jpg', '[\"1704180146CAu7e.jpg\",\"17041801463P9G1.jpg\",\"1704180146BCUnz.jpg\"]', 'Cotton Three piece with beautiful Dupatta', NULL, NULL, NULL, 6500, 5500, 1, 1, 'cotton three piece, indian three piece ,three piece, salwar suit', NULL, NULL, 'three-piece-1704180146Z1hgU', 7, 'cotto three piece, indian three piece, beautiful cotton three piece, casual dress, office wear, formal wear', 'cotto three piece, indian three piece, beautiful cotton three piece, casual dress, office wear, formal wear', NULL, 1, 0, 0, '2024-01-02 05:22:26', '2024-01-02 05:23:31'),
+(245, 11, 62, NULL, NULL, NULL, 'Three piece', 'NK103', 'productImages/zEffP1704180486.jpg', '[\"1704180486Cqz34.jpg\",\"1704180486PqJhR.jpg\",\"1704180486y2lMy.jpg\",\"170418048601gew.jpg\"]', 'Ladies cotton Salwar kameez set', '<p>Material: cotton</p>\r\n\r\n<p>Sustainable</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>', NULL, NULL, 7500, 5500, 100, 1, 'three piece, salwar kameez, salwar suit, indian three piece, casual wear, office wear', NULL, NULL, 'three-piece-1704180486a3gUT', 6, 'cotto three piece, indian three piece, beautiful cotton three piece, casual dress, office wear, formal wear', 'cotto three piece, indian three piece, beautiful cotton three piece, casual dress, office wear, formal wear', NULL, 1, 0, 0, '2024-01-02 05:28:06', '2024-01-09 06:41:52'),
+(246, 11, 62, NULL, NULL, NULL, 'Alia three piece', 'GY202', 'productImages/vN1wO1704181016.jpg', NULL, 'Beautiful Alia three piece', '<p>Material: Georgette</p>\r\n\r\n<p>Printed Salwar and Kameez</p>\r\n\r\n<p>Solid color chiffon Dupatta</p>\r\n\r\n<p>Washable</p>\r\n\r\n<p>Dryable</p>', NULL, NULL, 8500, 6500, 100, 1, 'indian dress, ladies dress,indian three piece, georgette three piece, party tyhree piece, alia three piece', NULL, NULL, 'alia-three-piece-1704181016mHiWy', 7, 'three pice, indian three piece, festive wear, traditional wear, beautiful dress, Alia designer three piece', 'three pice, indian three piece, festive wear, traditional wear, beautiful dress, Alia designer three piece', NULL, 1, 1, 0, '2024-01-02 05:36:56', '2024-01-03 02:53:12'),
+(247, 11, 62, NULL, NULL, NULL, 'Three piece', NULL, 'productImages/fkHTS1704181633.jpg', NULL, 'Beautiful Alia designer Three piece', '<p>Material: Georgette</p>\r\n\r\n<p>Stoned and embroidared work in the neck line, waste and hand</p>\r\n\r\n<p>Long printed kameez with solid color salwar and dupatta</p>', NULL, NULL, 8500, 6500, 100, NULL, 'indian three piece,party wear, festive wear, alia designer thyree piece, indian party dress, traditional dress', NULL, NULL, 'thtee-piece-1704181633KxE4N', NULL, 'Trending, New arrival, Fashion, Indian three piece, alia three piece, party wear, festive wear, fashion wear', 'Trending, New arrival, Fashion, Indian three piece, alia three piece, party wear, festive wear, fashion wear', NULL, 1, 1, 0, '2024-01-02 05:47:13', '2024-01-04 03:35:07'),
+(248, 11, 62, NULL, NULL, NULL, 'Three piece', NULL, 'productImages/CwtQs1704182203.jpg', NULL, 'Cotton Salwar kameez with beautiful chiffon dupatta', '<p>Fabric: Cotton</p>\r\n\r\n<p>3 Piece set, with beautiful work in neckline</p>\r\n\r\n<p>Printed kameez with solid color Salwar and chiffon Dupatta</p>', NULL, NULL, 5500, 3750, 100, NULL, 'three piece, salwar kameez, salwar suit, indian three piece, casual wear, office wear', NULL, NULL, 'three-piece-1704182203af0OL', NULL, 'three pice, indian three piece, festive wear, traditional wear, beautiful dress, Alia designer three piece', 'three pice, indian three piece, festive wear, traditional wear, beautiful dress, Alia designer three piece', NULL, 1, 1, 0, '2024-01-02 05:56:43', '2024-01-04 03:35:07'),
+(249, 11, 63, NULL, NULL, NULL, 'Gown', 'AR1003', 'productImages/mtG4B1704182704.jpg', NULL, 'Beautiful Alia designer gown', '<p>Material: Georgette</p>\r\n\r\n<p>Full body printed floor touch gown</p>\r\n\r\n<p>Alia designer work in neckline and chest</p>\r\n\r\n<p>Full sleeves&nbsp;</p>\r\n\r\n<p>Solid color chiffon Dupatta</p>', NULL, NULL, 10500, 7500, 100, 1, 'gown, alia designer gown, floor touch gown, beautiful dress, party dress, festive dress,indian gown', NULL, NULL, 'gown-1704182704RL00P', 7, ', Trending, New arrival, Fashion, Indian three piece, alia three piece, party wear, festive wear, fashion wear', 'Trending, New arrival, Fashion, Indian three piece, alia three piece, party wear, festive wear, fashion wear', NULL, 1, 0, 0, '2024-01-02 06:05:04', '2024-01-03 04:03:09'),
+(250, 11, 65, NULL, NULL, NULL, 'Co ord set', NULL, 'productImages/Cv7DI1704183655.jpg', '[\"1704183655gsHAZ.jpg\",\"1704183655q3jfk.jpg\",\"17041836552R4w8.jpg\"]', 'Beautiful printed Co ord set', '<p>Material: Cotton</p>\r\n\r\n<p>Printed two piece set with pearl work neckline and belt</p>', NULL, NULL, 5500, 3750, 100, 1, 'co odr set, fashionable dress, outgoing dress, casual dress', NULL, NULL, 'co-ord-set-1704183655t0gGW', 7, 'Trending, New arrival, Fashion, co ord set, casual wear, fashion wear', 'Trending, New arrival, Fashion, co ord set, casual wear, fashion wear', NULL, 1, 0, 0, '2024-01-02 06:20:55', '2024-01-03 04:07:10'),
+(251, 11, 62, NULL, NULL, NULL, 'Three piece', 'NM203', 'productImages/Koisv1704184181.jpg', '[\"1704184181dXvto.jpg\",\"1704184181qRiTm.jpg\",\"1704184181GwFCe.jpg\",\"1704184181Uq0k0.jpg\"]', 'Festive wear three piece with floral printed Dupatta', '<p>Fabric: Viscos cotton</p>\r\n\r\n<p>Neckline stoned work with Georgette floral Dupatta</p>\r\n\r\n<p>Extra sleeves available inside the dress</p>', NULL, NULL, 5500, 3500, 100, 1, 'three piece, salwar kameez, salwar suit, indian three piece, casual wear, office wear,party wear', NULL, NULL, 'three-piece-1704184181Nv4im', 6, 'three pice, indian three piece, festive wear, traditional wear, beautiful dress, Alia designer three piece,party three piece', 'three pice, indian three piece, festive wear, traditional wear, beautiful dress, Alia designer three piece', NULL, 1, 0, 0, '2024-01-02 06:29:41', '2024-01-03 02:53:12'),
+(252, 11, 62, NULL, NULL, NULL, 'Two piece', 'AR1004', 'productImages/HvKZD1704184650.jpg', '[\"1704184650fr5PW.jpg\",\"1704184650SsaWM.jpg\"]', 'Beautiful two piece set with laser cut Dupatta', '<p>Dress material: Cotton</p>\r\n\r\n<p>Neckline, hand and chest worked witl laser cut georgette Dupatta</p>', NULL, NULL, 5500, 3500, 100, 1, NULL, NULL, NULL, 'two-piece-1704184650qxxSW', 7, 'kurti, cottton kurti, indian kurti,  casual wear, office wear, university wear, TWO PIECE KURTI', 'kurti, cottton kurti, indian kurti, casual wear, office wear, university wear,TWO PIECE KURTI', NULL, 1, 0, 0, '2024-01-02 06:37:30', '2024-01-09 06:31:46'),
+(253, 11, 63, NULL, NULL, NULL, 'Gown', 'AR1005', 'productImages/oqY5E1704185276.jpg', '[\"1704185276Gf9vK.jpg\",\"17041852761HQL6.jpg\"]', 'Printed gown with belt', '<p>Material: Silk</p>\r\n\r\n<p>Full body printed gown with kardana&nbsp;worked neck line and belt</p>', NULL, NULL, 4500, 2550, 100, 1, 'gown, alia designer gown, floor touch gown, beautiful dress, party dress, festive dress,indian gown', NULL, NULL, 'gown-1704185276y0tk9', 7, 'gown, party dress, floral dress, traditional dress, festive dress', 'gown, party dress, floral dress, traditional dress, festive dress', NULL, 1, 0, 0, '2024-01-02 06:47:56', '2024-01-09 02:43:03');
 
 -- --------------------------------------------------------
 
@@ -1917,126 +1884,171 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
-(1842, 922, '1.png', '2024-01-23 04:18:49', NULL),
-(1843, 922, '7.png', '2024-01-23 04:18:49', NULL),
-(1844, 922, '12.png', '2024-01-23 04:18:49', NULL),
-(1845, 922, '4.png', '2024-01-23 04:18:49', NULL),
-(1846, 924, '1.png', '2024-01-23 04:18:49', NULL),
-(1847, 924, '15.png', '2024-01-23 04:18:49', NULL),
-(1848, 924, '3.png', '2024-01-23 04:18:49', NULL),
-(1849, 924, '2.png', '2024-01-23 04:18:49', NULL),
-(1850, 926, '4.png', '2024-01-23 04:18:49', NULL),
-(1851, 926, '15.png', '2024-01-23 04:18:49', NULL),
-(1852, 926, '17.png', '2024-01-23 04:18:49', NULL),
-(1853, 926, '13.png', '2024-01-23 04:18:49', NULL),
-(1854, 928, '7.png', '2024-01-23 04:18:49', NULL),
-(1855, 928, '3.png', '2024-01-23 04:18:49', NULL),
-(1856, 928, '15.png', '2024-01-23 04:18:49', NULL),
-(1857, 928, '8.png', '2024-01-23 04:18:49', NULL),
-(1858, 930, '7.png', '2024-01-23 04:18:49', NULL),
-(1859, 930, '5.png', '2024-01-23 04:18:49', NULL),
-(1860, 930, '15.png', '2024-01-23 04:18:49', NULL),
-(1861, 930, '19.png', '2024-01-23 04:18:49', NULL),
-(1862, 932, '1.png', '2024-01-23 04:18:49', NULL),
-(1863, 932, '4.png', '2024-01-23 04:18:49', NULL),
-(1864, 932, '7.png', '2024-01-23 04:18:49', NULL),
-(1865, 932, '8.png', '2024-01-23 04:18:49', NULL),
-(1866, 934, '9.png', '2024-01-23 04:18:49', NULL),
-(1867, 934, '12.png', '2024-01-23 04:18:49', NULL),
-(1868, 934, '18.png', '2024-01-23 04:18:49', NULL),
-(1869, 934, '12.png', '2024-01-23 04:18:49', NULL),
-(1870, 936, '8.png', '2024-01-23 04:18:49', NULL),
-(1871, 936, '1.png', '2024-01-23 04:18:49', NULL),
-(1872, 936, '7.png', '2024-01-23 04:18:49', NULL),
-(1873, 936, '6.png', '2024-01-23 04:18:49', NULL),
-(1874, 938, '13.png', '2024-01-23 04:18:49', NULL),
-(1875, 938, '1.png', '2024-01-23 04:18:49', NULL),
-(1876, 938, '17.png', '2024-01-23 04:18:49', NULL),
-(1877, 938, '20.png', '2024-01-23 04:18:49', NULL),
-(1878, 940, '12.png', '2024-01-23 04:18:49', NULL),
-(1879, 940, '16.png', '2024-01-23 04:18:49', NULL),
-(1880, 940, '19.png', '2024-01-23 04:18:49', NULL),
-(1881, 940, '15.png', '2024-01-23 04:18:49', NULL),
-(1882, 942, '12.png', '2024-01-23 04:18:50', NULL),
-(1883, 942, '8.png', '2024-01-23 04:18:50', NULL),
-(1884, 942, '5.png', '2024-01-23 04:18:50', NULL),
-(1885, 942, '1.png', '2024-01-23 04:18:50', NULL),
-(1886, 944, '18.png', '2024-01-23 04:18:50', NULL),
-(1887, 944, '14.png', '2024-01-23 04:18:50', NULL),
-(1888, 944, '1.png', '2024-01-23 04:18:50', NULL),
-(1889, 944, '17.png', '2024-01-23 04:18:50', NULL),
-(1890, 946, '5.png', '2024-01-23 04:18:50', NULL),
-(1891, 946, '6.png', '2024-01-23 04:18:50', NULL),
-(1892, 946, '6.png', '2024-01-23 04:18:50', NULL),
-(1893, 946, '19.png', '2024-01-23 04:18:50', NULL),
-(1894, 948, '17.png', '2024-01-23 04:18:50', NULL),
-(1895, 948, '2.png', '2024-01-23 04:18:50', NULL),
-(1896, 948, '9.png', '2024-01-23 04:18:50', NULL),
-(1897, 948, '4.png', '2024-01-23 04:18:50', NULL),
-(1898, 950, '2.png', '2024-01-23 04:18:50', NULL),
-(1899, 950, '11.png', '2024-01-23 04:18:50', NULL),
-(1900, 950, '11.png', '2024-01-23 04:18:50', NULL),
-(1901, 950, '15.png', '2024-01-23 04:18:50', NULL),
-(1902, 952, '2.png', '2024-01-23 04:18:50', NULL),
-(1903, 952, '20.png', '2024-01-23 04:18:50', NULL),
-(1904, 952, '10.png', '2024-01-23 04:18:50', NULL),
-(1905, 952, '8.png', '2024-01-23 04:18:50', NULL),
-(1906, 954, '3.png', '2024-01-23 04:18:50', NULL),
-(1907, 954, '20.png', '2024-01-23 04:18:50', NULL),
-(1908, 954, '13.png', '2024-01-23 04:18:50', NULL),
-(1909, 954, '13.png', '2024-01-23 04:18:50', NULL),
-(1910, 956, '20.png', '2024-01-23 04:18:50', NULL),
-(1911, 956, '11.png', '2024-01-23 04:18:50', NULL),
-(1912, 956, '5.png', '2024-01-23 04:18:50', NULL),
-(1913, 956, '15.png', '2024-01-23 04:18:50', NULL),
-(1914, 958, '12.png', '2024-01-23 04:18:50', NULL),
-(1915, 958, '17.png', '2024-01-23 04:18:50', NULL),
-(1916, 958, '6.png', '2024-01-23 04:18:50', NULL),
-(1917, 958, '10.png', '2024-01-23 04:18:50', NULL),
-(1918, 960, '14.png', '2024-01-23 04:18:50', NULL),
-(1919, 960, '8.png', '2024-01-23 04:18:50', NULL),
-(1920, 960, '20.png', '2024-01-23 04:18:50', NULL),
-(1921, 960, '15.png', '2024-01-23 04:18:50', NULL),
-(1922, 962, '7.png', '2024-01-23 04:18:51', NULL),
-(1923, 962, '7.png', '2024-01-23 04:18:51', NULL),
-(1924, 962, '16.png', '2024-01-23 04:18:51', NULL),
-(1925, 962, '18.png', '2024-01-23 04:18:51', NULL),
-(1926, 964, '10.png', '2024-01-23 04:18:51', NULL),
-(1927, 964, '2.png', '2024-01-23 04:18:51', NULL),
-(1928, 964, '3.png', '2024-01-23 04:18:51', NULL),
-(1929, 964, '4.png', '2024-01-23 04:18:51', NULL),
-(1930, 966, '4.png', '2024-01-23 04:18:51', NULL),
-(1931, 966, '16.png', '2024-01-23 04:18:51', NULL),
-(1932, 966, '18.png', '2024-01-23 04:18:51', NULL),
-(1933, 966, '1.png', '2024-01-23 04:18:51', NULL),
-(1934, 968, '18.png', '2024-01-23 04:18:51', NULL),
-(1935, 968, '15.png', '2024-01-23 04:18:51', NULL),
-(1936, 968, '12.png', '2024-01-23 04:18:51', NULL),
-(1937, 968, '14.png', '2024-01-23 04:18:51', NULL),
-(1938, 970, '15.png', '2024-01-23 04:18:51', NULL),
-(1939, 970, '6.png', '2024-01-23 04:18:51', NULL),
-(1940, 970, '8.png', '2024-01-23 04:18:51', NULL),
-(1941, 970, '19.png', '2024-01-23 04:18:51', NULL),
-(1942, 972, '17.png', '2024-01-23 04:18:51', NULL),
-(1943, 972, '3.png', '2024-01-23 04:18:51', NULL),
-(1944, 972, '19.png', '2024-01-23 04:18:51', NULL),
-(1945, 972, '2.png', '2024-01-23 04:18:51', NULL),
-(1946, 974, '2.png', '2024-01-23 04:18:51', NULL),
-(1947, 974, '4.png', '2024-01-23 04:18:51', NULL),
-(1948, 974, '14.png', '2024-01-23 04:18:51', NULL),
-(1949, 974, '2.png', '2024-01-23 04:18:51', NULL),
-(1950, 976, '19.png', '2024-01-23 04:18:51', NULL),
-(1951, 976, '20.png', '2024-01-23 04:18:51', NULL),
-(1952, 976, '10.png', '2024-01-23 04:18:51', NULL),
-(1953, 976, '14.png', '2024-01-23 04:18:51', NULL),
-(1954, 978, '6.png', '2024-01-23 04:18:51', NULL),
-(1955, 978, '12.png', '2024-01-23 04:18:51', NULL),
-(1956, 978, '4.png', '2024-01-23 04:18:51', NULL),
-(1957, 978, '19.png', '2024-01-23 04:18:51', NULL),
-(1958, 980, '8.png', '2024-01-23 04:18:51', NULL),
-(1959, 980, '8.png', '2024-01-23 04:18:51', NULL),
-(1960, 980, '20.png', '2024-01-23 04:18:51', NULL),
-(1961, 980, '14.png', '2024-01-23 04:18:51', NULL);
+(41, 22, '1698573346nLUO8.png', '2023-10-29 07:55:46', NULL),
+(42, 26, '1698637443sHaYu.png', '2023-10-30 01:44:03', NULL),
+(43, 28, '1698637555DPkAw.png', '2023-10-30 01:45:55', NULL),
+(46, 2, '1698637800SYuIk.png', '2023-10-30 01:50:00', NULL),
+(48, 28, '1698729029FBRwU.jpg', '2023-10-31 03:10:29', NULL),
+(50, 26, '1698729087k7kRd.png', '2023-10-31 03:11:27', NULL),
+(52, 26, '1698729087WyRpN.jpg', '2023-10-31 03:11:27', NULL),
+(57, 22, '16987292712Waym.jpg', '2023-10-31 03:14:31', NULL),
+(60, 2, '1698729390KecXE.png', '2023-10-31 03:16:30', NULL),
+(62, 28, '1698731956i58uE.png', '2023-10-31 03:59:16', NULL),
+(63, 26, '1698731985UieAW.png', '2023-10-31 03:59:45', NULL),
+(64, 2, '1698732149epL0Z.png', '2023-10-31 04:02:29', NULL),
+(67, 28, '1698809964wyoEb.png', '2023-11-01 01:39:24', NULL),
+(372, 139, '15.png', '2023-11-13 02:01:13', NULL),
+(373, 139, '13.png', '2023-11-13 02:01:13', NULL),
+(374, 139, '10.png', '2023-11-13 02:01:13', NULL),
+(375, 139, '9.png', '2023-11-13 02:01:13', NULL),
+(384, 145, '1.png', '2023-11-13 02:01:13', NULL),
+(385, 145, '13.png', '2023-11-13 02:01:13', NULL),
+(386, 145, '19.png', '2023-11-13 02:01:13', NULL),
+(387, 145, '9.png', '2023-11-13 02:01:13', NULL),
+(388, 147, '16.png', '2023-11-13 02:01:13', NULL),
+(389, 147, '15.png', '2023-11-13 02:01:13', NULL),
+(390, 147, '18.png', '2023-11-13 02:01:13', NULL),
+(391, 147, '17.png', '2023-11-13 02:01:13', NULL),
+(392, 149, '12.png', '2023-11-13 02:01:13', NULL),
+(393, 149, '11.png', '2023-11-13 02:01:13', NULL),
+(394, 149, '12.png', '2023-11-13 02:01:13', NULL),
+(395, 149, '10.png', '2023-11-13 02:01:13', NULL),
+(396, 151, '15.png', '2023-11-13 02:01:13', NULL),
+(397, 151, '18.png', '2023-11-13 02:01:13', NULL),
+(398, 151, '3.png', '2023-11-13 02:01:13', NULL),
+(399, 151, '17.png', '2023-11-13 02:01:13', NULL),
+(400, 152, '16998603086xBEx.jpg', '2023-11-13 05:25:08', NULL),
+(401, 152, '16998603081Yvaj.jpg', '2023-11-13 05:25:08', NULL),
+(402, 152, '1699860308fpA3z.jpg', '2023-11-13 05:25:08', NULL),
+(403, 152, '16998603084tobx.jpg', '2023-11-13 05:25:08', NULL),
+(404, 152, '1699860308koDAW.jpg', '2023-11-13 05:25:08', NULL),
+(405, 152, '169986030896dwT.jpg', '2023-11-13 05:25:08', NULL),
+(419, 157, '10.png', '2023-11-20 06:49:46', NULL),
+(420, 157, '10.png', '2023-11-20 06:49:46', NULL),
+(421, 157, '20.png', '2023-11-20 06:49:46', NULL),
+(422, 157, '17.png', '2023-11-20 06:49:46', NULL),
+(423, 159, '5.png', '2023-11-20 06:49:46', NULL),
+(424, 159, '4.png', '2023-11-20 06:49:46', NULL),
+(425, 159, '13.png', '2023-11-20 06:49:46', NULL),
+(426, 159, '19.png', '2023-11-20 06:49:46', NULL),
+(427, 161, '18.png', '2023-11-20 06:49:46', NULL),
+(428, 161, '10.png', '2023-11-20 06:49:46', NULL),
+(429, 161, '5.png', '2023-11-20 06:49:46', NULL),
+(430, 161, '14.png', '2023-11-20 06:49:46', NULL),
+(431, 163, '9.png', '2023-11-20 06:49:46', NULL),
+(432, 163, '17.png', '2023-11-20 06:49:46', NULL),
+(433, 163, '14.png', '2023-11-20 06:49:46', NULL),
+(434, 163, '9.png', '2023-11-20 06:49:46', NULL),
+(435, 165, '9.png', '2023-11-20 06:49:46', NULL),
+(436, 165, '13.png', '2023-11-20 06:49:46', NULL),
+(437, 165, '9.png', '2023-11-20 06:49:46', NULL),
+(438, 165, '9.png', '2023-11-20 06:49:46', NULL),
+(439, 167, '18.png', '2023-11-20 06:49:46', NULL),
+(440, 167, '14.png', '2023-11-20 06:49:46', NULL),
+(441, 167, '11.png', '2023-11-20 06:49:46', NULL),
+(442, 167, '2.png', '2023-11-20 06:49:46', NULL),
+(443, 169, '13.png', '2023-11-20 06:49:46', NULL),
+(444, 169, '8.png', '2023-11-20 06:49:46', NULL),
+(445, 169, '2.png', '2023-11-20 06:49:46', NULL),
+(446, 169, '3.png', '2023-11-20 06:49:46', NULL),
+(447, 171, '3.png', '2023-11-20 06:49:46', NULL),
+(448, 171, '9.png', '2023-11-20 06:49:46', NULL),
+(449, 171, '13.png', '2023-11-20 06:49:46', NULL),
+(450, 171, '19.png', '2023-11-20 06:49:46', NULL),
+(451, 173, '8.png', '2023-11-20 06:49:46', NULL),
+(452, 173, '16.png', '2023-11-20 06:49:46', NULL),
+(453, 173, '6.png', '2023-11-20 06:49:46', NULL),
+(454, 173, '2.png', '2023-11-20 06:49:46', NULL),
+(455, 175, '13.png', '2023-11-20 06:49:46', NULL),
+(456, 175, '20.png', '2023-11-20 06:49:46', NULL),
+(457, 175, '12.png', '2023-11-20 06:49:46', NULL),
+(458, 175, '5.png', '2023-11-20 06:49:46', NULL),
+(459, 177, '15.png', '2023-11-20 06:49:46', NULL),
+(460, 177, '5.png', '2023-11-20 06:49:46', NULL),
+(461, 177, '1.png', '2023-11-20 06:49:46', NULL),
+(462, 177, '7.png', '2023-11-20 06:49:46', NULL),
+(463, 179, '13.png', '2023-11-20 06:49:46', NULL),
+(464, 179, '18.png', '2023-11-20 06:49:46', NULL),
+(465, 179, '13.png', '2023-11-20 06:49:46', NULL),
+(466, 179, '9.png', '2023-11-20 06:49:46', NULL),
+(467, 181, '9.png', '2023-11-20 06:49:46', NULL),
+(468, 181, '12.png', '2023-11-20 06:49:46', NULL),
+(469, 181, '13.png', '2023-11-20 06:49:46', NULL),
+(470, 181, '9.png', '2023-11-20 06:49:46', NULL),
+(471, 183, '10.png', '2023-11-20 06:49:46', NULL),
+(472, 183, '18.png', '2023-11-20 06:49:46', NULL),
+(473, 183, '15.png', '2023-11-20 06:49:46', NULL),
+(474, 183, '18.png', '2023-11-20 06:49:46', NULL),
+(475, 185, '14.png', '2023-11-20 06:49:46', NULL),
+(476, 185, '14.png', '2023-11-20 06:49:46', NULL),
+(477, 185, '3.png', '2023-11-20 06:49:46', NULL),
+(478, 185, '15.png', '2023-11-20 06:49:46', NULL),
+(479, 187, '12.png', '2023-11-20 06:49:46', NULL),
+(480, 187, '13.png', '2023-11-20 06:49:46', NULL),
+(481, 187, '8.png', '2023-11-20 06:49:46', NULL),
+(482, 187, '19.png', '2023-11-20 06:49:46', NULL),
+(483, 189, '9.png', '2023-11-20 06:49:46', NULL),
+(484, 189, '20.png', '2023-11-20 06:49:46', NULL),
+(485, 189, '19.png', '2023-11-20 06:49:46', NULL),
+(486, 189, '5.png', '2023-11-20 06:49:46', NULL),
+(487, 191, '9.png', '2023-11-20 06:49:46', NULL),
+(488, 191, '16.png', '2023-11-20 06:49:46', NULL),
+(489, 191, '9.png', '2023-11-20 06:49:46', NULL),
+(490, 191, '14.png', '2023-11-20 06:49:46', NULL),
+(491, 193, '4.png', '2023-11-20 06:49:46', NULL),
+(492, 193, '16.png', '2023-11-20 06:49:46', NULL),
+(493, 193, '11.png', '2023-11-20 06:49:46', NULL),
+(494, 193, '20.png', '2023-11-20 06:49:46', NULL),
+(495, 195, '4.png', '2023-11-20 06:49:46', NULL),
+(496, 195, '11.png', '2023-11-20 06:49:46', NULL),
+(497, 195, '9.png', '2023-11-20 06:49:46', NULL),
+(498, 195, '20.png', '2023-11-20 06:49:46', NULL),
+(503, 199, '7.png', '2023-11-20 06:49:46', NULL),
+(504, 199, '9.png', '2023-11-20 06:49:46', NULL),
+(505, 199, '10.png', '2023-11-20 06:49:46', NULL),
+(506, 199, '20.png', '2023-11-20 06:49:46', NULL),
+(507, 201, '9.png', '2023-11-20 06:49:46', NULL),
+(508, 201, '16.png', '2023-11-20 06:49:46', NULL),
+(509, 201, '9.png', '2023-11-20 06:49:46', NULL),
+(510, 201, '16.png', '2023-11-20 06:49:46', NULL),
+(511, 203, '18.png', '2023-11-20 06:49:46', NULL),
+(512, 203, '6.png', '2023-11-20 06:49:46', NULL),
+(513, 203, '2.png', '2023-11-20 06:49:46', NULL),
+(514, 203, '13.png', '2023-11-20 06:49:46', NULL),
+(515, 205, '19.png', '2023-11-20 06:49:46', NULL),
+(516, 205, '9.png', '2023-11-20 06:49:46', NULL),
+(517, 205, '19.png', '2023-11-20 06:49:46', NULL),
+(518, 205, '16.png', '2023-11-20 06:49:46', NULL),
+(522, 197, '17009763473szi2.png', '2023-11-26 03:25:47', NULL),
+(523, 197, '1700976347J1iiM.png', '2023-11-26 03:25:47', NULL),
+(524, 197, '17009763470mgGD.png', '2023-11-26 03:25:47', NULL),
+(526, 222, '170192573240YVD.jpg', '2023-12-07 03:08:52', NULL),
+(527, 223, '1701938673sPPpu.jpg', '2023-12-07 06:44:33', NULL),
+(528, 224, '1701939170JaaHT.jpg', '2023-12-07 06:52:50', NULL),
+(529, 226, '1701940224CmRR6.jpg', '2023-12-07 07:10:25', NULL),
+(530, 227, '1701942001fxpo8.jpg', '2023-12-07 07:40:01', NULL),
+(534, 225, '1703178896zl9lA.jpg', '2023-12-21 15:14:56', NULL),
+(535, 242, '1704177807P0EjT.jpg', '2024-01-02 04:43:27', NULL),
+(536, 242, '17041778076ysBe.jpg', '2024-01-02 04:43:27', NULL),
+(537, 242, '1704177807sgwOv.jpg', '2024-01-02 04:43:27', NULL),
+(538, 244, '1704180146CAu7e.jpg', '2024-01-02 05:22:26', NULL),
+(539, 244, '17041801463P9G1.jpg', '2024-01-02 05:22:26', NULL),
+(540, 244, '1704180146BCUnz.jpg', '2024-01-02 05:22:26', NULL),
+(541, 245, '1704180486Cqz34.jpg', '2024-01-02 05:28:06', NULL),
+(542, 245, '1704180486PqJhR.jpg', '2024-01-02 05:28:06', NULL),
+(543, 245, '1704180486y2lMy.jpg', '2024-01-02 05:28:06', NULL),
+(544, 245, '170418048601gew.jpg', '2024-01-02 05:28:06', NULL),
+(545, 250, '1704183655gsHAZ.jpg', '2024-01-02 06:20:55', NULL),
+(546, 250, '1704183655q3jfk.jpg', '2024-01-02 06:20:55', NULL),
+(547, 250, '17041836552R4w8.jpg', '2024-01-02 06:20:55', NULL),
+(548, 251, '1704184181dXvto.jpg', '2024-01-02 06:29:41', NULL),
+(549, 251, '1704184181qRiTm.jpg', '2024-01-02 06:29:41', NULL),
+(550, 251, '1704184181GwFCe.jpg', '2024-01-02 06:29:41', NULL),
+(551, 251, '1704184181Uq0k0.jpg', '2024-01-02 06:29:41', NULL),
+(552, 252, '1704184650fr5PW.jpg', '2024-01-02 06:37:30', NULL),
+(553, 252, '1704184650SsaWM.jpg', '2024-01-02 06:37:30', NULL),
+(554, 253, '1704185276Gf9vK.jpg', '2024-01-02 06:47:56', NULL),
+(555, 253, '17041852761HQL6.jpg', '2024-01-02 06:47:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -2100,132 +2112,6 @@ CREATE TABLE `product_reviews` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `product_reviews`
---
-
-INSERT INTO `product_reviews` (`id`, `product_id`, `user_id`, `rating`, `review`, `reply`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(1841, 923, 1, 4, 'Organic 6thgeneration neural-net', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1842, 923, 1, 4, 'Implemented intermediate collaboration', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1843, 923, 1, 1, 'Future-proofed value-added data-warehouse', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1844, 923, 1, 1, 'Balanced system-worthy budgetarymanagement', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1845, 925, 1, 3, 'Organized coherent website', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1846, 925, 1, 1, 'Persistent zerotolerance policy', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1847, 925, 1, 3, 'Cross-platform content-based capability', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1848, 925, 1, 3, 'Re-contextualized maximized benchmark', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1849, 927, 1, 2, 'Quality-focused context-sensitive benchmark', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1850, 927, 1, 3, 'Cross-group multimedia moderator', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1851, 927, 1, 2, 'Streamlined well-modulated portal', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1852, 927, 1, 5, 'Organized human-resource contingency', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1853, 929, 1, 5, 'Function-based fresh-thinking application', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1854, 929, 1, 1, 'Automated hybrid opensystem', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1855, 929, 1, 1, 'Proactive 6thgeneration intranet', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1856, 929, 1, 1, 'Public-key national contingency', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1857, 931, 1, 3, 'Persistent interactive moderator', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1858, 931, 1, 3, 'De-engineered national database', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1859, 931, 1, 3, 'Triple-buffered empowering hardware', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1860, 931, 1, 5, 'Multi-tiered 5thgeneration methodology', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1861, 933, 1, 1, 'Total multimedia openarchitecture', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1862, 933, 1, 5, 'Adaptive regional utilisation', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1863, 933, 1, 3, 'Cross-group motivating info-mediaries', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1864, 933, 1, 3, 'Re-contextualized didactic functionalities', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1865, 935, 1, 4, 'User-friendly assymetric synergy', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1866, 935, 1, 3, 'Down-sized user-facing ability', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1867, 935, 1, 2, 'Distributed leadingedge success', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1868, 935, 1, 2, 'Public-key modular collaboration', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1869, 937, 1, 1, 'Phased solution-oriented solution', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1870, 937, 1, 3, 'Vision-oriented grid-enabled encryption', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1871, 937, 1, 3, 'Business-focused needs-based utilisation', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1872, 937, 1, 4, 'User-friendly solution-oriented utilisation', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1873, 939, 1, 5, 'Configurable eco-centric solution', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1874, 939, 1, 5, 'Centralized zeroadministration access', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1875, 939, 1, 3, 'Virtual value-added frame', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1876, 939, 1, 4, 'User-centric coherent middleware', 'thanks', '', 1, '2024-01-23 04:18:49', NULL),
-(1877, 941, 1, 1, 'Multi-channelled solution-oriented protocol', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1878, 941, 1, 5, 'Seamless mobile methodology', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1879, 941, 1, 4, 'Stand-alone value-added website', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1880, 941, 1, 5, 'Cross-platform system-worthy productivity', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1881, 943, 1, 3, 'Configurable needs-based pricingstructure', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1882, 943, 1, 4, 'Cross-group value-added concept', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1883, 943, 1, 3, 'Programmable incremental protocol', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1884, 943, 1, 3, 'Facetoface bandwidth-monitored superstructure', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1885, 945, 1, 3, 'Integrated cohesive strategy', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1886, 945, 1, 1, 'Optimized mission-critical capability', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1887, 945, 1, 4, 'Profound real-time forecast', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1888, 945, 1, 5, 'User-centric intangible info-mediaries', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1889, 947, 1, 3, 'Fully-configurable 5thgeneration infrastructure', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1890, 947, 1, 1, 'Switchable fault-tolerant array', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1891, 947, 1, 2, 'De-engineered explicit attitude', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1892, 947, 1, 5, 'Re-contextualized tangible product', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1893, 949, 1, 5, 'Advanced needs-based knowledgeuser', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1894, 949, 1, 3, 'Secured 24hour installation', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1895, 949, 1, 2, 'Ergonomic even-keeled hub', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1896, 949, 1, 3, 'Multi-tiered dynamic infrastructure', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1897, 951, 1, 4, 'Universal heuristic attitude', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1898, 951, 1, 1, 'Open-architected 5thgeneration emulation', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1899, 951, 1, 3, 'Proactive cohesive hub', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1900, 951, 1, 4, 'Diverse well-modulated help-desk', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1901, 953, 1, 4, 'Polarised actuating database', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1902, 953, 1, 1, 'Compatible uniform firmware', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1903, 953, 1, 3, 'Operative even-keeled implementation', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1904, 953, 1, 3, 'Monitored methodical installation', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1905, 955, 1, 4, 'Front-line fault-tolerant paradigm', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1906, 955, 1, 4, 'Fully-configurable real-time policy', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1907, 955, 1, 2, 'Synergistic motivating middleware', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1908, 955, 1, 3, 'Managed responsive array', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1909, 957, 1, 1, 'Reverse-engineered clear-thinking collaboration', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1910, 957, 1, 2, 'Sharable homogeneous migration', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1911, 957, 1, 1, 'Persistent zerotolerance initiative', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1912, 957, 1, 3, 'Monitored holistic functionalities', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1913, 959, 1, 4, 'Extended bandwidth-monitored blockchain', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1914, 959, 1, 3, 'Business-focused static product', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1915, 959, 1, 3, 'Managed didactic approach', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1916, 959, 1, 5, 'Organic encompassing adapter', 'thanks', '', 1, '2024-01-23 04:18:50', NULL),
-(1917, 961, 1, 5, 'Adaptive multi-state flexibility', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1918, 961, 1, 2, 'Customer-focused non-volatile time-frame', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1919, 961, 1, 4, 'Synergized heuristic capacity', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1920, 961, 1, 3, 'Programmable full-range strategy', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1921, 963, 1, 2, 'Seamless content-based customerloyalty', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1922, 963, 1, 4, 'Innovative tertiary database', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1923, 963, 1, 4, 'Reverse-engineered clear-thinking throughput', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1924, 963, 1, 2, 'Operative explicit analyzer', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1925, 965, 1, 5, 'Robust static approach', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1926, 965, 1, 4, 'Balanced foreground adapter', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1927, 965, 1, 2, 'Diverse composite processimprovement', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1928, 965, 1, 2, 'Networked scalable GraphicalUserInterface', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1929, 967, 1, 5, 'Open-source zeroadministration firmware', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1930, 967, 1, 4, 'Team-oriented 3rdgeneration solution', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1931, 967, 1, 2, 'Up-sized context-sensitive archive', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1932, 967, 1, 3, 'Innovative cohesive matrix', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1933, 969, 1, 2, 'Reactive stable productivity', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1934, 969, 1, 1, 'Front-line actuating software', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1935, 969, 1, 2, 'Configurable 24/7 circuit', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1936, 969, 1, 4, 'Open-architected executive GraphicInterface', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1937, 971, 1, 1, 'Self-enabling clear-thinking productivity', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1938, 971, 1, 4, 'Proactive client-driven throughput', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1939, 971, 1, 3, 'Cross-platform clear-thinking access', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1940, 971, 1, 5, 'Facetoface assymetric forecast', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1941, 973, 1, 5, 'Centralized nextgeneration monitoring', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1942, 973, 1, 5, 'Seamless optimizing framework', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1943, 973, 1, 3, 'Universal static function', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1944, 973, 1, 4, 'Automated dedicated leverage', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1945, 975, 1, 1, 'Up-sized nextgeneration access', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1946, 975, 1, 3, 'Synchronised demand-driven archive', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1947, 975, 1, 1, 'Phased cohesive portal', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1948, 975, 1, 3, 'Re-contextualized multi-state website', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1949, 977, 1, 2, 'Proactive impactful info-mediaries', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1950, 977, 1, 1, 'Profit-focused clear-thinking conglomeration', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1951, 977, 1, 3, 'Streamlined demand-driven project', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1952, 977, 1, 1, 'Grass-roots bottom-line paradigm', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1953, 979, 1, 3, 'Devolved incremental core', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1954, 979, 1, 4, 'Monitored 6thgeneration matrices', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1955, 979, 1, 1, 'Profit-focused client-driven matrices', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1956, 979, 1, 5, 'Implemented multimedia adapter', 'thanks', '', 1, '2024-01-23 04:18:51', NULL),
-(1957, 981, 1, 3, 'Ergonomic zeroadministration GraphicInterface', 'thanks', '', 1, '2024-01-23 04:18:52', NULL),
-(1958, 981, 1, 1, 'Managed full-range extranet', 'thanks', '', 1, '2024-01-23 04:18:52', NULL),
-(1959, 981, 1, 3, 'Organized client-server protocol', 'thanks', '', 1, '2024-01-23 04:18:52', NULL),
-(1960, 981, 1, 5, 'Expanded optimal matrices', 'thanks', '', 1, '2024-01-23 04:18:52', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -2247,10 +2133,13 @@ CREATE TABLE `product_sizes` (
 --
 
 INSERT INTO `product_sizes` (`id`, `name`, `status`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(3, 'XL', 1, '1697959830XHryF', 3, '2023-10-22 07:30:30', '2023-10-22 07:30:47'),
-(4, 'XXL', 1, '16979598348ybGu', 4, '2023-10-22 07:30:34', '2023-10-22 07:30:47'),
-(5, 'M', 1, '16979598389yaga', 2, '2023-10-22 07:30:38', '2023-10-22 07:30:47'),
-(6, 'S', 1, '1697959841kF3bo', 1, '2023-10-22 07:30:41', '2023-10-22 07:30:47');
+(8, 'S', 1, '1700808383yzAFn', 1, '2023-11-24 04:46:23', NULL),
+(9, 'M', 1, '17008083935TRqN', 1, '2023-11-24 04:46:33', NULL),
+(10, 'L', 1, '17008084016WJJL', 1, '2023-11-24 04:46:41', NULL),
+(11, 'XL', 1, '1700808417y0LKw', 1, '2023-11-24 04:46:57', NULL),
+(12, 'XXL', 1, '1700808438wbIAv', 1, '2023-11-24 04:47:18', NULL),
+(13, 'S-XXL', 1, '1700808466v1NCd', 1, '2023-11-24 04:47:46', NULL),
+(14, 'S-L', 1, '17008084924bMYf', 1, '2023-11-24 04:48:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -2281,126 +2170,200 @@ CREATE TABLE `product_variants` (
 --
 
 INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_type_id`, `stock`, `price`, `discounted_price`, `warrenty_id`, `device_condition_id`, `created_at`, `updated_at`) VALUES
-(1842, 923, '9.png', 10, 5, 232, 2, 8, 1000, 252, 242, 7, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1843, 923, '13.png', 10, 5, 232, 2, 8, 1000, 252, 242, 7, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1844, 923, '14.png', 10, 5, 232, 2, 8, 1000, 252, 242, 7, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1845, 923, '18.png', 10, 5, 232, 2, 8, 1000, 252, 242, 7, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1846, 925, '5.png', 7, 3, 127, 2, 5, 1000, 379, 369, 2, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1847, 925, '5.png', 7, 3, 127, 2, 5, 1000, 379, 369, 2, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1848, 925, '11.png', 7, 3, 127, 2, 5, 1000, 379, 369, 2, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1849, 925, '16.png', 7, 3, 127, 2, 5, 1000, 379, 369, 2, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1850, 927, '3.png', 11, 5, 150, 1, 5, 1000, 963, 953, 7, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1851, 927, '17.png', 11, 5, 150, 1, 5, 1000, 963, 953, 7, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1852, 927, '20.png', 11, 5, 150, 1, 5, 1000, 963, 953, 7, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1853, 927, '7.png', 11, 5, 150, 1, 5, 1000, 963, 953, 7, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1854, 929, '17.png', 11, 5, 96, 4, 7, 1000, 875, 865, 2, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1855, 929, '5.png', 11, 5, 96, 4, 7, 1000, 875, 865, 2, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1856, 929, '18.png', 11, 5, 96, 4, 7, 1000, 875, 865, 2, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1857, 929, '18.png', 11, 5, 96, 4, 7, 1000, 875, 865, 2, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1858, 931, '8.png', 5, 3, 12, 1, 6, 1000, 568, 558, 8, 1, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1859, 931, '5.png', 5, 3, 12, 1, 6, 1000, 568, 558, 8, 1, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1860, 931, '5.png', 5, 3, 12, 1, 6, 1000, 568, 558, 8, 1, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1861, 931, '5.png', 5, 3, 12, 1, 6, 1000, 568, 558, 8, 1, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1862, 933, '6.png', 15, 6, 201, 3, 4, 1000, 256, 246, 8, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1863, 933, '18.png', 15, 6, 201, 3, 4, 1000, 256, 246, 8, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1864, 933, '2.png', 15, 6, 201, 3, 4, 1000, 256, 246, 8, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1865, 933, '10.png', 15, 6, 201, 3, 4, 1000, 256, 246, 8, 7, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1866, 935, '14.png', 9, 4, 67, 4, 4, 1000, 692, 682, 1, 6, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1867, 935, '12.png', 9, 4, 67, 4, 4, 1000, 692, 682, 1, 6, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1868, 935, '3.png', 9, 4, 67, 4, 4, 1000, 692, 682, 1, 6, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1869, 935, '5.png', 9, 4, 67, 4, 4, 1000, 692, 682, 1, 6, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1870, 937, '11.png', 2, 3, 132, 1, 2, 1000, 226, 216, 7, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1871, 937, '9.png', 2, 3, 132, 1, 2, 1000, 226, 216, 7, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1872, 937, '13.png', 2, 3, 132, 1, 2, 1000, 226, 216, 7, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1873, 937, '3.png', 2, 3, 132, 1, 2, 1000, 226, 216, 7, 3, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1874, 939, '14.png', 14, 6, 30, 1, 2, 1000, 145, 135, 1, 6, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1875, 939, '10.png', 14, 6, 30, 1, 2, 1000, 145, 135, 1, 6, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1876, 939, '20.png', 14, 6, 30, 1, 2, 1000, 145, 135, 1, 6, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1877, 939, '5.png', 14, 6, 30, 1, 2, 1000, 145, 135, 1, 6, '2024-01-23 04:18:49', '2024-01-23 04:18:49'),
-(1878, 941, '9.png', 8, 3, 25, 4, 2, 1000, 266, 256, 7, 1, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1879, 941, '10.png', 8, 3, 25, 4, 2, 1000, 266, 256, 7, 1, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1880, 941, '3.png', 8, 3, 25, 4, 2, 1000, 266, 256, 7, 1, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1881, 941, '8.png', 8, 3, 25, 4, 2, 1000, 266, 256, 7, 1, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1882, 943, '9.png', 3, 3, 198, 1, 3, 1000, 398, 388, 2, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1883, 943, '14.png', 3, 3, 198, 1, 3, 1000, 398, 388, 2, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1884, 943, '15.png', 3, 3, 198, 1, 3, 1000, 398, 388, 2, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1885, 943, '9.png', 3, 3, 198, 1, 3, 1000, 398, 388, 2, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1886, 945, '12.png', 1, 5, 115, 1, 6, 1000, 862, 852, 7, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1887, 945, '19.png', 1, 5, 115, 1, 6, 1000, 862, 852, 7, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1888, 945, '16.png', 1, 5, 115, 1, 6, 1000, 862, 852, 7, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1889, 945, '1.png', 1, 5, 115, 1, 6, 1000, 862, 852, 7, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1890, 947, '2.png', 8, 5, 31, 4, 4, 1000, 974, 964, 7, 1, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1891, 947, '20.png', 8, 5, 31, 4, 4, 1000, 974, 964, 7, 1, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1892, 947, '4.png', 8, 5, 31, 4, 4, 1000, 974, 964, 7, 1, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1893, 947, '8.png', 8, 5, 31, 4, 4, 1000, 974, 964, 7, 1, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1894, 949, '1.png', 3, 4, 97, 3, 4, 1000, 568, 558, 2, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1895, 949, '12.png', 3, 4, 97, 3, 4, 1000, 568, 558, 2, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1896, 949, '16.png', 3, 4, 97, 3, 4, 1000, 568, 558, 2, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1897, 949, '9.png', 3, 4, 97, 3, 4, 1000, 568, 558, 2, 7, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1898, 951, '11.png', 13, 6, 118, 2, 9, 1000, 524, 514, 1, 4, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1899, 951, '17.png', 13, 6, 118, 2, 9, 1000, 524, 514, 1, 4, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1900, 951, '5.png', 13, 6, 118, 2, 9, 1000, 524, 514, 1, 4, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1901, 951, '15.png', 13, 6, 118, 2, 9, 1000, 524, 514, 1, 4, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1902, 953, '1.png', 12, 3, 105, 3, 1, 1000, 210, 200, 8, 3, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1903, 953, '14.png', 12, 3, 105, 3, 1, 1000, 210, 200, 8, 3, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1904, 953, '19.png', 12, 3, 105, 3, 1, 1000, 210, 200, 8, 3, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1905, 953, '9.png', 12, 3, 105, 3, 1, 1000, 210, 200, 8, 3, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1906, 955, '16.png', 9, 5, 66, 1, 9, 1000, 203, 193, 7, 4, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1907, 955, '13.png', 9, 5, 66, 1, 9, 1000, 203, 193, 7, 4, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1908, 955, '3.png', 9, 5, 66, 1, 9, 1000, 203, 193, 7, 4, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1909, 955, '9.png', 9, 5, 66, 1, 9, 1000, 203, 193, 7, 4, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1910, 957, '13.png', 2, 3, 26, 4, 1, 1000, 109, 99, 2, 6, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1911, 957, '9.png', 2, 3, 26, 4, 1, 1000, 109, 99, 2, 6, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1912, 957, '19.png', 2, 3, 26, 4, 1, 1000, 109, 99, 2, 6, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1913, 957, '15.png', 2, 3, 26, 4, 1, 1000, 109, 99, 2, 6, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1914, 959, '9.png', 3, 3, 69, 2, 7, 1000, 572, 562, 2, 3, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1915, 959, '5.png', 3, 3, 69, 2, 7, 1000, 572, 562, 2, 3, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1916, 959, '15.png', 3, 3, 69, 2, 7, 1000, 572, 562, 2, 3, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1917, 959, '18.png', 3, 3, 69, 2, 7, 1000, 572, 562, 2, 3, '2024-01-23 04:18:50', '2024-01-23 04:18:50'),
-(1918, 961, '13.png', 10, 3, 82, 2, 4, 1000, 286, 276, 3, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1919, 961, '16.png', 10, 3, 82, 2, 4, 1000, 286, 276, 3, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1920, 961, '8.png', 10, 3, 82, 2, 4, 1000, 286, 276, 3, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1921, 961, '12.png', 10, 3, 82, 2, 4, 1000, 286, 276, 3, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1922, 963, '20.png', 14, 3, 21, 4, 2, 1000, 846, 836, 2, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1923, 963, '6.png', 14, 3, 21, 4, 2, 1000, 846, 836, 2, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1924, 963, '18.png', 14, 3, 21, 4, 2, 1000, 846, 836, 2, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1925, 963, '18.png', 14, 3, 21, 4, 2, 1000, 846, 836, 2, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1926, 965, '1.png', 3, 6, 230, 3, 8, 1000, 299, 289, 1, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1927, 965, '10.png', 3, 6, 230, 3, 8, 1000, 299, 289, 1, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1928, 965, '1.png', 3, 6, 230, 3, 8, 1000, 299, 289, 1, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1929, 965, '10.png', 3, 6, 230, 3, 8, 1000, 299, 289, 1, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1930, 967, '6.png', 4, 5, 221, 4, 3, 1000, 440, 430, 1, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1931, 967, '6.png', 4, 5, 221, 4, 3, 1000, 440, 430, 1, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1932, 967, '8.png', 4, 5, 221, 4, 3, 1000, 440, 430, 1, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1933, 967, '1.png', 4, 5, 221, 4, 3, 1000, 440, 430, 1, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1934, 969, '18.png', 5, 6, 204, 4, 3, 1000, 682, 672, 1, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1935, 969, '6.png', 5, 6, 204, 4, 3, 1000, 682, 672, 1, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1936, 969, '15.png', 5, 6, 204, 4, 3, 1000, 682, 672, 1, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1937, 969, '16.png', 5, 6, 204, 4, 3, 1000, 682, 672, 1, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1938, 971, '17.png', 8, 5, 187, 1, 9, 1000, 106, 96, 3, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1939, 971, '4.png', 8, 5, 187, 1, 9, 1000, 106, 96, 3, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1940, 971, '15.png', 8, 5, 187, 1, 9, 1000, 106, 96, 3, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1941, 971, '6.png', 8, 5, 187, 1, 9, 1000, 106, 96, 3, 3, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1942, 973, '10.png', 5, 5, 96, 2, 3, 1000, 154, 144, 3, 7, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1943, 973, '15.png', 5, 5, 96, 2, 3, 1000, 154, 144, 3, 7, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1944, 973, '15.png', 5, 5, 96, 2, 3, 1000, 154, 144, 3, 7, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1945, 973, '4.png', 5, 5, 96, 2, 3, 1000, 154, 144, 3, 7, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1946, 975, '17.png', 15, 6, NULL, NULL, NULL, 1000, 865, 855, NULL, NULL, '2024-01-23 04:18:51', '2024-01-23 10:48:55'),
-(1947, 975, '16.png', 15, 6, NULL, NULL, NULL, 1000, 865, 855, NULL, NULL, '2024-01-23 04:18:51', '2024-01-23 10:48:55'),
-(1948, 975, '20.png', 15, 6, NULL, NULL, NULL, 1000, 865, 855, NULL, NULL, '2024-01-23 04:18:51', '2024-01-23 10:48:55'),
-(1949, 975, '3.png', 15, 6, NULL, NULL, NULL, 1000, 865, 855, NULL, NULL, '2024-01-23 04:18:51', '2024-01-23 10:48:55'),
-(1950, 977, '4.png', 8, 6, 153, 3, 5, 1000, 929, 919, 7, 6, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1951, 977, '18.png', 8, 6, 153, 3, 5, 1000, 929, 919, 7, 6, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1952, 977, '1.png', 8, 6, 153, 3, 5, 1000, 929, 919, 7, 6, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1953, 977, '3.png', 8, 6, 153, 3, 5, 1000, 929, 919, 7, 6, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1954, 979, '1.png', 2, 5, 90, 1, 9, 1000, 346, 336, 7, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1955, 979, '12.png', 2, 5, 90, 1, 9, 1000, 346, 336, 7, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1956, 979, '1.png', 2, 5, 90, 1, 9, 1000, 346, 336, 7, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1957, 979, '20.png', 2, 5, 90, 1, 9, 1000, 346, 336, 7, 1, '2024-01-23 04:18:51', '2024-01-23 04:18:51'),
-(1958, 981, '13.png', 9, 4, 148, 4, 8, 1000, 338, 328, 3, 1, '2024-01-23 04:18:52', '2024-01-23 04:18:52'),
-(1959, 981, '4.png', 9, 4, 148, 4, 8, 1000, 338, 328, 3, 1, '2024-01-23 04:18:52', '2024-01-23 04:18:52'),
-(1960, 981, '7.png', 9, 4, 148, 4, 8, 1000, 338, 328, 3, 1, '2024-01-23 04:18:52', '2024-01-23 04:18:52'),
-(1961, 981, '3.png', 9, 4, 148, 4, 8, 1000, 338, 328, 3, 1, '2024-01-23 04:18:52', '2024-01-23 04:18:52');
+(29, 23, '1698732114Cs1XY.jpg', 2, 5, NULL, NULL, NULL, 99, 1289, 1000, 1, NULL, '2023-10-18 09:13:28', '2023-10-31 04:01:54'),
+(30, 24, '1698732056BVBQ4.png', 10, 6, NULL, NULL, NULL, 100, 100, 90, 1, NULL, '2023-10-22 08:02:52', '2023-10-31 04:00:56'),
+(31, 24, '1698732056kGL0Z.png', 6, 5, NULL, NULL, NULL, 200, 120, 100, 1, NULL, '2023-10-22 08:02:52', '2023-10-31 04:00:56'),
+(32, 1, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '2023-10-25 04:59:51', '2023-10-31 03:10:48'),
+(37, 27, '1698220649T4kIh.png', 1, 4, NULL, NULL, NULL, 100, 800, 700, 7, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
+(38, 27, '1698220649mYEaQ.png', 1, 3, NULL, NULL, NULL, 140, 750, 600, 8, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
+(39, 27, '1698220649T2jK0.png', 1, 5, NULL, NULL, NULL, 200, 750, 690, 8, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
+(40, 27, '1698220649CwkcU.png', 2, 5, NULL, NULL, NULL, 500, 900, 800, 8, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
+(41, 27, '1698220649S40Zf.png', 2, 3, NULL, NULL, NULL, 90, 900, 780, 7, NULL, '2023-10-25 05:57:29', '2023-10-30 03:49:35'),
+(42, 23, '1698732114ixupl.jpg', 10, 5, NULL, NULL, NULL, 120, 1300, 1200, 8, NULL, '2023-10-31 03:13:18', '2023-10-31 04:01:54'),
+(250, 144, '9.png', 3, 5, 129, NULL, NULL, 1000, 254, 244, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(251, 144, '4.png', 3, 5, 129, NULL, NULL, 1000, 254, 244, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(252, 144, '4.png', 3, 5, 129, NULL, NULL, 1000, 254, 244, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(253, 144, '10.png', 3, 5, 129, NULL, NULL, 1000, 254, 244, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(254, 146, '9.png', 6, 5, 17, NULL, NULL, 1000, 920, 910, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(255, 146, '14.png', 6, 5, 17, NULL, NULL, 1000, 920, 910, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(256, 146, '9.png', 6, 5, 17, NULL, NULL, 1000, 920, 910, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(257, 146, '11.png', 6, 5, 17, NULL, NULL, 1000, 920, 910, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(258, 148, '14.png', 8, 5, 127, NULL, NULL, 1000, 902, 892, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(259, 148, '11.png', 8, 5, 127, NULL, NULL, 1000, 902, 892, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(260, 148, '20.png', 8, 5, 127, NULL, NULL, 1000, 902, 892, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(261, 148, '3.png', 8, 5, 127, NULL, NULL, 1000, 902, 892, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(262, 150, '18.png', 14, 3, 120, NULL, NULL, 1000, 940, 930, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(263, 150, '9.png', 14, 3, 120, NULL, NULL, 1000, 940, 930, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(264, 150, '2.png', 14, 3, 120, NULL, NULL, 1000, 940, 930, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(265, 150, '11.png', 14, 3, 120, NULL, NULL, 1000, 940, 930, NULL, NULL, '2023-11-13 02:01:13', '2023-11-13 02:01:13'),
+(270, 155, '1700127119vfSOE.webp', 1, 13, NULL, NULL, NULL, 19, 4995, 0, 7, NULL, '2023-11-16 07:31:59', '2023-12-31 02:28:21'),
+(271, 155, '1700127119nbnq5.webp', 11, 13, NULL, NULL, NULL, 19, 4995, 0, 7, NULL, '2023-11-16 07:31:59', '2023-12-31 02:28:21'),
+(280, 158, '9.png', 16, 7, 186, NULL, NULL, 1000, 807, 797, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(281, 158, '20.png', 16, 7, 186, NULL, NULL, 1000, 807, 797, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(282, 158, '1.png', 16, 7, 186, NULL, NULL, 1000, 807, 797, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(283, 158, '12.png', 16, 7, 186, NULL, NULL, 1000, 807, 797, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(284, 160, '12.png', 4, 3, 94, NULL, NULL, 1000, 986, 976, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(285, 160, '5.png', 4, 3, 94, NULL, NULL, 1000, 986, 976, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(286, 160, '15.png', 4, 3, 94, NULL, NULL, 1000, 986, 976, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(287, 160, '18.png', 4, 3, 94, NULL, NULL, 1000, 986, 976, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(288, 162, '18.png', 15, 6, 30, NULL, NULL, 1000, 136, 126, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(289, 162, '18.png', 15, 6, 30, NULL, NULL, 1000, 136, 126, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(290, 162, '20.png', 15, 6, 30, NULL, NULL, 1000, 136, 126, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(291, 162, '17.png', 15, 6, 30, NULL, NULL, 1000, 136, 126, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(292, 164, '14.png', 9, 6, 55, NULL, NULL, 1000, 575, 565, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(293, 164, '1.png', 9, 6, 55, NULL, NULL, 1000, 575, 565, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(294, 164, '19.png', 9, 6, 55, NULL, NULL, 1000, 575, 565, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(295, 164, '6.png', 9, 6, 55, NULL, NULL, 1000, 575, 565, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(296, 166, '3.png', 14, 5, 54, NULL, NULL, 1000, 574, 564, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(297, 166, '3.png', 14, 5, 54, NULL, NULL, 1000, 574, 564, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(298, 166, '18.png', 14, 5, 54, NULL, NULL, 1000, 574, 564, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(299, 166, '15.png', 14, 5, 54, NULL, NULL, 1000, 574, 564, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(300, 168, '6.png', 15, 7, 97, NULL, NULL, 1000, 712, 702, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(301, 168, '1.png', 15, 7, 97, NULL, NULL, 1000, 712, 702, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(302, 168, '12.png', 15, 7, 97, NULL, NULL, 1000, 712, 702, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(303, 168, '18.png', 15, 7, 97, NULL, NULL, 1000, 712, 702, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(304, 170, '11.png', 11, 4, 140, NULL, NULL, 1000, 520, 510, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(305, 170, '18.png', 11, 4, 140, NULL, NULL, 1000, 520, 510, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(306, 170, '10.png', 11, 4, 140, NULL, NULL, 1000, 520, 510, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(307, 170, '19.png', 11, 4, 140, NULL, NULL, 1000, 520, 510, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(308, 172, '14.png', 14, 4, 218, NULL, NULL, 1000, 335, 325, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(309, 172, '9.png', 14, 4, 218, NULL, NULL, 1000, 335, 325, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(310, 172, '18.png', 14, 4, 218, NULL, NULL, 1000, 335, 325, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(311, 172, '12.png', 14, 4, 218, NULL, NULL, 1000, 335, 325, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(312, 174, '7.png', 3, 4, 89, NULL, NULL, 1000, 955, 945, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(313, 174, '12.png', 3, 4, 89, NULL, NULL, 1000, 955, 945, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(314, 174, '3.png', 3, 4, 89, NULL, NULL, 1000, 955, 945, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(315, 174, '3.png', 3, 4, 89, NULL, NULL, 1000, 955, 945, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(316, 176, '6.png', 7, 5, 170, NULL, NULL, 1000, 251, 241, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(317, 176, '18.png', 7, 5, 170, NULL, NULL, 1000, 251, 241, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(318, 176, '9.png', 7, 5, 170, NULL, NULL, 1000, 251, 241, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(319, 176, '15.png', 7, 5, 170, NULL, NULL, 1000, 251, 241, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(320, 178, '5.png', 14, 6, 184, NULL, NULL, 1000, 393, 383, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(321, 178, '2.png', 14, 6, 184, NULL, NULL, 1000, 393, 383, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(322, 178, '13.png', 14, 6, 184, NULL, NULL, 1000, 393, 383, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(323, 178, '3.png', 14, 6, 184, NULL, NULL, 1000, 393, 383, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(324, 180, '13.png', 15, 5, 135, NULL, NULL, 1000, 331, 321, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(325, 180, '14.png', 15, 5, 135, NULL, NULL, 1000, 331, 321, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(326, 180, '7.png', 15, 5, 135, NULL, NULL, 1000, 331, 321, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(327, 180, '12.png', 15, 5, 135, NULL, NULL, 1000, 331, 321, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(328, 182, '4.png', 6, 7, 124, NULL, NULL, 1000, 607, 597, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(329, 182, '2.png', 6, 7, 124, NULL, NULL, 1000, 607, 597, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(330, 182, '6.png', 6, 7, 124, NULL, NULL, 1000, 607, 597, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(331, 182, '19.png', 6, 7, 124, NULL, NULL, 1000, 607, 597, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(332, 184, '17.png', 10, 3, 166, NULL, NULL, 1000, 112, 102, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(333, 184, '9.png', 10, 3, 166, NULL, NULL, 1000, 112, 102, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(334, 184, '4.png', 10, 3, 166, NULL, NULL, 1000, 112, 102, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(335, 184, '7.png', 10, 3, 166, NULL, NULL, 1000, 112, 102, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(336, 186, '19.png', 15, 5, 236, NULL, NULL, 1000, 260, 250, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(337, 186, '20.png', 15, 5, 236, NULL, NULL, 1000, 260, 250, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(338, 186, '9.png', 15, 5, 236, NULL, NULL, 1000, 260, 250, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(339, 186, '15.png', 15, 5, 236, NULL, NULL, 1000, 260, 250, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(340, 188, '12.png', 15, 4, 177, NULL, NULL, 1000, 566, 556, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(341, 188, '19.png', 15, 4, 177, NULL, NULL, 1000, 566, 556, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(342, 188, '14.png', 15, 4, 177, NULL, NULL, 1000, 566, 556, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(343, 188, '1.png', 15, 4, 177, NULL, NULL, 1000, 566, 556, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(344, 190, '1.png', 14, 7, 89, NULL, NULL, 1000, 173, 163, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(345, 190, '17.png', 14, 7, 89, NULL, NULL, 1000, 173, 163, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(346, 190, '16.png', 14, 7, 89, NULL, NULL, 1000, 173, 163, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(347, 190, '19.png', 14, 7, 89, NULL, NULL, 1000, 173, 163, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(348, 192, '16.png', 5, 3, 159, NULL, NULL, 1000, 814, 804, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(349, 192, '14.png', 5, 3, 159, NULL, NULL, 1000, 814, 804, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(350, 192, '19.png', 5, 3, 159, NULL, NULL, 1000, 814, 804, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(351, 192, '17.png', 5, 3, 159, NULL, NULL, 1000, 814, 804, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(352, 194, '1.png', 3, 3, 50, NULL, NULL, 1000, 380, 370, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(353, 194, '17.png', 3, 3, 50, NULL, NULL, 1000, 380, 370, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(354, 194, '10.png', 3, 3, 50, NULL, NULL, 1000, 380, 370, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(355, 194, '8.png', 3, 3, 50, NULL, NULL, 1000, 380, 370, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(356, 196, '15.png', 15, 7, 73, NULL, NULL, 1000, 165, 155, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(357, 196, '8.png', 15, 7, 73, NULL, NULL, 1000, 165, 155, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(358, 196, '9.png', 15, 7, 73, NULL, NULL, 1000, 165, 155, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(359, 196, '17.png', 15, 7, 73, NULL, NULL, 1000, 165, 155, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(360, 198, '19.png', 9, 3, 2, NULL, NULL, 1000, 745, 735, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(361, 198, '8.png', 9, 3, 2, NULL, NULL, 1000, 745, 735, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(362, 198, '14.png', 9, 3, 2, NULL, NULL, 1000, 745, 735, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(363, 198, '7.png', 9, 3, 2, NULL, NULL, 1000, 745, 735, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(364, 200, '2.png', 3, 7, NULL, NULL, NULL, 1000, 657, 647, NULL, NULL, '2023-11-20 06:49:46', '2023-11-23 07:44:38'),
+(365, 200, '14.png', 14, 7, NULL, NULL, NULL, 1000, 657, 647, NULL, NULL, '2023-11-20 06:49:46', '2023-11-23 07:44:38'),
+(366, 200, '2.png', 15, 7, NULL, NULL, NULL, 1000, 657, 647, NULL, NULL, '2023-11-20 06:49:46', '2023-11-23 07:44:38'),
+(367, 200, '17.png', 9, 7, NULL, NULL, NULL, 1000, 657, 647, NULL, NULL, '2023-11-20 06:49:46', '2023-11-23 07:44:38'),
+(368, 202, '17008044506Fkah.jpg', 9, 9, NULL, NULL, NULL, 1000, 200, 222, NULL, NULL, '2023-11-20 06:49:46', '2023-11-24 13:26:04'),
+(369, 202, '1700790224OXW8P.png', 6, 10, NULL, NULL, NULL, 1000, 300, 222, NULL, NULL, '2023-11-20 06:49:46', '2023-11-24 13:26:04'),
+(370, 202, '1700790224B8lc5.png', 4, 10, NULL, NULL, NULL, 1000, 400, 222, NULL, NULL, '2023-11-20 06:49:46', '2023-11-24 13:26:04'),
+(371, 202, '1700790224NKQoT.png', 4, 11, NULL, NULL, NULL, 1000, 500, 222, NULL, NULL, '2023-11-20 06:49:46', '2023-11-24 13:26:04'),
+(372, 204, '11.png', 13, 4, 50, NULL, NULL, 1000, 455, 445, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(373, 204, '2.png', 13, 4, 50, NULL, NULL, 1000, 455, 445, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(374, 204, '17.png', 13, 4, 50, NULL, NULL, 1000, 455, 445, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(375, 204, '10.png', 13, 4, 50, NULL, NULL, 1000, 455, 445, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(376, 206, '17.png', 5, 6, 78, NULL, NULL, 1000, 708, 698, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(377, 206, '13.png', 5, 6, 78, NULL, NULL, 1000, 708, 698, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(378, 206, '10.png', 5, 6, 78, NULL, NULL, 1000, 708, 698, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(379, 206, '19.png', 5, 6, 78, NULL, NULL, 1000, 708, 698, NULL, NULL, '2023-11-20 06:49:46', '2023-11-20 06:49:46'),
+(380, 207, '17008056667iriA.webp', 13, NULL, NULL, NULL, NULL, 1, 2995, 0, NULL, NULL, '2023-11-24 04:01:06', '2023-11-24 04:02:21'),
+(381, 207, '1700805666kv8nP.webp', 2, NULL, NULL, NULL, NULL, 1, 2995, 0, NULL, NULL, '2023-11-24 04:01:06', '2023-11-24 04:02:21'),
+(382, 208, '1700807895qqDKC.webp', 18, 9, NULL, NULL, NULL, 1, 1795, 0, NULL, NULL, '2023-11-24 04:38:15', '2023-12-03 09:34:12'),
+(383, 208, '1700807895dXFHW.webp', 21, 8, NULL, NULL, NULL, 1, 1795, 0, NULL, NULL, '2023-11-24 04:38:15', '2023-12-03 09:34:12'),
+(384, 208, '1700807895pVtfQ.webp', 8, 12, NULL, NULL, NULL, 1, 1795, 0, NULL, NULL, '2023-11-24 04:38:15', '2023-12-03 09:34:12'),
+(385, 208, '1700807895nuSmi.webp', 10, 11, NULL, NULL, NULL, 1, 1795, 0, NULL, NULL, '2023-11-24 04:38:15', '2023-12-03 09:34:12'),
+(386, 208, '1700807895XRKih.webp', 17, 9, NULL, NULL, NULL, 1, 1795, 0, NULL, NULL, '2023-11-24 04:38:15', '2023-12-03 09:34:12'),
+(387, 208, '1700807895Y8a2r.webp', 2, 12, NULL, NULL, NULL, 1, 1795, 0, NULL, NULL, '2023-11-24 04:38:15', '2023-12-03 09:34:12'),
+(388, 209, '1700809229NHWJ4.webp', 18, 14, NULL, NULL, NULL, 1, 3495, 0, NULL, NULL, '2023-11-24 05:00:29', '2023-11-24 05:50:07'),
+(389, 209, '1700809229ptDNk.webp', 26, 14, NULL, NULL, NULL, 1, 3495, 0, NULL, NULL, '2023-11-24 05:00:29', '2023-11-24 05:50:07'),
+(390, 209, '1700809229TJVTr.webp', 2, 14, NULL, NULL, NULL, 1, 3495, 0, NULL, NULL, '2023-11-24 05:00:29', '2023-11-24 05:50:07'),
+(393, 211, '1700889668K5GBn.webp', 21, 13, NULL, NULL, NULL, 1, 3495, 0, NULL, NULL, '2023-11-25 03:21:08', '2023-12-18 09:34:08'),
+(394, 211, '1700889668tRskE.webp', 10, 13, NULL, NULL, NULL, 1, 3495, 0, NULL, NULL, '2023-11-25 03:21:08', '2023-12-18 09:34:08'),
+(395, 211, '1700889668rc2h0.webp', 2, 13, NULL, NULL, NULL, 1, 3495, 0, NULL, NULL, '2023-11-25 03:21:08', '2023-12-18 09:34:08'),
+(396, 211, '1700889668b0CYf.webp', 18, 11, NULL, NULL, NULL, 1, 3495, 0, NULL, NULL, '2023-11-25 03:21:08', '2023-12-18 09:34:08'),
+(397, 213, '17009208602znHN.webp', 1, 14, NULL, NULL, NULL, 1, 3495, 0, NULL, NULL, '2023-11-25 12:01:00', NULL),
+(398, 213, '1700920860Pe0Tl.webp', 2, 14, NULL, NULL, NULL, 1, 3495, 0, NULL, NULL, '2023-11-25 12:01:00', NULL),
+(411, 218, '1701407966lqdBx.webp', 1, 13, NULL, NULL, NULL, 1, 4995, 4995, NULL, NULL, '2023-12-01 03:19:26', '2023-12-31 03:08:52'),
+(412, 218, '1701407966mbaTJ.webp', 8, 13, NULL, NULL, NULL, 1, 4995, 4995, NULL, NULL, '2023-12-01 03:19:26', '2023-12-31 03:08:52'),
+(413, 219, '1701408751NePUP.webp', 16, 13, NULL, NULL, NULL, 1, 4795, 4795, NULL, NULL, '2023-12-01 03:32:31', '2023-12-31 03:08:44'),
+(414, 219, '1701408751rPFRi.webp', 19, 13, NULL, NULL, NULL, 1, 4795, 4795, NULL, NULL, '2023-12-01 03:32:31', '2023-12-31 03:08:44'),
+(415, 219, '1701408751pjC0z.webp', 2, 13, NULL, NULL, NULL, 1, 4795, 4795, NULL, NULL, '2023-12-01 03:32:31', '2023-12-31 03:08:44'),
+(416, 220, '1701409130A4Jfy.webp', 13, 9, NULL, NULL, NULL, 1, 4495, 4495, NULL, NULL, '2023-12-01 03:38:50', '2023-12-31 03:08:27'),
+(417, 220, '1701409130shj0q.webp', 1, 10, NULL, NULL, NULL, 1, 4495, 4495, NULL, NULL, '2023-12-01 03:38:50', '2023-12-31 03:08:27'),
+(418, 228, '1703697323zgFyw.jpg', 6, 9, NULL, NULL, NULL, 1, 13000, 10500, NULL, NULL, '2023-12-27 15:15:23', '2023-12-27 17:08:59'),
+(419, 228, '1703697323ie1wT.jpg', 24, 9, NULL, NULL, NULL, 1, 13000, 10500, NULL, NULL, '2023-12-27 15:15:23', '2023-12-27 17:08:59'),
+(420, 228, '1703697323T1aE8.jpg', 2, 9, NULL, NULL, NULL, 1, 13000, 10500, NULL, NULL, '2023-12-27 15:15:23', '2023-12-27 17:08:59'),
+(421, 228, '1703697323B2G5J.jpg', 27, 9, NULL, NULL, NULL, 1, 13000, 10500, NULL, NULL, '2023-12-27 15:15:23', '2023-12-27 17:08:59'),
+(423, 230, '1703832945bxm1L.jpg', 15, 10, NULL, NULL, NULL, 1, 18000, 12500, NULL, NULL, '2023-12-29 04:55:45', '2023-12-29 04:58:22'),
+(424, 230, '1703832945F1FD5.jpg', 10, 10, NULL, NULL, NULL, 1, 18000, 12500, NULL, NULL, '2023-12-29 04:55:45', '2023-12-29 04:58:22'),
+(425, 231, '17039213078A68v.jpg', 24, 10, NULL, NULL, NULL, 2, 7500, 5500, NULL, NULL, '2023-12-30 05:28:27', '2023-12-30 05:30:48'),
+(426, 231, '1703921307vl6Pu.jpg', 22, 10, NULL, NULL, NULL, 1, 7500, 5500, NULL, NULL, '2023-12-30 05:28:27', '2023-12-30 05:30:48'),
+(427, 231, '1703921307dLCP3.jpg', 27, 10, NULL, NULL, NULL, 1, 7500, 5500, NULL, NULL, '2023-12-30 05:28:27', '2023-12-30 05:30:48'),
+(428, 231, '1703921307mj9kC.jpg', 6, 10, NULL, NULL, NULL, 1, 7500, 5500, NULL, NULL, '2023-12-30 05:28:27', '2023-12-30 05:30:48'),
+(429, 232, '1703921834APde4.jpg', 22, 10, NULL, NULL, NULL, 1, 10500, 7500, NULL, NULL, '2023-12-30 05:37:14', '2023-12-30 05:38:12'),
+(430, 232, '1703921834B5UDR.jpg', 18, 10, NULL, NULL, NULL, 1, 10500, 7500, NULL, NULL, '2023-12-30 05:37:14', '2023-12-30 05:38:12'),
+(431, 233, '1703922916BmnrX.jpg', 24, 10, NULL, NULL, NULL, 1, 18000, 12500, NULL, NULL, '2023-12-30 05:55:16', NULL),
+(432, 233, '1703922916E2miG.jpg', 14, 10, NULL, NULL, NULL, 1, 18000, 12500, NULL, NULL, '2023-12-30 05:55:16', NULL),
+(433, 234, '1703923253QaPHN.jpg', 22, 10, NULL, NULL, NULL, 1, 12000, 9500, NULL, NULL, '2023-12-30 06:00:53', NULL),
+(434, 234, '17039232532cJxv.jpg', 15, 10, NULL, NULL, NULL, 1, 12000, 9500, NULL, NULL, '2023-12-30 06:00:53', NULL),
+(435, 235, '1703924148GQiWD.jpg', 15, 10, NULL, NULL, NULL, 1, 10500, 8500, NULL, NULL, '2023-12-30 06:15:48', NULL),
+(436, 235, '1703924148P4uwp.jpg', 14, 10, NULL, NULL, NULL, 1, 10500, 8500, NULL, NULL, '2023-12-30 06:15:48', NULL),
+(437, 236, '1703925248cICD5.jpg', 2, 11, NULL, NULL, NULL, 1, 7000, 4500, NULL, NULL, '2023-12-30 06:34:08', NULL),
+(438, 236, '17039252486DOLF.jpg', 2, 11, NULL, NULL, NULL, 1, 7000, 4500, NULL, NULL, '2023-12-30 06:34:08', NULL),
+(439, 237, '1704175012BPU27.jpg', 29, 10, NULL, NULL, NULL, 1, 18000, 14500, NULL, NULL, '2024-01-02 03:56:52', '2024-01-02 04:21:22'),
+(440, 237, '1704175012qpKcq.jpg', 8, 10, NULL, NULL, NULL, 1, 18000, 13500, NULL, NULL, '2024-01-02 03:56:52', '2024-01-02 04:21:22'),
+(441, 238, '1704175485Agct6.jpg', 17, 10, NULL, NULL, NULL, 1, 10000, 8500, NULL, NULL, '2024-01-02 04:04:45', NULL),
+(442, 238, '17041754858kLhU.jpg', 8, 10, NULL, NULL, NULL, 1, 10000, 8500, NULL, NULL, '2024-01-02 04:04:45', NULL),
+(443, 239, '1704176235R4zMn.jpg', 27, 10, NULL, NULL, NULL, 1, 15000, 12500, NULL, NULL, '2024-01-02 04:17:15', '2024-01-02 04:21:01'),
+(444, 239, '1704176235xgAC5.jpg', 28, 10, NULL, NULL, NULL, 1, 15000, 12500, NULL, NULL, '2024-01-02 04:17:15', '2024-01-02 04:21:01'),
+(445, 239, '1704176235Jvozk.jpg', 8, 10, NULL, NULL, NULL, 1, 15000, 12500, NULL, NULL, '2024-01-02 04:17:15', '2024-01-02 04:21:01'),
+(446, 240, '1704177060HE18A.jpg', 24, 11, NULL, NULL, NULL, 1, 1500, 1250, NULL, NULL, '2024-01-02 04:31:00', NULL),
+(447, 240, '1704177060fYyRV.jpg', 14, 11, NULL, NULL, NULL, 1, 1500, 1250, NULL, NULL, '2024-01-02 04:31:00', NULL),
+(448, 240, '170417706003Dmc.jpg', 2, 11, NULL, NULL, NULL, 1, 1500, 1250, NULL, NULL, '2024-01-02 04:31:00', NULL),
+(449, 240, '1704177060ZOrCd.jpg', 5, 11, NULL, NULL, NULL, 1, 1500, 1250, NULL, NULL, '2024-01-02 04:31:00', NULL),
+(450, 241, '1704177377MPdbe.jpg', 1, 11, NULL, NULL, NULL, 1, 1500, 1250, NULL, NULL, '2024-01-02 04:36:17', NULL),
+(451, 241, '1704177377twa59.jpg', 2, 11, NULL, NULL, NULL, 1, 1500, 1250, NULL, NULL, '2024-01-02 04:36:17', NULL),
+(452, 241, '1704177377CTuWL.jpg', 27, 11, NULL, NULL, NULL, 1, 1500, 1250, NULL, NULL, '2024-01-02 04:36:17', NULL),
+(453, 241, '1704177377Zcx5E.jpg', 5, 11, NULL, NULL, NULL, 1, 1500, 1250, NULL, NULL, '2024-01-02 04:36:17', NULL),
+(454, 246, '1704181016MsGZI.jpg', 8, 11, NULL, NULL, NULL, 1, 8500, 6500, NULL, NULL, '2024-01-02 05:36:56', NULL),
+(455, 246, '1704181016PIofr.jpg', 29, 11, NULL, NULL, NULL, 1, 8500, 6500, NULL, NULL, '2024-01-02 05:36:56', NULL),
+(456, 247, '1704181633oEDLL.jpg', 2, 11, NULL, NULL, NULL, 1, 8500, 6500, NULL, NULL, '2024-01-02 05:47:13', '2024-01-03 13:45:46'),
+(457, 247, '1704181633cAVU3.jpg', 19, 11, NULL, NULL, NULL, 1, 8500, 6500, NULL, NULL, '2024-01-02 05:47:13', '2024-01-03 13:45:46'),
+(458, 247, '1704181633DDyzg.jpg', 20, 11, NULL, NULL, NULL, 1, 8500, 6500, NULL, NULL, '2024-01-02 05:47:13', '2024-01-03 13:45:46'),
+(459, 248, '1704182203BTQmw.jpg', 24, 11, NULL, NULL, NULL, 1, 5500, 3750, NULL, NULL, '2024-01-02 05:56:43', NULL),
+(460, 248, '1704182203xWsbO.jpg', 22, 11, NULL, NULL, NULL, 1, 5500, 3750, NULL, NULL, '2024-01-02 05:56:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -2487,16 +2450,6 @@ CREATE TABLE `promo_codes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `promo_codes`
---
-
-INSERT INTO `promo_codes` (`id`, `icon`, `title`, `description`, `code`, `effective_date`, `expire_date`, `type`, `value`, `minimum_order_amount`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, '25% off', 'happy shoping', 'Off25', '2023-07-03', '2023-11-30', 2, 25, NULL, 'J0vnY1688367426', 0, '2023-07-03 16:57:06', '2023-12-24 04:48:09'),
-(2, NULL, 'OFF 100', '100 taka off', 'OFF100', '2023-07-09', '2023-11-30', 1, 100, NULL, '2EtEa1688804325', 0, '2023-07-08 18:18:45', '2023-12-24 04:48:09'),
-(3, NULL, 'Aut doloremque et ut', 'Exercitation quibusd', '95ASD', '2023-12-30', '2023-12-31', 2, 35, 399, 'wLSY11703393709', 0, '2023-12-24 04:55:09', '2024-01-16 06:49:02'),
-(4, 'promoImages/Am8aQ1703396267.png', '20% off', 'During this sale, we\'re offering 25% OFF this summary. Make sure you don\'t miss it.', 'Offer20', '2023-12-29', '2023-12-31', 1, 20, 399, '2nbz71703395917', 0, '2023-12-24 05:31:57', '2024-01-16 06:49:02');
 
 -- --------------------------------------------------------
 
@@ -2739,25 +2692,15 @@ CREATE TABLE `subcategories` (
 --
 
 INSERT INTO `subcategories` (`id`, `category_id`, `name`, `icon`, `image`, `slug`, `status`, `featured`, `created_at`, `updated_at`) VALUES
-(55, 17, 'All Laptop', NULL, NULL, 'all-laptop', 0, 0, '2023-12-31 06:19:29', NULL),
-(56, 17, 'Gaming Laptop', NULL, NULL, 'gaming-laptop', 0, 0, '2023-12-31 06:19:39', NULL),
-(57, 17, 'Premium Ultrabook', NULL, NULL, 'premium-ultrabook', 0, 0, '2023-12-31 06:19:52', NULL),
-(58, 17, 'Laptop Bag', NULL, NULL, 'laptop-bag', 0, 0, '2023-12-31 06:20:01', NULL),
-(59, 17, 'laptop Accessories', NULL, NULL, 'laptop-accessories', 0, 0, '2023-12-31 06:20:12', NULL),
-(60, 18, 'Iphone', NULL, NULL, 'iphone', 0, 0, '2023-12-31 06:20:29', NULL),
-(61, 18, 'Xiaomi', NULL, NULL, 'xiaomi', 0, 0, '2023-12-31 06:20:40', NULL),
-(62, 18, 'Samsung', NULL, NULL, 'samsung', 0, 0, '2023-12-31 06:20:48', NULL),
-(63, 18, 'Oneplus', NULL, NULL, 'oneplus', 0, 0, '2023-12-31 06:20:55', NULL),
-(64, 18, 'Realme', NULL, NULL, 'realme', 0, 0, '2023-12-31 06:21:02', NULL),
-(65, 37, 'Co Ords', 'subcategory_images/QtWh91705473590.jpg', NULL, 'co-ords', 1, 0, '2024-01-17 06:39:50', NULL),
-(66, 37, 'Skirt/Lehenga', 'subcategory_images/NfF5U1705473605.jpg', NULL, 'skirtlehenga', 1, 0, '2024-01-17 06:40:05', NULL),
-(67, 37, 'Gown', 'subcategory_images/Ipl0r1705473632.jpg', NULL, 'gown', 1, 0, '2024-01-17 06:40:32', NULL),
-(68, 37, 'Salwar Kamiz/Kurti', 'subcategory_images/5nhS31705473646.jpg', NULL, 'salwar-kamizkurti', 1, 0, '2024-01-17 06:40:46', NULL),
-(69, 37, 'Indo Western', 'subcategory_images/mgkvO1705473656.jpg', NULL, 'indo-western', 1, 0, '2024-01-17 06:40:56', NULL),
-(70, 37, 'Ladies blazer set', 'subcategory_images/dQYyM1705473666.webp', NULL, 'ladies-blazer-set', 1, 0, '2024-01-17 06:41:06', NULL),
-(71, 37, 'Bottoms', 'subcategory_images/Gk0qT1705473675.webp', NULL, 'bottoms', 1, 0, '2024-01-17 06:41:15', NULL),
-(72, 37, 'western set\'s', 'subcategory_images/IWX8k1705473684.webp', NULL, 'western-sets', 1, 0, '2024-01-17 06:41:24', NULL),
-(73, 37, 'Sharee', 'subcategory_images/zhJpy1705473692.jpg', NULL, 'sharee', 1, 0, '2024-01-17 06:41:32', NULL);
+(55, 11, 'Sharee', 'subcategory_images/zhJpy1705473692.jpg', NULL, 'sharee', 1, 0, '2024-01-17 06:41:32', '2024-01-28 05:05:36'),
+(56, 11, 'western set\'s', 'subcategory_images/IWX8k1705473684.webp', NULL, 'western-sets', 1, 0, '2024-01-17 06:41:24', '2024-01-28 05:05:58'),
+(59, 11, 'Bottoms', 'subcategory_images/Gk0qT1705473675.webp', NULL, 'bottoms', 1, 0, '2024-01-17 06:41:15', '2024-01-28 05:06:03'),
+(60, 11, 'Ladies blazer set', 'subcategory_images/dQYyM1705473666.webp', NULL, 'ladies-blazer-set', 1, 0, '2024-01-17 06:41:06', '2024-01-28 05:06:08'),
+(61, 11, 'Indo Western', 'subcategory_images/mgkvO1705473656.jpg', NULL, 'indo-western', 1, 0, '2024-01-17 06:40:56', '2024-01-28 05:06:15'),
+(62, 11, 'Salwar Kamiz/Kurti', 'subcategory_images/5nhS31705473646.jpg', NULL, 'salwar-kamizkurti', 1, 0, '2024-01-17 06:40:46', '2024-01-28 05:06:20'),
+(63, 11, 'Gown', 'subcategory_images/Ipl0r1705473632.jpg', NULL, 'gown', 1, 0, '2024-01-17 06:40:32', '2024-01-28 05:06:25'),
+(64, 11, 'Skirt/Lehenga', 'subcategory_images/NfF5U1705473605.jpg', NULL, 'skirtlehenga', 1, 0, '2024-01-17 06:40:05', '2024-01-28 05:06:31'),
+(65, 11, 'Co Ords', 'subcategory_images/QtWh91705473590.jpg', NULL, 'co-ords', 1, 0, '2024-01-17 06:39:50', '2024-01-28 05:06:37');
 
 -- --------------------------------------------------------
 
@@ -2771,28 +2714,6 @@ CREATE TABLE `subscribed_users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `subscribed_users`
---
-
-INSERT INTO `subscribed_users` (`id`, `email`, `created_at`, `updated_at`) VALUES
-(7, 'alifhossain174@gmail.com', '2023-11-09 05:36:11', NULL),
-(8, 'alifhossain174@gmail.com', '2023-11-09 05:39:31', NULL),
-(9, 'alifhossain174@gmail.com', '2023-11-09 05:43:29', NULL),
-(10, 'alifhossain174@gmail.com', '2023-11-09 06:10:45', NULL),
-(11, 'alifhossain174@gmail.com', '2023-11-09 06:14:34', NULL),
-(12, 'alifhossain174@gmail.com', '2023-11-09 06:25:13', NULL),
-(13, 'alifhossain174@gmail.com', '2023-11-09 06:25:34', NULL),
-(14, 'alifhossain174@gmail.com', '2023-11-09 06:28:50', NULL),
-(15, 'alifhossain174@gmail.com', '2023-11-09 06:30:00', NULL),
-(16, 'alifhossain174@gmail.com', '2023-11-09 06:36:42', NULL),
-(17, 'alifhossain174@gmail.com', '2023-11-09 06:38:05', NULL),
-(18, 'alifhossain174@gmail.com', '2023-11-09 06:39:40', NULL),
-(19, 'alifhossain174@gmail.com', '2023-11-09 06:42:13', NULL),
-(20, 'alifhossain174@gmail.com', '2023-11-09 06:54:05', NULL),
-(21, 'alifhossain174@gmail.com', '2023-11-09 06:57:59', NULL),
-(22, 'alifhossain174@gmail.com', '2023-12-18 11:58:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -2869,7 +2790,7 @@ CREATE TABLE `terms_and_policies` (
 --
 
 INSERT INTO `terms_and_policies` (`id`, `terms`, `privacy_policy`, `shipping_policy`, `return_policy`, `created_at`, `updated_at`) VALUES
-(1, '<h2>Who we are</h2>\r\n\r\n<p>Our website address is:&nbsp;<a href=\"mailto:info@example.com\">info@example.com</a></p>\r\n\r\n<h2>What personal data we collect and why we collect it</h2>\r\n\r\n<h3>Comments</h3>\r\n\r\n<p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&rsquo;s IP address and browser user agent string to help spam detection.</p>\r\n\r\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\r\n\r\n<h3>Media</h3>\r\n\r\n<p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\r\n\r\n<h3>Cookies</h3>\r\n\r\n<p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\r\n\r\n<p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\r\n\r\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &ldquo;Remember Me&rdquo;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\r\n\r\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\r\n\r\n<h3>Embedded content from other websites</h3>\r\n\r\n<p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\r\n\r\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\r\n\r\n<h2>How long we retain your data</h2>\r\n\r\n<p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\r\n\r\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\r\n\r\n<h2>What rights you have over your data</h2>\r\n\r\n<p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\r\n\r\n<h2>Where we send your data</h2>\r\n\r\n<p>Visitor comments may be checked through an automated spam detection service.</p>', '<h2>Who we are</h2>\r\n\r\n<p>Our website address is:&nbsp;<a href=\"mailto:info@example.com\">info@example.com</a></p>\r\n\r\n<h2>What personal data we collect and why we collect it</h2>\r\n\r\n<h3>Comments</h3>\r\n\r\n<p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&rsquo;s IP address and browser user agent string to help spam detection.</p>\r\n\r\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\r\n\r\n<h3>Media</h3>\r\n\r\n<p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\r\n\r\n<h3>Cookies</h3>\r\n\r\n<p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\r\n\r\n<p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\r\n\r\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &ldquo;Remember Me&rdquo;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\r\n\r\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\r\n\r\n<h3>Embedded content from other websites</h3>\r\n\r\n<p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\r\n\r\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\r\n\r\n<h2>How long we retain your data</h2>\r\n\r\n<p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\r\n\r\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\r\n\r\n<h2>What rights you have over your data</h2>\r\n\r\n<p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\r\n\r\n<h2>Where we send your data</h2>\r\n\r\n<p>Visitor comments may be checked through an automated spam detection service.</p>', '<h2>Who we are</h2>\r\n\r\n<p>Our website address is:&nbsp;<a href=\"mailto:info@example.com\">info@example.com</a></p>\r\n\r\n<h2>What personal data we collect and why we collect it</h2>\r\n\r\n<h3>Comments</h3>\r\n\r\n<p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&rsquo;s IP address and browser user agent string to help spam detection.</p>\r\n\r\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\r\n\r\n<h3>Media</h3>\r\n\r\n<p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\r\n\r\n<h3>Cookies</h3>\r\n\r\n<p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\r\n\r\n<p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\r\n\r\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &ldquo;Remember Me&rdquo;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\r\n\r\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\r\n\r\n<h3>Embedded content from other websites</h3>\r\n\r\n<p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\r\n\r\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\r\n\r\n<h2>How long we retain your data</h2>\r\n\r\n<p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\r\n\r\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\r\n\r\n<h2>What rights you have over your data</h2>\r\n\r\n<p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\r\n\r\n<h2>Where we send your data</h2>\r\n\r\n<p>Visitor comments may be checked through an automated spam detection service.</p>', '<h2>Who we are</h2>\r\n\r\n<p>Our website address is:&nbsp;<a href=\"mailto:info@example.com\">info@example.com</a></p>\r\n\r\n<h2>What personal data we collect and why we collect it</h2>\r\n\r\n<h3>Comments</h3>\r\n\r\n<p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&rsquo;s IP address and browser user agent string to help spam detection.</p>\r\n\r\n<p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>\r\n\r\n<h3>Media</h3>\r\n\r\n<p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p>\r\n\r\n<h3>Cookies</h3>\r\n\r\n<p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>\r\n\r\n<p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>\r\n\r\n<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &ldquo;Remember Me&rdquo;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>\r\n\r\n<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>\r\n\r\n<h3>Embedded content from other websites</h3>\r\n\r\n<p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>\r\n\r\n<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>\r\n\r\n<h2>How long we retain your data</h2>\r\n\r\n<p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>\r\n\r\n<p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>\r\n\r\n<h2>What rights you have over your data</h2>\r\n\r\n<p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>\r\n\r\n<h2>Where we send your data</h2>\r\n\r\n<p>Visitor comments may be checked through an automated spam detection service.</p>', '2023-04-11 13:41:20', '2023-10-18 08:05:34');
+(1, '<p><strong>Terms and Conditions</strong></p>\r\n\r\n<p>Please read these Terms and Conditions (&quot;Terms&quot;) carefully before using the Fejmo app and website (&quot;Platform&quot;) operated by Fejmo. These Terms govern your use of the Platform and any services or products offered through the Platform. By accessing or using the Platform, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not use the Platform<span class=\"marker\"><em><strong>.testtest</strong></em></span></p>\r\n\r\n<ol>\r\n	<li>\r\n	<p>Account Creation:</p>\r\n\r\n	<ul>\r\n		<li>To access certain features of the Platform, you may be required to create an account. You are responsible for maintaining the confidentiality of your account information and are solely responsible for all activities that occur under your account.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Intellectual Property:</p>\r\n\r\n	<ul>\r\n		<li>The Platform and its original content, features, and functionality are owned by Bestu and are protected by intellectual property laws. You may not modify, reproduce, distribute, or create derivative works based on the Platform or any content without prior written permission from Fejmo.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Product Information and Pricing:</p>\r\n\r\n	<ul>\r\n		<li>We strive to provide accurate product information, descriptions, and pricing on the Platform. However, we do not warrant that the information is complete, current, or error-free. In the event of an error, we reserve the right to correct it and modify or cancel any orders placed for products listed with incorrect information or pricing.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Product Availability:</p>\r\n\r\n	<ul>\r\n		<li>Product availability on the Platform is subject to change without prior notice. We make efforts to ensure accurate stock information, but there may be occasions when a product becomes unavailable after an order has been placed. In such cases, we will notify you and provide options, including a refund or alternative product.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>User Conduct:</p>\r\n\r\n	<ul>\r\n		<li>You agree to use the Platform for lawful purposes and in compliance with these Terms.</li>\r\n		<li>You are responsible for any content you post, transmit, or share on the Platform. You must not post or transmit any content that is illegal, offensive, defamatory, or infringes upon the rights of others.</li>\r\n		<li>You must not engage in any activity that may disrupt or interfere with the operation or security of the Platform.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Third-Party Links:</p>\r\n\r\n	<ul>\r\n		<li>The Platform may contain links to third-party websites or services that are not owned or controlled by Bestu. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services. You access and use such third-party websites or services at your own risk.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Limitation of Liability:</p>\r\n\r\n	<ul>\r\n		<li>To the maximum extent permitted by applicable law, Bestu and its affiliates, directors, employees, agents, and suppliers shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, arising out of or in any way connected with the use of the Platform.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Indemnification:</p>\r\n\r\n	<ul>\r\n		<li>You agree to indemnify and hold harmless Bestu and its affiliates, directors, employees, agents, and suppliers from any claims, damages, liabilities, costs, or expenses (including reasonable attorneys&#39; fees) arising out of or related to your use of the Platform, violation of these Terms, or infringement of any rights of third parties.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Governing Law:</p>\r\n\r\n	<ul>\r\n		<li>These Terms shall be governed by and construed in accordance with the laws of [insert applicable jurisdiction]. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in [insert applicable jurisdiction].</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Changes to the Terms:</p>\r\n	</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>We reserve the right to modify or replace these Terms at any time without prior notice. By continuing to access or use the Platform after any revisions become effective, you agree to be bound by the updated Terms.</li>\r\n</ul>\r\n\r\n<ol>\r\n	<li>Contact Us:</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>If you have any questions or concerns about these Terms, please contact us at [insert contact information].</li>\r\n</ul>\r\n\r\n<p>By using the Fejmo app and website, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.</p>\r\n\r\n<p>&nbsp;</p>', '<p><strong>Privacy Policy for Fejmo&nbsp;App and Website</strong></p>\r\n\r\n<p>At Fejmo, we value the privacy and security of our users. This Privacy Policy outlines the types of personal information we collect, how we use and protect that information, and your rights and choices regarding your personal information. By using the Fejmo app and website (collectively referred to as the &quot;Platform&quot;), you consent to the practices described in this Privacy Policy.</p>\r\n\r\n<ol>\r\n	<li>Information We Collect: 1.1 Personal Information:\r\n	<ul>\r\n		<li>When you create an account, we may collect your name, email address, phone number, and other contact information.</li>\r\n		<li>When you make a purchase, we collect your payment details, shipping address, and order history.</li>\r\n		<li>If you choose to participate in surveys, contests, or promotions, we may collect additional personal information.</li>\r\n		<li>We may collect information you provide when you contact our customer support team or interact with us through social media platforms.</li>\r\n	</ul>\r\n	</li>\r\n</ol>\r\n\r\n<p>1.2 Non-Personal Information:</p>\r\n\r\n<ul>\r\n	<li>We collect certain non-personal information automatically when you use our Platform, such as device information, IP address, browser type, and usage statistics.</li>\r\n</ul>\r\n\r\n<ol>\r\n	<li>\r\n	<p>Use of Information:</p>\r\n\r\n	<ul>\r\n		<li>We use the collected personal information to provide and improve our services, process orders, handle customer inquiries, and personalize your shopping experience.</li>\r\n		<li>Non-personal information is used for statistical analysis, troubleshooting, and improving our Platform&#39;s performance and functionality.</li>\r\n		<li>We may also use your information to send you marketing communications if you have opted-in to receive them. You can opt-out of these communications at any time.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Sharing of Information:</p>\r\n\r\n	<ul>\r\n		<li>We may share your personal information with trusted third parties, such as payment processors, shipping partners, and service providers, to fulfill your orders and provide our services.</li>\r\n		<li>We may share non-personal information with third parties for analytical or marketing purposes.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Cookies and Similar Technologies:</p>\r\n\r\n	<ul>\r\n		<li>We use cookies and similar technologies to enhance your browsing experience, analyze trends, and gather demographic information.</li>\r\n		<li>You can manage your cookie preferences through your browser settings. However, disabling cookies may limit certain features and functionality of our Platform.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Data Security:</p>\r\n\r\n	<ul>\r\n		<li>We employ industry-standard security measures to protect your personal information from unauthorized access, disclosure, or alteration.</li>\r\n		<li>While we strive to protect your information, no method of transmission over the internet or electronic storage is 100% secure. Therefore, we cannot guarantee absolute security.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Third-Party Links:</p>\r\n\r\n	<ul>\r\n		<li>Our Platform may contain links to third-party websites or services that are not under our control. We are not responsible for the privacy practices or content of these third-party sites.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Children&#39;s Privacy:</p>\r\n\r\n	<ul>\r\n		<li>Our Platform is not intended for use by individuals under the age of 18. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us to have it removed.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Your Rights and Choices:</p>\r\n\r\n	<ul>\r\n		<li>You have the right to access, update, or delete your personal information. You can do so by logging into your account or contacting us directly.</li>\r\n		<li>You may also have the right to restrict or object to the processing of your personal information, as well as the right to data portability.</li>\r\n		<li>If you no longer wish to receive marketing communications, you can opt-out by following the instructions provided in those communications.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Changes to the Privacy Policy:</p>\r\n\r\n	<ul>\r\n		<li>We reserve the right to modify this Privacy Policy at any time. If we make material changes, we will notify you by posting an updated version on our Platform or via other communication channels.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Contact Us:</p>\r\n	</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at [insert contact information].</li>\r\n</ul>\r\n\r\n<p>By using the&nbsp;Fejmo app and website, you acknowledge that you have read and understood this Privacy Policy and agree to the collection, use, and disclosure of your personal information as described herein.</p>\r\n\r\n<p>&nbsp;</p>', '<p><strong>Shipping Policy</strong></p>\r\n\r\n<p>Thank you for choosing Fejmo for your mobile devices and accessories. We want to ensure that your order is delivered to you in a timely and efficient manner. This Shipping Policy outlines important information regarding our shipping processes, including delivery options, timelines, and other relevant details.</p>\r\n\r\n<ol>\r\n	<li>\r\n	<p>Order Processing:</p>\r\n\r\n	<ul>\r\n		<li>Once you place an order with us, our team will carefully process and prepare it for shipment.</li>\r\n		<li>We aim to process and ship orders as quickly as possible, typically within 1-2 business days. However, please note that processing times may vary during peak seasons or promotional periods.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Shipping Methods and Delivery Options:</p>\r\n\r\n	<ul>\r\n		<li>We offer a variety of shipping methods to cater to your needs. The available options will be presented to you during the checkout process.</li>\r\n		<li>Our shipping partners may include reputable courier services to ensure reliable and secure delivery.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Shipping Destinations:</p>\r\n\r\n	<ul>\r\n		<li>We currently offer shipping within [insert applicable countries or regions].</li>\r\n		<li>Please note that certain products or brands may have shipping restrictions due to legal or logistical reasons. Any such restrictions will be communicated during the checkout process.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Shipping Fees:</p>\r\n\r\n	<ul>\r\n		<li>Shipping fees are calculated based on various factors, including the shipping method selected, the weight and dimensions of the package, and the destination.</li>\r\n		<li>The shipping fee will be displayed to you during the checkout process before you finalize your order.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Estimated Delivery Time:</p>\r\n\r\n	<ul>\r\n		<li>The estimated delivery time will depend on your location, the selected shipping method, and other factors beyond our control.</li>\r\n		<li>We strive to provide accurate delivery estimates, but please note that these are estimates only and actual delivery times may vary.</li>\r\n		<li>Once your order has been shipped, you will receive a shipping confirmation email with tracking information, allowing you to track the progress of your package.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Customs and Duties:</p>\r\n\r\n	<ul>\r\n		<li>For international orders, please note that customs fees, import duties, and taxes may be applicable according to your country&#39;s regulations.</li>\r\n		<li>Any additional charges related to customs clearance are the responsibility of the recipient and may need to be paid upon delivery.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Order Tracking:</p>\r\n\r\n	<ul>\r\n		<li>Once your order has been shipped, you will receive a tracking number and instructions on how to track your package.</li>\r\n		<li>You can use the provided tracking information to monitor the progress of your shipment on the respective courier&#39;s website.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Delivery Issues:</p>\r\n\r\n	<ul>\r\n		<li>In the rare event that your package is delayed, lost, or damaged during transit, please contact our customer support team as soon as possible. We will work diligently to resolve the issue and ensure your satisfaction.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Change of Shipping Address:</p>\r\n\r\n	<ul>\r\n		<li>If you need to change the shipping address after placing an order, please contact our customer support team immediately. We will do our best to accommodate your request if the order has not yet been shipped.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Shipping Policy Updates:</p>\r\n	</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>We reserve the right to update or modify this Shipping Policy at any time without prior notice. Any changes will be effective immediately upon posting on our website.</li>\r\n</ul>\r\n\r\n<p>If you have any questions or need further assistance regarding our shipping policy, please don&#39;t hesitate to contact our customer support team. We are here to provide you with the best possible shopping experience.</p>\r\n\r\n<p>Thank you for choosing Fejmo. We appreciate your business!</p>\r\n\r\n<p>&nbsp;</p>', '<p><strong>Return Policy</strong></p>\r\n\r\n<p>At Fejmo, we want you to be completely satisfied with your purchase. If for any reason you are not satisfied with your order, we offer a flexible return policy to ensure your peace of mind. Please read our Return Policy carefully to understand the return process, eligibility criteria, and other important details.</p>\r\n\r\n<ol>\r\n	<li>\r\n	<p>Eligibility for Returns:</p>\r\n\r\n	<ul>\r\n		<li>You may be eligible for a return if you have purchased the product directly from Bestu, within the specified return period.</li>\r\n		<li>The return period starts from the date of delivery and varies depending on the type of product. Please refer to the specific product listing or contact our customer support team for the applicable return period.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Return Process:</p>\r\n\r\n	<ul>\r\n		<li>To initiate a return, please contact our customer support team within the eligible return period. They will guide you through the return process and provide you with the necessary instructions and documentation.</li>\r\n		<li>In some cases, we may require you to provide proof of purchase, such as the order number or receipt, to facilitate the return process.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Return Conditions:</p>\r\n\r\n	<ul>\r\n		<li>The returned product must be in its original condition, unused, undamaged, and in its original packaging (including all accessories, manuals, and warranty cards).</li>\r\n		<li>Please ensure that the product is securely packaged to avoid damage during transit. We recommend using the original packaging whenever possible.</li>\r\n		<li>Products that are damaged due to improper use, negligence, or unauthorized modifications may not be eligible for return.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Return Shipping:</p>\r\n\r\n	<ul>\r\n		<li>Unless the return is due to our error or a defective product, the customer is responsible for the return shipping costs.</li>\r\n		<li>We recommend using a reputable shipping service with tracking and insurance, as we cannot be held responsible for lost or damaged return shipments.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Refund Process:</p>\r\n\r\n	<ul>\r\n		<li>Once the returned product is received and inspected, we will process the refund based on the original payment method used for the purchase.</li>\r\n		<li>Refunds will typically be issued within [insert timeframe] after the product is received and verified. Please note that the refund processing time may vary depending on your financial institution.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Non-Returnable Items:</p>\r\n\r\n	<ul>\r\n		<li>Certain items are non-returnable for hygiene or safety reasons, such as earphones, personal care products, or software with a downloadable component. Please check the product listing or contact our customer support team for specific details.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Exchanges:</p>\r\n\r\n	<ul>\r\n		<li>We currently do not offer direct exchanges. If you wish to exchange a product, you will need to return the original item following our return process and place a new order for the desired item.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Damaged or Defective Products:</p>\r\n\r\n	<ul>\r\n		<li>In the unlikely event that you receive a damaged or defective product, please contact our customer support team immediately. We will assist you in resolving the issue and provide instructions for returning the product, if necessary.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Cancellation Policy:</p>\r\n\r\n	<ul>\r\n		<li>If you need to cancel your order before it has been shipped, please contact our customer support team as soon as possible. We will make every effort to accommodate your request. However, once the order has been shipped, it cannot be canceled and will be subject to the return policy.</li>\r\n	</ul>\r\n	</li>\r\n	<li>\r\n	<p>Updates to the Return Policy:</p>\r\n	</li>\r\n</ol>\r\n\r\n<ul>\r\n	<li>We reserve the right to update or modify this Return Policy at any time without prior notice. Any changes will be effective immediately upon posting on our website.</li>\r\n</ul>\r\n\r\n<p>If you have any questions or require further assistance regarding our return policy, please contact our customer support team. We are here to assist you and ensure your satisfaction.</p>\r\n\r\n<p>Thank you for shopping at Fejmo!</p>\r\n\r\n<p>&nbsp;</p>', '2023-04-11 13:41:20', '2024-01-28 05:47:52');
 
 -- --------------------------------------------------------
 
@@ -8006,7 +7927,56 @@ INSERT INTO `upazilas` (`id`, `district_id`, `name`, `bn_name`, `url`) VALUES
 (495, 15, 'Rajpara Thana', 'রাজপাড়া থানা', ''),
 (496, 15, 'Boalia Thana', 'বোয়ালিয়া থানা', ''),
 (497, 15, 'Shah Mokhdum Thana', 'শাহ মখদুম থানা', ''),
-(498, 15, 'Motihar Thana', 'মতিহার থানা', '');
+(498, 15, 'Motihar Thana', 'মতিহার থানা', ''),
+(500, 47, 'Khilkhet', 'খিলক্ষেত', NULL),
+(501, 47, 'Kafrul Thana', 'কাফরুল', NULL),
+(502, 47, 'Dhanmondi', 'ধানমন্ডি', NULL),
+(503, 47, 'Mohammadpur', 'মোহাম্মদপুর', NULL),
+(504, 47, 'Sutrapur', 'সূত্রাপুর', NULL),
+(505, 47, 'Jatrabari', 'যাত্রাবাড়ী', NULL),
+(506, 47, 'Airport Thana', 'বিমানবন্দর', NULL),
+(507, 47, 'Gulshan', 'গুলশান', NULL),
+(508, 47, 'Uttara', 'উত্তারা', NULL),
+(509, 47, 'Mugda', 'মুগদা', NULL),
+(510, 47, 'Rupnagar', 'রূপনগর', NULL),
+(511, 47, 'Bhasantek', 'ভাষানটেক', NULL),
+(512, 47, 'Vatara', 'ভাটারা', NULL),
+(513, 47, 'Banani', 'বনানী', NULL),
+(514, 47, 'Wari', 'ওয়ারী', NULL),
+(515, 47, 'Shahjahanpur', 'শাহজাহানপুর', NULL),
+(516, 47, 'Sher-e-bangla', 'শেরেবাংলা', NULL),
+(517, 47, 'Mirpur', 'মিরপুর', NULL),
+(518, 47, 'Darus Salam', 'দারুস সালাম', NULL),
+(519, 47, 'Dakkhinkhan', 'দক্ষিণখান', NULL),
+(520, 47, 'Uttarkhan', 'উত্তরখান', NULL),
+(521, 47, 'Turag', 'তুরাগ', NULL),
+(522, 47, 'Uttara Model Thana', 'উত্তরা মডেল থানা', NULL),
+(523, 47, 'Cantonment', 'ক্যান্টনমেন্ট', NULL),
+(524, 47, 'Badda', 'বাড্ডা', NULL),
+(525, 47, 'Pallabi', 'পল্লবী', NULL),
+(526, 47, 'Shah Ali', 'শাহআলী', NULL),
+(527, 47, 'Tejgaon Industrial Area', 'তেজঁগাও শিল্পাঞ্চল থানা', NULL),
+(528, 47, 'Tejgaon', 'তেজঁগাও', NULL),
+(529, 47, 'Rampura', 'রামপুরা', NULL),
+(530, 47, 'Sabujbag', 'সবুজবাগ', NULL),
+(531, 47, 'Kodomtoli', 'কদমতলী', NULL),
+(532, 47, 'Chawkbazar', 'চকবাজার', NULL),
+(533, 47, 'Kamrangirchor', 'কামরাঙ্গীরচর', NULL),
+(534, 47, 'Kotwali', 'কোতয়ালী', NULL),
+(535, 47, 'Laalbag', 'লালবাগ', NULL),
+(536, 47, 'Kolabagan', 'কলাবাগান', NULL),
+(537, 47, 'Shahbag', 'শাহবাগ', NULL),
+(538, 47, 'Motijheel', 'মতিঝিল', NULL),
+(539, 47, 'khilgaon', 'খিলগাঁও', NULL),
+(540, 47, 'Hajaribaag', 'হাজারীবাগ', NULL),
+(541, 47, 'Romna Model Thana', 'রমনা মডেল থানা', NULL),
+(542, 47, 'Demra', 'ডেমরা', NULL),
+(543, 47, 'Paltan Model Thana', 'পল্টন মডেল থানা', NULL),
+(544, 47, 'Bongshal', 'বংশাল', NULL),
+(545, 47, 'New Market', 'নিউমার্কেট', NULL),
+(546, 47, 'Shampur', 'শ্যামপুর', NULL),
+(547, 47, 'Gendaria', 'গেন্ডারিয়া', NULL),
+(548, 47, 'Adabor', 'আদাবর', NULL);
 
 -- --------------------------------------------------------
 
@@ -8041,20 +8011,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57'),
-(19, 'userProfileImages/bulWt1688356676.jpg', 'Md. Fahim Hossain 2', NULL, 'alifhossain175@gmaill.com', NULL, '655028', '$2y$10$MKFghgrOtoPRr50wFpIx1ubpahBuCI/xoDM2j2ZwysCOoOoHDBUXK', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2023-06-12 03:55:36', '2023-07-03 13:57:56'),
-(23, 'userProfileImages/WUsyU1688361290.jpeg', 'Reduan', '01850453322', 'test100@gmail.com', NULL, '154666', '$2y$10$BawJIqWONpVSNWFZ1xCQEe0R8Z4OEn8NiFHENZR6./MMHvM/DP4cS', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2023-06-18 21:08:55', '2023-07-13 03:35:27'),
-(25, NULL, 'Bestu', NULL, 'admin@bestu.com.bd', NULL, NULL, '$2y$10$2QIdfvOWHR8qTvE5FcsGDOkKTc6VkFWkAVbVhu7qSd7x8Zq6..FTG', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-06-27 16:54:07', '2023-07-18 08:42:03'),
-(33, NULL, 'Rohan Hossain Siam', '01632563180', 'itssiam856@gmail.com', NULL, NULL, '$2y$10$eCh/uQ.fK7JxcNf1QSNOa./i9GUuOWEEktJQL52HvoWAWogg46/S2', NULL, NULL, NULL, 1, '64/62 no. Mahut-tuli, Armanitola, Dhaka, Bangladesh.', 0, 0, NULL, 1, '2023-07-15 19:53:27', '2023-07-18 08:42:00'),
-(34, NULL, 'Istiak Ahamed Sifat', '01580331693', 'istiakahamed30@gmail.com', NULL, NULL, '$2y$10$YqA0JvBZBWRSi22n6ue4VeggAfeG7zJqFWuqEKJzFr1.VpmWkcNSe', NULL, NULL, NULL, 2, 'Ali nekir dewry, Nazimuddin Road, Dhaka.', 0, 0, NULL, 1, '2023-07-15 19:55:06', '2023-12-18 11:04:50'),
-(35, 'userProfileImages/2eYoO1689479533.jpg', 'Ariful', '01643533365', 'ariful@gmail.com', NULL, '772114', '$2y$10$x5m3cQUgd.RHgHWAT7iCu.GMovOLWNBrT9lnB8orb54P5QeU0ls/6', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2023-07-16 13:51:25', '2023-07-19 04:38:59'),
-(36, NULL, 'TestUser By Getup', '01969005039', 'test@gmail.com', NULL, NULL, '$2y$10$/9ZP9Bi/GH51I6kZyZTDVefcQI1dAJSOnv/SlPEIT2YPQgIkgiky2', NULL, NULL, NULL, 2, 'Dhaka, Bangladesh', 0, 0, NULL, 0, '2023-07-18 08:17:43', '2023-11-09 05:38:08'),
-(45, NULL, 'Md Fahim Hossain', '01969005041', 'alifhossain174@gmail.com', '2023-10-22 05:47:07', '926152', '$2y$10$XlL/0J.FotoN/14AFx2Zt.xTesgTYBb5XCCG1aLarpIvIIbetp6CC', NULL, NULL, NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 05:20:33', '2023-12-18 11:56:15'),
-(47, NULL, 'Md Fahim Hossain', '01969005035', NULL, '2023-10-22 06:11:03', '269200', '$2y$10$ryL5dk9r0et950I4Ux6PXOF11a8L/R5xuGohH5u7yzT2ol3niUWyi', NULL, NULL, NULL, 3, 'Uttara, Dhaka-1229', 0, 0, NULL, 1, '2023-10-22 06:08:52', '2023-10-22 06:11:03'),
-(49, NULL, 'gyuvvyvt', NULL, 'gugug@gmail.com', NULL, '905201', '$2y$10$PtjpDvvP1tpv7o5XI.ZLH.Ga9I5.7ri14aGQIammYShOCtqfL4TNy', NULL, NULL, NULL, 3, 'vhvhv', 0, 0, NULL, 0, '2023-10-23 09:25:59', NULL),
-(50, NULL, 'ub', 'bubbu&t.gik', NULL, NULL, '473080', '$2y$10$X.P55zHGNauDZ73s9rM1W.1x2b472wYgpPD968p0tGqV3xltRcRCa', NULL, NULL, NULL, 3, 'uvu', 0, 0, NULL, 0, '2023-10-23 09:28:29', NULL),
-(55, 'userProfileImages/zs2911698216503.jpg', 'Arif', '98666776778', 'dcsuperstar22@gmail.com', '2023-10-25 02:00:12', '973071', '$2y$10$hiI/K.pthRSg4U85.dMCW.0jZ5OFmsGqHadIv0uPP0zr0aySd32zC', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2023-10-25 01:55:10', '2023-10-25 06:39:48'),
-(58, 'userProfileImages/iGSOA1704932115.JPG', 'Md. Fahim Hossain Alif', '85748596', 'fahimmit05@gmail.com', '2024-01-10 23:55:12', '2926', '$2y$12$/ilWC4.xBXYIRoMKKMI8r.36HpLMDaIos40H4YgBK9C.jDjT1RVZG', 'google', '12312312123132', NULL, 3, 'Gulshan-1, Dhaka', 0, 0, NULL, 1, NULL, '2024-01-11 01:36:38');
+(1, '', 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57');
 
 -- --------------------------------------------------------
 
@@ -8209,6 +8166,13 @@ CREATE TABLE `wish_lists` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `wish_lists`
+--
+
+INSERT INTO `wish_lists` (`id`, `user_id`, `product_id`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 1, 924, 'FGUpH1706096518', '2024-01-24 11:41:58', NULL);
 
 --
 -- Indexes for dumped tables
@@ -8641,7 +8605,7 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `billing_addresses`
@@ -8665,7 +8629,7 @@ ALTER TABLE `blog_categories`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `carts`
@@ -8689,7 +8653,7 @@ ALTER TABLE `child_categories`
 -- AUTO_INCREMENT for table `colors`
 --
 ALTER TABLE `colors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `config_setups`
@@ -8701,7 +8665,7 @@ ALTER TABLE `config_setups`
 -- AUTO_INCREMENT for table `contact_requests`
 --
 ALTER TABLE `contact_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `country`
@@ -8761,7 +8725,7 @@ ALTER TABLE `faqs`
 -- AUTO_INCREMENT for table `flags`
 --
 ALTER TABLE `flags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `general_infos`
@@ -8833,13 +8797,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=982;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1962;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=556;
 
 --
 -- AUTO_INCREMENT for table `product_models`
@@ -8863,13 +8827,13 @@ ALTER TABLE `product_reviews`
 -- AUTO_INCREMENT for table `product_sizes`
 --
 ALTER TABLE `product_sizes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1962;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=461;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`
@@ -8989,13 +8953,13 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `upazilas`
 --
 ALTER TABLE `upazilas`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=500;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=549;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`
@@ -9025,7 +8989,7 @@ ALTER TABLE `user_role_permissions`
 -- AUTO_INCREMENT for table `wish_lists`
 --
 ALTER TABLE `wish_lists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

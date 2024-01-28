@@ -739,6 +739,7 @@ class ProductController extends Controller
                         'rating' => rand(1,5),
                         'review' => $faker->catchPhrase(),
                         'reply' => 'thanks',
+                        'slug' => time(). str::random(5),
                         'status' => 1,
                         'created_at' => Carbon::now(),
                     ]);

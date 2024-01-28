@@ -122,7 +122,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>District<span class="text-danger">*</span></label>
-                            <select data-toggle="select2" class="form-control" name="district_id" required>
+                            <select data-toggle="select2" class="form-control" name="district_id" id="district_id" required>
                                 <option value="">Select One</option>
                                 @php
                                     $districts = DB::table('districts')->orderBy('name', 'asc')->get();
@@ -205,6 +205,7 @@
         $('#addUpazilaThana').click(function () {
             $('#productForm2').trigger("reset");
             $('#exampleModal2').modal('show');
+            $("#district_id").change();
         });
 
         $('#saveBtn').click(function (e) {
