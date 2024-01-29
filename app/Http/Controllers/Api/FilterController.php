@@ -161,17 +161,17 @@ class FilterController extends Controller
 
                             ->when($sortBy, function($query) use ($sortBy){
                                 if($sortBy == 1)
-                                    return $query->orderBy('products.discount_price', 'asc');
+                                    return $query->orderBy('products.discount_price', 'asc')->orderBy('products.price', 'asc');
                                 elseif($sortBy == 2)
-                                    return $query->orderBy('products.discount_price', 'desc');
+                                    return $query->orderBy('products.discount_price', 'desc')->orderBy('products.price', 'desc');
                                 else
-                                    return $query->orderBy('products.discount_price', 'asc');
+                                    return $query->orderBy('products.discount_price', 'asc')->orderBy('products.price', 'asc');
                             })
                             ->when($priceRangeMin, function($query) use ($priceRangeMin){
-                                return $query->where('products.discount_price', '>=', $priceRangeMin);
+                                return $query->where('products.discount_price', '>=', $priceRangeMin)->where('products.price', '>=', $priceRangeMin);
                             })
                             ->when($priceRangeMax, function($query) use ($priceRangeMax){
-                                return $query->where('products.discount_price', '<=', $priceRangeMax);
+                                return $query->where('products.discount_price', '<=', $priceRangeMax)->where('products.price', '<=', $priceRangeMax);
                             })
 
                             // ->when($storageId, function($query) use ($storageId){
