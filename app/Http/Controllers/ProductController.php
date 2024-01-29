@@ -81,7 +81,7 @@ class ProductController extends Controller
         $product->flag_id = $request->flag_id;
         $product->slug = $slug."-".time().str::random(5);
         $product->status = 1;
-        $product->unit_id = $request->unit_id;
+        $product->unit_id = isset($request->unit_id) ? $request->unit_id : null;
         $product->specification = $request->specification;
         $product->warrenty_policy = $request->warrenty_policy;
         $product->brand_id = $request->brand_id;
@@ -104,7 +104,7 @@ class ProductController extends Controller
             //variant specific
 
             $i = 0;
-            foreach($request->product_variant_color_id as $color_id){
+            foreach($request->product_variant_price as $price_id){
 
                 $name = NULL;
                 if(isset($request->file('product_variant_image')[$i]) && $request->file('product_variant_image')[$i]){
@@ -117,7 +117,6 @@ class ProductController extends Controller
                     } else {
                         Image::make($get_image)->save($location . $name, 60);
                     }
-
                 }
 
                 if($i == 0){ // saving the base variant price & warrenty As product main price & warrenty for filtering
@@ -130,13 +129,14 @@ class ProductController extends Controller
                 ProductVariant::insert([
                     'product_id' => $product->id,
                     'image' => $name,
-                    'color_id' => $color_id,
+                    'color_id' => isset($request->product_variant_color_id[$i]) ? $request->product_variant_color_id[$i] : null,
+                    'unit_id' => isset($request->product_variant_unit_id[$i]) ? $request->product_variant_unit_id[$i] : null,
                     'size_id' => isset($request->product_variant_size_id[$i]) ? $request->product_variant_size_id[$i] : null,
                     'region_id' => isset($request->product_variant_region_id[$i]) ? $request->product_variant_region_id[$i] : null,
                     'sim_id' => isset($request->product_variant_sim_id[$i]) ? $request->product_variant_sim_id[$i] : null,
                     'storage_type_id' => isset($request->product_variant_storage_type_id[$i]) ? $request->product_variant_storage_type_id[$i] : null,
                     'stock' => $request->product_variant_stock[$i],
-                    'price' => $request->product_variant_price[$i],
+                    'price' => $price_id,
                     'discounted_price' => $request->product_variant_discounted_price[$i],
                     'warrenty_id' => isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null,
                     'device_condition_id' => isset($request->product_variant_device_condition_id[$i]) ? $request->product_variant_device_condition_id[$i] : null,
@@ -371,7 +371,7 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->model_id = $request->model_id;
         $product->code = $request->code;
-        $product->unit_id = $request->unit_id;
+        $product->unit_id = isset($request->unit_id) ? $request->unit_id : null;
         $product->status = $request->status;
         // $product->slug = $slug."-".time().str::random(5);
         $product->flag_id = $request->flag_id;
@@ -404,7 +404,7 @@ class ProductController extends Controller
             //variant specific
 
             $i = 0;
-            foreach($request->product_variant_color_id as $color_id){
+            foreach($request->product_variant_price as $price_id){
 
 
                 if($i == 0){ // saving the base variant price & warrenty As product main price & warrenty for filtering
@@ -435,13 +435,14 @@ class ProductController extends Controller
                     }
 
                     $variantInfo->image = $name;
-                    $variantInfo->color_id = $color_id;
+                    $variantInfo->color_id = isset($request->product_variant_color_id[$i]) ? $request->product_variant_color_id[$i] : null;
+                    $variantInfo->unit_id = isset($request->product_variant_unit_id[$i]) ? $request->product_variant_unit_id[$i] : null;
                     $variantInfo->size_id = isset($request->product_variant_size_id[$i]) ? $request->product_variant_size_id[$i] : null;
                     $variantInfo->region_id = isset($request->product_variant_region_id[$i]) ? $request->product_variant_region_id[$i] : null;
                     $variantInfo->sim_id = isset($request->product_variant_sim_id[$i]) ? $request->product_variant_sim_id[$i] : null;
                     $variantInfo->storage_type_id = isset($request->product_variant_storage_type_id[$i]) ? $request->product_variant_storage_type_id[$i] : null;
                     $variantInfo->stock = $request->product_variant_stock[$i];
-                    $variantInfo->price = $request->product_variant_price[$i];
+                    $variantInfo->price = $price_id;
                     $variantInfo->discounted_price = $request->product_variant_discounted_price[$i];
                     $variantInfo->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null;
                     $variantInfo->device_condition_id = isset($request->product_variant_device_condition_id[$i]) ? $request->product_variant_device_condition_id[$i] : null;
@@ -467,13 +468,14 @@ class ProductController extends Controller
                     ProductVariant::insert([
                         'product_id' => $product->id,
                         'image' => $name,
-                        'color_id' => $color_id,
+                        'color_id' => isset($request->product_variant_color_id[$i]) ? $request->product_variant_color_id[$i] : null,
+                        'unit_id' => isset($request->product_variant_unit_id[$i]) ? $request->product_variant_unit_id[$i] : null,
                         'size_id' => isset($request->product_variant_size_id[$i]) ? $request->product_variant_size_id[$i] : null,
                         'region_id' => isset($request->product_variant_region_id[$i]) ? $request->product_variant_region_id[$i] : null,
                         'sim_id' => isset($request->product_variant_sim_id[$i]) ? $request->product_variant_sim_id[$i] : null,
                         'storage_type_id' => isset($request->product_variant_storage_type_id[$i]) ? $request->product_variant_storage_type_id[$i] : null,
                         'stock' => $request->product_variant_stock[$i],
-                        'price' => $request->product_variant_price[$i],
+                        'price' => $price_id,
                         'discounted_price' => $request->product_variant_discounted_price[$i],
                         'warrenty_id' => isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null,
                         'device_condition_id' => isset($request->product_variant_device_condition_id[$i]) ? $request->product_variant_device_condition_id[$i] : null,

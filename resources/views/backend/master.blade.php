@@ -94,6 +94,10 @@
                     </div>
                     <div class="d-flex align-items-center">
 
+                        <div class="dropdown d-inline-block ml-2">
+                            <a href="{{env('APP_FRONTEND_URL')}}" target="_blank" class="btn text-white rounded" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-paper-plane"></i> Visit Website</a>
+                        </div>
+
                         {{-- <div class="dropdown d-inline-block ml-2">
                             <button type="button" class="btn header-item noti-icon" id="page-header-notifications-dropdown"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -110,39 +114,22 @@
                                     </div>
                                 </div>
                                 <div data-simplebar style="max-height: 230px;">
+
                                     <a href="" class="text-reset">
                                         <div class="media py-2 px-3">
-                                            <img src="{{url('assets')}}/images/users/avatar-2.jpg"
-                                                class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <img src="{{url('assets')}}/images/users/avatar-2.jpg" class="mr-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="media-body">
-                                                <h6 class="mt-0 mb-1">Samuel Coverdale</h6>
+                                                <h6 class="mt-0 mb-1">Order Placed</h6>
                                                 <p class="font-size-12 mb-1">You have new follower on Instagram</p>
                                                 <p class="font-size-12 mb-0 text-muted"><i class="mdi mdi-clock-outline"></i> 2 min ago</p>
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="" class="text-reset">
-                                        <div class="media py-2 px-3">
-                                            <div class="avatar-xs mr-3">
-                                                <span class="avatar-title bg-success rounded-circle">
-                                                    <i class="mdi mdi-cloud-download-outline"></i>
-                                                </span>
-                                            </div>
-                                            <div class="media-body">
-                                                <h6 class="mt-0 mb-1">Download Available !</h6>
-                                                <p class="font-size-12 mb-1">Latest version of admin is now available. Please download here.</p>
-                                                <p class="font-size-12 mb-0 text-muted"><i class="mdi mdi-clock-outline"></i> 4 hours ago</p>
-                                            </div>
-                                        </div>
-                                    </a>
+
                                 </div>
                             </div>
                         </div> --}}
 
-
-                        <div class="dropdown d-inline-block ml-2">
-                            <a href="{{env('APP_FRONTEND_URL')}}" target="_blank" class="btn text-white rounded" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-paper-plane"></i> Visit Website</a>
-                        </div>
 
                         <div class="dropdown d-inline-block ml-2">
                             <button type="button" class="btn header-item" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

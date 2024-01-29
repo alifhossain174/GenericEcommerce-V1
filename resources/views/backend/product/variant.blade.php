@@ -2,6 +2,8 @@
     <td class="text-center">
         <input type="file" class="form-control" name="product_variant_image[]">
     </td>
+
+    @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
     <td class="text-center">
         <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
             @php
@@ -9,6 +11,17 @@
             @endphp
         </select>
     </td>
+    @endif
+
+    @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
+    <td class="text-center">
+        <select name="product_variant_unit_id[]" data-toggle="select2" class="form-control">
+            @php
+                echo App\Models\Unit::getDropDownList('name');
+            @endphp
+        </select>
+    </td>
+    @endif
 
     @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
     <td class="text-center">

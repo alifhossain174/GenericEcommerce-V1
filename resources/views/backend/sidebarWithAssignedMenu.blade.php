@@ -140,12 +140,17 @@
                 @if(checkAuth("view/all/warrenties")) <li><a href="{{ url('/view/all/warrenties') }}">Product Warrenty</a></li> @endif
             @endif
 
-            @if(checkAuth("view/all/units")) <li><a href="{{ url('/view/all/units') }}">Measurement Units</a></li> @endif
+            @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
+                @if(checkAuth("view/all/colors")) <li><a href="{{ url('/view/all/colors') }}">Product Colors</a></li> @endif
+            @endif
+            @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
+                @if(checkAuth("view/all/units")) <li><a href="{{ url('/view/all/units') }}">Measurement Units</a></li> @endif
+            @endif
+
+
             @if(checkAuth("view/all/flags")) <li><a href="{{ url('/view/all/flags') }}">Product Flags</a></li> @endif
             @if(checkAuth("view/all/brands")) <li><a href="{{ url('/view/all/brands') }}">Product Brands</a></li> @endif
             @if(checkAuth("view/all/models")) <li><a href="{{ url('/view/all/models') }}">Models of Brand</a></li> @endif
-            @if(checkAuth("view/all/colors")) <li><a href="{{ url('/view/all/colors') }}">Product Colors</a></li> @endif
-
         </ul>
     </li>
     @endif

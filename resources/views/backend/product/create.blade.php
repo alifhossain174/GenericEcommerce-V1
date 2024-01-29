@@ -202,7 +202,7 @@
 
 
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col">
                                         <div class="form-group">
                                             <label for="flag_id">Flag</label>
                                             <select name="flag_id" data-toggle="select2" class="form-control" id="flag_id">
@@ -217,7 +217,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+
+                                    @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 0)->first())
+                                    <div class="col">
                                         <div class="form-group">
                                             <label for="unit_id">Unit</label>
                                             <select name="unit_id" data-toggle="select2" class="form-control" id="unit_id">
@@ -232,6 +234,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
+
                                 </div>
 
                                 <div class="row">
@@ -292,6 +296,7 @@
 
                         <div class="row mt-3" id="product_variant" style="display: none">
                             <div class="col-lg-12">
+
                                 <div class="card">
                                     <div class="card-body table-responsive">
                                         <h4 class="card-title mb-3">Product Variant <small class="text-danger font-weight-bolder">(Insert the Base Variant First)</small></h4>
@@ -300,7 +305,14 @@
                                             <thead class="thead-light rounded">
                                                 <tr>
                                                     <th class="text-center">Image <span class="text-danger">*</span></th>
+
+                                                    @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
                                                     <th class="text-center">Color <span class="text-danger">*</span></th>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
+                                                    <th class="text-center">Unit <span class="text-danger">*</span></th>
+                                                    @endif
 
                                                     @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
                                                     <th class="text-center" style="min-width: 120px;">Size</th>
@@ -337,6 +349,8 @@
                                                     <td class="text-center">
                                                         <input type="file" class="form-control" name="product_variant_image[]">
                                                     </td>
+
+                                                    @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
                                                     <td class="text-center">
                                                         <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
                                                             @php
@@ -344,6 +358,17 @@
                                                             @endphp
                                                         </select>
                                                     </td>
+                                                    @endif
+
+                                                    @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
+                                                    <td class="text-center">
+                                                        <select name="product_variant_unit_id[]" data-toggle="select2" class="form-control">
+                                                            @php
+                                                                echo App\Models\Unit::getDropDownList('name');
+                                                            @endphp
+                                                        </select>
+                                                    </td>
+                                                    @endif
 
                                                     @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
                                                     <td class="text-center">
@@ -429,6 +454,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 

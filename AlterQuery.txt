@@ -61,3 +61,9 @@ ALTER TABLE `testimonials` ADD `designation` VARCHAR(255) NULL DEFAULT NULL AFTE
 ==================28.01.24======================
 ALTER TABLE `general_infos` ADD `messenger_chat_status` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '1=>Active; 0=>Inactive' AFTER `fb_pixel_app_id`, ADD `fb_page_id` VARCHAR(255) NULL DEFAULT NULL AFTER `messenger_chat_status`;
 ================================================
+
+==================28.01.24======================
+INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES (NULL, NULL, 'Product Color', 'color', 'general', '1', '2024-01-29 15:12:58', NULL);
+INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES (NULL, NULL, 'Measurement Unit', 'measurement_unit', 'Common', '1', '2024-01-29 15:14:23', NULL);
+ALTER TABLE `product_variants` ADD `unit_id` INT(11) NULL DEFAULT NULL AFTER `color_id`;
+================================================
