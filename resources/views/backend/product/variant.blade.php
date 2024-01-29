@@ -1,6 +1,6 @@
 <tr>
     <td class="text-center">
-        <input type="file" class="form-control" name="product_variant_image[]">
+        <input type="file" class="form-control" style="min-width: 100px;" name="product_variant_image[]">
     </td>
 
     @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
@@ -84,13 +84,13 @@
     @endif
 
     <td class="text-center">
-        <input type="number" class="form-control" name="product_variant_stock[]" value="0" style="height: 34px;" placeholder="0">
+        <input type="number" class="form-control" name="product_variant_stock[]" style="min-width: 100px;" value="0" style="height: 34px;" placeholder="0">
     </td>
     <td class="text-center">
-        <input type="number" class="form-control" name="product_variant_price[]" value="0" style="height: 34px;" placeholder="0">
+        <input type="number" class="form-control" name="product_variant_price[]" style="min-width: 100px;" value="0" style="height: 34px;" placeholder="0">
     </td>
     <td class="text-center">
-        <input type="number" class="form-control" name="product_variant_discounted_price[]" value="0" style="height: 34px;" placeholder="0">
+        <input type="number" class="form-control" name="product_variant_discounted_price[]" style="min-width: 100px;" value="0" style="height: 34px;" placeholder="0">
     </td>
     <td class="text-center">
         <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a>

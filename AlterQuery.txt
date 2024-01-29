@@ -66,4 +66,5 @@ ALTER TABLE `general_infos` ADD `messenger_chat_status` TINYINT(4) NOT NULL DEFA
 INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES (NULL, NULL, 'Product Color', 'color', 'general', '1', '2024-01-29 15:12:58', NULL);
 INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES (NULL, NULL, 'Measurement Unit', 'measurement_unit', 'Common', '1', '2024-01-29 15:14:23', NULL);
 ALTER TABLE `product_variants` ADD `unit_id` INT(11) NULL DEFAULT NULL AFTER `color_id`;
+UPDATE `config_setups` SET `industry` = 'Common' WHERE `config_setups`.`id` = 7;
 ================================================

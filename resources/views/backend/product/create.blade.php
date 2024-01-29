@@ -18,6 +18,10 @@
         .bootstrap-tagsinput .badge {
             margin: 2px 2px !important;
         }
+
+        .product-card-title .card-title::before{
+            top: 13px
+        }
     </style>
 @endsection
 
@@ -33,13 +37,22 @@
         <div class="col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-3">Product Entry Form</h4>
 
                     <form class="needs-validation" method="POST" action="{{url('save/new/product')}}" enctype="multipart/form-data">
                         @csrf
 
+                        <div class="row border-bottom mb-4 pb-2">
+                            <div class="col-lg-6 product-card-title">
+                                <h4 class="card-title mb-3" style="font-size: 18px; padding-top: 12px;">Add New Product</h4>
+                            </div>
+                            <div class="col-lg-6 text-right">
+                                <a href="{{url('view/all/product')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Discard</a>
+                                <button class="btn btn-primary m-2" style="width: 130px;" type="submit"><i class="fas fa-save"></i> Save Product</button>
+                            </div>
+                        </div>
+
                         <div class="row">
-                            <div class="col-lg-8 border-right">
+                            <div class="col-lg-8 pr-lg-5">
                                 <div class="form-group">
                                     <label for="name">Title <span class="text-danger">*</span></label>
                                     <input type="text" id="name" name="name" class="form-control" placeholder="Enter Product Name Here" required>
@@ -50,41 +63,65 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="short_description">Short Description</label>
-                                    <textarea id="short_description" name="short_description" class="form-control" placeholder="Enter Short Description Here"></textarea>
+                                    <label for="short_description">Short Description (Max 255 Characters)</label>
+                                    <textarea id="short_description" name="short_description" class="form-control" rows="6" placeholder="Enter Short Description Here"></textarea>
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('short_description')
                                             {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="description">Full Description</label>
-                                    <textarea id="description" name="description" class="form-control"></textarea>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('short_description')
-                                            {{ $message }}
-                                        @enderror
+
+
+                                <ul class="nav nav-tabs mt-4">
+                                    <li class="nav-item">
+                                        <a href="#home" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                                            <i class="mdi mdi-home-variant d-lg-none d-block"></i>
+                                            <span class="d-none d-lg-block">Full Description</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#profile" data-toggle="tab" aria-expanded="true" class="nav-link">
+                                            <i class="mdi mdi-account-circle d-lg-none d-block"></i>
+                                            <span class="d-none d-lg-block">Specification</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#settings" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="mdi mdi-settings-outline d-lg-none d-block"></i>
+                                            <span class="d-none d-lg-block">Warrenty Policy</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content mb-4">
+                                    <div class="tab-pane active" id="home">
+                                        <textarea id="description" name="description" class="form-control"></textarea>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('short_description')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane show" id="profile">
+                                        <textarea id="specification" name="specification" class="form-control"></textarea>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('specification')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="settings">
+                                        <textarea id="warrenty_policy" name="warrenty_policy" class="form-control"></textarea>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('warrenty_policy')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="specification">Specification</label>
-                                    <textarea id="specification" name="specification" class="form-control"></textarea>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('specification')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="warrenty_policy">Warrenty Policy</label>
-                                    <textarea id="warrenty_policy" name="warrenty_policy" class="form-control"></textarea>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('warrenty_policy')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
+
+
                                 <div class="form-group">
                                     <label for="tags">Tags (for search result)</label>
                                     <input type="text" id="tags" data-role="tagsinput" name="tags" class="form-control" placeholder="e.g. Fashion, Dress, Shirts">
@@ -102,6 +139,64 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
+                                    <label for="image">Product Thumbnail Image<span class="text-danger">*</span></label>
+                                    <input type="file" name="image" class="dropify" data-height="205" data-max-file-size="1M" accept="image/*" required/>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group" id="product_price">
+                                            <label for="price">Price (In BDT) <span class="text-danger">*</span></label>
+                                            <input id="price" name="price" data-toggle="touchspin" type="text">
+
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('price')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group" id="product_discounted_price">
+                                            <label for="discount_price">Discount Price</label>
+                                            <input type="text" id="discount_price" data-toggle="touchspin" name="discount_price" class="form-control">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('discount_price')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col" id="product_stock">
+                                        <div class="form-group">
+                                            <label for="stock">Stock</label>
+                                            <input type="text" id="stock" data-toggle="touchspin" name="stock" class="form-control" placeholder="10">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('stock')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="code">Product Code</label>
+                                            <input type="text" id="code" name="code" class="form-control" placeholder="YYWIW482">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('code')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
                                     <label for="category_id">Category<span class="text-danger">*</span></label>
                                     <select name="category_id" data-toggle="select2" class="form-control" id="category_id" required>
                                         @php
@@ -114,91 +209,67 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="subcategory_id">Subcategory</label>
-                                    <select name="subcategory_id" data-toggle="select2" class="form-control" id="subcategory_id">
-                                        <option value="">Select One</option>
-                                    </select>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('subcategory_id')
-                                            {{ $message }}
-                                        @enderror
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="subcategory_id">Subcategory</label>
+                                            <select name="subcategory_id" data-toggle="select2" class="form-control" id="subcategory_id">
+                                                <option value="">Select One</option>
+                                            </select>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('subcategory_id')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="childcategory_id">Child Category</label>
-                                    <select name="childcategory_id" data-toggle="select2" class="form-control" id="childcategory_id">
-                                        <option value="">Select One</option>
-                                    </select>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('childcategory_id')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="brand_id">Brand</label>
-                                    <select name="brand_id" data-toggle="select2" class="form-control" id="brand_id">
-                                        @php
-                                            echo App\Models\Brand::getDropDownList('name');
-                                        @endphp
-                                    </select>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('brand_id')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="model_id">Model</label>
-                                    <select name="model_id" data-toggle="select2" class="form-control" id="model_id">
-                                        <option value="">Select One</option>
-                                    </select>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('model_id')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="image">Product Thumbnail Image<span class="text-danger">*</span></label>
-                                    <input type="file" name="image" class="dropify" data-height="200" data-max-file-size="1M" accept="image/*" required/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="code">Code</label>
-                                    <input type="text" id="code" name="code" class="form-control" placeholder="YYWIW482">
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('code')
-                                            {{ $message }}
-                                        @enderror
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="childcategory_id">Child Category</label>
+                                            <select name="childcategory_id" data-toggle="select2" class="form-control" id="childcategory_id">
+                                                <option value="">Select One</option>
+                                            </select>
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('childcategory_id')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group" id="product_price">
-                                            <label for="price">Price (In BDT) <span class="text-danger">*</span></label>
-                                            <input id="price" name="price" data-toggle="touchspin" type="text">
-
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="brand_id">Brand</label>
+                                            <select name="brand_id" data-toggle="select2" class="form-control" id="brand_id">
+                                                @php
+                                                    echo App\Models\Brand::getDropDownList('name');
+                                                @endphp
+                                            </select>
                                             <div class="invalid-feedback" style="display: block;">
-                                                @error('price')
+                                                @error('brand_id')
                                                     {{ $message }}
                                                 @enderror
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group" id="product_discounted_price">
-                                            <label for="discount_price">Discount Price</label>
-                                            <input type="text" id="discount_price" data-toggle="touchspin" name="discount_price" class="form-control">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="model_id">Model</label>
+                                            <select name="model_id" data-toggle="select2" class="form-control" id="model_id">
+                                                <option value="">Select One</option>
+                                            </select>
                                             <div class="invalid-feedback" style="display: block;">
-                                                @error('discount_price')
+                                                @error('model_id')
                                                     {{ $message }}
                                                 @enderror
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
 
 
                                 <div class="row">
@@ -218,8 +289,25 @@
                                         </div>
                                     </div>
 
+                                    <div class="col" id="product_warrenty">
+                                        <div class="form-group">
+                                            <label for="warrenty_id">Warrenty</label>
+                                            <select name="warrenty_id" data-toggle="select2" class="form-control" id="warrenty_id">
+                                                @php
+                                                    echo App\Models\ProductWarrenty::getDropDownList('name');
+                                                @endphp
+                                            </select>
+
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('warrenty')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 0)->first())
-                                    <div class="col">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="unit_id">Unit</label>
                                             <select name="unit_id" data-toggle="select2" class="form-control" id="unit_id">
@@ -238,47 +326,23 @@
 
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-lg-12" id="product_stock">
-                                        <div class="form-group">
-                                            <label for="stock">Stock</label>
-                                            <input type="text" id="stock" data-toggle="touchspin" name="stock" class="form-control" placeholder="10">
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('stock')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
+                                <div class="form-group">
+                                    <label for="video_url">Video URL</label>
+                                    <input type="text" id="video_url" name="video_url" class="form-control" placeholder="https://youtube.com/YGUYUTYG">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('video_url')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
-                                    <div class="col-lg-12" id="product_warrenty">
-                                        <div class="form-group">
-                                            <label for="warrenty_id">Warrenty</label>
-                                            <select name="warrenty_id" data-toggle="select2" class="form-control" id="warrenty_id">
-                                                @php
-                                                    echo App\Models\ProductWarrenty::getDropDownList('name');
-                                                @endphp
-                                            </select>
+                                </div>
 
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('warrenty')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="video_url">Video URL</label>
-                                            <input type="text" id="video_url" name="video_url" class="form-control" placeholder="https://youtube.com/YGUYUTYG">
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('video_url')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
 
-                                    <div class="col-lg-12 text-center pt-5">
+                        <div class="row justify-content-center">
+                            <div class="col text-center pt-4">
+                                <div class="card border-dark">
+                                    <div class="card-body">
                                         <div class="form-group">
                                             <label for="has_variant">Product Has Variant ?</label><br>
                                             <input type="checkbox" id="has_variant" value="1" onchange="showVariantSection(this.value)" name="has_variant" data-toggle="switchery" data-color="#38b3d6" data-secondary-color="#df3554"/>
@@ -288,175 +352,179 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
 
-                        <div class="row mt-3" id="product_variant" style="display: none">
-                            <div class="col-lg-12">
+                                        <div class="row mt-3" id="product_variant" style="display: none">
+                                            <div class="col-lg-12">
 
-                                <div class="card">
-                                    <div class="card-body table-responsive">
-                                        <h4 class="card-title mb-3">Product Variant <small class="text-danger font-weight-bolder">(Insert the Base Variant First)</small></h4>
+                                                <div class="table-responsive">
+                                                    <h4 class="card-title mb-3">Product Variant <small class="text-danger font-weight-bolder">(Insert the Base Variant First)</small></h4>
 
-                                        <table class="table table-bordered rounded" id="product_variant_table">
-                                            <thead class="thead-light rounded">
-                                                <tr>
-                                                    <th class="text-center">Image <span class="text-danger">*</span></th>
+                                                    <table class="table table-bordered rounded" id="product_variant_table">
+                                                        <thead class="thead-light rounded">
+                                                            <tr>
+                                                                <th class="text-center">Image <span class="text-danger">*</span></th>
 
-                                                    @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
-                                                    <th class="text-center">Color <span class="text-danger">*</span></th>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
+                                                                <th class="text-center">Color <span class="text-danger">*</span></th>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
-                                                    <th class="text-center">Unit <span class="text-danger">*</span></th>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
+                                                                <th class="text-center">Unit <span class="text-danger">*</span></th>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
-                                                    <th class="text-center" style="min-width: 120px;">Size</th>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
+                                                                <th class="text-center" style="min-width: 120px;">Size</th>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
-                                                    <th class="text-center" style="min-width: 200px;">Region</th>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
+                                                                <th class="text-center" style="min-width: 200px;">Region</th>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
-                                                    <th class="text-center" style="min-width: 140px;">SIM Type</th>.
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
+                                                                <th class="text-center" style="min-width: 140px;">SIM Type</th>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
-                                                    <th class="text-center" style="min-width: 140px;">Storage</th>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
+                                                                <th class="text-center" style="min-width: 140px;">Storage</th>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
-                                                    <th class="text-center" style="min-width: 120px;">Warrenty</th>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
+                                                                <th class="text-center" style="min-width: 120px;">Warrenty</th>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
-                                                    <th class="text-center" style="min-width: 120px;">Condition</th>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
+                                                                <th class="text-center" style="min-width: 120px;">Condition</th>
+                                                                @endif
 
-                                                    <th class="text-center">Stock <span class="text-danger">*</span></th>
-                                                    <th class="text-center">Price <span class="text-danger">*</span></th>
-                                                    <th class="text-center">Disc. Price <span class="text-danger">*</span></th>
-                                                    <th class="text-center" style="min-width: 50px;">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-center">
-                                                        <input type="file" class="form-control" name="product_variant_image[]">
-                                                    </td>
+                                                                <th class="text-center">Stock <span class="text-danger">*</span></th>
+                                                                <th class="text-center">Price <span class="text-danger">*</span></th>
+                                                                <th class="text-center">Disc. Price <span class="text-danger">*</span></th>
+                                                                <th class="text-center" style="min-width: 50px;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="text-center">
+                                                                    <input type="file" class="form-control" style="min-width: 100px;" name="product_variant_image[]">
+                                                                </td>
 
-                                                    @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Color::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
+                                                                <td class="text-center">
+                                                                    <select name="product_variant_color_id[]" data-toggle="select2" class="form-control">
+                                                                        @php
+                                                                            echo App\Models\Color::getDropDownList('name');
+                                                                        @endphp
+                                                                    </select>
+                                                                </td>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_unit_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Unit::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
+                                                                <td class="text-center">
+                                                                    <select name="product_variant_unit_id[]" data-toggle="select2" class="form-control">
+                                                                        @php
+                                                                            echo App\Models\Unit::getDropDownList('name');
+                                                                        @endphp
+                                                                    </select>
+                                                                </td>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_size_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\ProductSize::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())
+                                                                <td class="text-center">
+                                                                    <select name="product_variant_size_id[]" data-toggle="select2" class="form-control">
+                                                                        @php
+                                                                            echo App\Models\ProductSize::getDropDownList('name');
+                                                                        @endphp
+                                                                    </select>
+                                                                </td>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Region::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
+                                                                <td class="text-center">
+                                                                    <select name="product_variant_region_id[]" data-toggle="select2" class="form-control">
+                                                                        @php
+                                                                            echo App\Models\Region::getDropDownList('name');
+                                                                        @endphp
+                                                                    </select>
+                                                                </td>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_sim_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\Sim::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
+                                                                <td class="text-center">
+                                                                    <select name="product_variant_sim_id[]" data-toggle="select2" class="form-control">
+                                                                        @php
+                                                                            echo App\Models\Sim::getDropDownList('name');
+                                                                        @endphp
+                                                                    </select>
+                                                                </td>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_storage_type_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\StorageType::getDropDownList('ram');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
+                                                                <td class="text-center">
+                                                                    <select name="product_variant_storage_type_id[]" data-toggle="select2" class="form-control">
+                                                                        @php
+                                                                            echo App\Models\StorageType::getDropDownList('ram');
+                                                                        @endphp
+                                                                    </select>
+                                                                </td>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_warrenty[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\ProductWarrenty::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
+                                                                <td class="text-center">
+                                                                    <select name="product_variant_warrenty[]" data-toggle="select2" class="form-control">
+                                                                        @php
+                                                                            echo App\Models\ProductWarrenty::getDropDownList('name');
+                                                                        @endphp
+                                                                    </select>
+                                                                </td>
+                                                                @endif
 
-                                                    @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
-                                                    <td class="text-center">
-                                                        <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
-                                                            @php
-                                                                echo App\Models\DeviceCondition::getDropDownList('name');
-                                                            @endphp
-                                                        </select>
-                                                    </td>
-                                                    @endif
+                                                                @if(DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
+                                                                <td class="text-center">
+                                                                    <select name="product_variant_device_condition_id[]" data-toggle="select2" class="form-control">
+                                                                        @php
+                                                                            echo App\Models\DeviceCondition::getDropDownList('name');
+                                                                        @endphp
+                                                                    </select>
+                                                                </td>
+                                                                @endif
 
-                                                    <td class="text-center">
-                                                        <input type="number" class="form-control" name="product_variant_stock[]" value="0" style="height: 34px;" placeholder="0">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <input type="number" class="form-control" name="product_variant_price[]" value="0" style="height: 34px;" placeholder="0">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <input type="number" class="form-control" name="product_variant_discounted_price[]" value="0" style="height: 34px;" placeholder="0">
-                                                    </td>
+                                                                <td class="text-center">
+                                                                    <input type="number" class="form-control" name="product_variant_stock[]" style="min-width: 100px;" value="0" style="height: 34px;" placeholder="0">
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <input type="number" class="form-control" name="product_variant_price[]" style="min-width: 100px;" value="0" style="height: 34px;" placeholder="0">
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <input type="number" class="form-control" name="product_variant_discounted_price[]" style="min-width: 100px;" value="0" style="height: 34px;" placeholder="0">
+                                                                </td>
 
-                                                    <td class="text-center">
-                                                        {{-- <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a> --}}
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                                <td class="text-center">
+                                                                    {{-- <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a> --}}
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
 
-                                        <div class="row">
-                                            <div class="col-lg-12 text-right">
-                                                <button type="button" class="btn btn-success btn-sm rounded addAnotherVariant" onclick="addAnotherVariant()">+ Add Another Variant</button>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-center pb-3">
+                                                            <button type="button" class="btn btn-success rounded addAnotherVariant" onclick="addAnotherVariant()">+ Add Another Variant</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
+
+
                                     </div>
                                 </div>
-
                             </div>
                         </div>
+
+
+
+
 
                         <div class="row mt-3">
                             <div class="col-lg-12">
@@ -505,7 +573,7 @@
                         </div>
 
                         <div class="form-group text-center pt-3">
-                            <a href="{{url('view/all/product')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
+                            <a href="{{url('view/all/product')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Discard</a>
                             <button class="btn btn-primary m-2" style="width: 130px;" type="submit"><i class="fas fa-save"></i> Save Product</button>
                         </div>
 
@@ -574,6 +642,7 @@
                     $(".addAnotherVariant").html("Something Went Wrong");
                 }
             });
+            $(".addAnotherVariant").blur();
         }
 
         function removeRow(btndel){
@@ -609,19 +678,19 @@
         CKEDITOR.replace('description', {
             filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form',
-            height: 160,
+            height: 250,
         });
 
         CKEDITOR.replace('specification', {
             filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form',
-            height: 160,
+            height: 250,
         });
 
         CKEDITOR.replace('warrenty_policy', {
             filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form',
-            height: 160,
+            height: 250,
         });
 
         $(document).ready(function () {
