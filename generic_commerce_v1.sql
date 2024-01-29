@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2024 at 10:19 AM
+-- Generation Time: Jan 29, 2024 at 11:18 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -358,14 +358,14 @@ CREATE TABLE `config_setups` (
 --
 
 INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Product Size', 'product_size', 'Fashion', 1, '2023-12-17 06:53:00', '2024-01-17 06:50:27'),
-(2, NULL, 'Storage', 'storage', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-17 06:50:27'),
-(3, NULL, 'Sim Type', 'sim', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-17 06:50:27'),
-(4, NULL, 'Device Condition', 'device_condition', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-17 06:50:27'),
-(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-17 06:50:27'),
-(6, NULL, 'Region', 'region', 'Common', 0, '2023-12-17 06:53:00', '2024-01-17 06:50:27'),
-(7, NULL, 'Product Color', 'color', 'Common', 1, '2024-01-29 09:12:58', NULL),
-(8, NULL, 'Measurement Unit', 'measurement_unit', 'Common', 1, '2024-01-29 09:14:23', NULL);
+(1, NULL, 'Product Size', 'product_size', 'Fashion', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
+(2, NULL, 'Storage', 'storage', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
+(3, NULL, 'Sim Type', 'sim', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
+(4, NULL, 'Device Condition', 'device_condition', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
+(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
+(6, NULL, 'Region', 'region', 'Common', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
+(7, NULL, 'Product Color', 'color', 'Common', 0, '2024-01-29 09:12:58', '2024-01-29 10:17:03'),
+(8, NULL, 'Measurement Unit', 'measurement_unit', 'Common', 1, '2024-01-29 09:14:23', '2024-01-29 10:17:03');
 
 -- --------------------------------------------------------
 
