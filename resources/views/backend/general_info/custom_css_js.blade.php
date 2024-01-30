@@ -37,21 +37,21 @@
             <div class="card">
                 <div class="card-body">
 
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h4 class="card-title mb-3">Custom CSS & JS Form</h4>
-                        </div>
-                        <div class="col-lg-6 text-right">
-                            <div class="form-group">
-                                <a href="{{url('/home')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
-                                <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i class="fas fa-save"></i> Update Code</button>
-                            </div>
-                        </div>
-                    </div>
-
-
                     <form class="needs-validation" method="POST" action="{{url('update/custom/css/js')}}" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4 class="card-title mb-3">Custom CSS & JS Form</h4>
+                            </div>
+                            <div class="col-lg-6 text-right">
+                                <div class="form-group">
+                                    <a href="{{url('/home')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
+                                    <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i class="fas fa-save"></i> Update Code</button>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="row border-top">
                             <div class="col-lg-4">
