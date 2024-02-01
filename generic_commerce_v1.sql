@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2024 at 11:18 AM
+-- Generation Time: Feb 01, 2024 at 11:55 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -358,14 +358,14 @@ CREATE TABLE `config_setups` (
 --
 
 INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Product Size', 'product_size', 'Fashion', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
-(2, NULL, 'Storage', 'storage', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
-(3, NULL, 'Sim Type', 'sim', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
-(4, NULL, 'Device Condition', 'device_condition', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
-(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
-(6, NULL, 'Region', 'region', 'Common', 0, '2023-12-17 06:53:00', '2024-01-29 10:17:03'),
-(7, NULL, 'Product Color', 'color', 'Common', 0, '2024-01-29 09:12:58', '2024-01-29 10:17:03'),
-(8, NULL, 'Measurement Unit', 'measurement_unit', 'Common', 1, '2024-01-29 09:14:23', '2024-01-29 10:17:03');
+(1, NULL, 'Product Size', 'product_size', 'Fashion', 1, '2023-12-17 06:53:00', '2024-01-29 11:59:50'),
+(2, NULL, 'Storage', 'storage', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 11:59:50'),
+(3, NULL, 'Sim Type', 'sim', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 11:59:50'),
+(4, NULL, 'Device Condition', 'device_condition', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 11:59:50'),
+(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 0, '2023-12-17 06:53:00', '2024-01-29 11:59:50'),
+(6, NULL, 'Region', 'region', 'Common', 1, '2023-12-17 06:53:00', '2024-01-29 11:59:50'),
+(7, NULL, 'Product Color', 'color', 'Common', 1, '2024-01-29 09:12:58', '2024-01-29 11:59:50'),
+(8, NULL, 'Measurement Unit', 'measurement_unit', 'Common', 0, '2024-01-29 09:14:23', '2024-01-29 11:59:50');
 
 -- --------------------------------------------------------
 
@@ -1021,7 +1021,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `messenger_chat_status`, `fb_page_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/XnmO41706417269.svg', 'company_logo/7Eivq1706417272.svg', 'company_logo/yKX0b1706417275.svg', 'TechShop - Ecommerce', 'FEJMO', NULL, '01977851889', 'contact@fejmo.com', 'Road-7, Block-H, House-81, Banani, Dhaka 1213', NULL, 'https://play.google.com/store/apps/details?id=com.getup.fejmo', NULL, '© FEJMO 2023 All right reserved', 'company_logo/GVgni1704081652.png', '#262626', '#393939', '#ffffff', '#262626', '#383838', '#eeeeee', 'Fejmo- Online Ecommerce Shopping', 'fejmo,ecommerce,shopping,online', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', 'Fejmo- Online Ecommerce Shopping', 'company_logo/mFtlm1706417475.svg', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com/fejmo?mibextid=LQQJ4d', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 0, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 0, NULL, 0, NULL, 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, NULL, NULL, '2024-01-28 09:37:36');
+(1, 'company_logo/XnmO41706417269.svg', 'company_logo/7Eivq1706417272.svg', 'company_logo/yKX0b1706417275.svg', 'TechShop - Ecommerce', 'FEJMO', 'Fejmo is a contemporary fashion brand that epitomizes timeless elegance and modern style. Known for its sophisticated designs and attention to detail, Fejmo seamlessly blends classic elements with cutting-edge trends to create a unique fashion.', '01977851889', 'contact@fejmo.com', 'Road-7, Block-H, House-81, Banani, Dhaka 1213', NULL, 'https://play.google.com/store/apps/details?id=com.getup.fejmo', NULL, '© FEJMO 2023 All right reserved', 'company_logo/GVgni1704081652.png', '#262626', '#393939', '#ffffff', '#262626', '#383838', '#eeeeee', 'Fejmo- Online Ecommerce Shopping', 'fejmo,ecommerce,shopping,online', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', 'Fejmo- Online Ecommerce Shopping', 'company_logo/mFtlm1706417475.svg', 'Shop the latest trends at Fejmo, your go-to destination for online fashion and lifestyle shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Fejmo today.', '#scroll__top {\r\n    bottom: 100px;\r\n    right: 35px;\r\n}\r\n.auth-card {\r\n    background: #f9f9f9;\r\n}\r\n@media only screen and (max-width: 600px) {\r\n#scroll__top {\r\n  display: none;\r\n}\r\n  .product__details--section .section--padding {\r\n    padding-top: 24px !important;\r\n  }\r\n\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com/fejmo?mibextid=LQQJ4d', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://web.facebook.com', 'https://web.whatsapp.com', 'https://telegram.com', 'https://www.tiktok.com/@reazuyhking68', 'https://www.pinterest.com/ideas/gr-recipes/92150330519/', 'https://www.viber.com/ru/blog/2023', 0, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 0, NULL, 0, NULL, 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, NULL, NULL, '2024-02-01 10:54:21');
 
 -- --------------------------------------------------------
 
@@ -1867,7 +1867,7 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (250, 11, 65, NULL, NULL, NULL, 'Co ord set', NULL, 'productImages/Cv7DI1704183655.jpg', '[\"1704183655gsHAZ.jpg\",\"1704183655q3jfk.jpg\",\"17041836552R4w8.jpg\"]', 'Beautiful printed Co ord set', '<p>Material: Cotton</p>\r\n\r\n<p>Printed two piece set with pearl work neckline and belt</p>', NULL, NULL, 5500, 3750, 100, 1, 'co odr set, fashionable dress, outgoing dress, casual dress', NULL, NULL, 'co-ord-set-1704183655t0gGW', 7, 'Trending, New arrival, Fashion, co ord set, casual wear, fashion wear', 'Trending, New arrival, Fashion, co ord set, casual wear, fashion wear', NULL, 1, 0, 0, '2024-01-02 06:20:55', '2024-01-03 04:07:10'),
 (251, 11, 62, NULL, NULL, NULL, 'Three piece', 'NM203', 'productImages/Koisv1704184181.jpg', '[\"1704184181dXvto.jpg\",\"1704184181qRiTm.jpg\",\"1704184181GwFCe.jpg\",\"1704184181Uq0k0.jpg\"]', 'Festive wear three piece with floral printed Dupatta', '<p>Fabric: Viscos cotton</p>\r\n\r\n<p>Neckline stoned work with Georgette floral Dupatta</p>\r\n\r\n<p>Extra sleeves available inside the dress</p>', NULL, NULL, 5500, 3500, 100, 1, 'three piece, salwar kameez, salwar suit, indian three piece, casual wear, office wear,party wear', NULL, NULL, 'three-piece-1704184181Nv4im', 6, 'three pice, indian three piece, festive wear, traditional wear, beautiful dress, Alia designer three piece,party three piece', 'three pice, indian three piece, festive wear, traditional wear, beautiful dress, Alia designer three piece', NULL, 1, 0, 0, '2024-01-02 06:29:41', '2024-01-03 02:53:12'),
 (252, 11, 62, NULL, NULL, NULL, 'Two piece', 'AR1004', 'productImages/HvKZD1704184650.jpg', '[\"1704184650fr5PW.jpg\",\"1704184650SsaWM.jpg\"]', 'Beautiful two piece set with laser cut Dupatta', '<p>Dress material: Cotton</p>\r\n\r\n<p>Neckline, hand and chest worked witl laser cut georgette Dupatta</p>', NULL, NULL, 5500, 3500, 100, 1, NULL, NULL, NULL, 'two-piece-1704184650qxxSW', 7, 'kurti, cottton kurti, indian kurti,  casual wear, office wear, university wear, TWO PIECE KURTI', 'kurti, cottton kurti, indian kurti, casual wear, office wear, university wear,TWO PIECE KURTI', NULL, 1, 0, 0, '2024-01-02 06:37:30', '2024-01-09 06:31:46'),
-(253, 11, 63, NULL, NULL, NULL, 'Gown', 'AR1005', 'productImages/oqY5E1704185276.jpg', '[\"1704185276Gf9vK.jpg\",\"17041852761HQL6.jpg\"]', 'Printed gown with belt', '<p>Material: Silk</p>\r\n\r\n<p>Full body printed gown with kardana&nbsp;worked neck line and belt</p>', NULL, NULL, 4500, 2550, 100, 1, 'gown, alia designer gown, floor touch gown, beautiful dress, party dress, festive dress,indian gown', NULL, NULL, 'gown-1704185276y0tk9', 7, 'gown, party dress, floral dress, traditional dress, festive dress', 'gown, party dress, floral dress, traditional dress, festive dress', NULL, 1, 0, 0, '2024-01-02 06:47:56', '2024-01-09 02:43:03');
+(253, 11, 63, NULL, NULL, NULL, 'Gown', 'AR1005', 'productImages/oqY5E1704185276.jpg', NULL, 'Printed gown with belt', '<p>Material: Silk</p>\r\n\r\n<p>Full body printed gown with kardana&nbsp;worked neck line and belt</p>', NULL, NULL, 0, 0, 0, 1, 'gown, alia designer gown, floor touch gown, beautiful dress, party dress, festive dress,indian gownasds', NULL, NULL, 'gown-1704185276y0tk9', 7, 'gown, party dress, floral dress, traditional dress, festive dress', 'gown, party dress, floral dress, traditional dress, festive dress', NULL, 1, 1, 0, '2024-01-02 06:47:56', '2024-01-29 12:38:22');
 
 -- --------------------------------------------------------
 
@@ -2050,9 +2050,7 @@ INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `update
 (550, 251, '1704184181GwFCe.jpg', '2024-01-02 06:29:41', NULL),
 (551, 251, '1704184181Uq0k0.jpg', '2024-01-02 06:29:41', NULL),
 (552, 252, '1704184650fr5PW.jpg', '2024-01-02 06:37:30', NULL),
-(553, 252, '1704184650SsaWM.jpg', '2024-01-02 06:37:30', NULL),
-(554, 253, '1704185276Gf9vK.jpg', '2024-01-02 06:47:56', NULL),
-(555, 253, '17041852761HQL6.jpg', '2024-01-02 06:47:56', NULL);
+(553, 252, '1704184650SsaWM.jpg', '2024-01-02 06:37:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -2368,7 +2366,8 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `unit_i
 (457, 247, '1704181633cAVU3.jpg', 19, NULL, 11, NULL, NULL, NULL, 1, 8500, 6500, NULL, NULL, '2024-01-02 05:47:13', '2024-01-03 13:45:46'),
 (458, 247, '1704181633DDyzg.jpg', 20, NULL, 11, NULL, NULL, NULL, 1, 8500, 6500, NULL, NULL, '2024-01-02 05:47:13', '2024-01-03 13:45:46'),
 (459, 248, '1704182203BTQmw.jpg', 24, NULL, 11, NULL, NULL, NULL, 1, 5500, 3750, NULL, NULL, '2024-01-02 05:56:43', NULL),
-(460, 248, '1704182203xWsbO.jpg', 22, NULL, 11, NULL, NULL, NULL, 1, 5500, 3750, NULL, NULL, '2024-01-02 05:56:43', NULL);
+(460, 248, '1704182203xWsbO.jpg', 22, NULL, 11, NULL, NULL, NULL, 1, 5500, 3750, NULL, NULL, '2024-01-02 05:56:43', NULL),
+(461, 253, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '2024-01-29 12:36:57', '2024-01-29 12:38:22');
 
 -- --------------------------------------------------------
 
@@ -8017,7 +8016,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
 (1, '', 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57'),
-(64, NULL, 'Md. Fahim Hossain', NULL, 'alifhossain174@gmail.com', '2024-01-28 05:57:25', NULL, '$2y$12$XuTvueMKj6o7bTALgw6ZIuab95M7rVvTZYSthJwipJhY9Qo2JbOGu', 'google', '106763512174170963935', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
+(64, NULL, 'Md. Fahim Hossain', NULL, 'alifhossain174@gmail.com', '2024-01-28 05:57:25', '7048', '$2y$12$XuTvueMKj6o7bTALgw6ZIuab95M7rVvTZYSthJwipJhY9Qo2JbOGu', 'google', '106763512174170963935', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
 (65, NULL, 'Hedy Blake', NULL, 'hojalefa@mailinator.com', '2024-01-28 11:12:23', '908404', '$2y$12$SxXaSDeZzna3pJykMRsaFu6tX.KjbrkpZffiM2KIgwTgfI9Gg8VO.', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-01-28 11:11:57', '2024-01-28 11:12:23'),
 (66, NULL, 'Unity Walker', NULL, 'alifhossain174@gmail.co', NULL, '455713', '$2y$12$6joSa7r1rvwLNlneNN6FBOszDVdfRDWVHnTPT5j/xMqpa5Dr2vvy2', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-01-29 05:40:07', '2024-01-29 05:40:07'),
 (67, NULL, 'Isadora William', NULL, 'qipi@mailinator.com', NULL, '418958', '$2y$12$EkXMlgxtom./sOhLVyzereQ/iNaKbl8lgaR0WDla8sug366lBTcRy', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-01-29 05:41:23', '2024-01-29 05:41:23'),
@@ -8851,7 +8850,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=461;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=462;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`
