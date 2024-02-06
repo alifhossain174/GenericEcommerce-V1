@@ -91,6 +91,7 @@ Route::group(['namespace' => 'Api'], function () {
     // new api for districts and thana
     Route::get('get/all/districts', [ApiController::class, 'getAllDistricts']);
     Route::post('district/wise/thana', [ApiController::class, 'getDistrictWiseThana']);
+    Route::get('get/districts/with/thana', [ApiController::class, 'getDistrictsWithThana']);
 
 
     // unique api

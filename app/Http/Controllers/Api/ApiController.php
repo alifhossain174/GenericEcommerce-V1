@@ -1890,4 +1890,27 @@ class ApiController extends BaseController
         }
     }
 
+    public function getDistrictsWithThana(Request $request){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $thana = DB::table('districts')
+                    ->leftJoin('upazilas', 'upazilas.district_id', '=', 'districts.id')
+                    ->select('districts.id as district_id', 'districts.name as district_name', 'districts.bn_name as district_bn_name', 'districts.delivery_charge', 'upazilas.id as upazila_id', 'upazilas.name as upazila_name', 'upazilas.bn_name as upazila_bn_name')
+                    ->orderBy('districts.name', 'asc')
+                    ->orderBy('upazilas.name', 'asc')
+                    ->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => $thana
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
 }
