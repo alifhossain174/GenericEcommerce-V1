@@ -126,23 +126,24 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "alifhossain174@gmail.com",
+							"value": "dcsuperstar22@gmail.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "12345678",
+							"value": "dc2222",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://app-area.fejmo.com/api/user/login",
+					"raw": "https://app-area.riointernational.com.bd/api/user/login",
 					"protocol": "https",
 					"host": [
 						"app-area",
-						"fejmo",
-						"com"
+						"riointernational",
+						"com",
+						"bd"
 					],
 					"path": [
 						"api",
@@ -605,11 +606,15 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/user/profile/update/web",
+					"raw": "https://app-area.fejmo.com/api/user/profile/update/web",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"fejmo",
+						"com"
 					],
 					"path": [
+						"api",
 						"user",
 						"profile",
 						"update",
@@ -1901,7 +1906,7 @@
 					]
 				},
 				"url": {
-					"raw": "https://app-area.fejmo.com/api/product/details/ladies-blazer-1700113672rnV6W",
+					"raw": "https://app-area.fejmo.com/api/product/details/ladies-blazer-set-1701408751TssPg",
 					"protocol": "https",
 					"host": [
 						"app-area",
@@ -1912,7 +1917,7 @@
 						"api",
 						"product",
 						"details",
-						"ladies-blazer-1700113672rnV6W"
+						"ladies-blazer-set-1701408751TssPg"
 					]
 				}
 			},
@@ -2243,16 +2248,20 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "INEJEUDYBESTUSBW7583837NUDD75",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/about/us",
+					"raw": "https://techshop-admin.getcommerce.xyz/api/get/about/us",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"techshop-admin",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
+						"api",
 						"get",
 						"about",
 						"us"
@@ -2273,12 +2282,12 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-area.threenotthree.com/api/general/info",
+					"raw": "https://techshop-admin.getcommerce.xyz/api/general/info",
 					"protocol": "https",
 					"host": [
-						"app-area",
-						"threenotthree",
-						"com"
+						"techshop-admin",
+						"getcommerce",
+						"xyz"
 					],
 					"path": [
 						"api",
@@ -2465,7 +2474,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "187|NRoL0c9QoCcxMLA326ZNfTWEZfPGyckB5Km6eGvb",
+							"value": "104|pYk3MunLj1IW4XRqh6wq4YQtlsNtpmL887K79hCC",
 							"type": "string"
 						}
 					]
@@ -2655,8 +2664,7 @@
 							"key": "delivery_method",
 							"value": "1",
 							"description": "1=>Home Delivery; 2=>Store Pickup",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						},
 						{
 							"key": "color_id[]",
@@ -2703,12 +2711,13 @@
 					]
 				},
 				"url": {
-					"raw": "https://app-area.fejmo.com/api/order/checkout/app/only",
+					"raw": "https://app-area.imaginex.com.bd/api/order/checkout/app/only",
 					"protocol": "https",
 					"host": [
 						"app-area",
-						"fejmo",
-						"com"
+						"imaginex",
+						"com",
+						"bd"
 					],
 					"path": [
 						"api",
@@ -2845,7 +2854,7 @@
 					"formdata": [
 						{
 							"key": "order_id",
-							"value": "3",
+							"value": "1",
 							"type": "text"
 						},
 						{
@@ -2866,8 +2875,7 @@
 						{
 							"key": "gender",
 							"value": "Male",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						},
 						{
 							"key": "address",
@@ -2877,8 +2885,7 @@
 						{
 							"key": "post_code",
 							"value": "1071",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						},
 						{
 							"key": "city",
@@ -2923,13 +2930,15 @@
 					]
 				},
 				"url": {
-					"raw": "https://imaginex-admin.getcommerce.xyz/api/submit/shipping/billing/info",
-					"protocol": "https",
+					"raw": "http://127.0.0.1:8000/api/submit/shipping/billing/info",
+					"protocol": "http",
 					"host": [
-						"imaginex-admin",
-						"getcommerce",
-						"xyz"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
 						"api",
 						"submit",
@@ -2952,7 +2961,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "47|IeXV69iWDB0IN8CKFCBBdKgFW9OYfpfuYHXT1BBc",
+							"value": "114|YGVdfyK0cU6syk8eK6Gy3ghoeccKTwyGWkzDMmBW",
 							"type": "string"
 						}
 					]
@@ -3050,11 +3059,16 @@
 					]
 				},
 				"url": {
-					"raw": "{{Bestu API Base URL}}/get/my/orders",
+					"raw": "https://app-area.riointernational.com.bd/api/get/my/orders",
+					"protocol": "https",
 					"host": [
-						"{{Bestu API Base URL}}"
+						"app-area",
+						"riointernational",
+						"com",
+						"bd"
 					],
 					"path": [
+						"api",
 						"get",
 						"my",
 						"orders"
@@ -5710,16 +5724,10 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "category_id",
-							"value": "10",
-							"type": "text"
-						},
-						{
 							"key": "sort_by",
 							"value": "2",
 							"description": "1=>Low to High; 2=>High To Low",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						},
 						{
 							"key": "minimum_price",
@@ -5783,18 +5791,17 @@
 						},
 						{
 							"key": "brand_id",
-							"value": "26",
-							"type": "text",
-							"disabled": true
+							"value": "",
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://app-area.fejmo.com/api/filter/products",
+					"raw": "https://app-area.zanalifestyle.com/api/filter/products",
 					"protocol": "https",
 					"host": [
 						"app-area",
-						"fejmo",
+						"zanalifestyle",
 						"com"
 					],
 					"path": [
@@ -6218,6 +6225,78 @@
 						"delivery",
 						"charge",
 						"dhaka"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Districts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/get/all/districts",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"all",
+						"districts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "District Wise Thana",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "district_id",
+							"value": "63",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/district/wise/thana",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"district",
+						"wise",
+						"thana"
 					]
 				}
 			},

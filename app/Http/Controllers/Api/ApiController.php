@@ -1854,33 +1854,33 @@ class ApiController extends BaseController
         }
     }
 
-    public function getProductList(Request $request){
+    public function getAllDistricts(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
-            $productIdArray = array();
-            foreach($request->product_id as $product_id){
-                $productIdArray[] = $product_id;
-            }
-
-            $data = DB::table('products')
-                ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
-                ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
-                ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
-                ->leftJoin('units', 'products.unit_id', '=', 'units.id')
-                ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
-                ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
-                ->leftJoin('product_models', 'products.model_id', '=', 'product_models.id')
-                ->leftJoin('product_warrenties', 'products.warrenty_id', '=', 'product_warrenties.id')
-                ->select('products.*', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name', 'units.name as unit_name', 'flags.name as flag_name', 'brands.name as brand_name', 'product_models.name as model_name', 'product_warrenties.name as product_warrenty')
-                ->where('products.status', 1)
-                ->whereIn('products.id', $productIdArray)
-                ->orderBy('products.id', 'desc')
-                ->get();
+            $districts = DB::table('districts')->orderBy('name', 'asc')->get();
 
             return response()->json([
                 'success' => true,
-                'data' => ProductResource::collection($data)
-            ], 200);
+                'data' => $districts
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
+    public function getDistrictWiseThana(Request $request){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $thana = DB::table('upazilas')->where('district_id', $request->district_id)->orderBy('name', 'asc')->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => $thana
+            ]);
 
         } else {
             return response()->json([
