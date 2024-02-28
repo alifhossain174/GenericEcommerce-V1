@@ -57,7 +57,8 @@
                     <div class="table-responsive">
 
                         <label id="customFilter">
-                            <button class="btn btn-success btn-sm" id="addNewFlag" style="margin-left: 5px"><i class="feather-plus"></i> Add New Flag</button>
+                            <button class="btn btn-success btn-sm" id="addNewFlag" style="margin-left: 5px"><b><i class="feather-plus"></i> Add New Flag</b></button>
+                            <a href="{{url('rearrange/flags')}}" class="btn btn-info btn-sm"><b><i class="fas fa-sort-amount-up"></i> Rearrange Flags</b></a>
                         </label>
 
                         <table class="table table-bordered mb-0 data-table">
