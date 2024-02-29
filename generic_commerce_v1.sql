@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2024 at 07:04 AM
+-- Generation Time: Feb 29, 2024 at 06:52 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -78,13 +78,12 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title`, `title`, `description`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(37, 1, 'banner/Oq2Vd1709093089.svg', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'jdGoi1709093089', 4, '2024-02-28 04:04:49', '2024-02-28 05:38:18'),
 (38, 2, 'banner/NsFTz1709099707.jpg', NULL, 'middle', 1, NULL, NULL, NULL, NULL, NULL, NULL, 'xLuCb1709093137', -1, '2024-02-28 04:05:37', '2024-02-28 05:55:07'),
-(41, 1, 'banner/mrMvu1709098614.jpg', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'yRndu1709098614', 1, '2024-02-28 05:36:54', '2024-02-28 05:38:18'),
-(42, 1, 'banner/ozPaQ1709098682.jpg', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'u6ksD1709098682', 2, '2024-02-28 05:38:02', '2024-02-28 05:38:18'),
-(43, 1, 'banner/sbE1R1709098685.jpg', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'fbV2j1709098685', 3, '2024-02-28 05:38:05', '2024-02-28 05:38:18'),
 (44, 2, 'banner/V6Bfj1709099618.jpg', 'http://127.0.0.1:8000/', 'middle', 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000/', NULL, 'DBkJU1709099618', -4, '2024-02-28 05:53:38', NULL),
-(45, 2, 'banner/ECu401709099658.jpg', 'http://127.0.0.1:8000/', 'middle', 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000/', NULL, 'fF3iB1709099647', -5, '2024-02-28 05:54:07', '2024-02-28 05:54:18');
+(45, 2, 'banner/ECu401709099658.jpg', 'http://127.0.0.1:8000/', 'middle', 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000/', NULL, 'fF3iB1709099647', -5, '2024-02-28 05:54:07', '2024-02-28 05:54:18'),
+(46, 1, 'banner/pZPUI1709185652.png', '#', NULL, 1, 'New Collectio', 'The Great Fashion Collection 2022', 'Up To 30% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', '7sRBX1709185653', -1, '2024-02-29 05:47:33', NULL),
+(47, 1, 'banner/OTFjE1709185683.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 30% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'x2x4X1709185683', -2, '2024-02-29 05:48:03', NULL),
+(48, 1, 'banner/eb0GF1709185711.png', '#', NULL, 1, 'Exciting Collection', 'The Great Fashion Collection 2022', 'Up To 30% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'v3TpK1709185711', -3, '2024-02-29 05:48:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -187,19 +186,8 @@ CREATE TABLE `brands` (
 
 INSERT INTO `brands` (`id`, `name`, `logo`, `banner`, `categories`, `subcategories`, `childcategories`, `featured`, `status`, `serial`, `slug`, `created_at`, `updated_at`) VALUES
 (26, 'Aarong', 'brand_images/NvpGN1705474628.webp', NULL, NULL, NULL, NULL, 0, 1, -15, 'aarong', '2024-01-17 06:57:08', NULL),
-(27, 'Cats Eye', 'brand_images/RYZRC1705474571.png', NULL, NULL, NULL, NULL, 0, 1, -8, 'cats-eye', '2024-01-17 06:56:11', NULL),
-(28, 'Richman', 'brand_images/gRAM91705474580.png', NULL, NULL, NULL, NULL, 0, 1, -9, 'richman', '2024-01-17 06:56:20', NULL),
 (29, 'Yellow', 'brand_images/4E58h1705474589.webp', NULL, NULL, NULL, NULL, 0, 1, -10, 'yellow', '2024-01-17 06:56:29', NULL),
-(30, 'Ecstasy', 'brand_images/5R3tY1705474595.png', NULL, NULL, NULL, NULL, 0, 1, -11, 'ecstasy', '2024-01-17 06:56:35', NULL),
-(31, 'Rang Bangladesh', 'brand_images/zpBC61705474605.gif', NULL, NULL, NULL, NULL, 0, 1, -12, 'rang-bangladesh', '2024-01-17 06:56:45', NULL),
-(32, 'Kay Kraft', 'brand_images/QJalm1705474613.png', NULL, NULL, NULL, NULL, 0, 1, -13, 'kay-kraft', '2024-01-17 06:56:53', NULL),
-(33, 'Dorjibari', 'brand_images/pCqPW1705474620.jpg', NULL, NULL, NULL, NULL, 0, 1, -14, 'dorjibari', '2024-01-17 06:57:00', NULL),
-(35, 'Bibiana', 'brand_images/q8rKR1705474636.jpg', NULL, NULL, NULL, NULL, 0, 1, -16, 'bibiana', '2024-01-17 06:57:16', NULL),
-(36, 'Artisti', 'brand_images/vPaEm1705474644.png', NULL, NULL, NULL, NULL, 0, 1, -17, 'artisti', '2024-01-17 06:57:24', NULL),
-(37, 'Le Reve', 'brand_images/07sxG1705474653.png', NULL, NULL, NULL, NULL, 0, 1, -18, 'le-reve', '2024-01-17 06:57:33', NULL),
-(38, 'GentlePark', 'brand_images/oGRdP1705474658.png', NULL, NULL, NULL, NULL, 0, 1, -19, 'gentlepark', '2024-01-17 06:57:38', NULL),
-(40, 'Twelve Clothing', 'brand_images/jCgGt1705474673.webp', NULL, NULL, NULL, NULL, 0, 1, -21, 'twelve-clothing', '2024-01-17 06:57:53', NULL),
-(41, 'Grameencheck', 'brand_images/j5wZa1705474680.png', NULL, NULL, NULL, NULL, 0, 1, -22, 'grameencheck', '2024-01-17 06:58:00', NULL);
+(36, 'Artisti', 'brand_images/vPaEm1705474644.png', NULL, NULL, NULL, NULL, 0, 1, -17, 'artisti', '2024-01-17 06:57:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -931,10 +919,10 @@ CREATE TABLE `flags` (
 --
 
 INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(13, 'flag_icons/pyAx41709092583.svg', 'Featured Products', 1, 0, 'featured-products-1X0u1-1709092583', 1, '2024-02-28 03:55:00', '2024-02-28 03:56:23'),
-(14, 'flag_icons/UavjN1709092575.svg', 'Deal of the day', 1, 0, 'deal-of-the-day-QWCb5-1709092575', 1, '2024-02-28 03:55:10', '2024-02-28 03:56:15'),
-(15, 'flag_icons/yWDTZ1709092569.svg', 'Latest collection', 1, 0, 'latest-collection-v9uMY-1709092569', 1, '2024-02-28 03:55:19', '2024-02-28 03:56:09'),
-(16, 'flag_icons/hG7cD1709092564.svg', 'Discounted Items', 1, 0, 'discounted-items-MLDBQ-1709092564', 1, '2024-02-28 03:55:25', '2024-02-28 03:56:04');
+(13, 'flag_icons/OchTx1709101464.jpg', 'Featured Products', 1, 1, 'featured-products-nUWxh-1709101464', 1, '2024-02-28 03:55:00', '2024-02-28 06:24:24'),
+(14, 'flag_icons/uwhbJ1709101477.jpg', 'Deal of the day', 1, 1, 'deal-of-the-day-dAK9Y-1709101477', 2, '2024-02-28 03:55:10', '2024-02-28 06:24:37'),
+(15, 'flag_icons/noudw1709101497.jpg', 'Latest collection', 1, 0, 'latest-collection-Eo0bX-1709101497', 3, '2024-02-28 03:55:19', '2024-02-28 06:24:57'),
+(16, 'flag_icons/LB9WG1709101511.jpg', 'Discounted Items', 1, 0, 'discounted-items-SjqCs-1709101511', 4, '2024-02-28 03:55:25', '2024-02-28 06:25:11');
 
 -- --------------------------------------------------------
 
@@ -1007,7 +995,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `messenger_chat_status`, `fb_page_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/rDKS71709092226.svg', 'company_logo/en7r91709092226.svg', 'company_logo/WesMO1707128403.png', 'TechShop - Ecommerce', 'Mehraj Online Store', 'Our clothing business is dedicated to providing high-quality and stylish attire for individuals seeking comfort and fashion. We offer a diverse range of clothing items, including casual wear, formal wear, and accessories.', '+8801611903553', 'info@mehraj.com', 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', NULL, 'https://play.google.com/store/apps', 'https://www.apple.com/app-store/', '© 2024 Mehraj Online Store', 'company_logo/GVgni1704081652.png', '#d67d3e', '#262626', '#ffb84c', '#000000', '#2c3333', '#e7e7e7', 'Mehraj Online Store', 'ecommerce,shopping,online', 'Fashionable Dress Man\'s Fashion', 'Mehraj Online Store', 'company_logo/4oi9C1707128598.png', 'Fashionable Dress Man\'s Fashion', '#scroll__top {\r\n    bottom: 100px;\r\n    right: 35px;\r\n}\r\n.auth-card {\r\n    background: #f9f9f9;\r\n}\r\n@media only screen and (max-width: 600px) {\r\n#scroll__top {\r\n  display: none;\r\n}\r\n  .product__details--section .section--padding {\r\n    padding-top: 24px !important;\r\n  }\r\n\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', NULL, NULL, 'https://www.messenger.com/', 'https://web.whatsapp.com', NULL, 'https://www.tiktok.com', NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 0, NULL, 0, NULL, 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, NULL, NULL, '2024-02-28 03:54:13');
+(1, 'company_logo/CaDVM1709103389.png', 'company_logo/Ac2tF1709103389.png', 'company_logo/WesMO1707128403.png', 'TechShop - Ecommerce', 'Mehraj Online Store', 'Our clothing business is dedicated to providing high-quality and stylish attire for individuals seeking comfort and fashion. We offer a diverse range of clothing items, including casual wear, formal wear, and accessories.', '+8801611903553', 'info@mehraj.com', 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', NULL, 'https://play.google.com/store/apps', 'https://www.apple.com/app-store/', '© 2024 Mehraj Online Store', 'company_logo/GVgni1704081652.png', '#d67d3e', '#262626', '#ffb84c', '#000000', '#2c3333', '#e7e7e7', 'Mehraj Online Store', 'ecommerce,shopping,online', 'Fashionable Dress Man\'s Fashion', 'Mehraj Online Store', 'company_logo/4oi9C1707128598.png', 'Fashionable Dress Man\'s Fashion', '#scroll__top {\r\n    bottom: 100px;\r\n    right: 35px;\r\n}\r\n.auth-card {\r\n    background: #f9f9f9;\r\n}\r\n@media only screen and (max-width: 600px) {\r\n#scroll__top {\r\n  display: none;\r\n}\r\n  .product__details--section .section--padding {\r\n    padding-top: 24px !important;\r\n  }\r\n\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', NULL, NULL, 'https://www.messenger.com/', 'https://web.whatsapp.com', NULL, 'https://www.tiktok.com', NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 0, NULL, 0, NULL, 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, NULL, NULL, '2024-02-28 06:56:29');
 
 -- --------------------------------------------------------
 
@@ -2320,7 +2308,7 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (846, 49, NULL, NULL, 26, NULL, 'Business-focused mission-critical monitoring-493', '661', 'productImages/20.png', '[\"5.png\",\"17.png\",\"9.png\",\"11.png\"]', 'Voluptatem consequatur non optio magni nemo ratione. Sunt deleniti aut numquam eum. Commodi voluptatem quis id laborum mollitia.', 'Tempore est omnis aut repellendus ut nulla. Aliquid nisi commodi provident dolor autem ab. Quasi soluta odio quia et porro facilis enim. Non ratione eveniet officia quia sint. Accusantium consectetur beatae voluptatem voluptatibus eum ullam. Rem quidem eos excepturi animi modi aliquid. Reprehenderit qui eos quam tenetur. Sint saepe blanditiis quae.', 'Nihil voluptas ratione et dolorum dolorum. Illum dicta voluptate expedita dolores ut et atque officia. Est expedita distinctio eligendi dolor ut ipsa distinctio.', 'Iste sint quam molestias non. Ullam et molestias rerum molestiae optio ipsa. Aut velit facere sit consequatur explicabo molestiae. Aliquid culpa delectus consectetur.', 519, 509, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '1709095288nCWtl', 13, 'Business-focused mission-critical monitoring-493', 'product,demo', NULL, 1, 0, 1, '2024-02-28 04:41:28', NULL),
 (847, 48, NULL, NULL, 31, NULL, 'Diverse 24hour time-frame-494', '136', 'productImages/12.png', NULL, 'Totam distinctio officia animi harum provident. Non quaerat veritatis est quam commodi ut. Facere id unde quod consectetur sit rerum commodi. Quibusdam doloremque et aut.', 'Vero sint repudiandae eligendi et esse magni consectetur rerum. Vero qui quidem fuga explicabo itaque rerum dolor. Velit reprehenderit dolores quo quidem. Sed cupiditate eveniet et assumenda sed aut. Voluptate ratione facere temporibus perspiciatis sed. Voluptatem dolor aliquid et ducimus. Doloribus veniam veritatis vel voluptatum. Delectus suscipit optio assumenda reiciendis.', 'Nam quas explicabo ut voluptas. Ea deserunt nulla qui est. Vitae et eos nostrum quia non hic.', 'Cum sit similique maxime animi sit neque. Rem temporibus et et quas. Expedita sapiente quibusdam consequatur.', 234, 224, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, '1709095289vocEz', 13, 'Diverse 24hour time-frame-494', 'product,demo', NULL, 1, 1, 1, '2024-02-28 04:41:29', NULL),
 (848, 43, NULL, NULL, 30, NULL, 'Right-sized eco-centric systemengine-495', '529', 'productImages/5.png', '[\"2.png\",\"16.png\",\"3.png\",\"17.png\"]', 'Sed quisquam aut at ut perferendis. Id illum dolore quia dolor. Quaerat autem eius aut sunt aut qui. Molestiae aut sit et nesciunt tempore.', 'Est iste enim voluptatem. Voluptatem omnis eum reiciendis consequatur sed. Id delectus totam et architecto. Totam facere non error dignissimos rerum ut. Deleniti nihil quia atque vitae veniam laudantium aut. Reiciendis suscipit doloribus veniam accusantium. Id voluptates tenetur et rem ea ipsum. Vero molestiae expedita dicta totam ea qui deleniti. Aut est quo nemo consequatur expedita.', 'Est perferendis minima sed. Numquam unde fuga animi et minima ab eveniet. Illo qui sed sit explicabo est.', 'Veniam modi nihil sint magni sit. Et unde maxime sit occaecati labore. Et error aut nihil quasi minima velit sint. At itaque non rem molestiae est consectetur.', 444, 434, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '17090952893X1OF', 13, 'Right-sized eco-centric systemengine-495', 'product,demo', NULL, 1, 0, 1, '2024-02-28 04:41:29', NULL),
-(849, 38, NULL, NULL, 38, NULL, 'Ergonomic value-added strategy-496', '901', 'productImages/1.png', NULL, 'Laboriosam qui iure quidem in ut nulla totam est. Eos suscipit maxime expedita eveniet aut quasi quia. Voluptatum dolor optio qui tenetur qui cumque maxime.', 'Rerum rem dolores expedita dolorum. Mollitia non eum neque provident eum quidem aut vel. Rem impedit et quasi vel sunt eos hic. Sed in voluptatibus nesciunt ut exercitationem quasi quia. Quis aut maiores possimus labore adipisci consequatur ex aperiam.', 'Consequatur dolore consequatur aperiam praesentium et repellat. Quod aut autem eligendi dolores dolorum occaecati ut vitae. Modi non ea itaque blanditiis odio.', 'Esse eum hic qui enim quia id. Recusandae quo veniam autem illo odio ex error. Magni ab est ut incidunt cumque corrupti.', 203, 193, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1709095289NuB4h', 16, 'Ergonomic value-added strategy-496', 'product,demo', NULL, 1, 1, 1, '2024-02-28 04:41:29', NULL),
+(849, 38, NULL, NULL, NULL, NULL, 'Ergonomic value-added strategy-496', '901', 'productImages/1.png', NULL, 'Laboriosam qui iure quidem in ut nulla totam est. Eos suscipit maxime expedita eveniet aut quasi quia. Voluptatum dolor optio qui tenetur qui cumque maxime.', '<p>Rerum rem dolores expedita dolorum. Mollitia non eum neque provident eum quidem aut vel. Rem impedit et quasi vel sunt eos hic. Sed in voluptatibus nesciunt ut exercitationem quasi quia. Quis aut maiores possimus labore adipisci consequatur ex aperiam.</p>', '<p>Consequatur dolore consequatur aperiam praesentium et repellat. Quod aut autem eligendi dolores dolorum occaecati ut vitae. Modi non ea itaque blanditiis odio.</p>', '<p>Esse eum hic qui enim quia id. Recusandae quo veniam autem illo odio ex error. Magni ab est ut incidunt cumque corrupti.</p>', 203, 193, 0, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', NULL, '1709095289NuB4h', 16, 'Ergonomic value-added strategy-496', 'product,demo', NULL, 1, 1, 1, '2024-02-28 04:41:29', '2024-02-28 11:13:51'),
 (850, 48, NULL, NULL, 28, NULL, 'Monitored maximized methodology-497', '459', 'productImages/13.png', '[\"18.png\",\"20.png\",\"16.png\",\"17.png\"]', 'Quos quia enim id doloremque debitis. Est reiciendis quae facere. Officiis repellendus illum sed facere placeat doloremque.', 'Qui error sint assumenda sit et eos quibusdam possimus. Sit dolor cupiditate cumque ullam tempora quia. Itaque odio doloribus beatae ut. Occaecati quasi et voluptate incidunt blanditiis illo doloremque. Excepturi tempora sint natus. Voluptatem voluptates at fuga sunt quos. Sit tenetur quas ipsam voluptas aut.', 'Id est molestiae illo aut sed est. Odit quod molestiae officia. Ea doloribus dolor dolor similique.', 'Consequatur optio commodi deleniti. Occaecati et veritatis impedit molestiae. Et non alias sed libero fugiat voluptas.', 386, 376, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1709095289dQd13', 16, 'Monitored maximized methodology-497', 'product,demo', NULL, 1, 0, 1, '2024-02-28 04:41:29', NULL),
 (851, 44, 80, NULL, 36, NULL, 'Cross-group secondary orchestration-498', '408', 'productImages/16.png', NULL, 'Omnis cumque sed nobis qui quis cupiditate. Quos est dolor aut sed voluptate. Molestias impedit ut qui consequuntur. Ut et esse vel vel in libero repudiandae aut.', 'Veritatis explicabo et vitae nam magni magnam quam. Dolor recusandae harum cumque. Excepturi et consequuntur expedita numquam et aut eos. Vitae adipisci voluptates sit vel praesentium ad. Veritatis sit ut et nesciunt architecto quo sed. Tenetur officiis rerum eos. Aliquid quaerat repellendus dolore. Temporibus quae unde ut in. Et quis esse necessitatibus porro possimus eligendi fugiat.', 'Enim aut deleniti est. Ut sunt corrupti et et. Quia aperiam sit itaque molestiae debitis animi non. Temporibus accusantium assumenda at praesentium quo totam consequatur.', 'Similique delectus animi sit est ab esse aliquam. Cumque autem vel dolor. Dolorem pariatur libero rerum voluptate.', 197, 187, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1709095289WtHpS', 16, 'Cross-group secondary orchestration-498', 'product,demo', NULL, 1, 1, 1, '2024-02-28 04:41:29', NULL),
 (852, 48, NULL, NULL, 27, NULL, 'Front-line exuding structure-499', '963', 'productImages/6.png', '[\"12.png\",\"10.png\",\"4.png\",\"17.png\"]', 'Perferendis ullam temporibus et odit optio tenetur distinctio adipisci. Quae quis qui libero ab. Et voluptatem aspernatur ut a repellat. Sed commodi magnam minima ut esse.', 'Molestiae officia qui architecto odio non. Eos possimus necessitatibus iste qui. Porro laudantium quo quaerat rerum. Molestias et cum et dolores minus ut ut. Dolores quod voluptatum quia sequi sit harum omnis. Aut maiores ad et quas molestiae. Architecto dicta reiciendis consectetur. Quam eum animi non aspernatur ipsa.', 'Est ipsa earum nam. Libero nostrum sed placeat vitae hic. Vel velit nisi incidunt et.', 'Temporibus fuga nostrum eligendi quasi. Excepturi mollitia sequi labore consequatur asperiores quidem. Inventore nobis eum distinctio dolore. Quam similique aut eos deleniti eum.', 956, 946, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1709095289qPfSK', 16, 'Front-line exuding structure-499', 'product,demo', NULL, 1, 0, 1, '2024-02-28 04:41:29', NULL),
@@ -5722,10 +5710,10 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `unit_i
 (1647, 847, '3.png', 8, NULL, 12, 1, 3, 2, 1000, 234, 224, 7, 1, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
 (1648, 847, '17.png', 8, NULL, 12, 1, 3, 2, 1000, 234, 224, 7, 1, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
 (1649, 847, '15.png', 8, NULL, 12, 1, 3, 2, 1000, 234, 224, 7, 1, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
-(1650, 849, '18.png', 27, NULL, 14, 6, 1, 4, 1000, 203, 193, 2, 1, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
-(1651, 849, '8.png', 27, NULL, 14, 6, 1, 4, 1000, 203, 193, 2, 1, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
-(1652, 849, '7.png', 27, NULL, 14, 6, 1, 4, 1000, 203, 193, 2, 1, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
-(1653, 849, '13.png', 27, NULL, 14, 6, 1, 4, 1000, 203, 193, 2, 1, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
+(1650, 849, '18.png', 27, NULL, 14, NULL, NULL, NULL, 0, 203, 193, NULL, NULL, '2024-02-28 04:41:29', '2024-02-28 11:13:51'),
+(1651, 849, '8.png', 27, NULL, 14, NULL, NULL, NULL, 0, 203, 193, NULL, NULL, '2024-02-28 04:41:29', '2024-02-28 11:13:51'),
+(1652, 849, '7.png', 27, NULL, 14, NULL, NULL, NULL, 0, 203, 193, NULL, NULL, '2024-02-28 04:41:29', '2024-02-28 11:13:51'),
+(1653, 849, '13.png', 27, NULL, 14, NULL, NULL, NULL, 0, 203, 193, NULL, NULL, '2024-02-28 04:41:29', '2024-02-28 11:13:51'),
 (1654, 851, '16.png', 3, NULL, 8, 208, 3, 5, 1000, 197, 187, 3, 6, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
 (1655, 851, '15.png', 3, NULL, 8, 208, 3, 5, 1000, 197, 187, 3, 6, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
 (1656, 851, '17.png', 3, NULL, 8, 208, 3, 5, 1000, 197, 187, 3, 6, '2024-02-28 04:41:29', '2024-02-28 04:41:29'),
@@ -5796,7 +5784,7 @@ CREATE TABLE `promotional_banners` (
 --
 
 INSERT INTO `promotional_banners` (`id`, `icon`, `heading`, `heading_color`, `title`, `title_color`, `description`, `description_color`, `url`, `btn_text`, `btn_text_color`, `btn_bg_color`, `background_color`, `product_image`, `background_image`, `video_url`, `started_at`, `end_at`, `time_bg_color`, `time_font_color`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Hurry up and Get 25% Discount', '#000000', 'Deals Of The Day', '#000000', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore', '#606060', 'http://127.0.0.1:8000/shop', 'Show Collection', '#ffffff', '#000000', '#d7d7d7', NULL, 'banner/mBXxQ1709099020.svg', 'https://www.youtube.com/watch?v=aIuyCblh3DI', '2024-03-02 10:06:33', '2024-03-23 23:00:00', '#ffffff', '#000000', '2023-06-13 10:08:55', '2024-02-28 05:43:40');
+(1, NULL, 'Hurry up and Get 25% Discount', '#000000', 'Deals Of The Day', '#000000', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore', '#606060', 'http://127.0.0.1:8000/shop', 'Show Collection', '#ffffff', '#000000', '#d7d7d7', NULL, 'banner/q8x1c1709101623.jpg', 'https://www.youtube.com/watch?v=aIuyCblh3DI', '2024-03-02 10:06:33', '2024-03-23 23:00:00', '#ffffff', '#000000', '2023-06-13 10:08:55', '2024-02-28 06:29:23');
 
 -- --------------------------------------------------------
 
@@ -6087,6 +6075,13 @@ CREATE TABLE `subscribed_users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `subscribed_users`
+--
+
+INSERT INTO `subscribed_users` (`id`, `email`, `created_at`, `updated_at`) VALUES
+(25, 'alifhossain174@gmail.com', '2024-02-28 06:31:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -11367,7 +11362,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
 (1, '', 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57'),
-(64, 'userProfileImages/z8ODg1706785422.jpg', 'Md. Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', '2024-01-28 05:57:25', '7048', '$2y$12$XuTvueMKj6o7bTALgw6ZIuab95M7rVvTZYSthJwipJhY9Qo2JbOGu', 'google', '106763512174170963935', NULL, 3, 'Dhaka Bangladesh', 0, 0, NULL, 1, NULL, NULL);
+(64, 'userProfileImages/z8ODg1706785422.jpg', 'Md. Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', '2024-01-28 05:57:25', '7048', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 3, 'Dhaka Bangladesh', 0, 0, NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -11951,7 +11946,7 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `billing_addresses`
@@ -12257,7 +12252,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `subscribed_users`
 --
 ALTER TABLE `subscribed_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `support_messages`
