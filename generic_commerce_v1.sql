@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2024 at 06:52 AM
+-- Generation Time: Feb 29, 2024 at 07:33 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -5927,8 +5927,9 @@ CREATE TABLE `sms_gateways` (
 --
 
 INSERT INTO `sms_gateways` (`id`, `image`, `provider_name`, `api_endpoint`, `api_key`, `secret_key`, `sender_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'ElitBuzz', 'https://880sms.com/smsapi', 'C20095786bf436075.858353215', NULL, 'GenericCommerceV1', 0, '2023-06-13 03:43:26', '2023-10-22 06:01:53'),
-(2, NULL, 'Reve', 'https://smpp.ajuratech.com:7790/sendtext', '69cff06995a4a85', '20cdf1d28', 'GenericCommerceV1', 1, '2023-06-13 03:43:26', '2023-10-22 06:01:53');
+(1, NULL, 'ElitBuzz', 'https://880sms.com/smsapi', 'C20095786bf436075.858353215', NULL, 'GenericCommerceV1', 0, '2023-06-13 03:43:26', '2024-02-29 06:18:12'),
+(2, NULL, 'Reve', 'https://smpp.ajuratech.com:7790/sendtext', '69cff06995a4a85', '20cdf1d28', 'GenericCommerceV1', 0, '2023-06-13 03:43:26', '2024-02-29 06:18:12'),
+(3, NULL, 'KhudeBarta', 'http://192.168.18.119:8585/send', '5d2a', '465', '8801847', 1, '2024-02-29 06:10:13', '2024-02-29 06:18:12');
 
 -- --------------------------------------------------------
 
@@ -12216,7 +12217,7 @@ ALTER TABLE `sims`
 -- AUTO_INCREMENT for table `sms_gateways`
 --
 ALTER TABLE `sms_gateways`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sms_histories`
