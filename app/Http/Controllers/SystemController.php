@@ -179,6 +179,17 @@ class SystemController extends Controller
             ]);
         }
 
+        if($provider == 'khudebarta'){ //ID 2 => Revesms
+            SmsGateway::where('id', 3)->update([
+                'api_endpoint' => $request->api_endpoint,
+                'api_key' => $request->api_key,
+                'secret_key' => $request->secret_key,
+                'sender_id' => $request->sender_id,
+                'status' => 1,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
         Toastr::success('Info Updated', 'Success');
         return back();
 
@@ -200,6 +211,13 @@ class SystemController extends Controller
 
         if($provider == 'revesms'){ //ID 2 => Revesms
             SmsGateway::where('id', 2)->update([
+                'status' => 1,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        if($provider == 'khudebarta'){ //ID 2 => Revesms
+            SmsGateway::where('id', 3)->update([
                 'status' => 1,
                 'updated_at' => Carbon::now()
             ]);
