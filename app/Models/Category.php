@@ -11,7 +11,7 @@ class Category extends Model
 
     public static function getDropDownList($fieldName, $id=NULL){
         $str = "<option value=''>Select One</option>";
-        $lists = self::orderBy($fieldName,'asc')->where('status', 1)->get();
+        $lists = self::orderBy('serial', 'asc')->where('status', 1)->get();
         if($lists){
             foreach($lists as $list){
                 if($id !=NULL && $id == $list->id){
