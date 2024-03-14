@@ -118,6 +118,110 @@
                             </div>
                         </div>
 
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="mission_image">Mission Image <span class="text-danger">*</span></label>
+                                    <input type="file" name="mission_image" class="dropify" data-height="203" data-max-file-size="1M" accept="image/*"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mission_btn_text">Mission Button Text</label>
+                                    <input type="text" id="mission_btn_text" name="mission_btn_text" class="form-control" placeholder="Enter Text Here">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('mission_btn_text')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mission_btn_link">Mission Button Link</label>
+                                    <input type="text" id="mission_btn_link" name="mission_btn_link" class="form-control" placeholder="https://">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('mission_btn_link')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="mission_section_title">Mission Section Title <span class="text-danger">*</span></label>
+                                    <input type="text" id="mission_section_title" name="mission_section_title" class="form-control" placeholder="Our  Mission" required>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('mission_section_title')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mission_description">Mission Description</label>
+                                    <textarea id="mission_description" name="mission_description" class="form-control"></textarea>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('mission_description')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="vision_image">Vision Image <span class="text-danger">*</span></label>
+                                    <input type="file" name="vision_image" class="dropify" data-height="203" data-max-file-size="1M" accept="image/*"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="vision_btn_text">Vision Button Text</label>
+                                    <input type="text" id="vision_btn_text" name="vision_btn_text" class="form-control" placeholder="Enter Text Here">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('vision_btn_text')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="vision_btn_link">Vision Button Link</label>
+                                    <input type="text" id="vision_btn_link" name="vision_btn_link" class="form-control" placeholder="https://">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('vision_btn_link')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="vision_section_title">Vision Section Title <span class="text-danger">*</span></label>
+                                    <input type="text" id="vision_section_title" name="vision_section_title" class="form-control" placeholder="Our Vision" required>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('vision_section_title')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="vision_description">Vision Description</label>
+                                    <textarea id="vision_description" name="vision_description" class="form-control"></textarea>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('vision_description')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group text-center pt-3">
                             <button class="btn btn-primary" type="submit">Update Info</button>
                         </div>
@@ -138,6 +242,18 @@
     <script>
 
         CKEDITOR.replace('section_description', {
+            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form',
+            height: 160,
+        });
+
+        CKEDITOR.replace('mission_description', {
+            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form',
+            height: 160,
+        });
+
+        CKEDITOR.replace('vision_description', {
             filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form',
             height: 160,
