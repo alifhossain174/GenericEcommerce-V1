@@ -29,9 +29,11 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Demo Products Type</label>
-                                            <select class="form-control" name="product_type">
+                                            <select class="form-control" name="product_type" required>
+                                                <option value="">Select One</option>
                                                 <option value="1">Fashion</option>
                                                 <option value="2">Tech</option>
+                                                <option value="3">Grocery</option>
                                             </select>
                                         </div>
                                     </div>
