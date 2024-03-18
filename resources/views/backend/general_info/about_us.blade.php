@@ -32,10 +32,21 @@
         <div class="col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-3">About Us Update Form</h4>
 
                     <form class="needs-validation" method="POST" action="{{url('update/about/us')}}" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h4 class="card-title mb-3">About Us Update Form</h4>
+                            </div>
+                            <div class="col-lg-4 text-right">
+
+                                <a href="{{url('/home')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
+                                <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i class="fas fa-save"></i> Update Info</button>
+
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-lg-3">
@@ -129,7 +140,7 @@
 
                                 <div class="form-group">
                                     <label for="mission_btn_text">Mission Button Text</label>
-                                    <input type="text" id="mission_btn_text" name="mission_btn_text" class="form-control" placeholder="Enter Text Here">
+                                    <input type="text" id="mission_btn_text" value="{{$data->mission_btn_text}}" name="mission_btn_text" class="form-control" placeholder="Enter Text Here">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('mission_btn_text')
                                             {{ $message }}
@@ -139,7 +150,7 @@
 
                                 <div class="form-group">
                                     <label for="mission_btn_link">Mission Button Link</label>
-                                    <input type="text" id="mission_btn_link" name="mission_btn_link" class="form-control" placeholder="https://">
+                                    <input type="text" id="mission_btn_link" value="{{$data->mission_btn_link}}" name="mission_btn_link" class="form-control" placeholder="https://">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('mission_btn_link')
                                             {{ $message }}
@@ -150,7 +161,7 @@
                             <div class="col-lg-9">
                                 <div class="form-group">
                                     <label for="mission_section_title">Mission Section Title <span class="text-danger">*</span></label>
-                                    <input type="text" id="mission_section_title" name="mission_section_title" class="form-control" placeholder="Our  Mission" required>
+                                    <input type="text" id="mission_section_title" value="{{$data->mission_section_title}}" name="mission_section_title" class="form-control" placeholder="Our  Mission">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('mission_section_title')
                                             {{ $message }}
@@ -160,7 +171,7 @@
 
                                 <div class="form-group">
                                     <label for="mission_description">Mission Description</label>
-                                    <textarea id="mission_description" name="mission_description" class="form-control"></textarea>
+                                    <textarea id="mission_description" name="mission_description" class="form-control">{!! $data->mission_description !!}</textarea>
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('mission_description')
                                             {{ $message }}
@@ -181,7 +192,7 @@
 
                                 <div class="form-group">
                                     <label for="vision_btn_text">Vision Button Text</label>
-                                    <input type="text" id="vision_btn_text" name="vision_btn_text" class="form-control" placeholder="Enter Text Here">
+                                    <input type="text" id="vision_btn_text" value="{{$data->vision_btn_text}}" name="vision_btn_text" class="form-control" placeholder="Enter Text Here">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('vision_btn_text')
                                             {{ $message }}
@@ -191,7 +202,7 @@
 
                                 <div class="form-group">
                                     <label for="vision_btn_link">Vision Button Link</label>
-                                    <input type="text" id="vision_btn_link" name="vision_btn_link" class="form-control" placeholder="https://">
+                                    <input type="text" id="vision_btn_link" value="{{$data->vision_btn_link}}" name="vision_btn_link" class="form-control" placeholder="https://">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('vision_btn_link')
                                             {{ $message }}
@@ -202,7 +213,7 @@
                             <div class="col-lg-9">
                                 <div class="form-group">
                                     <label for="vision_section_title">Vision Section Title <span class="text-danger">*</span></label>
-                                    <input type="text" id="vision_section_title" name="vision_section_title" class="form-control" placeholder="Our Vision" required>
+                                    <input type="text" id="vision_section_title" value="{{$data->vision_section_title}}" name="vision_section_title" class="form-control" placeholder="Our Vision">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('vision_section_title')
                                             {{ $message }}
@@ -212,7 +223,7 @@
 
                                 <div class="form-group">
                                     <label for="vision_description">Vision Description</label>
-                                    <textarea id="vision_description" name="vision_description" class="form-control"></textarea>
+                                    <textarea id="vision_description" name="vision_description" class="form-control">{!! $data->vision_description !!}</textarea>
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('vision_description')
                                             {{ $message }}
@@ -223,7 +234,8 @@
                         </div>
 
                         <div class="form-group text-center pt-3">
-                            <button class="btn btn-primary" type="submit">Update Info</button>
+                            <a href="{{url('/home')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
+                            <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i class="fas fa-save"></i> Update Info</button>
                         </div>
                     </form>
                 </div>
@@ -275,6 +287,20 @@
             $(".dropify-clear").eq(1).css("display", "block");
             $(".dropify-filename-inner").eq(1).html("{{$data->image}}");
             $("span.dropify-render").eq(1).html("<img src='{{url($data->image)}}'>");
+        @endif
+
+        @if($data->mission_image && file_exists(public_path($data->mission_image)))
+            $(".dropify-preview").eq(2).css("display", "block");
+            $(".dropify-clear").eq(2).css("display", "block");
+            $(".dropify-filename-inner").eq(2).html("{{$data->mission_image}}");
+            $("span.dropify-render").eq(2).html("<img src='{{url($data->mission_image)}}'>");
+        @endif
+
+        @if($data->vision_image && file_exists(public_path($data->vision_image)))
+            $(".dropify-preview").eq(3).css("display", "block");
+            $(".dropify-clear").eq(3).css("display", "block");
+            $(".dropify-filename-inner").eq(3).html("{{$data->vision_image}}");
+            $("span.dropify-render").eq(3).html("<img src='{{url($data->vision_image)}}'>");
         @endif
     </script>
 @endsection

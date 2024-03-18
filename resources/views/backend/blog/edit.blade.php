@@ -93,17 +93,6 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-9">
-                                        <div class="form-group">
-                                            <label for="tags">Tags (for search result)</label>
-                                            <input type="text" name="tags" value="{{$data->tags}}" class="form-control" data-role="tagsinput">
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('tags')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="status">Status</label>
@@ -116,6 +105,52 @@
                                                 @error('status')
                                                     {{ $message }}
                                                 @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body table-responsive">
+                                        <h4 class="card-title mb-3">Blog SEO Information <small class="text-danger font-weight-bolder">(Optional)</small></h4>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="meta_title">Meta Title</label>
+                                                    <input type="text" id="meta_title" name="meta_title" value="{{$data->meta_title}}" class="form-control" placeholder="Meta Title">
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('meta_title')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="meta_keywords">Meta Keywords</label>
+                                                    <input type="text" id="meta_keywords" data-role="tagsinput" value="{{$data->meta_keywords}}" name="meta_keywords" class="form-control">
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('meta_keywords')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="meta_description">Meta Description</label>
+                                                    <textarea id="meta_description" name="meta_description" class="form-control" placeholder="Meta Description Here">{{$data->meta_description}}</textarea>
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('meta_description')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

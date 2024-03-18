@@ -23,6 +23,19 @@ class CreateAboutUsTable extends Migration
             $table->string('btn_icon_class')->nullable();
             $table->string('btn_text')->nullable();
             $table->string('btn_link')->nullable();
+
+            $table->string('mission_image')->nullable();
+            $table->string('mission_btn_text')->nullable();
+            $table->string('mission_btn_link')->nullable();
+            $table->string('mission_section_title')->nullable();
+            $table->longText('mission_description')->nullable();
+
+            $table->string('vision_image')->nullable();
+            $table->string('vision_btn_text')->nullable();
+            $table->string('vision_btn_link')->nullable();
+            $table->string('vision_section_title')->nullable();
+            $table->longText('vision_description')->nullable();
+
             $table->timestamps();
         });
     }

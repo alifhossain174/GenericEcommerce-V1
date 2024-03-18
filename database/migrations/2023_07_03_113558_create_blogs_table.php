@@ -23,6 +23,11 @@ class CreateBlogsTable extends Migration
             $table->string('tags')->nullable();
             $table->string('slug');
             $table->tinyInteger('status')->default(1)->comment("0=>Inactive; 1=>Active");
+
+            $table->string('meta_title')->nullable();
+            $table->string('meta_keywords')->nullable();
+            $table->string('meta_description')->nullable();
+
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2024 at 07:33 AM
+-- Generation Time: Mar 18, 2024 at 06:30 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -37,6 +37,16 @@ CREATE TABLE `about_us` (
   `btn_icon_class` varchar(255) DEFAULT NULL,
   `btn_text` varchar(255) DEFAULT NULL,
   `btn_link` varchar(255) DEFAULT NULL,
+  `mission_image` varchar(255) DEFAULT NULL,
+  `mission_btn_text` varchar(255) DEFAULT NULL,
+  `mission_btn_link` varchar(255) DEFAULT NULL,
+  `mission_section_title` varchar(255) DEFAULT NULL,
+  `mission_description` longtext DEFAULT NULL,
+  `vision_image` varchar(255) DEFAULT NULL,
+  `vision_btn_text` varchar(255) DEFAULT NULL,
+  `vision_btn_link` varchar(255) DEFAULT NULL,
+  `vision_section_title` varchar(255) DEFAULT NULL,
+  `vision_description` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -45,8 +55,8 @@ CREATE TABLE `about_us` (
 -- Dumping data for table `about_us`
 --
 
-INSERT INTO `about_us` (`id`, `banner_bg`, `image`, `section_sub_title`, `section_title`, `section_description`, `btn_icon_class`, `btn_text`, `btn_link`, `created_at`, `updated_at`) VALUES
-(1, 'uploads/about_us/0uINT1705830913.png', 'uploads/about_us/bWgoq1705831028.png', 'Why Choose us', 'We do not buy from the open market & traders.', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illo, est repellendus are quia voluptate neque reiciendis ea placeat labore maiores cum, hic ducimus ad a dolorem soluta consectetur adipisci. Perspiciatis quas ab quibusdam is. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illo, est repellendus are quia voluptate neque reiciendis ea placeat labore maiores cum, hic ducimus ad a dolorem soluta consectetur adipisci. Perspiciatis quas ab quibusdam is.</p>\r\n\r\n<p>Itaque accusantium eveniet a laboriosam dolorem? Magni suscipit est corrupti explicabo non perspiciatis, excepturi ut asperiores assumenda rerum? Provident ab corrupti sequi, voluptates repudiandae eius odit aut Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit illo, est repellendus are quia voluptate neque reiciendis ea placeat labore maiores cum, hic ducimus ad a dolorem soluta consectetur adipisci. Perspiciatis quas ab quibusdam is.</p>', NULL, NULL, NULL, NULL, '2024-01-21 10:01:19');
+INSERT INTO `about_us` (`id`, `banner_bg`, `image`, `section_sub_title`, `section_title`, `section_description`, `btn_icon_class`, `btn_text`, `btn_link`, `mission_image`, `mission_btn_text`, `mission_btn_link`, `mission_section_title`, `mission_description`, `vision_image`, `vision_btn_text`, `vision_btn_link`, `vision_section_title`, `vision_description`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'uploads/about_us/tg1KW1710736093.png', 'About Us', 'Our institute aims to develop your children\'s educational knowledge.', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>', NULL, 'Read More', 'http://127.0.0.1:8000/about-us', 'uploads/about_us/qKfPK1710736172.png', 'Read More', 'http://127.0.0.1:8000/about-us', 'Our Mission', '<p>it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>\r\n\r\n<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>', 'uploads/about_us/zgRcD1710736172.png', 'Read More', 'http://127.0.0.1:8000/about-us', 'Our Vission', '<p>it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>\r\n\r\n<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>', NULL, '2024-03-18 04:35:42');
 
 -- --------------------------------------------------------
 
@@ -78,12 +88,12 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title`, `title`, `description`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(38, 2, 'banner/NsFTz1709099707.jpg', NULL, 'middle', 1, NULL, NULL, NULL, NULL, NULL, NULL, 'xLuCb1709093137', -1, '2024-02-28 04:05:37', '2024-02-28 05:55:07'),
-(44, 2, 'banner/V6Bfj1709099618.jpg', 'http://127.0.0.1:8000/', 'middle', 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000/', NULL, 'DBkJU1709099618', -4, '2024-02-28 05:53:38', NULL),
-(45, 2, 'banner/ECu401709099658.jpg', 'http://127.0.0.1:8000/', 'middle', 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000/', NULL, 'fF3iB1709099647', -5, '2024-02-28 05:54:07', '2024-02-28 05:54:18'),
-(46, 1, 'banner/pZPUI1709185652.png', '#', NULL, 1, 'New Collectio', 'The Great Fashion Collection 2022', 'Up To 30% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', '7sRBX1709185653', -1, '2024-02-29 05:47:33', NULL),
-(47, 1, 'banner/OTFjE1709185683.png', '#', NULL, 1, 'New Collection', 'The Great Fashion Collection 2022', 'Up To 30% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'x2x4X1709185683', -2, '2024-02-29 05:48:03', NULL),
-(48, 1, 'banner/eb0GF1709185711.png', '#', NULL, 1, 'Exciting Collection', 'The Great Fashion Collection 2022', 'Up To 30% Off Final Sale Items. Caught in the Moment!', 'Show Collection', '#', 'left', 'v3TpK1709185711', -3, '2024-02-29 05:48:31', NULL);
+(49, 1, 'banner/fCqcD1710309113.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000', NULL, 'OGnmf1710309113', -1, '2024-03-13 05:51:53', NULL),
+(50, 1, 'banner/HrAGa1710309123.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000', NULL, 'sdqcl1710309124', -2, '2024-03-13 05:52:04', NULL),
+(51, 1, 'banner/XViWM1710309129.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000', NULL, 'gEorp1710309129', -3, '2024-03-13 05:52:09', NULL),
+(52, 1, 'banner/Hb2vN1710309135.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000', NULL, '7sl1h1710309135', -4, '2024-03-13 05:52:15', NULL),
+(53, 1, 'banner/jezit1710309140.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000', NULL, 'Rh5jk1710309140', -5, '2024-03-13 05:52:20', '2024-03-13 05:52:36'),
+(54, 1, 'banner/lelv81710309147.jpg', 'http://127.0.0.1:8000', NULL, 1, NULL, NULL, NULL, NULL, 'http://127.0.0.1:8000', NULL, 'TKude1710309147', -6, '2024-03-13 05:52:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -103,6 +113,13 @@ CREATE TABLE `billing_addresses` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `billing_addresses`
+--
+
+INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `thana`, `city`, `country`, `created_at`, `updated_at`) VALUES
+(3, 1, 'Noyanagar, Khilkhet', '4174', 'Barguna Sadar', 'Barguna', 'Bangladesh', '2024-03-10 05:45:38', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +136,9 @@ CREATE TABLE `blogs` (
   `tags` varchar(255) DEFAULT NULL,
   `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `meta_description` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -127,10 +147,10 @@ CREATE TABLE `blogs` (
 -- Dumping data for table `blogs`
 --
 
-INSERT INTO `blogs` (`id`, `category_id`, `image`, `title`, `short_description`, `description`, `tags`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(2, 3, 'blogImages/JRl7i1697623059.png', 'Fashion Trends In 2021 Styles, Colors, Accessories', 'If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the Golden Globes, SAG Awards and Oscars, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. Vogue picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film’s big nights in 2024.', '<p>If red carpet stylists had their way, awards season 2024 would be a joyous celebration of emerging designers, diverse talent and archival looks with an underlining note of thoughtfulness regarding the state of fashion. But, there are brand partnerships at play, new collections to promote and sponsors to keep happy. Hollywood&rsquo;s wardrobes become Tetris puzzles, as celebrity dressers navigate samples, alterations and custom commissions, while keeping in mind both the couture and ready-to-wear trends and incorporating some semblance of sustainability in line with the industry&rsquo;s commitment to do better for our planet. A dress is never just a dress during awards season.</p>\r\n\r\n<p>If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the <a href=\"https://www.vogue.com/article/whats-going-on-with-the-golden-globes\">Golden Globes</a>, SAG Awards and <a href=\"https://www.vogue.co.uk/article/oscars\">Oscars</a>, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. <em>Vogue</em> picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film&rsquo;s big nights in 2024.</p>\r\n\r\n<blockquote>\r\n<p>Bridal was a major trend at last year&rsquo;s Oscars, but all-white looks also proliferated on the spring 2024 runways, thanks to the likes of Stella McCartney, Prada, Valentino and Acne Studios. &ldquo;It showed that white isn&rsquo;t just for weddings,&rdquo; opines Holly. &ldquo;The laser-cuts, the sheer details, the neck lines&hellip; these looks are red-carpet worthy and I&rsquo;m excited to see who walks in them.&rdquo; We can imagine the British contingency &ndash; including Rosamund Pike and Emily Blunt &ndash; channelling this undone angelic look.</p>\r\n</blockquote>\r\n\r\n<h2>Disco 2024</h2>\r\n\r\n<p>&ldquo;If there is a time to shine, it&rsquo;s on the red carpet,&rdquo; asserts White. &ldquo;Metallics will reign and spring 2024 brought some modern silhouettes to the runway that will give this somewhat consistent trend a contemporary and updated look.&rdquo; Watch out, she says, for Paco Rabanne, Alexander McQueen and Ralph Lauren.</p>', 'health,beauty,fashion', 'fashion-trends-in-2021-styles-colors-accessories1705821920', 1, '2023-10-18 07:57:39', '2024-01-21 09:23:17'),
-(3, 2, 'blogImages/qje301697623144.png', 'Lauryn Hill Could Make Tulle Skirt and Cowboy', 'If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the Golden Globes, SAG Awards and Oscars, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. Vogue picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film’s big nights in 2024.', '<p>If red carpet stylists had their way, awards season 2024 would be a joyous celebration of emerging designers, diverse talent and archival looks with an underlining note of thoughtfulness regarding the state of fashion. But, there are brand partnerships at play, new collections to promote and sponsors to keep happy. Hollywood&rsquo;s wardrobes become Tetris puzzles, as celebrity dressers navigate samples, alterations and custom commissions, while keeping in mind both the couture and ready-to-wear trends and incorporating some semblance of sustainability in line with the industry&rsquo;s commitment to do better for our planet. A dress is never just a dress during awards season.</p>\r\n\r\n<p>If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the <a href=\"https://www.vogue.com/article/whats-going-on-with-the-golden-globes\">Golden Globes</a>, SAG Awards and <a href=\"https://www.vogue.co.uk/article/oscars\">Oscars</a>, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. <em>Vogue</em> picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film&rsquo;s big nights in 2024.</p>\r\n\r\n<blockquote>\r\n<p>Bridal was a major trend at last year&rsquo;s Oscars, but all-white looks also proliferated on the spring 2024 runways, thanks to the likes of Stella McCartney, Prada, Valentino and Acne Studios. &ldquo;It showed that white isn&rsquo;t just for weddings,&rdquo; opines Holly. &ldquo;The laser-cuts, the sheer details, the neck lines&hellip; these looks are red-carpet worthy and I&rsquo;m excited to see who walks in them.&rdquo; We can imagine the British contingency &ndash; including Rosamund Pike and Emily Blunt &ndash; channelling this undone angelic look.</p>\r\n</blockquote>\r\n\r\n<h2>Disco 2024</h2>\r\n\r\n<p>&ldquo;If there is a time to shine, it&rsquo;s on the red carpet,&rdquo; asserts White. &ldquo;Metallics will reign and spring 2024 brought some modern silhouettes to the runway that will give this somewhat consistent trend a contemporary and updated look.&rdquo; Watch out, she says, for Paco Rabanne, Alexander McQueen and Ralph Lauren.</p>', 'fashion,blog,tech', 'lauryn-hill-could-make-tulle-skirt-and-cowboy1705821898', 1, '2023-10-18 07:59:04', '2024-01-21 09:23:26'),
-(4, 2, 'blogImages/HIFbw1697623177.png', 'Fewer Bow Ties, More Fringe: What to Expect on the Red Carpets During Awards Season 2024', NULL, '<p>If red carpet stylists had their way, awards season 2024 would be a joyous celebration of emerging designers, diverse talent and archival looks with an underlining note of thoughtfulness regarding the state of fashion. But, there are brand partnerships at play, new collections to promote and sponsors to keep happy. Hollywood&rsquo;s wardrobes become Tetris puzzles, as celebrity dressers navigate samples, alterations and custom commissions, while keeping in mind both the couture and ready-to-wear trends and incorporating some semblance of sustainability in line with the industry&rsquo;s commitment to do better for our planet. A dress is never just a dress during awards season.</p>\r\n\r\n<p>If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the <a href=\"https://www.vogue.com/article/whats-going-on-with-the-golden-globes\">Golden Globes</a>, SAG Awards and <a href=\"https://www.vogue.co.uk/article/oscars\">Oscars</a>, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. <em>Vogue</em> picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film&rsquo;s big nights in 2024.</p>\r\n\r\n<blockquote>\r\n<p>Bridal was a major trend at last year&rsquo;s Oscars, but all-white looks also proliferated on the spring 2024 runways, thanks to the likes of Stella McCartney, Prada, Valentino and Acne Studios. &ldquo;It showed that white isn&rsquo;t just for weddings,&rdquo; opines Holly. &ldquo;The laser-cuts, the sheer details, the neck lines&hellip; these looks are red-carpet worthy and I&rsquo;m excited to see who walks in them.&rdquo; We can imagine the British contingency &ndash; including Rosamund Pike and Emily Blunt &ndash; channelling this undone angelic look.</p>\r\n</blockquote>\r\n\r\n<h2>Disco 2024</h2>\r\n\r\n<p>&ldquo;If there is a time to shine, it&rsquo;s on the red carpet,&rdquo; asserts White. &ldquo;Metallics will reign and spring 2024 brought some modern silhouettes to the runway that will give this somewhat consistent trend a contemporary and updated look.&rdquo; Watch out, she says, for Paco Rabanne, Alexander McQueen and Ralph Lauren.</p>\r\n\r\n<p><a href=\"https://www.vogue.com/v2/offers/vog224?source=Site_0_VOG_JNY_DESKTOP_CM_IN_CONTENT_0_MARTECH_US_INTL_TOTE_CONTROL\" target=\"_blank\"><img alt=\"Never Miss a Vogue Moment &lt;br&gt; Get 1 year of Vogue. Plus, get a limited-edition tote &lt;br&gt; SUBSCRIBE NOW\" src=\"https://assets.vogue.com/photos/65822b5f981b93570340822c/original/pass/VOG_DT_In_Content_ControlTote_450x140_2x.png?format=original\" /></a></p>', 'fashion,tech,jewellry', 'fewer-bow-ties-more-fringe-what-to-expect-on-the-red-carpets-during-awards-season-20241705828505', 1, '2023-10-18 07:59:37', '2024-01-21 09:16:46');
+INSERT INTO `blogs` (`id`, `category_id`, `image`, `title`, `short_description`, `description`, `tags`, `slug`, `status`, `meta_title`, `meta_keywords`, `meta_description`, `created_at`, `updated_at`) VALUES
+(2, 3, 'blogImages/JRl7i1697623059.png', 'Fashion Trends In 2021 Styles, Colors, Accessories', 'If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the Golden Globes, SAG Awards and Oscars, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. Vogue picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film’s big nights in 2024.', '<p>If red carpet stylists had their way, awards season 2024 would be a joyous celebration of emerging designers, diverse talent and archival looks with an underlining note of thoughtfulness regarding the state of fashion. But, there are brand partnerships at play, new collections to promote and sponsors to keep happy. Hollywood&rsquo;s wardrobes become Tetris puzzles, as celebrity dressers navigate samples, alterations and custom commissions, while keeping in mind both the couture and ready-to-wear trends and incorporating some semblance of sustainability in line with the industry&rsquo;s commitment to do better for our planet. A dress is never just a dress during awards season.</p>\r\n\r\n<p>If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the <a href=\"https://www.vogue.com/article/whats-going-on-with-the-golden-globes\">Golden Globes</a>, SAG Awards and <a href=\"https://www.vogue.co.uk/article/oscars\">Oscars</a>, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. <em>Vogue</em> picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film&rsquo;s big nights in 2024.</p>\r\n\r\n<blockquote>\r\n<p>Bridal was a major trend at last year&rsquo;s Oscars, but all-white looks also proliferated on the spring 2024 runways, thanks to the likes of Stella McCartney, Prada, Valentino and Acne Studios. &ldquo;It showed that white isn&rsquo;t just for weddings,&rdquo; opines Holly. &ldquo;The laser-cuts, the sheer details, the neck lines&hellip; these looks are red-carpet worthy and I&rsquo;m excited to see who walks in them.&rdquo; We can imagine the British contingency &ndash; including Rosamund Pike and Emily Blunt &ndash; channelling this undone angelic look.</p>\r\n</blockquote>\r\n\r\n<h2>Disco 2024</h2>\r\n\r\n<p>&ldquo;If there is a time to shine, it&rsquo;s on the red carpet,&rdquo; asserts White. &ldquo;Metallics will reign and spring 2024 brought some modern silhouettes to the runway that will give this somewhat consistent trend a contemporary and updated look.&rdquo; Watch out, she says, for Paco Rabanne, Alexander McQueen and Ralph Lauren.</p>', 'health,beauty,fashion', 'fashion-trends-in-2021-styles-colors-accessories1705821920', 1, NULL, NULL, NULL, '2023-10-18 07:57:39', '2024-01-21 09:23:17'),
+(3, 2, 'blogImages/qje301697623144.png', 'Lauryn Hill Could Make Tulle Skirt and Cowboy', 'If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the Golden Globes, SAG Awards and Oscars, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. Vogue picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film’s big nights in 2024.', '<p>If red carpet stylists had their way, awards season 2024 would be a joyous celebration of emerging designers, diverse talent and archival looks with an underlining note of thoughtfulness regarding the state of fashion. But, there are brand partnerships at play, new collections to promote and sponsors to keep happy. Hollywood&rsquo;s wardrobes become Tetris puzzles, as celebrity dressers navigate samples, alterations and custom commissions, while keeping in mind both the couture and ready-to-wear trends and incorporating some semblance of sustainability in line with the industry&rsquo;s commitment to do better for our planet. A dress is never just a dress during awards season.</p>\r\n\r\n<p>If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the <a href=\"https://www.vogue.com/article/whats-going-on-with-the-golden-globes\">Golden Globes</a>, SAG Awards and <a href=\"https://www.vogue.co.uk/article/oscars\">Oscars</a>, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. <em>Vogue</em> picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film&rsquo;s big nights in 2024.</p>\r\n\r\n<blockquote>\r\n<p>Bridal was a major trend at last year&rsquo;s Oscars, but all-white looks also proliferated on the spring 2024 runways, thanks to the likes of Stella McCartney, Prada, Valentino and Acne Studios. &ldquo;It showed that white isn&rsquo;t just for weddings,&rdquo; opines Holly. &ldquo;The laser-cuts, the sheer details, the neck lines&hellip; these looks are red-carpet worthy and I&rsquo;m excited to see who walks in them.&rdquo; We can imagine the British contingency &ndash; including Rosamund Pike and Emily Blunt &ndash; channelling this undone angelic look.</p>\r\n</blockquote>\r\n\r\n<h2>Disco 2024</h2>\r\n\r\n<p>&ldquo;If there is a time to shine, it&rsquo;s on the red carpet,&rdquo; asserts White. &ldquo;Metallics will reign and spring 2024 brought some modern silhouettes to the runway that will give this somewhat consistent trend a contemporary and updated look.&rdquo; Watch out, she says, for Paco Rabanne, Alexander McQueen and Ralph Lauren.</p>', 'fashion,blog,tech', 'lauryn-hill-could-make-tulle-skirt-and-cowboy1705821898', 1, NULL, NULL, NULL, '2023-10-18 07:59:04', '2024-01-21 09:23:26'),
+(4, 2, 'blogImages/HIFbw1697623177.png', 'Fewer Bow Ties, More Fringe: What to Expect on the Red Carpets During Awards Season 2024', NULL, '<p>If red carpet stylists had their way, awards season 2024 would be a joyous celebration of emerging designers, diverse talent and archival looks with an underlining note of thoughtfulness regarding the state of fashion. But, there are brand partnerships at play, new collections to promote and sponsors to keep happy. Hollywood&rsquo;s wardrobes become Tetris puzzles, as celebrity dressers navigate samples, alterations and custom commissions, while keeping in mind both the couture and ready-to-wear trends and incorporating some semblance of sustainability in line with the industry&rsquo;s commitment to do better for our planet. A dress is never just a dress during awards season.</p>\r\n\r\n<p>If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the <a href=\"https://www.vogue.com/article/whats-going-on-with-the-golden-globes\">Golden Globes</a>, SAG Awards and <a href=\"https://www.vogue.co.uk/article/oscars\">Oscars</a>, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. <em>Vogue</em> picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film&rsquo;s big nights in 2024.</p>\r\n\r\n<blockquote>\r\n<p>Bridal was a major trend at last year&rsquo;s Oscars, but all-white looks also proliferated on the spring 2024 runways, thanks to the likes of Stella McCartney, Prada, Valentino and Acne Studios. &ldquo;It showed that white isn&rsquo;t just for weddings,&rdquo; opines Holly. &ldquo;The laser-cuts, the sheer details, the neck lines&hellip; these looks are red-carpet worthy and I&rsquo;m excited to see who walks in them.&rdquo; We can imagine the British contingency &ndash; including Rosamund Pike and Emily Blunt &ndash; channelling this undone angelic look.</p>\r\n</blockquote>\r\n\r\n<h2>Disco 2024</h2>\r\n\r\n<p>&ldquo;If there is a time to shine, it&rsquo;s on the red carpet,&rdquo; asserts White. &ldquo;Metallics will reign and spring 2024 brought some modern silhouettes to the runway that will give this somewhat consistent trend a contemporary and updated look.&rdquo; Watch out, she says, for Paco Rabanne, Alexander McQueen and Ralph Lauren.</p>\r\n\r\n<p><a href=\"https://www.vogue.com/v2/offers/vog224?source=Site_0_VOG_JNY_DESKTOP_CM_IN_CONTENT_0_MARTECH_US_INTL_TOTE_CONTROL\" target=\"_blank\"><img alt=\"Never Miss a Vogue Moment &lt;br&gt; Get 1 year of Vogue. Plus, get a limited-edition tote &lt;br&gt; SUBSCRIBE NOW\" src=\"https://assets.vogue.com/photos/65822b5f981b93570340822c/original/pass/VOG_DT_In_Content_ControlTote_450x140_2x.png?format=original\" /></a></p>', 'fashion,tech,jewellry', 'fewer-bow-ties-more-fringe-what-to-expect-on-the-red-carpets-during-awards-season-2024', 1, 'Online Ecommerce Shopping', 'data,blog,test', 'If this sounds like an impossible tick-boxing exercise, there will be overarching themes at play at the Golden Globes, SAG Awards and Oscars, as stylists fall for the same buzzy designers, directional silhouettes and whimsical embellishments that chime with the current mood, but have lasting impact. Vogue picked the brains of three heavyweight dressers to find out what we can expect from the nominees and guests on film’s big nights in 2024.', '2023-10-18 07:59:37', '2024-03-18 05:30:37');
 
 -- --------------------------------------------------------
 
@@ -239,18 +259,22 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`, `featured`, `show_on_navbar`, `serial`, `created_at`, `updated_at`) VALUES
-(38, 'Flash Sale⚡', NULL, NULL, 'flash-sale⚡', 1, 0, 1, 1, '2024-02-28 03:57:38', '2024-02-28 04:14:19'),
-(39, 'New Year Sale🔥', NULL, NULL, 'new-year-sale🔥', 1, 0, 1, 2, '2024-02-28 03:57:47', '2024-02-28 04:14:19'),
-(40, 'Winter Tracksuit', 'category_images/tFjUY1709098119.jpeg', NULL, 'winter-tracksuit', 1, 1, 1, 3, '2024-02-28 03:57:55', '2024-02-28 05:28:39'),
-(41, 'Summer Tracksuit', 'category_images/BWZeh1709098163.webp', NULL, 'summer-tracksuit', 1, 1, 1, 4, '2024-02-28 03:58:00', '2024-02-28 05:29:23'),
-(42, 'Hoodie', 'category_images/5S74r1709098198.webp', NULL, 'hoodie', 1, 1, 1, 5, '2024-02-28 03:58:05', '2024-02-28 05:29:58'),
-(43, 'Sweatshirt', 'category_images/y5E8J1709098230.jpg', NULL, 'sweatshirt', 1, 1, 1, 6, '2024-02-28 03:58:11', '2024-02-28 05:30:30'),
-(44, 'Winter Joggers', NULL, NULL, 'winter-joggers', 1, 0, 1, 9, '2024-02-28 03:58:19', '2024-02-28 04:14:19'),
-(45, 'Joggers', 'category_images/qEFuS1709098421.jpeg', NULL, 'joggers', 1, 1, 1, 10, '2024-02-28 03:58:29', '2024-02-28 05:33:41'),
-(46, 'Wallet', 'category_images/KuID31709098448.webp', NULL, 'wallet', 1, 1, 1, 11, '2024-02-28 03:58:35', '2024-02-28 05:34:08'),
-(47, 'Shorts', NULL, NULL, 'shorts', 1, 0, 1, 12, '2024-02-28 03:58:40', '2024-02-28 04:14:19'),
-(48, 'T-Shirt', 'category_images/u5k6k1709098280.jpg', NULL, 't-shirt', 1, 1, 0, 7, '2024-02-28 04:09:17', '2024-02-28 05:31:20'),
-(49, 'Full Sleeve T-Shirt', 'category_images/U8XRW1709098380.jpg', NULL, 'full-sleeve-t-shirt', 1, 1, 0, 8, '2024-02-28 04:13:31', '2024-02-28 05:33:00');
+(50, 'Groceries items', 'category_images/3jsTk1710304650.svg', NULL, 'groceries-items', 1, 0, 1, 7, '2024-03-13 04:37:30', '2024-03-13 04:45:14'),
+(51, 'Fruits Items', 'category_images/pwRXB1710304758.svg', NULL, 'fruits-items', 1, 0, 1, 8, '2024-03-13 04:39:18', '2024-03-13 04:45:14'),
+(52, 'Food Items', 'category_images/QkXac1710304786.svg', NULL, 'food-items', 1, 0, 1, 9, '2024-03-13 04:39:46', '2024-03-13 04:45:14'),
+(53, 'Beauty & Health', 'category_images/91O571710304809.svg', NULL, 'beauty-health', 1, 0, 1, 10, '2024-03-13 04:40:09', '2024-03-13 04:45:14'),
+(54, 'Personal Care', 'category_images/ejiuL1710304838.svg', NULL, 'personal-care', 1, 0, 1, 11, '2024-03-13 04:40:38', '2024-03-13 04:45:14'),
+(55, 'Baby Care', 'category_images/Yokix1710304852.svg', NULL, 'baby-care', 1, 0, 1, 12, '2024-03-13 04:40:52', '2024-03-13 04:45:14'),
+(56, 'Pet Care', 'category_images/3cK0P1710304861.svg', NULL, 'pet-care', 1, 0, 1, 13, '2024-03-13 04:41:01', '2024-03-13 04:45:14'),
+(57, 'Home & Kitchen', 'category_images/6JBQu1710304873.svg', NULL, 'home-kitchen', 1, 0, 1, 14, '2024-03-13 04:41:13', '2024-03-13 04:45:14'),
+(58, 'Cleaning Supplies', 'category_images/hvS2b1710304894.svg', NULL, 'cleaning-supplies', 1, 0, 1, 15, '2024-03-13 04:41:34', '2024-03-13 04:45:14'),
+(59, 'Stationary & Office', 'category_images/fPxZW1710304907.svg', NULL, 'stationary-office', 1, 0, 1, 16, '2024-03-13 04:41:47', '2024-03-13 04:45:14'),
+(60, 'Vegetables', NULL, 'category_images/xOp6n1710305009.jpg', 'vegetables', 1, 1, 0, 1, '2024-03-13 04:43:29', '2024-03-13 04:45:14'),
+(61, 'Fresh Fruits', NULL, 'category_images/AQYOA1710305043.jpg', 'fresh-fruits', 1, 1, 0, 2, '2024-03-13 04:43:42', '2024-03-13 04:45:14'),
+(62, 'Pickels', NULL, 'category_images/hgn7b1710305034.jpg', 'pickels', 1, 1, 0, 3, '2024-03-13 04:43:54', '2024-03-13 04:45:14'),
+(63, 'Rice & Staples', NULL, 'category_images/1ikz31710305072.jpg', 'rice-staples', 1, 1, 0, 4, '2024-03-13 04:44:32', '2024-03-13 04:45:14'),
+(64, 'Dry Fish', NULL, 'category_images/nXXiG1710305085.jpg', 'dry-fish', 1, 1, 0, 5, '2024-03-13 04:44:45', '2024-03-13 04:45:14'),
+(65, 'Spices', NULL, 'category_images/YBtcH1710305096.jpg', 'spices', 1, 1, 0, 6, '2024-03-13 04:44:56', '2024-03-13 04:45:14');
 
 -- --------------------------------------------------------
 
@@ -995,7 +1019,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `messenger_chat_status`, `fb_page_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/CaDVM1709103389.png', 'company_logo/Ac2tF1709103389.png', 'company_logo/WesMO1707128403.png', 'TechShop - Ecommerce', 'Mehraj Online Store', 'Our clothing business is dedicated to providing high-quality and stylish attire for individuals seeking comfort and fashion. We offer a diverse range of clothing items, including casual wear, formal wear, and accessories.', '+8801611903553', 'info@mehraj.com', 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', NULL, 'https://play.google.com/store/apps', 'https://www.apple.com/app-store/', '© 2024 Mehraj Online Store', 'company_logo/GVgni1704081652.png', '#d67d3e', '#262626', '#ffb84c', '#000000', '#2c3333', '#e7e7e7', 'Mehraj Online Store', 'ecommerce,shopping,online', 'Fashionable Dress Man\'s Fashion', 'Mehraj Online Store', 'company_logo/4oi9C1707128598.png', 'Fashionable Dress Man\'s Fashion', '#scroll__top {\r\n    bottom: 100px;\r\n    right: 35px;\r\n}\r\n.auth-card {\r\n    background: #f9f9f9;\r\n}\r\n@media only screen and (max-width: 600px) {\r\n#scroll__top {\r\n  display: none;\r\n}\r\n  .product__details--section .section--padding {\r\n    padding-top: 24px !important;\r\n  }\r\n\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', NULL, NULL, 'https://www.messenger.com/', 'https://web.whatsapp.com', NULL, 'https://www.tiktok.com', NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 0, NULL, 0, NULL, 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, NULL, NULL, '2024-02-28 06:56:29');
+(1, 'company_logo/ZycX71710312626.svg', 'company_logo/BEFNH1710313938.svg', 'company_logo/ABi851710302007.png', 'TechShop - Ecommerce', 'GetMart Online Grocery', 'Getmart is your ultimate destination for hassle-free online grocery shopping. With a wide selection of high-quality products, convenient delivery options, and exceptional customer service, Getmart makes stocking up on essentials a breeze.', '+8801969005035,+8801969885544', 'info@getmart.com,sales@getmart.com', 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', 'https://maps.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.0104336321297!2d90.41270911479724!3d23.782642793461232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b165a1921a09%3A0xb58f02520cb0cb41!2sSoftifyBD%20Ltd.!5e0!3m2!1sen!2sbd!4v1669619081345!5m2!1sen!2sbd', 'https://play.google.com/store/apps', 'https://www.apple.com/app-store', '© 2024 GetMart Online Grocery', 'company_logo/GVgni1704081652.png', '#0c6f3c', '#16346d', '#20c997', '#212529', '#212529', '#dee2e6', 'GetMart Online Grocery', 'ecommerce,shopping,online', 'GetMart Online Grocery', 'GetMart Online Grocery', 'company_logo/60QBC1710302273.png', 'GetMart Online Grocery', '#scroll__top {\r\n    bottom: 100px;\r\n    right: 35px;\r\n}\r\n.auth-card {\r\n    background: #f9f9f9;\r\n}\r\n@media only screen and (max-width: 600px) {\r\n  #scroll__top {\r\n    display: none;\r\n  }\r\n}', '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', NULL, 'https://www.youtube.com', 'https://www.messenger.com/', 'https://web.whatsapp.com', NULL, 'https://www.tiktok.com', NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-546FMKZS', 0, NULL, 0, NULL, 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, NULL, NULL, '2024-03-18 04:50:05');
 
 -- --------------------------------------------------------
 
@@ -1150,6 +1174,13 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_no`, `user_id`, `order_date`, `estimated_dd`, `delivery_date`, `delivery_method`, `payment_method`, `payment_status`, `trx_id`, `bank_tran_id`, `order_status`, `sub_total`, `coupon_code`, `discount`, `delivery_fee`, `vat`, `tax`, `total`, `order_note`, `order_remarks`, `slug`, `complete_order`, `created_at`, `updated_at`) VALUES
+(1, '1710049538623', 64, '2024-03-10 11:45:38', '2024-03-17', NULL, '1', 1, 1, '1710049538TI11X', NULL, 0, 187, '0', 0, 100, 0, 0, 287, NULL, NULL, 'zQxKJ1710049538', 1, '2024-03-10 05:45:38', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1174,6 +1205,13 @@ CREATE TABLE `order_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_id`, `warrenty_id`, `device_condition_id`, `unit_id`, `qty`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
+(1, 1, 851, 3, 8, NULL, NULL, NULL, NULL, NULL, 1, 1, 187, 187, '2024-03-10 05:45:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -1204,6 +1242,13 @@ CREATE TABLE `order_payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `order_payments`
+--
+
+INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `val_id`, `amount`, `card_type`, `store_amount`, `card_no`, `bank_tran_id`, `status`, `tran_date`, `currency`, `card_issuer`, `card_brand`, `card_sub_brand`, `card_issuer_country`, `store_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 'COD', '1710049538TI11X', NULL, '287', NULL, '287', NULL, NULL, 'VALID', '2024-03-10 11:45:38', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-03-10 05:45:38', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1217,6 +1262,13 @@ CREATE TABLE `order_progress` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_progress`
+--
+
+INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, '2024-03-10 05:45:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -2310,7 +2362,7 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (848, 43, NULL, NULL, 30, NULL, 'Right-sized eco-centric systemengine-495', '529', 'productImages/5.png', '[\"2.png\",\"16.png\",\"3.png\",\"17.png\"]', 'Sed quisquam aut at ut perferendis. Id illum dolore quia dolor. Quaerat autem eius aut sunt aut qui. Molestiae aut sit et nesciunt tempore.', 'Est iste enim voluptatem. Voluptatem omnis eum reiciendis consequatur sed. Id delectus totam et architecto. Totam facere non error dignissimos rerum ut. Deleniti nihil quia atque vitae veniam laudantium aut. Reiciendis suscipit doloribus veniam accusantium. Id voluptates tenetur et rem ea ipsum. Vero molestiae expedita dicta totam ea qui deleniti. Aut est quo nemo consequatur expedita.', 'Est perferendis minima sed. Numquam unde fuga animi et minima ab eveniet. Illo qui sed sit explicabo est.', 'Veniam modi nihil sint magni sit. Et unde maxime sit occaecati labore. Et error aut nihil quasi minima velit sint. At itaque non rem molestiae est consectetur.', 444, 434, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, '17090952893X1OF', 13, 'Right-sized eco-centric systemengine-495', 'product,demo', NULL, 1, 0, 1, '2024-02-28 04:41:29', NULL),
 (849, 38, NULL, NULL, NULL, NULL, 'Ergonomic value-added strategy-496', '901', 'productImages/1.png', NULL, 'Laboriosam qui iure quidem in ut nulla totam est. Eos suscipit maxime expedita eveniet aut quasi quia. Voluptatum dolor optio qui tenetur qui cumque maxime.', '<p>Rerum rem dolores expedita dolorum. Mollitia non eum neque provident eum quidem aut vel. Rem impedit et quasi vel sunt eos hic. Sed in voluptatibus nesciunt ut exercitationem quasi quia. Quis aut maiores possimus labore adipisci consequatur ex aperiam.</p>', '<p>Consequatur dolore consequatur aperiam praesentium et repellat. Quod aut autem eligendi dolores dolorum occaecati ut vitae. Modi non ea itaque blanditiis odio.</p>', '<p>Esse eum hic qui enim quia id. Recusandae quo veniam autem illo odio ex error. Magni ab est ut incidunt cumque corrupti.</p>', 203, 193, 0, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', NULL, '1709095289NuB4h', 16, 'Ergonomic value-added strategy-496', 'product,demo', NULL, 1, 1, 1, '2024-02-28 04:41:29', '2024-02-28 11:13:51'),
 (850, 48, NULL, NULL, 28, NULL, 'Monitored maximized methodology-497', '459', 'productImages/13.png', '[\"18.png\",\"20.png\",\"16.png\",\"17.png\"]', 'Quos quia enim id doloremque debitis. Est reiciendis quae facere. Officiis repellendus illum sed facere placeat doloremque.', 'Qui error sint assumenda sit et eos quibusdam possimus. Sit dolor cupiditate cumque ullam tempora quia. Itaque odio doloribus beatae ut. Occaecati quasi et voluptate incidunt blanditiis illo doloremque. Excepturi tempora sint natus. Voluptatem voluptates at fuga sunt quos. Sit tenetur quas ipsam voluptas aut.', 'Id est molestiae illo aut sed est. Odit quod molestiae officia. Ea doloribus dolor dolor similique.', 'Consequatur optio commodi deleniti. Occaecati et veritatis impedit molestiae. Et non alias sed libero fugiat voluptas.', 386, 376, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, '1709095289dQd13', 16, 'Monitored maximized methodology-497', 'product,demo', NULL, 1, 0, 1, '2024-02-28 04:41:29', NULL),
-(851, 44, 80, NULL, 36, NULL, 'Cross-group secondary orchestration-498', '408', 'productImages/16.png', NULL, 'Omnis cumque sed nobis qui quis cupiditate. Quos est dolor aut sed voluptate. Molestias impedit ut qui consequuntur. Ut et esse vel vel in libero repudiandae aut.', 'Veritatis explicabo et vitae nam magni magnam quam. Dolor recusandae harum cumque. Excepturi et consequuntur expedita numquam et aut eos. Vitae adipisci voluptates sit vel praesentium ad. Veritatis sit ut et nesciunt architecto quo sed. Tenetur officiis rerum eos. Aliquid quaerat repellendus dolore. Temporibus quae unde ut in. Et quis esse necessitatibus porro possimus eligendi fugiat.', 'Enim aut deleniti est. Ut sunt corrupti et et. Quia aperiam sit itaque molestiae debitis animi non. Temporibus accusantium assumenda at praesentium quo totam consequatur.', 'Similique delectus animi sit est ab esse aliquam. Cumque autem vel dolor. Dolorem pariatur libero rerum voluptate.', 197, 187, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1709095289WtHpS', 16, 'Cross-group secondary orchestration-498', 'product,demo', NULL, 1, 1, 1, '2024-02-28 04:41:29', NULL),
+(851, 44, 80, NULL, 36, NULL, 'Cross-group secondary orchestration-498', '408', 'productImages/16.png', NULL, 'Omnis cumque sed nobis qui quis cupiditate. Quos est dolor aut sed voluptate. Molestias impedit ut qui consequuntur. Ut et esse vel vel in libero repudiandae aut.', 'Veritatis explicabo et vitae nam magni magnam quam. Dolor recusandae harum cumque. Excepturi et consequuntur expedita numquam et aut eos. Vitae adipisci voluptates sit vel praesentium ad. Veritatis sit ut et nesciunt architecto quo sed. Tenetur officiis rerum eos. Aliquid quaerat repellendus dolore. Temporibus quae unde ut in. Et quis esse necessitatibus porro possimus eligendi fugiat.', 'Enim aut deleniti est. Ut sunt corrupti et et. Quia aperiam sit itaque molestiae debitis animi non. Temporibus accusantium assumenda at praesentium quo totam consequatur.', 'Similique delectus animi sit est ab esse aliquam. Cumque autem vel dolor. Dolorem pariatur libero rerum voluptate.', 197, 187, 999, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1709095289WtHpS', 16, 'Cross-group secondary orchestration-498', 'product,demo', NULL, 1, 1, 1, '2024-02-28 04:41:29', NULL),
 (852, 48, NULL, NULL, 27, NULL, 'Front-line exuding structure-499', '963', 'productImages/6.png', '[\"12.png\",\"10.png\",\"4.png\",\"17.png\"]', 'Perferendis ullam temporibus et odit optio tenetur distinctio adipisci. Quae quis qui libero ab. Et voluptatem aspernatur ut a repellat. Sed commodi magnam minima ut esse.', 'Molestiae officia qui architecto odio non. Eos possimus necessitatibus iste qui. Porro laudantium quo quaerat rerum. Molestias et cum et dolores minus ut ut. Dolores quod voluptatum quia sequi sit harum omnis. Aut maiores ad et quas molestiae. Architecto dicta reiciendis consectetur. Quam eum animi non aspernatur ipsa.', 'Est ipsa earum nam. Libero nostrum sed placeat vitae hic. Vel velit nisi incidunt et.', 'Temporibus fuga nostrum eligendi quasi. Excepturi mollitia sequi labore consequatur asperiores quidem. Inventore nobis eum distinctio dolore. Quam similique aut eos deleniti eum.', 956, 946, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, '1709095289qPfSK', 16, 'Front-line exuding structure-499', 'product,demo', NULL, 1, 0, 1, '2024-02-28 04:41:29', NULL),
 (853, 42, 74, NULL, 35, NULL, 'Switchable client-server leverage-500', '341', 'productImages/9.png', NULL, 'Est placeat eum quidem eos voluptatem exercitationem enim. Doloribus dignissimos rerum natus alias tempore. Qui nobis ea aperiam nisi quae libero. Vero et qui quas consectetur dolor illo ipsa.', 'Dolorum consequuntur libero aut sapiente sit. Alias reiciendis hic expedita dicta. Molestias ratione hic quia ut exercitationem vero. Esse ipsam culpa hic corporis distinctio. Laudantium placeat numquam dolorem officia in ut magni placeat. Alias aperiam sunt aut. Iure nemo mollitia et corporis et optio. Voluptatibus unde qui hic nisi occaecati veniam in.', 'Dolores non tenetur molestiae natus. Fugiat porro enim non numquam.', 'Sunt vel et quis possimus qui. Vitae quia pariatur quidem ad et. Voluptatibus fugiat numquam qui ea quae.', 883, 873, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, '1709095289YMl4z', 14, 'Switchable client-server leverage-500', 'product,demo', NULL, 1, 1, 1, '2024-02-28 04:41:29', NULL);
 
@@ -5880,6 +5932,13 @@ CREATE TABLE `shipping_infos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `shipping_infos`
+--
+
+INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `gender`, `address`, `thana`, `post_code`, `city`, `country`, `created_at`, `updated_at`) VALUES
+(3, 1, 'Md. Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'Noyanagar, Khilkhet', 'Betagi', '4174', 'Barguna', 'Bangladesh', '2024-03-10 05:45:38', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -5927,9 +5986,9 @@ CREATE TABLE `sms_gateways` (
 --
 
 INSERT INTO `sms_gateways` (`id`, `image`, `provider_name`, `api_endpoint`, `api_key`, `secret_key`, `sender_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'ElitBuzz', 'https://880sms.com/smsapi', 'C20095786bf436075.858353215', NULL, 'GenericCommerceV1', 0, '2023-06-13 03:43:26', '2024-02-29 06:18:12'),
-(2, NULL, 'Reve', 'https://smpp.ajuratech.com:7790/sendtext', '69cff06995a4a85', '20cdf1d28', 'GenericCommerceV1', 0, '2023-06-13 03:43:26', '2024-02-29 06:18:12'),
-(3, NULL, 'KhudeBarta', 'http://192.168.18.119:8585/send', '5d2a', '465', '8801847', 1, '2024-02-29 06:10:13', '2024-02-29 06:18:12');
+(1, NULL, 'ElitBuzz', 'https://880sms.com/smsapi', 'C20095786bf436075.858353215', NULL, 'GenericCommerceV1', 0, '2023-06-13 03:43:26', '2024-03-14 04:58:31'),
+(2, NULL, 'Reve', 'https://smpp.revesms.com:7790/sendtext', '2f18546bcfb66ebe', '7927fa55', 'Getup', 1, '2023-06-13 03:43:26', '2024-03-14 04:58:31'),
+(3, NULL, 'KhudeBarta', 'http://192.168.18.119:8585/send', '5d2a', '465', '8801847', 0, '2024-02-29 06:10:13', '2024-03-14 04:58:31');
 
 -- --------------------------------------------------------
 
@@ -6051,18 +6110,15 @@ CREATE TABLE `subcategories` (
 --
 
 INSERT INTO `subcategories` (`id`, `category_id`, `name`, `icon`, `image`, `slug`, `status`, `featured`, `created_at`, `updated_at`) VALUES
-(74, 42, 'For Men', NULL, NULL, 'for-men', 1, 0, '2024-02-28 03:59:49', NULL),
-(75, 42, 'For Women', NULL, NULL, 'for-women', 1, 0, '2024-02-28 03:59:56', NULL),
-(76, 45, 'For Men', NULL, NULL, 'for-men', 1, 0, '2024-02-28 04:00:03', NULL),
-(77, 45, 'For Women', NULL, NULL, 'for-women', 1, 0, '2024-02-28 04:00:10', NULL),
-(78, 47, 'For Men', NULL, NULL, 'for-men', 1, 0, '2024-02-28 04:00:18', NULL),
-(79, 47, 'For Women', NULL, NULL, 'for-women', 1, 0, '2024-02-28 04:00:24', NULL),
-(80, 44, 'For Men', NULL, NULL, 'for-men', 1, 0, '2024-02-28 04:00:33', NULL),
-(81, 44, 'For Women', NULL, NULL, 'for-women', 1, 0, '2024-02-28 04:00:38', NULL),
-(82, 40, 'For Men', NULL, NULL, 'for-men', 1, 0, '2024-02-28 04:00:43', NULL),
-(83, 40, 'For Women', NULL, NULL, 'for-women', 1, 0, '2024-02-28 04:00:47', NULL),
-(84, 46, 'Artificial Leather', NULL, NULL, 'artificial-leather', 1, 0, '2024-02-28 04:01:04', NULL),
-(85, 46, 'Original Leather', NULL, NULL, 'original-leather', 1, 0, '2024-02-28 04:01:12', NULL);
+(94, 53, 'Medicine', NULL, NULL, 'medicine', 1, 0, '2024-03-13 04:50:17', NULL),
+(95, 53, 'Fairness Cream', NULL, NULL, 'fairness-cream', 1, 0, '2024-03-13 04:50:40', NULL),
+(96, 53, 'Men Facewash', NULL, NULL, 'mens-facewash', 1, 0, '2024-03-13 04:51:00', '2024-03-13 04:51:18'),
+(97, 53, 'Women Facewash', NULL, NULL, 'women-facewash', 1, 0, '2024-03-13 04:51:09', NULL),
+(98, 52, 'Biscuits', NULL, NULL, 'biscuits', 1, 0, '2024-03-13 04:51:35', NULL),
+(99, 52, 'Noodles', NULL, NULL, 'noodles', 1, 0, '2024-03-13 04:51:41', '2024-03-13 05:29:44'),
+(100, 54, 'Shaving Razor', NULL, NULL, 'shaving-razor', 1, 0, '2024-03-13 04:51:59', NULL),
+(102, 55, 'Baby Lotion', NULL, NULL, 'baby-lotion', 1, 0, '2024-03-13 04:52:15', NULL),
+(103, 55, 'Baby Shampoo', NULL, NULL, 'baby-shampoo', 1, 0, '2024-03-13 04:52:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -6082,7 +6138,8 @@ CREATE TABLE `subscribed_users` (
 --
 
 INSERT INTO `subscribed_users` (`id`, `email`, `created_at`, `updated_at`) VALUES
-(25, 'alifhossain174@gmail.com', '2024-02-28 06:31:25', NULL);
+(25, 'alifhossain174@gmail.com', '2024-02-28 06:31:25', NULL),
+(26, 'alifhossain174@gmail.com', '2024-03-10 05:45:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -6166,9 +6223,10 @@ CREATE TABLE `testimonials` (
 --
 
 INSERT INTO `testimonials` (`id`, `description`, `rating`, `customer_name`, `designation`, `customer_image`, `slug`, `created_at`, `updated_at`) VALUES
-(2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita in recusandae sit officia ipsa, natus ad voluptatem doloribus dolorum placeat, rem deleniti est accusamus ipsum corporis voluptates soluta totam maiores nostrum reprehenderit quasi? Laboriosam itaque ab odit harum sed aut voluptates', 5, 'Hialry Duff', 'Founder & CEO', 'testimonial/myyTv1697621055.png', 'ld8fi1697621055', '2023-10-18 07:24:15', '2024-02-05 09:23:00'),
-(3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita in recusandae sit officia ipsa, natus ad voluptatem doloribus dolorum placeat, rem deleniti est accusamus ipsum corporis voluptates soluta totam maiores nostrum reprehenderit quasi? Laboriosam itaque ab odit harum sed aut voluptates', 5, 'Selina Gomez', 'Software Engineer', 'testimonial/K1r3U1697621099.png', 'cMTul1697621099', '2023-10-18 07:24:59', '2024-02-05 09:22:54'),
-(4, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita in recusandae sit officia ipsa, natus ad voluptatem doloribus dolorum placeat, rem deleniti est accusamus ipsum corporis voluptates soluta totam maiores nostrum reprehenderit quasi? Laboriosam itaque ab odit harum sed aut voluptates', 3, 'Nike Mardson', 'Web Developer', 'testimonial/eJ2bC1697621239.png', 'PmDVG1697621239', '2023-10-18 07:27:19', '2024-02-05 09:22:47');
+(5, 'Maecenas suscipit luctus enim, ut facilisis elit venenatis ut. Aenean ullamcorper at erat a dictum. Donec vel nulla elit. Aliquam pharetra massa elit.', 4, 'Levi Sampson', NULL, 'testimonial/2ODxW1710389796.jpg', 'lgoK91710389796', '2024-03-14 04:16:36', NULL),
+(6, 'Maecenas suscipit luctus enim, ut facilisis elit venenatis ut. Aenean ullamcorper at erat a dictum. Donec vel nulla elit. Aliquam pharetra massa elit.', 5, 'Patience Blankenship', NULL, 'testimonial/cgUSR1710389825.jpg', '7DsXD1710389825', '2024-03-14 04:17:05', NULL),
+(7, 'Maecenas suscipit luctus enim, ut facilisis elit venenatis ut. Aenean ullamcorper at erat a dictum. Donec vel nulla elit. Aliquam pharetra massa elit.', 4, 'Carissa Woodward', NULL, 'testimonial/N6cXl1710389840.jpg', 'GgIYb1710389840', '2024-03-14 04:17:20', '2024-03-14 04:23:20'),
+(8, 'Maecenas suscipit luctus enim, ut facilisis elit venenatis ut. Aenean ullamcorper at erat a dictum. Donec vel nulla elit. Aliquam pharetra massa elit.', 3, 'Sacha Lowe', NULL, 'testimonial/TgzFu1710389859.jpg', 'TnZFJ1710389859', '2024-03-14 04:17:39', '2024-03-14 04:23:24');
 
 -- --------------------------------------------------------
 
@@ -11947,13 +12005,13 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -11983,7 +12041,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `child_categories`
@@ -12007,7 +12065,7 @@ ALTER TABLE `config_setups`
 -- AUTO_INCREMENT for table `contact_requests`
 --
 ALTER TABLE `contact_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `country`
@@ -12097,25 +12155,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -12205,7 +12263,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sims`
@@ -12247,13 +12305,13 @@ ALTER TABLE `storage_types`
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT for table `subscribed_users`
 --
 ALTER TABLE `subscribed_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `support_messages`
@@ -12277,7 +12335,7 @@ ALTER TABLE `terms_and_policies`
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `unions`
