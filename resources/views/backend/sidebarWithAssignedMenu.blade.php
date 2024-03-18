@@ -316,7 +316,7 @@
 
     @if ($systemModule && count($systemModule) > 0)
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>System</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-settings"></i><span>Gateway & API</span></a>
         <ul class="sub-menu" aria-expanded="false">
             @if(checkAuth("view/email/credential")) <li><a href="{{ url('/view/email/credential') }}">Email Configure (SMTP)</a></li> @endif
             @if(checkAuth("view/email/templates")) <li><a href="{{ url('/view/email/templates') }}">Email Templates</a></li> @endif

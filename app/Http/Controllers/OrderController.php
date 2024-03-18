@@ -448,6 +448,7 @@ class OrderController extends Controller
 
         $data = Order::where('slug', $slug)->first();
         $data->order_status = 3;
+        $data->payment_status = 1;
         $data->updated_at = Carbon::now();
         $data->save();
 

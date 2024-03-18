@@ -68,3 +68,8 @@ INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`,
 ALTER TABLE `product_variants` ADD `unit_id` INT(11) NULL DEFAULT NULL AFTER `color_id`;
 UPDATE `config_setups` SET `industry` = 'Common' WHERE `config_setups`.`id` = 7;
 ================================================
+
+
+==================18.03.24======================
+ALTER TABLE `about_us` ADD `mission_image` VARCHAR(255) NULL DEFAULT NULL AFTER `btn_link`, ADD `mission_btn_text` VARCHAR(255) NULL DEFAULT NULL AFTER `mission_image`, ADD `mission_btn_link` VARCHAR(255) NULL DEFAULT NULL AFTER `mission_btn_text`, ADD `mission_section_title` VARCHAR(255) NULL DEFAULT NULL AFTER `mission_btn_link`, ADD `mission_description` LONGTEXT NULL DEFAULT NULL AFTER `mission_section_title`, ADD `vision_image` VARCHAR(255) NULL DEFAULT NULL AFTER `mission_description`, ADD `vision_btn_text` VARCHAR(255) NULL DEFAULT NULL AFTER `vision_image`, ADD `vision_btn_link` VARCHAR(255) NULL DEFAULT NULL AFTER `vision_btn_text`, ADD `vision_section_title` VARCHAR(255) NULL DEFAULT NULL AFTER `vision_btn_link`, ADD `vision_description` LONGTEXT NULL DEFAULT NULL AFTER `vision_section_title`;
+================================================

@@ -24,11 +24,9 @@ class GeneralInfoController extends Controller
 
         $banner_bg = $data->banner_bg;
         if ($request->hasFile('banner_bg')){
-
             if($banner_bg != '' && file_exists(public_path($banner_bg))){
                 unlink(public_path($banner_bg));
             }
-
             $get_image = $request->file('banner_bg');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('uploads/about_us/');
@@ -39,16 +37,39 @@ class GeneralInfoController extends Controller
 
         $image = $data->image;
         if ($request->hasFile('image')){
-
             if($image != '' && file_exists(public_path($image))){
                 unlink(public_path($image));
             }
-
             $get_image = $request->file('image');
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('uploads/about_us/');
             $get_image->move($location, $image_name);
             $image = "uploads/about_us/" . $image_name;
+        }
+
+
+        $mission_image = $data->mission_image;
+        if ($request->hasFile('mission_image')){
+            if($mission_image != '' && file_exists(public_path($mission_image))){
+                unlink(public_path($mission_image));
+            }
+            $get_image = $request->file('mission_image');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('uploads/about_us/');
+            $get_image->move($location, $image_name);
+            $mission_image = "uploads/about_us/" . $image_name;
+        }
+
+        $vision_image = $data->vision_image;
+        if ($request->hasFile('vision_image')){
+            if($vision_image != '' && file_exists(public_path($vision_image))){
+                unlink(public_path($vision_image));
+            }
+            $get_image = $request->file('vision_image');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('uploads/about_us/');
+            $get_image->move($location, $image_name);
+            $vision_image = "uploads/about_us/" . $image_name;
         }
 
         AboutUs::where('id', 1)->update([
@@ -60,6 +81,19 @@ class GeneralInfoController extends Controller
             'btn_icon_class' => $request->btn_icon_class,
             'btn_text' => $request->btn_text,
             'btn_link' => $request->btn_link,
+
+            'mission_image' => $mission_image,
+            'mission_btn_text' => $request->mission_btn_text,
+            'mission_btn_link' => $request->mission_btn_link,
+            'mission_section_title' => $request->mission_section_title,
+            'mission_description' => $request->mission_description,
+
+            'vision_image' => $vision_image,
+            'vision_btn_text' => $request->vision_btn_text,
+            'vision_btn_link' => $request->vision_btn_link,
+            'vision_section_title' => $request->vision_section_title,
+            'vision_description' => $request->vision_description,
+
             'updated_at' => Carbon::now(),
         ]);
 

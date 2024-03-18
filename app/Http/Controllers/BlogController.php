@@ -167,6 +167,11 @@ class BlogController extends Controller
             'tags' => $request->tags,
             'slug' => $slug.time(),
             'status' => 1,
+
+            'meta_title' => $request->meta_title,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
+
             'created_at' => Carbon::now()
         ]);
 
@@ -256,10 +261,13 @@ class BlogController extends Controller
         $blog->image = $image;
         $blog->short_description = $request->short_description;
         $blog->description = $request->description;
-        $blog->tags = $request->tags;
-        if($blog->title != $request->title){
-            $blog->slug = $slug.time();
-        }
+        // $blog->tags = $request->tags;
+        $blog->slug = $slug;
+
+        $blog->meta_title = $request->meta_title;
+        $blog->meta_keywords = $request->meta_keywords;
+        $blog->meta_description = $request->meta_description;
+
         $blog->status = $request->status;
         $blog->updated_at = Carbon::now();
         $blog->save();

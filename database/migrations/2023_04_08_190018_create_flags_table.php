@@ -20,6 +20,7 @@ class CreateFlagsTable extends Migration
             $table->tinyInteger('status')->default(1);
             $table->tinyInteger('featured')->default(0)->comment("0=>Not Featured; 1=>Featured");
             $table->string('slug')->nullable();
+            $table->double('serial')->default(1);
             $table->timestamps();
         });
     }

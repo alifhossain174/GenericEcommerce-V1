@@ -46,7 +46,7 @@ class CategoryController extends Controller
         Category::insert([
             'name' => $request->name,
             'featured' => $request->featured ? $request->featured : 0,
-            'show_on_navbar' => $request->show_on_navbar ? $request->show_on_navbar : 1,
+            'show_on_navbar' => $request->show_on_navbar ? $request->show_on_navbar : 0,
             'icon' => $icon,
             'banner_image' => $categoryBanner,
             'slug' => Generate::Slug($request->name),
@@ -200,7 +200,7 @@ class CategoryController extends Controller
             'slug' => Generate::Slug($request->slug),
             'status' => $request->status,
             'featured' => $request->featured ? $request->featured : 0,
-            'show_on_navbar' => $request->show_on_navbar,
+            'show_on_navbar' => $request->show_on_navbar ? $request->show_on_navbar : 0,
             'updated_at' => Carbon::now()
         ]);
 

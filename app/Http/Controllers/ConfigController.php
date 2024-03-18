@@ -51,7 +51,7 @@ class ConfigController extends Controller
     public function viewAllFlags(Request $request){
         if ($request->ajax()) {
 
-            $data = Flag::orderBy('id', 'desc')->get();
+            $data = Flag::orderBy('serial', 'asc')->get();
 
             return Datatables::of($data)
                     ->editColumn('status', function($data) {
@@ -154,6 +154,23 @@ class ConfigController extends Controller
             'created_at' => Carbon::now()
         ]);
         return response()->json(['success'=>'Updated successfully.']);
+    }
+
+    public function rearrangeFlags(){
+        $flags = Flag::orderBy('serial', 'asc')->get();
+        return view('backend.config.rearrange_flags', compact('flags'));
+    }
+
+    public function saveRearrangedFlags(Request $request){
+        $sl = 1;
+        foreach($request->slug as $slug){
+            Flag::where('slug', $slug)->update([
+                'serial' => $sl
+            ]);
+            $sl++;
+        }
+        Toastr::success('Flag has been Rerranged', 'Success');
+        return redirect('/view/all/flags');
     }
 
     public function featureFlag($id){
