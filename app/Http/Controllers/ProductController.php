@@ -721,6 +721,9 @@ class ProductController extends Controller
 
             $price = rand(100,999);
 
+            $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($title)); //remove all non alpha numeric
+            $slug = preg_replace('!\s+!', '-', $clean);
+
             $id = Product::insertGetId([
                 'category_id' => isset($categoryId[0]) ? $categoryId[0]->id : null,
                 'subcategory_id' => isset($subcategoryId[0]) ? $subcategoryId[0]->id : null,
@@ -742,7 +745,7 @@ class ProductController extends Controller
                 'tags' => 'product,demo',
                 'video_url' => 'https://www.youtube.com/watch?v=2tirsYI5D2M',
                 'warrenty_id' => isset($warrentyId[0]) ? $warrentyId[0]->id : null,
-                'slug' => time(). str::random(5),
+                'slug' => $slug.'-'.time(). str::random(5),
                 'flag_id' => isset($flagId[0]) ? $flagId[0]->id : null,
                 'meta_title' => $title,
                 'meta_keywords' => 'product,demo',
