@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2024 at 05:35 PM
+-- Generation Time: Mar 20, 2024 at 12:07 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -943,8 +943,8 @@ CREATE TABLE `flags` (
 --
 
 INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(13, 'flag_icons/OchTx1709101464.jpg', 'Featured Products', 1, 1, 'featured-products-nUWxh-1709101464', 1, '2024-02-28 03:55:00', '2024-02-28 06:24:24'),
-(14, 'flag_icons/uwhbJ1709101477.jpg', 'Deal of the day', 1, 1, 'deal-of-the-day-dAK9Y-1709101477', 2, '2024-02-28 03:55:10', '2024-02-28 06:24:37'),
+(13, 'flag_icons/OchTx1709101464.jpg', 'Featured Products', 1, 1, 'featured-products-4ZAXF-1710888991', 1, '2024-02-28 03:55:00', '2024-03-19 22:56:31'),
+(14, 'flag_icons/uwhbJ1709101477.jpg', 'Deal of the day', 1, 1, 'deal-of-the-day-7Hbpb-1710888995', 2, '2024-02-28 03:55:10', '2024-03-19 22:56:35'),
 (15, 'flag_icons/noudw1709101497.jpg', 'Latest collection', 1, 0, 'latest-collection-Eo0bX-1709101497', 3, '2024-02-28 03:55:19', '2024-02-28 06:24:57'),
 (16, 'flag_icons/LB9WG1709101511.jpg', 'Discounted Items', 1, 0, 'discounted-items-SjqCs-1709101511', 4, '2024-02-28 03:55:25', '2024-02-28 06:25:11');
 
