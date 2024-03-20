@@ -46,7 +46,7 @@ class BrandController extends Controller
                         foreach($categoryArray as $item){
                             $catInfo = Category::where('id', $item)->first();
                             if($catInfo){
-                                $categoryString .= '<button class="btn btn-sm btn-primary rounded" style="padding: .10rem .5rem;">'.$catInfo->name.'</button> ';
+                                $categoryString .= '<button class="btn btn-sm btn-primary rounded m-1" style="padding: .10rem .5rem;">'.$catInfo->name.'</button> ';
                             }
                         }
                         return $categoryString;

@@ -5,7 +5,7 @@
     <link href="{{url('assets')}}/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
     <style>
         .select2-selection{
-            height: 34px !important;
+            min-height: 34px !important;
             border: 1px solid #ced4da !important;
         }
         .select2 {

@@ -41,7 +41,7 @@ class ProductResource extends JsonResource
         $flagInfo = Flag::where('id', $this->flag_id)->first();
 
 
-        $totalStockAllVariants = 0; // jekonon variant er at least ekta stock e thakleo stock in dekhabe
+        $totalStockAllVariants = 0;
         if($variants && count($variants) > 0){
             foreach ($variants as $variant) {
                 $totalStockAllVariants = $totalStockAllVariants + (int) $variant->stock;
