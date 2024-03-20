@@ -339,10 +339,12 @@
                             </div>
                         </div>
 
+                        @if(env('FRONTEND_HAS_VARIANT') == 1)
                         <div class="row justify-content-center">
                             <div class="col text-center pt-4">
                                 <div class="card border-dark">
                                     <div class="card-body">
+
                                         <div class="form-group">
                                             <label for="has_variant">Product Has Variant ?</label><br>
                                             <input type="checkbox" id="has_variant" value="1" onchange="showVariantSection(this.value)" name="has_variant" data-toggle="switchery" data-color="#38b3d6" data-secondary-color="#df3554"/>
@@ -352,7 +354,6 @@
                                                 @enderror
                                             </div>
                                         </div>
-
 
                                         <div class="row mt-3" id="product_variant" style="display: none">
                                             <div class="col-lg-12">
@@ -521,6 +522,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
 
                         <div class="row mt-3">

@@ -751,12 +751,21 @@ class ProductController extends Controller
                 'meta_keywords' => 'product,demo',
                 'meta_description' => null,
                 'status' => 1,
-                'has_variant' => $i%2 == 0 ? 1 : 0,
+                'has_variant' => env('FRONTEND_HAS_VARIANT') == 1 ? ($i%2 == 0 ? 1 : 0) : 0,
                 'is_demo' => 1,
                 'created_at' => Carbon::now()
             ]);
 
-            if($i%2 != 0){
+            if($i%2 != 0 && env('FRONTEND_HAS_VARIANT') == 1){
+                foreach($multipleProductArray as $image)
+                {
+                    ProductImage::insert([
+                        'product_id' => $id,
+                        'image' => $image,
+                        'created_at' => Carbon::now(),
+                    ]);
+                }
+            } else {
                 foreach($multipleProductArray as $image)
                 {
                     ProductImage::insert([
@@ -767,7 +776,7 @@ class ProductController extends Controller
                 }
             }
 
-            if($i%2 == 0){
+            if($i%2 == 0 && env('FRONTEND_HAS_VARIANT') == 1){
                 foreach($multipleProductArray as $image)
                 {
                     $variantInfo = new ProductVariant();
