@@ -40,6 +40,16 @@ class ProductResource extends JsonResource
         $childcategoryInfo = ChildCategory::where('id', $this->childcategory_id)->first();
         $flagInfo = Flag::where('id', $this->flag_id)->first();
 
+
+        $totalStockAllVariants = 0; // jekonon variant er at least ekta stock e thakleo stock in dekhabe
+        if($variants && count($variants) > 0){
+            foreach ($variants as $variant) {
+                $totalStockAllVariants = $totalStockAllVariants + (int) $variant->stock;
+            }
+        }
+        $totalStockAllVariants = $totalStockAllVariants + $this->stock;
+
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -65,7 +75,7 @@ class ProductResource extends JsonResource
             'warrenty_policy' => $this->warrenty_policy,
             'price' => $this->price,
             'discount_price' => $this->discount_price,
-            'stock' => $this->stock,
+            'stock' => $totalStockAllVariants,
             'unit_id' => $this->unit_id,
             'unit_name' => $this->unit_name,
             'tags' => $this->tags,
