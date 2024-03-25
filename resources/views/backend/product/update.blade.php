@@ -400,14 +400,14 @@
                                                     <table class="table table-bordered rounded" id="product_variant_table">
                                                         <thead class="thead-light rounded">
                                                             <tr>
-                                                                <th class="text-center">Image <span class="text-danger">*</span></th>
+                                                                <th class="text-center">Image</th>
 
                                                                 @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
-                                                                <th class="text-center">Color <span class="text-danger">*</span></th>
+                                                                <th class="text-center">Color</th>
                                                                 @endif
 
                                                                 @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
-                                                                <th class="text-center">Unit <span class="text-danger">*</span></th>
+                                                                <th class="text-center">Unit</th>
                                                                 @endif
 
                                                                 @if(DB::table('config_setups')->where('code', 'product_size')->where('status', 1)->first())

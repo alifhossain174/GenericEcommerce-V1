@@ -78,7 +78,7 @@
             <div class="modal-content">
                 <form id="productForm2" name="productForm2" class="form-horizontal">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel2">Create New Unit</h5>
+                        <h5 class="modal-title" id="exampleModalLabel2">Create New Size</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -86,7 +86,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Size Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="XL/M/S" required>
+                            <input type="text" class="form-control" name="name" required>
                         </div>
                     </div>
                     <div class="modal-footer">
