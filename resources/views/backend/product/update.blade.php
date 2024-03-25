@@ -377,7 +377,6 @@
                         </div>
 
 
-                        @if(env('FRONTEND_HAS_VARIANT') == 1)
                         <div class="row justify-content-center">
                             <div class="col text-center pt-4">
                                 <div class="card border-dark">
@@ -668,9 +667,6 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
-
-
 
 
                         <div class="row mt-3">
