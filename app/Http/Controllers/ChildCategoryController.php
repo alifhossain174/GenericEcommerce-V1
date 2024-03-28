@@ -31,12 +31,23 @@ class ChildCategoryController extends Controller
             'subcategory_id' => 'required',
         ]);
 
+        $icon = null;
+        if ($request->hasFile('icon')){
+            $get_image = $request->file('icon');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('childcategory_images/');
+            // Image::make($get_image)->save($location . $image_name);
+            $get_image->move($location, $image_name);
+            $icon = "childcategory_images/" . $image_name;
+        }
+
         $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
         $slug = preg_replace('!\s+!', '-', $clean);
 
         ChildCategory::insert([
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
+            'icon' => $icon,
             'name' => $request->name,
             'slug' => $slug."-".time()."-".str::random(5),
             'status' => 1,
@@ -109,12 +120,30 @@ class ChildCategoryController extends Controller
             return back();
         }
 
+        $data = ChildCategory::where('slug', $request->slug)->first();
+
+        $icon = $data->icon;
+        if ($request->hasFile('icon')){
+
+            if($icon != '' && file_exists(public_path($icon))){
+                unlink(public_path($icon));
+            }
+
+            $get_image = $request->file('icon');
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('childcategory_images/');
+            // Image::make($get_image)->save($location . $image_name, 80);
+            $get_image->move($location, $image_name);
+            $icon = "childcategory_images/" . $image_name;
+        }
+
         $clean = preg_replace('/[^a-zA-Z0-9\s]/', '', strtolower($request->name)); //remove all non alpha numeric
         $slug = preg_replace('!\s+!', '-', $clean);
 
         ChildCategory::where('slug', $request->slug)->update([
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
+            'icon' => $icon,
             'name' => $request->name,
             'slug' => $slug."-".time()."-".str::random(5),
             'status' => $request->status,
