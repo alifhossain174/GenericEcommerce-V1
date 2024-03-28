@@ -73,3 +73,8 @@ UPDATE `config_setups` SET `industry` = 'Common' WHERE `config_setups`.`id` = 7;
 ==================18.03.24======================
 ALTER TABLE `about_us` ADD `mission_image` VARCHAR(255) NULL DEFAULT NULL AFTER `btn_link`, ADD `mission_btn_text` VARCHAR(255) NULL DEFAULT NULL AFTER `mission_image`, ADD `mission_btn_link` VARCHAR(255) NULL DEFAULT NULL AFTER `mission_btn_text`, ADD `mission_section_title` VARCHAR(255) NULL DEFAULT NULL AFTER `mission_btn_link`, ADD `mission_description` LONGTEXT NULL DEFAULT NULL AFTER `mission_section_title`, ADD `vision_image` VARCHAR(255) NULL DEFAULT NULL AFTER `mission_description`, ADD `vision_btn_text` VARCHAR(255) NULL DEFAULT NULL AFTER `vision_image`, ADD `vision_btn_link` VARCHAR(255) NULL DEFAULT NULL AFTER `vision_btn_text`, ADD `vision_section_title` VARCHAR(255) NULL DEFAULT NULL AFTER `vision_btn_link`, ADD `vision_description` LONGTEXT NULL DEFAULT NULL AFTER `vision_section_title`;
 ================================================
+
+
+==================28.03.24======================
+ALTER TABLE `general_infos` ADD `trade_license_no` VARCHAR(255) NULL DEFAULT NULL AFTER `app_store_link`, ADD `tin_no` VARCHAR(255) NULL DEFAULT NULL AFTER `trade_license_no`, ADD `bin_no` VARCHAR(255) NULL DEFAULT NULL AFTER `tin_no`;
+================================================

@@ -185,6 +185,11 @@ class GeneralInfoController extends Controller
             'google_map_link' => $request->google_map_link,
             'play_store_link' => $request->play_store_link,
             'app_store_link' => $request->app_store_link,
+
+            'trade_license_no' => $request->trade_license_no,
+            'tin_no' => $request->tin_no,
+            'bin_no' => $request->bin_no,
+
             'footer_copyright_text' => $request->footer_copyright_text,
             'payment_banner' => $paymentBanner,
             'updated_at' => Carbon::now()

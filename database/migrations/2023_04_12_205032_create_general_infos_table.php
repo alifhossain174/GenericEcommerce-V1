@@ -30,6 +30,10 @@ class CreateGeneralInfosTable extends Migration
             $table->string('play_store_link')->nullable();
             $table->string('app_store_link')->nullable();
 
+            $table->string('trade_license_no')->nullable();
+            $table->string('tin_no')->nullable();
+            $table->string('bin_no')->nullable();
+
             $table->longText('custom_css')->nullable();
             $table->longText('custom_js')->nullable();
             $table->longText('header_script')->nullable();

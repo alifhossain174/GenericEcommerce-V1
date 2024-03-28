@@ -153,6 +153,28 @@
                                     </div>
                                 </div>
 
+                                <hr>
+                                <div class="form-group row">
+                                    <label for="trade_license_no" class="col-sm-2 col-form-label">Trade License No</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="trade_license_no" id="trade_license_no" value="{{ $data->trade_license_no }}" placeholder="Trade License No" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tin_no" class="col-sm-2 col-form-label">TIN No</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="tin_no" id="tin_no" value="{{ $data->tin_no }}" placeholder="TIN No" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="bin_no" class="col-sm-2 col-form-label">BIN No</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="bin_no" id="bin_no" value="{{ $data->bin_no }}" placeholder="BIN No" class="form-control"/>
+                                    </div>
+                                </div>
+                                <hr>
+
+
                                 <div class="form-group row">
                                     <label for="footer_copyright_text" class="col-sm-2 col-form-label"><i class="far fa-copyright"></i> Footer Copyright Text</label>
                                     <div class="col-sm-10">
