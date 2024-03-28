@@ -52,6 +52,7 @@ class SubcategoryController extends Controller
             'icon' => $icon,
             'image' => $image,
             'slug' => Generate::Slug($request->name),
+            'serial' => Subcategory::where('category_id', $request->category_id)->min('serial') - 1,
             'status' => 1,
             'created_at' => Carbon::now()
         ]);
@@ -66,7 +67,7 @@ class SubcategoryController extends Controller
             $data = DB::table('subcategories')
                 ->leftJoin('categories', 'subcategories.category_id', '=', 'categories.id')
                 ->select('subcategories.*', 'categories.name as category_name')
-                ->orderBy('subcategories.id', 'desc')
+                ->orderBy('subcategories.serial', 'asc')
                 ->get();
 
             return Datatables::of($data)
@@ -192,5 +193,28 @@ class SubcategoryController extends Controller
             $data->save();
         }
         return response()->json(['success' => 'Satatus Changed successfully.']);
+    }
+
+    public function rearrangeSubcategory(){
+
+        $subcategories = DB::table('subcategories')
+                        ->leftJoin('categories', 'subcategories.category_id', 'categories.id')
+                        ->select('subcategories.*', 'categories.name as category_name')
+                        ->orderBy('serial', 'asc')
+                        ->get();
+
+        return view('backend.subcategory.rearrange', compact('subcategories'));
+    }
+
+    public function saveRearrangedSubcategory(Request $request){
+        $sl = 1;
+        foreach($request->slug as $slug){
+            Subcategory::where('slug', $slug)->update([
+                'serial' => $sl
+            ]);
+            $sl++;
+        }
+        Toastr::success('Subategory has been Rerranged', 'Success');
+        return redirect('/view/all/subcategory');
     }
 }

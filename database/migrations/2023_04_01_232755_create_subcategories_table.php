@@ -22,6 +22,7 @@ class CreateSubcategoriesTable extends Migration
             $table->string('slug');
             $table->tinyInteger('status')->default(1)->comment("1=>Active; 0=>Inactive");
             $table->tinyInteger('featured')->default(0)->comment("0=>Not Featured; 1=>Featured");
+            $table->double('serial')->default(1);
             $table->timestamps();
         });
     }

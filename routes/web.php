@@ -115,6 +115,8 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::get('/feature/subcategory/{id}', [SubcategoryController::class, 'featureSubcategory'])->name('FeatureSubcategory');
     Route::get('/edit/subcategory/{slug}', [SubcategoryController::class, 'editSubcategory'])->name('EditSubcategory');
     Route::post('/update/subcategory', [SubcategoryController::class, 'updateSubcategory'])->name('UpdateSubcategory');
+    Route::get('/rearrange/subcategory', [SubcategoryController::class, 'rearrangeSubcategory'])->name('RearrangeSubcategory');
+    Route::post('/save/rearranged/subcategory', [SubcategoryController::class, 'saveRearrangedSubcategory'])->name('SaveRearrangedSubcategory');
 
 
     // childcategory routes

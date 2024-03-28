@@ -77,4 +77,6 @@ ALTER TABLE `about_us` ADD `mission_image` VARCHAR(255) NULL DEFAULT NULL AFTER 
 
 ==================28.03.24======================
 ALTER TABLE `general_infos` ADD `trade_license_no` VARCHAR(255) NULL DEFAULT NULL AFTER `app_store_link`, ADD `tin_no` VARCHAR(255) NULL DEFAULT NULL AFTER `trade_license_no`, ADD `bin_no` VARCHAR(255) NULL DEFAULT NULL AFTER `tin_no`;
+ALTER TABLE `categories` CHANGE `serial` `serial` DOUBLE NOT NULL DEFAULT '1';
+ALTER TABLE `subcategories` ADD `serial` DOUBLE NOT NULL DEFAULT '1' AFTER `featured`;
 ================================================
