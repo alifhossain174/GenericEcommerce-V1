@@ -23,8 +23,8 @@ class OrderController extends Controller
         if ($request->ajax()) {
 
             $data = DB::table('orders')
-                        ->leftJoin('users', 'orders.user_id', '=', 'users.id')
-                        ->select('orders.*', 'users.name as customer_name', 'users.email as customer_email', 'users.phone as customer_phone')
+                        ->leftJoin('shipping_infos', 'shipping_infos.order_id', '=', 'orders.id')
+                        ->select('orders.*', 'shipping_infos.full_name as customer_name', 'shipping_infos.email as customer_email', 'shipping_infos.phone as customer_phone')
                         ->orderBy('id', 'desc')
                         ->get();
 
@@ -103,8 +103,10 @@ class OrderController extends Controller
 
             // $data = Order::where('order_status', 0)->orderBy('id', 'desc')->get();
             $data = DB::table('orders')
-                        ->leftJoin('users', 'orders.user_id', '=', 'users.id')
-                        ->select('orders.*', 'users.name as customer_name', 'users.email as customer_email', 'users.phone as customer_phone')
+                        // ->leftJoin('users', 'orders.user_id', '=', 'users.id')
+                        // ->select('orders.*', 'users.name as customer_name', 'users.email as customer_email', 'users.phone as customer_phone')
+                        ->leftJoin('shipping_infos', 'shipping_infos.order_id', '=', 'orders.id')
+                        ->select('orders.*', 'shipping_infos.full_name as customer_name', 'shipping_infos.email as customer_email', 'shipping_infos.phone as customer_phone')
                         ->where('order_status', 0)
                         ->orderBy('id', 'desc')
                         ->get();
