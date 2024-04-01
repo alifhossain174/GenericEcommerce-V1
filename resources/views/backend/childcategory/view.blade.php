@@ -9,25 +9,9 @@
             border-radius: 4px;
         }
         table.dataTable tbody td:nth-child(1){
-            text-align: center !important;
             font-weight: 600;
         }
-        table.dataTable tbody td:nth-child(2){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(3){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(4){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(5){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(6){
-            text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(7){
+        table.dataTable tbody td{
             text-align: center !important;
         }
         tfoot {
@@ -60,13 +44,14 @@
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Category</th>
                                     <th class="text-center">Sub Category</th>
+                                    <th class="text-center">Icon</th>
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Slug</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            {{-- <tfoot>
                                 <tr>
                                     <th></th>
                                     <th></th>
@@ -76,7 +61,7 @@
                                     <th></th>
                                     <th></th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> --}}
                             <tbody>
 
                             </tbody>
@@ -115,6 +100,17 @@
                     name: 'subcategory_name'
                 },
                 {
+                    data: 'icon',
+                    name: 'icon',
+                    render: function( data, type, full, meta ) {
+                        if(data){
+                            return "<img src=\"/" + data + "\" width=\"60\"/>";
+                        } else {
+                            return '';
+                        }
+                    }
+                },
+                {
                     data: 'name',
                     name: 'name'
                 },
@@ -122,36 +118,36 @@
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
-            initComplete: function() {
-                this.api().columns([2,3,4]).every(function() {
-                    var column = this;
-                    var input = document.createElement("input");
-                    $(input).appendTo($(column.footer()).empty())
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                            column.search(val ? val : '', true, false).draw();
-                        });
-                });
+            // initComplete: function() {
+            //     this.api().columns([2,3,4]).every(function() {
+            //         var column = this;
+            //         var input = document.createElement("input");
+            //         $(input).appendTo($(column.footer()).empty())
+            //             .on('change', function() {
+            //                 var val = $.fn.dataTable.util.escapeRegex($(this).val());
+            //                 column.search(val ? val : '', true, false).draw();
+            //             });
+            //     });
 
-                this.api().columns([5]).every(function() {
-                    var column = this;
-                    var select = $('<select style="width:100%"><option value="">All</option></select>')
-                        .appendTo($(column.footer()).empty())
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-                            column
-                                .search(val ? '^' + val + '$' : '', true, false)
-                                .draw();
-                        });
-                    column.each(function() {
-                        select.append('<option value="Active">' + 'Active' + '</option>')
-                        select.append('<option value="Inactive">' + 'Inactive' + '</option>')
+            //     this.api().columns([5]).every(function() {
+            //         var column = this;
+            //         var select = $('<select style="width:100%"><option value="">All</option></select>')
+            //             .appendTo($(column.footer()).empty())
+            //             .on('change', function() {
+            //                 var val = $.fn.dataTable.util.escapeRegex(
+            //                     $(this).val()
+            //                 );
+            //                 column
+            //                     .search(val ? '^' + val + '$' : '', true, false)
+            //                     .draw();
+            //             });
+            //         column.each(function() {
+            //             select.append('<option value="Active">' + 'Active' + '</option>')
+            //             select.append('<option value="Inactive">' + 'Inactive' + '</option>')
 
-                    });
-                });
-            }
+            //         });
+            //     });
+            // }
         });
     </script>
 

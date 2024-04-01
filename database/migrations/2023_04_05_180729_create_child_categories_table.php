@@ -17,6 +17,7 @@ class CreateChildCategoriesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('subcategory_id');
+            $table->string('icon')->nullable();
             $table->string('name');
             $table->string('slug');
             $table->tinyInteger('status')->default(1)->comment("1=>Active; 0=>Inactive");

@@ -1,5 +1,9 @@
 @extends('backend.master')
 
+@section('header_css')
+    <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('page_title')
     Child Category
 @endsection
@@ -59,6 +63,13 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Childcategory Icon</label>
+                            <div class="col-sm-4">
+                                <input type="file" name="icon" class="dropify" data-height="100" data-max-file-size="1M" accept="image/*"/>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Save Child Category</button>
                         </div>
@@ -71,6 +82,10 @@
 
 
 @section('footer_js')
+
+<script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
+<script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
+
 <script>
 
     $(document).ready(function () {

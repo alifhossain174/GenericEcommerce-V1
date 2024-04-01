@@ -38,6 +38,11 @@
                 <div class="card-body">
                     <h4 class="card-title mb-3">Subcategory List</h4>
                     <div class="table-responsive">
+
+                        <label id="customFilter">
+                            <a href="{{url('rearrange/subcategory')}}" class="btn btn-success btn-sm" style="margin-left: 5px"><b><i class="fas fa-sort-amount-up"></i> Rearrange Category</b></a>
+                        </label>
+
                         <table class="table table-bordered mb-0 data-table">
                             <thead>
                                 <tr>
@@ -52,19 +57,6 @@
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            {{-- <tfoot>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </tfoot> --}}
                             <tbody>
 
                             </tbody>
@@ -160,6 +152,8 @@
                 // });
             }
         });
+
+        $(".dataTables_filter").append($("#customFilter"));
     </script>
 
     {{-- js code for user crud --}}

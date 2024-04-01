@@ -22,7 +22,7 @@ class CreateCategoriesTable extends Migration
             $table->tinyInteger('status')->default(1)->comment("1=>Active; 0=>Inactive");
             $table->tinyInteger('featured')->default(0)->comment("0=>Not Featured; 1=>Featured");
             $table->tinyInteger('show_on_navbar')->default(1)->comment("1=>Yes; 0=>No");
-            $table->tinyInteger('serial')->default(1);
+            $table->double('serial')->default(1);
             $table->timestamps();
         });
     }

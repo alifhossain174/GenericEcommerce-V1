@@ -1,5 +1,9 @@
 @extends('backend.master')
 
+@section('header_css')
+    <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('page_title')
     Child Category
 @endsection
@@ -66,8 +70,15 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Childcategory Icon</label>
+                            <div class="col-sm-4">
+                                <input type="file" name="icon" class="dropify" data-height="100" data-max-file-size="1M" accept="image/*"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="colFormLabe02" class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 <select name="status" class="form-control" id="colFormLabe02" required>
                                     <option value="">Select One</option>
                                     <option value="1" @if($childcategory->status == 1) selected @endif>Active</option>
@@ -93,7 +104,18 @@
 
 
 @section('footer_js')
+
+<script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
+<script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
+
 <script>
+
+    @if($childcategory->icon && file_exists(public_path($childcategory->icon)))
+        $(".dropify-preview").eq(0).css("display", "block");
+        $(".dropify-clear").eq(0).css("display", "block");
+        $(".dropify-filename-inner").eq(0).html("{{$childcategory->icon}}");
+        $("span.dropify-render").eq(0).html("<img src='{{url($childcategory->icon)}}'>");
+    @endif
 
     $(document).ready(function () {
 
