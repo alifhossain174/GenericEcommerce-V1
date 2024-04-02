@@ -434,9 +434,9 @@
                                                                 <th class="text-center" style="min-width: 120px;">Condition</th>
                                                                 @endif
 
-                                                                <th class="text-center">Stock</th>
-                                                                <th class="text-center">Price</th>
-                                                                <th class="text-center">Disc. Price</th>
+                                                                <th class="text-center" style="min-width: 100px;">Stock</th>
+                                                                <th class="text-center" style="min-width: 100px;">Price</th>
+                                                                <th class="text-center" style="min-width: 100px;">Disc. Price</th>
                                                                 <th class="text-center" style="min-width: 50px;">Action</th>
                                                             </tr>
                                                         </thead>
