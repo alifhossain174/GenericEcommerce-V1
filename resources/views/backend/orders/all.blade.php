@@ -265,7 +265,7 @@
                     success: function (data) {
                         table.draw(false);
                         toastr.error("Order has been Deleted", "Deleted Successfully");
-                        location.reload(true);
+                        //location.reload(true);
                     },
                     error: function (data) {
                         console.log('Error:', data);
