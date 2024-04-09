@@ -162,6 +162,8 @@
                                                 $warrentyInfo = App\Models\ProductWarrenty::where('id', $details->warrenty_id)->first();
                                             if($details->device_condition_id)
                                                 $deviceCondition = App\Models\DeviceCondition::where('id', $details->device_condition_id)->first();
+                                            if($details->size_id)
+                                                $productSize = App\Models\ProductSize::where('id', $details->size_id)->first();
                                         @endphp
 
                                         <tr>
@@ -175,13 +177,14 @@
                                                 @if($details->color_id) Color: {{$colorInfo ? $colorInfo->name : ''}} | @endif
                                                 @if($details->storage_id) Storage: {{$storageInfo ? $storageInfo->ram : ''}}/{{$storageInfo ? $storageInfo->rom : ''}} | @endif
                                                 @if($details->sim_id) SIM: {{$simInfo ? $simInfo->name : ''}} @endif
+                                                @if($details->size_id) Size: {{$productSize ? $productSize->name : ''}} @endif
 
                                                 <br>
                                                 @if($details->region_id) Region: {{$regionInfo ? $regionInfo->name : ''}} | @endif
                                                 @if($details->warrenty_id) Warrenty: {{$warrentyInfo ? $warrentyInfo->name : ''}} | @endif
                                                 @if($details->device_condition_id) Condition: {{$deviceCondition ? $deviceCondition->name : ''}} @endif
                                             </td>
-                                            <td class="text-center">{{$details->qty}} {{$details->unit_name}}</td>
+                                            <td class="text-center">{{$details->qty}}</td>
                                             <td class="text-center">৳ {{number_format($details->unit_price, 2)}}</td>
                                             <td class="text-right">৳ {{number_format($details->total_price, 2)}}</td>
                                         </tr>
