@@ -200,6 +200,7 @@
                 </a>
             </li>
             @endif
+            @if(checkAuth("products/from/excel")) <li><a href="{{ url('/products/from/excel') }}">Upload Excel Products</a></li> @endif
             @if(checkAuth("view/product/reviews"))
             <li>
                 <a href="{{ url('/view/product/reviews') }}">

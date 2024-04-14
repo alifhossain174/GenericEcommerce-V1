@@ -824,4 +824,8 @@ class ProductController extends Controller
         return back();
     }
 
+    public function productsFromExcel(){
+        return view('backend.product.excel_upload');
+    }
+
 }

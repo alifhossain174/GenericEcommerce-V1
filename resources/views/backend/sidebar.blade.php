@@ -90,6 +90,7 @@
                     </span>
                 </a>
             </li>
+            <li><a href="{{ url('/products/from/excel') }}">Upload Excel Products</a></li>
             <li>
                 <a href="{{ url('/view/product/reviews') }}">
                     Products's Review
