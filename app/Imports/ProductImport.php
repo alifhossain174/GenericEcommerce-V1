@@ -61,75 +61,93 @@ class ProductImport implements ToCollection
 
                 $productName = $data[6];
                 $productCode = $data[7];
-                $productShortDescription = $data[8];
-                $productDescription = $data[9];
-                $productSpecification = $data[10];
-                $productWarrentyPolicy = $data[11];
-                $productPrice = $data[12];
-                $productDiscountPrice = $data[13];
-                $productStock = $data[14];
+
+                $imageData = $data[8];
+                $productImageName = null;
+                if (strpos($imageData, 'base64') !== false) {
+
+                    $base64_str = substr($imageData, strpos($imageData, ",") + 1);
+                    $image = base64_decode($base64_str);
+                    $imageName = time() . '_' . uniqid() . '.jpg';
+
+                    $uploadPath = public_path('productImages/');
+                    // $moved = move_uploaded_file($image, $uploadPath . '/' . $imageName);
+                    $moved = file_put_contents($uploadPath . '/' . $imageName, $image);
+
+                    if ($moved) {
+                        $productImageName = "productImages/" .$imageName;
+                    }
+                }
+
+                $productShortDescription = $data[10];
+                $productDescription = $data[11];
+                $productSpecification = $data[12];
+                $productWarrentyPolicy = $data[13];
+                $productPrice = $data[14];
+                $productDiscountPrice = $data[15];
+                $productStock = $data[16];
 
 
                 $unitId = null;
-                if ($data[15]) {
-                    $unitInfo = DB::table('units')->where('name', $data[15])->first();
+                if ($data[17]) {
+                    $unitInfo = DB::table('units')->where('name', $data[17])->first();
                     if ($unitInfo) {
                         $unitId = $unitInfo->id;
                     }
                 }
 
-                $productTag = $data[16];
-                $productVideoUrl = $data[17];
+                $productTag = $data[18];
+                $productVideoUrl = $data[19];
 
                 $warrentyId = null;
-                if ($data[18]) {
-                    $warrentyInfo = DB::table('product_warrenties')->where('name', $data[18])->first();
+                if ($data[20]) {
+                    $warrentyInfo = DB::table('product_warrenties')->where('name', $data[20])->first();
                     if ($warrentyInfo) {
                         $warrentyId = $warrentyInfo->id;
                     }
                 }
 
                 $flagId = null;
-                if ($data[19]) {
-                    $flagInfo = DB::table('flags')->where('name', $data[19])->first();
+                if ($data[21]) {
+                    $flagInfo = DB::table('flags')->where('name', $data[21])->first();
                     if ($flagInfo) {
                         $flagId = $flagInfo->id;
                     }
                 }
 
-                $productSeoMetaTitle = $data[17];
-                $productSeoMetaKeywords = $data[18];
-                $productSeoMetaDescription = $data[19];
-                $productStatus = $data[20];
-                $productHasVariant = $data[21];
+                $productSeoMetaTitle = $data[22];
+                $productSeoMetaKeywords = $data[23];
+                $productSeoMetaDescription = $data[24];
+                $productStatus = $data[25];
+                $productHasVariant = $data[26];
 
                 $colorId = null;
-                if ($data[22]) {
-                    $colorInfo = DB::table('colors')->where('name', $data[22])->first();
+                if ($data[27]) {
+                    $colorInfo = DB::table('colors')->where('name', $data[27])->first();
                     if ($colorInfo) {
                         $colorId = $colorInfo->id;
                     }
                 }
 
                 $sizeId = null;
-                if ($data[23]) {
-                    $sizeInfo = DB::table('product_sizes')->where('name', $data[23])->first();
+                if ($data[28]) {
+                    $sizeInfo = DB::table('product_sizes')->where('name', $data[28])->first();
                     if ($sizeInfo) {
                         $sizeId = $sizeInfo->id;
                     }
                 }
 
                 $regionId = null;
-                if ($data[24]) {
-                    $regionInfo = DB::table('country')->where('name', $data[24])->first();
+                if ($data[29]) {
+                    $regionInfo = DB::table('country')->where('name', $data[29])->first();
                     if ($regionInfo) {
                         $regionId = $regionInfo->id;
                     }
                 }
 
                 $deviceConditionId = null;
-                if ($data[25]) {
-                    $deviceConditionIdInfo = DB::table('device_conditions')->where('name', $data[25])->first();
+                if ($data[30]) {
+                    $deviceConditionIdInfo = DB::table('device_conditions')->where('name', $data[30])->first();
                     if ($deviceConditionIdInfo) {
                         $deviceConditionId = $deviceConditionIdInfo->id;
                     }
@@ -148,7 +166,7 @@ class ProductImport implements ToCollection
                         'model_id' => $modelId,
                         'name' => $productName,
                         'code' => $productCode,
-                        'image' => null,
+                        'image' => $productImageName,
                         'multiple_images' => null,
                         'short_description' => $productShortDescription,
                         'description' => $productDescription,
@@ -156,7 +174,7 @@ class ProductImport implements ToCollection
                         'warrenty_policy' => $productWarrentyPolicy,
                         'price' => $productPrice,
                         'discount_price' => $productDiscountPrice,
-                        'stock' => $productStock,
+                        'stock' => $productStock ? $productStock : 0,
                         'unit_id' => $unitId,
                         'tags' => $productTag,
                         'video_url' => $productVideoUrl,
@@ -180,7 +198,7 @@ class ProductImport implements ToCollection
                         'color_id' => $colorId,
                         'size_id' => $sizeId,
                         'region_id' => $regionId,
-                        'stock' => $productStock,
+                        'stock' => $productStock ? $productStock : 0,
                         'price' => $productPrice,
                         'discounted_price' => $productDiscountPrice,
                         'warrenty_id' => $warrentyId,
