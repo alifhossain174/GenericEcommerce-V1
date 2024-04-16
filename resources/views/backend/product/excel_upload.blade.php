@@ -25,7 +25,7 @@
                                 <a href="{{url('/')}}/products.xlsx" download="{{url('/')}}/products.xlsx">products.xlsx</a>
                             </span>
 
-                            <form action="{{url('/')}}" method="POST" class="mt-4">
+                            <form action="{{url('/upload/product/from/excel')}}" method="POST" class="mt-4" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group">
