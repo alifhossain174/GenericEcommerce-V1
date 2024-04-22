@@ -1197,6 +1197,104 @@ class ApiController extends BaseController
     }
 
 
+    public function orderCheckoutAppOnlyGuest(Request $request){
+
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            date_default_timezone_set("Asia/Dhaka");
+
+            $orderId = Order::insertGetId([
+                'order_no' => time().rand(100,999),
+                'user_id' => null,
+                'order_date' => date("Y-m-d H:i:s"),
+                'estimated_dd' => date('Y-m-d', strtotime("+7 day", strtotime(date("Y-m-d")))),
+                'payment_method' => NULL,
+                'trx_id' => time().str::random(5),
+                'order_status' => 0,
+                'sub_total' => 0,
+                'coupon_code' => NULL,
+                'discount' => 0,
+                'delivery_fee' => 0,
+                'vat' => 0,
+                'tax' => 0,
+                'total' => 0,
+                'order_note' => isset($request->special_note) ? $request->special_note : '',
+                'delivery_method' => isset($request->delivery_method) ? $request->delivery_method : '',
+                'slug' => str::random(5) . time(),
+                'created_at' => Carbon::now()
+            ]);
+
+            OrderProgress::insert([
+                'order_id' => $orderId,
+                'order_status' => 0,
+                'created_at' => Carbon::now()
+            ]);
+
+            $index = 0;
+            $totalOrderAmount = 0;
+
+            foreach($request->product_id as $productId){
+                Product::where('id', $productId)->decrement("stock", (int) $request->qty[$index]);
+                OrderDetails::insert([
+                    'order_id' => $orderId,
+                    'product_id' => $productId,
+
+                    // VARIANT
+                    'color_id' => isset($request->color_id[$index]) ? $request->color_id[$index] : null,
+                    'region_id' => isset($request->region_id[$index]) ? $request->region_id[$index] : null,
+                    'sim_id' => isset($request->sim_id[$index]) ? $request->sim_id[$index] : null,
+                    'size_id' => isset($request->size_id[$index]) ? $request->size_id[$index] : null,
+                    'storage_id' => isset($request->storage_id[$index]) ? $request->storage_id[$index] : null,
+                    'warrenty_id' => isset($request->warrenty_id[$index]) ? $request->warrenty_id[$index] : null,
+                    'device_condition_id' => isset($request->device_condition_id[$index]) ? $request->device_condition_id[$index] : null,
+
+                    'qty' => $request->qty[$index],
+                    'unit_id' => $request->unit_id[$index],
+                    'unit_price' => $request->unit_price[$index],
+                    'total_price' => (int) $request->qty[$index] * (double) $request->unit_price[$index],
+                    'created_at' => Carbon::now()
+                ]);
+
+                $totalOrderAmount = $totalOrderAmount + ((int)$request->qty[$index] * (double)$request->unit_price[$index]);
+                $index++;
+            }
+
+
+            // calculating coupon discount
+            $discount = 0;
+            $promoInfo = PromoCode::where('code', $request->coupon_code)->where('status', 1)->where('effective_date', '<=', date("Y-m-d"))->where('expire_date', '>=', date("Y-m-d"))->first();
+            if($promoInfo){
+                if($promoInfo->type == 1){
+                    $discount = $promoInfo->value;
+                } else {
+                    $discount = ($totalOrderAmount*$promoInfo->value)/100;
+                }
+            }
+            // calculating coupon discount
+
+            Order::where('id', $orderId)->update([
+                'sub_total' => $totalOrderAmount,
+                'coupon_code' => $request->coupon_code,
+                'discount' => $discount,
+                'total' => $totalOrderAmount - $discount,
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => "Order is Submitted",
+                'data' => new OrderResource(Order::where('id', $orderId)->first())
+            ], 200);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+
+    }
+
+
     public function guestOrderCheckout(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
