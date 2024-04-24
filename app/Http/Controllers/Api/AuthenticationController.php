@@ -22,6 +22,14 @@ class AuthenticationController extends Controller
 {
     const AUTHORIZATION_TOKEN = 'GenericCommerceV1-SBW7583837NUDD82';
 
+    public function formatBangladeshiPhoneNumber($phoneNumber) {
+        $phoneNumber = preg_replace('/\D/', '', $phoneNumber);
+        if (substr($phoneNumber, 0, 2) !== '88') {
+            $phoneNumber = '88' . $phoneNumber;
+        }
+        return $phoneNumber;
+    }
+
     public function userRegistration(Request $request){
         if ($request->header('Authorization') == AuthenticationController::AUTHORIZATION_TOKEN) {
 
@@ -165,11 +173,37 @@ class AuthenticationController extends Controller
 
                     $smsGateway = SmsGateway::where('status', 1)->first();
                     if($smsGateway && $smsGateway->provider_name == 'Reve'){
+
                         $response = Http::get($smsGateway->api_endpoint, [
                             'apikey' => $smsGateway->api_key,
                             'secretkey' => $smsGateway->secret_key,
                             "callerID" => $smsGateway->sender_id,
                             "toUser" => $username,
+                            "messageContent" => "Verification Code is : ". $randomCode
+                        ]);
+
+                        if($response->status() == 200){
+                            return response()->json([
+                                'success' => true,
+                                'message' => "Verification SMS Sent Successfully", //$response
+                                'data' => $data
+                            ], 200);
+
+                        } else {
+                            return response()->json([
+                                'success' => false,
+                                'message' => "Failed to Send SMS",
+                                'data' => $data
+                            ], 200);
+                        }
+
+                    } elseif($smsGateway && $smsGateway->provider_name == 'KhudeBarta'){
+
+                        $response = Http::get($smsGateway->api_endpoint, [
+                            'apikey' => $smsGateway->api_key,
+                            'secretkey' => $smsGateway->secret_key,
+                            "callerID" => $smsGateway->sender_id,
+                            "toUser" => $this->formatBangladeshiPhoneNumber($username),
                             "messageContent" => "Verification Code is : ". $randomCode
                         ]);
 
