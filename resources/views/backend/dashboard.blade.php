@@ -429,7 +429,7 @@
                         },
                         {
                             label: '{{isset($bestSelling[1]) ? $bestSelling[1]->name : ''}}',
-                            value: {{isset($bestSelling[1]) ? $bestSelling[0]->total_qty : 0}}
+                            value: {{isset($bestSelling[1]) ? $bestSelling[1]->total_qty : 0}}
                         },
                         {
                             label: '{{isset($bestSelling[2]) ? $bestSelling[2]->name : ''}}',
