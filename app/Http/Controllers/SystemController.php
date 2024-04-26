@@ -285,6 +285,18 @@ class SystemController extends Controller
             ]);
         }
 
+        if($provider == 'paypal'){
+            PaymentGateway::where('id', 5)->update([
+                'api_key' => $request->api_key,
+                'secret_key' => $request->secret_key,
+                'username' => $request->username,
+                'password' => $request->password,
+                'live' => $request->live == '' ? 0 : $request->live,
+                'status' => $request->status,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
         Toastr::success('Payment Gateway Info Updated', 'Updated Successfully');
         return back();
 

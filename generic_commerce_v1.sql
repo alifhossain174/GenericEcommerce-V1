@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2024 at 09:56 PM
+-- Generation Time: Apr 26, 2024 at 10:27 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -1318,7 +1318,8 @@ INSERT INTO `payment_gateways` (`id`, `provider_name`, `api_key`, `secret_key`, 
 (1, 'ssl_commerz', 'sodai644d7015e8eb1', 'sodai644d7015e8eb1@ssl', 'alifhossain174', '12345678', 1, 1, NULL, '2023-10-18 08:16:01'),
 (2, 'stripe', '98798796546', 'ASDFGHJKLERTYUI', 'test_username', 'test_password', 1, 0, NULL, '2023-06-19 05:19:05'),
 (3, 'bkash', '654654654', 'ZWvNGXXPHOYhR', 'bkash_test_user', '85747bkash', 1, 1, NULL, '2024-01-28 05:21:15'),
-(4, 'amar_pay', '654654654', 'ZWvNGXXPHOYhR', 'amar_pay_test_user', '85747amar_pay', 1, 0, NULL, '2024-01-28 05:21:15');
+(4, 'amar_pay', '654654654', 'ZWvNGXXPHOYhR', 'amar_pay_test_user', '85747amar_pay', 1, 0, NULL, '2024-01-28 05:21:15'),
+(5, 'paypal', '654600654', 'ZWvNG48PHOYhR', 'paypal_test_user', 'paypal100T', 0, 0, '2024-04-26 20:22:26', '2024-01-28 05:21:15');
 
 -- --------------------------------------------------------
 
@@ -10968,7 +10969,7 @@ ALTER TABLE `order_progress`
 -- AUTO_INCREMENT for table `payment_gateways`
 --
 ALTER TABLE `payment_gateways`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `permission_routes`

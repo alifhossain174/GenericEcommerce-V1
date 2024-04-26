@@ -14,21 +14,21 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-3 col-xl-3">
-            <div class="card" style="height: 750px; @if($gateways[0]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+        <div class="col">
+            <div class="card" style="height: 720px; @if($gateways[0]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
                 <div class="card-body">
                     <h4 class="card-title mb-3">
                         <div class="row">
-                            <div class="col-lg-8">SSL Commerz Gateway</div>
+                            <div class="col-lg-8">SSL Commerz</div>
                             <div class="col-lg-4 text-right">
                                 <input type="checkbox" class="switchery_checkbox" id="ssl_commerz" @if($gateways[0]->status == 1) checked @endif value="ssl_commerz" onchange="changeGatewayStatus(this.value)" name="has_variant" data-size="small" data-toggle="switchery" data-color="#53c024" data-secondary-color="#df3554"/>
                             </div>
                         </div>
                     </h4>
 
-                    <div class="row" style="height: 120px;">
-                        <div class="col-lg-12 text-center pt-4 pb-4">
-                            <img src="{{url('/')}}/images/ssl_commerz.png" class="img-fluid" style="max-width: 200px; max-height: 130px; padding-top: 20px">
+                    <div class="row" style="height: 100px;">
+                        <div class="col-lg-12 text-center pt-3 pb-3">
+                            <img src="{{url('/')}}/images/ssl_commerz.png" class="img-fluid" style="max-width: 180px; max-height: 110px; padding-top: 15px">
                         </div>
                     </div>
 
@@ -110,21 +110,21 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-xl-3">
-            <div class="card" style="height: 750px; @if($gateways[1]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+        <div class="col">
+            <div class="card" style="height: 720px; @if($gateways[1]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
                 <div class="card-body">
                     <h4 class="card-title mb-3">
                         <div class="row">
-                            <div class="col-lg-8">Stripe Payment Gateway</div>
+                            <div class="col-lg-8">Stripe</div>
                             <div class="col-lg-4 text-right">
                                 <input type="checkbox" class="switchery_checkbox" id="stripe" value="stripe" @if($gateways[1]->status == 1) checked @endif onchange="changeGatewayStatus(this.value)" name="has_variant" data-size="small" data-toggle="switchery" data-color="#53c024" data-secondary-color="#df3554"/>
                             </div>
                         </div>
                     </h4>
 
-                    <div class="row" style="height: 120px;">
-                        <div class="col-lg-12 text-center pt-4 pb-4">
-                            <img src="{{url('/')}}/images/stripe_payment_gatway.png" style="max-width: 200px; max-height: 130px;">
+                    <div class="row" style="height: 100px;">
+                        <div class="col-lg-12 text-center pt-3 pb-3">
+                            <img src="{{url('/')}}/images/stripe_payment_gatway.png" style="max-width: 180px; max-height: 80px; height: 70px">
                         </div>
                     </div>
 
@@ -206,21 +206,21 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-xl-3">
-            <div class="card" style="height: 750px; @if($gateways[2]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+        <div class="col">
+            <div class="card" style="height: 720px; @if($gateways[2]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
                 <div class="card-body">
                     <h4 class="card-title mb-3">
                         <div class="row">
-                            <div class="col-lg-8">bKash Payment Gateway</div>
+                            <div class="col-lg-8">bKash</div>
                             <div class="col-lg-4 text-right">
                                 <input type="checkbox" class="switchery_checkbox" id="bkash" value="bkash" @if($gateways[2]->status == 1) checked @endif onchange="changeGatewayStatus(this.value)" name="has_variant" data-size="small" data-toggle="switchery" data-color="#53c024" data-secondary-color="#df3554"/>
                             </div>
                         </div>
                     </h4>
 
-                    <div class="row" style="height: 120px;">
-                        <div class="col-lg-12 text-center pt-4 pb-4">
-                            <img src="{{url('/')}}/images/bkash_payment_gateway.png" style="max-width: 200px; max-height: 130px; height: 90px">
+                    <div class="row" style="height: 100px;">
+                        <div class="col-lg-12 text-center pt-3 pb-3">
+                            <img src="{{url('/')}}/images/bkash_payment_gateway.png" style="max-width: 180px; max-height: 110px; height: 70px">
                         </div>
                     </div>
 
@@ -302,21 +302,21 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-xl-3">
-            <div class="card" style="height: 750px; @if($gateways[3]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+        <div class="col">
+            <div class="card" style="height: 720px; @if($gateways[3]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
                 <div class="card-body">
                     <h4 class="card-title mb-3">
                         <div class="row">
-                            <div class="col-lg-8">Amar Pay Payment Gateway</div>
+                            <div class="col-lg-8">Amar Pay</div>
                             <div class="col-lg-4 text-right">
                                 <input type="checkbox" class="switchery_checkbox" id="amar_pay" value="amar_pay" @if($gateways[3]->status == 1) checked @endif onchange="changeGatewayStatus(this.value)" name="has_variant" data-size="small" data-toggle="switchery" data-color="#53c024" data-secondary-color="#df3554"/>
                             </div>
                         </div>
                     </h4>
 
-                    <div class="row" style="height: 120px;">
-                        <div class="col-lg-12 text-center pt-4 pb-4">
-                            <img src="{{url('/')}}/images/amar_pay.png" style="max-width: 220px; max-height: 130px; height: 65px">
+                    <div class="row" style="height: 100px;">
+                        <div class="col-lg-12 text-center pt-3 pb-3">
+                            <img src="{{url('/')}}/images/amar_pay.png" style="max-width: 200px; max-height: 110px; height: 55px; padding-top: 10px">
                         </div>
                     </div>
 
@@ -397,6 +397,104 @@
                 </div>
             </div>
         </div>
+
+        <div class="col">
+            <div class="card" style="height: 720px; @if($gateways[4]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">
+                        <div class="row">
+                            <div class="col-lg-8">Paypal</div>
+                            <div class="col-lg-4 text-right">
+                                <input type="checkbox" class="switchery_checkbox" id="paypal" value="paypal" @if($gateways[4]->status == 1) checked @endif onchange="changeGatewayStatus(this.value)" name="has_variant" data-size="small" data-toggle="switchery" data-color="#53c024" data-secondary-color="#df3554"/>
+                            </div>
+                        </div>
+                    </h4>
+
+                    <div class="row" style="height: 100px;">
+                        <div class="col-lg-12 text-center pt-3 pb-3">
+                            <img src="{{url('/')}}/images/paypal.png" style="max-width: 200px; max-height: 110px; height: 55px; padding-top: 10px">
+                        </div>
+                    </div>
+
+                    <form class="needs-validation" method="POST" action="{{url('update/payment/gateway/info')}}" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="provider_name" value="{{$gateways[4]->provider_name}}">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="api_key">API Key</label>
+                                    <input type="text" id="api_key" name="api_key" value="{{$gateways[4]->api_key}}" class="form-control" placeholder="3423423URYUR">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('api_key')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="secret_key">Secret Key</label>
+                                    <input type="text" id="secret_key" name="secret_key" value="{{$gateways[4]->secret_key}}" class="form-control" placeholder="7345876UYTUYR856778">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('secret_key')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" name="username" value="{{$gateways[4]->username}}" class="form-control" placeholder="Username">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('username')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="text" id="password" name="password" value="{{$gateways[4]->password}}" class="form-control" placeholder="*********">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('password')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="live">Payment Mode</label>
+                                    <select class="form-control" id="live" name="live">
+                                        <option value="">Select One</option>
+                                        <option value="0" @if($gateways[4]->live == 0) selected @endif>Test/Sandbox</option>
+                                        <option value="1" @if($gateways[4]->live == 1) selected @endif>Production/Live</option>
+                                    </select>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('live')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="status">Status</label>
+                                    <select class="form-control" id="status" name="status">
+                                        <option value="">Select One</option>
+                                        <option value="0" @if($gateways[4]->status == 0) selected @endif>Inactive</option>
+                                        <option value="1" @if($gateways[4]->status == 1) selected @endif>Active</option>
+                                    </select>
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('status')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center pt-3">
+                            <button class="btn btn-primary" type="submit">Update Info</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 @endsection
 
