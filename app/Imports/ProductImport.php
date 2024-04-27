@@ -62,22 +62,71 @@ class ProductImport implements ToCollection
                 $productName = $data[6];
                 $productCode = $data[7];
 
-                $imageData = $data[8];
-                $productImageName = null;
-                if (strpos($imageData, 'base64') !== false) {
 
-                    $base64_str = substr($imageData, strpos($imageData, ",") + 1);
-                    $image = base64_decode($base64_str);
-                    $imageName = time() . '_' . uniqid() . '.jpg';
 
-                    $uploadPath = public_path('productImages/');
-                    // $moved = move_uploaded_file($image, $uploadPath . '/' . $imageName);
-                    $moved = file_put_contents($uploadPath . '/' . $imageName, $image);
 
-                    if ($moved) {
-                        $productImageName = "productImages/" .$imageName;
-                    }
-                }
+
+
+
+                // $imageData = $data[8];
+                // $productImageName = null;
+
+                // if (strpos($imageData, 'base64') !== false) {
+
+                //     $base64_str = substr($imageData, strpos($imageData, ",") + 1);
+                //     $image = base64_decode($base64_str);
+                //     $imageName = time() . '_' . uniqid() . '.jpg';
+
+                //     $uploadPath = public_path('productImages/');
+                //     // $moved = move_uploaded_file($image, $uploadPath . '/' . $imageName);
+                //     $moved = file_put_contents($uploadPath . '/' . $imageName, $image);
+
+                //     if ($moved) {
+                //         $productImageName = "productImages/" .$imageName;
+                //     }
+                // }
+
+                // exit();
+
+
+
+                // $imageData = $data[8];
+                // $productImageName = null;
+
+                // // Check if image data is not empty and seems to be in base64 format
+                // if (!empty($imageData) && preg_match('/^data:image\/\w+;base64,/', $imageData)) {
+                //     // Extract base64 encoded image data
+                //     $base64_str = substr($imageData, strpos($imageData, ",") + 1);
+                //     // Decode base64 encoded image data
+                //     $image = base64_decode($base64_str);
+
+                //     // Generate unique image name
+                //     $imageName = time() . '_' . uniqid() . '.jpg';
+
+                //     // Specify upload directory
+                //     $uploadPath = public_path('productImages/');
+
+                //     // Attempt to save image to disk
+                //     $moved = file_put_contents($uploadPath . '/' . $imageName, $image);
+
+                //     // Check if image was successfully saved
+                //     if ($moved !== false) {
+                //         $productImageName = "productImages/" . $imageName;
+                //     } else {
+                //         // Handle error when image couldn't be saved
+                //         // Log error or throw an exception
+                //         // Example: Log::error('Failed to save image: ' . $imageName);
+                //     }
+                // }
+
+                // exit();
+
+                // Now $productImageName contains the path to the saved image or null if no image was processed
+
+
+
+
+
 
                 $productShortDescription = $data[10];
                 $productDescription = $data[11];

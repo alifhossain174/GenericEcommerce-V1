@@ -340,6 +340,15 @@ class SystemController extends Controller
             ]);
         }
 
+        if($provider == 'paypal'){ //ID 5 => paypal
+            $info = PaymentGateway::where('id', 5)->first();
+
+            PaymentGateway::where('id', 5)->update([
+                'status' => $info->status == 1 ? 0 : 1,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
         return response()->json(['success' => 'Updated Successfully.']);
     }
 }
