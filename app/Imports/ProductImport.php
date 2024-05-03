@@ -66,21 +66,16 @@ class ProductImport implements ToCollection
 
 
                 // product image
-                $imagePath = $data[8];
                 $productImage = null;
-                if($imagePath){
-                    $imagePath = str_replace("\\", "/", $imagePath);
-                    $file_extension = pathinfo($imagePath, PATHINFO_EXTENSION);
-
-                    if(file_exists($imagePath)){
-                        $productImageName = "productImages/".time().str::random(5) . '.' . $file_extension;
-                        $upload_path = public_path('/');
-                        $destinationPath = $upload_path . $productImageName;
-                        if(copy($imagePath, $destinationPath)){
-                            $productImage = $productImageName;
-                        } else {
-                            $productImage = null;
-                        }
+                $url = $data[8]; // URL of the image you want to download
+                $uploadPath = public_path('productImages/'); // Set the path where you want to upload the image
+                $exploded = explode(".",$url);
+                $imageExtension = end($exploded);
+                $fileName = time().str::random(5).".".$imageExtension; // Set the filename for the uploaded image
+                $imageData = file_get_contents($url);
+                if ($imageData !== false) {
+                    if (file_put_contents($uploadPath . $fileName, $imageData)) {
+                        $productImage = "productImages/".$fileName;
                     }
                 }
 
@@ -93,15 +88,14 @@ class ProductImport implements ToCollection
 
                         foreach($fileArray as $item){
 
-                            $imagePath = str_replace("\\", "/", $imagePath);
-                            $file_extension = pathinfo($imagePath, PATHINFO_EXTENSION);
-
-                            if(file_exists($imagePath)){
-                                $productImageName = "productImages/".time().str::random(5) . '.' . $file_extension;
-                                $upload_path = public_path('/');
-                                $destinationPath = $upload_path . $productImageName;
-                                if(copy($imagePath, $destinationPath)){
-                                    $multipleFiles[] = str_replace('productImages/', '', $productImageName);
+                            $uploadPath = public_path('productImages/'); 
+                            $exploded = explode(".",$item);
+                            $imageExtension = end($exploded);
+                            $fileName = time().str::random(5).".".$imageExtension;
+                            $imageData = file_get_contents($item);
+                            if ($imageData !== false) {
+                                if (file_put_contents($uploadPath . $fileName, $imageData)) {
+                                    $multipleFiles[] = $fileName;
                                 }
                             }
 
@@ -255,7 +249,6 @@ class ProductImport implements ToCollection
 
             }
         }
-
         session()->forget(['product_id']);
     }
 }
