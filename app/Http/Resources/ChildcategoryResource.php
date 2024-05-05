@@ -30,6 +30,7 @@ class ChildcategoryResource extends JsonResource
             'subcategory_name' => $subCategoryInfo ? $subCategoryInfo->name : '',
             'subcategory_slug' => $subCategoryInfo ? $subCategoryInfo->slug : '',
             'name' => $this->name,
+            'icon' => $this->icon,
             'slug' => $this->slug,
             'status' => $this->status,
             'created_at' => $this->created_at,
