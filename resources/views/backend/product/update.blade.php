@@ -328,7 +328,7 @@
                                         </div>
                                     </div>
 
-                                    @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 0)->first())
+                                    {{-- @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 0)->first()) --}}
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="unit_id">Unit</label>
@@ -344,7 +344,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @endif
+                                    {{-- @endif --}}
 
                                 </div>
 
