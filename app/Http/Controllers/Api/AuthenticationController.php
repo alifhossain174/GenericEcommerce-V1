@@ -567,6 +567,31 @@ class AuthenticationController extends Controller
                             ], 200);
                         }
 
+                    } elseif($smsGateway && $smsGateway->provider_name == 'KhudeBarta'){
+
+                        $response = Http::get($smsGateway->api_endpoint, [
+                            'apikey' => $smsGateway->api_key,
+                            'secretkey' => $smsGateway->secret_key,
+                            "callerID" => $smsGateway->sender_id,
+                            "toUser" => $this->formatBangladeshiPhoneNumber($username),
+                            "messageContent" => "Verification Code is : ". $randomCode
+                        ]);
+
+                        if($response->status() == 200){
+                            return response()->json([
+                                'success' => true,
+                                'message' => "Verification SMS Sent Successfully", //$response
+                                'data' => null
+                            ], 200);
+
+                        } else {
+                            return response()->json([
+                                'success' => false,
+                                'message' => "Failed to Send SMS",
+                                'data' => null
+                            ], 200);
+                        }
+
                     } elseif($smsGateway && $smsGateway->provider_name == 'ElitBuzz'){
 
                         $response = Http::get($smsGateway->api_endpoint, [
