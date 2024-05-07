@@ -1483,41 +1483,6 @@ class ApiController extends BaseController
                 ]);
             }
 
-
-            // sending order email
-            try {
-
-                $emailConfig = EmailConfigure::where('status', 1)->orderBy('id', 'desc')->first();
-                $userEmail = $request->email;
-
-                if($emailConfig && $userEmail){
-                    $decryption = "";
-                    if($emailConfig){
-
-                        $ciphering = "AES-128-CTR";
-                        $options = 0;
-                        $decryption_iv = '1234567891011121';
-                        $decryption_key = "GenericCommerceV1";
-                        $decryption = openssl_decrypt ($emailConfig->password, $ciphering, $decryption_key, $options, $decryption_iv);
-
-                        config([
-                            'mail.mailers.smtp.host' => $emailConfig->host,
-                            'mail.mailers.smtp.port' => $emailConfig->port,
-                            'mail.mailers.smtp.username' => $emailConfig->email,
-                            'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
-                            'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
-                        ]);
-
-                        Mail::to(trim($userEmail))->send(new OrderPlacedEmail($orderInfo));
-                    }
-                }
-
-            } catch(\Exception $e) {
-                // write code for handling error from here
-            }
-            // sending order email done
-
-
             return response()->json([
                 'success' => true,
                 'message' => "Order Info Updated",
@@ -1610,6 +1575,42 @@ class ApiController extends BaseController
                 'card_issuer_country' => NULL,
                 'created_at' => Carbon::now()
             ]);
+
+
+            // sending order email
+            try {
+
+                $emailConfig = EmailConfigure::where('status', 1)->orderBy('id', 'desc')->first();
+                $shippingInfo = DB::table('shipping_infos')->where('order_id', $orderInfo->id)->first();
+                $userEmail = $shippingInfo->email;
+
+                if($emailConfig && $userEmail){
+                    $decryption = "";
+                    if($emailConfig){
+
+                        $ciphering = "AES-128-CTR";
+                        $options = 0;
+                        $decryption_iv = '1234567891011121';
+                        $decryption_key = "GenericCommerceV1";
+                        $decryption = openssl_decrypt ($emailConfig->password, $ciphering, $decryption_key, $options, $decryption_iv);
+
+                        config([
+                            'mail.mailers.smtp.host' => $emailConfig->host,
+                            'mail.mailers.smtp.port' => $emailConfig->port,
+                            'mail.mailers.smtp.username' => $emailConfig->email,
+                            'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
+                            'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
+                        ]);
+
+                        Mail::to(trim($userEmail))->send(new OrderPlacedEmail($orderInfo));
+                    }
+                }
+
+            } catch(\Exception $e) {
+                // write code for handling error from here
+            }
+            // sending order email done
+
 
             return response()->json([
                 'success' => true,
