@@ -1589,7 +1589,7 @@ class ApiController extends BaseController
             $orderInfo = Order::where('id', $orderId)->first();
             $orderInfo->bank_tran_id = "Not Available (COD)";
             $orderInfo->payment_method = 1;
-            $orderInfo->payment_status = 1; //success
+            $orderInfo->payment_status = 0; //success
             $orderInfo->save();
 
             OrderPayment::insert([
