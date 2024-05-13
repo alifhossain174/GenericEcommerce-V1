@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('order_no')->unique();
+            $table->tinyInteger('order_from')->nullable()->comment('1=>Web; 2=>Mobile App;');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->dateTime('order_date');
             $table->date('estimated_dd')->nullable();

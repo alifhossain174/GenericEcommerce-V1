@@ -345,6 +345,7 @@ class CartController extends Controller
         $orderId = Order::insertGetId([
             'order_no' => time().rand(100,999),
             'user_id' => auth()->user()->id,
+            'order_from' => 2,
             'order_date' => date("Y-m-d H:i:s"),
             'estimated_dd' => date('Y-m-d', strtotime("+5 day", strtotime(date("Y-m-d")))),
             'payment_method' => NULL,
@@ -438,6 +439,7 @@ class CartController extends Controller
             $orderId = Order::insertGetId([
                 'order_no' => time().rand(100,999),
                 'order_date' => date("Y-m-d H:i:s"),
+                'order_from' => 2,
                 'estimated_dd' => date('Y-m-d', strtotime("+5 day", strtotime(date("Y-m-d")))),
                 'payment_method' => NULL,
                 'trx_id' => time().str::random(5),
@@ -532,6 +534,7 @@ class CartController extends Controller
         $orderId = Order::insertGetId([
             'order_no' => time().rand(100,999),
             'user_id' => auth()->user()->id,
+            'order_from' => 2,
             'order_date' => date("Y-m-d H:i:s"),
             'estimated_dd' => date('Y-m-d', strtotime("+5 day", strtotime(date("Y-m-d")))),
             'payment_method' => NULL,
@@ -613,6 +616,7 @@ class CartController extends Controller
             $orderId = Order::insertGetId([
                 'order_no' => time().rand(100,999),
                 'order_date' => date("Y-m-d H:i:s"),
+                'order_from' => 2,
                 'estimated_dd' => date('Y-m-d', strtotime("+5 day", strtotime(date("Y-m-d")))),
                 'payment_method' => NULL,
                 'trx_id' => time().str::random(5),

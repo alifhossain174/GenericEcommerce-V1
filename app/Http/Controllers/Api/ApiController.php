@@ -974,6 +974,7 @@ class ApiController extends BaseController
         $orderId = Order::insertGetId([
             'order_no' => time().rand(100,999),
             'user_id' => auth()->user()->id,
+            'order_from' => 2,
             'order_date' => date("Y-m-d H:i:s"),
             'estimated_dd' => date('Y-m-d', strtotime("+5 day", strtotime(date("Y-m-d")))),
             'payment_method' => NULL,
@@ -1112,6 +1113,7 @@ class ApiController extends BaseController
         $orderId = Order::insertGetId([
             'order_no' => time().rand(100,999),
             'user_id' => auth()->user()->id,
+            'order_from' => 2,
             'order_date' => date("Y-m-d H:i:s"),
             'estimated_dd' => date('Y-m-d', strtotime("+5 day", strtotime(date("Y-m-d")))),
             'payment_method' => NULL,
@@ -1206,6 +1208,7 @@ class ApiController extends BaseController
             $orderId = Order::insertGetId([
                 'order_no' => time().rand(100,999),
                 'user_id' => null,
+                'order_from' => 2,
                 'order_date' => date("Y-m-d H:i:s"),
                 'estimated_dd' => date('Y-m-d', strtotime("+5 day", strtotime(date("Y-m-d")))),
                 'payment_method' => NULL,
@@ -1303,6 +1306,7 @@ class ApiController extends BaseController
             $orderId = Order::insertGetId([
                 'order_no' => time().rand(100,999),
                 // 'user_id' => auth()->user()->id,
+                'order_from' => 2,
                 'order_date' => date("Y-m-d H:i:s"),
                 'estimated_dd' => date('Y-m-d', strtotime("+5 day", strtotime(date("Y-m-d")))),
                 'payment_method' => NULL,

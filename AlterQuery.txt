@@ -81,3 +81,7 @@ ALTER TABLE `categories` CHANGE `serial` `serial` DOUBLE NOT NULL DEFAULT '1';
 ALTER TABLE `subcategories` ADD `serial` DOUBLE NOT NULL DEFAULT '1' AFTER `featured`;
 ALTER TABLE `child_categories` ADD `icon` VARCHAR(255) NULL DEFAULT NULL AFTER `subcategory_id`; 
 ================================================
+
+==================13.05.24======================
+ALTER TABLE `orders` ADD `order_from` TINYINT NULL DEFAULT NULL COMMENT '1=>Web; 2=>Mobile App;' AFTER `order_no`; 
+================================================
