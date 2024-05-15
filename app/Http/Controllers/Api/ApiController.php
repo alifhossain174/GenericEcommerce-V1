@@ -942,7 +942,7 @@ class ApiController extends BaseController
     }
 
     public function submitContactRequest(Request $request){
-        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+        // if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
             ContactRequest::insert([
                 'name' => $request->name,
@@ -959,12 +959,12 @@ class ApiController extends BaseController
                 'message' => "Request is Submitted"
             ], 200);
 
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => "Authorization Token is Invalid"
-            ], 422);
-        }
+        // } else {
+        //     return response()->json([
+        //         'success' => false,
+        //         'message' => "Authorization Token is Invalid"
+        //     ], 422);
+        // }
     }
 
     public function orderCheckout(Request $request){

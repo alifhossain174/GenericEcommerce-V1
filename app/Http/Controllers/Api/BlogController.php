@@ -36,7 +36,7 @@ class BlogController extends Controller
                         ->select('blogs.*', 'blog_categories.name as blog_category_name', 'blog_categories.slug as category_slug')
                         ->where('blogs.status', 1)
                         ->orderBy('blogs.id', 'desc')
-                        ->paginate(6);
+                        ->get();
 
             return response()->json([
                 'success' => true,
