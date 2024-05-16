@@ -325,7 +325,8 @@ class CartController extends Controller
     public function getAllCoupons(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
-            $data = PromoCode::where('status', 1)->where('expire_date', '>=', date("Y-m-d"))->get();
+            // $data = PromoCode::where('status', 1)->where('expire_date', '>=', date("Y-m-d"))->get();
+            $data = PromoCode::orderBy('id', 'desc')->get();
 
             return response()->json([
                 'success' => true,
