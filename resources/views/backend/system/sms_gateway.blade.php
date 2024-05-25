@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sender_id">Sender ID</label>
-                                    <input type="text" id="sender_id" name="sender_id" value="{{$gateways[2]->sender_id}}" class="form-control" placeholder="ex. Getup">
+                                    <input type="text" id="sender_id" name="sender_id" value="{{$gateways[2]->sender_id}}" class="form-control" placeholder="ex. CompanyName">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('sender_id')
                                             {{ $message }}
@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sender_id">Sender ID</label>
-                                    <input type="text" id="sender_id" name="sender_id" value="{{$gateways[1]->sender_id}}" class="form-control" placeholder="ex. Getup">
+                                    <input type="text" id="sender_id" name="sender_id" value="{{$gateways[1]->sender_id}}" class="form-control" placeholder="ex. CompanyName">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('sender_id')
                                             {{ $message }}
@@ -207,7 +207,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sender_id">Sender ID</label>
-                                    <input type="text" id="sender_id" name="sender_id" value="{{$gateways[0]->sender_id}}" class="form-control" placeholder="ex. Getup">
+                                    <input type="text" id="sender_id" name="sender_id" value="{{$gateways[0]->sender_id}}" class="form-control" placeholder="ex. CompanyName">
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('sender_id')
                                             {{ $message }}
