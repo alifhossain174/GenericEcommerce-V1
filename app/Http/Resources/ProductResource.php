@@ -31,7 +31,8 @@ class ProductResource extends JsonResource
                         ->leftJoin('storage_types', 'product_variants.storage_type_id', 'storage_types.id')
                         ->leftJoin('device_conditions', 'product_variants.device_condition_id', 'device_conditions.id')
                         ->leftJoin('product_warrenties', 'product_variants.warrenty_id', 'product_warrenties.id')
-                        ->select('product_variants.*', 'colors.name as color_name', 'colors.code as color_code', 'product_sizes.name as size_name', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
+                        ->leftJoin('units', 'product_variants.unit_id', 'units.id')
+                        ->select('product_variants.*', 'units.name as unit_name', 'units.id as unit_id', 'colors.name as color_name', 'colors.code as color_code', 'product_sizes.name as size_name', 'country.name as region_name', 'sims.name as sim_type', DB::Raw("CONCAT(storage_types.ram, '/', storage_types.rom) AS storage_type"), 'device_conditions.name as device_condition', 'product_warrenties.name as product_warrenty')
                         ->where('product_id', $this->id)
                         ->get();
 
@@ -76,8 +77,8 @@ class ProductResource extends JsonResource
             'price' => $this->price,
             'discount_price' => $this->discount_price,
             'stock' => $totalStockAllVariants,
-            'unit_id' => $this->unit_id,
-            'unit_name' => $this->unit_name,
+            'unit_id' => $variants->unit_id ? $variants->unit_id : $this->unit_id,
+            'unit_name' => $variants->unit_name ? $variants->unit_name : $this->unit_name,
             'tags' => $this->tags,
             'video_url' => $this->video_url,
             'warrenty_id' => $this->warrenty_id,

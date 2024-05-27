@@ -195,7 +195,6 @@
                                     </div>
                                 </div>
 
-
                                 <div class="form-group">
                                     <label for="category_id">Category<span class="text-danger">*</span></label>
                                     <select name="category_id" data-toggle="select2" class="form-control" id="category_id" required>
@@ -269,8 +268,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
 
                                 <div class="row">
                                     <div class="col">

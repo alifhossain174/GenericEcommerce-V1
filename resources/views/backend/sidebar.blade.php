@@ -45,9 +45,8 @@
             @if(DB::table('config_setups')->where('code', 'color')->where('status', 1)->first())
             <li><a href="{{ url('/view/all/colors') }}">Product Colors</a></li>
             @endif
-            @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 1)->first())
+
             <li><a href="{{ url('/view/all/units') }}">Measurement Units</a></li>
-            @endif
 
 
             <li><a href="{{ url('/view/all/brands') }}">Product Brands</a></li>
