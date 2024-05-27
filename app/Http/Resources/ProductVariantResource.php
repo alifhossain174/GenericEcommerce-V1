@@ -31,6 +31,8 @@ class ProductVariantResource extends JsonResource
             'sim_type' => $this->sim_type,
             'storage_type_id' => $this->storage_type_id,
             'storage_type' => $this->storage_type,
+            'unit_id' => $this->unit_id,
+            'unit_name' => $this->unit_name,
             'stock' => $this->stock,
             'price' => $this->price,
             'discounted_price' => $this->discounted_price,
