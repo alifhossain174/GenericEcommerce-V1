@@ -332,6 +332,9 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="special_offer">Special Offer: <input type="checkbox" value="1" data-size="small" onchange="showVariantSection(this.value)" data-toggle="switchery" data-color="#38b3d6" data-secondary-color="#df3554"/></label>
+                                </div>
 
                             </div>
                         </div>
