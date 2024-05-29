@@ -79,9 +79,13 @@ ALTER TABLE `about_us` ADD `mission_image` VARCHAR(255) NULL DEFAULT NULL AFTER 
 ALTER TABLE `general_infos` ADD `trade_license_no` VARCHAR(255) NULL DEFAULT NULL AFTER `app_store_link`, ADD `tin_no` VARCHAR(255) NULL DEFAULT NULL AFTER `trade_license_no`, ADD `bin_no` VARCHAR(255) NULL DEFAULT NULL AFTER `tin_no`;
 ALTER TABLE `categories` CHANGE `serial` `serial` DOUBLE NOT NULL DEFAULT '1';
 ALTER TABLE `subcategories` ADD `serial` DOUBLE NOT NULL DEFAULT '1' AFTER `featured`;
-ALTER TABLE `child_categories` ADD `icon` VARCHAR(255) NULL DEFAULT NULL AFTER `subcategory_id`; 
+ALTER TABLE `child_categories` ADD `icon` VARCHAR(255) NULL DEFAULT NULL AFTER `subcategory_id`;
 ================================================
 
 ==================13.05.24======================
-ALTER TABLE `orders` ADD `order_from` TINYINT NULL DEFAULT NULL COMMENT '1=>Web; 2=>Mobile App;' AFTER `order_no`; 
+ALTER TABLE `orders` ADD `order_from` TINYINT NULL DEFAULT NULL COMMENT '1=>Web; 2=>Mobile App;' AFTER `order_no`;
+================================================
+
+==================29.05.24======================
+ALTER TABLE `products` ADD `special_offer` TINYINT(4) NULL DEFAULT '0' COMMENT '0=>Not; 1=>Yes' AFTER `flag_id`, ADD `offer_end_time` VARCHAR(255) NULL DEFAULT NULL AFTER `special_offer`;
 ================================================

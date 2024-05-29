@@ -34,9 +34,12 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('unit_id')->nullable();
             $table->string('tags')->nullable();
             $table->string('video_url')->nullable();
-            $table->tinyInteger('warrenty_id')->nullable();
+            $table->unsignedBigInteger('warrenty_id')->nullable();
             $table->string('slug')->nullable();
-            $table->tinyInteger('flag_id')->nullable();
+            $table->unsignedBigInteger('flag_id')->nullable();
+
+            $table->tinyInteger('special_offer')->default(0)->comment('0=>Not; 1=>Yes');
+            $table->string('offer_end_time')->nullable();
 
             $table->string('meta_title')->nullable();
             $table->string('meta_keywords')->nullable();
