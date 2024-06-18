@@ -27,6 +27,12 @@
         .product-card-title .card-title::before{
             top: 13px
         }
+
+        .special_offer{
+            border: 1px solid #d7d7d7;
+            padding: 12px 15px;
+            border-radius: 4px;
+        }
     </style>
 @endsection
 
@@ -61,7 +67,7 @@
 
 
                         <div class="row">
-                            <div class="col-lg-8 border-right">
+                            <div class="col-lg-8 pr-lg-5">
                                 <div class="form-group">
                                     <label for="name">Title <span class="text-danger">*</span></label>
                                     <input type="text" id="name" value="{{$product->name}}" name="name" class="form-control" placeholder="Enter Product Name Here" required>
@@ -370,6 +376,23 @@
                                         @error('video_url')
                                             {{ $message }}
                                         @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="special_offer">
+                                            <div class="form-group mb-1">
+                                                <label for="special_offer">
+                                                    Special Offer:
+                                                    <input type="checkbox" id="special_offer" @if($product->special_offer == 1) checked @endif name="special_offer" value="1" data-size="small" data-toggle="switchery"  data-color="#38b3d6" data-secondary-color="#df3554"/>
+                                                </label>
+                                            </div>
+                                            <div class="form-group mb-1">
+                                                <label for="offer_end_time">Offer End Time</label>
+                                                <input type="datetime-local" value="{{$product->offer_end_time}}" id="offer_end_time" name="offer_end_time" class="form-control">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

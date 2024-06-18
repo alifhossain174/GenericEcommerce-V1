@@ -89,6 +89,10 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->model_id = $request->model_id;
         $product->code = $request->code;
+
+        $product->special_offer = $request->special_offer == 1 ? 1 : 0;
+        $product->offer_end_time = date("Y-m-d H:i", strtotime($request->offer_end_time)).":00";
+
         $product->meta_title = $request->meta_title;
         $product->meta_keywords = $request->meta_keywords;
         $product->meta_description = $request->meta_description;
@@ -190,10 +194,8 @@ class ProductController extends Controller
             }
         }
 
-
         Toastr::success('Product is Inserted', 'Success');
         return back();
-
     }
 
     public function viewAllProducts(Request $request){
@@ -375,6 +377,10 @@ class ProductController extends Controller
         $product->code = $request->code;
         $product->unit_id = isset($request->unit_id) ? $request->unit_id : null;
         $product->status = $request->status;
+
+        $product->special_offer = $request->special_offer == 1 ? 1 : 0;
+        $product->offer_end_time = date("Y-m-d H:i", strtotime($request->offer_end_time)).":00";
+
         // $product->slug = $slug."-".time().str::random(5);
         $product->flag_id = $request->flag_id;
         $product->meta_title = $request->meta_title;
@@ -753,6 +759,8 @@ class ProductController extends Controller
                 'meta_keywords' => 'product,demo',
                 'meta_description' => null,
                 'status' => 1,
+                'special_offer' => $i%2 == 0 ? 1 : 0,
+                'offer_end_time' => $i%2 == 0 ? date('Y-m-d H:i',strtotime('+30 day')).":00" : null,
                 'has_variant' => $i%2 == 0 ? 1 : 0,
                 'is_demo' => 1,
                 'created_at' => Carbon::now()
