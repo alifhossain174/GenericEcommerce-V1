@@ -76,7 +76,8 @@ class VendorController extends Controller
 
             $data = DB::table('vendors')
                         ->leftJoin('users', 'vendors.user_id', '=', 'users.id')
-                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status')
+                        ->leftJoin('stores', 'vendors.id', '=', 'stores.vendor_id')
+                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status', 'stores.store_name')
                         ->where('users.status', 1)
                         ->orderBy('vendors.id', 'desc')
                         ->get();
@@ -92,7 +93,6 @@ class VendorController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
                         $btn = ' <a href="'.url('edit/vendor').'/'.$data->vendor_no.'" class="mb-1 btn-sm btn-warning rounded d-inline-block"><i class="fas fa-edit"></i></a>';
-                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->vendor_no.'" data-original-title="Delete" class="btn-sm btn-danger rounded d-inline-block deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         return $btn;
                     })
                     ->rawColumns(['action', 'status'])
@@ -106,7 +106,8 @@ class VendorController extends Controller
 
             $data = DB::table('vendors')
                         ->leftJoin('users', 'vendors.user_id', '=', 'users.id')
-                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status')
+                        ->leftJoin('stores', 'vendors.id', '=', 'stores.vendor_id')
+                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status', 'stores.store_name')
                         ->where('users.status', 0)
                         ->orderBy('vendors.id', 'desc')
                         ->get();
@@ -140,7 +141,8 @@ class VendorController extends Controller
 
             $data = DB::table('vendors')
                         ->leftJoin('users', 'vendors.user_id', '=', 'users.id')
-                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status')
+                        ->leftJoin('stores', 'vendors.id', '=', 'stores.vendor_id')
+                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status', 'stores.store_name')
                         ->where('users.status', 2)
                         ->orderBy('vendors.id', 'desc')
                         ->get();
@@ -160,7 +162,6 @@ class VendorController extends Controller
                             $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->vendor_no.'" data-original-title="Approve" class="btn-sm btn-success rounded d-inline-block approveBtn"><i class="fas fa-check"></i></a>';
                         }
                         $btn .= ' <a href="'.url('edit/vendor').'/'.$data->vendor_no.'" class="mb-1 btn-sm btn-warning rounded d-inline-block"><i class="fas fa-edit"></i></a>';
-                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->vendor_no.'" data-original-title="Delete" class="btn-sm btn-danger rounded d-inline-block deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         return $btn;
                     })
                     ->rawColumns(['action', 'status'])
@@ -239,6 +240,19 @@ class VendorController extends Controller
             'status' => 1,
         ]);
         return response()->json(['success' => 'Vendor Approved Successfully.']);
+    }
+
+    public function deleteVendor($vendorNo){
+        $vendor = Vendor::where('vendor_no', $vendorNo)->first();
+        if($vendor->nid_card && file_exists(public_path($vendor->nid_card))){
+            unlink(public_path($vendor->nid_card));
+        }
+        if($vendor->trade_license && file_exists(public_path($vendor->trade_license))){
+            unlink(public_path($vendor->trade_license));
+        }
+        User::where('id', $vendor->user_id)->delete();
+        $vendor->delete();
+        return response()->json(['success' => 'Vendor Deleted Successfully.']);
     }
 
     public function downloadApprovedVendorsExcel(){

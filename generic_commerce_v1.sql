@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2024 at 07:59 PM
+-- Generation Time: Jun 19, 2024 at 11:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -1110,7 +1110,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (96, '2023_11_08_144020_create_email_templates_table', 47),
 (97, '2023_12_17_125055_create_config_setups_table', 48),
 (98, '2024_01_16_155239_create_custom_pages_table', 49),
-(99, '2024_06_19_210846_create_vendors_table', 50);
+(101, '2024_06_19_210846_create_vendors_table', 50),
+(102, '2024_06_20_023340_create_stores_table', 50);
 
 -- --------------------------------------------------------
 
@@ -9042,6 +9043,42 @@ INSERT INTO `storage_types` (`id`, `ram`, `rom`, `status`, `slug`, `serial`, `cr
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `stores`
+--
+
+CREATE TABLE `stores` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `vendor_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `store_no` varchar(255) DEFAULT NULL,
+  `store_name` varchar(255) DEFAULT NULL,
+  `store_logo` varchar(255) DEFAULT NULL,
+  `store_banner` varchar(255) DEFAULT NULL,
+  `store_address` varchar(255) DEFAULT NULL,
+  `store_phone` varchar(255) DEFAULT NULL,
+  `store_email` varchar(255) DEFAULT NULL,
+  `store_description` longtext DEFAULT NULL,
+  `district` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
+  `whatsapp` varchar(255) DEFAULT NULL,
+  `instagram` varchar(255) DEFAULT NULL,
+  `tiktok` varchar(255) DEFAULT NULL,
+  `linkedin` varchar(255) DEFAULT NULL,
+  `twitter` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` text DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL COMMENT '0=>Inactive; 1=>Active',
+  `store_percentage` double DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subcategories`
 --
 
@@ -14352,7 +14389,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'userProfileImages/z8ODg1706785422.jpg', 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57');
+(1, 'userProfileImages/z8ODg1706785422.jpg', 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57'),
+(81, NULL, 'Md Fahim Hossain', '01969005035', 'fahim@gmail.com', '2024-06-19 20:54:57', NULL, '$2y$10$AyqtNNdS8qm2k.Rz1lb5ROalOx60qrJoshkktC88AmGfzNiMP0UDG', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-06-19 20:54:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -14509,6 +14547,13 @@ CREATE TABLE `vendors` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `vendors`
+--
+
+INSERT INTO `vendors` (`id`, `user_id`, `vendor_no`, `business_name`, `business_category`, `trade_license_no`, `business_address`, `nid_card`, `trade_license`, `created_at`, `updated_at`) VALUES
+(2, 81, '1718830497sDkfA', 'Complex', 'Apparel & Accessories,Automotive', '987654321UIYT', 'Dhaka, Bangladesh', 'vendor_attachments/pSf8l1718830497.png', 'vendor_attachments/kkL3g1718830497.png', '2024-06-19 20:54:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -14850,6 +14895,12 @@ ALTER TABLE `storage_types`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `stores`
+--
+ALTER TABLE `stores`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `subcategories`
 --
 ALTER TABLE `subcategories`
@@ -15100,7 +15151,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -15259,6 +15310,12 @@ ALTER TABLE `storage_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `stores`
+--
+ALTER TABLE `stores`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
@@ -15316,7 +15373,7 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`
@@ -15346,7 +15403,7 @@ ALTER TABLE `user_role_permissions`
 -- AUTO_INCREMENT for table `vendors`
 --
 ALTER TABLE `vendors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `wish_lists`

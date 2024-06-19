@@ -110,7 +110,7 @@
                     data: 'trade_license_no',
                     name: 'trade_license_no'
                 },
-                {data: 'status', name: 'status'},
+                {data: 'store_name', name: 'store_name'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
@@ -133,6 +133,24 @@
                     success: function (data) {
                         table.draw(false);
                         toastr.success("Vendor is Approved", "Approved Successfully");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                        toastr.warning("Something Went Wrong", "Try Again");
+                    }
+                });
+            }
+        });
+
+        $('body').on('click', '.deleteBtn', function () {
+            var vendor_no = $(this).data("id");
+            if(confirm("Are You sure want to Delete ?")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('delete/vendor') }}"+'/'+vendor_no,
+                    success: function (data) {
+                        table.draw(false);
+                        toastr.error("Vendor is Deleted", "Deleted Successfully");
                     },
                     error: function (data) {
                         console.log('Error:', data);

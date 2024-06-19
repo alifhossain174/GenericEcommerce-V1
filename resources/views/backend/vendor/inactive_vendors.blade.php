@@ -110,7 +110,7 @@
                     data: 'trade_license_no',
                     name: 'trade_license_no'
                 },
-                {data: 'status', name: 'status'},
+                {data: 'store_name', name: 'store_name'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],

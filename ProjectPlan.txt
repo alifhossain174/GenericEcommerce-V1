@@ -30,7 +30,8 @@ store_address
 store_phone
 store_email
 store_description
-district_country
+district
+country
 store_percentage
 
 facebook
@@ -60,6 +61,7 @@ remarks
 amount_before_withdraw
 withdraw_amount
 amount_after_withdraw
+comission_percentage
 status (0=>Pending; 1=>Send; 2=>Denied)
 
 

@@ -34,6 +34,13 @@
             <li><a href="{{ url('/view/inactive/vendors') }}">Inactive Vendors</a></li>
         </ul>
     </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="dripicons-store"></i><span>Stores</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/create/new/store') }}">Create New Store</a></li>
+            <li><a href="{{ url('/view/all/stores') }}">View All Stores</a></li>
+        </ul>
+    </li>
     @endif
 
 

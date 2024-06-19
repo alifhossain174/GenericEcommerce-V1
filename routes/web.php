@@ -30,8 +30,10 @@ use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\DeliveryChargeController;
 use App\Http\Controllers\CustomPageController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -414,6 +416,10 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::get('/edit/vendor/{vendor_no}', [VendorController::class, 'editVendor'])->name('EditVendor');
     Route::post('/update/vendor', [VendorController::class, 'updateVendor'])->name('UpdateVendor');
     Route::get('/approve/vendor/{vendor_no}', [VendorController::class, 'approveVendor'])->name('ApproveVendor');
+    Route::get('/delete/vendor/{vendor_no}', [VendorController::class, 'deleteVendor'])->name('DeleteVendor');
     Route::get('/download/approved/vendors/excel', [VendorController::class, 'downloadApprovedVendorsExcel'])->name('DownloadApprovedVendorsExcel');
+
+    // store routes
+    Route::get('/create/new/store', [StoreController::class, 'createNewStore'])->name('CreateNewStore');
 
 });
