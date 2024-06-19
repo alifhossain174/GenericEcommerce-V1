@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('provider_name')->nullable();
             $table->string('provider_id')->nullable();
             $table->rememberToken();
-            $table->tinyInteger('user_type')->comment("1=>Admin; 2=>User/Shop; 3=>Customer")->default(3);
+            $table->tinyInteger('user_type')->comment("1=>Admin; 2=>User/Shop; 3=>Customer; 4=>Vendor")->default(3);
             $table->longText('address')->nullable();
             $table->double('balance')->comment("In BDT")->default(0);
 

@@ -1,0 +1,67 @@
+
+users
+=========
+image
+name
+email
+contact
+user_type (4=>Vendor)
+status (0=>Inactive; 1=>Active)
+
+vendors
+========
+user_id
+vendor_no
+business_name
+business_category
+trade_license_no
+business_address
+nid_card
+trade_license
+
+stores
+================
+user_id
+vendor_id
+store_no
+store_logo
+store_banner
+store_address
+store_phone
+store_email
+store_description
+district_country
+store_percentage
+
+facebook
+whatsapp
+instagram
+tiktok
+linkedin
+twitter
+
+meta_title
+meta_description
+meta_keywords
+slug (based on store_name)
+
+
+vendor_withdraw_history
+=======================
+user_id
+vendor_id
+payment_method (1=>Bank; 2=>Bkash; 3=>Nagad; 4=>Rocket; 5=>Upay)
+acc_holder_name
+acc_no
+branch_name
+routing_no
+mobile_no
+remarks
+amount_before_withdraw
+withdraw_amount
+amount_after_withdraw
+status (0=>Pending; 1=>Send; 2=>Denied)
+
+
+
+

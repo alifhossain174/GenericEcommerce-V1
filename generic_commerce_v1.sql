@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2024 at 02:20 PM
+-- Generation Time: Jun 19, 2024 at 07:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -1109,7 +1109,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (95, '2023_10_22_122627_create_product_sizes_table', 46),
 (96, '2023_11_08_144020_create_email_templates_table', 47),
 (97, '2023_12_17_125055_create_config_setups_table', 48),
-(98, '2024_01_16_155239_create_custom_pages_table', 49);
+(98, '2024_01_16_155239_create_custom_pages_table', 49),
+(99, '2024_06_19_210846_create_vendors_table', 50);
 
 -- --------------------------------------------------------
 
@@ -2431,7 +2432,10 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (6710, 80, NULL, NULL, NULL, NULL, 'Virtual tertiary forecast-597', '634', 'productImages/56.png', '[\"41.png\",\"75.png\",\"48.png\",\"60.png\"]', 'Perferendis necessitatibus quos aut molestiae. Maxime dicta distinctio sit. Ipsam occaecati suscipit dolorem accusantium. Doloribus doloribus dolore itaque dolor numquam voluptas qui.', 'Asperiores voluptatum et ut. Dignissimos voluptatem voluptatem nostrum doloremque et eos aspernatur. Corporis occaecati ut quo tenetur molestias. Sapiente laborum quo adipisci perspiciatis qui enim. Non vitae laborum excepturi molestiae perspiciatis quo.', 'Eius dolore voluptas totam nulla debitis. Sed qui laudantium nemo possimus consequatur. Ut rem eum iure nam est.', 'Perspiciatis aut quia veritatis veritatis explicabo harum consequatur corrupti. Velit optio porro totam fugit sed non. Sint quaerat sit est sed eos.', 328, 318, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, 'virtual-tertiary-forecast597-1716959727TXmvD', 17, 0, NULL, 'Virtual tertiary forecast-597', 'product,demo', NULL, 1, 0, 1, '2024-05-29 05:15:27', NULL),
 (6711, 73, NULL, NULL, NULL, NULL, 'Seamless systematic emulation-598', '746', 'productImages/74.png', NULL, 'Quia dolores debitis vitae minima aut. Dolore et quia culpa est. Minus doloribus temporibus voluptates sunt eum ad exercitationem. Vel porro voluptatibus aperiam.', 'Enim voluptate autem quo. Qui omnis minima nobis numquam commodi. Voluptatem cupiditate aut accusantium sed. Sunt ut maxime neque qui excepturi. Dolorem nobis unde earum. Aut rerum neque eveniet nulla. Maxime quidem labore ipsum autem neque a. Ad ut perferendis quis sed aspernatur. Et cupiditate sed molestiae aut. Optio eaque ullam doloremque sit rerum esse incidunt.', 'Est ut quaerat est nemo inventore et quos. Maiores nisi maxime vitae accusamus iure magni. Qui tempora voluptatem numquam fuga eum placeat corporis eum.', 'Est iste qui consectetur qui voluptas. Quam molestiae magni nisi nihil rem deserunt beatae.', 122, 112, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'seamless-systematic-emulation598-1716959727F0mZo', 17, 0, NULL, 'Seamless systematic emulation-598', 'product,demo', NULL, 1, 1, 1, '2024-05-29 05:15:27', NULL),
 (6712, 74, NULL, NULL, NULL, NULL, 'Managed eco-centric time-frame-599', '496', 'productImages/66.png', '[\"77.png\",\"72.png\",\"66.png\",\"78.png\"]', 'Nemo in nostrum neque et ipsa quod numquam sequi. Suscipit qui ad laborum vitae deleniti laudantium est nemo. In voluptatem est soluta et nulla. Iste reprehenderit earum harum totam.', 'Laboriosam ad sunt rerum adipisci. Consequuntur doloremque voluptates autem ea mollitia et. Mollitia architecto dolorum autem aspernatur. Voluptatem ex odio nesciunt inventore est temporibus quae. Iusto ducimus qui ut aliquam enim iusto. Hic rerum et et eos enim. Laboriosam nihil necessitatibus quisquam qui voluptates. Minus ea numquam cupiditate quas cum laborum.', 'Voluptatem rerum deleniti sit et quia fugit vel tenetur. Debitis corporis ipsa facilis natus quae consequatur qui ipsam. Maiores nesciunt quo dolores tempora.', 'Alias possimus error nihil molestiae nostrum qui. Ratione qui distinctio laborum dolor dolores. Ducimus et est sed vitae itaque. Aut assumenda hic temporibus tempore expedita.', 657, 647, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'managed-ecocentric-timeframe599-1716959727N29OU', 18, 0, NULL, 'Managed eco-centric time-frame-599', 'product,demo', NULL, 1, 0, 1, '2024-05-29 05:15:27', NULL),
-(6713, 79, NULL, NULL, NULL, NULL, 'Streamlined bi-directional alliance-600', '946', 'productImages/74.png', NULL, 'Consequatur et fugit qui ex maxime voluptates ducimus. Aut impedit in earum quis facilis doloremque voluptas et. Id quo necessitatibus nam id omnis ad ut.', 'Ea a accusantium vitae. Qui iste alias et. Consectetur ad omnis beatae numquam magnam inventore omnis. Iure non ipsam ad eum. Animi alias nulla sit voluptas. Cupiditate doloribus commodi voluptas et voluptatem. Qui voluptatum culpa beatae mollitia distinctio. Dolore debitis nulla et vitae deserunt.', 'Totam enim quo at vel nisi et. Repellat dolorum voluptas ipsum aut exercitationem excepturi. Voluptatem odio ullam ut non labore animi qui aliquam.', 'Voluptatem earum quasi incidunt. Qui ullam voluptas quas sed dolores eius possimus et. Modi pariatur natus quod.', 314, 304, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, 'streamlined-bidirectional-alliance600-17169597270LLkQ', 17, 0, NULL, 'Streamlined bi-directional alliance-600', 'product,demo', NULL, 1, 1, 1, '2024-05-29 05:15:27', NULL);
+(6713, 79, NULL, NULL, NULL, NULL, 'Streamlined bi-directional alliance-600', '946', 'productImages/74.png', NULL, 'Consequatur et fugit qui ex maxime voluptates ducimus. Aut impedit in earum quis facilis doloremque voluptas et. Id quo necessitatibus nam id omnis ad ut.', 'Ea a accusantium vitae. Qui iste alias et. Consectetur ad omnis beatae numquam magnam inventore omnis. Iure non ipsam ad eum. Animi alias nulla sit voluptas. Cupiditate doloribus commodi voluptas et voluptatem. Qui voluptatum culpa beatae mollitia distinctio. Dolore debitis nulla et vitae deserunt.', 'Totam enim quo at vel nisi et. Repellat dolorum voluptas ipsum aut exercitationem excepturi. Voluptatem odio ullam ut non labore animi qui aliquam.', 'Voluptatem earum quasi incidunt. Qui ullam voluptas quas sed dolores eius possimus et. Modi pariatur natus quod.', 314, 304, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, 'streamlined-bidirectional-alliance600-17169597270LLkQ', 17, 0, NULL, 'Streamlined bi-directional alliance-600', 'product,demo', NULL, 1, 1, 1, '2024-05-29 05:15:27', NULL),
+(6714, 79, NULL, NULL, NULL, NULL, 'Stephanie Roach', 'Et praesentium ad no', 'productImages/ekDba1718695259.png', NULL, 'Quidem omnis ipsam m', NULL, NULL, NULL, 935, 987, 0, NULL, 'In non quia tenetur', 'Rerum quibusdam est', NULL, 'stephanie-roach-1718695259wQIiu', NULL, NULL, '1979-10-23 13:29:00', 'Quis aliquip dolore', 'Magna est cupiditate', 'Ullamco commodi eius', 1, 0, 0, '2024-06-18 07:20:59', '2024-06-18 07:20:59'),
+(6715, 74, NULL, NULL, NULL, NULL, 'Christian Cote', 'Quia beatae hic iste', 'productImages/bzI3i1718695870.png', NULL, 'Saepe ad ex enim nul', NULL, NULL, NULL, 276, 605, 0, NULL, 'Animi dolor sit vo', 'Quas occaecat qui om', NULL, 'christian-cote-1718695870sSs61', NULL, NULL, '2020-11-09 07:45:00', 'Vel sit voluptatibus', 'Ea facilis et saepe', 'Quis omnis sapiente', 1, 0, 0, '2024-06-18 07:31:10', '2024-06-18 07:31:10'),
+(6716, 76, NULL, NULL, NULL, NULL, 'Quin Hickman', 'Natus Nam in tempori', 'productImages/SoEdy1718695895.png', NULL, 'Omnis aut nostrum fu', NULL, NULL, NULL, 798, 181, 0, NULL, 'Quam aut laudantium', 'Similique esse dolo', NULL, 'quin-hickman-1718695896yfxPF', NULL, 1, '1986-07-25 10:32:00', 'Laudantium iusto vi', 'Officia in qui cum c', 'Ut qui architecto en', 1, 0, 0, '2024-06-18 07:31:36', '2024-06-18 07:31:36');
 
 -- --------------------------------------------------------
 
@@ -14333,7 +14337,7 @@ CREATE TABLE `users` (
   `provider_name` varchar(255) DEFAULT NULL,
   `provider_id` varchar(255) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
-  `user_type` tinyint(4) NOT NULL DEFAULT 3 COMMENT '1=>Admin; 2=>User/Shop; 3=>Customer',
+  `user_type` tinyint(4) NOT NULL DEFAULT 3 COMMENT '1=>Admin; 2=>User/Shop; 3=>Customer, 4=>Vendor',
   `address` longtext DEFAULT NULL,
   `balance` double NOT NULL DEFAULT 0 COMMENT 'In BDT',
   `delete_request_submitted` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>No; 1=>Yes',
@@ -14485,6 +14489,26 @@ INSERT INTO `user_role_permissions` (`id`, `user_id`, `role_id`, `role_name`, `p
 (55, 36, NULL, NULL, 117, 'add/new/category', 'AddNewCategory', '2023-07-20 04:31:34', NULL),
 (56, 36, NULL, NULL, 23, 'home', 'home', '2023-07-20 04:31:34', NULL),
 (63, 34, NULL, NULL, 23, 'home', 'home', '2023-12-24 04:00:31', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vendors`
+--
+
+CREATE TABLE `vendors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `vendor_no` varchar(255) DEFAULT NULL,
+  `business_name` varchar(255) DEFAULT NULL,
+  `business_category` varchar(255) DEFAULT NULL,
+  `trade_license_no` varchar(255) DEFAULT NULL,
+  `business_address` varchar(255) DEFAULT NULL,
+  `nid_card` varchar(255) DEFAULT NULL,
+  `trade_license` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -14913,6 +14937,12 @@ ALTER TABLE `user_role_permissions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `vendors`
+--
+ALTER TABLE `vendors`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `wish_lists`
 --
 ALTER TABLE `wish_lists`
@@ -15070,7 +15100,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -15124,7 +15154,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6714;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6717;
 
 --
 -- AUTO_INCREMENT for table `product_images`
@@ -15311,6 +15341,12 @@ ALTER TABLE `user_roles`
 --
 ALTER TABLE `user_role_permissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- AUTO_INCREMENT for table `vendors`
+--
+ALTER TABLE `vendors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `wish_lists`

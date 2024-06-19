@@ -112,6 +112,31 @@
     @if(checkAuth("social/chat/script")) <li><a href="{{ url('/social/chat/script') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li> @endif
 
 
+    @if(env('MultiVendor') == true)
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Multivendor Modules</li>
+    @if(checkAuth("create/new/vendor") || checkAuth("view/vendor/requests") || checkAuth("view/all/vendors") || checkAuth("view/inactive/vendors"))
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-user-check"></i><span>Vendors</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("create/new/vendor")) <li><a href="{{ url('/create/new/vendor') }}">Create New Vendor</a></li> @endif
+            @php
+                $totalVendorRequests = DB::table('vendors')
+                        ->leftJoin('users', 'vendors.user_id', '=', 'users.id')
+                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status')
+                        ->where('users.status', 0)
+                        ->orderBy('vendors.id', 'desc')
+                        ->count();
+            @endphp
+            @if(checkAuth("view/vendor/requests")) <li><a href="{{ url('/view/vendor/requests') }}">Vendor Requests <span style="color:lightgreen">({{$totalVendorRequests}})</span></a></li>@endif
+            @if(checkAuth("view/all/vendors")) <li><a href="{{ url('/view/all/vendors') }}">Approved Vendors</a></li>@endif
+            @if(checkAuth("view/inactive/vendors")) <li><a href="{{ url('/view/inactive/vendors') }}">Inactive Vendors</a></li>@endif
+        </ul>
+    </li>
+    @endif
+    @endif
+
+
     @if(count($configModule) > 0 || count($categoryModule) > 0 || count($subCategoryModule) > 0 || count($childCategoryModule) > 0 || count($productModule) > 0 || count($orderModule) > 0 || count($promoCodeModule) > 0 || count($pushNotificationModule) > 0 || count($smsServiceModule) > 0 || count($systemModule) > 0 || checkAuth("view/all/customers") || checkAuth("view/customers/wishlist") || checkAuth("view/delivery/charges") || count($reportModule) > 0 || count($backupModule) > 0)
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">E-commerce Modules</li>

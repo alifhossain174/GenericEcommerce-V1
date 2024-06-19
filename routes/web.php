@@ -29,6 +29,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\DeliveryChargeController;
 use App\Http\Controllers\CustomPageController;
+use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
 
@@ -403,5 +404,16 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::get('/view/user/role/permission', [UserRoleController::class, 'viewUserRolePermission'])->name('ViewUserRolePermission');
     Route::get('/assign/role/permission/{id}', [UserRoleController::class, 'assignRolePermission'])->name('AssignRolePermission');
     Route::post('/save/assigned/role/permission', [UserRoleController::class, 'saveAssignedRolePermission'])->name('SaveAssignedRolePermission');
+
+    // vendor routes
+    Route::get('/create/new/vendor', [VendorController::class, 'createNewVendor'])->name('CreateNewVendor');
+    Route::post('/save/vendor', [VendorController::class, 'saveVendor'])->name('SaveVendor');
+    Route::get('/view/all/vendors', [VendorController::class, 'viewAllVendors'])->name('ViewAllVendors');
+    Route::get('/view/vendor/requests', [VendorController::class, 'viewVendorRequests'])->name('ViewVendorRequests');
+    Route::get('/view/inactive/vendors', [VendorController::class, 'viewInactiveVendors'])->name('ViewInactiveVendors');
+    Route::get('/edit/vendor/{vendor_no}', [VendorController::class, 'editVendor'])->name('EditVendor');
+    Route::post('/update/vendor', [VendorController::class, 'updateVendor'])->name('UpdateVendor');
+    Route::get('/approve/vendor/{vendor_no}', [VendorController::class, 'approveVendor'])->name('ApproveVendor');
+    Route::get('/download/approved/vendors/excel', [VendorController::class, 'downloadApprovedVendorsExcel'])->name('DownloadApprovedVendorsExcel');
 
 });

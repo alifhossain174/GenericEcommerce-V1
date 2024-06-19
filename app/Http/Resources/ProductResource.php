@@ -83,6 +83,8 @@ class ProductResource extends JsonResource
             'video_url' => $this->video_url,
             'warrenty_id' => $this->warrenty_id,
             'product_warrenty' => $this->product_warrenty,
+            'special_offer' => $this->special_offer,
+            'offer_end_time' => $this->offer_end_time,
             'slug' => $this->slug,
             'meta_title' => $this->meta_title,
             'meta_keywords' => $this->meta_keywords,

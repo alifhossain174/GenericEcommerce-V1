@@ -14,6 +14,29 @@
     <li><a href="{{ url('/social/chat/script/page') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li>
 
 
+    @if(env('MultiVendor') == true)
+    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Multivendor Modules</li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-user-check"></i><span>Vendors</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/create/new/vendor') }}">Create New Vendor</a></li>
+            @php
+                $totalVendorRequests = DB::table('vendors')
+                        ->leftJoin('users', 'vendors.user_id', '=', 'users.id')
+                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status')
+                        ->where('users.status', 0)
+                        ->orderBy('vendors.id', 'desc')
+                        ->count();
+            @endphp
+            <li><a href="{{ url('/view/vendor/requests') }}">Vendor Requests <span style="color:lightgreen">({{$totalVendorRequests}})</span></a></li>
+            <li><a href="{{ url('/view/all/vendors') }}">Approved Vendors</a></li>
+            <li><a href="{{ url('/view/inactive/vendors') }}">Inactive Vendors</a></li>
+        </ul>
+    </li>
+    @endif
+
+
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">E-commerce Modules</li>
     <li>
