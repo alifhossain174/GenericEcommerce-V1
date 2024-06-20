@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2024 at 11:00 AM
+-- Generation Time: Jun 20, 2024 at 11:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -1175,6 +1175,7 @@ CREATE TABLE `order_details` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
+  `store_id` int(11) DEFAULT NULL,
   `color_id` int(11) DEFAULT NULL COMMENT 'Variant',
   `size_id` int(11) DEFAULT NULL COMMENT 'Variant',
   `region_id` int(11) DEFAULT NULL COMMENT 'Variant',

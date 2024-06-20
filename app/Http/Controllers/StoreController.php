@@ -105,10 +105,10 @@ class StoreController extends Controller
                         return date("Y-m-d", strtotime($data->created_at));
                     })
                     ->addColumn('total_products', function($data){
-                        return 0;
+                        return DB::table('products')->where('store_id', $data->id)->count();
                     })
                     ->addColumn('total_earnings', function($data){
-                        return 0;
+                        return DB::table('order_details')->where('store_id', $data->id)->sum('total_price');
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){

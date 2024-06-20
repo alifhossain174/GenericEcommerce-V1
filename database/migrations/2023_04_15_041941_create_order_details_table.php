@@ -17,6 +17,7 @@ class CreateOrderDetailsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('store_id')->nullable();
 
             // added later start
             $table->unsignedBigInteger('color_id')->comment("Variant")->nullable();
