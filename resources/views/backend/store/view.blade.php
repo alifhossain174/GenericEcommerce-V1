@@ -55,6 +55,7 @@
                                     <th class="text-center">Business Name</th>
                                     <th class="text-center">Total Products</th>
                                     <th class="text-center">Total Earnings</th>
+                                    <th class="text-center">Comission</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Created At</th>
                                     <th class="text-center">Action</th>
@@ -105,6 +106,7 @@
                 {data: 'business_name', name: 'business_name'},
                 {data: 'total_products', name: 'total_products'},
                 {data: 'total_earnings', name: 'total_earnings'},
+                {data: 'store_percentage', name: 'store_percentage'},
                 {data: 'status', name: 'status'},
                 {data: 'created_at', name: 'created_at'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},

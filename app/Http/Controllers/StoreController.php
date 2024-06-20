@@ -104,6 +104,9 @@ class StoreController extends Controller
                     ->editColumn('created_at', function($data) {
                         return date("Y-m-d", strtotime($data->created_at));
                     })
+                    ->editColumn('store_percentage', function($data) {
+                        return $data->store_percentage."%";
+                    })
                     ->addColumn('total_products', function($data){
                         return DB::table('products')->where('store_id', $data->id)->count();
                     })
