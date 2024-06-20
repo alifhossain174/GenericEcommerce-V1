@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\ChildCategory;
 use App\Models\Color;
+use App\Models\Store;
 use App\Models\Flag;
 use App\Models\Product;
 use App\Models\ProductImage;
@@ -76,6 +77,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->tags = $request->tags;
         $product->video_url = $request->video_url;
+        $product->store_id = isset($request->store_id) ? $request->store_id : null;
         $product->category_id = $request->category_id;
         $product->subcategory_id = $request->subcategory_id;
         $product->childcategory_id = $request->childcategory_id;
@@ -202,12 +204,14 @@ class ProductController extends Controller
 
         if ($request->ajax()) {
 
-            ini_set('memory_limit', '4096M'); // 4GB RAM
+            ini_set('memory_limit', '8192M'); // 8GB RAM
+
             $data = DB::table('products')
                         ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                         ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
                         ->leftJoin('units', 'products.unit_id', '=', 'units.id')
-                        ->select('products.*', 'units.name as unit_name', 'categories.name as category_name', 'flags.name as flag_name')
+                        ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
+                        ->select('products.*', 'units.name as unit_name', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
                         ->orderBy('products.id', 'desc')
                         ->get();
 
@@ -366,6 +370,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->tags = $request->tags;
         $product->video_url = $request->video_url;
+        $product->store_id = isset($request->store_id) ? $request->store_id : null;
         $product->category_id = $request->category_id;
         $product->subcategory_id = $request->subcategory_id;
         $product->childcategory_id = $request->childcategory_id;
@@ -707,6 +712,7 @@ class ProductController extends Controller
 
             $title = $faker->catchPhrase()."-".$i;
             $categoryId = Category::where('status', 1)->select('id')->inRandomOrder()->limit(1)->get();
+            $storeId = Store::where('status', 1)->select('id')->inRandomOrder()->limit(1)->get();
             $subcategoryId = Subcategory::where('status', 1)->where('category_id', isset($categoryId[0]) ? $categoryId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
             $childCategoryId = ChildCategory::where('subcategory_id', isset($subcategoryId[0]) ? $subcategoryId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
             $brandId = Brand::where('status', 1)->select('id')->inRandomOrder()->limit(1)->get();
@@ -734,6 +740,7 @@ class ProductController extends Controller
 
             $id = Product::insertGetId([
                 'category_id' => isset($categoryId[0]) ? $categoryId[0]->id : null,
+                'store_id' => $i%2 == 0 ? (isset($storeId[0]) ? $storeId[0]->id : null) : null,
                 'subcategory_id' => isset($subcategoryId[0]) ? $subcategoryId[0]->id : null,
                 'childcategory_id' => isset($childCategoryId[0]) ? $childCategoryId[0]->id : null,
                 'brand_id' => isset($brandId[0]) ? $brandId[0]->id : null,

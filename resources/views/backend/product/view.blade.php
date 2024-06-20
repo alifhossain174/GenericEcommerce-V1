@@ -53,6 +53,9 @@
                                     <th class="text-center">Image</th>
                                     <th class="text-center">Category</th>
                                     <th class="text-center">Name</th>
+                                    @if(env('MultiVendor') == true)
+                                    <th class="text-center">Store</th>
+                                    @endif
                                     <th class="text-center">Price</th>
                                     <th class="text-center">Offer Price</th>
                                     <th class="text-center">Stock</th>
@@ -125,6 +128,12 @@
                     data: 'name',
                     name: 'name'
                 },
+                @if(env('MultiVendor') == true)
+                {
+                    data: 'store_name',
+                    name: 'store_name'
+                },
+                @endif
                 {
                     data: 'price',
                     name: 'price'

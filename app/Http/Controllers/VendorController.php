@@ -87,8 +87,11 @@ class VendorController extends Controller
                         if($data->status == 1){
                             return '<span class="btn btn-sm btn-success d-inline-block pt-0 pb-0">Active</span>';
                         } else {
-                            return '<span class="btn btn-sm btn-danger d-inline-block">Inactive</span>';
+                            return '<span class="btn btn-sm btn-danger d-inline-block pt-0 pb-0">Inactive</span>';
                         }
+                    })
+                    ->editColumn('created_at', function($data) {
+                        return date("Y-m-d", strtotime($data->created_at));
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
@@ -117,8 +120,11 @@ class VendorController extends Controller
                         if($data->status == 1){
                             return '<span class="btn btn-sm btn-success d-inline-block pt-0 pb-0">Active</span>';
                         } else {
-                            return '<span class="btn btn-sm btn-info d-inline-block">Pending</span>';
+                            return '<span class="btn btn-sm btn-info d-inline-block pt-0 pb-0">Pending</span>';
                         }
+                    })
+                    ->editColumn('created_at', function($data) {
+                        return date("Y-m-d", strtotime($data->created_at));
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
@@ -152,8 +158,11 @@ class VendorController extends Controller
                         if($data->status == 1){
                             return '<span class="btn btn-sm btn-success d-inline-block pt-0 pb-0">Active</span>';
                         } else {
-                            return '<span class="btn btn-sm btn-danger d-inline-block">Inactive</span>';
+                            return '<span class="btn btn-sm btn-danger d-inline-block pt-0 pb-0">Inactive</span>';
                         }
+                    })
+                    ->editColumn('created_at', function($data) {
+                        return date("Y-m-d", strtotime($data->created_at));
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){

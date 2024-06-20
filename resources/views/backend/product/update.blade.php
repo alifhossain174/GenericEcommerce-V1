@@ -210,6 +210,17 @@
                                     </div>
                                 </div>
 
+                                @if(env('MultiVendor') == true)
+                                <div class="form-group">
+                                    <label for="store_id">Select Store</label>
+                                    <select name="store_id" data-toggle="select2" class="form-control" id="store_id">
+                                        @php
+                                            echo App\Models\Store::getDropDownList('store_name', $product->store_id);
+                                        @endphp
+                                    </select>
+                                </div>
+                                @endif
+
                                 <div class="form-group">
                                     <label for="category_id">Category <span class="text-danger">*</span></label>
                                     <select name="category_id" data-toggle="select2" class="form-control" id="category_id" required>

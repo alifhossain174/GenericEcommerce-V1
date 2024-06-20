@@ -33,10 +33,10 @@
 @endsection
 
 @section('page_title')
-    Vendors
+    Stores
 @endsection
 @section('page_heading')
-    View All Vendors
+    View All Stores
 @endsection
 
 @section('content')
@@ -44,21 +44,17 @@
         <div class="col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-3">Vendor List</h4>
+                    <h4 class="card-title mb-3">Store List</h4>
                     <div class="table-responsive">
-                        <label id="customFilter">
-                            <a href="{{url('download/approved/vendors/excel')}}" class="btn btn-sm btn-success rounded ml-3"><i class="feather-download"></i> Download As Excel</a>
-                        </label>
                         <table class="table table-bordered mb-0 data-table">
                             <thead>
                                 <tr>
                                     <th class="text-center">SL</th>
-                                    <th class="text-center">Full Name</th>
-                                    <th class="text-center">Email</th>
-                                    <th class="text-center">Phone</th>
-                                    <th class="text-center">Business Name</th>
-                                    <th class="text-center">Trade License No</th>
+                                    <th class="text-center">Store Logo</th>
                                     <th class="text-center">Store Name</th>
+                                    <th class="text-center">Business Name</th>
+                                    <th class="text-center">Total Products</th>
+                                    <th class="text-center">Total Earnings</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Created At</th>
                                     <th class="text-center">Action</th>
@@ -88,33 +84,27 @@
             processing: true,
             serverSide: true,
             stateSave: true,
-            ajax: "{{ url('view/all/vendors') }}",
+            ajax: "{{ url('view/all/stores') }}",
             columns: [
                 {
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex'
                 },
                 {
-                    data: 'name',
-                    name: 'name'
-                },
-                {
-                    data: 'email',
-                    name: 'email'
-                },
-                {
-                    data: 'phone',
-                    name: 'phone'
-                },
-                {
-                    data: 'business_name',
-                    name: 'business_name'
-                },
-                {
-                    data: 'trade_license_no',
-                    name: 'trade_license_no'
+                    data: 'store_logo',
+                    name: 'store_logo',
+                    render: function( data, type, full, meta ) {
+                        if(data){
+                            return "<img class=\"gridProductImage\" src=\"/" + data + "\" width=\"40\"/>";
+                        } else {
+                            return '';
+                        }
+                    }
                 },
                 {data: 'store_name', name: 'store_name'},
+                {data: 'business_name', name: 'business_name'},
+                {data: 'total_products', name: 'total_products'},
+                {data: 'total_earnings', name: 'total_earnings'},
                 {data: 'status', name: 'status'},
                 {data: 'created_at', name: 'created_at'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
@@ -127,6 +117,42 @@
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('body').on('click', '.inactiveBtn', function () {
+            var id = $(this).data("id");
+            if(confirm("Are You sure want to Inactive ?")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('inactive/store') }}"+'/'+id,
+                    success: function (data) {
+                        table.draw(false);
+                        toastr.success("Store is Inactive Now", "Success");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                        toastr.warning("Something Went Wrong", "Try Again");
+                    }
+                });
+            }
+        });
+
+        $('body').on('click', '.activeBtn', function () {
+            var id = $(this).data("id");
+            if(confirm("Are You sure want to Activate ?")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('activate/store') }}"+'/'+id,
+                    success: function (data) {
+                        table.draw(false);
+                        toastr.success("Store is Live Now", "Success");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                        toastr.warning("Something Went Wrong", "Try Again");
+                    }
+                });
             }
         });
     </script>

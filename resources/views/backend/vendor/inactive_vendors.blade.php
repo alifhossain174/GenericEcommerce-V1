@@ -57,6 +57,7 @@
                                     <th class="text-center">Trade License No</th>
                                     <th class="text-center">Store Name</th>
                                     <th class="text-center">Status</th>
+                                    <th class="text-center">Created At</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -112,6 +113,7 @@
                 },
                 {data: 'store_name', name: 'store_name'},
                 {data: 'status', name: 'status'},
+                {data: 'created_at', name: 'created_at'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
         });

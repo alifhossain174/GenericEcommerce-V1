@@ -421,5 +421,11 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
 
     // store routes
     Route::get('/create/new/store', [StoreController::class, 'createNewStore'])->name('CreateNewStore');
+    Route::post('/save/store', [StoreController::class, 'saveStore'])->name('SaveStore');
+    Route::get('/view/all/stores', [StoreController::class, 'viewAllStores'])->name('ViewAllStores');
+    Route::get('/inactive/store/{id}', [StoreController::class, 'inactiveStore'])->name('InactiveStore');
+    Route::get('/activate/store/{id}', [StoreController::class, 'activateStore'])->name('ActivateStore');
+    Route::get('/edit/store/{slug}', [StoreController::class, 'editStore'])->name('EditStore');
+    Route::post('/update/store', [StoreController::class, 'updateStore'])->name('UpdateStore');
 
 });
