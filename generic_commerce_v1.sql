@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2024 at 11:28 AM
+-- Generation Time: Jun 21, 2024 at 11:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -14398,7 +14398,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'userProfileImages/z8ODg1706785422.jpg', 'Admin', '01969005036', 'admin@gmail.com', NULL, '33200', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, NULL, 0, 0, NULL, 1, '2023-03-28 10:20:00', '2023-10-02 08:23:57'),
-(81, NULL, 'Md Fahim Hossain', '01969005035', 'fahim@gmail.com', '2024-06-19 20:54:57', NULL, '$2y$10$AyqtNNdS8qm2k.Rz1lb5ROalOx60qrJoshkktC88AmGfzNiMP0UDG', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-06-19 20:54:57', NULL);
+(81, NULL, 'Md Fahim Hossain', '01969005035', 'fahim@gmail.com', '2024-06-19 20:54:57', NULL, '$2y$10$AyqtNNdS8qm2k.Rz1lb5ROalOx60qrJoshkktC88AmGfzNiMP0UDG', NULL, NULL, NULL, 4, NULL, 650, 0, NULL, 1, '2024-06-19 20:54:57', '2024-06-21 21:22:53');
 
 -- --------------------------------------------------------
 
@@ -14607,6 +14607,15 @@ CREATE TABLE `withdraws` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `withdraws`
+--
+
+INSERT INTO `withdraws` (`id`, `user_id`, `vendor_id`, `store_id`, `payment_method`, `acc_holder_name`, `acc_no`, `bank_name`, `branch_name`, `routing_no`, `swift_code`, `mobile_no`, `transaction_id`, `remarks`, `amount_before_withdraw`, `withdraw_amount`, `amount_after_withdraw`, `store_comission`, `status`, `created_at`, `updated_at`) VALUES
+(2, 81, 2, 1, 1, 'Md Fahim Hossain', '0551300002838', 'SIBL - Social Islami Bank PLC', 'New Eskaton', '2250', NULL, NULL, '2548745896578', 'Request Created by Admin', 2850, 2500, 350, 5, 1, '2024-06-21 18:34:44', NULL),
+(3, 81, 2, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, '01969005035', '987654321', 'Admin Created This', 350, 300, 50, 5, 1, '2024-06-21 18:36:37', NULL),
+(6, 81, 2, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, '01969005035', '987654321', 'Admin Created This', 350, 300, 50, 5, 0, '2024-06-21 18:36:37', '2024-06-21 21:22:53');
 
 --
 -- Indexes for dumped tables
@@ -15459,7 +15468,7 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `withdraws`
 --
 ALTER TABLE `withdraws`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
