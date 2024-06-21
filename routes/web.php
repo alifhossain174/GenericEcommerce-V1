@@ -431,5 +431,15 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
 
     // withdraw routes
     Route::get('create/new/withdraw', [WithdrawController::class, 'createWithdrawRequest'])->name('CreateWithdrawRequest');
+    Route::post('vendor/balance', [WithdrawController::class, 'getVendorBalance'])->name('CreateWithdrawRequest');
+    Route::post('save/withdraw/request', [WithdrawController::class, 'saveWithdrawRequest'])->name('SaveWithdrawRequest');
+    Route::get('view/all/withdraws', [WithdrawController::class, 'viewAllWithdraws'])->name('ViewAllWithdraws');
+    Route::get('view/withdraw/requests', [WithdrawController::class, 'viewWithdrawRequests'])->name('ViewWithdrawRequests');
+    Route::get('view/completed/withdraws', [WithdrawController::class, 'viewCompletedWithdraws'])->name('ViewCompletedWithdraws');
+    Route::get('view/cancelled/withdraws', [WithdrawController::class, 'viewCancelledWithdraws'])->name('ViewCancelledWithdraws');
+    Route::get('delete/withdraw/{id}', [WithdrawController::class, 'deleteWithdraw'])->name('DeleteWithdraw');
+    Route::get('get/withdraw/info/{id}', [WithdrawController::class, 'getWithdrawInfo'])->name('getWithdrawInfo');
+    Route::get('deny/withdraw/{id}', [WithdrawController::class, 'denyWithdraw'])->name('DenyWithdraw');
+    Route::post('approve/withdraw', [WithdrawController::class, 'approveWithdraw'])->name('ApproveWithdraw');
 
 });

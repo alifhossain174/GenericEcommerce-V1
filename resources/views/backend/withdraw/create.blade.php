@@ -61,11 +61,11 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="bank_name" class="col-form-label">Bank Name<span class="text-danger">*</span></label>
-                                            <input type="text" id="bank_name" name="bank_name" class="form-control" placeholder="Bank Name" required/>
+                                            <input type="text" id="bank_name" name="bank_name" class="form-control" placeholder="Bank Name"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="branch_name" class="col-form-label">Branch Name<span class="text-danger">*</span></label>
-                                            <input type="text" id="branch_name" name="branch_name" class="form-control" placeholder="Branch Name" required/>
+                                            <input type="text" id="branch_name" name="branch_name" class="form-control" placeholder="Branch Name"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="routing_no" class="col-form-label">Routing No</label>
@@ -73,11 +73,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="acc_holder_name" class="col-form-label">Account Holder Name<span class="text-danger">*</span></label>
-                                            <input type="text" id="acc_holder_name" name="acc_holder_name" class="form-control" placeholder="Account Holder Name" required/>
+                                            <input type="text" id="acc_holder_name" name="acc_holder_name" class="form-control" placeholder="Account Holder Name"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="acc_no" class="col-form-label">Account No<span class="text-danger">*</span></label>
-                                            <input type="text" id="acc_no" name="acc_no" class="form-control" placeholder="Account No" required/>
+                                            <input type="text" id="acc_no" name="acc_no" class="form-control" placeholder="Account No"/>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="mobile_no" class="col-form-label">Mobile Account No<span class="text-danger">*</span></label>
-                                            <input type="text" id="mobile_no" name="mobile_no" class="form-control" placeholder="Mobile Account No" required/>
+                                            <input type="text" id="mobile_no" name="mobile_no" class="form-control" placeholder="Mobile Account No"/>
                                         </div>
                                     </div>
                                 </div>
@@ -106,9 +106,18 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="transaction_id" class="col-form-label">Transaction ID</label>
+                                    <input type="text" id="transaction_id" value="{{ old('transaction_id') }}" placeholder="Transaction ID" name="transaction_id" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="remarks" class="col-form-label">Remarks</label>
+                                    <textarea id="remarks" name="remarks" class="form-control" placeholder="Comments"></textarea>
+                                </div>
+
                                 <div class="form-group row pt-3">
                                     <div class="col-sm-12 text-center">
-                                        <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Create Vendor</button>
+                                        <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Submit & Approve Withdraw</button>
                                     </div>
                                 </div>
                             </div>
@@ -137,9 +146,39 @@
 
         $( document ).ready(function() {
             paymentMethod();
+            vendorInfo();
+        });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
 
         function vendorInfo(){
+
+            var vendorId = $("#vendor_id").val();
+            if(vendorId){
+                var formData = new FormData();
+                formData.append("vendor_id", $("#vendor_id").val());
+
+                $(this).html('Saving..');
+                $.ajax({
+                    data: formData,
+                    url: "{{ url('vendor/balance') }}",
+                    type: "POST",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        $("#current_balance").val(data.balance);
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                        $('#saveBtn').html('Save');
+                    }
+                });
+            }
 
         }
 

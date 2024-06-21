@@ -113,36 +113,48 @@
 
 
     @if(env('MultiVendor') == true)
-    <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
-    <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Multivendor Modules</li>
-    @if(checkAuth("create/new/vendor") || checkAuth("view/vendor/requests") || checkAuth("view/all/vendors") || checkAuth("view/inactive/vendors"))
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-user-check"></i><span>Vendors</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("create/new/vendor")) <li><a href="{{ url('/create/new/vendor') }}">Create New Vendor</a></li> @endif
-            @php
-                $totalVendorRequests = DB::table('vendors')
-                        ->leftJoin('users', 'vendors.user_id', '=', 'users.id')
-                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status')
-                        ->where('users.status', 0)
-                        ->orderBy('vendors.id', 'desc')
-                        ->count();
-            @endphp
-            @if(checkAuth("view/vendor/requests")) <li><a href="{{ url('/view/vendor/requests') }}">Vendor Requests <span style="color:lightgreen">({{$totalVendorRequests}})</span></a></li>@endif
-            @if(checkAuth("view/all/vendors")) <li><a href="{{ url('/view/all/vendors') }}">Approved Vendors</a></li>@endif
-            @if(checkAuth("view/inactive/vendors")) <li><a href="{{ url('/view/inactive/vendors') }}">Inactive Vendors</a></li>@endif
-        </ul>
-    </li>
-    @endif
-    @if(checkAuth("create/new/store") || checkAuth("view/all/stores"))
-    <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="dripicons-store"></i><span>Stores</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            @if(checkAuth("create/new/store"))<li><a href="{{ url('/create/new/store') }}">Create New Store</a></li>@endif
-            @if(checkAuth("view/all/stores"))<li><a href="{{ url('/view/all/stores') }}">View All Stores</a></li>@endif
-        </ul>
-    </li>
-    @endif
+        <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
+        <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Multivendor Modules</li>
+        @if(checkAuth("create/new/vendor") || checkAuth("view/vendor/requests") || checkAuth("view/all/vendors") || checkAuth("view/inactive/vendors"))
+        <li>
+            <a href="javascript: void(0);" class="has-arrow"><i class="feather-user-check"></i><span>Vendors</span></a>
+            <ul class="sub-menu" aria-expanded="false">
+                @if(checkAuth("create/new/vendor")) <li><a href="{{ url('/create/new/vendor') }}">Create New Vendor</a></li> @endif
+                @php
+                    $totalVendorRequests = DB::table('vendors')
+                            ->leftJoin('users', 'vendors.user_id', '=', 'users.id')
+                            ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status')
+                            ->where('users.status', 0)
+                            ->orderBy('vendors.id', 'desc')
+                            ->count();
+                @endphp
+                @if(checkAuth("view/vendor/requests")) <li><a href="{{ url('/view/vendor/requests') }}">Vendor Requests <span style="color:lightgreen">({{$totalVendorRequests}})</span></a></li>@endif
+                @if(checkAuth("view/all/vendors")) <li><a href="{{ url('/view/all/vendors') }}">Approved Vendors</a></li>@endif
+                @if(checkAuth("view/inactive/vendors")) <li><a href="{{ url('/view/inactive/vendors') }}">Inactive Vendors</a></li>@endif
+            </ul>
+        </li>
+        @endif
+        @if(checkAuth("create/new/store") || checkAuth("view/all/stores"))
+        <li>
+            <a href="javascript: void(0);" class="has-arrow"><i class="dripicons-store"></i><span>Stores</span></a>
+            <ul class="sub-menu" aria-expanded="false">
+                @if(checkAuth("create/new/store"))<li><a href="{{ url('/create/new/store') }}">Create New Store</a></li>@endif
+                @if(checkAuth("view/all/stores"))<li><a href="{{ url('/view/all/stores') }}">View All Stores</a></li>@endif
+            </ul>
+        </li>
+        @endif
+        @if(checkAuth("view/all/withdraws") || checkAuth("create/new/withdraw") || checkAuth("view/withdraw/requests") || checkAuth("view/completed/requests") || checkAuth("view/cancelled/requests"))
+        <li>
+            <a href="javascript: void(0);" class="has-arrow"><i class="feather-dollar-sign"></i><span>Withdrawal</span></a>
+            <ul class="sub-menu" aria-expanded="false">
+                @if(checkAuth("view/all/withdraws"))<li><a href="{{url('view/all/withdraws')}}">All Withdrawals</a></li>@endif
+                @if(checkAuth("create/new/withdraw"))<li><a href="{{url('create/new/withdraw')}}">Create Withdrawal</a></li>@endif
+                @if(checkAuth("view/withdraw/requests"))<li><a href="{{url('view/withdraw/requests')}}">Withdraw Requests <span style="color:lightgreen">({{DB::table('withdraws')->where('status', 0)->count()}})</span></a></li>@endif
+                @if(checkAuth("view/completed/requests"))<li><a href="{{url('view/completed/withdraws')}}">Completed Withdrawals</a></li>@endif
+                @if(checkAuth("view/cancelled/requests"))<li><a href="{{url('view/cancelled/withdraws')}}">Cancelled Withdrawals</a></li>@endif
+            </ul>
+        </li>
+        @endif
     @endif
 
 
