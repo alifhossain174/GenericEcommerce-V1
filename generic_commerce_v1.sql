@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2024 at 11:02 AM
+-- Generation Time: Jun 20, 2024 at 11:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -1111,7 +1111,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (97, '2023_12_17_125055_create_config_setups_table', 48),
 (98, '2024_01_16_155239_create_custom_pages_table', 49),
 (101, '2024_06_19_210846_create_vendors_table', 50),
-(102, '2024_06_20_023340_create_stores_table', 50);
+(102, '2024_06_20_023340_create_stores_table', 50),
+(103, '2024_06_20_151811_create_withdraws_table', 51);
 
 -- --------------------------------------------------------
 
@@ -14577,6 +14578,36 @@ CREATE TABLE `wish_lists` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `withdraws`
+--
+
+CREATE TABLE `withdraws` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `vendor_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `store_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `payment_method` tinyint(4) DEFAULT NULL COMMENT '1=>Bank; 2=>Bkash; 3=>Nagad; 4=>Rocket; 5=>Upay; 6=>Sure Cash',
+  `acc_holder_name` varchar(255) DEFAULT NULL,
+  `acc_no` varchar(255) DEFAULT NULL,
+  `bank_name` varchar(255) DEFAULT NULL,
+  `branch_name` varchar(255) DEFAULT NULL,
+  `routing_no` varchar(255) DEFAULT NULL,
+  `swift_code` varchar(255) DEFAULT NULL,
+  `mobile_no` varchar(255) DEFAULT NULL,
+  `transaction_id` varchar(255) DEFAULT NULL COMMENT 'Given By Admin While Disbursing Amount',
+  `remarks` longtext DEFAULT NULL,
+  `amount_before_withdraw` double NOT NULL DEFAULT 0,
+  `withdraw_amount` double NOT NULL DEFAULT 0,
+  `amount_after_withdraw` double NOT NULL DEFAULT 0,
+  `store_comission` double NOT NULL DEFAULT 0,
+  `status` tinyint(4) DEFAULT NULL COMMENT '0=>Pending; 1=>Disbursed; 3=>Denied',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -15007,6 +15038,12 @@ ALTER TABLE `wish_lists`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `withdraws`
+--
+ALTER TABLE `withdraws`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -15158,7 +15195,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -15417,6 +15454,12 @@ ALTER TABLE `vendors`
 --
 ALTER TABLE `wish_lists`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `withdraws`
+--
+ALTER TABLE `withdraws`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

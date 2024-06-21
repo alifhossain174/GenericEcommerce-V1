@@ -41,6 +41,16 @@
             <li><a href="{{ url('/view/all/stores') }}">View All Stores</a></li>
         </ul>
     </li>
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-dollar-sign"></i><span>Withdrawal</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{url('view/all/withdraws')}}">All Withdrawal</a></li>
+            <li><a href="{{url('create/new/withdraw')}}">Create Withdrawal</a></li>
+            <li><a href="{{url('view/withdraw/requests')}}">Withdraw Requests <span style="color:lightgreen">(0)</span></a></li>
+            <li><a href="{{url('view/completed/withdraws')}}">Completed Withdrawals</a></li>
+            <li><a href="{{url('view/cancelled/withdraws')}}">Cancelled Withdrawals</a></li>
+        </ul>
+    </li>
     @endif
 
 

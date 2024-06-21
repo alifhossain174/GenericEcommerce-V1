@@ -2,18 +2,26 @@ vendor_withdraw_history
 =======================
 user_id
 vendor_id
+store_id
 payment_method (1=>Bank; 2=>Bkash; 3=>Nagad; 4=>Rocket; 5=>Upay)
 acc_holder_name
 acc_no
 branch_name
 routing_no
+swift_code
 mobile_no
+transaction_id (Filled By Admin)
 remarks
 amount_before_withdraw
 withdraw_amount
 amount_after_withdraw
 comission_percentage
-status (0=>Pending; 1=>Send; 2=>Denied)
+status (0=>Pending; 1=>Disbursed; 2=>Denied)
+
+Completed Withrawal
+Pending Withrawal
+Cancelled Withdrawal
+Vendor Balance
 
 
 

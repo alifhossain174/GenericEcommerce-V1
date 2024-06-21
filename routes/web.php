@@ -31,6 +31,7 @@ use App\Http\Controllers\DeliveryChargeController;
 use App\Http\Controllers\CustomPageController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\WithdrawController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
 use Illuminate\Support\Facades\Auth;
@@ -427,5 +428,8 @@ Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
     Route::get('/activate/store/{id}', [StoreController::class, 'activateStore'])->name('ActivateStore');
     Route::get('/edit/store/{slug}', [StoreController::class, 'editStore'])->name('EditStore');
     Route::post('/update/store', [StoreController::class, 'updateStore'])->name('UpdateStore');
+
+    // withdraw routes
+    Route::get('create/new/withdraw', [WithdrawController::class, 'createWithdrawRequest'])->name('CreateWithdrawRequest');
 
 });
