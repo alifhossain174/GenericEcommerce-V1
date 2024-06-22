@@ -1142,7 +1142,9 @@ class ApiController extends BaseController
         $totalOrderAmount = 0;
 
         foreach($request->product_id as $productId){
+
             Product::where('id', $productId)->decrement("stock", (int) $request->qty[$index]);
+
             OrderDetails::insert([
                 'order_id' => $orderId,
                 'product_id' => $productId,

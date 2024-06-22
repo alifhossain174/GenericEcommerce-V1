@@ -42,13 +42,14 @@ class ProductResource extends JsonResource
         $flagInfo = Flag::where('id', $this->flag_id)->first();
 
 
-        $totalStockAllVariants = 0;
+        $totalStockAllVariants = $this->stock;
         if($variants && count($variants) > 0){
+            $totalStockAllVariants = 0;
             foreach ($variants as $variant) {
                 $totalStockAllVariants = $totalStockAllVariants + (int) $variant->stock;
             }
         }
-        $totalStockAllVariants = $totalStockAllVariants + $this->stock;
+        // $totalStockAllVariants = $totalStockAllVariants + $this->stock;
 
 
         return [
