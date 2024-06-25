@@ -238,8 +238,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="tawk_chat_link">Facebook Page ID</label>
-                                            <input type="text" class="form-control" value="{{$generalInfo->fb_page_id}}" id="fb_page_id" name="fb_page_id" placeholder="e.g. 65498765432165">
+                                            <label for="fb_page_id">Messenger Link</label>
+                                            <input type="text" class="form-control" value="{{$generalInfo->fb_page_id}}" id="fb_page_id" name="fb_page_id" placeholder="https://m.me/">
                                         </div>
 
                                         <div class="form-group mb-2">
