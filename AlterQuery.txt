@@ -92,4 +92,6 @@ ALTER TABLE `products` ADD `special_offer` TINYINT(4) NULL DEFAULT '0' COMMENT '
 
 ==================03.07.24======================
 ALTER TABLE `products` ADD `reward_points` DOUBLE NOT NULL DEFAULT '0' AFTER `discount_price`;
+ALTER TABLE `order_details` ADD `reward_points` DOUBLE NOT NULL DEFAULT '0' AFTER `total_price`;
+ALTER TABLE `orders` ADD `reward_points_used` DOUBLE NOT NULL DEFAULT '0' AFTER `discount`;
 ================================================

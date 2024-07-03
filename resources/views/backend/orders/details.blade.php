@@ -74,12 +74,12 @@
                                 <p class="mb-1"><strong>Tran. ID: </strong> #{{$order->trx_id}}</p>
                                 <p class="mb-1"><strong>Order Date: </strong> {{date("jS F, Y",strtotime($order->order_date))}}</p>
                                 <p class="mb-1">
-                                    <strong>Order From: </strong> 
-                                    @if($order->order_from == 1) 
-                                    Website 
+                                    <strong>Order From: </strong>
+                                    @if($order->order_from == 1)
+                                    Website
                                     @elseif($order->order_from == 2)
                                     Mobile App
-                                    @else 
+                                    @else
                                     N/A
                                     @endif
                                 </p>
@@ -148,6 +148,7 @@
                                             <th class="text-center" style="width: 60px;">SL</th>
                                             <th>Item</th>
                                             <th class="text-center">Variant</th>
+                                            <th class="text-center">Reward Points</th>
                                             <th class="text-center">Quantity</th>
                                             <th class="text-center">Unit Cost</th>
                                             <th class="text-right">Total</th>
@@ -194,6 +195,7 @@
                                                 @if($details->warrenty_id) Warrenty: {{$warrentyInfo ? $warrentyInfo->name : ''}} | @endif
                                                 @if($details->device_condition_id) Condition: {{$deviceCondition ? $deviceCondition->name : ''}} @endif
                                             </td>
+                                            <td class="text-center">{{$details->reward_points}}</td>
                                             <td class="text-center">{{$details->qty}}</td>
                                             <td class="text-center">৳ {{number_format($details->unit_price, 2)}}</td>
                                             <td class="text-right">৳ {{number_format($details->total_price, 2)}}</td>
@@ -242,6 +244,7 @@
                             <div class="float-right">
                                 <p><b>Sub-total :</b> ৳ {{number_format($order->sub_total, 2)}}</p>
                                 <p><b>Discount @if($order->coupon_code)({{$order->coupon_code}})@endif:</b> ৳ {{number_format($order->discount, 2)}}</p>
+                                <p><b>Reward Points Used :</b> {{$order->reward_points_used}}</p>
                                 <p><b>VAT/TAX :</b> ৳ {{number_format($order->vat+$order->tax, 2)}}</p>
                                 <p><b>Delivery Charge :</b> ৳ {{number_format($order->delivery_fee, 2)}}</p>
                                 <h3><b>Total Order Amount :</b> ৳ {{number_format($order->total, 2)}}</h3>

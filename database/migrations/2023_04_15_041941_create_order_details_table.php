@@ -33,6 +33,7 @@ class CreateOrderDetailsTable extends Migration
             $table->double('qty');
             $table->double('unit_price');
             $table->double('total_price');
+            $table->double('reward_points')->default(0);
             $table->timestamps();
         });
     }

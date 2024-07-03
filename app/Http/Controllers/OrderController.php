@@ -454,6 +454,19 @@ class OrderController extends Controller
         $data->updated_at = Carbon::now();
         $data->save();
 
+        // give reward points to customer after order delivery start
+        $totalRewardPoints = 0;
+        $orderedItems = OrderDetails::where('order_id', $data->id)->get();
+        foreach($orderedItems as $item){
+            if(isset($item->reward_points) && $item->reward_points){
+                $totalRewardPoints = $totalRewardPoints + $item->reward_points;
+            }
+        }
+        if($data->user_id){
+            User::where('id', $data->user_id)->increment('balance', $totalRewardPoints);
+        }
+        // give reward points to customer after order delivery end
+
         OrderProgress::insert([
             'order_id' => $data->id,
             'order_status' => 3,

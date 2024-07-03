@@ -73,6 +73,7 @@ class OrderDetailsResource extends JsonResource
             'qty' => $this->qty,
             'unit_price' => $this->unit_price,
             'total_price' => $this->total_price,
+            'reward_points' => $this->reward_points,
         ];
     }
 }

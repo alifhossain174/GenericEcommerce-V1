@@ -30,6 +30,7 @@ class CreateOrdersTable extends Migration
             $table->double('sub_total')->default(0);
             $table->string('coupon_code')->nullable();
             $table->double('discount')->default(0);
+            $table->double('reward_points_used')->default(0);
             $table->double('delivery_fee')->default(0);
             $table->double('vat')->default(0);
             $table->double('tax')->default(0);
