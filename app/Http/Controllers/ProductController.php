@@ -749,6 +749,7 @@ class ProductController extends Controller
                 'model_id' => isset($modelId[0]) ? $modelId[0]->id : null,
                 'name' => $title,
                 'code' => rand(100,999),
+                'reward_points' => rand(0,5),
                 'image' => $request->product_type == 1 ? 'productImages/'. rand(1,20).'.png' : ($request->product_type == 2 ? 'productImages/'. rand(21,40).'.png' : 'productImages/'. rand(41,80).'.png'),
                 'multiple_images' => $i%2 != 0 ? json_encode($multipleProductArray) : null,
                 'short_description' => $faker->text($maxNbChars = 200),
