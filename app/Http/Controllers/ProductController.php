@@ -91,6 +91,7 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->model_id = $request->model_id;
         $product->code = $request->code;
+        $product->reward_points = $request->reward_points;
 
         $product->special_offer = $request->special_offer == 1 ? 1 : 0;
         $product->offer_end_time = date("Y-m-d H:i", strtotime($request->offer_end_time)).":00";
@@ -380,6 +381,7 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->model_id = $request->model_id;
         $product->code = $request->code;
+        $product->reward_points = $request->reward_points;
         $product->unit_id = isset($request->unit_id) ? $request->unit_id : null;
         $product->status = $request->status;
 

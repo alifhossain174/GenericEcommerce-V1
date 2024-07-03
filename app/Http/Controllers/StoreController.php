@@ -75,7 +75,7 @@ class StoreController extends Controller
             'meta_description' => $request->meta_description,
             'meta_keywords' => $request->meta_keywords ? implode(",", $request->meta_keywords) : null,
             'status' => 1,
-            'slug' => $slug,
+            'slug' => $slug.'-'.time(),
             'created_at' => Carbon::now()
         ]);
 

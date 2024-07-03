@@ -77,6 +77,7 @@ class ProductResource extends JsonResource
             'warrenty_policy' => $this->warrenty_policy,
             'price' => $this->price,
             'discount_price' => $this->discount_price,
+            'reward_points' => $this->reward_points,
             'stock' => $totalStockAllVariants,
             'unit_id' => $this->unit_id,
             'unit_name' => $this->unit_name,

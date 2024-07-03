@@ -177,6 +177,12 @@
 
 
                                 <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="reward_points">Reward Points</label>
+                                            <input type="text" id="reward_points" data-toggle="touchspin" value="0" name="reward_points" class="form-control">
+                                        </div>
+                                    </div>
                                     <div class="col" id="product_stock">
                                         <div class="form-group">
                                             <label for="stock">Stock</label>
@@ -188,16 +194,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="code">Product Code</label>
-                                            <input type="text" id="code" name="code" class="form-control" placeholder="YYWIW482">
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('code')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="code">Product Code</label>
+                                    <input type="text" id="code" name="code" class="form-control" placeholder="YYWIW482">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('code')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -621,7 +626,9 @@
     <script src="{{url('multipleImgUploadPlugin')}}/image-uploader.min.js"></script>
     <script src="{{url('assets')}}/js/tagsinput.js"></script>
 
-    <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script> --}}
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.24.0-lts/standard/ckeditor.js"></script> --}}
     <script type="text/javascript">
 
         $('#has_variant').prop("checked", false);

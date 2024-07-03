@@ -89,3 +89,7 @@ ALTER TABLE `orders` ADD `order_from` TINYINT NULL DEFAULT NULL COMMENT '1=>Web;
 ==================29.05.24======================
 ALTER TABLE `products` ADD `special_offer` TINYINT(4) NULL DEFAULT '0' COMMENT '0=>Not; 1=>Yes' AFTER `flag_id`, ADD `offer_end_time` VARCHAR(255) NULL DEFAULT NULL AFTER `special_offer`;
 ================================================
+
+==================03.07.24======================
+ALTER TABLE `products` ADD `reward_points` DOUBLE NOT NULL DEFAULT '0' AFTER `discount_price`;
+================================================

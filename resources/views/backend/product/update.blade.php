@@ -186,6 +186,12 @@
                                 </div>
 
                                 <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="reward_points">Reward Points</label>
+                                            <input type="text" id="reward_points" value="{{$product->reward_points}}" data-toggle="touchspin" value="0" name="reward_points" class="form-control">
+                                        </div>
+                                    </div>
                                     <div class="col" id="product_stock" @if($product->has_variant == 1) style="display:none" @endif>
                                         <div class="form-group">
                                             <label for="stock">Stock</label>
@@ -197,16 +203,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="code">Product Code</label>
-                                            <input type="text" id="code" name="code" class="form-control" value="{{$product->code}}" placeholder="YYWIW482">
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('code')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="code">Product Code</label>
+                                    <input type="text" id="code" name="code" class="form-control" value="{{$product->code}}" placeholder="YYWIW482">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('code')
+                                            {{ $message }}
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -771,7 +776,7 @@
     <script src="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
     <script src="{{url('assets')}}/js/tagsinput.js"></script>
 
-    <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script type="text/javascript">
 
         let preloaded = [
