@@ -455,15 +455,17 @@ class OrderController extends Controller
         $data->save();
 
         // give reward points to customer after order delivery start
-        $totalRewardPoints = 0;
-        $orderedItems = OrderDetails::where('order_id', $data->id)->get();
-        foreach($orderedItems as $item){
-            if(isset($item->reward_points) && $item->reward_points){
-                $totalRewardPoints = $totalRewardPoints + $item->reward_points;
-            }
-        }
         if($data->user_id){
-            User::where('id', $data->user_id)->increment('balance', $totalRewardPoints);
+            $totalRewardPoints = 0;
+            $orderedItems = OrderDetails::where('order_id', $data->id)->get();
+            foreach($orderedItems as $item){
+                if(isset($item->reward_points) && $item->reward_points){
+                    $totalRewardPoints = $totalRewardPoints + $item->reward_points;
+                }
+            }
+            if($totalRewardPoints > 0){
+                User::where('id', $data->user_id)->increment('balance', $totalRewardPoints);
+            }
         }
         // give reward points to customer after order delivery end
 

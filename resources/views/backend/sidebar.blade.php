@@ -113,8 +113,8 @@
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-git-pull-request"></i><span>Child
                 Category</span></a>
         <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/add/new/childcategory') }}">Add New Child Category</a></li>
-            <li><a href="{{ url('/view/all/childcategory') }}">View All Child Categories</a></li>
+            <li><a href="{{ url('/add/new/childcategory') }}">Add Child Category</a></li>
+            <li><a href="{{ url('/view/all/childcategory') }}">View Child Categories</a></li>
         </ul>
     </li>
     <li>
