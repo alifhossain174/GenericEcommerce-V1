@@ -2018,4 +2018,30 @@ class ApiController extends BaseController
         }
     }
 
+    public function uploadVendorNid(Request $request){
+        if ($request->hasFile('attachment')){
+            $get_attachment = $request->file('attachment');
+            $attachment_name = $get_attachment->getClientOriginalName();
+            $location = public_path('vendor_attachments/');
+            $get_attachment->move($location, $attachment_name);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Uploaded Successfully',
+        ], 200);
+    }
+
+    public function uploadVendorLicense(Request $request){
+        if ($request->hasFile('attachment')){
+            $get_attachment = $request->file('attachment');
+            $attachment_name = $get_attachment->getClientOriginalName();
+            $location = public_path('vendor_attachments/');
+            $get_attachment->move($location, $attachment_name);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Uploaded Successfully',
+        ], 200);
+    }
+
 }
