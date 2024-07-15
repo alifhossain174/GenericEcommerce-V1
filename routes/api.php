@@ -168,6 +168,7 @@ Route::group(['namespace' => 'Api'], function () {
     // upload vendor file from frontend
     Route::post('upload/vendor/nid', [ApiController::class, 'uploadVendorNid']);
     Route::post('upload/vendor/license', [ApiController::class, 'uploadVendorLicense']);
+    Route::post('upload/store/image', [ApiController::class, 'uploadStoreImage']);
 
     // upload product images from vendor
     Route::post('upload/product/thumbnail', [ApiController::class, 'uploadProductThumbnail']);
