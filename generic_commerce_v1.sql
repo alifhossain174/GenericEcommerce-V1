@@ -292,24 +292,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`, `featured`, `show_on_navbar`, `serial`, `created_at`, `updated_at`) VALUES
-<<<<<<< HEAD
-(86, 'Electronics', NULL, NULL, 'electronics', 1, 0, 1, 5, '2024-06-25 14:22:53', '2024-06-25 14:26:28'),
-(87, 'Air Conditioner', NULL, NULL, 'air-conditioner', 1, 0, 1, 6, '2024-06-25 14:23:06', '2024-06-25 14:26:28'),
-(88, 'Refrigerator & Freezer', NULL, NULL, 'refrigerator-freezer', 1, 0, 1, 7, '2024-06-25 14:23:12', '2024-06-25 14:26:28'),
-(89, 'Washing Machine', NULL, NULL, 'washing-machine', 1, 0, 1, 8, '2024-06-25 14:23:17', '2024-06-25 14:26:28'),
-(90, 'Fan & Cooler', NULL, NULL, 'fan-cooler', 1, 0, 1, 9, '2024-06-25 14:23:24', '2024-06-25 14:26:28'),
-(91, 'Laptop', 'category_images/axfz21719325506.svg', NULL, 'laptop', 1, 1, 0, 1, '2024-06-25 14:24:45', '2024-06-25 14:26:28'),
-(92, 'Mobile', 'category_images/vP8hW1719325528.svg', NULL, 'mobile', 1, 1, 0, 2, '2024-06-25 14:25:28', '2024-06-25 14:26:28'),
-(93, 'Gadget', 'category_images/tW8wL1719325548.svg', NULL, 'gadget', 1, 1, 0, 3, '2024-06-25 14:25:48', '2024-06-25 14:26:28'),
-(94, 'Cable', 'category_images/ZWKjt1719325567.svg', NULL, 'cable', 1, 1, 0, 4, '2024-06-25 14:26:07', '2024-06-25 14:26:28'),
-(95, 'Mobile Test', 'category_images/soY641720520199.png', 'category_images/tL0st1720520199.jpg', 'mobile-test', 1, 1, 1, 0, '2024-07-09 10:16:39', NULL),
-(96, 'Laptop Test', 'category_images/wXC9G1720520327.png', 'category_images/qvVjp1720520327.jpg', 'laptop-test', 1, 1, 1, -1, '2024-07-09 10:18:47', NULL);
-=======
 (10, 'Men', 'category_images/HT2qj1705472695.jpg', NULL, 'men', 1, 1, 1, 2, '2024-01-17 05:42:20', '2024-07-07 08:19:14'),
 (11, 'Women', 'category_images/ywtOc1705472707.jpg', NULL, 'women', 1, 1, 1, 1, '2024-01-17 06:25:07', '2024-01-17 06:25:57'),
 (38, 'Cosmetics & Skincare', 'category_images/WwAce1714651844.jpg', 'category_images/o78B91713946391.jpeg', 'cosmetics-skincare', 1, 1, 1, 0, '2024-04-24 06:13:11', '2024-05-02 10:10:44'),
 (39, 'Jewelry Accessories', 'category_images/Ud9uJ1714650983.jpg', 'category_images/TGA4v1713948677.jpg', 'jewelry-accessories', 1, 0, 1, -1, '2024-04-24 06:51:17', '2024-05-02 09:56:23');
->>>>>>> 05e0639d4b5d48678d2a845f94330dcf25814b69
 
 -- --------------------------------------------------------
 
@@ -338,16 +324,6 @@ INSERT INTO `child_categories` (`id`, `category_id`, `subcategory_id`, `icon`, `
 (2, 17, 55, NULL, 'HP', 'hp-1704003726-TsxVx', 1, '2023-12-31 06:22:06', NULL),
 (3, 17, 55, NULL, 'Asus', 'asus-1704003732-3gPYA', 1, '2023-12-31 06:22:12', NULL),
 (4, 17, 55, NULL, 'Acer', 'acer-1704003737-MU1Sx', 1, '2023-12-31 06:22:17', NULL),
-<<<<<<< HEAD
-(5, 55, 103, NULL, 'Hair Shampoo', 'hair-shampoo-1711656514-y7Z2H', 1, '2024-03-28 20:08:34', NULL),
-(6, 55, 103, NULL, 'Body Shower', 'body-shower-1711656524-VHYLk', 1, '2024-03-28 20:08:44', NULL),
-(7, 86, 104, NULL, 'Smart Phone', 'smart-phone-1719325836-JtBfX', 1, '2024-06-25 14:30:36', NULL),
-(8, 86, 104, NULL, 'Tablet', 'tablet-1719325843-Dk2zE', 1, '2024-06-25 14:30:43', NULL),
-(9, 86, 105, NULL, 'LED TV', 'led-tv-1719325856-x61IN', 1, '2024-06-25 14:30:56', NULL),
-(10, 86, 105, NULL, 'Smart TV', 'smart-tv-1719325864-jrkj1', 1, '2024-06-25 14:31:04', NULL),
-(11, 96, 123, 'childcategory_images/GV3lx1720520649.jpg', 'Laptop Test child category', 'laptop-test-child-category-1720520649-TUBvm', 1, '2024-07-09 10:24:09', NULL),
-(12, 95, 124, 'childcategory_images/2RcdX1720520702.jpg', 'Mobile Test Child Category', 'mobile-test-child-category-1720520702-SzlUC', 1, '2024-07-09 10:25:02', NULL);
-=======
 (5, 38, 92, NULL, 'Face Powder', 'face-powder-1713947787-P6Pp6', 1, '2024-04-24 06:36:27', NULL),
 (6, 38, 90, NULL, 'Eyeliner', 'eyeliner-1713947860-uTFjI', 1, '2024-04-24 06:37:40', NULL),
 (7, 38, 89, NULL, 'Lipstick', 'lipstick-1713958613-aOxbR', 1, '2024-04-24 09:36:53', NULL),
@@ -369,7 +345,6 @@ INSERT INTO `child_categories` (`id`, `category_id`, `subcategory_id`, `icon`, `
 (23, 38, 94, NULL, 'Body Scrub', 'body-scrub-1720081321-37oXo', 1, '2024-07-04 06:22:01', NULL),
 (24, 38, 94, NULL, 'Body Jelly', 'body-jelly-1720081421-3Mtt2', 1, '2024-07-04 06:22:26', '2024-07-04 06:23:41'),
 (25, 38, 94, NULL, 'Soap & Bodywash', 'soap-bodywash-1720081380-Shqfc', 1, '2024-07-04 06:23:00', NULL);
->>>>>>> 05e0639d4b5d48678d2a845f94330dcf25814b69
 
 -- --------------------------------------------------------
 
