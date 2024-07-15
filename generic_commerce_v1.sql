@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2024 at 08:05 PM
+-- Generation Time: Jul 09, 2024 at 12:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -282,7 +282,9 @@ INSERT INTO `categories` (`id`, `name`, `icon`, `banner_image`, `slug`, `status`
 (91, 'Laptop', 'category_images/axfz21719325506.svg', NULL, 'laptop', 1, 1, 0, 1, '2024-06-25 14:24:45', '2024-06-25 14:26:28'),
 (92, 'Mobile', 'category_images/vP8hW1719325528.svg', NULL, 'mobile', 1, 1, 0, 2, '2024-06-25 14:25:28', '2024-06-25 14:26:28'),
 (93, 'Gadget', 'category_images/tW8wL1719325548.svg', NULL, 'gadget', 1, 1, 0, 3, '2024-06-25 14:25:48', '2024-06-25 14:26:28'),
-(94, 'Cable', 'category_images/ZWKjt1719325567.svg', NULL, 'cable', 1, 1, 0, 4, '2024-06-25 14:26:07', '2024-06-25 14:26:28');
+(94, 'Cable', 'category_images/ZWKjt1719325567.svg', NULL, 'cable', 1, 1, 0, 4, '2024-06-25 14:26:07', '2024-06-25 14:26:28'),
+(95, 'Mobile Test', 'category_images/soY641720520199.png', 'category_images/tL0st1720520199.jpg', 'mobile-test', 1, 1, 1, 0, '2024-07-09 10:16:39', NULL),
+(96, 'Laptop Test', 'category_images/wXC9G1720520327.png', 'category_images/qvVjp1720520327.jpg', 'laptop-test', 1, 1, 1, -1, '2024-07-09 10:18:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -316,7 +318,9 @@ INSERT INTO `child_categories` (`id`, `category_id`, `subcategory_id`, `icon`, `
 (7, 86, 104, NULL, 'Smart Phone', 'smart-phone-1719325836-JtBfX', 1, '2024-06-25 14:30:36', NULL),
 (8, 86, 104, NULL, 'Tablet', 'tablet-1719325843-Dk2zE', 1, '2024-06-25 14:30:43', NULL),
 (9, 86, 105, NULL, 'LED TV', 'led-tv-1719325856-x61IN', 1, '2024-06-25 14:30:56', NULL),
-(10, 86, 105, NULL, 'Smart TV', 'smart-tv-1719325864-jrkj1', 1, '2024-06-25 14:31:04', NULL);
+(10, 86, 105, NULL, 'Smart TV', 'smart-tv-1719325864-jrkj1', 1, '2024-06-25 14:31:04', NULL),
+(11, 96, 123, 'childcategory_images/GV3lx1720520649.jpg', 'Laptop Test child category', 'laptop-test-child-category-1720520649-TUBvm', 1, '2024-07-09 10:24:09', NULL),
+(12, 95, 124, 'childcategory_images/2RcdX1720520702.jpg', 'Mobile Test Child Category', 'mobile-test-child-category-1720520702-SzlUC', 1, '2024-07-09 10:25:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -3924,6 +3928,15 @@ CREATE TABLE `product_models` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_models`
+--
+
+INSERT INTO `product_models` (`id`, `brand_id`, `name`, `code`, `status`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 51, 'Test model', '2024', 1, 'test-model-1720520808', '2024-07-09 10:26:48', NULL),
+(2, 53, 'Model test 2', '2023', 1, 'model-test-2-1720520861', '2024-07-09 10:27:41', NULL),
+(3, 56, 'Model Test 3', '2022', 1, 'model-test-3-1720520877', '2024-07-09 10:27:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -9245,7 +9258,9 @@ INSERT INTO `subcategories` (`id`, `category_id`, `name`, `icon`, `image`, `slug
 (119, 89, 'Semi Auto', NULL, NULL, 'semi-auto', 1, 0, -3, '2024-06-25 14:29:47', NULL),
 (120, 90, 'Air Cooler', NULL, NULL, 'air-cooler', 1, 0, -1, '2024-06-25 14:29:57', NULL),
 (121, 90, 'Ceiling Fan', NULL, NULL, 'ceiling-fan', 1, 0, -2, '2024-06-25 14:30:03', NULL),
-(122, 90, 'Air Curtain', NULL, NULL, 'air-curtain', 1, 0, -3, '2024-06-25 14:30:15', NULL);
+(122, 90, 'Air Curtain', NULL, NULL, 'air-curtain', 1, 0, -3, '2024-06-25 14:30:15', NULL),
+(123, 96, 'Laptop test sub category', 'subcategory_images/L5FY31720520435.png', 'subcategory_images/J3S981720520435.jpg', 'laptop-test-sub-category', 1, 0, -1, '2024-07-09 10:20:35', NULL),
+(124, 95, 'Mobile test sub category', 'subcategory_images/bl3nj1720520577.png', 'subcategory_images/KsDlg1720520577.jpg', 'mobile-test-sub-category', 1, 0, -1, '2024-07-09 10:22:13', '2024-07-09 10:22:57');
 
 -- --------------------------------------------------------
 
@@ -15265,13 +15280,13 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `child_categories`
 --
 ALTER TABLE `child_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `colors`
@@ -15433,7 +15448,7 @@ ALTER TABLE `product_images`
 -- AUTO_INCREMENT for table `product_models`
 --
 ALTER TABLE `product_models`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `product_question_answers`
@@ -15535,7 +15550,7 @@ ALTER TABLE `stores`
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `subscribed_users`
