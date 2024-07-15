@@ -48,7 +48,7 @@
                                     <label for="payment_method" class="col-form-label">Payment Method<span class="text-danger">*</span></label>
                                     <select id="payment_method" name="payment_method" onchange="paymentMethod()" class="form-control" required>
                                         <option value="">Select One</option>
-                                        <option value="1">Bank</option>
+                                        <option value="1">Bank Transfer</option>
                                         <option value="2">bKash</option>
                                         <option value="3">Nagad</option>
                                         <option value="4">Rocket</option>
@@ -198,6 +198,11 @@
                     $("#bank_account").removeClass("d-block");
                     $("#bank_account").addClass("d-none");
                 }
+            } else {
+                $("#mobile_account").removeClass("d-block");
+                $("#mobile_account").addClass("d-none");
+                $("#bank_account").removeClass("d-block");
+                $("#bank_account").addClass("d-none");
             }
         }
     </script>

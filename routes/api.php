@@ -165,4 +165,13 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('get/category/wise/blogs', [BlogController::class, 'getCategoryWiseBlogs']);
     Route::get('blog/details/{slug}', [BlogController::class, 'blogDetails']);
 
+    // upload vendor file from frontend
+    Route::post('upload/vendor/nid', [ApiController::class, 'uploadVendorNid']);
+    Route::post('upload/vendor/license', [ApiController::class, 'uploadVendorLicense']);
+
+    // upload product images from vendor
+    Route::post('upload/product/thumbnail', [ApiController::class, 'uploadProductThumbnail']);
+    Route::post('remove/product/thumbnail', [ApiController::class, 'removeProductThumbnail']);
+    Route::post('upload/product/images', [ApiController::class, 'uploadProductImages']);
+    Route::post('remove/product/images', [ApiController::class, 'removeProductImages']);
 });

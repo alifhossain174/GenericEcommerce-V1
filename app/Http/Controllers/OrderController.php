@@ -388,10 +388,11 @@ class OrderController extends Controller
         $shippingInfo = ShippingInfo::where('order_id', $order->id)->first();
         $billingAddress = BillingAddress::where('order_id', $order->id)->first();
         $orderDetails = DB::table('order_details')
+                            ->leftJoin('stores', 'order_details.store_id', 'stores.id')
                             ->leftJoin('products', 'order_details.product_id', 'products.id')
                             ->leftJoin('categories', 'products.category_id', 'categories.id')
                             ->leftJoin('units', 'order_details.unit_id', 'units.id')
-                            ->select('order_details.*', 'products.name as product_name', 'units.name as unit_name', 'categories.name as category_name')
+                            ->select('order_details.*', 'stores.store_name', 'products.name as product_name', 'units.name as unit_name', 'categories.name as category_name')
                             ->where('order_id', $order->id)
                             ->get();
         $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
@@ -455,15 +456,17 @@ class OrderController extends Controller
         $data->save();
 
         // give reward points to customer after order delivery start
-        $totalRewardPoints = 0;
-        $orderedItems = OrderDetails::where('order_id', $data->id)->get();
-        foreach($orderedItems as $item){
-            if(isset($item->reward_points) && $item->reward_points){
-                $totalRewardPoints = $totalRewardPoints + $item->reward_points;
-            }
-        }
         if($data->user_id){
-            User::where('id', $data->user_id)->increment('balance', $totalRewardPoints);
+            $totalRewardPoints = 0;
+            $orderedItems = OrderDetails::where('order_id', $data->id)->get();
+            foreach($orderedItems as $item){
+                if(isset($item->reward_points) && $item->reward_points){
+                    $totalRewardPoints = $totalRewardPoints + $item->reward_points;
+                }
+            }
+            if($totalRewardPoints > 0){
+                User::where('id', $data->user_id)->increment('balance', $totalRewardPoints);
+            }
         }
         // give reward points to customer after order delivery end
 

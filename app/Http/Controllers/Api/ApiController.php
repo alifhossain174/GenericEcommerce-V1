@@ -2018,4 +2018,77 @@ class ApiController extends BaseController
         }
     }
 
+    public function uploadVendorNid(Request $request){
+        if ($request->hasFile('attachment')){
+            $get_attachment = $request->file('attachment');
+            $attachment_name = $get_attachment->getClientOriginalName();
+            $location = public_path('vendor_attachments/');
+            $get_attachment->move($location, $attachment_name);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Uploaded Successfully',
+        ], 200);
+    }
+
+    public function uploadVendorLicense(Request $request){
+        if ($request->hasFile('attachment')){
+            $get_attachment = $request->file('attachment');
+            $attachment_name = $get_attachment->getClientOriginalName();
+            $location = public_path('vendor_attachments/');
+            $get_attachment->move($location, $attachment_name);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Uploaded Successfully',
+        ], 200);
+    }
+
+    public function uploadProductThumbnail(Request $request){
+        if ($request->hasFile('attachment')){
+            $get_attachment = $request->file('attachment');
+            $attachment_name = $get_attachment->getClientOriginalName();
+            $location = public_path('productImages/');
+            $get_attachment->move($location, $attachment_name);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Uploaded Successfully',
+        ], 200);
+    }
+
+    public function removeProductThumbnail(Request $request){
+        $product = DB::table('products')->where('id', $request->product_id)->first();
+        if($product && $product->image && file_exists(public_path($product->image))){
+            unlink(public_path($product->image));
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Removed Successfully',
+        ], 200);
+    }
+
+    public function uploadProductImages(Request $request){
+        if ($request->hasFile('attachment')){
+            $get_attachment = $request->file('attachment');
+            $attachment_name = $get_attachment->getClientOriginalName();
+            $location = public_path('productImages/');
+            $get_attachment->move($location, $attachment_name);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Uploaded Successfully',
+        ], 200);
+    }
+    public function removeProductImages(Request $request){
+        $productImage = public_path('productImages/'.$request->product_image);
+        if(file_exists($productImage)){
+            unlink($productImage);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Removed Successfully',
+        ], 200);
+    }
+
 }

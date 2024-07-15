@@ -84,6 +84,7 @@ ALTER TABLE `child_categories` ADD `icon` VARCHAR(255) NULL DEFAULT NULL AFTER `
 
 ==================13.05.24======================
 ALTER TABLE `orders` ADD `order_from` TINYINT NULL DEFAULT NULL COMMENT '1=>Web; 2=>Mobile App;' AFTER `order_no`;
+ALTER TABLE `blogs` ADD `meta_title` VARCHAR(255) NULL DEFAULT NULL AFTER `status`, ADD `meta_keywords` VARCHAR(255) NULL DEFAULT NULL AFTER `meta_title`, ADD `meta_description` LONGTEXT NULL DEFAULT NULL AFTER `meta_keywords`;
 ================================================
 
 ==================29.05.24======================
@@ -91,7 +92,9 @@ ALTER TABLE `products` ADD `special_offer` TINYINT(4) NULL DEFAULT '0' COMMENT '
 ================================================
 
 ==================03.07.24======================
+ALTER TABLE `products` ADD `store_id` INT NULL DEFAULT NULL AFTER `id`;
 ALTER TABLE `products` ADD `reward_points` DOUBLE NOT NULL DEFAULT '0' AFTER `discount_price`;
 ALTER TABLE `order_details` ADD `reward_points` DOUBLE NOT NULL DEFAULT '0' AFTER `total_price`;
+ALTER TABLE `order_details` ADD `store_id` INT NULL DEFAULT NULL AFTER `product_id`;
 ALTER TABLE `orders` ADD `reward_points_used` DOUBLE NOT NULL DEFAULT '0' AFTER `discount`;
 ================================================

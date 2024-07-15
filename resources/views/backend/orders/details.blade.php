@@ -148,6 +148,9 @@
                                             <th class="text-center" style="width: 60px;">SL</th>
                                             <th>Item</th>
                                             <th class="text-center">Variant</th>
+                                            @if(env('MultiVendor') == true)
+                                            <th class="text-center">Store</th>
+                                            @endif
                                             <th class="text-center">Reward Points</th>
                                             <th class="text-center">Quantity</th>
                                             <th class="text-center">Unit Cost</th>
@@ -195,6 +198,9 @@
                                                 @if($details->warrenty_id) Warrenty: {{$warrentyInfo ? $warrentyInfo->name : ''}} | @endif
                                                 @if($details->device_condition_id) Condition: {{$deviceCondition ? $deviceCondition->name : ''}} @endif
                                             </td>
+                                            @if(env('MultiVendor') == true)
+                                            <td class="text-center">{{$details->store_name}}</td>
+                                            @endif
                                             <td class="text-center">{{$details->reward_points}}</td>
                                             <td class="text-center">{{$details->qty}}</td>
                                             <td class="text-center">৳ {{number_format($details->unit_price, 2)}}</td>
