@@ -11,6 +11,9 @@
         table.dataTable tbody td:nth-child(1){
             font-weight: 600;
         }
+        table.dataTable tbody td:nth-child(4){
+            min-width: 200px;
+        }
         table.dataTable tbody td{
             text-align: center !important;
         }
@@ -59,26 +62,11 @@
                                     <th class="text-center">Price</th>
                                     <th class="text-center">Offer Price</th>
                                     <th class="text-center">Stock</th>
-                                    <th class="text-center">Unit</th>
                                     <th class="text-center">Flag</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            {{-- <tfoot>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </tfoot> --}}
                             <tbody>
 
                             </tbody>
@@ -146,7 +134,6 @@
                     data: 'stock',
                     name: 'stock'
                 },
-                {data: 'unit_name', name: 'unit_name'},
                 {data: 'flag_name', name: 'flag_name'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},

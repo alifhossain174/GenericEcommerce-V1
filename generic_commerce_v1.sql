@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2024 at 09:44 PM
+-- Generation Time: Jul 20, 2024 at 07:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -1259,7 +1259,7 @@ INSERT INTO `orders` (`id`, `order_no`, `order_from`, `user_id`, `order_date`, `
 (57, '1717665547174', NULL, NULL, '2024-06-06 15:19:07', '2024-06-13', NULL, '1', 1, 1, '1717665547vZ3z8', NULL, 1, 1250, '0', 0, 0, 80, 0, 0, 1330, NULL, NULL, 'qcJi91717665547', 1, '2024-06-06 07:19:07', '2024-06-06 09:14:34'),
 (58, '1719821287278', NULL, NULL, '2024-07-01 14:08:07', '2024-07-08', NULL, '1', 1, 1, '1719821287Fhj8q', NULL, 0, 2080, '0', 0, 0, 80, 0, 0, 2160, NULL, NULL, 'E516t1719821287', 1, '2024-07-01 06:08:07', NULL),
 (59, '1719910890677', NULL, NULL, '2024-07-02 15:01:30', '2024-07-09', NULL, '1', 1, 1, '1719910890GlkB1', NULL, 1, 550, '0', 0, 0, 80, 0, 0, 630, NULL, NULL, 'AFAda1719910890', 1, '2024-07-02 07:01:30', '2024-07-04 02:44:27'),
-(60, '1720209701221', NULL, NULL, '2024-07-06 02:01:41', '2024-07-13', NULL, '1', 1, 0, '1720209701a8Xm3', NULL, 0, 4080, '0', 0, 0, 80, 0, 0, 4160, NULL, NULL, 'XkU8q1720209701', 1, '2024-07-05 18:01:41', NULL);
+(60, '1720209701221', NULL, NULL, '2024-07-06 02:01:41', '2024-07-13', NULL, '1', 1, 0, '1720209701a8Xm3', NULL, 3, 4080, '0', 0, 0, 80, 0, 0, 4160, NULL, NULL, 'XkU8q1720209701', 1, '2024-07-05 18:01:41', '2024-07-14 08:01:57');
 
 -- --------------------------------------------------------
 
@@ -1449,7 +1449,8 @@ INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `u
 (97, 58, 0, '2024-07-01 06:08:07', NULL),
 (98, 59, 0, '2024-07-02 07:01:30', NULL),
 (99, 59, 1, '2024-07-04 02:44:27', NULL),
-(100, 60, 0, '2024-07-05 18:01:41', NULL);
+(100, 60, 0, '2024-07-05 18:01:41', NULL),
+(105, 60, 1, '2024-07-14 08:01:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -2692,7 +2693,8 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (819, NULL, 11, 56, NULL, NULL, NULL, 'Plus Size Casual Strapless Jumpsuit For Women Sleeveless High Waist Feathers Lace Long Jumpsuit', NULL, 'productImages/hpHGP1720260819.jpg', NULL, 'Material:	Spandex / Polyester,\r\nFeature:	Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable,\r\nTaking Pre-Order, Delivery Time 20-25 days.', '<p>Collar: <strong>Strapless</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type: <strong>Regular</strong></p>\r\n\r\n<p>Gender: <strong>Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order&nbsp;</strong></p>\r\n\r\n<p><strong>Delivery Time 20-25 days.</strong></p>', NULL, NULL, 3730, 0, 0, 0, 1, 'Plus Size Casual Strapless Jumpsuit For Women Sleeveless High Waist Feathers Lace Long Jumpsuit', NULL, NULL, 'plus-size-casual-strapless-jumpsuit-for-women-sleeveless-high-waist-feathers-lace-long-jumpsuit-17202608190fGb0', 7, 0, NULL, 'Plus Size Casual Strapless Jumpsuit For Women Sleeveless High Waist Feathers Lace Long Jumpsuit', 'Plus Size Casual Strapless Jumpsuit For Women Sleeveless High Waist Feathers Lace Long Jumpsuit', NULL, 1, 1, 0, '2024-07-06 08:13:39', '2024-07-06 08:43:59'),
 (820, NULL, 11, 56, NULL, NULL, NULL, 'Summer Casual V-neck Slim Jumpsuit For Women High Waist Patchwork Lace Long Jumpsuit', NULL, 'productImages/YI9BS1720263313.jpg', NULL, 'Pattern Type:	Patchwork,\r\nMaterial:	Lace,\r\nFabric Type:	Worsted,\r\nFeature:	Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable.\r\nTaking Pre-Order, Delivery Time 20-25 days', '<p>Collar: <strong>V-neck</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type: <strong>Regular</strong></p>\r\n\r\n<p>Gender:<strong> Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order </strong></p>\r\n\r\n<p><strong>Delivery Time 20-25 days</strong></p>', NULL, NULL, 3070, 0, 0, -1, 1, 'Summer Casual V-neck Slim Jumpsuit For Women High Waist Patchwork Lace Long Jumpsuit', NULL, NULL, 'summer-casual-vneck-slim-jumpsuit-for-women-high-waist-patchwork-lace-long-jumpsuit-1720263313WevH6', 7, 0, NULL, 'Summer Casual V-neck Slim Jumpsuit For Women High Waist Patchwork Lace Long Jumpsuit', 'Summer Casual V-neck Slim Jumpsuit For Women High Waist Patchwork Lace Long Jumpsuit', NULL, 1, 1, 0, '2024-07-06 08:55:13', '2024-07-06 08:57:24'),
 (821, NULL, 38, 94, 17, 43, NULL, 'Nior Hya Bulgerian Rose 99.99% Moisture Soothing Gel', NULL, 'productImages/qKxu31720265376.png', '[\"1720265376CaxTD.png\",\"1720265376AasYH.png\"]', 'Net Weight: 300ml', '<p><strong>Product Description</strong></p>\r\n\r\n<p>NIOR Hya Bulgarian Rose 99.99% MOISTURE SOOTHING GEL contains 99.99% Rose Water extract to make skin soft and moisturized &amp; it also has hyaluronic acid which helps to keep our skin hydrated all day long. It smoothens skin texture and reduces the risk of skin damage caused by UV rays by strengthening the skin barrier.</p>\r\n\r\n<p><strong>Features &amp; Details</strong></p>\r\n\r\n<p>Cleanses and brightens the skin. Soothes irritated spots. Decongests skin pores. Tightens and moisturizes skin. Reduce under eye puffiness and dark skin.</p>\r\n\r\n<p><strong>Ingredient List</strong></p>\r\n\r\n<p>Aqua / Rosa Damascena Flower Water / 1,3-Propanediol / Acrylates/C10-30 Alkyl Acrylate Crosspolymer / Butylene Glycol / Chlorophenesin / Disodium EDTA / Glycerine / Hyaluronic acid / Methylchloroisothiazolinone / Methylisothiazolinone / Niacinamide / Phenoxyethanol / Sodium Hydroxide</p>\r\n\r\n<p><strong>Directions</strong></p>\r\n\r\n<p>Apply to a clean face, body as needed. No need to wash after use.</p>', NULL, NULL, 590, 0, 0, 100, 1, 'Nior Hya Bulgerian Rose 99.99% Moisture Soothing Gel', NULL, NULL, 'nior-hya-bulgerian-rose-9999-moisture-soothing-gel-1720265376rD2ml', 7, 0, NULL, 'Nior Hya Bulgerian Rose 99.99% Moisture Soothing Gel', 'Nior Hya Bulgerian Rose 99.99% Moisture Soothing Gel', NULL, 1, 0, 0, '2024-07-06 09:29:36', '2024-07-06 09:29:56'),
-(822, 1, 11, 56, NULL, NULL, NULL, 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, 'productImages/TOzFE1720266084.jpg', NULL, 'Pattern Type: DOT,\r\nMaterial:	Spandex / Polyester,\r\nFabric Type:	Worsted,\r\nFeature:	Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable.\r\nTaking Pre-Order, Delivery Time 20-25 days', '<p>Collar: <strong>V-neck</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type:<strong> Regular</strong></p>\r\n\r\n<p>Gender:<strong> Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order, Delivery Time 20-25 days</strong></p>', NULL, NULL, 2250, 0, 0, -1, 1, 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, NULL, 'summer-sexy-vneck-jumpsuit-for-women-high-waist-polka-dot-backless-lace-long-jumpsuit-1720266084fJs4w', 7, 0, '1970-01-01 06:00:00', 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, 1, 1, 0, '2024-07-06 09:41:24', '2024-07-09 18:42:55');
+(822, NULL, 11, 56, NULL, NULL, NULL, 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, 'productImages/TOzFE1720266084.jpg', NULL, 'Pattern Type: DOT,\r\nMaterial:	Spandex / Polyester,\r\nFabric Type:	Worsted,\r\nFeature:	Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable.\r\nTaking Pre-Order, Delivery Time 20-25 days', '<p>Collar: <strong>V-neck</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type:<strong> Regular</strong></p>\r\n\r\n<p>Gender:<strong> Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order, Delivery Time 20-25 days</strong></p>', NULL, NULL, 2250, 0, 0, 0, 1, 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, NULL, 'summer-sexy-vneck-jumpsuit-for-women-high-waist-polka-dot-backless-lace-long-jumpsuit-1720266084fJs4w', 7, 0, '1970-01-01 06:00:00', 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, 1, 1, 0, '2024-07-06 09:41:24', '2024-07-14 16:41:58'),
+(829, 1, 11, 56, NULL, NULL, NULL, 'Summer Sexy V-Neck Jumpsuit For Women', NULL, 'productImages/c3bQV1720981960.jpg', NULL, 'Pattern Type: DOT, Material: Spandex / Polyester, Fabric Type: Worsted, Feature: Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable. Taking Pre-Order, Delivery Time 20-25 days', '<p>Collar: <strong>V-neck</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type:<strong> Regular</strong></p>\r\n\r\n<p>Gender:<strong> Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order, Delivery Time 20-25 days</strong></p>', NULL, NULL, 100, 0, 0, 0, 1, 'dress', NULL, NULL, 'summer-sexy-vneck-jumpsuit-for-women-1720981961EMxuD', 11, 1, '1970-01-01T06:00', NULL, NULL, NULL, 0, 1, 0, '2024-07-14 10:59:45', '2024-07-14 12:32:41');
 
 -- --------------------------------------------------------
 
@@ -3754,7 +3756,7 @@ CREATE TABLE `product_reviews` (
 --
 
 INSERT INTO `product_reviews` (`id`, `product_id`, `user_id`, `rating`, `review`, `reply`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(1961, 822, 75, 5, 'Nice product', 'Thanks for your review.', '2YDtr1706445297', 1, '2024-01-28 10:34:57', '2024-01-28 10:37:09');
+(1961, 829, 75, 5, 'Nice product', 'Thanks for your review 2', '2YDtr1706445297', 1, '2024-01-28 10:34:57', '2024-07-14 13:53:25');
 
 -- --------------------------------------------------------
 
@@ -5382,11 +5384,13 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `unit_i
 (1941, 820, '17202633145PJJR.jpg', 26, NULL, NULL, NULL, NULL, NULL, 100, 3070, 0, NULL, NULL, '2024-07-06 08:55:14', '2024-07-06 08:57:24'),
 (1942, 820, '17202633143V9vH.jpg', 3, NULL, NULL, NULL, NULL, NULL, 100, 3070, 0, NULL, NULL, '2024-07-06 08:55:14', '2024-07-06 08:57:24'),
 (1943, 820, '1720263314MSYRO.jpg', 2, NULL, NULL, NULL, NULL, NULL, 100, 3070, 0, NULL, NULL, '2024-07-06 08:55:14', '2024-07-06 08:57:24'),
-(1944, 822, '1720266084lEQQp.jpg', 21, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:24', '2024-07-09 18:42:55'),
-(1945, 822, '1720266084nKhYj.jpg', 13, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-09 18:42:55'),
-(1946, 822, '1720266085qv7YC.jpg', 1, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-09 18:42:55'),
-(1947, 822, '1720266085MTcOw.jpg', 2, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-09 18:42:55'),
-(1948, 822, '1720266085dzQy6.jpg', 6, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-09 18:42:55');
+(1944, 822, '1720266084lEQQp.jpg', 21, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:24', '2024-07-14 16:41:58'),
+(1945, 822, '1720266084nKhYj.jpg', 13, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-14 16:41:58'),
+(1946, 822, '1720266085qv7YC.jpg', 1, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-14 16:41:58'),
+(1947, 822, '1720266085MTcOw.jpg', 2, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-14 16:41:58'),
+(1948, 822, '1720266085dzQy6.jpg', 6, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-14 16:41:58'),
+(1951, 829, '17209763852UCLL.jpg', 21, NULL, 10, NULL, NULL, NULL, 100, 100, 0, NULL, NULL, '2024-07-14 10:59:45', '2024-07-14 12:32:41'),
+(1952, 829, '1720976385UoAbv.jpg', 22, NULL, 12, NULL, NULL, NULL, 100, 100, 0, NULL, NULL, '2024-07-14 10:59:45', '2024-07-14 12:32:41');
 
 -- --------------------------------------------------------
 
@@ -5835,6 +5839,7 @@ CREATE TABLE `stores` (
   `store_phone` varchar(255) DEFAULT NULL,
   `store_email` varchar(255) DEFAULT NULL,
   `store_description` longtext DEFAULT NULL,
+  `store_full_description` longtext DEFAULT NULL,
   `district` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `facebook` varchar(255) DEFAULT NULL,
@@ -5857,9 +5862,9 @@ CREATE TABLE `stores` (
 -- Dumping data for table `stores`
 --
 
-INSERT INTO `stores` (`id`, `user_id`, `vendor_id`, `store_no`, `store_name`, `store_logo`, `store_banner`, `store_address`, `store_phone`, `store_email`, `store_description`, `district`, `country`, `facebook`, `whatsapp`, `instagram`, `tiktok`, `linkedin`, `twitter`, `meta_title`, `meta_description`, `meta_keywords`, `slug`, `status`, `store_percentage`, `created_at`, `updated_at`) VALUES
-(1, 186, 1, '1720421193btYT0', 'Yellow', 'stores/rL96M1720421193.webp', 'stores/pFCrr1720421193.webp', 'Dhaka, Bangladesh', ',01969005025', ',yellow@gmail.com', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Yellow', NULL, ',', 'yellow', 1, 5, '2024-07-08 06:46:33', '2024-07-12 19:32:25'),
-(2, 187, 2, '1720421343W2aHF', 'Illiyeen', 'stores/evtut1720421343.png', 'stores/dvCNN1720421343.jpg', 'Dhaka, Bangladesh', ',01969887744', ',illiyeen@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu scelerisque felis. Vel pretium lectus quam id leo in vitae turpis massa. Nunc id cursus metus aliquam. Libero id faucibus nisl tincidunt eget. Aliquam id diam maecenas ultricies mi eget mauris. Volutpat ac tincidunt vitae semper quis lectus. Vestibulum mattis ullamcorper velit sed. A arcu cursus vitae congue mauris. ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Illiyeen', NULL, ',', 'illiyeen', 1, 5, '2024-07-08 06:49:03', '2024-07-08 06:49:26');
+INSERT INTO `stores` (`id`, `user_id`, `vendor_id`, `store_no`, `store_name`, `store_logo`, `store_banner`, `store_address`, `store_phone`, `store_email`, `store_description`, `store_full_description`, `district`, `country`, `facebook`, `whatsapp`, `instagram`, `tiktok`, `linkedin`, `twitter`, `meta_title`, `meta_description`, `meta_keywords`, `slug`, `status`, `store_percentage`, `created_at`, `updated_at`) VALUES
+(1, 186, 1, '1720421193btYT0', 'Yellow', 'stores/rL96M1720421193.webp', 'stores/pFCrr1720421193.webp', 'Dhaka, Bangladesh', ',01969005025', ',yellow@gmail.com', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Yellow', NULL, ',', 'yellow', 1, 5, '2024-07-08 06:46:33', '2024-07-12 19:32:25'),
+(2, 187, 2, '1720421343W2aHF', 'Illiyeen', 'stores/evtut1720421343.png', 'stores/dvCNN1720421343.jpg', 'Dhaka, Bangladesh', ',01969887744', ',illiyeen@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu scelerisque felis. Vel pretium lectus quam id leo in vitae turpis massa. Nunc id cursus metus aliquam. Libero id faucibus nisl tincidunt eget. Aliquam id diam maecenas ultricies mi eget mauris. Volutpat ac tincidunt vitae semper quis lectus. Vestibulum mattis ullamcorper velit sed. A arcu cursus vitae congue mauris. ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Illiyeen', NULL, ',', 'illiyeen', 1, 5, '2024-07-08 06:49:03', '2024-07-08 06:49:26');
 
 -- --------------------------------------------------------
 
@@ -12345,7 +12350,7 @@ ALTER TABLE `order_payments`
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -12369,13 +12374,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=823;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=830;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1503;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1512;
 
 --
 -- AUTO_INCREMENT for table `product_models`
@@ -12405,7 +12410,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1949;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1953;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`

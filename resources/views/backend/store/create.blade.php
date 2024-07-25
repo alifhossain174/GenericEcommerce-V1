@@ -95,8 +95,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="store_description" class="col-form-label">Store Description</label>
-                                    <textarea class="form-control" name="store_description" id="store_description" placeholder="Store Description"></textarea>
+                                    <label for="store_description" class="col-form-label">Short Description</label>
+                                    <textarea class="form-control" rows="5" name="store_description" id="store_description" placeholder="Store Description"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="store_full_description" class="col-form-label">Description</label>
+                                    <textarea class="form-control" name="store_full_description" id="store_full_description"></textarea>
                                 </div>
 
                                 <div class="row">
@@ -177,8 +182,15 @@
     <script src="{{url('assets')}}/plugins/select2/select2.min.js"></script>
     <script src="{{url('assets')}}/js/tagsinput.js"></script>
     <script src="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script type="text/javascript">
         $('[data-toggle="select2"]').select2();
+
+        CKEDITOR.replace('store_full_description', {
+            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form',
+            height: 250,
+        });
 
         var defaultOptions = {};
         $('[data-toggle="touchspin"]').each(function (idx, obj) {

@@ -98,3 +98,7 @@ ALTER TABLE `order_details` ADD `reward_points` DOUBLE NOT NULL DEFAULT '0' AFTE
 ALTER TABLE `order_details` ADD `store_id` INT NULL DEFAULT NULL AFTER `product_id`;
 ALTER TABLE `orders` ADD `reward_points_used` DOUBLE NOT NULL DEFAULT '0' AFTER `discount`;
 ================================================
+
+==================20.07.24======================
+ALTER TABLE `stores` ADD `store_full_description` LONGTEXT NULL DEFAULT NULL AFTER `store_description`;
+================================================

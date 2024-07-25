@@ -210,9 +210,8 @@ class ProductController extends Controller
             $data = DB::table('products')
                         ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                         ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
-                        ->leftJoin('units', 'products.unit_id', '=', 'units.id')
                         ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
-                        ->select('products.*', 'units.name as unit_name', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
+                        ->select('products.*', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
                         ->orderBy('products.id', 'desc')
                         ->get();
 
@@ -222,6 +221,9 @@ class ProductController extends Controller
                             return '';
                         else
                             return $data->image;
+                    })
+                    ->editColumn('name', function($data) {
+                        return substr($data->name, 0, 50);
                     })
                     ->editColumn('status', function($data) {
                         if($data->status == 1){
