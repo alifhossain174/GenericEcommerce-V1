@@ -51,8 +51,8 @@
                                     <input type="text" id="business_name" value="{{$data->business_name}}" name="business_name" class="form-control" placeholder="Business Name" required/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="business_category" class="col-form-label">Business Category<span class="text-danger">*</span></label>
-                                    <select id="business_category" name="business_category[]" class="form-control" data-toggle="select2" multiple required>
+                                    <label for="business_category" class="col-form-label">Business Category</label>
+                                    <select id="business_category" name="business_category[]" class="form-control" data-toggle="select2" multiple>
                                         <option value="">Select One</option>
                                         <option value="Apparel & Accessories" @if(str_contains($data->business_category, "Apparel & Accessories")) selected @endif>Apparel & Accessories</option>
                                         <option value="Automotive" @if(str_contains($data->business_category, "Automotive")) selected @endif>Automotive</option>
@@ -72,12 +72,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="trade_license_no" class="col-form-label">Trade License Number<span class="text-danger">*</span></label>
-                                    <input type="text" id="trade_license_no" value="{{$data->trade_license_no}}" name="trade_license_no" class="form-control" placeholder="Business Trade License Number" required/>
+                                    <label for="trade_license_no" class="col-form-label">Trade License Number</label>
+                                    <input type="text" id="trade_license_no" value="{{$data->trade_license_no}}" name="trade_license_no" class="form-control" placeholder="Business Trade License Number"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="business_address" class="col-form-label">Business Address<span class="text-danger">*</span></label>
-                                    <input type="text" id="business_address" value="{{$data->business_address}}" name="business_address" class="form-control" placeholder="Business Address" required/>
+                                    <label for="business_address" class="col-form-label">Business Address</label>
+                                    <input type="text" id="business_address" value="{{$data->business_address}}" name="business_address" class="form-control" placeholder="Business Address"/>
                                 </div>
                             </div>
 

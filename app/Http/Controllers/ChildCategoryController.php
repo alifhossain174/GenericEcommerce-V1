@@ -62,8 +62,8 @@ class ChildCategoryController extends Controller
         if ($request->ajax()) {
 
             $data = DB::table('child_categories')
-                        ->join('categories', 'child_categories.category_id', '=' , 'categories.id')
-                        ->join('subcategories', 'child_categories.subcategory_id', '=' , 'subcategories.id')
+                        ->leftJoin('categories', 'child_categories.category_id', '=' , 'categories.id')
+                        ->leftJoin('subcategories', 'child_categories.subcategory_id', '=' , 'subcategories.id')
                         ->select('child_categories.*', 'categories.name as category_name', 'subcategories.name as subcategory_name')
                         ->orderBy('child_categories.id', 'desc')
                         ->get();

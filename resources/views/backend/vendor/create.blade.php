@@ -49,8 +49,8 @@
                                     <input type="text" id="business_name" value="{{ old('business_name') }}" name="business_name" class="form-control" placeholder="Business Name" required/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="business_category" class="col-form-label">Business Category<span class="text-danger">*</span></label>
-                                    <select id="business_category" name="business_category[]" class="form-control" data-toggle="select2" multiple required>
+                                    <label for="business_category" class="col-form-label">Business Category</label>
+                                    <select id="business_category" name="business_category[]" class="form-control" data-toggle="select2" multiple>
                                         <option value="">Select One</option>
                                         <option value="Apparel & Accessories">Apparel & Accessories</option>
                                         <option value="Automotive">Automotive</option>
@@ -70,12 +70,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="trade_license_no" class="col-form-label">Trade License Number<span class="text-danger">*</span></label>
-                                    <input type="text" id="trade_license_no" value="{{ old('trade_license_no') }}" name="trade_license_no" class="form-control" placeholder="Business Trade License Number" required/>
+                                    <label for="trade_license_no" class="col-form-label">Trade License Number</label>
+                                    <input type="text" id="trade_license_no" value="{{ old('trade_license_no') }}" name="trade_license_no" class="form-control" placeholder="Business Trade License Number"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="business_address" class="col-form-label">Business Address<span class="text-danger">*</span></label>
-                                    <input type="text" id="business_address" value="{{ old('business_address') }}" name="business_address" class="form-control" placeholder="Business Address" required/>
+                                    <label for="business_address" class="col-form-label">Business Address</label>
+                                    <input type="text" id="business_address" value="{{ old('business_address') }}" name="business_address" class="form-control" placeholder="Business Address"/>
                                 </div>
                             </div>
                         </div>
@@ -111,12 +111,12 @@
                         <div class="row border-top">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="nid_card" class="col-form-label">Upload Owner NID card<span class="text-danger">*</span></label>
-                                    <input type="file" id="nid_card" name="nid_card" class="form-control" required/>
+                                    <label for="nid_card" class="col-form-label">Upload Owner NID card</label>
+                                    <input type="file" id="nid_card" name="nid_card" class="form-control"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="trade_license" class="col-form-label">Upload Business Trade License<span class="text-danger">*</span></label>
-                                    <input type="file" id="trade_license" name="trade_license" class="form-control" required/>
+                                    <label for="trade_license" class="col-form-label">Upload Business Trade License</label>
+                                    <input type="file" id="trade_license" name="trade_license" class="form-control"/>
                                 </div>
 
                                 <div class="form-group row pt-3">
