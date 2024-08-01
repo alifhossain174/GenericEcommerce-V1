@@ -50,12 +50,13 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">SL</th>
-                                    <th class="text-center">Full Name</th>
+                                    <th class="text-center">Name</th>
                                     <th class="text-center">Email</th>
                                     <th class="text-center">Phone</th>
                                     <th class="text-center">Business Name</th>
-                                    <th class="text-center">Trade License No</th>
-                                    <th class="text-center">Store Name</th>
+                                    <th class="text-center">Trade License</th>
+                                    <th class="text-center">Store</th>
+                                    <th class="text-center">Verified</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Created At</th>
                                     <th class="text-center">Action</th>
@@ -112,6 +113,7 @@
                     name: 'trade_license_no'
                 },
                 {data: 'store_name', name: 'store_name'},
+                {data: 'email_verified_at', name: 'email_verified_at'},
                 {data: 'status', name: 'status'},
                 {data: 'created_at', name: 'created_at'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},

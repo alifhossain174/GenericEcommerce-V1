@@ -110,7 +110,7 @@ class VendorController extends Controller
             $data = DB::table('vendors')
                         ->leftJoin('users', 'vendors.user_id', '=', 'users.id')
                         ->leftJoin('stores', 'vendors.id', '=', 'stores.vendor_id')
-                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status', 'stores.store_name')
+                        ->select('vendors.*', 'users.name', 'users.email', 'users.phone', 'users.status', 'users.email_verified_at', 'stores.store_name')
                         ->where('users.status', 0)
                         ->orderBy('vendors.id', 'desc')
                         ->get();
@@ -121,6 +121,13 @@ class VendorController extends Controller
                             return '<span class="btn btn-sm btn-success d-inline-block pt-0 pb-0">Active</span>';
                         } else {
                             return '<span class="btn btn-sm btn-info d-inline-block pt-0 pb-0">Pending</span>';
+                        }
+                    })
+                    ->editColumn('email_verified_at', function($data) {
+                        if($data->email_verified_at != null && $data->email_verified_at != ''){
+                            return '<span class="btn btn-sm btn-success d-inline-block pt-0 pb-0">Yes</span>';
+                        } else {
+                            return '<span class="btn btn-sm btn-danger d-inline-block pt-0 pb-0">No</span>';
                         }
                     })
                     ->editColumn('created_at', function($data) {
@@ -136,7 +143,7 @@ class VendorController extends Controller
                         $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->vendor_no.'" data-original-title="Delete" class="btn-sm btn-danger rounded d-inline-block deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         return $btn;
                     })
-                    ->rawColumns(['action', 'status'])
+                    ->rawColumns(['action', 'status', 'email_verified_at'])
                     ->make(true);
         }
         return view('backend.vendor.vendor_requests');
