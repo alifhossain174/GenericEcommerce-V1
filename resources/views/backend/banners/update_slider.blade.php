@@ -2,6 +2,7 @@
 
 @section('header_css')
     <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url('assets') }}/css/spectrum.min.css" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('page_title')
@@ -43,25 +44,6 @@
                                 </div>
                             </div>
                             <div class="col-lg-8">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label for="sub_title">Sub Title</label>
-                                            <input type="text" name="sub_title" value="{{$data->sub_title}}" id="sub_title" class="form-control" placeholder="Write Sub Title Here"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="form-group">
-                                            <label for="title">Title</label>
-                                            <input type="text" name="title" value="{{$data->title}}" id="title" class="form-control" placeholder="Write Title Here"/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <input type="text" name="description" value="{{$data->description}}" id="description" class="form-control" placeholder="Write Description Here"/>
-                                </div>
 
                                 <div class="row">
                                     <div class="col-lg-4">
@@ -87,16 +69,64 @@
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="sub_title">Sub Title</label>
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <input type="text" class="form-control colorpicker pl-2" value="{{$data->sub_title_color}}" name="sub_title_color">
+                                                </div>
+                                                <div class="col-10 pl-0">
+                                                    <input type="text" name="sub_title" value="{{$data->sub_title}}" id="sub_title" class="form-control" placeholder="Write Sub Title Here"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="title">Banner Title</label>
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <input type="text" class="form-control colorpicker pl-2" value="{{$data->title_color}}" name="title_color">
+                                                </div>
+                                                <div class="col-10 pl-0">
+                                                    <input type="text" name="title" id="title" value="{{$data->title}}" class="form-control" placeholder="Write Title Here"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="description">Banner Description</label>
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <input type="text" class="form-control colorpicker pl-2" value="{{$data->description_color}}" name="description_color">
+                                                </div>
+                                                <div class="col-10 pl-0">
+                                                    <input type="text" name="description" id="description" value="{{$data->description}}" class="form-control" placeholder="Write Description Here"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
                                 <div class="row">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="btn_text">Button Text</label>
-                                            <input type="text" name="btn_text" value="{{$data->btn_text}}" id="btn_text" class="form-control" placeholder="ex. New Collection"/>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <input type="text" class="form-control colorpicker pl-2" value="{{$data->btn_color}}" name="btn_color">
+                                                </div>
+                                                <div class="col-8 pl-0">
+                                                    <input type="text" name="btn_text" id="btn_text" value="{{$data->btn_text}}" class="form-control" placeholder="ex. New Collection"/>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="title">Button link</label>
                                             <input type="text" name="btn_link" value="{{$data->btn_link}}" class="form-control" id="btn_link" placeholder="https://">
@@ -126,6 +156,7 @@
 @section('footer_js')
     <script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
     <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
+    <script src="{{ url('assets') }}/js/spectrum.min.js"></script>
 
     <script>
         @if($data->image && file_exists(public_path($data->image)))
@@ -134,5 +165,9 @@
             $(".dropify-filename-inner").eq(0).html("{{$data->image}}");
             $("span.dropify-render").eq(0).html("<img src='{{url($data->image)}}'>");
         @endif
+
+        $(".colorpicker").spectrum({
+            preferredFormat: 'hex',
+        });
     </script>
 @endsection

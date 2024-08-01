@@ -67,15 +67,17 @@ class BannerController extends Controller
             'type' => 1,
             'image' => $image,
             'link' => $request->link,
-
+            'sub_title_color' => $request->sub_title_color,
             'sub_title' => $request->sub_title,
+            'title_color' => $request->title_color,
             'title' => $request->title,
+            'description_color' => $request->description_color,
             'description' => $request->description,
+            'btn_color' => $request->btn_color,
             'btn_text' => $request->btn_text,
             'btn_link' => $request->btn_link,
             'text_position' => $request->text_position,
             'serial' => Banner::where('type', 1)->min('serial') - 1,
-
             'status' => 1,
             'slug' => str::random(5) . time(),
             'created_at' => Carbon::now()
@@ -133,9 +135,13 @@ class BannerController extends Controller
         $data->status = $request->status;
         $data->link = $request->link;
 
+        $data->sub_title_color = $request->sub_title_color;
         $data->sub_title = $request->sub_title;
+        $data->title_color = $request->title_color;
         $data->title = $request->title;
+        $data->description_color = $request->description_color;
         $data->description = $request->description;
+        $data->btn_color = $request->btn_color;
         $data->btn_text = $request->btn_text;
         $data->btn_link = $request->btn_link;
         $data->text_position = $request->text_position;
