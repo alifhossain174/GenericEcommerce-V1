@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2024 at 07:00 PM
+-- Generation Time: Aug 01, 2024 at 01:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -71,9 +71,13 @@ CREATE TABLE `banners` (
   `link` varchar(255) DEFAULT NULL,
   `position` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
+  `sub_title_color` varchar(255) DEFAULT NULL,
   `sub_title` varchar(255) DEFAULT NULL,
+  `title_color` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
+  `description_color` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
+  `btn_color` varchar(255) DEFAULT NULL,
   `btn_text` varchar(255) DEFAULT NULL,
   `btn_link` varchar(255) DEFAULT NULL,
   `text_position` varchar(255) DEFAULT NULL,
@@ -87,21 +91,21 @@ CREATE TABLE `banners` (
 -- Dumping data for table `banners`
 --
 
-INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title`, `title`, `description`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(22, 1, 'banner/PjnVA1705474931.jpg', '#', NULL, 0, NULL, NULL, NULL, NULL, NULL, 'right', 'PISLd1705474931', -5, '2024-01-17 07:02:11', '2024-06-22 05:32:31'),
-(23, 1, 'banner/DXJVr1705474936.png', '#', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'QtjsB1705474936', -6, '2024-01-17 07:02:16', '2024-01-24 11:11:30'),
-(24, 1, 'banner/DqjjU1706094680.png', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'wkSMd1706094680', -7, '2024-01-24 11:11:20', '2024-06-22 05:32:39'),
-(27, 1, 'banner/hgRCv1713697366.png', 'https://fejmo.com/shop?category=women&subcategory_id=55', NULL, 0, NULL, NULL, NULL, 'BUY NOW', 'https://fejmo.com/shop?category=women&subcategory_id=55', NULL, 'AY3s71713697366', -8, '2024-04-21 09:02:46', '2024-05-08 09:33:20'),
-(30, 1, 'banner/TFOBT1715168108.jpg', 'https://fejmo.com/product/details/gorgeous-hot-red-color-lehenga-1715066266RNasv', NULL, 0, 'Eid-ul-adha Collection', 'Eid-ul-adha 2024', NULL, NULL, 'https://fejmo.com/product/details/gorgeous-hot-red-color-lehenga-1715066266RNasv', NULL, 'RIyj71715168108', -9, '2024-05-08 09:35:08', '2024-06-22 05:32:14'),
-(31, 1, 'banner/8AKvc1717930257.png', 'https://fejmo.com/shop', NULL, 1, NULL, NULL, NULL, NULL, 'https://fejmo.com/shop', NULL, 'vSubl1717930257', -10, '2024-06-09 08:50:57', NULL),
-(32, 1, 'banner/NJVGa1717930296.png', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'sJ5HQ1717930296', -11, '2024-06-09 08:51:36', '2024-07-07 15:06:23'),
-(33, 2, 'banner/1Dqyw1720366046.jpg', NULL, 'top', 1, 'Discount', 'Skincare Products', '25% Discount', NULL, NULL, 'left', 'w1CrT1720366047', 1, '2024-07-07 15:27:27', '2024-07-07 15:34:31'),
-(34, 2, 'banner/RjJac1720366465.jpg', NULL, 'top', 1, 'Discount', 'Jwellery Collection', '10% OFF', NULL, NULL, 'right', 'NGNH01720366465', 2, '2024-07-07 15:34:25', '2024-07-07 15:34:31'),
-(35, 2, 'banner/JECzW1720368946.jpg', NULL, 'middle', 1, 'From Online Store', 'Cosmetics Collection', NULL, 'Discover Now', 'http://127.0.0.1:8000/', 'left', 'Rkjbs1720368946', 0, '2024-07-07 16:15:46', NULL),
-(36, 2, 'banner/rbHe91720369103.jpg', NULL, 'middle', 1, 'Weekend Special offer', 'Premium Quality Dry Fruits', NULL, 'Shop Now', 'http://127.0.0.1:8000/', 'right', '7mkGY1720369103', -1, '2024-07-07 16:18:23', NULL),
-(37, 2, 'banner/mN9Yy1720474642.jpg', NULL, 'bottom', 1, 'From Online Store', '20% off', NULL, NULL, NULL, NULL, '45ES21720474643', -2, '2024-07-08 21:37:23', NULL),
-(38, 2, 'banner/55xIX1720474731.jpg', NULL, 'bottom', 1, 'From Online Store', 'Cosmetics Collection', NULL, 'Shop Now', 'http://127.0.0.1:8000/', NULL, 'JKcZv1720474693', -3, '2024-07-08 21:38:13', '2024-07-08 21:38:51'),
-(39, 2, 'banner/jRQ2m1720763364.png', NULL, 'shop', 1, 'Accessories Collection', 'Smart Watches', NULL, 'Discover Now', 'http://127.0.0.1:8000/shop', 'left', 'LIKz71720763364', -4, '2024-07-12 05:49:24', '2024-07-12 05:59:59');
+INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title_color`, `sub_title`, `title_color`, `title`, `description_color`, `description`, `btn_color`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
+(22, 1, 'banner/PjnVA1705474931.jpg', '#', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'right', 'PISLd1705474931', -5, '2024-01-17 07:02:11', '2024-06-22 05:32:31'),
+(23, 1, 'banner/DXJVr1705474936.png', '#', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'QtjsB1705474936', -6, '2024-01-17 07:02:16', '2024-01-24 11:11:30'),
+(24, 1, 'banner/DqjjU1706094680.png', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'wkSMd1706094680', -7, '2024-01-24 11:11:20', '2024-06-22 05:32:39'),
+(27, 1, 'banner/hgRCv1713697366.png', 'https://fejmo.com/shop?category=women&subcategory_id=55', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BUY NOW', 'https://fejmo.com/shop?category=women&subcategory_id=55', NULL, 'AY3s71713697366', -8, '2024-04-21 09:02:46', '2024-05-08 09:33:20'),
+(30, 1, 'banner/TFOBT1715168108.jpg', 'https://fejmo.com/product/details/gorgeous-hot-red-color-lehenga-1715066266RNasv', NULL, 0, NULL, 'Eid-ul-adha Collection', NULL, 'Eid-ul-adha 2024', NULL, NULL, NULL, NULL, 'https://fejmo.com/product/details/gorgeous-hot-red-color-lehenga-1715066266RNasv', NULL, 'RIyj71715168108', -9, '2024-05-08 09:35:08', '2024-06-22 05:32:14'),
+(31, 1, 'banner/8AKvc1717930257.png', 'https://fejmo.com/shop', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://fejmo.com/shop', NULL, 'vSubl1717930257', -10, '2024-06-09 08:50:57', NULL),
+(32, 1, 'banner/NJVGa1717930296.png', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sJ5HQ1717930296', -11, '2024-06-09 08:51:36', '2024-07-07 15:06:23'),
+(33, 2, 'banner/1Dqyw1720366046.jpg', NULL, 'top', 1, NULL, 'Discount', NULL, 'Skincare Products', NULL, '25% Discount', NULL, NULL, NULL, 'left', 'w1CrT1720366047', 1, '2024-07-07 15:27:27', '2024-07-07 15:34:31'),
+(34, 2, 'banner/RjJac1720366465.jpg', 'http://127.0.0.1:8000/shop?category=jewelry-accessories', 'top', 1, NULL, 'Discount', NULL, 'Jwellery Collection', NULL, '10% OFF', NULL, NULL, NULL, 'right', 'NGNH01720366465', 2, '2024-07-07 15:34:25', '2024-08-01 05:26:12'),
+(35, 2, 'banner/JECzW1720368946.jpg', NULL, 'middle', 1, NULL, 'From Online Store', NULL, 'Cosmetics Collection', NULL, NULL, NULL, 'Discover Now', 'http://127.0.0.1:8000/', 'left', 'Rkjbs1720368946', 0, '2024-07-07 16:15:46', NULL),
+(36, 2, 'banner/rbHe91720369103.jpg', NULL, 'middle', 1, NULL, 'Weekend Special offer', NULL, 'Premium Quality Dry Fruits', NULL, NULL, NULL, 'Shop Now', 'http://127.0.0.1:8000/', 'right', '7mkGY1720369103', -1, '2024-07-07 16:18:23', NULL),
+(37, 2, 'banner/mN9Yy1720474642.jpg', NULL, 'bottom', 1, NULL, 'From Online Store', NULL, '20% off', NULL, NULL, NULL, NULL, NULL, NULL, '45ES21720474643', -2, '2024-07-08 21:37:23', NULL),
+(38, 2, 'banner/55xIX1720474731.jpg', NULL, 'bottom', 1, NULL, 'From Online Store', NULL, 'Cosmetics Collection', NULL, NULL, NULL, 'Shop Now', 'http://127.0.0.1:8000/', NULL, 'JKcZv1720474693', -3, '2024-07-08 21:38:13', '2024-07-08 21:38:51'),
+(39, 2, 'banner/jRQ2m1720763364.png', NULL, 'shop', 1, NULL, 'Accessories Collection', NULL, 'Smart Watches', NULL, NULL, NULL, 'Discover Now', 'http://127.0.0.1:8000/shop', 'left', 'LIKz71720763364', -4, '2024-07-12 05:49:24', '2024-07-12 05:59:59');
 
 -- --------------------------------------------------------
 
@@ -5863,8 +5867,8 @@ CREATE TABLE `stores` (
 --
 
 INSERT INTO `stores` (`id`, `user_id`, `vendor_id`, `store_no`, `store_name`, `store_logo`, `store_banner`, `store_address`, `store_phone`, `store_email`, `store_description`, `store_full_description`, `district`, `country`, `facebook`, `whatsapp`, `instagram`, `tiktok`, `linkedin`, `twitter`, `meta_title`, `meta_description`, `meta_keywords`, `slug`, `status`, `store_percentage`, `created_at`, `updated_at`) VALUES
-(1, 186, 1, '1720421193btYT0', 'Yellow', 'stores/rL96M1720421193.webp', 'stores/pFCrr1720421193.webp', 'Dhaka, Bangladesh', ',01969005025', ',yellow@gmail.com', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Yellow', NULL, ',', 'yellow', 1, 5, '2024-07-08 06:46:33', '2024-07-12 19:32:25'),
-(2, 187, 2, '1720421343W2aHF', 'Illiyeen', 'stores/evtut1720421343.png', 'stores/dvCNN1720421343.jpg', 'Dhaka, Bangladesh', ',01969887744', ',illiyeen@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu scelerisque felis. Vel pretium lectus quam id leo in vitae turpis massa. Nunc id cursus metus aliquam. Libero id faucibus nisl tincidunt eget. Aliquam id diam maecenas ultricies mi eget mauris. Volutpat ac tincidunt vitae semper quis lectus. Vestibulum mattis ullamcorper velit sed. A arcu cursus vitae congue mauris. ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Illiyeen', NULL, ',', 'illiyeen', 1, 5, '2024-07-08 06:49:03', '2024-07-08 06:49:26');
+(1, 186, 1, '172149558047Jd6', 'Yellow', 'stores/rL96M1720421193.webp', 'stores/pFCrr1720421193.webp', 'Dhaka, Bangladesh', ',01969005025', ',yellow@gmail.com', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Yellow', NULL, ',', 'yellow-1721495580', 1, 0, '2024-07-08 06:46:33', '2024-07-20 11:13:00'),
+(2, 187, 2, '1720421343W2aHF', 'Illiyeen', 'stores/evtut1720421343.png', 'stores/dvCNN1720421343.jpg', 'Dhaka, Bangladesh', ',01969887744', ',illiyeen@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu scelerisque felis. Vel pretium lectus quam id leo in vitae turpis massa. Nunc id cursus metus aliquam. Libero id faucibus nisl tincidunt eget. Aliquam id diam maecenas ultricies mi eget mauris. Volutpat ac tincidunt vitae semper quis lectus. Vestibulum mattis ullamcorper velit sed. A arcu cursus vitae congue mauris.', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Illiyeen', NULL, ',', 'illiyeen', 1, 5, '2024-07-08 06:49:03', '2024-07-20 17:13:29');
 
 -- --------------------------------------------------------
 
@@ -11283,7 +11287,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Admin', '01715851889', 'monira.a.mou@gmail.com', '2024-03-02 08:18:31', '320215', '$2y$10$GXTvvd9x/p0/sh/ZVRFu9uNx6xtMMlG79tcYRyRTLasg9khx35Cei', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-03-28 10:20:00', '2024-04-25 07:52:00'),
 (75, NULL, 'Md fahim', '019690050258', 'fahim23@gmail.com', NULL, NULL, '$2y$10$.yA0XNiwSV8s5DfLbSEtcu6hvJysbh9jsjqB6XVORVUo/h96qaX7q', NULL, NULL, NULL, 2, 'Gulshan-1, Dhaka', 0, 0, NULL, 1, '2024-02-04 04:55:53', '2024-04-17 06:54:41'),
-(76, 'userProfileImages/yH8mW1720899234.jpg', 'Md. Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', '2024-07-13 13:48:04', '220686', '$2y$12$fzOwSWliCQVFPpGBUjs9A.W2fozcE13pI9JBQCZqlbIMnYkUN.vu.', NULL, NULL, NULL, 3, 'Dhaka, Bangladesh', 0, 0, NULL, 1, NULL, '2024-07-13 13:48:04'),
+(76, 'userProfileImages/yH8mW1720899234.jpg', 'Md. Fahim Hossain', '01969005035', 'alifhossain175@gmail.com', '2024-07-13 13:48:04', '220686', '$2y$12$fzOwSWliCQVFPpGBUjs9A.W2fozcE13pI9JBQCZqlbIMnYkUN.vu.', NULL, NULL, NULL, 3, 'Dhaka, Bangladesh', 0, 0, NULL, 1, NULL, '2024-07-13 13:48:04'),
 (77, NULL, 'tpQKsuAcvjHfw', NULL, 'sharicaldec48@gmail.com', NULL, '213090', '$2y$12$g8fvvKufRw339SasivtJGukNRt3RPguVAaR/62rr2EoIK/tdikFCu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-02-05 05:37:31', '2024-02-05 05:37:47'),
 (78, NULL, 'Shakilur Rahman', NULL, 'shakilurrahman03@gmail.com', '2024-02-05 12:56:44', '633984', '$2y$10$p7yGGyTGmJXTeAf24P5OTO3OwyMKK0Kmhm.LAOV27BUe/PaD4MbdS', NULL, NULL, NULL, 3, 'House 47, Road 116, Gulshan-1, Dhaka-1212. Bangladesh', 0, 0, NULL, 1, '2024-02-05 12:56:21', '2024-02-05 12:56:44'),
 (79, 'userProfileImages/yp9Us1719407365.jpg', 'Ariful', '01643533365', 'dcsuperstar22@gmail.com', '2024-02-06 02:38:35', '949374', '$2y$10$cae/.7ODZBSaDpPtiGXhRuIzHxsR8WgZRSZfk6h9xZCS4i6c2DTXe', NULL, NULL, 'tkJCCZwbMnwLkLYMjXDPwro6qa0HHILpi6R0gilmwkistbHYG4Gm1HANPUag', 3, NULL, 0, 0, NULL, 1, '2024-02-06 02:38:12', '2024-07-02 08:25:10'),
@@ -11297,10 +11301,10 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (87, NULL, 'jYWqgCfAxsJ', NULL, 'watkinherb52@gmail.com', NULL, '948474', '$2y$12$H2GztQwydmCt9P7v30uYw.c4AbDNlNmmnqJuSR3rFBKnY/2ZppdFS', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-02 18:55:24', '2024-03-02 18:55:27'),
 (89, '', 'Getup-Admin', '01969005038', 'admin@getup.com', '2024-03-02 08:18:31', '252464', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-03-28 10:20:00', '2024-05-30 07:00:07'),
 (90, NULL, 'Rayhan Bapari', NULL, 'getup.rayhan@gmail.com', '2024-03-06 04:50:04', NULL, '$2y$12$f80FEeOTgOqShCKTVzkTEeUIf479eO5jSjVecBCEsstc11DZjpIdi', 'google', '118437019959532053863', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
-(93, NULL, 'Yael Mccormick', '8801969005035', NULL, '2024-03-10 04:09:25', '420169', '$2y$12$yiVgRHwEMZSEUAA9EmsQsudpfvf1VoBmQcHrGrbWqnos.K13.4Xdu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:06:38', '2024-03-10 04:09:25'),
-(94, NULL, 'Bethany Dominguez', '01969005035', NULL, NULL, '497450', '$2y$12$lhJfporMfZK5fFikbx35G.GA2Y9enPEmN5jka4ptPUGYjCnl3Bx5O', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:10:29', '2024-03-10 04:10:29'),
-(95, NULL, 'Julian Tran', '01969005035', NULL, NULL, '912206', '$2y$12$KSLf0xdxpBaHX.trZf07VeTC5tM1xl8qY2vKTODK3a6aYsPiIoYpq', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:12:50', '2024-03-10 04:12:51'),
-(96, NULL, 'Clinton Holman', '01969005035', NULL, NULL, '616111', '$2y$12$zY3/l8yj4/17bMY3dMgP7.VcPOAcRGgCZC2l/NP7TdDzIdOpcV3xa', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:16:50', '2024-03-10 04:16:50'),
+(93, NULL, 'Yael Mccormick', '8801969005035', NULL, '2024-08-01 05:16:05', '420169', '$2y$12$yiVgRHwEMZSEUAA9EmsQsudpfvf1VoBmQcHrGrbWqnos.K13.4Xdu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:06:38', '2024-08-01 05:16:05'),
+(94, NULL, 'Bethany Dominguez', '01969005035', NULL, '2024-08-01 05:16:05', '497450', '$2y$12$lhJfporMfZK5fFikbx35G.GA2Y9enPEmN5jka4ptPUGYjCnl3Bx5O', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:10:29', '2024-08-01 05:16:05'),
+(95, NULL, 'Julian Tran', '01969005035', NULL, '2024-08-01 05:16:05', '912206', '$2y$12$KSLf0xdxpBaHX.trZf07VeTC5tM1xl8qY2vKTODK3a6aYsPiIoYpq', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:12:50', '2024-08-01 05:16:05'),
+(96, NULL, 'Clinton Holman', '01969005035', NULL, '2024-08-01 05:16:05', '616111', '$2y$12$zY3/l8yj4/17bMY3dMgP7.VcPOAcRGgCZC2l/NP7TdDzIdOpcV3xa', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:16:50', '2024-08-01 05:16:05'),
 (97, NULL, 'tanza', NULL, 'hqwwbpqbm.tt@monochord.xyz', NULL, '516926', '$2y$12$Wyc5Xyw23OEdtWY0QUD10eUmBsA0lecod1YS6yheWacCSYhQJKgJ.', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-16 03:20:15', '2024-03-16 03:20:15'),
 (98, NULL, 'suelynn', NULL, 'michellemead17@yahoo.com', NULL, '121711', '$2y$12$9u0ErHiJLqqM2.TOWssSj.PYXsI5w/tqmTbcPiPHnsaz8e6bQ0UU6', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-16 03:32:33', '2024-03-16 03:32:34'),
 (99, NULL, 'cilicia', NULL, 'drgayele@yahoo.com', NULL, '754985', '$2y$12$C8mzEfJfDVWtgRmgTWif4uUhLekuKHukBxHujEr5EMLaXwGJEB9D2', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-17 03:14:58', '2024-03-17 03:14:59'),
@@ -11340,18 +11344,18 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (133, NULL, 'arjay', NULL, 'cheezit1987@gmail.com', NULL, '373763', '$2y$12$sbL82GFNwUBzScaCtpnPluLks0Tz7MLh/7Xo/OA3ytD6bKt1hhNVO', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-25 12:47:09', '2024-03-25 12:47:09'),
 (134, NULL, 'kahmora', NULL, 'hroberts@gottabecleanmd.com', NULL, '319422', '$2y$12$1coHgv5asT7H/mwdmaQOpOUitdT8SfG.QKtXrvtQ14AC5QpiAJWru', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-25 17:06:32', '2024-03-25 17:06:33'),
 (135, NULL, 'Arif Hossain', '01755541402', 'digitalmarketing.fejmo@gmail.com', '2024-03-30 03:28:41', NULL, '$2y$12$WiP/d70i9vU0ePDp7VllketR6ODBSIvTjC9fZ82XKOWl7vrvMSTGW', 'google', '100881094859590741528', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
-(136, NULL, 'Jaber Hossain Mazumder', '01920765630', NULL, '2024-03-30 08:28:16', '737359', '$2y$12$Q0DqXt2bBn/KAOaWN2dXwOb3UAZO8bHRQrsHlifCGKYSi4miq1Qni', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-30 08:27:54', '2024-03-30 08:28:16'),
+(136, NULL, 'Jaber Hossain Mazumder', '01920765630', NULL, '2024-08-01 05:16:05', '737359', '$2y$12$Q0DqXt2bBn/KAOaWN2dXwOb3UAZO8bHRQrsHlifCGKYSi4miq1Qni', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-30 08:27:54', '2024-08-01 05:16:05'),
 (137, NULL, 'mostaim billah', NULL, 'mostaim.murad@gmail.com', '2024-04-02 10:54:23', NULL, '$2y$12$kcCY6lf3pBuW0iZ4cDaD8ueIftfbazpYnztzWB2GGrhucWT7WjVvi', 'google', '108332405555846216230', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
 (138, NULL, 'Arif Hossain', '01712712674', 'arifhossainmu@gmail.com', '2024-04-03 05:36:26', NULL, '$2y$12$ul.FHUMwlI.Q/A4EVI8cx.sktxJla2rvFrL0MpHjiheGKrPeNr03O', 'google', '112584645170625560366', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
 (139, NULL, 'Arif Hossain Munna', '01715006251', 'arif.munna24@gmail.com', '2024-04-03 06:32:53', NULL, '$2y$12$VaRzg.zkVXygL8znH6Xs6u36.hvolX3geXj0Pt73kwGEl.PbtTGUu', 'google', '109903232980015274462', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
-(140, NULL, 'Farjana', '01679222331', NULL, '2024-04-06 05:23:16', '844092', '$2y$12$TLuSLG9TDboZQoItLi5i0.enCxktwbQDuDUaemFmoJf3K512u/Uoa', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-06 05:20:42', '2024-04-06 05:23:16'),
+(140, NULL, 'Farjana', '01679222331', NULL, '2024-08-01 05:16:05', '844092', '$2y$12$TLuSLG9TDboZQoItLi5i0.enCxktwbQDuDUaemFmoJf3K512u/Uoa', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-06 05:20:42', '2024-08-01 05:16:05'),
 (141, NULL, 'Falguni das', NULL, 'falgunidas4@gmail.com', NULL, '756258', '$2y$12$hk1iVRNv1W9PjNASlf3jHezviwvp.yDr./2J3a4zuF1zy77Wt6Qie', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-06 07:36:12', '2024-04-06 07:36:12'),
 (142, NULL, 'Monsur Ali', NULL, 'monsuralik2024@gmail.com', '2024-04-07 15:26:44', NULL, '$2y$12$iKG1b3kjcQfzZetr7y6tguJL6rnqnScKlRc6r5YsuNM7DdpkbtDBy', 'google', '109769817997139596731', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
 (143, NULL, 'JSBjiKnyMN', NULL, 'johnnie88millersqx@outlook.com', NULL, '761656', '$2y$12$ghVjsUx1y4QkQs/W8TM1werN6boTjC.y7v8TgunSKpBnNjVvIAg9q', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-09 14:22:37', '2024-04-09 14:22:42'),
 (144, NULL, 'ScIZlgOzKxMdF', NULL, 'monique.lopez4434@yahoo.com', NULL, '492636', '$2y$12$Kuquy34B0iIkmxqDC/Zbiux17F/ESMjTH48iMLOmXakiv8RfRvkHq', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-14 04:47:22', '2024-04-14 04:47:25'),
 (146, NULL, 'Akib Mahmud', NULL, 'akib.mahmud@fejmo.com', NULL, '676479', '$2y$10$HHdFQ2VRNG02ficOuyeC7.dJ6dmH59uJi.2BXN1kH4/wwf5lBqWPG', NULL, NULL, NULL, 2, NULL, 0, 0, NULL, 1, '2024-04-18 08:32:04', '2024-05-19 07:10:43'),
 (147, NULL, 'Hossain Muhammad Faysal', NULL, 'hossain.m.faysal@gmail.com', '2024-04-19 09:16:09', NULL, '$2y$12$4MIaTw1GPw6ddB7adv6cb.ihOlMG8DlBnTzJlCCLnMJI2tYRqSLRO', 'google', '103017427450238670445', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
-(148, NULL, 'sabikun Auditi', '01683241578', NULL, '2024-04-22 16:24:48', '751029', '$2y$12$qtGTEFnXDG9psdpgKOwMt.D9pidm3Y0oje6Nf.qf7YjaiDiSrbNzW', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-22 16:24:13', '2024-04-22 16:24:48'),
+(148, NULL, 'sabikun Auditi', '01683241578', NULL, '2024-08-01 05:16:05', '751029', '$2y$12$qtGTEFnXDG9psdpgKOwMt.D9pidm3Y0oje6Nf.qf7YjaiDiSrbNzW', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-22 16:24:13', '2024-08-01 05:16:05'),
 (149, NULL, 'yjwpYHUC', NULL, 'karonlochwq@outlook.com', NULL, '141581', '$2y$12$9uvLmDmv.90P79fu8SEbreGy7OhI6k9PLrFLpK3pgJSkfNB3Lnynu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-23 05:50:38', '2024-04-23 05:51:12'),
 (150, NULL, 'YlHKxAqaB', NULL, 'render.jerry6419@yahoo.com', NULL, '631579', '$2y$12$ozbXFkQozzd3VKW0C1J6qOYaj6G1JGaiLnwblGw47ubBrdfWG11Qy', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-27 02:13:29', '2024-04-27 02:14:09'),
 (151, NULL, 'wWPQIBrvsRgVFcJS', NULL, 'annette11gonzalesney@outlook.com', NULL, '858113', '$2y$12$8UisF4wKDB9dgL9CKLG/ruCt8YABTHp43JjAUp9evcXh4S4yZCog.', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-30 02:17:16', '2024-04-30 02:18:00'),
@@ -11367,7 +11371,7 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (166, 'userProfileImages/4wktL1716282543.jpeg', 'Wonder Apps', NULL, 'wonderapps4@gmail.com', '2024-05-21 07:08:02', NULL, '$2y$12$hASQr6zrbrQ0XP2.IPYSfewD6.NdxogK.RH0ao9I.bL/Umy7jrRXG', 'google', '116997208051413327925', NULL, 3, 'Flat No: B4, House: 71, Road: 27, Gulshan-1', 0, 0, NULL, 1, NULL, NULL),
 (167, NULL, 'Nahin Chowdhury', NULL, 'nahin.chowdhury@fejmo.com', NULL, NULL, '$2y$10$LXTi/ob0LrEQ8gGGA4uam.QYow2UCVLY.rBJb7F/hubPBsFkuRaL6', NULL, NULL, NULL, 2, NULL, 0, 0, NULL, 1, '2024-05-28 04:43:44', NULL),
 (168, NULL, 'Juyel rana', NULL, 'juyel1650@gmail.com', NULL, '280690', '$2y$12$DqR0mFARlWCpp/.kiRIDNeV2zos4XxGHJfHhmCxV07fgBHOgpLGTi', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-05-29 03:09:09', '2024-05-29 03:10:45'),
-(169, NULL, 'Juyel rana', '01720546000', NULL, '2024-05-29 03:13:57', '189802', '$2y$12$X/a4TseTBUM4CHYLcCAnpetORCVSE87ESnobGn2tHUkK9O9SM9McW', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-05-29 03:11:58', '2024-05-29 03:13:57'),
+(169, NULL, 'Juyel rana', '01720546000', NULL, '2024-08-01 05:16:05', '189802', '$2y$12$X/a4TseTBUM4CHYLcCAnpetORCVSE87ESnobGn2tHUkK9O9SM9McW', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-05-29 03:11:58', '2024-08-01 05:16:05'),
 (170, NULL, 'Md. Aminur Rahman', NULL, 'aminur.rahman8400@gmail.com', '2024-05-29 03:43:24', NULL, '$2y$12$2SqAYsDX4MUF/Cfx/NWbNu8VTFIt41gZ52hlRP8dXl5ikVHzxFbfi', 'google', '106241981352012904105', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
 (171, NULL, 'MVuwBayiAIFCYGsr', NULL, 'arsyad.tina8239@yahoo.com', NULL, '738196', '$2y$12$SiH84hIxMv/A7iXS7H8KNOD5mKHIlbrMwdUA5yjSdkiD5YdSLhN/.', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-05-31 04:23:38', '2024-05-31 04:24:00'),
 (172, NULL, 'rHIkxhRFPoD', NULL, 'russellbarnebiqs1993@gmail.com', NULL, '266584', '$2y$12$Fk4R49.4EQlLKvSH1UJ0ZeSPDn8wZY6MD.OpXTmCU1Wp9oxKFjrum', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-06-05 02:02:08', '2024-06-05 02:02:36'),
@@ -11383,7 +11387,10 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (185, NULL, 'Saiful', NULL, 'k.saiful91@gmail.com', NULL, '909646', '$2y$12$TosyfUagOVJeqGiBxtlszeHLK/30GYfnrhtoW1d6Q.r2OA5dXkhIi', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-07-04 07:42:05', '2024-07-04 07:43:31'),
 (186, NULL, 'Mr. Yellow', '01969005025', 'yellow@gmail.com', '2024-07-08 06:45:50', NULL, '$2y$10$xuYsgAspXHwWgTXxW9ZmPekxcncuVqX2ZkebEGIE5rdMIbB2Ptufq', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-07-08 06:45:50', '2024-07-12 19:02:20'),
 (187, NULL, 'Mr. Illiyeen', '01969885544', 'illiyeen@gmail.com', '2024-07-08 06:48:20', NULL, '$2y$10$0EzFLNIq8tZAaNrXKXuJeOcaZ8fgCFZrh4PDQaEMJkFAJskorj8.y', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-07-08 06:48:20', NULL),
-(189, 'userProfileImages/xHqQ91720883759.jpg', 'Tate White', NULL, 'nuqyb@mailinator.com', '2024-07-13 14:18:30', '240883', '$2y$12$rQtssd3WCy7phP76r0TRvu8usowVDBAM7NUXt/9FQCu6BgpUnRYq2', NULL, NULL, NULL, 3, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2024-07-13 14:09:26', '2024-07-13 14:18:30');
+(189, 'userProfileImages/xHqQ91720883759.jpg', 'Tate White', NULL, 'nuqyb@mailinator.com', '2024-07-13 14:18:30', '240883', '$2y$12$rQtssd3WCy7phP76r0TRvu8usowVDBAM7NUXt/9FQCu6BgpUnRYq2', NULL, NULL, NULL, 3, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2024-07-13 14:09:26', '2024-07-13 14:18:30'),
+(190, NULL, 'Marsden Hodge', '+1 (924) 337-8255', 'qutylabyga@mailinator.com', '2024-07-27 09:23:22', NULL, '$2y$10$t.wiDFtESP2K2ttyYZcNxOw1JOCdHq0u6pXjYfz9HVXPncvKeP2Oq', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-07-27 09:23:22', NULL),
+(197, NULL, 'Penelope Hays', '+1 (685) 808-7817', 'musa@mailinator.com', NULL, '984250', '$2y$12$wGfpNs8jMH7GV.Xp5G0CN.RI0QujQ0hdH9riN0WtU/6Xam09g2UVS', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 0, '2024-08-01 05:10:15', NULL),
+(200, NULL, 'Illana Casey', '+1 (717) 391-3993', 'alifhossain174@gmail.com', NULL, '108343', '$2y$12$SuttDZWSB7jy3jrPs2dEieqHXlvJOiFY71Z3OxKhjDkhGzUDZk5D.', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 0, '2024-08-01 05:15:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -11672,7 +11679,8 @@ CREATE TABLE `vendors` (
 
 INSERT INTO `vendors` (`id`, `user_id`, `vendor_no`, `business_name`, `business_category`, `trade_license_no`, `business_address`, `nid_card`, `trade_license`, `created_at`, `updated_at`) VALUES
 (1, 186, '1720421150mAxz3', 'Yellow', 'Apparel & Accessories,Baby & Toddler', '123123345', 'Dhaka, Bangladesh', 'vendor_attachments/QNft71720421150.docx', 'vendor_attachments/1WKTW1720421150.docx', '2024-07-08 06:45:50', '2024-07-12 19:02:20'),
-(2, 187, '1720421300aNbcv', 'Illiyeen', 'Apparel & Accessories', '535343453', 'Dhaka, Bangladesh', 'vendor_attachments/JlQDa1720421300.docx', 'vendor_attachments/V96xL1720421300.docx', '2024-07-08 06:48:20', NULL);
+(2, 187, '1720421300aNbcv', 'Illiyeen', 'Apparel & Accessories', '535343453', 'Dhaka, Bangladesh', 'vendor_attachments/JlQDa1720421300.docx', 'vendor_attachments/V96xL1720421300.docx', '2024-07-08 06:48:20', NULL),
+(14, 200, '1722489338nwrPk', 'Nita Silva', 'Apparel & Accessories,Automotive,Beauty & Personal Care,Food & Beverage,Furniture,Home Appliances,Jewelry & Watches,Kitchen & Dining,Pet Supplies,Sporting Goods & Outdoor', '313', 'Aliqua Debitis est', 'vendor_attachments/0R2FQ1722489338.pdf', NULL, '2024-08-01 05:15:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -12542,7 +12550,7 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`
@@ -12572,7 +12580,7 @@ ALTER TABLE `user_role_permissions`
 -- AUTO_INCREMENT for table `vendors`
 --
 ALTER TABLE `vendors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `wish_lists`

@@ -102,3 +102,10 @@ ALTER TABLE `orders` ADD `reward_points_used` DOUBLE NOT NULL DEFAULT '0' AFTER 
 ==================20.07.24======================
 ALTER TABLE `stores` ADD `store_full_description` LONGTEXT NULL DEFAULT NULL AFTER `store_description`;
 ================================================
+
+
+==================01.08.2024====================
+ALTER TABLE `banners` ADD `sub_title_color` VARCHAR(255) NULL DEFAULT NULL AFTER `status`;
+ALTER TABLE `banners` ADD `title_color` VARCHAR(255) NULL DEFAULT NULL AFTER `sub_title`;
+ALTER TABLE `banners` ADD `description_color` VARCHAR(255) NULL DEFAULT NULL AFTER `title`;
+ALTER TABLE `banners` ADD `btn_color` VARCHAR(255) NULL DEFAULT NULL AFTER `description`;

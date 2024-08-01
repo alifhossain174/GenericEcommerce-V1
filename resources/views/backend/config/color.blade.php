@@ -165,7 +165,6 @@
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
         });
-
         $(".dataTables_filter").append($("#customFilter"));
     </script>
 
@@ -182,7 +181,6 @@
             $('#productForm2').trigger("reset");
             $('#exampleModal2').modal('show');
         });
-
 
         $('#saveBtn').click(function (e) {
             e.preventDefault();
@@ -206,7 +204,6 @@
                 }
             });
         });
-
 
         $('body').on('click', '.editBtn', function () {
             var id = $(this).data('id');
