@@ -6419,6 +6419,44 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Top Selling Vendors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/top/selling/vendors",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"top",
+						"selling",
+						"vendors"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
