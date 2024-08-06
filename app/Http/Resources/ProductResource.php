@@ -8,6 +8,7 @@ use App\Models\Flag;
 use App\Models\ProductImage;
 use App\Models\ProductQuestionAnswer;
 use App\Models\ProductReview;
+use App\Models\Store;
 use App\Models\Subcategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -56,6 +57,10 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'code' => $this->code,
+
+            'store_id' => $this->store_id,
+            'store_info' => $this->store_id ? Store::where('id', $this->store_id)->first() : null,
+
             'category_id' => $this->category_id,
             'category_name' => $this->category_name,
             'category_slug' => $categoryInfo ? $categoryInfo->slug : '',

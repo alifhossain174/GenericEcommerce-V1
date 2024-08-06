@@ -53,6 +53,7 @@ Route::group(['namespace' => 'Api'], function () {
 
     Route::get('get/category/tree', [ApiController::class, 'getCategoryTree']);
     Route::get('category/list', [ApiController::class, 'getCategoryList']);
+    Route::get('top/categories', [ApiController::class, 'topCategories']);
     Route::get('get/featured/subcategories', [ApiController::class, 'getFeaturedSubcategory']);
     Route::post('subcategory/of/category', [ApiController::class, 'getSubcategoryOfCategory']);
     Route::post('childcategory/of/subcategory', [ApiController::class, 'getChildcategoryOfSubcategory']);
@@ -87,6 +88,8 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('get/payment/gateways', [ApiController::class, 'getPaymentGateways']);
     Route::post('order/preview', [ApiController::class, 'orderPreview']);
     Route::get('get/delivery/charge/{district}', [ApiController::class, 'getdeliveryCharge']);
+    Route::post('products/of/vendor', [ApiController::class, 'productsOfVendor']);
+    Route::get('top/selling/vendors', [ApiController::class, 'topSellingVendors']);
 
     // new api for districts and thana
     Route::get('get/all/districts', [ApiController::class, 'getAllDistricts']);

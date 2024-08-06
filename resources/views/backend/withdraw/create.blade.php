@@ -92,13 +92,19 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="current_balance" class="col-form-label">Current Balance</label>
                                             <input type="text" id="current_balance" name="current_balance" value="0" class="form-control" readonly/>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="current_balance" class="col-form-label">Store Comission</label>
+                                            <input type="text" id="store_comission" name="store_comission" value="0" class="form-control" readonly/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="withdraw_amount" class="col-form-label">Withdraw Amount<span class="text-danger">*</span></label>
                                             <input type="text" data-toggle="touchspin" id="withdraw_amount" value="{{ old('withdraw_amount') }}" name="withdraw_amount" class="form-control" required/>
@@ -106,7 +112,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group d-none">
                                     <label for="transaction_id" class="col-form-label">Transaction ID</label>
                                     <input type="text" id="transaction_id" value="{{ old('transaction_id') }}" placeholder="Transaction ID" name="transaction_id" class="form-control"/>
                                 </div>
@@ -172,6 +178,7 @@
                     processData: false,
                     success: function (data) {
                         $("#current_balance").val(data.balance);
+                        $("#store_comission").val(data.store_percentage);
                     },
                     error: function (data) {
                         console.log('Error:', data);

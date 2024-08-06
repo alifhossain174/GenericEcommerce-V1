@@ -90,7 +90,8 @@ class StoreController extends Controller
 
             $data = DB::table('stores')
                         ->leftJoin('vendors', 'stores.vendor_id', '=', 'vendors.id')
-                        ->select('stores.*', 'vendors.business_name')
+                        ->leftJoin('users', 'stores.user_id', '=', 'users.id')
+                        ->select('stores.*', 'vendors.business_name', 'users.balance')
                         ->orderBy('stores.id', 'desc')
                         ->get();
 

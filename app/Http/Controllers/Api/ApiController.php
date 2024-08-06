@@ -10,6 +10,7 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\GeneralInfoResource;
 use App\Http\Resources\BrandResource;
 use App\Http\Resources\FlagResource;
+use App\Http\Resources\StoreResource;
 use App\Models\EmailConfigure;
 use App\Models\User;
 use App\Models\Category;
@@ -194,6 +195,23 @@ class ApiController extends BaseController
         }
     }
 
+    public function topCategories(Request $request){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $categories = Category::orderBy('serial', 'asc')->where('status', 1)->where('featured', 1)->get();
+            return response()->json([
+                'success' => true,
+                'data' => $categories
+            ], 200);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
     public function getFeaturedSubcategory(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
@@ -302,7 +320,6 @@ class ApiController extends BaseController
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
             $prodInfo = Product::where('id', $request->product_id)->first();
-            $brand_id = $prodInfo->brand_id;
             $categoryId = $prodInfo->category_id;
 
             $data = DB::table('products')
@@ -316,16 +333,13 @@ class ApiController extends BaseController
                         ->leftJoin('product_warrenties', 'products.warrenty_id', '=', 'product_warrenties.id')
                         ->select('products.*', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name', 'units.name as unit_name', 'flags.name as flag_name', 'brands.name as brand_name', 'product_models.name as model_name', 'product_warrenties.name as product_warrenty')
                         ->where('products.status', 1)
-                        ->when($brand_id, function($query) use ($brand_id, $categoryId){
-                            if($brand_id > 0)
-                                return $query->where('products.brand_id', $brand_id);
-                            else
+                        ->when($categoryId, function($query) use ($categoryId){
                             return $query->where('products.category_id', $categoryId);
                         })
                         ->where('products.id', '!=', $request->product_id)
                         ->inRandomOrder()
                         ->skip(0)
-                        ->limit(5)
+                        ->limit(10)
                         ->get();
 
             return response()->json([
@@ -2102,6 +2116,66 @@ class ApiController extends BaseController
             'success' => true,
             'message' => 'File Uploaded Successfully',
         ], 200);
+    }
+
+    public function productsOfVendor(Request $request){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $data = DB::table('products')
+                        ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+                        ->leftJoin('subcategories', 'products.subcategory_id', '=', 'subcategories.id')
+                        ->leftJoin('child_categories', 'products.childcategory_id', '=', 'child_categories.id')
+                        ->leftJoin('units', 'products.unit_id', '=', 'units.id')
+                        ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
+                        ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
+                        ->leftJoin('product_models', 'products.model_id', '=', 'product_models.id')
+                        ->leftJoin('product_warrenties', 'products.warrenty_id', '=', 'product_warrenties.id')
+                        ->select('products.*', 'categories.name as category_name', 'subcategories.name as subcategory_name', 'child_categories.name as childcategory_name', 'units.name as unit_name', 'flags.name as flag_name', 'brands.name as brand_name', 'product_models.name as model_name', 'product_warrenties.name as product_warrenty')
+                        ->where('products.status', 1)
+                        ->where('products.id', '!=', $request->product_id)
+                        ->where('products.store_id', $request->store_id)
+                        ->inRandomOrder()
+                        ->skip(0)
+                        ->limit(10)
+                        ->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => ProductResource::collection($data)
+            ], 200);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
+    public function topSellingVendors(Request $request){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $topSellingVendors = DB::table('order_details')
+                        ->join('stores', 'order_details.store_id', 'stores.id')
+                        ->select('stores.*', 'order_details.store_id', DB::raw('SUM(order_details.qty) as total_sold'))
+                        ->where('stores.status', 1)
+                        ->groupBy('order_details.store_id')
+                        ->orderByDesc('total_sold')
+                        ->skip(0)
+                        ->limit(8)
+                        ->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => StoreResource::collection($topSellingVendors)
+            ], 200);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
     }
 
 }

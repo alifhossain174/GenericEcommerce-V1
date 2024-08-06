@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2024 at 01:02 PM
+-- Generation Time: Aug 06, 2024 at 11:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -99,12 +99,12 @@ INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub
 (30, 1, 'banner/TFOBT1715168108.jpg', 'https://fejmo.com/product/details/gorgeous-hot-red-color-lehenga-1715066266RNasv', NULL, 0, NULL, 'Eid-ul-adha Collection', NULL, 'Eid-ul-adha 2024', NULL, NULL, NULL, NULL, 'https://fejmo.com/product/details/gorgeous-hot-red-color-lehenga-1715066266RNasv', NULL, 'RIyj71715168108', -9, '2024-05-08 09:35:08', '2024-06-22 05:32:14'),
 (31, 1, 'banner/8AKvc1717930257.png', 'https://fejmo.com/shop', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'https://fejmo.com/shop', NULL, 'vSubl1717930257', -10, '2024-06-09 08:50:57', NULL),
 (32, 1, 'banner/NJVGa1717930296.png', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sJ5HQ1717930296', -11, '2024-06-09 08:51:36', '2024-07-07 15:06:23'),
-(33, 2, 'banner/1Dqyw1720366046.jpg', NULL, 'top', 1, NULL, 'Discount', NULL, 'Skincare Products', NULL, '25% Discount', NULL, NULL, NULL, 'left', 'w1CrT1720366047', 1, '2024-07-07 15:27:27', '2024-07-07 15:34:31'),
-(34, 2, 'banner/RjJac1720366465.jpg', 'http://127.0.0.1:8000/shop?category=jewelry-accessories', 'top', 1, NULL, 'Discount', NULL, 'Jwellery Collection', NULL, '10% OFF', NULL, NULL, NULL, 'right', 'NGNH01720366465', 2, '2024-07-07 15:34:25', '2024-08-01 05:26:12'),
+(33, 2, 'banner/1Dqyw1720366046.jpg', NULL, 'top', 1, NULL, 'Discount', NULL, 'Skincare Products', '#e69138', '25% Discount', NULL, NULL, NULL, 'left', 'w1CrT1720366047', 1, '2024-07-07 15:27:27', '2024-08-01 16:31:59'),
+(34, 2, 'banner/RjJac1720366465.jpg', 'http://127.0.0.1:8000/shop?category=jewelry-accessories', 'top', 1, '#000000', 'Discount', '#f44336', 'Jwellery Collection', '#000000', '10% OFF', '#ffffff', NULL, NULL, 'right', 'NGNH01720366465', 2, '2024-07-07 15:34:25', '2024-08-01 16:29:55'),
 (35, 2, 'banner/JECzW1720368946.jpg', NULL, 'middle', 1, NULL, 'From Online Store', NULL, 'Cosmetics Collection', NULL, NULL, NULL, 'Discover Now', 'http://127.0.0.1:8000/', 'left', 'Rkjbs1720368946', 0, '2024-07-07 16:15:46', NULL),
 (36, 2, 'banner/rbHe91720369103.jpg', NULL, 'middle', 1, NULL, 'Weekend Special offer', NULL, 'Premium Quality Dry Fruits', NULL, NULL, NULL, 'Shop Now', 'http://127.0.0.1:8000/', 'right', '7mkGY1720369103', -1, '2024-07-07 16:18:23', NULL),
 (37, 2, 'banner/mN9Yy1720474642.jpg', NULL, 'bottom', 1, NULL, 'From Online Store', NULL, '20% off', NULL, NULL, NULL, NULL, NULL, NULL, '45ES21720474643', -2, '2024-07-08 21:37:23', NULL),
-(38, 2, 'banner/55xIX1720474731.jpg', NULL, 'bottom', 1, NULL, 'From Online Store', NULL, 'Cosmetics Collection', NULL, NULL, NULL, 'Shop Now', 'http://127.0.0.1:8000/', NULL, 'JKcZv1720474693', -3, '2024-07-08 21:38:13', '2024-07-08 21:38:51'),
+(38, 2, 'banner/55xIX1720474731.jpg', NULL, 'bottom', 1, NULL, 'From Online Store', NULL, 'Cosmetics Collection', NULL, NULL, '#ce7e00', 'Shop Now', 'http://127.0.0.1:8000/', NULL, 'JKcZv1720474693', -3, '2024-07-08 21:38:13', '2024-08-02 14:49:37'),
 (39, 2, 'banner/jRQ2m1720763364.png', NULL, 'shop', 1, NULL, 'Accessories Collection', NULL, 'Smart Watches', NULL, NULL, NULL, 'Discover Now', 'http://127.0.0.1:8000/shop', 'left', 'LIKz71720763364', -4, '2024-07-12 05:49:24', '2024-07-12 05:59:59');
 
 -- --------------------------------------------------------
@@ -153,7 +153,8 @@ INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `than
 (53, 59, 'Dhaka', '1212', 'Gulshan', 'Dhaka', 'Bangladesh', '2024-07-02 07:01:30', NULL),
 (54, 60, 'K75 road 20 main road dakhin banasree', '1215', 'Rampura', 'Dhaka', 'Bangladesh', '2024-07-05 18:01:41', NULL),
 (55, 61, 'H-24/26, rd-7,sec-11', '1230', 'Uttara', 'Dhaka', 'Bangladesh', '2024-07-10 05:11:57', NULL),
-(56, 62, 'Sector 11 Road 10/b house no 06', '1203', 'Uttara', 'Dhaka', 'Bangladesh', '2024-07-12 17:50:31', NULL);
+(56, 62, 'Sector 11 Road 10/b house no 06', '1203', 'Uttara', 'Dhaka', 'Bangladesh', '2024-07-12 17:50:31', NULL),
+(57, 65, 'Rajshahi', NULL, 'Boalia Thana', 'Rajshahi', 'Bangladesh', '2024-08-03 06:16:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -1263,7 +1264,8 @@ INSERT INTO `orders` (`id`, `order_no`, `order_from`, `user_id`, `order_date`, `
 (57, '1717665547174', NULL, NULL, '2024-06-06 15:19:07', '2024-06-13', NULL, '1', 1, 1, '1717665547vZ3z8', NULL, 1, 1250, '0', 0, 0, 80, 0, 0, 1330, NULL, NULL, 'qcJi91717665547', 1, '2024-06-06 07:19:07', '2024-06-06 09:14:34'),
 (58, '1719821287278', NULL, NULL, '2024-07-01 14:08:07', '2024-07-08', NULL, '1', 1, 1, '1719821287Fhj8q', NULL, 0, 2080, '0', 0, 0, 80, 0, 0, 2160, NULL, NULL, 'E516t1719821287', 1, '2024-07-01 06:08:07', NULL),
 (59, '1719910890677', NULL, NULL, '2024-07-02 15:01:30', '2024-07-09', NULL, '1', 1, 1, '1719910890GlkB1', NULL, 1, 550, '0', 0, 0, 80, 0, 0, 630, NULL, NULL, 'AFAda1719910890', 1, '2024-07-02 07:01:30', '2024-07-04 02:44:27'),
-(60, '1720209701221', NULL, NULL, '2024-07-06 02:01:41', '2024-07-13', NULL, '1', 1, 0, '1720209701a8Xm3', NULL, 3, 4080, '0', 0, 0, 80, 0, 0, 4160, NULL, NULL, 'XkU8q1720209701', 1, '2024-07-05 18:01:41', '2024-07-14 08:01:57');
+(60, '1720209701221', NULL, NULL, '2024-07-06 02:01:41', '2024-07-13', NULL, '1', 1, 0, '1720209701a8Xm3', NULL, 3, 4080, '0', 0, 0, 80, 0, 0, 4160, NULL, NULL, 'XkU8q1720209701', 1, '2024-07-05 18:01:41', '2024-07-14 08:01:57'),
+(65, '1722665813594', 1, NULL, '2024-08-03 12:16:53', '2024-08-10', NULL, '1', 1, 1, '172266581316Y89', NULL, 3, 250, '0', 0, 0, 0, 0, 0, 250, 'Quick Need', NULL, 'kZzzH1722665813', 1, '2024-08-03 06:16:53', '2024-08-03 06:18:29');
 
 -- --------------------------------------------------------
 
@@ -1332,7 +1334,8 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `store_id`, `color_
 (70, 58, 591, 2, 25, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 2080, 2080, 0, '2024-07-01 06:08:07', NULL),
 (71, 59, 762, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 550, 550, 0, '2024-07-02 07:01:30', NULL),
 (72, 60, 474, 2, 28, 10, NULL, NULL, NULL, NULL, NULL, 1, 1, 1830, 1830, 0, '2024-07-05 18:01:41', NULL),
-(73, 60, 472, 1, NULL, 10, NULL, NULL, NULL, NULL, NULL, 1, 1, 2250, 2250, 0, '2024-07-05 18:01:41', NULL);
+(73, 60, 472, 1, NULL, 10, NULL, NULL, NULL, NULL, NULL, 1, 1, 2250, 2250, 0, '2024-07-05 18:01:41', NULL),
+(82, 65, 292, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 250, 250, 0, '2024-08-03 06:16:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -1389,7 +1392,8 @@ INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `v
 (51, 57, 'COD', '1717665547vZ3z8', NULL, '1330', NULL, '1330', NULL, NULL, 'VALID', '2024-06-06 15:19:08', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-06-06 07:19:08', NULL),
 (52, 58, 'COD', '1719821287Fhj8q', NULL, '2160', NULL, '2160', NULL, NULL, 'VALID', '2024-07-01 14:08:07', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-07-01 06:08:07', NULL),
 (53, 59, 'COD', '1719910890GlkB1', NULL, '630', NULL, '630', NULL, NULL, 'VALID', '2024-07-02 15:01:30', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-07-02 07:01:30', NULL),
-(54, 60, 'COD', '1720209701a8Xm3', NULL, '4160', NULL, '4160', NULL, NULL, 'VALID', '2024-07-06 02:01:41', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-07-05 18:01:41', NULL);
+(54, 60, 'COD', '1720209701a8Xm3', NULL, '4160', NULL, '4160', NULL, NULL, 'VALID', '2024-07-06 02:01:41', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-07-05 18:01:41', NULL),
+(59, 65, 'COD', '172266581316Y89', NULL, '250', NULL, '250', NULL, NULL, 'VALID', '2024-08-03 12:16:53', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-08-03 06:16:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -1454,7 +1458,11 @@ INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `u
 (98, 59, 0, '2024-07-02 07:01:30', NULL),
 (99, 59, 1, '2024-07-04 02:44:27', NULL),
 (100, 60, 0, '2024-07-05 18:01:41', NULL),
-(105, 60, 1, '2024-07-14 08:01:57', NULL);
+(105, 60, 1, '2024-07-14 08:01:57', NULL),
+(106, 65, 0, '2024-08-03 06:16:53', NULL),
+(107, 65, 1, '2024-08-03 06:17:30', NULL),
+(108, 65, 2, '2024-08-03 06:18:25', NULL),
+(109, 65, 3, '2024-08-03 06:18:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -2096,7 +2104,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `reward_points`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `special_offer`, `offer_end_time`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
-(155, NULL, 11, 60, NULL, NULL, NULL, 'Ladies blazer set', 'LD-001', 'productImages/2krYp1700113672.webp', NULL, 'Feature	Anti-wrinkle, Breathable, Anti-Static, Anti-Shrink\r\nMaterial	Spandex / Polyester\r\nStyle	Pants Suits\r\nCollar	V-neck,\r\nTaking Pre-Order, Delivery Time 20-25 Days', NULL, NULL, NULL, 4995, 0, 0, 0, NULL, NULL, NULL, NULL, 'ladies-blazer-1700113672rnV6W', 7, 0, NULL, 'Fashion, Trending, Ladies wear, Ladies fashion wear, Elegant ladies wear', NULL, NULL, 1, 1, 0, '2023-11-16 03:47:52', '2024-07-01 09:33:18'),
+(155, 1, 11, 60, NULL, NULL, NULL, 'Ladies blazer set', 'LD-001', 'productImages/2krYp1700113672.webp', NULL, 'Feature	Anti-wrinkle, Breathable, Anti-Static, Anti-Shrink\r\nMaterial	Spandex / Polyester\r\nStyle	Pants Suits\r\nCollar	V-neck,\r\nTaking Pre-Order, Delivery Time 20-25 Days', NULL, NULL, NULL, 4995, 0, 0, 0, NULL, NULL, NULL, NULL, 'ladies-blazer-1700113672rnV6W', 7, 0, NULL, 'Fashion, Trending, Ladies wear, Ladies fashion wear, Elegant ladies wear', NULL, NULL, 1, 1, 0, '2023-11-16 03:47:52', '2024-07-01 09:33:18'),
 (207, NULL, 11, 56, NULL, NULL, NULL, 'Summer tunic midi dress', 'LD-002', 'productImages/PGO4Q1700805666.webp', NULL, 'Size :   Length: 110/128     Sleeve: 54     Bust: 106     Waist: 68\r\nTaking Pre-Order, Delivery Time 20-25 Days', '<p>Pattern type: none</p>\r\n\r\n<p>Style: casual</p>\r\n\r\n<p>Feature: Anti- Static, Anti- wrinkle, Breathable, Dry cleaning, Sustainable, Washable</p>', NULL, NULL, 2995, 0, 0, 0, 1, NULL, NULL, NULL, 'summer-tunic-midi-dress-1700805666tQ5A6', 7, 0, NULL, 'Fashionable, summer romantic dress, midi dress, casual, trendy', 'ew arrival, romantic dress', NULL, 1, 1, 0, '2023-11-24 04:01:06', '2024-07-01 09:33:28'),
 (208, NULL, 11, 56, NULL, 43, NULL, 'Spring Sleeveless Knitting Casual Dress', 'LD-003', 'productImages/kF3QN1700807895.webp', NULL, 'Size : \r\n  Length: 87     Bust: 60-120     Waist: 60-104\r\nTaking Pre-Order, Delivery Time 20-25 Days', '<p>Patter type: none</p>\r\n\r\n<p>Style: casual</p>\r\n\r\n<p>Technics: crocheted</p>\r\n\r\n<p>Ferature: Anti-Static, Anti-wrinkle, Breathable, Sustainable, Washable, Dry cleaning</p>', NULL, NULL, 1795, 0, 0, 0, 1, 'Treanding, Fashion,Western dress, lifestyle ,casual dress, spring dress', NULL, NULL, 'spring-sleeveless-knitting-casual-dress-17008078951h0yh', 7, 0, '1970-01-01 06:00:00', 'Fashionable, beautiful dress, midi dress, casual, trendy', NULL, NULL, 1, 1, 0, '2023-11-24 04:38:15', '2024-07-09 15:14:20'),
 (209, NULL, 11, 56, NULL, NULL, NULL, 'Strapless Sleeveless Patchwork Casual Dress Women High Waist Feathers Midi A-Line Dress', 'LD-004', 'productImages/X18zy1700809229.webp', NULL, '3 cloros & sizes are available\r\nTaking Pre-Order, Delivery Time 20-25 Days', '<p>Pattern type: Patchwork</p>\r\n\r\n<p>Style: Casual</p>\r\n\r\n<p>Feature: Anti-Static, Anti-wrinkle, Breathable, Sustainable, Washable</p>', NULL, NULL, 3495, 0, 0, 0, 1, 'strepless dress, sleeveless dress, fashionable dress,feather dress', NULL, NULL, 'strapless-sleeveless-patchwork-casual-dress-women-high-waist-feathers-midi-aline-dress-1700809229YYcBy', 7, 0, NULL, 'Fashionable, beautiful dress, midi dress, casual, trendy, feather dress, strapless dress, sleeveless dress', NULL, NULL, 1, 1, 0, '2023-11-24 05:00:29', '2024-07-01 09:33:52'),
@@ -2164,7 +2172,7 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (289, NULL, 39, 95, NULL, NULL, NULL, 'Ladies bag', 'B1004', 'productImages/jrVet1707722994.webp', NULL, 'Women Shoulder Bags\r\nTaking Pre-Order, Delivery Time 20-25 Days', '<p>Pattern type: Other</p>\r\n\r\n<p>Main material: PU</p>\r\n\r\n<p>Lining material: Polyester&nbsp;</p>\r\n\r\n<p>Style: Fashion Lady</p>', NULL, NULL, 1550, 0, 0, 0, 1, 'bag, ladies bag, imported bag, handbag, party bag, fancy bag', NULL, NULL, 'ladies-bag-1707722994yd68k', 7, 0, NULL, 'bag, ladies bag, fashion bag, party bag, acrylic bag', 'bag, ladies bag, fashion bag, party bag, acrylic bag', NULL, 1, 1, 0, '2024-02-12 05:29:54', '2024-07-01 09:37:14'),
 (290, NULL, 39, 96, NULL, NULL, NULL, 'Ear rings', 'I-000033', 'productImages/mYJSq1707805571.png', '[\"1707805572gHjqD.png\",\"1707805572fofq7.png\",\"17078055730tBZq.png\"]', 'Ladies Fashion earrings for casual wear.\r\nColor: Sky blue', NULL, NULL, NULL, 250, 0, 0, 1, 1, 'earrings, fashion earrings, metal earrings, party earrings', NULL, NULL, 'ear-rings-1707805572Kf9n6', 6, 0, NULL, 'earrings, fashion ear rings, pearl ear rings, party earrings', 'earrings, pearl earrings, fashion earrings, party earrings', NULL, 1, 0, 0, '2024-02-13 04:26:12', '2024-06-08 03:16:25'),
 (291, NULL, 39, 96, NULL, NULL, NULL, 'Earrings', 'I-000139', 'productImages/WWjBU1707805701.png', '[\"17078057020qJhl.png\",\"170780570276yTi.png\",\"1707805703kGSAj.png\"]', 'Ladies fashion earrings for casual wear.\r\nColor: Olive green', NULL, NULL, NULL, 250, 0, 0, 1, 1, 'earrings, fashion earrings, metal earrings, party earrings', NULL, NULL, 'jewelry-170780570205vH6', 6, 0, NULL, 'earrings, fashion ear rings, pearl ear rings, party earrings', 'earrings, pearl earrings, fashion earrings, party earrings', NULL, 1, 0, 0, '2024-02-13 04:28:22', '2024-06-08 03:18:31'),
-(292, NULL, 39, 96, NULL, NULL, NULL, 'Earrings', 'I-000139', 'productImages/1VNzA1707806311.png', '[\"1707806312PkMS4.png\",\"17078063127zNfo.png\",\"1707806313B7VzS.png\"]', 'Ladies fashion earring for formal and casual wear.\r\nColor: Black & White', NULL, NULL, NULL, 250, 0, 0, 1, 1, 'earrings, fashion earrings, metal earrings, party earrings', NULL, NULL, 'jewelry-1707806312TdYem', 6, 0, NULL, 'earrings, fashion ear rings, pearl ear rings, party earrings', 'earrings, pearl earrings, fashion earrings, party earrings', NULL, 1, 0, 0, '2024-02-13 04:38:32', '2024-06-08 03:18:41'),
+(292, NULL, 39, 96, NULL, NULL, NULL, 'Earrings', 'I-000139', 'productImages/1VNzA1707806311.png', '[\"1707806312PkMS4.png\",\"17078063127zNfo.png\",\"1707806313B7VzS.png\"]', 'Ladies fashion earring for formal and casual wear.\r\nColor: Black & White', NULL, NULL, NULL, 250, 0, 0, 0, 1, 'earrings, fashion earrings, metal earrings, party earrings', NULL, NULL, 'jewelry-1707806312TdYem', 6, 0, NULL, 'earrings, fashion ear rings, pearl ear rings, party earrings', 'earrings, pearl earrings, fashion earrings, party earrings', NULL, 1, 0, 0, '2024-02-13 04:38:32', '2024-06-08 03:18:41'),
 (293, NULL, 39, 96, NULL, NULL, NULL, 'Ear rings', 'I-000139', 'productImages/EeO8R1707806454.png', '[\"1707806455tY5DR.png\",\"1707806455u2Tsz.png\",\"17078064566ggL6.png\"]', 'Ladies fashion earrings for casual and formal wear.\r\nColor: Peach', NULL, NULL, NULL, 250, 0, 0, 1, 1, 'earrings, fashion earrings, metal earrings, party earrings', NULL, NULL, 'ear-rings-1707806455rY71R', 6, 0, NULL, 'earrings, fashion ear rings, pearl ear rings, party earrings', 'earrings, pearl earrings, fashion earrings, party earrings', NULL, 1, 0, 0, '2024-02-13 04:40:55', '2024-06-08 03:18:51'),
 (294, NULL, 39, 96, NULL, NULL, NULL, 'Ear rings', 'I-000139', 'productImages/4iPVN1707807375.png', '[\"1707807376EQPfO.png\",\"17078073769de6t.png\",\"17078073773z7S3.png\"]', 'Ladies fashion earrings for casual wear.\r\nColor: Black', NULL, NULL, NULL, 250, 0, 0, 1, 1, 'earrings, fashion earrings, metal earrings, party earrings', NULL, NULL, 'ear-rings-1707807376TZAvZ', 6, 0, NULL, 'earrings, fashion ear rings, pearl ear rings, party earrings', 'earrings, pearl earrings, fashion earrings, party earrings', NULL, 1, 0, 0, '2024-02-13 04:56:16', '2024-06-08 03:19:13'),
 (295, NULL, 39, 96, NULL, NULL, NULL, 'Ear rings', 'I-000140', 'productImages/PSWIW1707807627.png', '[\"1707807627WbR5w.png\",\"17078076289A5Wq.png\",\"1707807629p7rWj.png\"]', 'Ladies fashion earrings for formal and casual wear.\r\nColor: Off white', NULL, NULL, NULL, 250, 0, 0, 1, 1, 'earrings, fashion earrings, metal earrings, party earrings', NULL, NULL, 'ear-rings-1707807627yXV3M', 6, 0, NULL, 'earrings, fashion ear rings, pearl ear rings, party earrings', 'earrings, pearl earrings, fashion earrings, party earrings', NULL, 1, 0, 0, '2024-02-13 05:00:27', '2024-06-08 03:20:35'),
@@ -2697,7 +2705,7 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (819, NULL, 11, 56, NULL, NULL, NULL, 'Plus Size Casual Strapless Jumpsuit For Women Sleeveless High Waist Feathers Lace Long Jumpsuit', NULL, 'productImages/hpHGP1720260819.jpg', NULL, 'Material:	Spandex / Polyester,\r\nFeature:	Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable,\r\nTaking Pre-Order, Delivery Time 20-25 days.', '<p>Collar: <strong>Strapless</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type: <strong>Regular</strong></p>\r\n\r\n<p>Gender: <strong>Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order&nbsp;</strong></p>\r\n\r\n<p><strong>Delivery Time 20-25 days.</strong></p>', NULL, NULL, 3730, 0, 0, 0, 1, 'Plus Size Casual Strapless Jumpsuit For Women Sleeveless High Waist Feathers Lace Long Jumpsuit', NULL, NULL, 'plus-size-casual-strapless-jumpsuit-for-women-sleeveless-high-waist-feathers-lace-long-jumpsuit-17202608190fGb0', 7, 0, NULL, 'Plus Size Casual Strapless Jumpsuit For Women Sleeveless High Waist Feathers Lace Long Jumpsuit', 'Plus Size Casual Strapless Jumpsuit For Women Sleeveless High Waist Feathers Lace Long Jumpsuit', NULL, 1, 1, 0, '2024-07-06 08:13:39', '2024-07-06 08:43:59'),
 (820, NULL, 11, 56, NULL, NULL, NULL, 'Summer Casual V-neck Slim Jumpsuit For Women High Waist Patchwork Lace Long Jumpsuit', NULL, 'productImages/YI9BS1720263313.jpg', NULL, 'Pattern Type:	Patchwork,\r\nMaterial:	Lace,\r\nFabric Type:	Worsted,\r\nFeature:	Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable.\r\nTaking Pre-Order, Delivery Time 20-25 days', '<p>Collar: <strong>V-neck</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type: <strong>Regular</strong></p>\r\n\r\n<p>Gender:<strong> Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order </strong></p>\r\n\r\n<p><strong>Delivery Time 20-25 days</strong></p>', NULL, NULL, 3070, 0, 0, -1, 1, 'Summer Casual V-neck Slim Jumpsuit For Women High Waist Patchwork Lace Long Jumpsuit', NULL, NULL, 'summer-casual-vneck-slim-jumpsuit-for-women-high-waist-patchwork-lace-long-jumpsuit-1720263313WevH6', 7, 0, NULL, 'Summer Casual V-neck Slim Jumpsuit For Women High Waist Patchwork Lace Long Jumpsuit', 'Summer Casual V-neck Slim Jumpsuit For Women High Waist Patchwork Lace Long Jumpsuit', NULL, 1, 1, 0, '2024-07-06 08:55:13', '2024-07-06 08:57:24'),
 (821, NULL, 38, 94, 17, 43, NULL, 'Nior Hya Bulgerian Rose 99.99% Moisture Soothing Gel', NULL, 'productImages/qKxu31720265376.png', '[\"1720265376CaxTD.png\",\"1720265376AasYH.png\"]', 'Net Weight: 300ml', '<p><strong>Product Description</strong></p>\r\n\r\n<p>NIOR Hya Bulgarian Rose 99.99% MOISTURE SOOTHING GEL contains 99.99% Rose Water extract to make skin soft and moisturized &amp; it also has hyaluronic acid which helps to keep our skin hydrated all day long. It smoothens skin texture and reduces the risk of skin damage caused by UV rays by strengthening the skin barrier.</p>\r\n\r\n<p><strong>Features &amp; Details</strong></p>\r\n\r\n<p>Cleanses and brightens the skin. Soothes irritated spots. Decongests skin pores. Tightens and moisturizes skin. Reduce under eye puffiness and dark skin.</p>\r\n\r\n<p><strong>Ingredient List</strong></p>\r\n\r\n<p>Aqua / Rosa Damascena Flower Water / 1,3-Propanediol / Acrylates/C10-30 Alkyl Acrylate Crosspolymer / Butylene Glycol / Chlorophenesin / Disodium EDTA / Glycerine / Hyaluronic acid / Methylchloroisothiazolinone / Methylisothiazolinone / Niacinamide / Phenoxyethanol / Sodium Hydroxide</p>\r\n\r\n<p><strong>Directions</strong></p>\r\n\r\n<p>Apply to a clean face, body as needed. No need to wash after use.</p>', NULL, NULL, 590, 0, 0, 100, 1, 'Nior Hya Bulgerian Rose 99.99% Moisture Soothing Gel', NULL, NULL, 'nior-hya-bulgerian-rose-9999-moisture-soothing-gel-1720265376rD2ml', 7, 0, NULL, 'Nior Hya Bulgerian Rose 99.99% Moisture Soothing Gel', 'Nior Hya Bulgerian Rose 99.99% Moisture Soothing Gel', NULL, 1, 0, 0, '2024-07-06 09:29:36', '2024-07-06 09:29:56'),
-(822, NULL, 11, 56, NULL, NULL, NULL, 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, 'productImages/TOzFE1720266084.jpg', NULL, 'Pattern Type: DOT,\r\nMaterial:	Spandex / Polyester,\r\nFabric Type:	Worsted,\r\nFeature:	Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable.\r\nTaking Pre-Order, Delivery Time 20-25 days', '<p>Collar: <strong>V-neck</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type:<strong> Regular</strong></p>\r\n\r\n<p>Gender:<strong> Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order, Delivery Time 20-25 days</strong></p>', NULL, NULL, 2250, 0, 0, 0, 1, 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, NULL, 'summer-sexy-vneck-jumpsuit-for-women-high-waist-polka-dot-backless-lace-long-jumpsuit-1720266084fJs4w', 7, 0, '1970-01-01 06:00:00', 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, 1, 1, 0, '2024-07-06 09:41:24', '2024-07-14 16:41:58'),
+(822, NULL, 11, 56, NULL, NULL, NULL, 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, 'productImages/TOzFE1720266084.jpg', NULL, 'Pattern Type: DOT,\r\nMaterial:	Spandex / Polyester,\r\nFabric Type:	Worsted,\r\nFeature:	Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable.\r\nTaking Pre-Order, Delivery Time 20-25 days', '<p>Collar: <strong>V-neck</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type:<strong> Regular</strong></p>\r\n\r\n<p>Gender:<strong> Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order, Delivery Time 20-25 days</strong></p>', NULL, NULL, 2250, 0, 0, 0, 1, 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, NULL, 'summer-sexy-vneck-jumpsuit-for-women-high-waist-polka-dot-backless-lace-long-jumpsuit-1720266084fJs4w', 6, 0, '1970-01-01 06:00:00', 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', 'Summer Sexy V-Neck Jumpsuit For Women High Waist Polka Dot Backless Lace Long Jumpsuit', NULL, 1, 1, 0, '2024-07-06 09:41:24', '2024-08-02 16:42:59'),
 (829, 1, 11, 56, NULL, NULL, NULL, 'Summer Sexy V-Neck Jumpsuit For Women', NULL, 'productImages/c3bQV1720981960.jpg', NULL, 'Pattern Type: DOT, Material: Spandex / Polyester, Fabric Type: Worsted, Feature: Anti-Static, Breathable, Sustainable, Anti-wrinkle, Dry Cleaning, Washable. Taking Pre-Order, Delivery Time 20-25 days', '<p>Collar: <strong>V-neck</strong></p>\r\n\r\n<p>Length: <strong>Full Length</strong></p>\r\n\r\n<p>Fit Type:<strong> Regular</strong></p>\r\n\r\n<p>Gender:<strong> Women</strong></p>\r\n\r\n<p><strong>Taking Pre-Order, Delivery Time 20-25 days</strong></p>', NULL, NULL, 100, 0, 0, 0, 1, 'dress', NULL, NULL, 'summer-sexy-vneck-jumpsuit-for-women-1720981961EMxuD', 11, 1, '1970-01-01T06:00', NULL, NULL, NULL, 0, 1, 0, '2024-07-14 10:59:45', '2024-07-14 12:32:41');
 
 -- --------------------------------------------------------
@@ -5388,11 +5396,11 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `unit_i
 (1941, 820, '17202633145PJJR.jpg', 26, NULL, NULL, NULL, NULL, NULL, 100, 3070, 0, NULL, NULL, '2024-07-06 08:55:14', '2024-07-06 08:57:24'),
 (1942, 820, '17202633143V9vH.jpg', 3, NULL, NULL, NULL, NULL, NULL, 100, 3070, 0, NULL, NULL, '2024-07-06 08:55:14', '2024-07-06 08:57:24'),
 (1943, 820, '1720263314MSYRO.jpg', 2, NULL, NULL, NULL, NULL, NULL, 100, 3070, 0, NULL, NULL, '2024-07-06 08:55:14', '2024-07-06 08:57:24'),
-(1944, 822, '1720266084lEQQp.jpg', 21, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:24', '2024-07-14 16:41:58'),
-(1945, 822, '1720266084nKhYj.jpg', 13, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-14 16:41:58'),
-(1946, 822, '1720266085qv7YC.jpg', 1, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-14 16:41:58'),
-(1947, 822, '1720266085MTcOw.jpg', 2, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-14 16:41:58'),
-(1948, 822, '1720266085dzQy6.jpg', 6, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-07-14 16:41:58'),
+(1944, 822, '1720266084lEQQp.jpg', 21, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:24', '2024-08-02 16:42:59'),
+(1945, 822, '1720266084nKhYj.jpg', 13, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-08-02 16:42:59'),
+(1946, 822, '1720266085qv7YC.jpg', 1, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-08-02 16:42:59'),
+(1947, 822, '1720266085MTcOw.jpg', 2, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-08-02 16:43:00'),
+(1948, 822, '1720266085dzQy6.jpg', 6, NULL, NULL, NULL, NULL, NULL, 100, 2250, 0, NULL, NULL, '2024-07-06 09:41:25', '2024-08-02 16:43:00'),
 (1951, 829, '17209763852UCLL.jpg', 21, NULL, 10, NULL, NULL, NULL, 100, 100, 0, NULL, NULL, '2024-07-14 10:59:45', '2024-07-14 12:32:41'),
 (1952, 829, '1720976385UoAbv.jpg', 22, NULL, 12, NULL, NULL, NULL, 100, 100, 0, NULL, NULL, '2024-07-14 10:59:45', '2024-07-14 12:32:41');
 
@@ -5676,7 +5684,8 @@ INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `
 (53, 59, 'Rayhan', '01626317700', 'mdrayhanbapari02@gmail.com', NULL, 'Dhaka', 'Gulshan', '1212', 'Dhaka', 'Bangladesh', '2024-07-02 07:01:30', NULL),
 (54, 60, 'Omi Khan', '+8801320397381', 'mahinrashid499@gmail.com', NULL, 'K75 road 20 main road dakhin banasree', 'Rampura', '1215', 'Dhaka', 'Bangladesh', '2024-07-05 18:01:41', NULL),
 (55, 61, 'Tahasina Tasmin', '01787849282', 'tahasina.tasmin@gmail.com', NULL, 'H-24/26, rd-7,sec-11', 'Uttara', '1230', 'Dhaka', 'Bangladesh', '2024-07-10 05:11:57', NULL),
-(56, 62, 'Tasnuba Zara', '01680440537', 'tasnubazara98@gmail.com', NULL, 'Sector 11 Road 10/b house no 06', 'Uttara', '1203', 'Dhaka', 'Bangladesh', '2024-07-12 17:50:31', NULL);
+(56, 62, 'Tasnuba Zara', '01680440537', 'tasnubazara98@gmail.com', NULL, 'Sector 11 Road 10/b house no 06', 'Uttara', '1203', 'Dhaka', 'Bangladesh', '2024-07-12 17:50:31', NULL),
+(57, 65, 'Dr. Fahim', '01969005035', 'alifhossain174@gmail.com', NULL, 'Rajshahi', 'Boalia Thana', NULL, 'Rajshahi', 'Bangladesh', '2024-08-03 06:16:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -5867,8 +5876,8 @@ CREATE TABLE `stores` (
 --
 
 INSERT INTO `stores` (`id`, `user_id`, `vendor_id`, `store_no`, `store_name`, `store_logo`, `store_banner`, `store_address`, `store_phone`, `store_email`, `store_description`, `store_full_description`, `district`, `country`, `facebook`, `whatsapp`, `instagram`, `tiktok`, `linkedin`, `twitter`, `meta_title`, `meta_description`, `meta_keywords`, `slug`, `status`, `store_percentage`, `created_at`, `updated_at`) VALUES
-(1, 186, 1, '172149558047Jd6', 'Yellow', 'stores/rL96M1720421193.webp', 'stores/pFCrr1720421193.webp', 'Dhaka, Bangladesh', ',01969005025', ',yellow@gmail.com', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Yellow', NULL, ',', 'yellow-1721495580', 1, 0, '2024-07-08 06:46:33', '2024-07-20 11:13:00'),
-(2, 187, 2, '1720421343W2aHF', 'Illiyeen', 'stores/evtut1720421343.png', 'stores/dvCNN1720421343.jpg', 'Dhaka, Bangladesh', ',01969887744', ',illiyeen@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu scelerisque felis. Vel pretium lectus quam id leo in vitae turpis massa. Nunc id cursus metus aliquam. Libero id faucibus nisl tincidunt eget. Aliquam id diam maecenas ultricies mi eget mauris. Volutpat ac tincidunt vitae semper quis lectus. Vestibulum mattis ullamcorper velit sed. A arcu cursus vitae congue mauris.', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Illiyeen', NULL, ',', 'illiyeen', 1, 5, '2024-07-08 06:49:03', '2024-07-20 17:13:29');
+(1, 186, 1, '172149558047Jd6', 'Yellow', 'stores/rL96M1720421193.webp', 'stores/pFCrr1720421193.webp', 'Dhaka, Bangladesh', ',01969005025', ',yellow@gmail.com', 'Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you\'re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.', '<p>Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you&#39;re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you&#39;re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you&#39;re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you&#39;re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Yellow', NULL, ',', 'yellow', 1, 5, '2024-07-08 06:46:33', '2024-08-03 05:21:43'),
+(2, 187, 2, '1720421343W2aHF', 'Illiyeen', 'stores/evtut1720421343.png', 'stores/dvCNN1720421343.jpg', 'Dhaka, Bangladesh', ',01969887744', ',illiyeen@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu scelerisque felis. Vel pretium lectus quam id leo in vitae turpis massa. Nunc id cursus metus aliquam. Libero id faucibus nisl tincidunt eget. Aliquam id diam maecenas ultricies mi eget mauris. Volutpat ac tincidunt vitae semper quis lectus. Vestibulum mattis ullamcorper velit sed. A arcu cursus vitae congue mauris.', '<p>Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you&#39;re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you&#39;re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you&#39;re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.Welcome to Yellow, Our fashion brand is dedicated to providing high-quality, stylish clothing that empowers individuals to express their unique sense of style. With a keen eye for detail and a commitment to sustainable practices, we craft each piece with precision and care. Whether you&#39;re looking for timeless classics or bold, contemporary designs, we offer something for every fashion-forward individual.</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Illiyeen', NULL, ',', 'illiyeen', 1, 5, '2024-07-08 06:49:03', '2024-08-03 05:21:38');
 
 -- --------------------------------------------------------
 
@@ -6004,7 +6013,8 @@ INSERT INTO `subscribed_users` (`id`, `email`, `created_at`, `updated_at`) VALUE
 (82, 'alifhossain174@gmail.com', '2024-07-13 11:29:49', NULL),
 (83, 'alifhossain174@gmail.com', '2024-07-13 11:37:07', NULL),
 (84, 'alifhossain174@gmail.com', '2024-07-13 11:39:31', NULL),
-(85, 'alifhossain174@gmail.com', '2024-07-13 15:23:46', NULL);
+(85, 'alifhossain174@gmail.com', '2024-07-13 15:23:46', NULL),
+(86, 'alifhossain174@gmail.com', '2024-08-03 06:16:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -11301,10 +11311,10 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (87, NULL, 'jYWqgCfAxsJ', NULL, 'watkinherb52@gmail.com', NULL, '948474', '$2y$12$H2GztQwydmCt9P7v30uYw.c4AbDNlNmmnqJuSR3rFBKnY/2ZppdFS', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-02 18:55:24', '2024-03-02 18:55:27'),
 (89, '', 'Getup-Admin', '01969005038', 'admin@getup.com', '2024-03-02 08:18:31', '252464', '$2y$10$JtmbfwKyLz4moqNiYTHnNudFYY5sSxhozz.jyo4gwdbGOpfjlW5tq', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-03-28 10:20:00', '2024-05-30 07:00:07'),
 (90, NULL, 'Rayhan Bapari', NULL, 'getup.rayhan@gmail.com', '2024-03-06 04:50:04', NULL, '$2y$12$f80FEeOTgOqShCKTVzkTEeUIf479eO5jSjVecBCEsstc11DZjpIdi', 'google', '118437019959532053863', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
-(93, NULL, 'Yael Mccormick', '8801969005035', NULL, '2024-08-01 05:16:05', '420169', '$2y$12$yiVgRHwEMZSEUAA9EmsQsudpfvf1VoBmQcHrGrbWqnos.K13.4Xdu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:06:38', '2024-08-01 05:16:05'),
-(94, NULL, 'Bethany Dominguez', '01969005035', NULL, '2024-08-01 05:16:05', '497450', '$2y$12$lhJfporMfZK5fFikbx35G.GA2Y9enPEmN5jka4ptPUGYjCnl3Bx5O', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:10:29', '2024-08-01 05:16:05'),
-(95, NULL, 'Julian Tran', '01969005035', NULL, '2024-08-01 05:16:05', '912206', '$2y$12$KSLf0xdxpBaHX.trZf07VeTC5tM1xl8qY2vKTODK3a6aYsPiIoYpq', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:12:50', '2024-08-01 05:16:05'),
-(96, NULL, 'Clinton Holman', '01969005035', NULL, '2024-08-01 05:16:05', '616111', '$2y$12$zY3/l8yj4/17bMY3dMgP7.VcPOAcRGgCZC2l/NP7TdDzIdOpcV3xa', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:16:50', '2024-08-01 05:16:05'),
+(93, NULL, 'Yael Mccormick', '8801969005035', NULL, '2024-08-02 17:39:26', '420169', '$2y$12$yiVgRHwEMZSEUAA9EmsQsudpfvf1VoBmQcHrGrbWqnos.K13.4Xdu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:06:38', '2024-08-02 17:39:26'),
+(94, NULL, 'Bethany Dominguez', '01969005035', NULL, '2024-08-02 17:39:26', '497450', '$2y$12$lhJfporMfZK5fFikbx35G.GA2Y9enPEmN5jka4ptPUGYjCnl3Bx5O', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:10:29', '2024-08-02 17:39:26'),
+(95, NULL, 'Julian Tran', '01969005035', NULL, '2024-08-02 17:39:26', '912206', '$2y$12$KSLf0xdxpBaHX.trZf07VeTC5tM1xl8qY2vKTODK3a6aYsPiIoYpq', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:12:50', '2024-08-02 17:39:26'),
+(96, NULL, 'Clinton Holman', '01969005035', NULL, '2024-08-02 17:39:26', '616111', '$2y$12$zY3/l8yj4/17bMY3dMgP7.VcPOAcRGgCZC2l/NP7TdDzIdOpcV3xa', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-10 04:16:50', '2024-08-02 17:39:26'),
 (97, NULL, 'tanza', NULL, 'hqwwbpqbm.tt@monochord.xyz', NULL, '516926', '$2y$12$Wyc5Xyw23OEdtWY0QUD10eUmBsA0lecod1YS6yheWacCSYhQJKgJ.', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-16 03:20:15', '2024-03-16 03:20:15'),
 (98, NULL, 'suelynn', NULL, 'michellemead17@yahoo.com', NULL, '121711', '$2y$12$9u0ErHiJLqqM2.TOWssSj.PYXsI5w/tqmTbcPiPHnsaz8e6bQ0UU6', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-16 03:32:33', '2024-03-16 03:32:34'),
 (99, NULL, 'cilicia', NULL, 'drgayele@yahoo.com', NULL, '754985', '$2y$12$C8mzEfJfDVWtgRmgTWif4uUhLekuKHukBxHujEr5EMLaXwGJEB9D2', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-17 03:14:58', '2024-03-17 03:14:59'),
@@ -11344,18 +11354,18 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (133, NULL, 'arjay', NULL, 'cheezit1987@gmail.com', NULL, '373763', '$2y$12$sbL82GFNwUBzScaCtpnPluLks0Tz7MLh/7Xo/OA3ytD6bKt1hhNVO', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-25 12:47:09', '2024-03-25 12:47:09'),
 (134, NULL, 'kahmora', NULL, 'hroberts@gottabecleanmd.com', NULL, '319422', '$2y$12$1coHgv5asT7H/mwdmaQOpOUitdT8SfG.QKtXrvtQ14AC5QpiAJWru', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-25 17:06:32', '2024-03-25 17:06:33'),
 (135, NULL, 'Arif Hossain', '01755541402', 'digitalmarketing.fejmo@gmail.com', '2024-03-30 03:28:41', NULL, '$2y$12$WiP/d70i9vU0ePDp7VllketR6ODBSIvTjC9fZ82XKOWl7vrvMSTGW', 'google', '100881094859590741528', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
-(136, NULL, 'Jaber Hossain Mazumder', '01920765630', NULL, '2024-08-01 05:16:05', '737359', '$2y$12$Q0DqXt2bBn/KAOaWN2dXwOb3UAZO8bHRQrsHlifCGKYSi4miq1Qni', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-30 08:27:54', '2024-08-01 05:16:05'),
+(136, NULL, 'Jaber Hossain Mazumder', '01920765630', NULL, '2024-08-02 17:39:26', '737359', '$2y$12$Q0DqXt2bBn/KAOaWN2dXwOb3UAZO8bHRQrsHlifCGKYSi4miq1Qni', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-03-30 08:27:54', '2024-08-02 17:39:26'),
 (137, NULL, 'mostaim billah', NULL, 'mostaim.murad@gmail.com', '2024-04-02 10:54:23', NULL, '$2y$12$kcCY6lf3pBuW0iZ4cDaD8ueIftfbazpYnztzWB2GGrhucWT7WjVvi', 'google', '108332405555846216230', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
 (138, NULL, 'Arif Hossain', '01712712674', 'arifhossainmu@gmail.com', '2024-04-03 05:36:26', NULL, '$2y$12$ul.FHUMwlI.Q/A4EVI8cx.sktxJla2rvFrL0MpHjiheGKrPeNr03O', 'google', '112584645170625560366', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
 (139, NULL, 'Arif Hossain Munna', '01715006251', 'arif.munna24@gmail.com', '2024-04-03 06:32:53', NULL, '$2y$12$VaRzg.zkVXygL8znH6Xs6u36.hvolX3geXj0Pt73kwGEl.PbtTGUu', 'google', '109903232980015274462', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
-(140, NULL, 'Farjana', '01679222331', NULL, '2024-08-01 05:16:05', '844092', '$2y$12$TLuSLG9TDboZQoItLi5i0.enCxktwbQDuDUaemFmoJf3K512u/Uoa', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-06 05:20:42', '2024-08-01 05:16:05'),
+(140, NULL, 'Farjana', '01679222331', NULL, '2024-08-02 17:39:26', '844092', '$2y$12$TLuSLG9TDboZQoItLi5i0.enCxktwbQDuDUaemFmoJf3K512u/Uoa', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-06 05:20:42', '2024-08-02 17:39:26'),
 (141, NULL, 'Falguni das', NULL, 'falgunidas4@gmail.com', NULL, '756258', '$2y$12$hk1iVRNv1W9PjNASlf3jHezviwvp.yDr./2J3a4zuF1zy77Wt6Qie', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-06 07:36:12', '2024-04-06 07:36:12'),
 (142, NULL, 'Monsur Ali', NULL, 'monsuralik2024@gmail.com', '2024-04-07 15:26:44', NULL, '$2y$12$iKG1b3kjcQfzZetr7y6tguJL6rnqnScKlRc6r5YsuNM7DdpkbtDBy', 'google', '109769817997139596731', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
 (143, NULL, 'JSBjiKnyMN', NULL, 'johnnie88millersqx@outlook.com', NULL, '761656', '$2y$12$ghVjsUx1y4QkQs/W8TM1werN6boTjC.y7v8TgunSKpBnNjVvIAg9q', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-09 14:22:37', '2024-04-09 14:22:42'),
 (144, NULL, 'ScIZlgOzKxMdF', NULL, 'monique.lopez4434@yahoo.com', NULL, '492636', '$2y$12$Kuquy34B0iIkmxqDC/Zbiux17F/ESMjTH48iMLOmXakiv8RfRvkHq', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-14 04:47:22', '2024-04-14 04:47:25'),
 (146, NULL, 'Akib Mahmud', NULL, 'akib.mahmud@fejmo.com', NULL, '676479', '$2y$10$HHdFQ2VRNG02ficOuyeC7.dJ6dmH59uJi.2BXN1kH4/wwf5lBqWPG', NULL, NULL, NULL, 2, NULL, 0, 0, NULL, 1, '2024-04-18 08:32:04', '2024-05-19 07:10:43'),
 (147, NULL, 'Hossain Muhammad Faysal', NULL, 'hossain.m.faysal@gmail.com', '2024-04-19 09:16:09', NULL, '$2y$12$4MIaTw1GPw6ddB7adv6cb.ihOlMG8DlBnTzJlCCLnMJI2tYRqSLRO', 'google', '103017427450238670445', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
-(148, NULL, 'sabikun Auditi', '01683241578', NULL, '2024-08-01 05:16:05', '751029', '$2y$12$qtGTEFnXDG9psdpgKOwMt.D9pidm3Y0oje6Nf.qf7YjaiDiSrbNzW', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-22 16:24:13', '2024-08-01 05:16:05'),
+(148, NULL, 'sabikun Auditi', '01683241578', NULL, '2024-08-02 17:39:26', '751029', '$2y$12$qtGTEFnXDG9psdpgKOwMt.D9pidm3Y0oje6Nf.qf7YjaiDiSrbNzW', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-22 16:24:13', '2024-08-02 17:39:26'),
 (149, NULL, 'yjwpYHUC', NULL, 'karonlochwq@outlook.com', NULL, '141581', '$2y$12$9uvLmDmv.90P79fu8SEbreGy7OhI6k9PLrFLpK3pgJSkfNB3Lnynu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-23 05:50:38', '2024-04-23 05:51:12'),
 (150, NULL, 'YlHKxAqaB', NULL, 'render.jerry6419@yahoo.com', NULL, '631579', '$2y$12$ozbXFkQozzd3VKW0C1J6qOYaj6G1JGaiLnwblGw47ubBrdfWG11Qy', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-27 02:13:29', '2024-04-27 02:14:09'),
 (151, NULL, 'wWPQIBrvsRgVFcJS', NULL, 'annette11gonzalesney@outlook.com', NULL, '858113', '$2y$12$8UisF4wKDB9dgL9CKLG/ruCt8YABTHp43JjAUp9evcXh4S4yZCog.', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-04-30 02:17:16', '2024-04-30 02:18:00'),
@@ -11371,7 +11381,7 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (166, 'userProfileImages/4wktL1716282543.jpeg', 'Wonder Apps', NULL, 'wonderapps4@gmail.com', '2024-05-21 07:08:02', NULL, '$2y$12$hASQr6zrbrQ0XP2.IPYSfewD6.NdxogK.RH0ao9I.bL/Umy7jrRXG', 'google', '116997208051413327925', NULL, 3, 'Flat No: B4, House: 71, Road: 27, Gulshan-1', 0, 0, NULL, 1, NULL, NULL),
 (167, NULL, 'Nahin Chowdhury', NULL, 'nahin.chowdhury@fejmo.com', NULL, NULL, '$2y$10$LXTi/ob0LrEQ8gGGA4uam.QYow2UCVLY.rBJb7F/hubPBsFkuRaL6', NULL, NULL, NULL, 2, NULL, 0, 0, NULL, 1, '2024-05-28 04:43:44', NULL),
 (168, NULL, 'Juyel rana', NULL, 'juyel1650@gmail.com', NULL, '280690', '$2y$12$DqR0mFARlWCpp/.kiRIDNeV2zos4XxGHJfHhmCxV07fgBHOgpLGTi', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-05-29 03:09:09', '2024-05-29 03:10:45'),
-(169, NULL, 'Juyel rana', '01720546000', NULL, '2024-08-01 05:16:05', '189802', '$2y$12$X/a4TseTBUM4CHYLcCAnpetORCVSE87ESnobGn2tHUkK9O9SM9McW', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-05-29 03:11:58', '2024-08-01 05:16:05'),
+(169, NULL, 'Juyel rana', '01720546000', NULL, '2024-08-02 17:39:26', '189802', '$2y$12$X/a4TseTBUM4CHYLcCAnpetORCVSE87ESnobGn2tHUkK9O9SM9McW', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-05-29 03:11:58', '2024-08-02 17:39:26'),
 (170, NULL, 'Md. Aminur Rahman', NULL, 'aminur.rahman8400@gmail.com', '2024-05-29 03:43:24', NULL, '$2y$12$2SqAYsDX4MUF/Cfx/NWbNu8VTFIt41gZ52hlRP8dXl5ikVHzxFbfi', 'google', '106241981352012904105', NULL, 3, NULL, 0, 0, NULL, 1, NULL, NULL),
 (171, NULL, 'MVuwBayiAIFCYGsr', NULL, 'arsyad.tina8239@yahoo.com', NULL, '738196', '$2y$12$SiH84hIxMv/A7iXS7H8KNOD5mKHIlbrMwdUA5yjSdkiD5YdSLhN/.', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-05-31 04:23:38', '2024-05-31 04:24:00'),
 (172, NULL, 'rHIkxhRFPoD', NULL, 'russellbarnebiqs1993@gmail.com', NULL, '266584', '$2y$12$Fk4R49.4EQlLKvSH1UJ0ZeSPDn8wZY6MD.OpXTmCU1Wp9oxKFjrum', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-06-05 02:02:08', '2024-06-05 02:02:36'),
@@ -11385,12 +11395,12 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (182, NULL, 'pLDKEGrNWzSy', NULL, 'paulhi_carternq@outlook.com', NULL, '902211', '$2y$12$3pClk5eJyr72TW.nNgnLv.9HxoA1UDgPmN9XXusH0HtT9JCh/86wK', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-06-25 05:46:08', '2024-06-25 05:46:11'),
 (184, NULL, 'gdgd', NULL, 'hshdf@bhdgh.com', NULL, '184384', '$2y$10$G7dNgwRrV4qyJ2Z8HQVQKOGTuHWjcarhFQEkU38bahFFYRqSqGoOa', NULL, NULL, NULL, 3, 'eghehg', 0, 0, NULL, 0, '2024-06-27 09:36:45', NULL),
 (185, NULL, 'Saiful', NULL, 'k.saiful91@gmail.com', NULL, '909646', '$2y$12$TosyfUagOVJeqGiBxtlszeHLK/30GYfnrhtoW1d6Q.r2OA5dXkhIi', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-07-04 07:42:05', '2024-07-04 07:43:31'),
-(186, NULL, 'Mr. Yellow', '01969005025', 'yellow@gmail.com', '2024-07-08 06:45:50', NULL, '$2y$10$xuYsgAspXHwWgTXxW9ZmPekxcncuVqX2ZkebEGIE5rdMIbB2Ptufq', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-07-08 06:45:50', '2024-07-12 19:02:20'),
+(186, NULL, 'Mr. Yellow', '01969005025', 'yellow@gmail.com', '2024-07-08 06:45:50', NULL, '$2y$10$xuYsgAspXHwWgTXxW9ZmPekxcncuVqX2ZkebEGIE5rdMIbB2Ptufq', NULL, NULL, NULL, 4, NULL, 200, 0, NULL, 1, '2024-07-08 06:45:50', '2024-08-03 06:00:46'),
 (187, NULL, 'Mr. Illiyeen', '01969885544', 'illiyeen@gmail.com', '2024-07-08 06:48:20', NULL, '$2y$10$0EzFLNIq8tZAaNrXKXuJeOcaZ8fgCFZrh4PDQaEMJkFAJskorj8.y', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-07-08 06:48:20', NULL),
 (189, 'userProfileImages/xHqQ91720883759.jpg', 'Tate White', NULL, 'nuqyb@mailinator.com', '2024-07-13 14:18:30', '240883', '$2y$12$rQtssd3WCy7phP76r0TRvu8usowVDBAM7NUXt/9FQCu6BgpUnRYq2', NULL, NULL, NULL, 3, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2024-07-13 14:09:26', '2024-07-13 14:18:30'),
 (190, NULL, 'Marsden Hodge', '+1 (924) 337-8255', 'qutylabyga@mailinator.com', '2024-07-27 09:23:22', NULL, '$2y$10$t.wiDFtESP2K2ttyYZcNxOw1JOCdHq0u6pXjYfz9HVXPncvKeP2Oq', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-07-27 09:23:22', NULL),
 (197, NULL, 'Penelope Hays', '+1 (685) 808-7817', 'musa@mailinator.com', NULL, '984250', '$2y$12$wGfpNs8jMH7GV.Xp5G0CN.RI0QujQ0hdH9riN0WtU/6Xam09g2UVS', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 0, '2024-08-01 05:10:15', NULL),
-(200, NULL, 'Illana Casey', '+1 (717) 391-3993', 'alifhossain174@gmail.com', NULL, '108343', '$2y$12$SuttDZWSB7jy3jrPs2dEieqHXlvJOiFY71Z3OxKhjDkhGzUDZk5D.', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 0, '2024-08-01 05:15:38', NULL);
+(202, NULL, 'Zeph Hopkins', '+1 (899) 244-8691', 'alifhossain174@gmail.com', '2024-08-02 17:40:33', '301850', '$2y$12$BjSdVEetsDFkNZS5mRFHOe2EluJgnKX1KRmhUq.FyLmW1kdgyM/XG', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-08-02 17:38:59', '2024-08-02 17:40:42');
 
 -- --------------------------------------------------------
 
@@ -11680,7 +11690,7 @@ CREATE TABLE `vendors` (
 INSERT INTO `vendors` (`id`, `user_id`, `vendor_no`, `business_name`, `business_category`, `trade_license_no`, `business_address`, `nid_card`, `trade_license`, `created_at`, `updated_at`) VALUES
 (1, 186, '1720421150mAxz3', 'Yellow', 'Apparel & Accessories,Baby & Toddler', '123123345', 'Dhaka, Bangladesh', 'vendor_attachments/QNft71720421150.docx', 'vendor_attachments/1WKTW1720421150.docx', '2024-07-08 06:45:50', '2024-07-12 19:02:20'),
 (2, 187, '1720421300aNbcv', 'Illiyeen', 'Apparel & Accessories', '535343453', 'Dhaka, Bangladesh', 'vendor_attachments/JlQDa1720421300.docx', 'vendor_attachments/V96xL1720421300.docx', '2024-07-08 06:48:20', NULL),
-(14, 200, '1722489338nwrPk', 'Nita Silva', 'Apparel & Accessories,Automotive,Beauty & Personal Care,Food & Beverage,Furniture,Home Appliances,Jewelry & Watches,Kitchen & Dining,Pet Supplies,Sporting Goods & Outdoor', '313', 'Aliqua Debitis est', 'vendor_attachments/0R2FQ1722489338.pdf', NULL, '2024-08-01 05:15:38', NULL);
+(15, 202, '1722620339t0LyM', 'Callum Frost', 'Apparel & Accessories,Beauty & Personal Care,Pet Supplies', '783', 'Quas dignissimos tem', 'vendor_attachments/arQwk1722620339.pdf', NULL, '2024-08-02 17:38:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -11741,7 +11751,8 @@ CREATE TABLE `withdraws` (
 INSERT INTO `withdraws` (`id`, `user_id`, `vendor_id`, `store_id`, `payment_method`, `acc_holder_name`, `acc_no`, `bank_name`, `branch_name`, `routing_no`, `swift_code`, `mobile_no`, `transaction_id`, `remarks`, `amount_before_withdraw`, `withdraw_amount`, `amount_after_withdraw`, `store_comission`, `status`, `created_at`, `updated_at`) VALUES
 (2, 81, 2, 1, 1, 'Md Fahim Hossain', '0551300002838', 'SIBL - Social Islami Bank PLC', 'New Eskaton', '2250', NULL, NULL, '2548745896578', 'Request Created by Admin', 2850, 2500, 350, 5, 1, '2024-06-21 18:34:44', NULL),
 (3, 81, 2, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, '01969005035', '987654321', 'Admin Created This', 350, 300, 50, 5, 1, '2024-06-21 18:36:37', NULL),
-(6, 81, 2, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, '01969005035', '987654321', 'Admin Created This', 350, 300, 50, 5, 0, '2024-06-21 18:36:37', '2024-06-21 21:22:53');
+(6, 81, 2, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, '01969005035', '987654321', 'Admin Created This', 350, 300, 50, 5, 0, '2024-06-21 18:36:37', '2024-06-21 21:22:53'),
+(8, 186, 1, 1, 2, NULL, NULL, NULL, NULL, NULL, NULL, '01969005035', '654987321', NULL, 0, 100, -100, 5, 1, '2024-08-03 05:52:48', '2024-08-03 06:00:53');
 
 --
 -- Indexes for dumped tables
@@ -12196,7 +12207,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -12340,25 +12351,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -12448,7 +12459,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `sims`
@@ -12502,7 +12513,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `subscribed_users`
 --
 ALTER TABLE `subscribed_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `support_messages`
@@ -12550,7 +12561,7 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`
@@ -12580,7 +12591,7 @@ ALTER TABLE `user_role_permissions`
 -- AUTO_INCREMENT for table `vendors`
 --
 ALTER TABLE `vendors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `wish_lists`
@@ -12592,7 +12603,7 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `withdraws`
 --
 ALTER TABLE `withdraws`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

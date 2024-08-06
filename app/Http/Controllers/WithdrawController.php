@@ -26,7 +26,8 @@ class WithdrawController extends Controller
     public function getVendorBalance(Request $request){
         $data = DB::table('vendors')
                 ->leftJoin('users', 'vendors.user_id', '=', 'users.id')
-                ->select('users.balance')
+                ->leftJoin('stores', 'users.id', '=', 'stores.user_id')
+                ->select('users.balance', 'stores.store_percentage')
                 ->where('vendors.id', $request->vendor_id)
                 ->first();
 
@@ -41,6 +42,11 @@ class WithdrawController extends Controller
                     ->select('vendors.id as vendor_id', 'stores.id as store_id', 'users.id as user_id', 'users.balance', 'stores.store_percentage')
                     ->where('vendors.id', $request->vendor_id)
                     ->first();
+
+        if($vendor->balance < $request->withdraw_amount){
+            Toastr::error('Not Enough Balance', 'Success');
+            return back();
+        }
 
         Withdraw::insert([
             'user_id' => $vendor->user_id,
