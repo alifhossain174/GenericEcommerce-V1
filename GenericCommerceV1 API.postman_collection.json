@@ -1635,6 +1635,46 @@
 			"response": []
 		},
 		{
+			"name": "Related Products Paginated",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "155",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://admin.fejmo.com/api/get/related/products/paginated",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"fejmo",
+						"com"
+					],
+					"path": [
+						"api",
+						"get",
+						"related",
+						"products",
+						"paginated"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Products You May Like",
 			"request": {
 				"method": "POST",
@@ -1806,6 +1846,46 @@
 						"flag",
 						"wise",
 						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Flag Wise Products Paginated",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "flag",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://admin.fejmo.com/api/flag/wise/products/paginated",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"fejmo",
+						"com"
+					],
+					"path": [
+						"api",
+						"flag",
+						"wise",
+						"products",
+						"paginated"
 					]
 				}
 			},
@@ -2093,6 +2173,56 @@
 						"live",
 						"search",
 						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Live Search Product Paginated",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "search_keyword",
+							"value": "a",
+							"type": "text"
+						},
+						{
+							"key": "brand_slug",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://admin.fejmo.com/api/live/search/products/paginated",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"fejmo",
+						"com"
+					],
+					"path": [
+						"api",
+						"live",
+						"search",
+						"products",
+						"paginated"
 					]
 				}
 			},
@@ -6415,6 +6545,51 @@
 						"products",
 						"of",
 						"vendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products of Vendor Paginated",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "150",
+							"type": "text"
+						},
+						{
+							"key": "store_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://admin.fejmo.com/api/products/of/vendor/paginated",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"fejmo",
+						"com"
+					],
+					"path": [
+						"api",
+						"products",
+						"of",
+						"vendor",
+						"paginated"
 					]
 				}
 			},

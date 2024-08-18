@@ -59,12 +59,14 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('childcategory/of/subcategory', [ApiController::class, 'getChildcategoryOfSubcategory']);
     Route::get('get/all/products', [ApiController::class, 'getAllProducts']);
     Route::post('get/related/products', [ApiController::class, 'getRelatedProducts']);
+    Route::post('get/related/products/paginated', [ApiController::class, 'getRelatedProductsPaginated']);
     Route::post('get/you/may/like/products', [ApiController::class, 'getYouMayLikeProducts']);
     Route::post('category/wise/products', [ApiController::class, 'categoryWiseProducts']);
     Route::post('subcategory/wise/products', [ApiController::class, 'subcategoryWiseProducts']);
     Route::post('childcategory/wise/products', [ApiController::class, 'childcategoryWiseProducts']);
     Route::get('product/details/{id}', [ApiController::class, 'productDetails']);
     Route::post('flag/wise/products', [ApiController::class, 'flagWiseProducts']);
+    Route::post('flag/wise/products/paginated', [ApiController::class, 'flagWiseProductsPaginated']);
     Route::get('featured/flag/wise/products', [ApiController::class, 'featuredFlagWiseProducts']);
     Route::post('flag/wise/all/products', [ApiController::class, 'flagWiseAllProducts']);
     Route::get('featured/brand/wise/products', [ApiController::class, 'featuredBrandWiseProducts']);
@@ -73,6 +75,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('search/products', [ApiController::class, 'searchProducts']);
     Route::get('search/products', [ApiController::class, 'searchProductsGet']);
     Route::post('live/search/products', [ApiController::class, 'searchLiveProducts']);
+    Route::post('live/search/products/paginated', [ApiController::class, 'searchLiveProductsPaginated']);
     Route::get('get/terms/and/condition', [ApiController::class, 'termsAndCondition']);
     Route::get('get/privacy/policy', [ApiController::class, 'privacyPolicy']);
     Route::get('get/shipping/policy', [ApiController::class, 'shippingPolicy']);
@@ -89,6 +92,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('order/preview', [ApiController::class, 'orderPreview']);
     Route::get('get/delivery/charge/{district}', [ApiController::class, 'getdeliveryCharge']);
     Route::post('products/of/vendor', [ApiController::class, 'productsOfVendor']);
+    Route::post('products/of/vendor/paginated', [ApiController::class, 'productsOfVendorPaginated']);
     Route::get('top/selling/vendors', [ApiController::class, 'topSellingVendors']);
 
     // new api for districts and thana
