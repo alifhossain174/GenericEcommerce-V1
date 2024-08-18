@@ -34,6 +34,7 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WithdrawController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
+use App\Http\Middleware\DemoMode;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -61,7 +62,7 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
 ]);
 
-Route::middleware([CheckUserType::class])->group(function(){
+Route::middleware([CheckUserType::class, DemoMode::class])->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/clear/cache', [HomeController::class, 'clearCache'])->name('ClearCache');
     Route::get('/change/password/page', [HomeController::class, 'changePasswordPage'])->name('changePasswordPage');
@@ -95,7 +96,7 @@ require 'configRoutes.php';
 require 'systemRoutes.php';
 
 
-Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
+Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function () {
 
     Route::get('/view/payment/history', [HomeController::class, 'viewPaymentHistory'])->name('ViewPaymentHistory');
 

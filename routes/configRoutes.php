@@ -7,7 +7,7 @@ use App\Http\Controllers\ColorController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\StorageController;
 
-Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
+Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function () {
 
     // config setup
     Route::get('config/setup', [ConfigController::class, 'configSetup'])->name('ConfigSetup');

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SystemController;
 
-Route::group(['middleware' => ['auth', 'CheckUserType']], function () {
+Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function () {
 
     // system routes for email config
     Route::get('/view/email/credential', [SystemController::class, 'viewEmailCredentials'])->name('ViewEmailCredentials');
