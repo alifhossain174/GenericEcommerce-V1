@@ -7,6 +7,7 @@
     <link href="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
     <link href="{{url('assets')}}/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
     <link href="{{url('assets')}}/css/tagsinput.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <style>
         .select2-selection{
             height: 34px !important;
@@ -625,10 +626,8 @@
     <script src="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
     <script src="{{url('multipleImgUploadPlugin')}}/image-uploader.min.js"></script>
     <script src="{{url('assets')}}/js/tagsinput.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
-    {{-- <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script> --}}
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
-    {{-- <script src="https://cdn.ckeditor.com/4.24.0-lts/standard/ckeditor.js"></script> --}}
     <script type="text/javascript">
 
         $('#has_variant').prop("checked", false);
@@ -708,23 +707,20 @@
         });
         $(".material-icons").html("<i class='fa fa-upload'></i>");
 
-
-        CKEDITOR.replace('description', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 250,
+        $('#description').summernote({
+            placeholder: 'Write Description Here',
+            tabsize: 2,
+            height: 300
         });
-
-        CKEDITOR.replace('specification', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 250,
+        $('#specification').summernote({
+            placeholder: 'Write Specification Here',
+            tabsize: 2,
+            height: 300
         });
-
-        CKEDITOR.replace('warrenty_policy', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 250,
+        $('#warrenty_policy').summernote({
+            placeholder: 'Write Warrenty Policy Here',
+            tabsize: 2,
+            height: 300
         });
 
         $(document).ready(function () {

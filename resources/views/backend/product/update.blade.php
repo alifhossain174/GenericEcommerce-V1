@@ -7,6 +7,7 @@
     <link href="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
     <link href="{{url('assets')}}/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
     <link href="{{url('assets')}}/css/tagsinput.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <style>
         .select2-selection{
             height: 34px !important;
@@ -775,8 +776,8 @@
     <script src="{{url('assets')}}/plugins/select2/select2.min.js"></script>
     <script src="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
     <script src="{{url('assets')}}/js/tagsinput.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script type="text/javascript">
 
         let preloaded = [
@@ -898,22 +899,20 @@
             new Switchery($(this)[0], $(this).data());
         });
 
-        CKEDITOR.replace('description', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 250,
+        $('#description').summernote({
+            placeholder: 'Write Description Here',
+            tabsize: 2,
+            height: 300
         });
-
-        CKEDITOR.replace('specification', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 250,
+        $('#specification').summernote({
+            placeholder: 'Write Specification Here',
+            tabsize: 2,
+            height: 300
         });
-
-        CKEDITOR.replace('warrenty_policy', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 250,
+        $('#warrenty_policy').summernote({
+            placeholder: 'Write Warrenty Policy Here',
+            tabsize: 2,
+            height: 300
         });
 
         $(document).ready(function () {

@@ -1,5 +1,10 @@
 @extends('backend.master')
 
+
+@section('header_css')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+@endsection
+
 @section('page_title')
     Terms And Condition
 @endsection
@@ -44,12 +49,12 @@
 
 
 @section('footer_js')
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script type="text/javascript">
-        CKEDITOR.replace('terms', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 300,
+        $('#terms').summernote({
+            placeholder: 'Write Description Here',
+            tabsize: 2,
+            height: 350
         });
     </script>
 @endsection

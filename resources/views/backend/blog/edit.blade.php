@@ -4,6 +4,7 @@
     <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
     <link href="{{url('assets')}}/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
     <link href="{{url('assets')}}/css/tagsinput.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <style>
         .select2-selection{
             height: 34px !important;
@@ -177,8 +178,8 @@
     <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
     <script src="{{url('assets')}}/plugins/select2/select2.min.js"></script>
     <script src="{{url('assets')}}/js/tagsinput.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script type="text/javascript">
 
         $.ajaxSetup({
@@ -189,10 +190,10 @@
 
         $('[data-toggle="select2"]').select2();
 
-        CKEDITOR.replace('description', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 300,
+        $('#description').summernote({
+            placeholder: 'Write Description Here',
+            tabsize: 2,
+            height: 350
         });
 
         @if($data->image && file_exists(public_path($data->image)))

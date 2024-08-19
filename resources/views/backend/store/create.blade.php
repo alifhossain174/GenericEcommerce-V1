@@ -5,6 +5,7 @@
     <link href="{{url('assets')}}/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
     <link href="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
     <link href="{{url('assets')}}/css/tagsinput.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <style>
         .select2-selection{
             min-height: 34px !important;
@@ -15,19 +16,6 @@
         }
         .bootstrap-tagsinput .badge {
             margin: 2px 2px !important;
-        }
-    </style>
-
-    {{-- assets for richtedteditor --}}
-    <link rel="stylesheet" href="{{url('richtexteditor')}}/rte_theme_default.css" />
-    <script type="text/javascript" src="{{url('richtexteditor')}}/rte.js"></script>
-    <script type="text/javascript" src='{{url('richtexteditor')}}/plugins/all_plugins.js'></script>
-    <style>
-        .rte-modern.rte-desktop.rte-toolbar-default{
-            min-width: 100% !important;
-        }
-        .richtexteditor {
-            height: 350px;
         }
     </style>
 @endsection
@@ -195,10 +183,15 @@
     <script src="{{url('assets')}}/plugins/select2/select2.min.js"></script>
     <script src="{{url('assets')}}/js/tagsinput.js"></script>
     <script src="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script type="text/javascript">
         $('[data-toggle="select2"]').select2();
 
-        var editor1 = new RichTextEditor("#store_full_description");
+        $('#store_full_description').summernote({
+            placeholder: 'Write Description Here',
+            tabsize: 2,
+            height: 350
+        });
 
         var defaultOptions = {};
         $('[data-toggle="touchspin"]').each(function (idx, obj) {
