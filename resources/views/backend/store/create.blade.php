@@ -17,6 +17,19 @@
             margin: 2px 2px !important;
         }
     </style>
+
+    {{-- assets for richtedteditor --}}
+    <link rel="stylesheet" href="{{url('richtexteditor')}}/rte_theme_default.css" />
+    <script type="text/javascript" src="{{url('richtexteditor')}}/rte.js"></script>
+    <script type="text/javascript" src='{{url('richtexteditor')}}/plugins/all_plugins.js'></script>
+    <style>
+        .rte-modern.rte-desktop.rte-toolbar-default{
+            min-width: 100% !important;
+        }
+        .richtexteditor {
+            height: 350px;
+        }
+    </style>
 @endsection
 
 @section('page_title')
@@ -28,7 +41,7 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-lg-6 col-xl-6">
+        <div class="col-lg-8 col-xl-8">
             <div class="card">
                 <div class="card-body">
 
@@ -182,15 +195,10 @@
     <script src="{{url('assets')}}/plugins/select2/select2.min.js"></script>
     <script src="{{url('assets')}}/js/tagsinput.js"></script>
     <script src="{{url('assets')}}/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script type="text/javascript">
         $('[data-toggle="select2"]').select2();
 
-        CKEDITOR.replace('store_full_description', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 250,
-        });
+        var editor1 = new RichTextEditor("#store_full_description");
 
         var defaultOptions = {};
         $('[data-toggle="touchspin"]').each(function (idx, obj) {
