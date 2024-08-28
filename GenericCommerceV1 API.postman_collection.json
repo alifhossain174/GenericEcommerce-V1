@@ -136,13 +136,15 @@
 					]
 				},
 				"url": {
-					"raw": "https://app-area.fejmo.com/api/user/login",
-					"protocol": "https",
+					"raw": "http://127.0.0.1:8000/api/user/login",
+					"protocol": "http",
 					"host": [
-						"app-area",
-						"fejmo",
-						"com"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
 						"api",
 						"user",
@@ -1052,7 +1054,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "311|5ueTpKsgU4NlOULEC8Qm2QCeMavUrEamG4i8wR8N",
+							"value": "105|hep2wkwJgqFcNL1LuC4rMY6ATqTJDN9ucNo3rtJc",
 							"type": "string"
 						}
 					]
@@ -1068,60 +1070,18 @@
 				],
 				"body": {
 					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "card_name",
-							"value": "Md. Fahim Hossain",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "card_no",
-							"value": "1244456345677892",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "expiry_date",
-							"value": "12/27",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "code",
-							"value": "255",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "default",
-							"value": "1",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "new_password",
-							"value": "",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "image",
-							"type": "file",
-							"src": [],
-							"disabled": true
-						}
-					]
+					"formdata": []
 				},
 				"url": {
-					"raw": "https://app-area.bestu.com.bd/api/get/all/address",
-					"protocol": "https",
+					"raw": "http://127.0.0.1:8000/api/get/all/address",
+					"protocol": "http",
 					"host": [
-						"app-area",
-						"bestu",
-						"com",
-						"bd"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
 						"api",
 						"get",
@@ -1550,6 +1510,49 @@
 						"get",
 						"all",
 						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Products of Vendor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "store_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/get/all/products/of/vendor",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"all",
+						"products",
+						"of",
+						"vendor"
 					]
 				}
 			},
@@ -2010,19 +2013,20 @@
 					]
 				},
 				"url": {
-					"raw": "https://admin.tabazar.com.bd/api/product/details/-mughlai-paratha-1715315839F2DXI",
-					"protocol": "https",
+					"raw": "http://127.0.0.1:8000/api/product/details/ladies-blazer-1700113672rnV6W",
+					"protocol": "http",
 					"host": [
-						"admin",
-						"tabazar",
-						"com",
-						"bd"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
+					"port": "8000",
 					"path": [
 						"api",
 						"product",
 						"details",
-						"-mughlai-paratha-1715315839F2DXI"
+						"ladies-blazer-1700113672rnV6W"
 					]
 				}
 			},

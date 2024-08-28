@@ -91,6 +91,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('get/payment/gateways', [ApiController::class, 'getPaymentGateways']);
     Route::post('order/preview', [ApiController::class, 'orderPreview']);
     Route::get('get/delivery/charge/{district}', [ApiController::class, 'getdeliveryCharge']);
+    Route::post('get/all/products/of/vendor', [ApiController::class, 'getAllProductsOfVendor']);
     Route::post('products/of/vendor', [ApiController::class, 'productsOfVendor']);
     Route::post('products/of/vendor/paginated', [ApiController::class, 'productsOfVendorPaginated']);
     Route::get('top/selling/vendors', [ApiController::class, 'topSellingVendors']);
