@@ -114,6 +114,7 @@ class FilterController extends Controller
             $childcategoryId = $request->childcategory_id;
             $flagId = $request->flag_id;
             $brandId = $request->brand_id;
+            $storeId = $request->store_id;
             $searchKeyword = $request->search_keyword;
 
             $sortBy = $request->sort_by; // 1=>Low to High; 2=>High To Low
@@ -157,6 +158,9 @@ class FilterController extends Controller
                             })
                             ->when($brandId, function($query) use ($brandId){
                                 return $query->where('products.brand_id', $brandId);
+                            })
+                            ->when($storeId, function($query) use ($storeId){
+                                return $query->where('products.store_id', $storeId);
                             })
 
                             ->when($sortBy, function($query) use ($sortBy){

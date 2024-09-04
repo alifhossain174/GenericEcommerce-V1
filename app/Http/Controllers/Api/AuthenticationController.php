@@ -99,11 +99,11 @@ class AuthenticationController extends Controller
                             }
 
                             config([
-                                'mail.mailers.smtp.host' => $emailConfig ? $emailConfig->host : '',
-                                'mail.mailers.smtp.port' => $emailConfig ? $emailConfig->port : '',
+                                // 'mail.mailers.smtp.host' => $emailConfig ? $emailConfig->host : '',
+                                // 'mail.mailers.smtp.port' => $emailConfig ? $emailConfig->port : '',
                                 'mail.mailers.smtp.username' => $emailConfig ? $emailConfig->email : '',
                                 'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
-                                'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
+                                // 'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
                             ]);
 
                             $mailData = array();
@@ -493,11 +493,11 @@ class AuthenticationController extends Controller
                             }
 
                             config([
-                                'mail.mailers.smtp.host' => $emailConfig ? $emailConfig->host : '',
-                                'mail.mailers.smtp.port' => $emailConfig ? $emailConfig->port : '',
+                                // 'mail.mailers.smtp.host' => $emailConfig ? $emailConfig->host : '',
+                                // 'mail.mailers.smtp.port' => $emailConfig ? $emailConfig->port : '',
                                 'mail.mailers.smtp.username' => $emailConfig ? $emailConfig->email : '',
                                 'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
-                                'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
+                                // 'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
                             ]);
 
                             $mailData = array();

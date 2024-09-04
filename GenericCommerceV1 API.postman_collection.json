@@ -6071,6 +6071,11 @@
 							"value": "26",
 							"type": "text",
 							"disabled": true
+						},
+						{
+							"key": "store_id",
+							"value": "1",
+							"type": "text"
 						}
 					]
 				},
@@ -6632,6 +6637,50 @@
 						"top",
 						"selling",
 						"vendors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "GenericCommerceV1-SBW7583837NUDD82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "slug",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/api/store/details/freshcart-1724667988",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"store",
+						"details",
+						"freshcart-1724667988"
 					]
 				}
 			},

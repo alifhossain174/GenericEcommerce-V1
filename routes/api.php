@@ -95,6 +95,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('products/of/vendor', [ApiController::class, 'productsOfVendor']);
     Route::post('products/of/vendor/paginated', [ApiController::class, 'productsOfVendorPaginated']);
     Route::get('top/selling/vendors', [ApiController::class, 'topSellingVendors']);
+    Route::get('store/details/{slug}', [ApiController::class, 'storeDetails']);
 
     // new api for districts and thana
     Route::get('get/all/districts', [ApiController::class, 'getAllDistricts']);

@@ -2371,4 +2371,21 @@ class ApiController extends BaseController
         }
     }
 
+    public function storeDetails(Request $request, $slug){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $data = DB::table('stores')->where('slug', $slug)->first();
+            return response()->json([
+                'success' => true,
+                'data' => new StoreResource($data)
+            ], 200);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
 }
