@@ -43,6 +43,7 @@ Route::group(['namespace' => 'Api'], function () {
         // user multiple address api
         Route::post('add/new/address', [ProfileController::class, 'addNewAddress']);
         Route::get('get/all/address', [ProfileController::class, 'getAllAddress']);
+        Route::get('get/all/address/type/wise', [ProfileController::class, 'getAllAddressTypeWise']);
         Route::post('update/my/address', [ProfileController::class, 'updateMyAddress']);
         Route::post('delete/my/address', [ProfileController::class, 'deleteMyAddress']);
 

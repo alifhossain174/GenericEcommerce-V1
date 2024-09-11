@@ -178,10 +178,9 @@ class ProfileController extends Controller
         ]);
     }
 
-
     public function addNewAddress(Request $request){
 
-        UserAddress::where('user_id', auth()->user()->id)->where('address_type', $request->address_type)->delete();
+        // UserAddress::where('user_id', auth()->user()->id)->where('address_type', $request->address_type)->delete();
 
         UserAddress::insert([
             'user_id' => auth()->user()->id,
@@ -204,10 +203,19 @@ class ProfileController extends Controller
     }
 
     public function getAllAddress(){
-        $address = UserAddress::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
+        $address = UserAddress::where('user_id', auth()->user()->id)->orderBy('address_type', 'desc')->get();
+
+        $typeWiseAddress = [];
+        $groupWiseAddresses = UserAddress::where('user_id', auth()->user()->id)->orderBy('address_type', 'desc')->groupBy('address_type')->get();
+        foreach($groupWiseAddresses as $groupWiseAddress){
+            $userAddresses = UserAddress::where('user_id', auth()->user()->id)->orderBy('address_type', 'desc')->where('address_type', $groupWiseAddress->address_type)->get();
+            $typeWiseAddress[$groupWiseAddress->address_type] = $userAddresses;
+        }
+
         return response()->json([
             'success' => true,
-            'date' => $address
+            'date' => $address,
+            'typeWiseAddress' => $typeWiseAddress,
         ], 200);
     }
 

@@ -6,6 +6,7 @@ use App\Models\BillingAddress;
 use App\Models\OrderDetails;
 use App\Models\ShippingInfo;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\DB;
 
 class OrderResource extends JsonResource
 {
@@ -18,6 +19,17 @@ class OrderResource extends JsonResource
     public function toArray($request)
     {
         // return parent::toArray($request);
+
+        $store_wise_ordered_items_array = [];
+        $storeWiseOrderedItems = OrderDetails::where('order_id', $this->id)->groupBy('store_id')->get();
+        foreach($storeWiseOrderedItems as $storeWiseOrderedItem){
+            $storeInfo = DB::table('stores')->where('id', $storeWiseOrderedItem->store_id)->first();
+            $store_wise_ordered_items_array [] = [
+                'store_name' => $storeInfo ? $storeInfo->store_name : '',
+                'ordered_items_from_store' => OrderDetailsResource::collection(OrderDetails::where('order_id', $this->id)->where('store_id', $storeWiseOrderedItem->store_id)->get())
+            ];
+        }
+
         return [
             'id' => $this->id,
             'order_no' => $this->order_no,
@@ -45,6 +57,7 @@ class OrderResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'ordered_items' => OrderDetailsResource::collection(OrderDetails::where('order_id', $this->id)->get()),
+            'store_wise_ordered_items' => $store_wise_ordered_items_array,
             'shipping_info' => new ShippingInfoResource(ShippingInfo::where('order_id', $this->id)->first()),
             'billing_address' => new BillingAddressResource(BillingAddress::where('order_id', $this->id)->first()),
         ];
