@@ -724,8 +724,6 @@ class ProductController extends Controller
             $unitId = Unit::select('id')->inRandomOrder()->limit(1)->get();
             $warrentyId = ProductWarrenty::select('id')->inRandomOrder()->limit(1)->get();
             $flagId = Flag::select('id')->where('status', 1)->inRandomOrder()->limit(1)->get();
-            $colorId = Color::select('id')->inRandomOrder()->limit(1)->get();
-            $sizeId = ProductSize::select('id')->inRandomOrder()->limit(1)->get();
             $regionId = DB::table('country')->select('id')->inRandomOrder()->limit(1)->get();
             $simId = DB::table('sims')->select('id')->inRandomOrder()->limit(1)->get();
             $storageTypeId = DB::table('storage_types')->select('id')->inRandomOrder()->limit(1)->get();
@@ -792,11 +790,15 @@ class ProductController extends Controller
             if($i%2 == 0){
                 foreach($multipleProductArray as $image)
                 {
+
+                    $colorId = Color::select('id')->inRandomOrder()->limit(1)->first();
+                    $sizeId = ProductSize::select('id')->inRandomOrder()->limit(1)->first();
+
                     $variantInfo = new ProductVariant();
                     $variantInfo->product_id = $id;
                     $variantInfo->image = $image;
-                    $variantInfo->color_id = isset($colorId[0]) ? $colorId[0]->id : null;
-                    $variantInfo->size_id = isset($sizeId[0]) ? $sizeId[0]->id : null;
+                    $variantInfo->color_id = $colorId ? $colorId->id : null;
+                    $variantInfo->size_id = $sizeId ? $sizeId->id : null;
                     $variantInfo->region_id = isset($regionId[0]) ? $regionId[0]->id : null;
                     $variantInfo->sim_id = isset($simId[0]) ? $simId[0]->id : null;
                     $variantInfo->storage_type_id = isset($storageTypeId[0]) ? $storageTypeId[0]->id : null;
