@@ -716,7 +716,7 @@ class ProductController extends Controller
 
             $title = $faker->catchPhrase()."-".$i;
             $categoryId = Category::where('status', 1)->select('id')->inRandomOrder()->limit(1)->get();
-            $storeId = Store::where('status', 1)->select('id')->inRandomOrder()->limit(1)->get();
+            $storeId = Store::where('status', 1)->select('id')->inRandomOrder()->first();
             $subcategoryId = Subcategory::where('status', 1)->where('category_id', isset($categoryId[0]) ? $categoryId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
             $childCategoryId = ChildCategory::where('subcategory_id', isset($subcategoryId[0]) ? $subcategoryId[0]->id : null)->select('id')->inRandomOrder()->limit(1)->get();
             $brandId = Brand::where('status', 1)->select('id')->inRandomOrder()->limit(1)->get();
@@ -742,7 +742,7 @@ class ProductController extends Controller
 
             $id = Product::insertGetId([
                 'category_id' => isset($categoryId[0]) ? $categoryId[0]->id : null,
-                'store_id' => $i%2 == 0 ? (isset($storeId[0]) ? $storeId[0]->id : null) : null,
+                'store_id' => $storeId ? $storeId->id : null,
                 'subcategory_id' => isset($subcategoryId[0]) ? $subcategoryId[0]->id : null,
                 'childcategory_id' => isset($childCategoryId[0]) ? $childCategoryId[0]->id : null,
                 'brand_id' => isset($brandId[0]) ? $brandId[0]->id : null,

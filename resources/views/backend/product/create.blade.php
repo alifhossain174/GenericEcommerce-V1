@@ -210,7 +210,7 @@
                                 @if(env('MultiVendor') == true)
                                 <div class="form-group">
                                     <label for="store_id">Select Store</label>
-                                    <select name="store_id" data-toggle="select2" class="form-control" id="store_id">
+                                    <select name="store_id" data-toggle="select2" class="form-control" id="store_id" required>
                                         @php
                                             echo App\Models\Store::getDropDownList('store_name');
                                         @endphp

@@ -1,0 +1,40 @@
+{
+	"Envelope": {
+		"Body": {
+			"Fault": {
+				"faultcode": "Server.Business",
+				"faultstring": "NO AVAILABILITY FOR THIS REQUEST",
+				"detail": {
+					"ErrorInfo": {
+						"Code": {
+							"__prefix": "common_v48_0",
+							"__text": "3037"
+						},
+						"Service": {
+							"__prefix": "common_v48_0",
+							"__text": "AIRSVC"
+						},
+						"Type": {
+							"__prefix": "common_v48_0",
+							"__text": "Business"
+						},
+						"Description": {
+							"__prefix": "common_v48_0",
+							"__text": "No availability on chosen flights."
+						},
+						"TransactionId": {
+							"__prefix": "common_v48_0",
+							"__text": "4CEEC9950A0D6A932E66E2872FD6933F"
+						},
+						"_xmlns:common_v48_0": "http://www.travelport.com/schema/common_v48_0",
+						"__prefix": "common_v48_0"
+					}
+				},
+				"__prefix": "SOAP"
+			},
+			"__prefix": "SOAP"
+		},
+		"_xmlns:SOAP": "http://schemas.xmlsoap.org/soap/envelope/",
+		"__prefix": "SOAP"
+	}
+}
