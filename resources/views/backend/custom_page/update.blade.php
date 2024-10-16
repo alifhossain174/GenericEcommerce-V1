@@ -3,6 +3,7 @@
 @section('header_css')
     <link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
     <link href="{{url('assets')}}/css/tagsinput.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <style>
         .bootstrap-tagsinput .badge {
             margin: 2px 2px !important;
@@ -102,6 +103,16 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="show_in_header" class="col-form-label d-inline-block mr-4" style="cursor: pointer">
+                                        <input type="checkbox" id="show_in_header" name="show_in_header" @if($data->show_in_header == 1) checked @endif value="1"> Show in Header
+                                    </label>
+
+                                    <label for="show_in_footer" class="col-form-label d-inline-block" style="cursor: pointer">
+                                        <input type="checkbox" id="show_in_footer" name="show_in_footer" @if($data->show_in_footer == 1) checked @endif value="1"> Show in Footer
+                                    </label>
+                                </div>
+
                             </div>
                         </div>
 
@@ -122,13 +133,14 @@
 @section('footer_js')
     <script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
     <script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script src="{{url('assets')}}/js/tagsinput.js"></script>
     <script type="text/javascript">
-        CKEDITOR.replace('description', {
-            filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form',
-            height: 400,
+
+        $('#description').summernote({
+            placeholder: 'Write Description Here',
+            tabsize: 2,
+            height: 400
         });
 
         @if($data->image && file_exists(public_path($data->image)))

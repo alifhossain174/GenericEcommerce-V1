@@ -21,6 +21,9 @@ class CreateCustomPagesTable extends Migration
             $table->string('slug');
             $table->tinyInteger('status')->default(1)->comment("1=>Active; 0=>Inactive");
 
+            $table->tinyInteger('show_in_header')->default(1)->comment("1=>Yes; 0=>No");
+            $table->tinyInteger('show_in_footer')->default(1)->comment("1=>Yes; 0=>No");
+
             $table->string('meta_title')->nullable();
             $table->string('meta_keyword')->nullable();
             $table->longText('meta_description')->nullable();

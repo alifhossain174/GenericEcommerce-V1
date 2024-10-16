@@ -89,6 +89,16 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="show_in_header" class="col-form-label d-inline-block mr-4" style="cursor: pointer">
+                                        <input type="checkbox" id="show_in_header" name="show_in_header" value="1"> Show in Header
+                                    </label>
+
+                                    <label for="show_in_footer" class="col-form-label d-inline-block" style="cursor: pointer">
+                                        <input type="checkbox" id="show_in_footer" name="show_in_footer" value="1"> Show in Footer
+                                    </label>
+                                </div>
+
                             </div>
                         </div>
 

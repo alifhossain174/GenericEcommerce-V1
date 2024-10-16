@@ -109,3 +109,6 @@ ALTER TABLE `banners` ADD `sub_title_color` VARCHAR(255) NULL DEFAULT NULL AFTER
 ALTER TABLE `banners` ADD `title_color` VARCHAR(255) NULL DEFAULT NULL AFTER `sub_title`;
 ALTER TABLE `banners` ADD `description_color` VARCHAR(255) NULL DEFAULT NULL AFTER `title`;
 ALTER TABLE `banners` ADD `btn_color` VARCHAR(255) NULL DEFAULT NULL AFTER `description`;
+
+==================16.10.2024====================
+ALTER TABLE `custom_pages` ADD `show_in_header` TINYINT(4) NOT NULL DEFAULT '0' AFTER `status`, ADD `show_in_footer` TINYINT(4) NOT NULL DEFAULT '0' AFTER `show_in_header`;

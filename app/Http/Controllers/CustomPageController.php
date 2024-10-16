@@ -45,6 +45,8 @@ class CustomPageController extends Controller
             'meta_title' => $request->meta_title,
             'meta_keyword' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
+            'show_in_header' => $request->show_in_header == 1 ? 1 : 0,
+            'show_in_footer' => $request->show_in_footer == 1 ? 1 : 0,
             'created_at' => Carbon::now()
         ]);
 
@@ -128,6 +130,8 @@ class CustomPageController extends Controller
             'meta_title' => $request->meta_title,
             'meta_keyword' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
+            'show_in_header' => $request->show_in_header == 1 ? 1 : 0,
+            'show_in_footer' => $request->show_in_footer == 1 ? 1 : 0,
             'created_at' => Carbon::now()
         ]);
 

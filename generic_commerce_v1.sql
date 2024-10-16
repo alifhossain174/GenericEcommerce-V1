@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2024 at 03:14 PM
+-- Generation Time: Oct 16, 2024 at 08:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -684,12 +684,22 @@ CREATE TABLE `custom_pages` (
   `description` longtext DEFAULT NULL,
   `slug` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
+  `show_in_header` tinyint(4) NOT NULL DEFAULT 0,
+  `show_in_footer` tinyint(4) NOT NULL DEFAULT 0,
   `meta_title` varchar(255) DEFAULT NULL,
   `meta_keyword` varchar(255) DEFAULT NULL,
   `meta_description` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `custom_pages`
+--
+
+INSERT INTO `custom_pages` (`id`, `image`, `page_title`, `description`, `slug`, `status`, `show_in_header`, `show_in_footer`, `meta_title`, `meta_keyword`, `meta_description`, `created_at`, `updated_at`) VALUES
+(3, 'custom_pages/Hz8dG1728914715.png', 'Server Management', '<p>Server ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer Management<br></p>', 'server-management', 1, 0, 0, 'Server Management', 'Server Management', NULL, '2024-10-14 14:05:15', NULL),
+(4, 'custom_pages/2V1Iq1729102838.png', 'Reprehenderit et vol', 'Labore quia est, pro.', 'reprehenderit-et-vol', 1, 1, 1, 'Dicta quia exercitat', 'Repudiandae aut quib', 'Esse in aute at qua', '2024-10-16 18:22:37', '2024-10-16 18:22:37');
 
 -- --------------------------------------------------------
 
@@ -10493,7 +10503,7 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `custom_pages`
 --
 ALTER TABLE `custom_pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `device_conditions`
