@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BuySell;
 use App\Models\BuySellCategory;
+use App\Models\BuySellConfig;
 use App\Models\BuySellImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -15,6 +16,42 @@ use Yajra\DataTables\DataTables;
 
 class BuySellController extends Controller
 {
+    public function buySellConfig(){
+        $config = BuySellConfig::where('id', 1)->first();
+        return view('backend.buy_sell.config', compact('config'));
+    }
+
+    public function buySellConfigUpdate(Request $request){
+
+        $config = BuySellConfig::where('id', 1)->first();
+
+        $banner = $config->banner;
+        if ($request->hasFile('banner')){
+            $get_image = $request->file('banner');
+
+            $allowedExtensions = array("jpg", "png", "jpeg", "svg");
+            if (!in_array(strtolower($get_image->getClientOriginalExtension()), $allowedExtensions)){
+                Toastr::error('Supported File for Banner: jpg/png/svg');
+                return back();
+            }
+
+            $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
+            $location = public_path('buysell_config/');
+            // Image::make($get_image)->save($location . $image_name, 80);
+            $get_image->move($location, $image_name);
+            $banner = "buysell_config/" . $image_name;
+        }
+
+        BuySellConfig::where('id', 1)->update([
+            'banner' => $banner,
+            'description' => $request->description,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Config has been updated', 'Success');
+        return back();
+    }
+
     public function createNew(){
         return view('backend.buy_sell.create_category');
     }

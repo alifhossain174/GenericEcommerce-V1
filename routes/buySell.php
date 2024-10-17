@@ -8,6 +8,9 @@ use App\Http\Controllers\BuySellController;
 
 Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function () {
 
+    Route::get('/buy/sell/config', [BuySellController::class, 'buySellConfig'])->name('BuySellConfig');
+    Route::post('/save/buy/sell/config', [BuySellController::class, 'buySellConfigUpdate'])->name('BuySellConfigUpdate');
+
     // category routes
     Route::get('/create/buy/sell/category', [BuySellController::class, 'createNew'])->name('BuySellCategoryCreateNew');
     Route::post('/save/buy/sell/category', [BuySellController::class, 'saveCategory'])->name('BuySellCategorySave');

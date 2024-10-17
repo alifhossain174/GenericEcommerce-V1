@@ -17,6 +17,7 @@
     @if(env('BUYSELL_Module') == true)
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">BuySell Modules</li>
+    <li><a href="{{ url('/buy/sell/config') }}"><i class="feather-grid"></i><span>Buy Sell Config</span></a></li>
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-grid"></i><span>Buy Sell Categories</span></a>
         <ul class="sub-menu" aria-expanded="false">

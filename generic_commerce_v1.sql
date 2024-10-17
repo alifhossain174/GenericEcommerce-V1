@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2024 at 10:35 AM
+-- Generation Time: Oct 17, 2024 at 12:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -304,6 +304,27 @@ INSERT INTO `buy_sell_categories` (`id`, `name`, `icon`, `slug`, `status`, `seri
 (5, 'Mens Fashion', 'buysell_category_icons/rhTTm1729148870.svg', 'mens-fashion', 1, 5, '2024-10-17 07:07:50', '2024-10-17 07:30:11'),
 (6, 'Women\'s Fashion', 'buysell_category_icons/tRA1t1729148881.svg', 'womens-fashion', 1, 6, '2024-10-17 07:08:01', '2024-10-17 07:30:11'),
 (7, 'Essentials', 'buysell_category_icons/gffXz1729148888.svg', 'essentials', 1, 7, '2024-10-17 07:08:08', '2024-10-17 07:30:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buy_sell_configs`
+--
+
+CREATE TABLE `buy_sell_configs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `banner` varchar(255) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `buy_sell_configs`
+--
+
+INSERT INTO `buy_sell_configs` (`id`, `banner`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'buysell_config/1l5kG1729162426.png', '<section class=\"buy-sale-about\">\r\n            <div class=\"container\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-12\">\r\n                        <div class=\"buy-s-about-widget\">\r\n\r\n                            \r\n                            <div class=\"buy-s-about-widget-top\">\r\n    <h4>About Guptodhon buy and sell</h4>\r\n    <p>Guptodhon is a leading online marketplace that connects buyers and sellers in a secure\r\n        and convenient way. Our mission is to create a simple and enjoyable shopping experience\r\n        for everyone, by offering a wide range of products and services at competitive prices.\r\n        With Guptodhon, you can find the perfect product or service for your needs, whether\r\n        you\'re looking to buy or sell. Our team is dedicated to providing a seamless and\r\n        hassle-free experience, and we\'re always available to answer any questions or concerns\r\n        you may have. Thank you for choosing Guptodhon as your go-to platform for all your\r\n        shopping needs.</p>\r\n</div>\r\n<div class=\"buy-s-about-widget-list\">\r\n    <h6>Guptodhon offers a range of benefits for buyers and sellers:</h6>\r\n    <ul><li>Convenience: Shop and sell from the comfort of your own home, at any time of day or\r\n            night.</li><li>Variety: Browse a wide selection of products and services across different\r\n            categories.</li><li>Safety and security: Enjoy a secure and reliable payment system and buyer/seller\r\n            protection.</li><li>Customer support: Get help and assistance from our friendly and knowledgeable\r\n            customer service team.</li><li>Competitive prices: Find great deals and discounts on products and services.</li></ul>\r\n</div>\r\n                            \r\n\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </section><p></p>', NULL, '2024-10-17 10:55:22');
 
 -- --------------------------------------------------------
 
@@ -1232,7 +1253,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (103, '2024_06_20_151811_create_withdraws_table', 51),
 (104, '2024_10_17_123804_create_buy_sells_table', 52),
 (105, '2024_10_17_123954_create_buy_sell_images_table', 53),
-(106, '2024_10_17_124400_create_buy_sell_categories_table', 54);
+(106, '2024_10_17_124400_create_buy_sell_categories_table', 54),
+(107, '2024_10_17_163447_create_buy_sell_configs_table', 55);
 
 -- --------------------------------------------------------
 
@@ -10128,6 +10150,12 @@ ALTER TABLE `buy_sell_categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `buy_sell_configs`
+--
+ALTER TABLE `buy_sell_configs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `buy_sell_images`
 --
 ALTER TABLE `buy_sell_images`
@@ -10579,6 +10607,12 @@ ALTER TABLE `buy_sell_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `buy_sell_configs`
+--
+ALTER TABLE `buy_sell_configs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `buy_sell_images`
 --
 ALTER TABLE `buy_sell_images`
@@ -10696,7 +10730,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `notifications`
