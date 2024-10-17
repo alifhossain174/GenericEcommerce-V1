@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2024 at 08:24 PM
+-- Generation Time: Oct 17, 2024 at 10:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -234,6 +234,90 @@ CREATE TABLE `brands` (
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=> Inactive; 1=> Active',
   `serial` tinyint(4) NOT NULL DEFAULT 1,
   `slug` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buy_sells`
+--
+
+CREATE TABLE `buy_sells` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `product_title` varchar(255) DEFAULT NULL,
+  `regular_price` varchar(255) DEFAULT NULL,
+  `discount_price` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `condition` varchar(255) DEFAULT NULL,
+  `brand` varchar(255) DEFAULT NULL,
+  `model` varchar(255) DEFAULT NULL,
+  `color` varchar(255) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `posted_by` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Pending; 1=>Approve; 2=>Deny; 3=>Sold',
+  `serial` double NOT NULL DEFAULT 1,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_keyword` varchar(255) DEFAULT NULL,
+  `meta_description` longtext DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `buy_sells`
+--
+
+INSERT INTO `buy_sells` (`id`, `category_id`, `product_title`, `regular_price`, `discount_price`, `phone`, `condition`, `brand`, `model`, `color`, `description`, `posted_by`, `image`, `slug`, `status`, `serial`, `meta_title`, `meta_keyword`, `meta_description`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Redmi Note 10 Pro Max', '5258258', '82852', '8801724181727', 'Very Good', 'Dell', '582852', 'red', 'dasdasdasda', '18', '1729152694_single.png', 'redmi-note-10-pro-max', 0, 1, NULL, NULL, NULL, '2024-10-17 02:11:34', '2024-10-17 08:33:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buy_sell_categories`
+--
+
+CREATE TABLE `buy_sell_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
+  `serial` double NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `buy_sell_categories`
+--
+
+INSERT INTO `buy_sell_categories` (`id`, `name`, `icon`, `slug`, `status`, `serial`, `created_at`, `updated_at`) VALUES
+(1, 'Mobile Phones', 'buysell_category_icons/iYkuE1729148790.svg', 'mobile-phones', 1, 1, '2024-10-17 07:06:30', '2024-10-17 07:30:11'),
+(2, 'Electronics', 'buysell_category_icons/0jy1q1729148809.svg', 'electronics', 1, 2, '2024-10-17 07:06:49', '2024-10-17 07:30:11'),
+(3, 'Home & Living', 'buysell_category_icons/I7BL71729148825.svg', 'home-living', 1, 3, '2024-10-17 07:07:05', '2024-10-17 07:30:11'),
+(4, 'Property', 'buysell_category_icons/qCjPe1729148838.svg', 'property', 1, 4, '2024-10-17 07:07:18', '2024-10-17 07:30:11'),
+(5, 'Mens Fashion', 'buysell_category_icons/rhTTm1729148870.svg', 'mens-fashion', 1, 5, '2024-10-17 07:07:50', '2024-10-17 07:30:11'),
+(6, 'Women\'s Fashion', 'buysell_category_icons/tRA1t1729148881.svg', 'womens-fashion', 1, 6, '2024-10-17 07:08:01', '2024-10-17 07:30:11'),
+(7, 'Essentials', 'buysell_category_icons/gffXz1729148888.svg', 'essentials', 1, 7, '2024-10-17 07:08:08', '2024-10-17 07:30:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buy_sell_images`
+--
+
+CREATE TABLE `buy_sell_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `buy_sell_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
+  `serial` double NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -698,7 +782,7 @@ CREATE TABLE `custom_pages` (
 --
 
 INSERT INTO `custom_pages` (`id`, `image`, `page_title`, `description`, `slug`, `status`, `show_in_header`, `show_in_footer`, `meta_title`, `meta_keyword`, `meta_description`, `created_at`, `updated_at`) VALUES
-(3, 'custom_pages/Hz8dG1728914715.png', 'Server Management', '<p>Server ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer Management<br></p>', 'server-management', 1, 0, 0, 'Server Management', 'Server Management', NULL, '2024-10-14 14:05:15', NULL),
+(3, 'custom_pages/Hz8dG1728914715.png', 'Server Management', '<p>Server ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer ManagementServer Management<br></p>', 'server-management', 1, 0, 1, 'Server Management', 'Server Management', NULL, '2024-10-16 18:51:31', '2024-10-16 18:51:31'),
 (4, 'custom_pages/2V1Iq1729102838.png', 'Reprehenderit et vol', 'Labore quia est, pro.', 'reprehenderit-et-vol', 1, 1, 1, 'Dicta quia exercitat', 'Repudiandae aut quib', 'Esse in aute at qua', '2024-10-16 18:22:37', '2024-10-16 18:22:37');
 
 -- --------------------------------------------------------
@@ -866,7 +950,7 @@ CREATE TABLE `email_configures` (
 --
 
 INSERT INTO `email_configures` (`id`, `host`, `port`, `email`, `password`, `mail_from_name`, `mail_from_email`, `encryption`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(6, 'smtp.gmail.com', 587, 'getupadgency@gmail.com', 'qrRFO6vSKj6Otuq3XBPp1do=', 'Getup', 'sales@freshcart.com', 1, '1697948605aqOMD', 1, '2023-10-22 04:23:25', '2024-08-18 16:12:02');
+(8, 'smtp.gmail.com', 587, 'getupadgency@gmail.com', 'qrRFO6vSKj6Otuq3XBPp1Q==', 'GenericCommerce-Admin', 'getupadgency@gmail.com', 1, '1729108647vAHbA', 1, '2024-10-16 19:57:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -1145,7 +1229,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (98, '2024_01_16_155239_create_custom_pages_table', 49),
 (101, '2024_06_19_210846_create_vendors_table', 50),
 (102, '2024_06_20_023340_create_stores_table', 50),
-(103, '2024_06_20_151811_create_withdraws_table', 51);
+(103, '2024_06_20_151811_create_withdraws_table', 51),
+(104, '2024_10_17_123804_create_buy_sells_table', 52),
+(105, '2024_10_17_123954_create_buy_sell_images_table', 53),
+(106, '2024_10_17_124400_create_buy_sell_categories_table', 54);
 
 -- --------------------------------------------------------
 
@@ -4508,7 +4595,8 @@ CREATE TABLE `stores` (
 
 INSERT INTO `stores` (`id`, `user_id`, `vendor_id`, `store_no`, `store_name`, `store_logo`, `store_banner`, `store_address`, `store_phone`, `store_email`, `store_description`, `store_full_description`, `district`, `country`, `facebook`, `whatsapp`, `instagram`, `tiktok`, `linkedin`, `twitter`, `meta_title`, `meta_description`, `meta_keywords`, `slug`, `status`, `store_percentage`, `created_at`, `updated_at`) VALUES
 (1, 5, 2, '1724667988sDgxT', 'FreshCart', 'stores/bZtlV1727677986.svg', 'stores/1x5gf1724667988.jpg', 'Dhaka, Bangladesh', ',01969005035', ',vendor@gmail.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui voluptate ratione dicta optio, asperiores adipisci natus? Ducimus dolores repellendus doloremque voluptas magnam enim error unde debitis molestiae quos voluptates ipsum, culpa tempore quibusdam eos illum alias! Rem ea illo veniam porro necessitatibus, consequuntur maxime dicta laborum nostrum. Neque quis laborum est tenetur animi possimus iusto ipsam debitis? Hic distinctio ad, a quae magnam earum itaque odit quia nulla laborum harum, quibusdam minus amet dicta sequi beatae quaerat dolore dignissimos vitae mollitia! Quod doloremque asperiores molestiae accusamus alias natus impedit, ipsa velit, beatae quis veritatis, aperiam neque unde similique magni officia!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ',', 'freshcart', 1, 0, '2024-08-26 10:26:28', '2024-09-30 06:33:06'),
-(2, 6, 3, '1724668184HSRHP', 'Getup Ltd.', 'stores/A76ki1724668184.svg', 'stores/F1Imu1724668184.png', 'Dhaka, Bangladesh', ',01969005035', ',sales@gmail.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui voluptate ratione dicta optio, asperiores adipisci natus? Ducimus dolores repellendus doloremque voluptas magnam enim error unde debitis molestiae quos voluptates ipsum, culpa tempore quibusdam eos illum alias! Rem ea illo veniam porro necessitatibus, consequuntur maxime dicta laborum nostrum. Neque quis laborum est tenetur animi possimus iusto ipsam debitis? Hic distinctio ad, a quae magnam earum itaque odit quia nulla laborum harum, quibusdam minus amet dicta sequi beatae quaerat dolore dignissimos vitae mollitia! Quod doloremque asperiores molestiae accusamus alias natus impedit, ipsa velit, beatae quis veritatis, aperiam neque unde similique magni officia!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ',', 'getup-ltd-1724668184', 1, 3, '2024-08-26 10:29:44', NULL);
+(2, 6, 3, '1724668184HSRHP', 'Getup Ltd.', 'stores/A76ki1724668184.svg', 'stores/F1Imu1724668184.png', 'Dhaka, Bangladesh', ',01969005035', ',sales@gmail.com', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui voluptate ratione dicta optio, asperiores adipisci natus? Ducimus dolores repellendus doloremque voluptas magnam enim error unde debitis molestiae quos voluptates ipsum, culpa tempore quibusdam eos illum alias! Rem ea illo veniam porro necessitatibus, consequuntur maxime dicta laborum nostrum. Neque quis laborum est tenetur animi possimus iusto ipsam debitis? Hic distinctio ad, a quae magnam earum itaque odit quia nulla laborum harum, quibusdam minus amet dicta sequi beatae quaerat dolore dignissimos vitae mollitia! Quod doloremque asperiores molestiae accusamus alias natus impedit, ipsa velit, beatae quis veritatis, aperiam neque unde similique magni officia!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ',', 'getup-ltd-1724668184', 1, 3, '2024-08-26 10:29:44', NULL),
+(3, 17, 6, '1729111867cDaxm', 'Sample Store', 'stores/p5bTI1729111866.png', 'stores/GdA261729111867.jpg', 'Dhaka, Bangladesh', ',01969005035', ',test@email.com', 'Sample Store', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ',', 'sample-store-1729111867', 1, 0, '2024-10-16 14:51:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -9822,7 +9910,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Admin', '01969005035', 'admin@gmail.com', '2024-03-02 08:18:31', '320215', '$2y$12$oHWN0HLlomKGtI9bp503POf.uujhNJmq6bS3M8f3u0PAcrHZYLzEq', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-03-28 10:20:00', '2024-04-25 07:52:00');
+(1, NULL, 'Admin', '01969005035', 'admin@gmail.com', '2024-03-02 08:18:31', '320215', '$2y$12$oHWN0HLlomKGtI9bp503POf.uujhNJmq6bS3M8f3u0PAcrHZYLzEq', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-03-28 10:20:00', '2024-04-25 07:52:00'),
+(17, NULL, 'Delilah Manning', '+1 (816) 469-7934', 'sosako7271@chysir.com', '2024-10-16 14:06:35', '848882', '$2y$12$Xx2dWLRND1rlz6gKpCMyXOrgj2lDtNQVrgD/Y4ZWxMSqPl3jT4Y5G', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-10-16 14:06:11', '2024-10-16 20:50:03'),
+(18, NULL, 'Md Fahim Hossain', NULL, 'alifhossain174@gmail.com', '2024-10-16 14:40:56', '267791', '$2y$12$zKSwoEohaozqpfNKKWW0AO6J4gFu/apGH5.nPE.b7jlsF6fhZQFZy', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-16 14:37:20', '2024-10-16 14:40:56');
 
 -- --------------------------------------------------------
 
@@ -9937,7 +10027,8 @@ CREATE TABLE `vendors` (
 INSERT INTO `vendors` (`id`, `user_id`, `vendor_no`, `business_name`, `business_category`, `trade_license_no`, `business_address`, `nid_card`, `trade_license`, `created_at`, `updated_at`) VALUES
 (2, 5, '1724667891QcMMX', 'FreshCart', 'Apparel & Accessories', NULL, 'Dhaka, Bangladesh', 'vendor_attachments/oqb9x1724667891.png', NULL, '2024-08-26 10:24:51', NULL),
 (3, 6, '1724668110tXaI1', 'Getup Ltd', 'Automotive', NULL, 'Gulshan, Dhaka', 'vendor_attachments/RrkQA1724668109.png', NULL, '2024-08-26 10:28:30', NULL),
-(5, 11, '1728368016kwTEU', 'Geoffrey Rosales', 'Automotive,Books & Media,Home Appliances,Jewelry & Watches', '528', 'Sunt qui voluptas a', 'vendor_attachments/AmFbA1728368013.txt', 'vendor_attachments/2F62l1728368016.png', '2024-10-08 00:13:36', NULL);
+(5, 11, '1728368016kwTEU', 'Geoffrey Rosales', 'Automotive,Books & Media,Home Appliances,Jewelry & Watches', '528', 'Sunt qui voluptas a', 'vendor_attachments/AmFbA1728368013.txt', 'vendor_attachments/2F62l1728368016.png', '2024-10-08 00:13:36', NULL),
+(6, 17, '1729109171Gj5ef', 'Xena Cotton', 'Apparel & Accessories,Beauty & Personal Care,Books & Media,Food & Beverage,Furniture,Jewelry & Watches,Kitchen & Dining,Pet Supplies', '648', 'Et ea ratione laudan', 'vendor_attachments/fushu1729109171.png', NULL, '2024-10-16 14:06:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -10022,6 +10113,24 @@ ALTER TABLE `blog_categories`
 -- Indexes for table `brands`
 --
 ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `buy_sells`
+--
+ALTER TABLE `buy_sells`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `buy_sell_categories`
+--
+ALTER TABLE `buy_sell_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `buy_sell_images`
+--
+ALTER TABLE `buy_sell_images`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10458,6 +10567,24 @@ ALTER TABLE `brands`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
+-- AUTO_INCREMENT for table `buy_sells`
+--
+ALTER TABLE `buy_sells`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `buy_sell_categories`
+--
+ALTER TABLE `buy_sell_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `buy_sell_images`
+--
+ALTER TABLE `buy_sell_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
@@ -10527,7 +10654,7 @@ ALTER TABLE `divisions`
 -- AUTO_INCREMENT for table `email_configures`
 --
 ALTER TABLE `email_configures`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `email_templates`
@@ -10569,7 +10696,7 @@ ALTER TABLE `google_recaptchas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -10731,7 +10858,7 @@ ALTER TABLE `storage_types`
 -- AUTO_INCREMENT for table `stores`
 --
 ALTER TABLE `stores`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `subcategories`
@@ -10791,7 +10918,7 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`
@@ -10821,7 +10948,7 @@ ALTER TABLE `user_role_permissions`
 -- AUTO_INCREMENT for table `vendors`
 --
 ALTER TABLE `vendors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `wish_lists`

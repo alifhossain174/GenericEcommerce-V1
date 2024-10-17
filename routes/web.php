@@ -94,6 +94,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 require 'configRoutes.php';
 require 'systemRoutes.php';
+require 'buySell.php';
 
 
 Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function () {
