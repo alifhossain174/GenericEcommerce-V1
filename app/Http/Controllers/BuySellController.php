@@ -216,7 +216,7 @@ class BuySellController extends Controller
                     })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                        $link = env('APP_FRONTEND_URL')."/sale-products/".$data->slug;
+                        $link = env('APP_FRONTEND_URL')."/buy-sale/product/".$data->slug;
                         $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         $btn .= ' <a target="_blank" href="'.$link.'" class="btn-sm btn-info rounded"><i class="fa fa-eye"></i></a>';
 
