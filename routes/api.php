@@ -185,4 +185,8 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('remove/product/thumbnail', [ApiController::class, 'removeProductThumbnail']);
     Route::post('upload/product/images', [ApiController::class, 'uploadProductImages']);
     Route::post('remove/product/images', [ApiController::class, 'removeProductImages']);
+
+    // upload buy sell post image from user dashboard
+    Route::post('upload/buy-sell/post/image', [ApiController::class, 'uploadBuySellPostImage']);
+    Route::post('remove/buy-sell/post/image', [ApiController::class, 'removeBuySellPostImage']);
 });

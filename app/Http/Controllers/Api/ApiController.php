@@ -2277,6 +2277,30 @@ class ApiController extends BaseController
         ], 200);
     }
 
+    public function uploadBuySellPostImage(Request $request){
+        if ($request->hasFile('attachment')){
+            $get_attachment = $request->file('attachment');
+            $attachment_name = $get_attachment->getClientOriginalName();
+            $location = public_path('buysellImages/');
+            $get_attachment->move($location, $attachment_name);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Uploaded Successfully',
+        ], 200);
+    }
+
+    public function removeBuySellPostImage(Request $request){
+        $productImage = public_path($request->image);
+        if(file_exists($productImage)){
+            unlink($productImage);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'File Removed Successfully',
+        ], 200);
+    }
+
     public function productsOfVendor(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 
