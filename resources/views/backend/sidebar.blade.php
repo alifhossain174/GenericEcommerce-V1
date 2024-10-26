@@ -175,6 +175,7 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-list"></i><span>Manage Orders</span></a>
         <ul class="sub-menu" aria-expanded="false">
+            <li><a style="color: white !important;" href="{{ url('/create/new/order') }}">Create Order</a>
             <li><a style="color: white !important;" href="{{ url('/view/orders') }}">All Orders (@php echo DB::table('orders')->count(); @endphp)</a>
             </li>
             <li><a style="color: skyblue !important;" href="{{ url('/view/pending/orders') }}">Pending Orders

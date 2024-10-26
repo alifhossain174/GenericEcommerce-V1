@@ -39,6 +39,7 @@
                                                 ->get();
 
     $orderModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
+                                                ->where('route', 'like', '%create/new/order%')
                                                 ->where('route', 'like', '%view/orders%')
                                                 ->orWhere('route', 'like', '%view/pending/orders%')
                                                 ->orWhere('route', 'like', '%view/approved/orders%')
@@ -283,6 +284,7 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-list"></i><span>Manage Orders</span></a>
         <ul class="sub-menu" aria-expanded="false">
+            @if(checkAuth("create/new/order")) <li><a style="color: white !important;" href="{{ url('/create/new/order') }}">Create Order</a></li> @endif
             @if(checkAuth("view/orders")) <li><a style="color: white !important;" href="{{ url('/view/orders') }}">All Orders (@php echo DB::table('orders')->count(); @endphp)</a></li> @endif
             @if(checkAuth("view/pending/orders"))
             <li><a style="color: skyblue !important;"

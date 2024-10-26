@@ -24,6 +24,7 @@ use App\Http\Controllers\BackupController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SmsServiceController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PosController;
 use App\Http\Controllers\PermissionRoutesController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserRoleController;
@@ -256,6 +257,15 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('/delete/contact/request/{id}', [ContactRequestontroller::class, 'deleteContactRequests'])->name('DeleteContactRequests');
     Route::get('/change/request/status/{id}', [ContactRequestontroller::class, 'changeRequestStatus'])->name('ChangeRequestStatus');
 
+
+    // pos routes
+    Route::get('/create/new/order', [PosController::class, 'createNewOrder'])->name('CreateNewOrder');
+    Route::post('/product/live/search', [PosController::class, 'productLiveSearch'])->name('ProductLiveSearch');
+    Route::post('/add/to/cart', [PosController::class, 'addToCart'])->name('AddToCart');
+    Route::get('/remove/cart/item/{index}', [PosController::class, 'removeCartItem'])->name('RemoveCartItem');
+    Route::get('/update/cart/item/{index}/{qty}', [PosController::class, 'updateCartItem'])->name('UpdateCartItem');
+    Route::post('/save/new/customer', [PosController::class, 'saveNewCustomer'])->name('SaveNewCustomer');
+    Route::get('/update/order/total/{shipping_charge}/{discount}', [PosController::class, 'updateOrderTotal'])->name('UpdateOrderTotal');
 
     // order routes
     Route::get('/view/orders', [OrderController::class, 'viewAllOrders'])->name('ViewAllOrders');

@@ -114,12 +114,12 @@
                                     <p class="mb-2"><strong>Tran. ID: </strong> #{{$order->trx_id}}</p>
                                     <p class="mb-2"><strong>Order Date: </strong> {{date("jS F, Y",strtotime($order->order_date))}}</p>
                                     <p class="mb-1">
-                                        <strong>Order From: </strong> 
-                                        @if($order->order_from == 1) 
-                                        Website 
+                                        <strong>Order From: </strong>
+                                        @if($order->order_from == 1)
+                                        Website
                                         @elseif($order->order_from == 2)
                                         Mobile App
-                                        @else 
+                                        @else
                                         N/A
                                         @endif
                                     </p>

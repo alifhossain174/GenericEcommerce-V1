@@ -95,6 +95,7 @@
                     <div class="d-flex align-items-center">
 
                         <div class="dropdown d-inline-block ml-2">
+                            <a href="{{ url('/create/new/order') }}" class="btn text-white rounded mr-2" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-cart-arrow-down fa-fw"></i> POS</a>
                             <a href="{{env('APP_FRONTEND_URL')}}" target="_blank" class="btn text-white rounded" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-paper-plane"></i> Visit Website</a>
                         </div>
 

@@ -1,0 +1,6 @@
+1. Order Creation (http://localhost/getcommerce_admin_design/pos.html)
+2. Add Product in Multiple Categories
+3. Courier Integration
+4. Make Payment Gateway Premium (Add COD)
+5. Coupon System (From EON)
+6. Page Builder
