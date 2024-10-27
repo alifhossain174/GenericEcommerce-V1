@@ -13,7 +13,7 @@
             <img src="{{url($details['image'])}}" style="width: 30px; height: 30px">
         </td>
         <td class="text-left">
-            {{$details['name']}}
+            {{$details['name']}} ({{$details['code']}})
             @if($details['color_id']) <b>Color:</b> {{$details['color_name']}} @endif
             @if($details['size_id']) <b>Size:</b> {{$details['size_name']}} @endif
         </td>

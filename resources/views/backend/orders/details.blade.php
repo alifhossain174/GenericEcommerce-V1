@@ -80,7 +80,7 @@
                                     @elseif($order->order_from == 2)
                                     Mobile App
                                     @else
-                                    N/A
+                                    POS
                                     @endif
                                 </p>
                                 <p class="mb-1"><strong>Order Status: </strong>

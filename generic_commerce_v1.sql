@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2024 at 12:55 PM
+-- Generation Time: Oct 27, 2024 at 07:51 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -126,34 +126,8 @@ CREATE TABLE `billing_addresses` (
 --
 
 INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `thana`, `city`, `country`, `created_at`, `updated_at`) VALUES
-(31, 37, '24 North Brook Hall Road, Banglabazar', '1100', 'Kotwali', 'Dhaka', 'Bangladesh', '2024-04-01 12:19:43', NULL),
-(32, 38, 'House  2 Road 21 Sector 7', NULL, 'Uttara', 'Dhaka', 'Bangladesh', '2024-04-01 12:38:53', NULL),
-(33, 39, 'House no -17, Road no-17, Nikunjo-2', NULL, 'Khilkhet', 'Dhaka', 'Bangladesh', '2024-04-03 05:38:21', NULL),
-(34, 40, 'house 19,  road number 7, Ghulshan 1', NULL, 'Gulshan', 'Dhaka', 'Bangladesh', '2024-04-03 06:35:01', NULL),
-(35, 41, 'Cha/9 uttar badda gulshan dhaka 1212', '1212', 'Badda', 'Dhaka', 'Bangladesh', '2024-04-06 05:27:22', NULL),
-(36, 42, 'Cha/9 uttar badda gulshan dhaka 1212', '1212', 'Badda', 'Dhaka', 'Bangladesh', '2024-04-06 05:30:10', NULL),
-(37, 43, 'Test Address', '1200', 'Adabor', 'Dhaka', 'Bangladesh', '2024-04-20 09:42:27', NULL),
-(38, 44, 'Sheuly Commercial Agency, 10, Shyamoli,  Cinema Hall Market (Ground Floor) Mohammadpur Dhaka 1207', NULL, 'Mohammadpur', 'Dhaka', 'Bangladesh', '2024-04-21 03:39:20', NULL),
-(39, 45, 'Flat:6/B,Lift :6,  House No: 537/3/A, ECB chottor, (Beside BJ Tower), Matikata, Dhaka Cantonment', NULL, 'Cantonment', 'Dhaka', 'Bangladesh', '2024-04-22 16:27:04', NULL),
-(42, 48, 'road - 2', '1212', 'Gulshan', 'Dhaka', 'Bangladesh', '2024-05-20 03:41:15', NULL),
-(43, 49, 'road - 2', '1212', 'Gulshan', 'Dhaka', 'Bangladesh', '2024-05-20 04:32:59', NULL),
-(44, 50, 'road - 2', '1212', 'Gulshan', 'Dhaka', 'Bangladesh', '2024-05-20 13:22:52', NULL),
-(45, 51, '12u', '1212', 'Bandarban Sadar', 'Bandarban', 'Bangladesh', '2024-05-22 05:07:11', NULL),
-(46, 52, 'ROAD-7, BLOCK-H, BANANI', '1213', 'Bandarban Sadar', 'Bandarban', 'Bangladesh', '2024-05-22 05:09:36', NULL),
-(47, 53, '12u', NULL, 'Bagerhat Sadar', 'Bagerhat', 'Bangladesh', '2024-05-30 13:55:41', NULL),
-(48, 54, '12u', NULL, 'Alikadam', 'Bandarban', 'Bangladesh', '2024-05-30 13:57:11', NULL),
-(49, 55, 'Mohajanpara, Khagrachhari', '4400', 'Khagrachhari Sadar', 'Khagrachhari', 'Bangladesh', '2024-06-02 11:03:25', NULL),
-(50, 56, 'Sonarbangla road sonadanga khulna', '9100', 'Botiaghata', 'Khulna', 'Bangladesh', '2024-06-02 15:04:23', NULL),
-(51, 57, 'Uttarkhan mastarpara shahi musjid road', NULL, 'Uttarkhan', 'Dhaka', 'Bangladesh', '2024-06-06 07:19:08', NULL),
-(52, 58, 'Badda Aftabnagar block d house 6 road 4 sector 2', NULL, 'Badda', 'Dhaka', 'Bangladesh', '2024-07-01 06:08:07', NULL),
-(53, 59, 'Dhaka', '1212', 'Gulshan', 'Dhaka', 'Bangladesh', '2024-07-02 07:01:30', NULL),
-(54, 60, 'K75 road 20 main road dakhin banasree', '1215', 'Rampura', 'Dhaka', 'Bangladesh', '2024-07-05 18:01:41', NULL),
-(55, 61, 'H-24/26, rd-7,sec-11', '1230', 'Uttara', 'Dhaka', 'Bangladesh', '2024-07-10 05:11:57', NULL),
-(56, 62, 'Sector 11 Road 10/b house no 06', '1203', 'Uttara', 'Dhaka', 'Bangladesh', '2024-07-12 17:50:31', NULL),
-(57, 65, 'Rajshahi', NULL, 'Boalia Thana', 'Rajshahi', 'Bangladesh', '2024-08-03 06:16:53', NULL),
-(58, 1, 'Khilkhet Noyanagar', NULL, 'Banaripara', 'Barisal', 'Bangladesh', '2024-08-25 21:56:21', NULL),
-(59, 2, 'Nobis in dolor ut fa', 'Velit corporis volup', 'Bandarban Sadar', 'Bandarban', 'Bangladesh', '2024-09-30 14:00:46', NULL),
-(60, 3, 'Getup Ltd.', NULL, 'Fakirhat', 'Bagerhat', 'Bangladesh', '2024-10-09 22:41:46', NULL);
+(1, 1, 'Seroil Masjid', '6100', 'Boalia Thana', 'Rajshahi', 'Bangladesh', '2024-10-27 18:46:09', NULL),
+(2, 2, 'Seroil Masjid', '6100', 'Boalia Thana', 'Rajshahi', 'Bangladesh', '2024-10-27 18:50:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -273,7 +247,7 @@ CREATE TABLE `buy_sells` (
 --
 
 INSERT INTO `buy_sells` (`id`, `category_id`, `product_title`, `regular_price`, `discount_price`, `phone`, `condition`, `brand`, `model`, `color`, `description`, `posted_by`, `image`, `slug`, `status`, `serial`, `meta_title`, `meta_keyword`, `meta_description`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Redmi Note 10 Pro Max', '5258258', '82852', '8801724181727', 'Very Good', 'Dell', '582852', 'red', 'dasdasdasda', '18', '1729152694_single.png', 'redmi-note-10-pro-max', 0, 1, NULL, NULL, NULL, '2024-10-17 02:11:34', '2024-10-17 08:33:04');
+(1, 1, 'Redmi Note 10 Pro Max', '5258258', '82852', '8801724181727', 'Very Good', 'Dell', '582852', 'red', 'dasdasdasda', '18', '1729152694_single.png', 'redmi-note-10-pro-max', 1, 1, NULL, NULL, NULL, '2024-10-17 02:11:34', '2024-10-17 12:17:24');
 
 -- --------------------------------------------------------
 
@@ -324,7 +298,7 @@ CREATE TABLE `buy_sell_configs` (
 --
 
 INSERT INTO `buy_sell_configs` (`id`, `banner`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'buysell_config/1l5kG1729162426.png', '<section class=\"buy-sale-about\">\r\n            <div class=\"container\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-12\">\r\n                        <div class=\"buy-s-about-widget\">\r\n\r\n                            \r\n                            <div class=\"buy-s-about-widget-top\">\r\n    <h4>About Guptodhon buy and sell</h4>\r\n    <p>Guptodhon is a leading online marketplace that connects buyers and sellers in a secure\r\n        and convenient way. Our mission is to create a simple and enjoyable shopping experience\r\n        for everyone, by offering a wide range of products and services at competitive prices.\r\n        With Guptodhon, you can find the perfect product or service for your needs, whether\r\n        you\'re looking to buy or sell. Our team is dedicated to providing a seamless and\r\n        hassle-free experience, and we\'re always available to answer any questions or concerns\r\n        you may have. Thank you for choosing Guptodhon as your go-to platform for all your\r\n        shopping needs.</p>\r\n</div>\r\n<div class=\"buy-s-about-widget-list\">\r\n    <h6>Guptodhon offers a range of benefits for buyers and sellers:</h6>\r\n    <ul><li>Convenience: Shop and sell from the comfort of your own home, at any time of day or\r\n            night.</li><li>Variety: Browse a wide selection of products and services across different\r\n            categories.</li><li>Safety and security: Enjoy a secure and reliable payment system and buyer/seller\r\n            protection.</li><li>Customer support: Get help and assistance from our friendly and knowledgeable\r\n            customer service team.</li><li>Competitive prices: Find great deals and discounts on products and services.</li></ul>\r\n</div>\r\n                            \r\n\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </section><p></p>', NULL, '2024-10-17 10:55:22');
+(1, 'buysell_config/1l5kG1729162426.png', '<section class=\"buy-sale-about\">\n            <div class=\"container\">\n                <div class=\"row\">\n                    <div class=\"col-12\">\n                        <div class=\"buy-s-about-widget\">\n\n                            \n                            <div class=\"buy-s-about-widget-top\">\n    <h4>About Guptodhon buy sell<br></h4>\n    <p>Guptodhon is a leading online marketplace that connects buyers and sellers in a secure\n        and convenient way. Our mission is to create a simple and enjoyable shopping experience\n        for everyone, by offering a wide range of products and services at competitive prices.\n        With Guptodhon, you can find the perfect product or service for your needs, whether\n        you\'re looking to buy or sell. Our team is dedicated to providing a seamless and\n        hassle-free experience, and we\'re always available to answer any questions or concerns\n        you may have. Thank you for choosing Guptodhon as your go-to platform for all your\n        shopping needs.</p><p><br></p>\n</div>\n<div class=\"buy-s-about-widget-list\">\n    <h6>Guptodhon offers a range of benefits for buyers and sellers:</h6>\n    <ul><li>Convenience: Shop and sell from the comfort of your own home, at any time of day or\n            night.</li><li>Variety: Browse a wide selection of products and services across different\n            categories.</li><li>Safety and security: Enjoy a secure and reliable payment system and buyer/seller\n            protection.</li><li>Customer support: Get help and assistance from our friendly and knowledgeable\n            customer service team.</li><li>Competitive prices: Find great deals and discounts on products and services.</li></ul>\n</div>\n                            \n\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </section><p></p>', NULL, '2024-10-17 11:27:56');
 
 -- --------------------------------------------------------
 
@@ -867,7 +841,7 @@ INSERT INTO `districts` (`id`, `division_id`, `name`, `bn_name`, `lat`, `lon`, `
 (12, 2, 'Sirajganj', 'সিরাজগঞ্জ', '24.4533978', '89.7006815', 'www.sirajganj.gov.bd', 0),
 (13, 2, 'Pabna', 'পাবনা', '23.998524', '89.233645', 'www.pabna.gov.bd', 0),
 (14, 2, 'Bogura', 'বগুড়া', '24.8465228', '89.377755', 'www.bogra.gov.bd', 0),
-(15, 2, 'Rajshahi', 'রাজশাহী', '24.37230298', '88.56307623', 'www.rajshahi.gov.bd', 0),
+(15, 2, 'Rajshahi', 'রাজশাহী', '24.37230298', '88.56307623', 'www.rajshahi.gov.bd', 100),
 (16, 2, 'Natore', 'নাটোর', '24.420556', '89.000282', 'www.natore.gov.bd', 0),
 (17, 2, 'Joypurhat', 'জয়পুরহাট', '25.09636876', '89.04004280', 'www.joypurhat.gov.bd', 0),
 (18, 2, 'Chapainawabganj', 'চাঁপাইনবাবগঞ্জ', '24.5965034', '88.2775122', 'www.chapainawabganj.gov.bd', 0),
@@ -1309,6 +1283,14 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_no`, `order_from`, `user_id`, `order_date`, `estimated_dd`, `delivery_date`, `delivery_method`, `payment_method`, `payment_status`, `trx_id`, `bank_tran_id`, `order_status`, `sub_total`, `coupon_code`, `discount`, `reward_points_used`, `delivery_fee`, `vat`, `tax`, `total`, `order_note`, `order_remarks`, `slug`, `complete_order`, `created_at`, `updated_at`) VALUES
+(1, '1730054769618', 1, 20, '2024-10-28 00:46:09', '2024-11-04', NULL, '1', 1, 1, '1730054769bG2Ox', NULL, 1, 853, '0', 0, 0, 100, 0, 0, 953, NULL, NULL, 'Hhr3V1730054769', 1, '2024-10-27 18:46:09', NULL),
+(2, '1730055037551', 3, 20, '2024-10-28 00:50:37', '2024-11-04', NULL, '1', 1, 1, '1730055037DIiSI', NULL, 1, 919, '0', 0, 0, 100, 0, 0, 1019, NULL, NULL, 'Osihn1730055037', 1, '2024-10-27 18:50:37', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1335,6 +1317,16 @@ CREATE TABLE `order_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `store_id`, `color_id`, `size_id`, `region_id`, `sim_id`, `storage_id`, `warrenty_id`, `device_condition_id`, `unit_id`, `qty`, `unit_price`, `total_price`, `reward_points`, `created_at`, `updated_at`) VALUES
+(1, 1, 2477, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 238, 238, 0, '2024-10-27 18:46:09', NULL),
+(2, 1, 2658, NULL, 25, 19, NULL, NULL, NULL, NULL, NULL, 1, 1, 615, 615, 0, '2024-10-27 18:46:09', NULL),
+(3, 2, 2605, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 1, 532, 532, 0, '2024-10-27 18:50:37', NULL),
+(4, 2, 2691, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 1, 387, 387, 0, '2024-10-27 18:50:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -1365,6 +1357,14 @@ CREATE TABLE `order_payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `order_payments`
+--
+
+INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `val_id`, `amount`, `card_type`, `store_amount`, `card_no`, `bank_tran_id`, `status`, `tran_date`, `currency`, `card_issuer`, `card_brand`, `card_sub_brand`, `card_issuer_country`, `store_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 'COD', '1730054769bG2Ox', NULL, '953', NULL, '953', NULL, NULL, 'VALID', '2024-10-28 00:46:09', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-10-27 18:46:09', NULL),
+(2, 2, 'COD', '1730055037DIiSI', NULL, '1019', NULL, '1019', NULL, NULL, 'VALID', '2024-10-28 00:50:37', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-10-27 18:50:37', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1378,6 +1378,16 @@ CREATE TABLE `order_progress` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_progress`
+--
+
+INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, '2024-10-27 18:46:09', NULL),
+(2, 1, 1, '2024-10-27 18:46:09', NULL),
+(3, 2, 0, '2024-10-27 18:50:37', NULL),
+(4, 2, 1, '2024-10-27 18:50:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -2098,7 +2108,7 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (2474, 1, 42, NULL, NULL, NULL, NULL, 'Sharable clear-thinking interface-74', '153', 'productImages/64.png', NULL, 'Sunt dicta delectus odio ut hic maxime corporis. Qui ipsa possimus maxime. Quia eius natus at occaecati eveniet sapiente. Facilis qui reiciendis possimus non quia quia sed.', 'Vel et earum expedita quis. Similique provident est molestiae qui voluptatibus mollitia corporis. Numquam nesciunt vel iusto quas voluptate eaque. Voluptas voluptas magni vel. Neque voluptatibus harum explicabo enim mollitia debitis. Explicabo accusantium quibusdam et praesentium quod vitae voluptas. Sit in soluta velit est.', 'Consequatur earum deleniti accusantium eum. Sed aperiam et expedita non. Adipisci voluptas sint in sint voluptas itaque occaecati quia.', 'Iste eligendi est enim dignissimos est labore. Aut porro perspiciatis incidunt quis molestiae qui. Veniam dolorum harum quod repellat eum.', 245, 235, 3, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'sharable-clearthinking-interface74-1728910755dM8CR', 31, 1, '2024-11-13 18:59:00', 'Sharable clear-thinking interface-74', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:15', NULL),
 (2475, 2, 42, NULL, NULL, NULL, NULL, 'User-centric coherent architecture-75', '913', 'productImages/41.png', '[\"56.png\",\"51.png\",\"60.png\",\"65.png\"]', 'Iure eos ab aut unde. Facere eveniet mollitia laborum et. Non illum dicta tempora. Enim quisquam non voluptatem quae facere. Qui aut iure qui laborum ut rerum voluptas voluptates.', 'Dolor velit temporibus id enim. Quis et corrupti quod voluptatibus. Delectus magni voluptatem et omnis quaerat illo. Perferendis est eius debitis. Voluptatibus sint quaerat sit nemo eum dolore nisi aut. Laboriosam quis sed vel sequi explicabo voluptatem. Voluptatum quos magni vel esse et expedita dolor.', 'Voluptatem saepe quas maiores voluptate excepturi earum. Sint quis aut qui doloribus itaque cum. Expedita voluptates tempora ut itaque. Eos consequatur sed doloremque modi aut.', 'Quae doloremque sit aliquid beatae doloremque quo ipsam. Odio enim omnis alias necessitatibus voluptas. Quisquam accusantium voluptatem necessitatibus enim quod quia laudantium.', 958, 948, 5, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'usercentric-coherent-architecture75-1728910755osIb5', 31, 0, NULL, 'User-centric coherent architecture-75', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:15', NULL),
 (2476, 2, 43, NULL, NULL, NULL, NULL, 'Phased asynchronous opensystem-76', '293', 'productImages/69.png', NULL, 'Recusandae occaecati quisquam sit tenetur. Quos voluptas illum qui itaque incidunt ad.', 'Excepturi atque earum adipisci nesciunt iste recusandae. Nostrum eos quae impedit distinctio error nobis beatae consectetur. Cumque aut qui qui dolorum consequuntur. Maiores nam error itaque vel dolor. Vero vero odio hic. Veritatis repellendus iste earum sit nostrum. Molestias expedita quia corporis perferendis laborum. Mollitia voluptas sed est vitae est cum sunt debitis.', 'Quae eveniet quibusdam delectus qui. Molestiae architecto repellendus sit magnam. Rem maxime eum alias et non. Eligendi ut expedita ut et cupiditate.', 'Harum ex non est sequi molestiae. Porro nemo debitis voluptatem consequatur optio aut. Hic quia doloribus culpa.', 584, 574, 2, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'phased-asynchronous-opensystem76-1728910755dzxXc', 31, 1, '2024-11-13 18:59:00', 'Phased asynchronous opensystem-76', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:15', NULL),
-(2477, 1, 42, NULL, NULL, NULL, NULL, 'Adaptive empowering orchestration-77', '556', 'productImages/54.png', '[\"51.png\",\"42.png\",\"59.png\",\"43.png\"]', 'Voluptatem quidem id provident deleniti. Qui quis soluta veniam et. In hic eum voluptatum quod.', 'Nostrum quos debitis et quibusdam vel eligendi. Recusandae nihil alias tempore perferendis adipisci. Totam ipsum cupiditate eum provident inventore saepe velit ullam. Est excepturi harum voluptates rerum mollitia voluptatibus tempore. Eaque voluptatem delectus recusandae ipsam recusandae nihil enim. Eos ut facere occaecati ut.', 'Non quia deserunt soluta dolorum voluptatem consequatur. Aut labore ut fuga sed velit totam quia quo. Voluptates saepe atque est dolorem voluptatibus ea sequi.', 'Voluptas est laborum dolor quod accusamus asperiores. Laborum voluptatem et et minima et excepturi ex. Illo exercitationem sed dolor sit.', 248, 238, 4, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'adaptive-empowering-orchestration77-1728910755VfrAF', 29, 0, NULL, 'Adaptive empowering orchestration-77', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:15', NULL),
+(2477, 1, 42, NULL, NULL, NULL, NULL, 'Adaptive empowering orchestration-77', '556', 'productImages/54.png', '[\"51.png\",\"42.png\",\"59.png\",\"43.png\"]', 'Voluptatem quidem id provident deleniti. Qui quis soluta veniam et. In hic eum voluptatum quod.', 'Nostrum quos debitis et quibusdam vel eligendi. Recusandae nihil alias tempore perferendis adipisci. Totam ipsum cupiditate eum provident inventore saepe velit ullam. Est excepturi harum voluptates rerum mollitia voluptatibus tempore. Eaque voluptatem delectus recusandae ipsam recusandae nihil enim. Eos ut facere occaecati ut.', 'Non quia deserunt soluta dolorum voluptatem consequatur. Aut labore ut fuga sed velit totam quia quo. Voluptates saepe atque est dolorem voluptatibus ea sequi.', 'Voluptas est laborum dolor quod accusamus asperiores. Laborum voluptatem et et minima et excepturi ex. Illo exercitationem sed dolor sit.', 248, 238, 4, 22, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'adaptive-empowering-orchestration77-1728910755VfrAF', 29, 0, '1970-01-01 06:00:00', 'Adaptive empowering orchestration-77', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:15', '2024-10-26 16:55:46'),
 (2478, 1, 42, NULL, NULL, NULL, NULL, 'Inverse optimal implementation-78', '329', 'productImages/59.png', NULL, 'Et sunt ut cum sed in. Magnam aut numquam repellendus quas rem cupiditate sunt et. Quo consequuntur esse magnam quo iure excepturi.', 'Assumenda facilis eaque modi dicta quia quia voluptatem. Et tempora ducimus esse. Architecto a voluptas molestiae maxime voluptatem omnis. Praesentium et eum nisi facere quasi. Eos eum ducimus culpa laudantium corrupti.', 'Voluptatem et harum neque ea est. Dolores vel eius sunt delectus libero. Laudantium eius occaecati totam explicabo commodi cum. Dolorem qui itaque tempora.', 'Sed alias laboriosam numquam. Aut expedita qui fugit cumque. Dolorem ea ut nihil placeat nihil.', 436, 426, 2, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, 'inverse-optimal-implementation78-1728910755UxTVa', 33, 1, '2024-11-13 18:59:00', 'Inverse optimal implementation-78', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:15', NULL),
 (2479, 1, 42, NULL, NULL, NULL, NULL, 'Configurable leadingedge strategy-79', '334', 'productImages/62.png', '[\"63.png\",\"60.png\",\"44.png\",\"57.png\"]', 'Labore adipisci enim adipisci minus. Delectus commodi vitae veritatis aut ducimus vel. Laborum occaecati animi reiciendis a. Asperiores ea amet alias non ut ipsa. Quaerat quia rerum et earum.', 'Nihil omnis molestiae enim sed distinctio voluptas. Maxime quod sunt exercitationem est ad quos. Natus sed rerum et sit et quo consequatur. Excepturi ab consequatur atque sit voluptates adipisci nam. Illum vitae sit laudantium qui sed porro sint. Molestias quod distinctio sit natus nemo odit numquam quia. Sed dolorum aut error nulla quisquam unde nesciunt.', 'Ipsa ipsam ut nostrum at ullam est occaecati. Molestiae sequi ut qui ab.', 'Aliquam nobis impedit minus reiciendis officiis odit. In facilis velit culpa magni ut est repellat. Repudiandae repellendus et sit perspiciatis.', 518, 508, 1, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'configurable-leadingedge-strategy79-172891075507FFZ', 30, 0, NULL, 'Configurable leadingedge strategy-79', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:15', NULL),
 (2480, 2, 41, NULL, NULL, NULL, NULL, 'Polarised high-level localareanetwork-80', '366', 'productImages/61.png', NULL, 'Deleniti fugit ipsa libero. Voluptatibus tempore sit in voluptas officiis. Fugit ut dolorem ducimus nihil sit. Consequatur qui delectus perferendis ut vitae quaerat voluptatem.', 'Blanditiis nesciunt quasi id ut placeat. Aut dolores optio reprehenderit quos dicta assumenda voluptas. Laborum deleniti quia in qui est consectetur optio. Consequatur voluptatem praesentium voluptates excepturi velit.', 'Voluptatibus est quis culpa sint vel et. Voluptatibus repellendus explicabo labore pariatur consectetur dolorem.', 'Et ipsam et qui esse officia. Est est iste dicta voluptatibus praesentium voluptatum. Non est placeat dolor id odit. Ut voluptatem molestiae possimus neque qui et ex odio.', 335, 325, 1, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'polarised-highlevel-localareanetwork80-1728910755qeEpS', 33, 1, '2024-11-13 18:59:00', 'Polarised high-level localareanetwork-80', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:15', NULL),
@@ -2229,7 +2239,7 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (2602, 2, 44, NULL, NULL, NULL, NULL, 'Reduced cohesive encryption-202', '714', 'productImages/58.png', NULL, 'Placeat quia fugit ut et vel. Quis quo sit nulla.', 'Quibusdam quia quis reiciendis totam veniam rem a. Numquam est id quae vero et. Qui nihil voluptate tempora fuga est. Molestias aliquid quis sint consectetur.', 'Qui dolor quo reiciendis aut itaque distinctio magni alias. Et doloremque repellat et nihil dolor. Velit nisi tempore facere molestias rerum et.', 'Esse labore et et rerum mollitia. Incidunt perferendis pariatur et ea assumenda deserunt.', 814, 804, 4, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, 'reduced-cohesive-encryption202-1728910763BEBpX', 32, 1, '2024-11-13 18:59:00', 'Reduced cohesive encryption-202', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:23', NULL),
 (2603, 2, 42, NULL, NULL, NULL, NULL, 'Cross-platform client-server definition-203', '182', 'productImages/43.png', '[\"45.png\",\"49.png\",\"59.png\",\"53.png\"]', 'Voluptas nesciunt repellendus delectus minima sit qui. Laboriosam quam in nulla minima dignissimos. Mollitia excepturi possimus numquam facilis.', 'Sint ipsum asperiores et aliquam eveniet voluptatem eum. Reprehenderit officiis nisi deleniti enim ratione. Vel animi fuga eos explicabo molestias corrupti tempore. Dolorum assumenda ut rerum dignissimos. Atque sed consequuntur sed quis temporibus nostrum optio doloribus.', 'Vero sit quod provident consequatur velit. Animi nulla illum in aut sed suscipit. Praesentium eum nostrum veniam dolore.', 'Eum inventore modi quasi ab et autem. Voluptatem aut deserunt consequatur repudiandae qui nam nisi odio. Quae ut nobis deleniti dolorum commodi quis asperiores.', 646, 636, 1, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'crossplatform-clientserver-definition203-1728910763cuo2L', 30, 0, NULL, 'Cross-platform client-server definition-203', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:23', NULL),
 (2604, 1, 42, NULL, NULL, NULL, NULL, 'Polarised impactful model-204', '886', 'productImages/56.png', NULL, 'Est animi et laboriosam autem ab. Neque aperiam iure est quidem laboriosam enim sed error. Iusto velit a rerum reprehenderit nisi. Delectus dignissimos ut est et.', 'Accusantium eum consequatur non placeat ea consequuntur est. Assumenda animi accusamus hic quo magnam aliquid aperiam illum. Quod eos alias voluptatem rerum enim similique. Harum placeat deleniti facere sed nihil vitae. Ea labore sequi explicabo atque magnam. Aspernatur odio libero dolores. Velit tenetur laudantium fugit nulla earum molestiae ut. Impedit ipsum deleniti autem quibusdam.', 'Molestiae et nemo nam autem et. Reiciendis aut aut ut rerum quia itaque rerum ea. Natus nulla labore id autem ut. Laborum nulla natus velit corporis amet. Nulla quia cumque nostrum sunt.', 'Sapiente est nesciunt exercitationem rerum quia inventore eaque. Rerum consequuntur dolor cum ea temporibus ut. Ea exercitationem fuga nostrum id. Odio eius ea explicabo nam laboriosam.', 848, 838, 2, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'polarised-impactful-model204-1728910763tJBMG', 30, 1, '2024-11-13 18:59:00', 'Polarised impactful model-204', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:23', NULL),
-(2605, 1, 43, NULL, NULL, NULL, NULL, 'Adaptive stable framework-205', '543', 'productImages/71.png', '[\"65.png\",\"62.png\",\"67.png\",\"58.png\"]', 'Provident cumque repellat quos non vel ea qui. Sunt aliquam aut maxime voluptatem aperiam qui suscipit aut. Aliquid eaque expedita error ipsa a.', 'Natus doloremque et consequatur velit officia. Inventore culpa ea laudantium ut ad vero modi nemo. Quis aut nisi quod earum sapiente. Illo labore unde labore. Aut ea dolor provident sequi ipsum dicta id. Deserunt sint itaque molestiae et.', 'Id quas nulla soluta ut et iusto. Tempore ut saepe laudantium molestiae ab odio dolorem.', 'Iusto et quia ab illum earum quo cumque. Blanditiis placeat dolorum mollitia amet. Nam maxime nesciunt adipisci.', 542, 532, 0, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'adaptive-stable-framework205-1728910763T6ynX', 32, 0, NULL, 'Adaptive stable framework-205', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:23', NULL),
+(2605, 1, 43, NULL, NULL, NULL, NULL, 'Adaptive stable framework-205', '543', 'productImages/71.png', '[\"65.png\",\"62.png\",\"67.png\",\"58.png\"]', 'Provident cumque repellat quos non vel ea qui. Sunt aliquam aut maxime voluptatem aperiam qui suscipit aut. Aliquid eaque expedita error ipsa a.', 'Natus doloremque et consequatur velit officia. Inventore culpa ea laudantium ut ad vero modi nemo. Quis aut nisi quod earum sapiente. Illo labore unde labore. Aut ea dolor provident sequi ipsum dicta id. Deserunt sint itaque molestiae et.', 'Id quas nulla soluta ut et iusto. Tempore ut saepe laudantium molestiae ab odio dolorem.', 'Iusto et quia ab illum earum quo cumque. Blanditiis placeat dolorum mollitia amet. Nam maxime nesciunt adipisci.', 542, 532, 0, 999, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'adaptive-stable-framework205-1728910763T6ynX', 32, 0, NULL, 'Adaptive stable framework-205', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:23', NULL),
 (2606, 2, 44, NULL, NULL, NULL, NULL, 'Polarised upward-trending service-desk-206', '356', 'productImages/46.png', NULL, 'Et nihil recusandae tenetur voluptate velit adipisci quae eveniet. Et blanditiis et suscipit nostrum qui. Placeat qui ducimus adipisci est consequatur.', 'Minus sint ipsam voluptatem id nisi. Eos impedit enim repellendus fugiat commodi est voluptatem. Maxime ut voluptas nisi esse. Veniam unde ratione ut eum qui sit et. Fugit fugiat aut odio impedit assumenda necessitatibus laborum eveniet. Occaecati et ut optio ad nostrum ut ducimus molestiae.', 'Beatae et excepturi nesciunt doloremque. Nisi est dolores iusto ab recusandae est facere. Labore at et ipsa odit qui. Pariatur exercitationem eum iure voluptatem.', 'Corporis quis maiores qui nesciunt. Porro a harum occaecati similique facilis enim. Ullam quia repellat porro voluptas. Aut rerum quisquam rerum id vel earum quia quam.', 317, 307, 4, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'polarised-upwardtrending-servicedesk206-1728910763sWIVC', 32, 1, '2024-11-13 18:59:00', 'Polarised upward-trending service-desk-206', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:23', NULL),
 (2607, 1, 43, NULL, NULL, NULL, NULL, 'Configurable reciprocal policy-207', '635', 'productImages/78.png', '[\"75.png\",\"61.png\",\"43.png\",\"71.png\"]', 'Magni ut fugit saepe accusantium voluptatem. Repudiandae quod omnis accusantium sed voluptas libero. Accusantium ipsa est qui quia sint tempore ut rem. Quas repellat deserunt et aperiam occaecati.', 'Qui itaque aspernatur nobis sunt. Cumque odit quisquam dolorem. Ut tempore ut recusandae dolore est tenetur. Accusantium neque numquam consequatur cumque consectetur illum. Earum voluptas amet et esse sunt cum. Eum dignissimos qui recusandae aut dolore. Quae exercitationem enim dicta commodi minima ab dolores. Eum autem in quaerat repellat alias consequatur. Quisquam corporis id vel adipisci.', 'Voluptate et laboriosam repellendus perferendis. Dolores non et rerum earum pariatur exercitationem suscipit. Omnis veritatis vitae aperiam.', 'Ut et accusamus voluptatem ipsum et enim deserunt. Ipsam quibusdam illo harum officiis delectus perspiciatis nostrum. Explicabo in quia qui eligendi non dolorem.', 266, 256, 4, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'configurable-reciprocal-policy207-17289107631uwvY', 32, 0, NULL, 'Configurable reciprocal policy-207', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:23', NULL),
 (2608, 2, 44, NULL, NULL, NULL, NULL, 'Optional fault-tolerant success-208', '371', 'productImages/71.png', NULL, 'Voluptates enim consequuntur tenetur ea quasi omnis. Placeat beatae ipsa sequi et vero. Laborum ullam dolore quia qui occaecati animi.', 'Voluptatem ea reprehenderit provident velit est ut. Dicta voluptates odit maiores incidunt. Et pariatur numquam vel dolor. Aspernatur earum dolorem sed velit est ut dignissimos quod. Qui dolorem enim est neque. Praesentium inventore nesciunt neque rerum. Necessitatibus est tenetur inventore enim neque enim.', 'Ea aut tenetur sequi delectus. Consectetur sed esse occaecati rem vitae accusamus. Neque adipisci sunt ea eligendi.', 'Et sit occaecati autem modi blanditiis aut. A at vel corporis laudantium. Molestiae quia rerum quisquam at quibusdam.', 131, 121, 0, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'optional-faulttolerant-success208-1728910763NmsPB', 33, 1, '2024-11-13 18:59:00', 'Optional fault-tolerant success-208', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:23', NULL),
@@ -2317,7 +2327,7 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (2688, 2, 43, NULL, NULL, NULL, NULL, 'Advanced regional paradigm-288', '103', 'productImages/54.png', NULL, 'Quaerat impedit ab id quis. Aut qui molestias quibusdam dolor maiores. Sint in odio amet.', 'Debitis repellendus quasi aut sunt est. Dolorem similique et doloremque quia. Aut ut cumque ipsum accusamus corrupti minima dolorem. Maiores velit quasi fugit quia aut. Quis culpa cumque consequatur explicabo. Id nam quo cum est enim facere nemo. Exercitationem quidem nobis sint rem aut voluptatem. Odio similique ut praesentium quam.', 'Adipisci aliquid quis quo consectetur cum exercitationem natus facere. Aperiam non eum autem. Consequatur voluptas illum dignissimos eaque quis aut.', 'Delectus voluptas assumenda vel animi velit. Voluptatem ut excepturi voluptatem nihil minima ut non. Reprehenderit magnam id molestias reprehenderit. Facere recusandae deserunt a ab et.', 801, 791, 2, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'advanced-regional-paradigm288-17289107688vooS', 29, 1, '2024-11-13 18:59:00', 'Advanced regional paradigm-288', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:28', NULL),
 (2689, 1, 41, NULL, NULL, NULL, NULL, 'Synergistic coherent analyzer-289', '732', 'productImages/61.png', '[\"44.png\",\"51.png\",\"55.png\",\"53.png\"]', 'Nesciunt sit sequi et dolorem. Ut itaque minima a harum ut alias. Dolores quisquam aliquam accusamus consequatur expedita natus facilis. Fugit nisi dolores voluptatem consequatur et provident quasi.', 'Et doloremque enim tenetur ratione inventore perferendis ea saepe. Nisi eum ipsa consequatur aperiam deserunt ipsum neque laudantium. Totam facilis illum quaerat commodi dolorem. Amet non ut dolores voluptatem. Quis est unde voluptatem molestias. Beatae ea at deleniti nam et molestias. Cumque et nulla consectetur est sit maiores. Vel officiis itaque eius mollitia officiis quasi.', 'Consequatur velit quam similique ut et explicabo velit. Fugit sed reiciendis inventore quos corrupti. Consequatur id quo quasi et laudantium quis.', 'Esse quis accusantium ut adipisci et minus quibusdam veniam. Qui voluptatibus ad eligendi expedita quas possimus. Quisquam quos voluptas beatae et a.', 928, 918, 1, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'synergistic-coherent-analyzer289-1728910768sq4tz', 29, 0, NULL, 'Synergistic coherent analyzer-289', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:28', NULL),
 (2690, 1, 43, NULL, NULL, NULL, NULL, 'Synchronised 6thgeneration moratorium-290', '532', 'productImages/57.png', NULL, 'Ut at aliquid similique. Sit consequatur quidem qui nemo sit eaque sunt. Consequatur quibusdam totam qui ratione in ea voluptates. Suscipit dolor non nihil cupiditate eveniet esse.', 'Aut maiores beatae hic est. Eaque ipsum corporis excepturi nisi magnam. Perferendis corrupti et quae officiis ut quo facere. Rerum rerum quia possimus quam error voluptatum voluptas ea. Facilis id velit veniam qui ea animi odit rerum. Animi hic doloribus a et dolores. Possimus enim ut et suscipit hic voluptatum quisquam.', 'Sit molestias praesentium quae voluptas illo deleniti. Non labore possimus magni dolores vel amet ut quia.', 'Reiciendis ullam asperiores rem doloribus et. Sed ullam quis ex neque ea debitis minima. Quis quibusdam animi aut sint cum a blanditiis. Nobis officia rerum sed adipisci veritatis sit eaque.', 693, 683, 0, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'synchronised-6thgeneration-moratorium290-1728910768oqtMO', 34, 1, '2024-11-13 18:59:00', 'Synchronised 6thgeneration moratorium-290', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:28', NULL),
-(2691, 1, 44, NULL, NULL, NULL, NULL, 'Adaptive multi-state throughput-291', '756', 'productImages/47.png', '[\"74.png\",\"50.png\",\"62.png\",\"80.png\"]', 'Aspernatur et ut provident. Sit perspiciatis vero aut similique. Id est eaque numquam eum quod et. Quae quia et sequi porro nostrum. Aperiam quia animi sapiente ducimus exercitationem.', 'Repellat numquam architecto sunt iusto magni quia. Similique voluptatem odio error. Consectetur id quisquam ab et. Natus laborum laborum culpa quis. Quam veniam esse molestiae facere autem.', 'Vel eos iusto possimus impedit non. Repudiandae omnis ut illum voluptatem. Illo ea et aliquam nostrum reiciendis.', 'Eum ut non itaque in. Nostrum dolorem laudantium incidunt quis facere et minima. Recusandae nulla voluptas consectetur maiores nulla illo.', 397, 387, 0, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, 'adaptive-multistate-throughput291-1728910769mYPT2', 33, 0, NULL, 'Adaptive multi-state throughput-291', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:29', NULL),
+(2691, 1, 44, NULL, NULL, NULL, NULL, 'Adaptive multi-state throughput-291', '756', 'productImages/47.png', '[\"74.png\",\"50.png\",\"62.png\",\"80.png\"]', 'Aspernatur et ut provident. Sit perspiciatis vero aut similique. Id est eaque numquam eum quod et. Quae quia et sequi porro nostrum. Aperiam quia animi sapiente ducimus exercitationem.', 'Repellat numquam architecto sunt iusto magni quia. Similique voluptatem odio error. Consectetur id quisquam ab et. Natus laborum laborum culpa quis. Quam veniam esse molestiae facere autem.', 'Vel eos iusto possimus impedit non. Repudiandae omnis ut illum voluptatem. Illo ea et aliquam nostrum reiciendis.', 'Eum ut non itaque in. Nostrum dolorem laudantium incidunt quis facere et minima. Recusandae nulla voluptas consectetur maiores nulla illo.', 397, 387, 0, 998, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, 'adaptive-multistate-throughput291-1728910769mYPT2', 33, 0, NULL, 'Adaptive multi-state throughput-291', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:29', NULL),
 (2692, 1, 41, NULL, NULL, NULL, NULL, 'Object-based solution-oriented knowledgebase-292', '402', 'productImages/46.png', NULL, 'Quia nisi dolores quae explicabo. Est praesentium esse libero quasi magni incidunt. Soluta quidem sunt et commodi quia earum quod. Vitae tempore velit vitae nostrum dicta dolore.', 'Nam et architecto culpa necessitatibus fugit est iste architecto. Non maxime nulla vel architecto mollitia. Quas aspernatur qui ut pariatur dolor veniam ab. Tenetur qui quod et tenetur corporis. Et qui debitis maxime ut reiciendis. Earum ut facere et.', 'Tempore eum dolores aperiam alias doloribus sit. Aperiam quam molestias alias ab. Modi delectus sint porro eum sint. Commodi consequatur quaerat officiis non quia quia dicta.', 'Sapiente cumque quo ut explicabo autem quia in possimus. Consequatur veritatis maiores voluptatibus sunt quos eos. Magnam sunt sunt sint quis necessitatibus vitae tempora.', 661, 651, 4, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, 'objectbased-solutionoriented-knowledgebase292-1728910769Wr0Uu', 33, 1, '2024-11-13 18:59:00', 'Object-based solution-oriented knowledgebase-292', 'product,demo', NULL, 1, 1, 1, '2024-10-14 12:59:29', NULL);
 INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `model_id`, `name`, `code`, `image`, `multiple_images`, `short_description`, `description`, `specification`, `warrenty_policy`, `price`, `discount_price`, `reward_points`, `stock`, `unit_id`, `tags`, `video_url`, `warrenty_id`, `slug`, `flag_id`, `special_offer`, `offer_end_time`, `meta_title`, `meta_keywords`, `meta_description`, `status`, `has_variant`, `is_demo`, `created_at`, `updated_at`) VALUES
 (2693, 1, 42, NULL, NULL, NULL, NULL, 'Up-sized fresh-thinking analyzer-293', '457', 'productImages/60.png', '[\"41.png\",\"63.png\",\"73.png\",\"61.png\"]', 'Suscipit architecto asperiores hic. Tempore aut consequatur id animi iusto ab voluptate. Modi pariatur tempora voluptas. Qui quo accusamus porro voluptate incidunt perferendis dicta voluptatum.', 'Perspiciatis consequatur deleniti velit dolore omnis omnis itaque autem. Numquam ut vitae perferendis dolores eaque dignissimos nesciunt. Vel molestias nobis non et quis a dignissimos. Ex laudantium magni vero. Molestias non quos cumque laborum. Cumque alias mollitia porro magnam dolore ipsam voluptas est. Rem veritatis quae accusantium commodi et magni.', 'Sint non sit vel iusto laudantium nobis. Omnis ut similique asperiores officiis. Nobis sit quidem quae maxime quaerat suscipit. Quia doloribus odio ad placeat et facilis ea.', 'Nihil aliquam fugiat quos aliquam nihil neque eaque. Molestias qui saepe sit recusandae.', 831, 821, 0, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, 'upsized-freshthinking-analyzer293-172891076979Rnz', 32, 0, NULL, 'Up-sized fresh-thinking analyzer-293', 'product,demo', NULL, 1, 0, 1, '2024-10-14 12:59:29', NULL),
@@ -3800,7 +3810,7 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `unit_i
 (4932, 2466, '69.png', 3, NULL, 17, 239, 3, 7, 1000, 648, 638, 3, 1, '2024-10-14 12:59:14', '2024-10-14 12:59:14'),
 (4933, 2468, '64.png', 23, NULL, 17, 166, 3, 1, 1000, 124, 114, 8, 3, '2024-10-14 12:59:14', '2024-10-14 12:59:14'),
 (4934, 2468, '62.png', 26, NULL, 20, 166, 3, 1, 1000, 124, 114, 8, 3, '2024-10-14 12:59:14', '2024-10-14 12:59:14'),
-(4935, 2468, '69.png', 21, NULL, 18, 166, 3, 1, 1000, 124, 114, 8, 3, '2024-10-14 12:59:14', '2024-10-14 12:59:14'),
+(4935, 2468, '69.png', 21, NULL, 18, 166, 3, 1, 999, 124, 114, 8, 3, '2024-10-14 12:59:14', '2024-10-14 12:59:14'),
 (4936, 2468, '45.png', 16, NULL, 17, 166, 3, 1, 1000, 124, 114, 8, 3, '2024-10-14 12:59:14', '2024-10-14 12:59:14'),
 (4937, 2470, '62.png', 29, NULL, 19, 22, 4, 1, 1000, 375, 365, 7, 7, '2024-10-14 12:59:14', '2024-10-14 12:59:14'),
 (4938, 2470, '64.png', 7, NULL, 17, 22, 4, 1, 1000, 375, 365, 7, 7, '2024-10-14 12:59:14', '2024-10-14 12:59:14'),
@@ -4180,7 +4190,7 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `unit_i
 (5311, 2656, '73.png', 16, NULL, 18, 229, 4, 4, 1000, 145, 135, 8, 6, '2024-10-14 12:59:26', '2024-10-14 12:59:26'),
 (5312, 2656, '67.png', 24, NULL, 19, 229, 4, 4, 1000, 145, 135, 8, 6, '2024-10-14 12:59:26', '2024-10-14 12:59:26'),
 (5313, 2658, '72.png', 28, NULL, 17, 208, 1, 1, 1000, 625, 615, 2, 3, '2024-10-14 12:59:26', '2024-10-14 12:59:26'),
-(5314, 2658, '58.png', 25, NULL, 19, 208, 1, 1, 1000, 625, 615, 2, 3, '2024-10-14 12:59:26', '2024-10-14 12:59:26'),
+(5314, 2658, '58.png', 25, NULL, 19, 208, 1, 1, 999, 625, 615, 2, 3, '2024-10-14 12:59:26', '2024-10-14 12:59:26'),
 (5315, 2658, '45.png', 23, NULL, 20, 208, 1, 1, 1000, 625, 615, 2, 3, '2024-10-14 12:59:26', '2024-10-14 12:59:26'),
 (5316, 2658, '46.png', 23, NULL, 17, 208, 1, 1, 1000, 625, 615, 2, 3, '2024-10-14 12:59:26', '2024-10-14 12:59:26'),
 (5317, 2660, '60.png', 5, NULL, 19, 179, 3, 10, 1000, 315, 305, 7, 4, '2024-10-14 12:59:26', '2024-10-14 12:59:26'),
@@ -4354,6 +4364,13 @@ CREATE TABLE `promo_codes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `promo_codes`
+--
+
+INSERT INTO `promo_codes` (`id`, `icon`, `title`, `description`, `code`, `effective_date`, `expire_date`, `type`, `value`, `minimum_order_amount`, `slug`, `status`, `created_at`, `updated_at`) VALUES
+(10, NULL, '10 Taka OFF', NULL, 'OFF10', '2024-10-25', '2024-10-31', 1, 20, 1000, '5PZwm1730027581', 1, '2024-10-27 11:13:01', '2024-10-27 11:16:46');
+
 -- --------------------------------------------------------
 
 --
@@ -4398,34 +4415,8 @@ CREATE TABLE `shipping_infos` (
 --
 
 INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `gender`, `address`, `thana`, `post_code`, `city`, `country`, `created_at`, `updated_at`) VALUES
-(31, 37, 'Rabeya Islam', '01922813163', 'arif.fejmo@gmail.com', NULL, '24 North Brook Hall Road, Banglabazar', 'Kotwali', '1100', 'Dhaka', 'Bangladesh', '2024-04-01 12:19:43', NULL),
-(32, 38, 'Ishan Chowdhury', '01755541402', 'digitalmarketing.fejmo@gmail.com', NULL, 'House  2 Road 21 Sector 7', 'Uttara', NULL, 'Dhaka', 'Bangladesh', '2024-04-01 12:38:53', NULL),
-(33, 39, 'Mejbauddin Shuvo', '01712712674', 'arifhossainmu@gmail.com', NULL, 'House no -17, Road no-17, Nikunjo-2', 'Khilkhet', NULL, 'Dhaka', 'Bangladesh', '2024-04-03 05:38:21', NULL),
-(34, 40, 'Sheikh Anamika', '01715006251', 'arif.munna24@gmail.com', NULL, 'house 19,  road number 7, Ghulshan 1', 'Gulshan', NULL, 'Dhaka', 'Bangladesh', '2024-04-03 06:35:01', NULL),
-(35, 41, 'Farjana', '01679222331', 'farjana10000@gmail.com', NULL, 'Cha/9 uttar badda gulshan dhaka 1212', 'Badda', '1212', 'Dhaka', 'Bangladesh', '2024-04-06 05:27:22', NULL),
-(36, 42, 'Farjana', '01679222331', 'farjana10000@gmail.com', NULL, 'Cha/9 uttar badda gulshan dhaka 1212', 'Badda', '1212', 'Dhaka', 'Bangladesh', '2024-04-06 05:30:10', NULL),
-(37, 43, 'Test Order', '01674778685', 'arif.fejmo@gmail.com', NULL, 'Test Address', 'Adabor', '1200', 'Dhaka', 'Bangladesh', '2024-04-20 09:42:27', NULL),
-(38, 44, 'Ridoy Khan', '01580794109', 'arif.fejmo@gmail.com', NULL, 'Sheuly Commercial Agency, 10, Shyamoli,  Cinema Hall Market (Ground Floor) Mohammadpur Dhaka 1207', 'Mohammadpur', NULL, 'Dhaka', 'Bangladesh', '2024-04-21 03:39:20', NULL),
-(39, 45, 'sabikun Auditi', '01683241578', 'sabikunauditi1994@gmail.com', NULL, 'Flat:6/B,Lift :6,  House No: 537/3/A, ECB chottor, (Beside BJ Tower), Matikata, Dhaka Cantonment', 'Cantonment', NULL, 'Dhaka', 'Bangladesh', '2024-04-22 16:27:04', NULL),
-(42, 48, 'test', '0170799', 'test@gmail.com', NULL, 'road - 2', 'Gulshan', '1212', 'Dhaka', 'Bangladesh', '2024-05-20 03:41:15', NULL),
-(43, 49, 'test', '0170799', 'test@gmail.com', NULL, 'road - 2', 'Gulshan', '1212', 'Dhaka', 'Bangladesh', '2024-05-20 04:32:59', NULL),
-(44, 50, 'test', '0170799', 'test@gmail.com', NULL, 'road - 2', 'Gulshan', '1212', 'Dhaka', 'Bangladesh', '2024-05-20 13:22:52', NULL),
-(45, 51, 'yh', '017758869377', 'tgrdt@gmail.com', NULL, '12u', 'Bandarban Sadar', '1212', 'Bandarban', 'Bangladesh', '2024-05-22 05:07:11', NULL),
-(46, 52, 'asda', '01554879963', 'dasd@gmail.com', NULL, 'ROAD-7, BLOCK-H, BANANI', 'Bandarban Sadar', '1213', 'Bandarban', 'Bangladesh', '2024-05-22 05:09:36', NULL),
-(47, 53, 'sd', 'sds', 'sd@gmail.com', NULL, '12u', 'Bagerhat Sadar', NULL, 'Bagerhat', 'Bangladesh', '2024-05-30 13:55:41', NULL),
-(48, 54, 'yh', '5745', 'tgrdt@gmail.com', NULL, '12u', 'Alikadam', NULL, 'Bandarban', 'Bangladesh', '2024-05-30 13:57:11', NULL),
-(49, 55, 'Joyanti Akash', '01813386675', 'akashbarua@gmail.com', NULL, 'Mohajanpara, Khagrachhari', 'Khagrachhari Sadar', '4400', 'Khagrachhari', 'Bangladesh', '2024-06-02 11:03:25', NULL),
-(50, 56, 'Re Rayhan Raj', '01912119584', 'rayhan88@gmail.com', NULL, 'Sonarbangla road sonadanga khulna', 'Botiaghata', '9100', 'Khulna', 'Bangladesh', '2024-06-02 15:04:23', NULL),
-(51, 57, 'Nusrat jahan puspa', '01614553554', 'nusratpuspa4@gmail.com', NULL, 'Uttarkhan mastarpara shahi musjid road', 'Uttarkhan', NULL, 'Dhaka', 'Bangladesh', '2024-06-06 07:19:08', NULL),
-(52, 58, 'Bithi', '01739561698', 'bbithi094@gmail.com', NULL, 'Badda Aftabnagar block d house 6 road 4 sector 2', 'Badda', NULL, 'Dhaka', 'Bangladesh', '2024-07-01 06:08:07', NULL),
-(53, 59, 'Rayhan', '01626317700', 'mdrayhanbapari02@gmail.com', NULL, 'Dhaka', 'Gulshan', '1212', 'Dhaka', 'Bangladesh', '2024-07-02 07:01:30', NULL),
-(54, 60, 'Omi Khan', '+8801320397381', 'mahinrashid499@gmail.com', NULL, 'K75 road 20 main road dakhin banasree', 'Rampura', '1215', 'Dhaka', 'Bangladesh', '2024-07-05 18:01:41', NULL),
-(55, 61, 'Tahasina Tasmin', '01787849282', 'tahasina.tasmin@gmail.com', NULL, 'H-24/26, rd-7,sec-11', 'Uttara', '1230', 'Dhaka', 'Bangladesh', '2024-07-10 05:11:57', NULL),
-(56, 62, 'Tasnuba Zara', '01680440537', 'tasnubazara98@gmail.com', NULL, 'Sector 11 Road 10/b house no 06', 'Uttara', '1203', 'Dhaka', 'Bangladesh', '2024-07-12 17:50:31', NULL),
-(57, 65, 'Dr. Fahim', '01969005035', 'alifhossain174@gmail.com', NULL, 'Rajshahi', 'Boalia Thana', NULL, 'Rajshahi', 'Bangladesh', '2024-08-03 06:16:53', NULL),
-(58, 1, 'Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'Khilkhet Noyanagar', 'Banaripara', NULL, 'Barisal', 'Bangladesh', '2024-08-25 21:56:21', NULL),
-(59, 2, 'Erasmus Gonzales', '+1 (916) 842-3959', 'wepavoh@mailinator.com', NULL, 'Nobis in dolor ut fa', 'Bandarban Sadar', 'Velit corporis volup', 'Bandarban', 'Bangladesh', '2024-09-30 14:00:46', NULL),
-(60, 3, 'Nerea Mccarthy', '01969005035', 'tybifah@mailinator.com', NULL, 'Getup Ltd.', 'Fakirhat', NULL, 'Bagerhat', 'Bangladesh', '2024-10-09 22:41:46', NULL);
+(1, 1, 'Olga Flowers', '01969005035', 'alifhossain174@gmail.com', NULL, 'Seroil Masjid', 'Boalia Thana', '6100', 'Rajshahi', 'Bangladesh', '2024-10-27 18:46:09', NULL),
+(2, 2, 'Olga Flowers', '01969005035', 'alifhossain174@gmail.com', NULL, 'Seroil Masjid', 'Boalia Thana', '6100', 'Rajshahi', 'Bangladesh', '2024-10-27 18:50:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -4652,6 +4643,13 @@ CREATE TABLE `subscribed_users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `subscribed_users`
+--
+
+INSERT INTO `subscribed_users` (`id`, `email`, `created_at`, `updated_at`) VALUES
+(1, 'alifhossain174@gmail.com', '2024-10-27 18:34:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -9934,7 +9932,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Admin', '01969005035', 'admin@gmail.com', '2024-03-02 08:18:31', '320215', '$2y$12$oHWN0HLlomKGtI9bp503POf.uujhNJmq6bS3M8f3u0PAcrHZYLzEq', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-03-28 10:20:00', '2024-04-25 07:52:00'),
 (17, NULL, 'Delilah Manning', '+1 (816) 469-7934', 'sosako7271@chysir.com', '2024-10-16 14:06:35', '848882', '$2y$12$Xx2dWLRND1rlz6gKpCMyXOrgj2lDtNQVrgD/Y4ZWxMSqPl3jT4Y5G', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-10-16 14:06:11', '2024-10-16 20:50:03'),
-(18, NULL, 'Md Fahim Hossain', NULL, 'alifhossain174@gmail.com', '2024-10-16 14:40:56', '267791', '$2y$12$zKSwoEohaozqpfNKKWW0AO6J4gFu/apGH5.nPE.b7jlsF6fhZQFZy', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-16 14:37:20', '2024-10-16 14:40:56');
+(18, NULL, 'Md Fahim Hossain', NULL, 'alifhossain164@gmail.com', '2024-10-16 14:40:56', '267791', '$2y$12$zKSwoEohaozqpfNKKWW0AO6J4gFu/apGH5.nPE.b7jlsF6fhZQFZy', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-16 14:37:20', '2024-10-16 14:40:56'),
+(19, NULL, 'Fahad Hossain', '01969887744', 'fahad@gmail.com', '2024-10-26 20:50:04', '0', '$2y$10$CRJPxYEEPt2ifmjDElTFj.XzA/75K3258c4iys7GxHbhIQ2TTcjAu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-26 20:50:04', NULL),
+(20, NULL, 'Olga Flowers', '+1 (979) 759-1711', 'alifhossain174@gmail.com', '2024-10-26 20:51:56', '0', '$2y$10$yYHz5hUa7.kqbq/TUdFTCeV033JeeGLLn72DtTltjchAEZu7svaNa', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-26 20:51:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -9968,7 +9968,9 @@ INSERT INTO `user_addresses` (`id`, `user_id`, `address_type`, `name`, `address`
 (30, 85, 'Home', 'Alif Hossain', 'Flat No: B4, House No: 71 Road No: 27, Dhaka 1212', 'Bangladesh', 'Dhaka', 'Gulshan', NULL, '01969005035', 'h6Hhz1719910754', '2024-07-02 08:59:14', NULL),
 (31, 87, 'Home', 'Jessica Silva', 'Khilkhet Noyanagar', 'Bangladesh', 'Dhaka', 'Airport Thana', NULL, '01722190120', 'e6pf61720028705', '2024-07-03 17:45:05', NULL),
 (34, 76, 'Home', 'Md. Fahim Hossain', 'Noyanagar, Khilkhet', 'Bangladesh', 'Dhaka', 'Airport Thana', '12323', '01969005035', 'JdLIi1720899449', '2024-07-13 19:37:29', NULL),
-(36, 14, 'Home', 'Nerea Mccarthy', 'Getup Ltd.', 'Bangladesh', 'Bagerhat', 'Fakirhat', NULL, '01969005035', 'gReNE1728513706', '2024-10-09 22:41:46', NULL);
+(36, 14, 'Home', 'Nerea Mccarthy', 'Getup Ltd.', 'Bangladesh', 'Bagerhat', 'Fakirhat', NULL, '01969005035', 'gReNE1728513706', '2024-10-09 22:41:46', NULL),
+(39, 20, 'Home', 'Olga Flowers', 'Seroil Masjid', 'Bangladesh', 'Rajshahi', 'Boalia Thana', '6100', '01874778822', '1730036869685739', '2024-10-27 13:47:49', NULL),
+(40, 20, 'Office', 'Olga Flowers', 'Flat B4, House No 71, Road 27, Gulshan-1, Dhaka-1212', 'Bangladesh', 'Dhaka', 'Gulshan', '1006', '01787854785', '1730047994225680', '2024-10-27 16:53:14', NULL);
 
 -- --------------------------------------------------------
 
@@ -10574,7 +10576,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -10742,25 +10744,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -10838,7 +10840,7 @@ ALTER TABLE `promotional_banners`
 -- AUTO_INCREMENT for table `promo_codes`
 --
 ALTER TABLE `promo_codes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `role_permissions`
@@ -10850,7 +10852,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sims`
@@ -10904,7 +10906,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `subscribed_users`
 --
 ALTER TABLE `subscribed_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `support_messages`
@@ -10952,13 +10954,13 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`
 --
 ALTER TABLE `user_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `user_cards`
