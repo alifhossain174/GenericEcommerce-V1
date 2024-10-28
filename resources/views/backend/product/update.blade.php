@@ -208,7 +208,7 @@
 
                                 <div class="form-group">
                                     <label for="code">Product Code</label>
-                                    <input type="text" id="code" name="code" class="form-control" value="{{$product->code}}" placeholder="YYWIW482">
+                                    <input type="text" id="code" name="code" class="form-control" value="{{$product->code}}" placeholder="YYWIW482" required>
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('code')
                                             {{ $message }}
