@@ -112,3 +112,6 @@ ALTER TABLE `banners` ADD `btn_color` VARCHAR(255) NULL DEFAULT NULL AFTER `desc
 
 ==================16.10.2024====================
 ALTER TABLE `custom_pages` ADD `show_in_header` TINYINT(4) NOT NULL DEFAULT '0' AFTER `status`, ADD `show_in_footer` TINYINT(4) NOT NULL DEFAULT '0' AFTER `show_in_header`;
+
+==================28.10.2024====================
+ALTER TABLE `general_infos` ADD `guest_checkout` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '1=>Enable; 0=>Disable' AFTER `crisp_website_id`;

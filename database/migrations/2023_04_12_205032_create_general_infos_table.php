@@ -92,6 +92,7 @@ class CreateGeneralInfosTable extends Migration
             $table->tinyInteger('crisp_chat_status')->default(0)->comment("1=>Active; 0=>Inactive");
             $table->string('crisp_website_id')->nullable();
 
+            $table->tinyInteger('guest_checkout')->default(1)->comment("1=>Enable; 0=>Disable");
             $table->longText('about_us')->nullable();
             $table->timestamps();
         });

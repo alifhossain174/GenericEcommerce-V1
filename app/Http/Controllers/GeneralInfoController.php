@@ -402,4 +402,19 @@ class GeneralInfoController extends Controller
         Toastr::success('Crisp Chat Info Updated', 'Success');
         return back();
     }
+
+    public function changeGuestCheckoutStatus(){
+        $info = GeneralInfo::where('id', 1)->first();
+        if($info->guest_checkout == 1){
+            GeneralInfo::where('id', 1)->update([
+                'guest_checkout' => 0
+            ]);
+        } else {
+            GeneralInfo::where('id', 1)->update([
+                'guest_checkout' => 1
+            ]);
+        }
+
+        return response()->json(['success' => 'Saved successfully.']);
+    }
 }

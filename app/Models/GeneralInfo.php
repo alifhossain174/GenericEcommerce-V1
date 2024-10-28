@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class GeneralInfo extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['guest_checkout'];
 }

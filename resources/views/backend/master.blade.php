@@ -2,7 +2,7 @@
 <html lang="en">
 
 @php
-    $generalInfo = DB::table('general_infos')->where('id', 1)->select('logo', 'company_name', 'fav_icon')->first();
+    $generalInfo = DB::table('general_infos')->where('id', 1)->select('logo', 'company_name', 'fav_icon', 'guest_checkout')->first();
 @endphp
 
 <head>
@@ -95,6 +95,9 @@
                     <div class="d-flex align-items-center">
 
                         <div class="dropdown d-inline-block ml-2">
+                            <label class="btn text-white rounded mr-2 mb-0" style="cursor:pointer; background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);">
+                                <input type="checkbox" id="guest_checkout" onchange="guestCheckout()" @if($generalInfo->guest_checkout == 1) checked @endif> Guest Checkout
+                            </label>
                             <a href="{{ url('/create/new/order') }}" class="btn text-white rounded mr-2" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-cart-arrow-down fa-fw"></i> POS</a>
                             <a href="{{env('APP_FRONTEND_URL')}}" target="_blank" class="btn text-white rounded" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-paper-plane"></i> Visit Website</a>
                         </div>
@@ -225,6 +228,18 @@
                 localStorage.setItem('scroll_nav', 0);
             }
         });
+
+        function guestCheckout(){
+            $.get("{{ url('change/guest/checkout/status') }}", function (data) {
+                const checkbox = document.getElementById("guest_checkout");
+                if (checkbox.checked) {
+                    toastr.success("Guest Checkout has Enabled");
+                } else {
+                    console.log("Checkbox is not checked.");
+                    toastr.error("Guest Checkout has Disabled");
+                }
+            })
+        }
     </script>
 
     @yield('footer_js')
