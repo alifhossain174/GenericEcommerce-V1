@@ -261,6 +261,13 @@ class PosController extends Controller
                 $discount = ($subTotal*$couponInfo->value)/100;
             }
 
+            if($discount > $subTotal){
+                return response()->json([
+                    'status' => 0,
+                    'message' => "Discount Cannot be greater than Order Amount"
+                ]);
+            }
+
             session([
                 'coupon' => $couponCode,
                 'pos_discount' => $discount
@@ -299,7 +306,6 @@ class PosController extends Controller
     }
 
     public function updateOrderTotal($shipping_charge, $discount){
-
         $shipping_charge = is_numeric($shipping_charge) ? $shipping_charge : 0;
         $discount = is_numeric($discount) ? $discount : 0;
 

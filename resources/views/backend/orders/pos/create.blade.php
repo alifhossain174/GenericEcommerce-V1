@@ -574,13 +574,18 @@
                 discount = 0;
             }
 
-            $.get("{{ url('update/order/total') }}" + '/' + shippingCharge + '/' + discount, function(data) {
-                var priceInputField = document.getElementById("subtotal");
-                var currentPrice = parseFloat(priceInputField.value);
-                if (isNaN(currentPrice)) {
-                    currentPrice = 0;
-                }
+            var priceInputField = document.getElementById("subtotal");
+            var currentPrice = parseFloat(priceInputField.value);
+            if (isNaN(currentPrice)) {
+                currentPrice = 0;
+            }
 
+            if(discount > currentPrice){
+                toastr.error("Discount cannot be greater than Order Amount");
+                return false;
+            }
+
+            $.get("{{ url('update/order/total') }}" + '/' + shippingCharge + '/' + discount, function(data) {
                 var newPrice = (currentPrice + shippingCharge) - discount;
                 var totalPriceDiv = document.getElementById("total_cart_calculation");
                 totalPriceDiv.innerText = '৳ ' + newPrice.toLocaleString("en-BD", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
