@@ -279,9 +279,6 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
 
     // order routes
     Route::get('/view/orders', [OrderController::class, 'viewAllOrders'])->name('ViewAllOrders');
-    Route::get('/view/delivered/orders', [OrderController::class, 'viewDeliveredOrders'])->name('ViewDeliveredOrders');
-    Route::get('/view/cancelled/orders', [OrderController::class, 'viewCancelledOrders'])->name('ViewCancelledOrders');
-
     Route::get('/order/details/{slug}', [OrderController::class, 'orderDetails'])->name('OrderDetails');
     Route::get('/cancel/order/{slug}', [OrderController::class, 'cancelOrder'])->name('CancelOrder');
     Route::get('/approve/order/{slug}', [OrderController::class, 'approveOrder'])->name('ApproveOrder');

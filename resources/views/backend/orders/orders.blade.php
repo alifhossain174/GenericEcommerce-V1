@@ -78,6 +78,14 @@
             $parameter = "?status=approved";
             $pageTitle = "Approved Orders";
         }
+        if($request->status == 'delivered'){
+            $parameter = "?status=delivered";
+            $pageTitle = "Delivered Orders";
+        }
+        if($request->status == 'cancelled'){
+            $parameter = "?status=cancelled";
+            $pageTitle = "Cancelled Orders";
+        }
     }
 @endphp
 

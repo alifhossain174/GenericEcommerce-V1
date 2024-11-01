@@ -41,8 +41,6 @@
     $orderModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
                                                 ->where('route', 'like', '%create/new/order%')
                                                 ->where('route', 'like', '%view/orders%')
-                                                ->orWhere('route', 'like', '%view/delivered/orders%')
-                                                ->orWhere('route', 'like', '%view/cancelled/orders%')
                                                 ->get();
 
     $promoCodeModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%add/new/code%')->orWhere('route', 'like', '%view/all/promo/codes%')->get();
@@ -280,7 +278,7 @@
 
     @if ($orderModule && count($orderModule) > 0)
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-list"></i><span>Manage Orders</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="feather-shopping-cart"></i><span>Manage Orders</span></a>
         <ul class="sub-menu" aria-expanded="false">
             @if(checkAuth("create/new/order")) <li><a style="color: white !important;" href="{{ url('/create/new/order') }}">Create Order</a></li> @endif
 
@@ -297,29 +295,19 @@
             </li>
             <li @if(request()->query('status') == 'approved') class="mm-active" @endif>
                 <a @if(request()->query('status') == 'approved') class="active" @endif style="color: wheat !important;" href="{{ url('/view/orders') }}?status=approved">
-                    Approved Orders ({{DB::table('orders')->where('order_status', 1)->count()}})
+                    Approved Orders ({{DB::table('orders')->where('order_status', 1)->orWhere('order_status', 2)->count()}})
                 </a>
             </li>
-            @endif
-
-            @if(checkAuth("view/delivered/orders"))
-            <li><a style="color: #0c0 !important;"
-                    href="{{ url('/view/delivered/orders') }}">Delivered Orders
-                    (@php
-                        echo DB::table('orders')
-                            ->where('order_status', 3)
-                            ->count();
-                    @endphp)</a>
+            <li @if(request()->query('status') == 'delivered') class="mm-active" @endif>
+                <a @if(request()->query('status') == 'delivered') class="active" @endif style="color: #0c0 !important;" href="{{ url('/view/orders') }}?status=delivered">
+                    Delivered Orders ({{DB::table('orders')->where('order_status', 3)->count()}})
+                </a>
             </li>
-            @endif
-            @if(checkAuth("view/cancelled/orders"))
-            <li><a style="color: red !important;"
-                    href="{{ url('/view/cancelled/orders') }}">Cancelled Orders
-                    (@php
-                        echo DB::table('orders')
-                            ->where('order_status', 4)
-                            ->count();
-                    @endphp)</a></li>
+            <li @if(request()->query('status') == 'cancelled') class="mm-active" @endif>
+                <a @if(request()->query('status') == 'cancelled') class="active" @endif style="color: red !important;" href="{{ url('/view/orders') }}?status=cancelled">
+                    Cancelled Orders ({{DB::table('orders')->where('order_status', 4)->count()}})
+                </a>
+            </li>
             @endif
         </ul>
     </li>
