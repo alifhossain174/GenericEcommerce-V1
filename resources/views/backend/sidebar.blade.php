@@ -17,15 +17,15 @@
     @if(env('BUYSELL_Module') == true)
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">BuySell Modules</li>
-    <li><a href="{{ url('/buy/sell/config') }}"><i class="feather-grid"></i><span>Buy Sell Config</span></a></li>
+    <li><a href="{{ url('/buy/sell/config') }}"><i class="fas fa-business-time"></i><span>Buy Sell Config</span></a></li>
     <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-grid"></i><span>Buy Sell Categories</span></a>
+        <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-columns"></i><span>Buy Sell Categories</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/create/buy/sell/category') }}">Create New</a></li>
             <li><a href="{{ url('/view/buy/sell/categories') }}">View All Categories</a></li>
         </ul>
     </li>
-    <li><a href="{{ url('/buy/sell/listing') }}"><i class="feather-grid"></i><span>Buy Sell Listing</span></a></li>
+    <li><a href="{{ url('/buy/sell/listing') }}"><i class="fas fa-list"></i><span>Buy Sell Listing</span></a></li>
     @endif
 
 

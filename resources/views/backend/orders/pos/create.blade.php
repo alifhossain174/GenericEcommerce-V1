@@ -152,13 +152,13 @@
 
                             <div class="mt-3">
                                 <div class="custom-control custom-radio mb-2">
-                                    <input type="radio" id="store_pickup" name="delivery_method" value="1" class="custom-control-input" required style="cursor: pointer"/>
+                                    <input type="radio" id="store_pickup" name="delivery_method" onchange="changeOfDeliveryMetod(1)" value="1" class="custom-control-input" required style="cursor: pointer"/>
                                     <label class="custom-control-label" for="store_pickup" style="cursor: pointer">
                                         Store Pickup
                                     </label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" id="home_delivery" name="delivery_method" value="2" class="custom-control-input" required style="cursor: pointer"/>
+                                    <input type="radio" id="home_delivery" name="delivery_method" onchange="changeOfDeliveryMetod(2)" value="2" class="custom-control-input" required style="cursor: pointer"/>
                                     <label class="custom-control-label" for="home_delivery" style="cursor: pointer">
                                         Home Delivery
                                     </label>
@@ -169,7 +169,7 @@
                         <div class="mt-4">
                             <h4 class="mb-3">Order Note</h4>
                             <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="special_note" rows="3" placeholder="Enter Note"></textarea>
+                                <textarea class="form-control" name="special_note" rows="3" placeholder="Enter Note"></textarea>
                             </div>
                         </div>
 
@@ -265,6 +265,31 @@
             }
         });
 
+        function changeOfDeliveryMetod(value){
+
+            var formData = new FormData();
+            formData.append("delivery_method", value);
+            formData.append("shipping_district_id", $("#shipping_district_id").val());
+
+            $.ajax({
+                data: formData,
+                url: "{{ url('change/delivery/method') }}",
+                type: "POST",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    $('.cart_calculation').html(data.cart_calculation);
+                },
+                error: function(data) {
+                    toastr.options.positionClass = 'toast-bottom-right';
+                    toastr.options.timeOut = 1000;
+                    toastr.error("Something Went Wrong");
+                }
+            });
+
+        }
+
         function applySavedAddress(slug) {
             // fetching the values
             var name = $("#saved_address_name_" + slug).val();
@@ -295,27 +320,42 @@
                 var shippingThana = $("#shipping_thana_id").val();
                 var shppingPostalCode = $("#shipping_postal_code").val();
 
+                if(shppingName == '' || shppingName == null){
+                    toastr.options.positionClass = 'toast-bottom-right';
+                    toastr.options.timeOut = 1000;
+                    toastr.error("Please Write Shipping Customer Name");
+                    $("#flexCheckChecked").prop("checked", false);
+                    return false;
+                }
+                if(shppingPhone == '' || shppingPhone == null){
+                    toastr.options.positionClass = 'toast-bottom-right';
+                    toastr.options.timeOut = 1000;
+                    toastr.error("Please Write Shipping Customer Phone");
+                    $("#flexCheckChecked").prop("checked", false);
+                    return false;
+                }
                 if(shppingAdress == '' || shppingAdress == null){
                     toastr.options.positionClass = 'toast-bottom-right';
                     toastr.options.timeOut = 1000;
                     toastr.error("Please Write Shipping Address");
+                    $("#flexCheckChecked").prop("checked", false);
                     return false;
                 }
                 if(!shppingDistrict || shppingDistrict == "" || shppingDistrict == null){
                     toastr.options.positionClass = 'toast-bottom-right';
                     toastr.options.timeOut = 1000;
                     toastr.error("Please Select Shipping District");
+                    $("#flexCheckChecked").prop("checked", false);
                     return false;
                 }
                 if(shippingThana == '' || shippingThana == null){
                     toastr.options.positionClass = 'toast-bottom-right';
                     toastr.options.timeOut = 1000;
                     toastr.error("Please Select Shipping Thana");
+                    $("#flexCheckChecked").prop("checked", false);
                     return false;
                 }
 
-                $("#billing_name").val(shppingName);
-                $("#billing_phone").val(shppingPhone);
                 $("#billing_address").val(shppingAdress);
                 $("#billing_district_id").val(shppingDistrict).change();
                 $("#billing_postal_code").val(shppingPostalCode);
@@ -554,6 +594,7 @@
                     } else {
                         toastr.success(data.message);
                         $('.cart_calculation').html(data.cart_calculation);
+                        $("input[name='delivery_method']").prop("checked", false);
                     }
                 },
                 error: function(data) {
@@ -589,6 +630,7 @@
                 var newPrice = (currentPrice + shippingCharge) - discount;
                 var totalPriceDiv = document.getElementById("total_cart_calculation");
                 totalPriceDiv.innerText = '৳ ' + newPrice.toLocaleString("en-BD", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                $("input[name='delivery_method']").prop("checked", false);
             });
 
         }
@@ -615,6 +657,7 @@
                                 .id + '">' + value.name + '</option>');
                         });
                         $('.cart_calculation').html(result.cart_calculation);
+                        $("input[name='delivery_method']").prop("checked", false);
                     }
                 });
             });

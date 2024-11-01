@@ -8,9 +8,9 @@
                 </td>
             </tr>
             <tr>
-                <th style="width: 30%; line-height: 36px;">Customer Email<span class="text-danger">*</span></th>
+                <th style="width: 30%; line-height: 36px;">Customer Email</th>
                 <td>
-                    <input type="email" name="shipping_email" id="shipping_email" class="form-control" placeholder="Email" required>
+                    <input type="email" name="shipping_email" id="shipping_email" class="form-control" placeholder="Email">
                 </td>
             </tr>
             <tr>

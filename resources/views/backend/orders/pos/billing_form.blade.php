@@ -6,19 +6,7 @@
     <table class="table mb-0">
         <tbody>
             <tr>
-                <th style="width: 30%; line-height: 36px;">Full Name<span class="text-danger">*</span></th>
-                <td>
-                    <input type="text" name="billing_name" id="billing_name" class="form-control" placeholder="Full Name" required>
-                </td>
-            </tr>
-            <tr>
-                <th style="width: 30%; line-height: 36px;">Customer Phone<span class="text-danger">*</span></th>
-                <td>
-                    <input type="text" name="billing_phone" id="billing_phone" class="form-control" placeholder="Phone No" required>
-                </td>
-            </tr>
-            <tr>
-                <th style="width: 30%; line-height: 36px;">Customer Address</th>
+                <th style="width: 30%; line-height: 36px;">Billing Address</th>
                 <td>
                     <input type="text" name="billing_address" id="billing_address" class="form-control" placeholder="Street No/House No/Area">
                 </td>

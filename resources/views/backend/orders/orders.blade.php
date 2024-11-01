@@ -3,31 +3,18 @@
 @section('header_css')
     <link href="{{ url('dataTable') }}/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ url('dataTable') }}/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
     <style>
         .dataTables_wrapper .dataTables_paginate .paginate_button{
             padding: 0px;
             border-radius: 4px;
         }
         table.dataTable tbody td:nth-child(1){
+            text-align: center !important;
             font-weight: 600;
         }
         table.dataTable tbody td{
             text-align: center !important;
-        }
-        table.dataTable tbody td:nth-child(6){
-            min-width: 100px !important;
-        }
-        table.dataTable tbody td:nth-child(7){
-            min-width: 80px !important;
-        }
-        table.dataTable tbody td:nth-child(8){
-            min-width: 80px !important;
-        }
-        table.dataTable tbody td:nth-child(9){
-            min-width: 80px !important;
-        }
-        table.dataTable tbody td:nth-child(10){
-            min-width: 100px !important;
         }
         tfoot {
             display: table-header-group !important;
@@ -41,7 +28,7 @@
         }
         .graph_card i{
             position: absolute;
-            top: 18px;
+            top: 50%;
             right: 18px;
             font-size: 18px;
             height: 35px;
@@ -50,8 +37,32 @@
             text-align: center;
             border-radius: 50%;
             font-weight: 300;
+            transform: translateY(-50%);
         }
-
+        .dt-buttons{
+            margin-left: 15px;
+        }
+        button.dt-button{
+            padding: 0.3em 1em !important;
+        }
+        button.buttons-excel, button.buttons-excel:hover{
+            background: #008000db !important;
+            color: white !important;
+            border: 1px solid #129912 !important;
+            border-radius: 4px !important;
+        }
+        button.buttons-pdf, button.buttons-pdf:hover{
+            background: #af0000de !important;
+            color: white !important;
+            border-radius: 4px !important;
+            border-color: #ad0000 !important;
+        }
+        button.buttons-print, button.buttons-print:hover{
+            background: #0087bee0 !important;
+            color: white !important;
+            border-radius: 4px !important;
+            border-color: #007eb2 !important;
+        }
     </style>
 @endsection
 
@@ -64,79 +75,10 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-lg-6 col-xl-3">
-            <div class="card graph_card">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Pending Orders</h6>
-                            <span class="h3 mb-0">
-                                ৳ {{ number_format(DB::table('orders')->where('order_status', 0)->sum('total'), 2) }}
-                            </span>
-                        </div>
-                    </div> <!-- end row -->
-
-                    <div id="sparkline1" class="mt-3"></div>
-                </div> <!-- end card-body-->
-                <i class="feather-shopping-cart" style="color: #c28a00; background: #daa5202e;"></i>
-            </div> <!-- end card-->
-        </div> <!-- end col-->
-
-        <div class="col-lg-6 col-xl-3">
-            <div class="card graph_card">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Approved Orders</h6>
-                            <span class="h3 mb-0">
-                                ৳ {{ number_format(DB::table('orders')->where('order_status', 1)->orWhere('order_status', 2)->sum('total'), 2) }}
-                            </span>
-                        </div>
-                    </div> <!-- end row -->
-                    <div id="sparkline2" class="mt-3"></div>
-                </div> <!-- end card-body-->
-                <i class="feather-trending-up" style="color: #0074E4; background: #0074E42E;"></i>
-            </div> <!-- end card-->
-        </div> <!-- end col-->
-
-        <div class="col-lg-6 col-xl-3">
-            <div class="card graph_card">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Delivered Orders</h6>
-                            <span class="h3 mb-0">
-                                ৳ {{ number_format(DB::table('orders')->where('order_status', 3)->sum('total'), 2) }}
-                            </span>
-                        </div>
-                    </div> <!-- end row -->
-
-                    <div id="sparkline3" class="mt-3"></div>
-                </div> <!-- end card-body-->
-                <i class="feather-package" style="color: #027e02; background: #027e0238;"></i>
-            </div> <!-- end card-->
-        </div> <!-- end col-->
-
-        <div class="col-lg-6 col-xl-3">
-            <div class="card graph_card">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h6 class="text-uppercase font-size-12 text-muted mb-3">Total Cancelled Orders</h6>
-                            <span class="h3 mb-0">
-                                ৳ {{ number_format(DB::table('orders')->where('order_status', 4)->sum('total'), 2) }}
-                            </span>
-                        </div>
-                    </div> <!-- end row -->
-
-                    <div id="sparkline4" class="mt-3"></div>
-                </div> <!-- end card-body-->
-                <i class="feather-trash-2" style="color: #a60000; background: #a6000026;"></i>
-            </div> <!-- end card-->
-        </div> <!-- end col-->
+    <div id="accordion">
+        @include('backend.orders.order_statistics')
+        @include('backend.orders.filter_orders')
     </div>
-
 
     <div class="row">
         <div class="col-lg-12 col-xl-12">
@@ -149,19 +91,27 @@
                                 <tr>
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Order No</th>
-                                    <th class="text-center" style="min-width: 120px !important;">Order Date</th>
+                                    <th class="text-center" style="width: 80px">Order Date</th>
+                                    <th class="text-center">From</th>
                                     <th class="text-center">Name</th>
-                                    <th class="text-center">Email</th>
                                     <th class="text-center">Phone</th>
-                                    <th class="text-center">Status</th>
-                                    <th class="text-center">Payment</th>
                                     <th class="text-center">Total</th>
+                                    <th class="text-center">Payment</th>
+                                    <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="6"></th>
+                                    <th></th>
+                                    <th colspan="2"></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -178,11 +128,30 @@
     <script src="{{ url('dataTable') }}/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('dataTable') }}/js/dataTables.bootstrap4.min.js"></script>
 
+
+    <!-- DataTables Buttons JS -->
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <!-- JSZip (for Excel export) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <!-- PDFMake (for PDF export, optional) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <!-- Buttons for Excel and PDF -->
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+
     <script type="text/javascript">
+        let grandTotal = 0;
         var table = $(".data-table").DataTable({
             processing: true,
             serverSide: true,
             pageLength: 10,
+            lengthMenu: [
+                [10, 25, 50, 100, -1], // Values for entries to show
+                [10, 25, 50, 100, "All"] // Corresponding display options
+            ],
             ajax: "{{ url('view/orders') }}",
             columns: [
                 {
@@ -197,20 +166,62 @@
                     data: 'order_date',
                     name: 'order_date'
                 },
+                {data: 'order_from', name: 'order_from'},
                 {data: 'customer_name', name: 'customer_name'},
-                {data: 'customer_email', name: 'customer_email'},
                 {data: 'customer_phone', name: 'customer_phone'},
                 {
-                    data: 'order_status',
-                    name: 'order_status'
+                    data: 'total',
+                    name: 'total'
                 },
                 {
                     data: 'payment_status',
                     name: 'payment_status'
                 },
-                {data: 'total', name: 'total'},
+                {
+                    data: 'order_status',
+                    name: 'order_status'
+                },
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
+            footerCallback: function(row, data, start, end, display) {
+                var api = this.api();
+
+                // Calculate the page total for the current page
+                var pageTotal = api.column(6, { page: 'current' }).data().reduce(function(a, b) {
+                    return parseFloat(a) + parseFloat(b);
+                }, 0);
+
+                // Update the footer
+                $(api.column(6).footer()).html('Page Total: ' + pageTotal.toFixed(2)); // Display page total
+                // $(api.column(7).footer()).html('Grand Total: ' + $(row).data('grand-total').toFixed(2)); // Display grand total from server
+            },
+            dom: 'lBfrtip', // Include 'l' for length changing input (Show Entries)
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    title: 'Orders Data',
+                    text: '<i class="far fa-file-excel"></i> Excel',
+                    exportOptions: {
+                        columns: ':visible' // Export only visible columns
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    title: 'Orders Data',
+                    text: '<i class="far fa-file-pdf"></i> PDF',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'print',
+                    title: 'Orders Data',
+                    text: '<i class="fas fa-print"></i> Print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }
+            ]
         });
     </script>
 

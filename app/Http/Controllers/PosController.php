@@ -359,6 +359,27 @@ class PosController extends Controller
         ]);
     }
 
+    public function changeDeliveryMethod(Request $request){
+        if($request->delivery_method == 1){
+            session(['shipping_charge' => 0]);
+            $cartCalculationHTML = view('backend.orders.pos.cart_calculation')->render();
+            return response()->json([
+                'cart_calculation' => $cartCalculationHTML
+            ]);
+        } else {
+            $districtWiseDeliveryCharge = 0;
+            $districtInfo = DB::table('districts')->where('id', $request->shipping_district_id)->first();
+            if($districtInfo){
+                $districtWiseDeliveryCharge = $districtInfo->delivery_charge;
+            }
+            session(['shipping_charge' => $districtWiseDeliveryCharge]);
+            $cartCalculationHTML = view('backend.orders.pos.cart_calculation')->render();
+            return response()->json([
+                'cart_calculation' => $cartCalculationHTML
+            ]);
+        }
+    }
+
     public function saveCustomerAddress(Request $request){
         UserAddress::insert([
             'user_id' => $request->customer_id,
@@ -395,10 +416,6 @@ class PosController extends Controller
         $deliveryCost = $request->shipping_charge ? $request->shipping_charge : 0;
         $couponCode = session('coupon') ? session('coupon') : 0;
 
-        if($request->customer_id){
-            $userInfo = User::where('id', $request->customer_id)->first();
-        }
-
         $orderId = DB::table('orders')->insertGetId([
             'order_no' => time().rand(100,999),
             'order_from' => 3, //pos order
@@ -413,7 +430,7 @@ class PosController extends Controller
             'sub_total' => $total,
             'coupon_code' => $couponCode,
             'discount' => $discount,
-            'delivery_fee' => $deliveryCost,
+            'delivery_fee' => $request->delivery_method == 2 ? $deliveryCost : 0,
             'vat' => 0,
             'tax' => 0,
             'total' => $total+$deliveryCost-$discount,
@@ -435,10 +452,11 @@ class PosController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-
+        $totalRewardPointsEarned = 0;
         foreach(session('cart') as $details){
 
             $product = DB::table('products')->where('id', $details['product_id'])->first();
+            $totalRewardPointsEarned = $totalRewardPointsEarned + $product->reward_points;
 
             // decrement the stock
             if($details['color_id'] || $details['size_id']){
@@ -463,6 +481,7 @@ class PosController extends Controller
             DB::table('order_details')->insert([
                 'order_id' => $orderId,
                 'product_id' => $details['product_id'],
+                'store_id' => $product->store_id,
 
                 // VARIANT
                 'color_id' => $details['color_id'],
@@ -482,6 +501,11 @@ class PosController extends Controller
             ]);
         }
 
+        if($request->customer_id && $totalRewardPointsEarned > 0){
+            $userInfo = User::where('id', $request->customer_id)->first();
+            $userInfo->balance = $userInfo->balance + $totalRewardPointsEarned;
+            $userInfo->ave();
+        }
 
         $shippingDistrictInfo = DB::table('districts')->where('id', $request->shipping_district_id)->first();
         $shippingThanaInfo = DB::table('upazilas')->where('id', $request->shipping_thana_id)->first();
@@ -512,7 +536,7 @@ class PosController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        if(!DB::table('subscribed_users')->where('email', $request->shipping_email)->exists()){
+        if($request->shipping_email && !DB::table('subscribed_users')->where('email', $request->shipping_email)->exists()){
             DB::table('subscribed_users')->insert([
                 'email' => $request->shipping_email,
                 'created_at' => Carbon::now()
@@ -541,7 +565,7 @@ class PosController extends Controller
 
 
         // sending order sms start
-        if($request->shipping_phone){
+        if($request->shipping_phone && env('APP_ENV') != 'local'){
 
             $orderSmsString = "Dear Customer, Your Order #".$orderInfo->order_no." placed successfully at ".env('APP_NAME').". Total amount: ".$orderInfo->total."TK. Expected delivery within 3-7 days.";
 
@@ -581,7 +605,7 @@ class PosController extends Controller
             $emailConfig = DB::table('email_configures')->where('status', 1)->orderBy('id', 'desc')->first();
             $userEmail = $request->shipping_email;
 
-            if($emailConfig && $userEmail){
+            if($emailConfig && $userEmail && env('APP_ENV') != 'local'){
                 $decryption = "";
                 if($emailConfig){
 

@@ -24,11 +24,21 @@ class OrderController extends Controller
 
             $data = DB::table('orders')
                         ->leftJoin('shipping_infos', 'shipping_infos.order_id', '=', 'orders.id')
-                        ->select('orders.*', 'shipping_infos.full_name as customer_name', 'shipping_infos.email as customer_email', 'shipping_infos.phone as customer_phone')
+                        ->select('orders.*', 'shipping_infos.full_name as customer_name', 'shipping_infos.phone as customer_phone')
                         ->orderBy('id', 'desc')
                         ->get();
 
+            // $grandTotal = $data->sum('total');
+
             return Datatables::of($data)
+                    ->editColumn('order_from', function($data) {
+                        if($data->order_from == 1)
+                            return "Web";
+                        elseif($data->order_from == 2)
+                            return "App";
+                        else
+                            return "POS";
+                    })
                     ->editColumn('order_status', function($data) {
                         if($data->order_status == 0){
                             return '<span class="alert alert-warning" style="padding: 2px 10px !important;">Pending</span>';
@@ -64,38 +74,38 @@ class OrderController extends Controller
                             return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Failed</span>';
                         }
                     })
-                    ->editColumn('total', function($data) {
-                        return "৳ ". number_format($data->total, 2);
-                    })
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
 
-                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="d-inline-block btn-sm btn-info rounded"><i class="fas fa-list-ul"></i></a>';
+                        $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="d-inline-block btn-sm btn-info rounded mb-1"><i class="fas fa-list-ul"></i></a>';
 
                         if($data->order_status == 0){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Cancel" class="d-inline-block btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="d-inline-block btn-sm btn-success rounded approveBtn"><i class="fas fa-check"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Cancel" class="d-inline-block mb-1 btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="d-inline-block mb-1 btn-sm btn-success rounded approveBtn"><i class="fas fa-check"></i></a>';
                         }
 
                         if($data->order_status == 1){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Cancel" class="d-inline-block btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="d-inline-block btn-sm btn-success rounded intransitBtn"><i class="fas fa-check"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Cancel" class="d-inline-block mb-1 btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve" data-id="'.$data->slug.'" data-original-title="Check" class="d-inline-block mb-1 btn-sm btn-success rounded intransitBtn"><i class="fas fa-check"></i></a>';
                         }
 
                         if($data->order_status == 2){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Deliver" data-id="'.$data->slug.'" data-original-title="Delivery" class="d-inline-block btn-sm btn-success rounded deliveryBtn"><i class="fas fa-truck"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Deliver" data-id="'.$data->slug.'" data-original-title="Delivery" class="d-inline-block mb-1 btn-sm btn-success rounded deliveryBtn"><i class="fas fa-truck"></i></a>';
                         }
 
                         if(Auth::user()->user_type == 1){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="'.$data->slug.'" data-original-title="Delete" class="d-inline-block mb-1 btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         }
 
                         return $btn;
                     })
                     ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status'])
+                    // ->setRowAttr([
+                    //     'data-grand-total' => $grandTotal, // Pass grand total as a data attribute
+                    // ])
                     ->make(true);
         }
-        return view('backend.orders.all');
+        return view('backend.orders.orders');
     }
 
     public function viewPendigOrders(Request $request){
