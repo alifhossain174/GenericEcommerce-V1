@@ -3,7 +3,7 @@
 @section('header_css')
     <link href="{{ url('dataTable') }}/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ url('dataTable') }}/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <link href="{{ url('dataTable') }}/css/buttons.dataTables.min.css" rel="stylesheet">
     <style>
         .dataTables_wrapper .dataTables_paginate .paginate_button{
             padding: 0px;
@@ -66,17 +66,34 @@
     </style>
 @endsection
 
+@php
+    $pageTitle = "All Orders";
+    $parameter = "";
+    if(isset($request->status)){
+        if($request->status == 'pending'){
+            $parameter = "?status=pending";
+            $pageTitle = "Pending Orders";
+        }
+        if($request->status == 'approved'){
+            $parameter = "?status=approved";
+            $pageTitle = "Approved Orders";
+        }
+    }
+@endphp
+
 @section('page_title')
     Orders
 @endsection
 @section('page_heading')
-    View All Orders
+    View {{$pageTitle}}
 @endsection
 
 @section('content')
 
     <div id="accordion">
-        @include('backend.orders.order_statistics')
+        @if($parameter == "")
+            @include('backend.orders.order_statistics')
+        @endif
         @include('backend.orders.filter_orders')
     </div>
 
@@ -84,7 +101,7 @@
         <div class="col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-3">All Orders</h4>
+                    <h4 class="card-title mb-3">{{$pageTitle}}</h4>
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0 data-table">
                             <thead>
@@ -108,8 +125,7 @@
                                 <tr>
                                     <th colspan="6"></th>
                                     <th></th>
-                                    <th colspan="2"></th>
-                                    <th></th>
+                                    <th colspan="3"></th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -128,19 +144,12 @@
     <script src="{{ url('dataTable') }}/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('dataTable') }}/js/dataTables.bootstrap4.min.js"></script>
 
-
-    <!-- DataTables Buttons JS -->
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-    <!-- JSZip (for Excel export) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <!-- PDFMake (for PDF export, optional) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <!-- Buttons for Excel and PDF -->
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.flash.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-
+    <script src="{{ url('dataTable') }}/js/dataTables.buttons.min.js"></script>
+    <script src="{{ url('dataTable') }}/js/jszip.min.js"></script>
+    <script src="{{ url('dataTable') }}/js/pdfmake.min.js"></script>
+    <script src="{{ url('dataTable') }}/js/vfs_fonts.js"></script>
+    <script src="{{ url('dataTable') }}/js/buttons.html5.min.js"></script>
+    <script src="{{ url('dataTable') }}/js/buttons.print.min.js"></script>
 
     <script type="text/javascript">
         let grandTotal = 0;
@@ -149,10 +158,10 @@
             serverSide: true,
             pageLength: 10,
             lengthMenu: [
-                [10, 25, 50, 100, -1], // Values for entries to show
-                [10, 25, 50, 100, "All"] // Corresponding display options
+                [10, 25, 50, 100, -1],
+                [10, 25, 50, 100, "All"]
             ],
-            ajax: "{{ url('view/orders') }}",
+            ajax: "{{ url('view/orders') }}{{$parameter}}",
             columns: [
                 {
                     data: 'DT_RowIndex',
@@ -161,14 +170,23 @@
                 {
                     data: 'order_no',
                     name: 'order_no'
-                }, //orderable: true, searchable: true
+                },
                 {
                     data: 'order_date',
                     name: 'order_date'
                 },
-                {data: 'order_from', name: 'order_from'},
-                {data: 'customer_name', name: 'customer_name'},
-                {data: 'customer_phone', name: 'customer_phone'},
+                {
+                    data: 'order_from',
+                    name: 'order_from'
+                },
+                {
+                    data: 'customer_name',
+                    name: 'customer_name'
+                },
+                {
+                    data: 'customer_phone',
+                    name: 'customer_phone'
+                },
                 {
                     data: 'total',
                     name: 'total'
@@ -181,19 +199,19 @@
                     data: 'order_status',
                     name: 'order_status'
                 },
-                {data: 'action', name: 'action', orderable: false, searchable: false},
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
             ],
             footerCallback: function(row, data, start, end, display) {
                 var api = this.api();
-
-                // Calculate the page total for the current page
                 var pageTotal = api.column(6, { page: 'current' }).data().reduce(function(a, b) {
                     return parseFloat(a) + parseFloat(b);
                 }, 0);
-
-                // Update the footer
                 $(api.column(6).footer()).html('Page Total: ' + pageTotal.toFixed(2)); // Display page total
-                // $(api.column(7).footer()).html('Grand Total: ' + $(row).data('grand-total').toFixed(2)); // Display grand total from server
             },
             dom: 'lBfrtip', // Include 'l' for length changing input (Show Entries)
             buttons: [
@@ -233,6 +251,12 @@
             }
         });
 
+        function orderEditWarning() {
+            if (!confirm("Warning! Dont Edit Any Order if it is not Necessary")) {
+                return false;
+            }
+        }
+
         $('body').on('click', '.cancelBtn', function () {
             var slug = $(this).data("id");
             if(confirm("Are You sure to Cancel !")){
@@ -259,6 +283,40 @@
                     success: function (data) {
                         table.draw(false);
                         toastr.success("Order has been Approved", "Approved Successfully");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                    }
+                });
+            }
+        });
+
+        $('body').on('click', '.intransitBtn', function () {
+            var slug = $(this).data("id");
+            if(confirm("Are You sure to In Transit !")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('intransit/order') }}"+'/'+slug,
+                    success: function (data) {
+                        table.draw(false);
+                        toastr.success("Order has been Approved", "Approved Successfully");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                    }
+                });
+            }
+        });
+
+        $('body').on('click', '.deliveryBtn', function () {
+            var slug = $(this).data("id");
+            if(confirm("Are You sure to Delivered !")){
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url('deliver/order') }}"+'/'+slug,
+                    success: function (data) {
+                        table.draw(false);
+                        toastr.success("Order has been Delivered", "Delivered Successfully");
                     },
                     error: function (data) {
                         console.log('Error:', data);

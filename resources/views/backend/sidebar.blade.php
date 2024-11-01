@@ -176,22 +176,22 @@
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-list"></i><span>Manage Orders</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a style="color: white !important;" href="{{ url('/create/new/order') }}">Create Order</a>
-            <li><a style="color: white !important;" href="{{ url('/view/orders') }}">All Orders (@php echo DB::table('orders')->count(); @endphp)</a>
+            <li>
+                <a style="color: white !important;" href="{{ url('/view/orders') }}">
+                    All Orders ({{DB::table('orders')->count()}})
+                </a>
             </li>
-            <li><a style="color: skyblue !important;" href="{{ url('/view/pending/orders') }}">Pending Orders
-                    (@php
-                        echo DB::table('orders')
-                            ->where('order_status', 0)
-                            ->count();
-                    @endphp)</a>
+            <li @if(request()->query('status') == 'pending') class="mm-active" @endif>
+                <a @if(request()->query('status') == 'pending') class="active" @endif style="color: skyblue !important;" href="{{ url('/view/orders') }}?status=pending">
+                    Pending Orders ({{DB::table('orders')->where('order_status', 0)->count()}})
+                </a>
             </li>
-            <li><a style="color: wheat !important;" href="{{ url('/view/approved/orders') }}">Approved Orders
-                    (@php
-                        echo DB::table('orders')
-                            ->where('order_status', 1)
-                            ->orWhere('order_status', 2)
-                            ->count();
-                    @endphp)</a></li>
+            <li @if(request()->query('status') == 'approved') class="mm-active" @endif>
+                <a @if(request()->query('status') == 'approved') class="active" @endif style="color: wheat !important;" href="{{ url('/view/orders') }}?status=approved">
+                    Approved Orders ({{DB::table('orders')->where('order_status', 1)->count()}})
+                </a>
+            </li>
+
             <li><a style="color: #0c0 !important;" href="{{ url('/view/delivered/orders') }}">Delivered Orders
                     (@php
                         echo DB::table('orders')
