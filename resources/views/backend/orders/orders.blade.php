@@ -218,10 +218,10 @@
         });
         observer.observe(targetNode, { childList: true, characterData: true, subtree: true });
 
-        let grandTotal = 0;
         var table = $(".data-table").DataTable({
             processing: true,
             serverSide: true,
+            stateSave: true,
             pageLength: 10,
             lengthMenu: [
                 [10, 25, 50, 100, -1],
@@ -238,6 +238,7 @@
                     d.order_no = $("#order_no").val() || "";
                     d.order_from = $("#order_from").val();
                     d.payment_status = $("#payment_status").val();
+                    d.customer_name = $("#customer_name").val();
                     d.customer_phone = $("#customer_phone").val();
                     d.purchase_date_range = $("#selectedValue").text();
                     d.delivery_method = $("#delivery_method").val();
@@ -341,7 +342,11 @@
             $("#order_no").val("");
             $("#order_from").val("");
             $("#payment_status").val("");
+            $("#customer_name").val("");
             $("#customer_phone").val("");
+            $("#order_status").val("");
+            $("#delivery_method").val("");
+            $("#coupon_code").val("");
             $("#selectedValue").text("");
             table.draw(false);
         }

@@ -1,7 +1,7 @@
 <div class="card mb-1">
     <div class="card-header bg-white border-bottom-0 collapsed" style="cursor: pointer;" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="headingTwo">
         <a href="javascript:void(0)" style="position: relative" class="text-dark d-block font-size-15">
-            <i class="feather-filter"></i> Advanced Filters for Orders
+            <i class="feather-filter"></i> Advanced Filters for Products
             <span style="position: absolute; top: 50%; transform:translateY(-50%); right: 20px">&#8595;</span>
         </a>
     </div>
@@ -11,79 +11,84 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="order_no">Order No</label>
-                            <input class="form-control" type="text" id="order_no" onkeyup="filterOrderData()" placeholder="12354698">
+                            <label for="product_code">Product Code</label>
+                            <input class="form-control" type="text" id="product_code" onkeyup="filterProductData()" placeholder="12354698">
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="order_from">Source</label>
-                            <select class="form-control" id="order_from" onchange="filterOrderData()">
+                            <label for="product_name">Product Name</label>
+                            <input class="form-control" type="text" id="product_name" onkeyup="filterProductData()" placeholder="Product Name">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label class="d-block" for="store_id">Vendors</label>
+                            <select class="form-control" id="store_id" data-toggle="select2" onchange="filterProductData()">
                                 <option value="">Select One</option>
-                                <option value="1">Website</option>
-                                <option value="2">Mobile App</option>
-                                <option value="3">POS</option>
+                                @foreach ($stores as $store)
+                                <option value="{{$store->id}}">{{$store->store_name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="payment_status">Payment Status</label>
-                            <select class="form-control" id="payment_status" onchange="filterOrderData()">
+                            <label class="d-block" for="category_id">Categories</label>
+                            <select class="form-control" id="category_id" data-toggle="select2" onchange="filterProductData()">
                                 <option value="">Select One</option>
-                                <option value="0">Unpaid</option>
-                                <option value="1">Paid</option>
+                                @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="customer_name">Customer Name</label>
-                            <input class="form-control" type="text" onkeyup="filterOrderData()" id="customer_name" placeholder="Mr./Mrs.">
+                            <label class="d-block" for="brand_id">Brands</label>
+                            <select class="form-control" id="brand_id" data-toggle="select2" onchange="filterProductData()">
+                                <option value="">Select One</option>
+                                @foreach ($brands as $brand)
+                                <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="customer_phone">Customer Phone</label>
-                            <input class="form-control" type="text" onkeyup="filterOrderData()" id="customer_phone" placeholder="+8801">
+                            <label class="d-block" for="flag_id">Product Flags</label>
+                            <select class="form-control" id="flag_id" data-toggle="select2" onchange="filterProductData()">
+                                <option value="">Select One</option>
+                                @foreach ($flags as $flag)
+                                <option value="{{$flag->id}}">{{$flag->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select class="form-control" onchange="filterProductData()" id="status">
+                                <option value="">Select One</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="has_variant">Variant</label>
+                            <select class="form-control" onchange="filterProductData()" id="has_variant">
+                                <option value="">Select One</option>
+                                <option value="1">Variant Product</option>
+                                <option value="0">No Variant</option>
+                            </select>
                         </div>
                     </div>
 
-                    @if($parameter == "")
-                    <div class="col-lg-2">
-                        <div class="form-group">
-                            <label for="order_status">Order Status</label>
-                            <select class="form-control" onchange="filterOrderData()" id="order_status">
-                                <option value="">Select One</option>
-                                <option value="0">Pending</option>
-                                <option value="1">Approved</option>
-                                <option value="2">In Transit</option>
-                                <option value="3">Delivered</option>
-                                <option value="4">Cancelled</option>
-                            </select>
-                        </div>
-                    </div>
-                    @endif
-
-                    <div class="col-lg-2">
-                        <div class="form-group">
-                            <label for="delivery_method">Delivery Method</label>
-                            <select class="form-control" onchange="filterOrderData()" id="delivery_method">
-                                <option value="">Select One</option>
-                                <option value="1">Home Delivery</option>
-                                <option value="2">Store Pickup</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="form-group">
-                            <label for="coupon_code">Coupon Code</label>
-                            <input class="form-control" type="text" onkeyup="filterOrderData()" id="coupon_code" placeholder="ex. OFF10">
-                        </div>
-                    </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label>Purchase Date Range</label>
+                            <label>Entry Date Range</label>
                             <div id="reportrange" class="form-control" data-toggle="date-picker-range" data-target-display="#selectedValue" data-cancel-class="btn-light" style="white-space: nowrap; overflow: hidden;">
                                 <i class="mdi mdi-calendar"></i>&nbsp;
                                 <span id="selectedValue"></span> <i class="mdi mdi-menu-down"></i>

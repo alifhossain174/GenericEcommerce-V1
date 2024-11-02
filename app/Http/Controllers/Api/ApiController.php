@@ -1381,7 +1381,8 @@ class ApiController extends BaseController
             date_default_timezone_set("Asia/Dhaka");
 
             $orderId = Order::insertGetId([
-                'order_no' => time().rand(100,999),
+                // 'order_no' => time().rand(100,999),
+                'order_no' => date("ymd").Order::where('order_date', 'LIKE', date("Y-m-d").'%')->count()+1,
                 'user_id' => null,
                 'order_from' => 2,
                 'order_date' => date("Y-m-d H:i:s"),

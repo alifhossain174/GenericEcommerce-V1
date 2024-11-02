@@ -56,6 +56,9 @@ class OrderController extends Controller
             if ($request->customer_phone != '') {
                 $query->where('shipping_infos.phone', 'LIKE', '%' . $request->customer_phone. '%');
             }
+            if ($request->customer_name != '') {
+                $query->where('shipping_infos.full_name', 'LIKE', '%' . $request->customer_name. '%');
+            }
             if ($request->purchase_date_range != '') {
                 $dateRange = $request->purchase_date_range;
                 list($startDateStr, $endDateStr) = explode(" - ", $dateRange);

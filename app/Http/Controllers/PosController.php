@@ -417,7 +417,7 @@ class PosController extends Controller
         $couponCode = session('coupon') ? session('coupon') : null;
 
         $orderId = DB::table('orders')->insertGetId([
-            'order_no' => time().rand(100,999),
+            'order_no' => date("ymd").DB::table('orders')->where('order_date', 'LIKE', date("Y-m-d").'%')->count()+1,
             'order_from' => 3, //pos order
             'user_id' => $request->customer_id ? $request->customer_id : null,
             'order_date' => date("Y-m-d H:i:s"),
@@ -504,7 +504,7 @@ class PosController extends Controller
         if($request->customer_id && $totalRewardPointsEarned > 0){
             $userInfo = User::where('id', $request->customer_id)->first();
             $userInfo->balance = $userInfo->balance + $totalRewardPointsEarned;
-            $userInfo->ave();
+            $userInfo->save();
         }
 
         $shippingDistrictInfo = DB::table('districts')->where('id', $request->shipping_district_id)->first();

@@ -28,6 +28,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Yajra\DataTables\DataTables;
 use App\Imports\ProductImport;
+use DateTime;
 use Maatwebsite\Excel\Facades\Excel;
 
 use Faker\Generator;
@@ -207,13 +208,50 @@ class ProductController extends Controller
 
             ini_set('memory_limit', '8192M'); // 8GB RAM
 
-            $data = DB::table('products')
+            $query = DB::table('products')
                         ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                         ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
                         ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
                         ->select('products.*', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
-                        ->orderBy('products.id', 'desc')
-                        ->get();
+                        ->orderBy('products.id', 'desc');
+
+            // filter start from here
+            if ($request->product_code != "") {
+                $query->where('products.code', 'LIKE', '%' .$request->product_code. '%');
+            }
+            if ($request->product_name != "") {
+                $query->where('products.name', 'LIKE', '%' .$request->product_name. '%');
+            }
+            if ($request->store_id != "") {
+                $query->where('products.store_id', $request->store_id);
+            }
+            if ($request->brand_id != "") {
+                $query->where('products.brand_id', $request->brand_id);
+            }
+            if ($request->flag_id != "") {
+                $query->where('products.flag_id', $request->flag_id);
+            }
+            if ($request->category_id != "") {
+                $query->whereRaw("FIND_IN_SET(?, category_id)", [$request->category_id]);
+            }
+            if ($request->has_variant != "") {
+                $query->where('products.has_variant', $request->has_variant);
+            }
+            if ($request->create_date_range != '') {
+                $dateRange = $request->create_date_range;
+                list($startDateStr, $endDateStr) = explode(" - ", $dateRange);
+                $startDate = DateTime::createFromFormat("M j, Y", trim($startDateStr));
+                $endDate = DateTime::createFromFormat("M j, Y", trim($endDateStr));
+                $formattedStartDate = $startDate ? $startDate->format("Y-m-d")." 00:00:00" : null;
+                $formattedEndDate = $endDate ? $endDate->format("Y-m-d"). " 23:59:59" : null;
+                $query->whereBetween('products.created_at', [$formattedStartDate, $formattedEndDate]);
+            }
+            if ($request->status != "") {
+                $query->where('products.status', $request->status);
+            }
+            // filter end here
+
+            $data = $query->get();
 
             return Datatables::of($data)
                     ->editColumn('image', function($data) {
@@ -282,7 +320,12 @@ class ProductController extends Controller
                     ->rawColumns(['action', 'price', 'status'])
                     ->make(true);
         }
-        return view('backend.product.view');
+
+        $stores = DB::table('stores')->orderBy('store_name', 'asc')->get();
+        $categories = DB::table('categories')->orderBy('name', 'asc')->get();
+        $brands = DB::table('brands')->orderBy('name', 'asc')->get();
+        $flags = DB::table('flags')->orderBy('name', 'asc')->get();
+        return view('backend.product.view', compact('stores', 'categories', 'brands', 'flags'));
     }
 
     public function deleteProduct($slug){
