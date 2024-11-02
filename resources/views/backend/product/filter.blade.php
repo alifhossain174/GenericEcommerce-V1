@@ -21,6 +21,7 @@
                             <input class="form-control" type="text" id="product_name" onkeyup="filterProductData()" placeholder="Product Name">
                         </div>
                     </div>
+                    @if(env('DEMO_MODE') == true)
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label class="d-block" for="store_id">Vendors</label>
@@ -32,6 +33,7 @@
                             </select>
                         </div>
                     </div>
+                    @endif
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label class="d-block" for="category_id">Categories</label>

@@ -205,7 +205,9 @@
                 data: function(d) {
                     d.product_code = $("#product_code").val();
                     d.product_name = $("#product_name").val();
+                    @if(env('DEMO_MODE') == true)
                     d.store_id = $("#store_id").val();
+                    @endif
                     d.category_id = $("#category_id").val();
                     d.brand_id = $("#brand_id").val();
                     d.flag_id = $("#flag_id").val();
