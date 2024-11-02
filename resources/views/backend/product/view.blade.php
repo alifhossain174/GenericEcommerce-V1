@@ -264,7 +264,7 @@
             buttons: [
                 {
                     extend: 'excelHtml5',
-                    title: 'Orders Data',
+                    title: 'Products Data',
                     text: '<i class="far fa-file-excel"></i> Excel',
                     exportOptions: {
                         columns: ':visible' // Export only visible columns
@@ -272,7 +272,7 @@
                 },
                 {
                     extend: 'pdfHtml5',
-                    title: 'Orders Data',
+                    title: 'Products Data',
                     text: '<i class="far fa-file-pdf"></i> PDF',
                     exportOptions: {
                         columns: ':visible'
@@ -280,7 +280,7 @@
                 },
                 {
                     extend: 'print',
-                    title: 'Orders Data',
+                    title: 'Products Data',
                     text: '<i class="fas fa-print"></i> Print',
                     exportOptions: {
                         columns: ':visible'
@@ -305,10 +305,10 @@
         function clearFilters(){
             $("#product_code").val("");
             $("#product_name").val("");
-            $("#store_id").val("");
-            $("#category_id").val("");
-            $("#brand_id").val("");
-            $("#flag_id").val("");
+            $("#store_id").val("").change();
+            $("#category_id").val("").change();
+            $("#brand_id").val("").change();
+            $("#flag_id").val("").change();
             $("#status").val("");
             $("#stock_status").val("");
             $("#has_variant").val("");

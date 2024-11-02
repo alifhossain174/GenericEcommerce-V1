@@ -192,8 +192,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('make/user/superadmin/{id}', [UserController::class, 'makeSuperAdmin'])->name('MakeSuperAdmin');
     Route::get('revoke/user/superadmin/{id}', [UserController::class, 'revokeSuperAdmin'])->name('RevokeSuperAdmin');
     Route::get('/change/user/status/{id}', [UserController::class, 'changeUserStatus'])->name('ChangeUserStatus');
-    Route::get('/delete/customer/{id}', [UserController::class, 'deleteCgeneral/infoustomer'])->name('DeleteCustomer');
-    Route::get('download/customer/excel', [UserController::class, 'downloadCustomerExcel'])->name('DownloadCustomerExcel');
+    Route::get('/delete/customer/{id}', [UserController::class, 'deleteCustomer'])->name('DeleteCustomer');
 
 
     // general info routes

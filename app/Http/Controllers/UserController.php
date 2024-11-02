@@ -2,33 +2,106 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CustomerExcel;
 use App\Models\Order;
-use App\Models\SupportTicket;
 use App\Models\User;
 use App\Models\UserAddress;
 use App\Models\UserCard;
 use App\Models\UserRolePermission;
-use App\Models\WishList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Maatwebsite\Excel\Facades\Excel;
 use Brian2694\Toastr\Facades\Toastr;
-use DataTables;
+use DateTime;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
 {
     public function viewAllCustomers(Request $request){
         if ($request->ajax()) {
 
-            $data = User::where('user_type', 3)->orderBy('id', 'desc')->get();
+            // $query = DB::table('users')
+            //             ->leftJoin('orders', 'users.id', 'orders.user_id')
+            //             ->leftJoin('order_details', 'orders.id', 'order_details.order_id')
+            //             ->leftJoin('products', 'order_details.product_id', 'products.id')
+            //             ->leftJoin('user_addresses', 'users.id', 'user_addresses.user_id')
+            //             ->select('users.*', DB::raw('COUNT(DISTINCT orders.id) as total_orders'))
+            //             ->where('user_type', 3)
+            //             ->orderBy('users.id', 'desc')
+            //             ->groupBy('users.id');
+
+            $orderAmountSubquery = DB::table('orders')
+                                    ->select('user_id', DB::raw('SUM(total) as total_order_amount'))
+                                    ->groupBy('user_id');
+
+            $query = DB::table('users')
+                        ->leftJoin('orders', 'users.id', '=', 'orders.user_id')
+                        ->leftJoin('order_details', 'orders.id', '=', 'order_details.order_id')
+                        ->leftJoin('products', 'order_details.product_id', '=', 'products.id')
+                        ->leftJoin('user_addresses', 'users.id', '=', 'user_addresses.user_id')
+                        ->leftJoinSub($orderAmountSubquery, 'order_totals', function($join) {
+                            $join->on('users.id', '=', 'order_totals.user_id');
+                        })
+                        ->select(
+                            'users.*',
+                            DB::raw('COUNT(DISTINCT orders.id) as total_orders'),
+                            DB::raw('COALESCE(order_totals.total_order_amount, 0) as total_order_amount')
+                        )
+                        ->where('user_type', 3)
+                        ->groupBy('users.id')
+                        ->orderBy('users.id', 'desc');
+
+            // filter start from here
+            if ($request->order_place_date != "") {
+                $query->where('orders.order_date', 'LIKE', $request->order_place_date. '%');
+            }
+            if ($request->order_from != "") {
+                $query->where('orders.order_from', $request->order_from);
+            }
+            if ($request->product_id != "") {
+                $query->where('order_details.product_id', $request->product_id);
+            }
+            if ($request->category_id != "") {
+                $query->where('products.category_id', $request->category_id);
+            }
+            if ($request->district != "") {
+                $query->where('user_addresses.city', $request->district);
+            }
+            if ($request->city != "") {
+                $query->where('user_addresses.state', $request->city);
+            }
+            if ($request->order_status != "") {
+                $query->where('orders.order_status', $request->order_status);
+            }
+            if ($request->coupon_code != "") {
+                $query->where('orders.coupon_code', 'LIKE', '%'.$request->coupon_code.'%');
+            }
+            if ($request->min_order_qty != "") {
+                $query->having('total_orders', '>=', $request->min_order_qty);
+            }
+            if ($request->max_order_qty != "") {
+                $query->having('total_orders', '<=', $request->max_order_qty);
+            }
+            if ($request->min_order_amount != "") {
+                $query->having('total_order_amount', '>=', $request->min_order_amount);
+            }
+            if ($request->max_order_amount != "") {
+                $query->having('total_order_amount', '<=', $request->max_order_amount);
+            }
+            if ($request->create_date_range != '') {
+                $dateRange = $request->create_date_range;
+                list($startDateStr, $endDateStr) = explode(" - ", $dateRange);
+                $startDate = DateTime::createFromFormat("M j, Y", trim($startDateStr));
+                $endDate = DateTime::createFromFormat("M j, Y", trim($endDateStr));
+                $formattedStartDate = $startDate ? $startDate->format("Y-m-d")." 00:00:00" : null;
+                $formattedEndDate = $endDate ? $endDate->format("Y-m-d"). " 23:59:59" : null;
+                $query->whereBetween('users.created_at', [$formattedStartDate, $formattedEndDate]);
+            }
+            // filter end here
+
+            $data = $query->get();
 
             return Datatables::of($data)
-                    ->editColumn('image', function($data) {
-                        if($data->image && file_exists(public_path($data->image)))
-                            return $data->image;
-                    })
                     ->editColumn('created_at', function($data) {
                         return date("Y-m-d h:i:s a", strtotime($data->created_at));
                     })
@@ -45,7 +118,12 @@ class UserController extends Controller
                     ->rawColumns(['action', 'icon', 'delete_request_submitted'])
                     ->make(true);
         }
-        return view('backend.users.customers');
+
+        $products = DB::table('products')->orderBy('name', 'asc')->get();
+        $categories = DB::table('categories')->orderBy('name', 'asc')->get();
+        $districts = DB::table('districts')->orderBy('name', 'asc')->get();
+        $cities = DB::table('upazilas')->orderBy('name', 'asc')->get();
+        return view('backend.users.customers', compact('products', 'categories', 'districts', 'cities'));
     }
 
     public function viewAllSystemUsers(Request $request){
@@ -159,14 +237,8 @@ class UserController extends Controller
         if($userInfo){
 
             $orderInfo = Order::where('user_id', $userInfo->id)->get();
-            $supports = SupportTicket::where('support_taken_by', $userInfo->id)->get();
-            $wishLists = WishList::where('user_id', $userInfo->id)->get();
 
             if(count($orderInfo) > 0){
-                return response()->json(['success' => 'Customer cannot be deleted', 'data' => 0]);
-            } else if(count($supports) > 0){
-                return response()->json(['success' => 'Customer cannot be deleted', 'data' => 0]);
-            } else if(count($wishLists) > 0){
                 return response()->json(['success' => 'Customer cannot be deleted', 'data' => 0]);
             } else {
                 // delete process start
@@ -179,10 +251,6 @@ class UserController extends Controller
         } else {
             return response()->json(['success' => 'Customer deleted successfully.', 'data' => 1]);
         }
-    }
-
-    public function downloadCustomerExcel(){
-        return Excel::download(new CustomerExcel, 'customers.xlsx');
     }
 
     public function makeSuperAdmin($id){
