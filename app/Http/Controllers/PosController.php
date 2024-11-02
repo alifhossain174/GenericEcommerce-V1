@@ -567,35 +567,41 @@ class PosController extends Controller
         // sending order sms start
         if($request->shipping_phone && env('APP_ENV') != 'local'){
 
-            $orderSmsString = "Dear Customer, Your Order #".$orderInfo->order_no." placed successfully at ".env('APP_NAME').". Total amount: ".$orderInfo->total."TK. Expected delivery within 3-7 days.";
+            try {
 
-            $smsGateway = DB::table('sms_gateways')->where('status', 1)->first();
-            if($smsGateway && $smsGateway->provider_name == 'Reve'){
-                Http::get($smsGateway->api_endpoint, [
-                    'apikey' => $smsGateway->api_key,
-                    'secretkey' => $smsGateway->secret_key,
-                    "callerID" => $smsGateway->sender_id,
-                    "toUser" => $request->shipping_phone,
-                    "messageContent" => $orderSmsString
-                ]);
-            }
-            if($smsGateway && $smsGateway->provider_name == 'KhudeBarta'){
-                Http::get($smsGateway->api_endpoint, [
-                    'apikey' => $smsGateway->api_key,
-                    'secretkey' => $smsGateway->secret_key,
-                    "callerID" => $smsGateway->sender_id,
-                    "toUser" => $this->formatBangladeshiPhoneNumber($request->shipping_phone),
-                    "messageContent" => $orderSmsString
-                ]);
-            }
-            if($smsGateway && $smsGateway->provider_name == 'ElitBuzz'){
-                Http::get($smsGateway->api_endpoint, [
-                    'api_key' => $smsGateway->api_key,
-                    "type" => "text",
-                    "contacts" => $request->shipping_phone,
-                    "senderid" => $smsGateway->sender_id,
-                    "msg" => $orderSmsString
-                ]);
+                $orderSmsString = "Dear Customer, Your Order #".$orderInfo->order_no." placed successfully at ".env('APP_NAME').". Total amount: ".$orderInfo->total."TK. Expected delivery within 3-7 days.";
+
+                $smsGateway = DB::table('sms_gateways')->where('status', 1)->first();
+                if($smsGateway && $smsGateway->provider_name == 'Reve'){
+                    Http::get($smsGateway->api_endpoint, [
+                        'apikey' => $smsGateway->api_key,
+                        'secretkey' => $smsGateway->secret_key,
+                        "callerID" => $smsGateway->sender_id,
+                        "toUser" => $request->shipping_phone,
+                        "messageContent" => $orderSmsString
+                    ]);
+                }
+                if($smsGateway && $smsGateway->provider_name == 'KhudeBarta'){
+                    Http::get($smsGateway->api_endpoint, [
+                        'apikey' => $smsGateway->api_key,
+                        'secretkey' => $smsGateway->secret_key,
+                        "callerID" => $smsGateway->sender_id,
+                        "toUser" => $this->formatBangladeshiPhoneNumber($request->shipping_phone),
+                        "messageContent" => $orderSmsString
+                    ]);
+                }
+                if($smsGateway && $smsGateway->provider_name == 'ElitBuzz'){
+                    Http::get($smsGateway->api_endpoint, [
+                        'api_key' => $smsGateway->api_key,
+                        "type" => "text",
+                        "contacts" => $request->shipping_phone,
+                        "senderid" => $smsGateway->sender_id,
+                        "msg" => $orderSmsString
+                    ]);
+                }
+
+            } catch(\Exception $e) {
+                // write code for handling error from here
             }
         }
         // sending order sms end
