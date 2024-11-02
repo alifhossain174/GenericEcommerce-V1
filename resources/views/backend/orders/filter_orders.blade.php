@@ -67,6 +67,18 @@
 
                     <div class="col-lg-2">
                         <div class="form-group">
+                            <label class="d-block" for="product_id">Ordered Product</label>
+                            <select class="form-control" id="product_id" data-toggle="select2" onchange="filterOrderData()">
+                                <option value="">Select One</option>
+                                @foreach ($products as $product)
+                                <option value="{{$product->id}}">{{$product->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
                             <label for="delivery_method">Delivery Method</label>
                             <select class="form-control" onchange="filterOrderData()" id="delivery_method">
                                 <option value="">Select One</option>

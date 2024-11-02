@@ -24,8 +24,10 @@ class OrderController extends Controller
         if ($request->ajax()) {
 
             $query = DB::table('orders')
+                        ->leftJoin('order_details', 'orders.id', '=', 'order_details.order_id')
                         ->leftJoin('shipping_infos', 'shipping_infos.order_id', '=', 'orders.id')
                         ->select('orders.*', 'shipping_infos.full_name as customer_name', 'shipping_infos.phone as customer_phone')
+                        ->groupBy('orders.id')
                         ->orderBy('id', 'desc');
 
             // Filter based on status if it's not empty
@@ -76,6 +78,9 @@ class OrderController extends Controller
             }
             if ($request->coupon_code != "") {
                 $query->where('coupon_code', 'LIKE', '%' .$request->coupon_code. '%');
+            }
+            if ($request->product_id != "") {
+                $query->where('order_details.product_id', $request->product_id);
             }
 
             $data = $query->get();
@@ -154,7 +159,9 @@ class OrderController extends Controller
                     ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status'])
                     ->make(true);
         }
-        return view('backend.orders.orders', compact('request'));
+
+        $products = DB::table('products')->orderBy('name', 'asc')->get();
+        return view('backend.orders.orders', compact('request', 'products'));
     }
     public function orderDetails($slug){
         $order = Order::where('slug', $slug)->first();

@@ -3,10 +3,19 @@
 @section('header_css')
     <link href="{{ url('dataTable') }}/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ url('dataTable') }}/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <link href="{{ url('assets') }}/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ url('dataTable') }}/css/buttons.dataTables.min.css" rel="stylesheet">
     <link href="{{ url('assets') }}/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
     <link href="{{ url('assets') }}/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet"/>
     <style>
+        .select2-selection{
+            height: 34px !important;
+            border: 1px solid #ced4da !important;
+        }
+        .select2 {
+            width: 100% !important;
+        }
         .dataTables_wrapper .dataTables_paginate .paginate_button{
             padding: 0px;
             border-radius: 4px;
@@ -169,7 +178,11 @@
     <script src="{{ url('dataTable') }}/js/buttons.html5.min.js"></script>
     <script src="{{ url('dataTable') }}/js/buttons.print.min.js"></script>
 
+    <script src="{{ url('assets') }}/plugins/select2/select2.min.js"></script>
+
     <script type="text/javascript">
+
+        $('[data-toggle="select2"]').select2();
 
         // Date Range Picker
         var defaultOptions = {
@@ -243,6 +256,7 @@
                     d.purchase_date_range = $("#selectedValue").text();
                     d.delivery_method = $("#delivery_method").val();
                     d.coupon_code = $("#coupon_code").val();
+                    d.product_id = $("#product_id").val();
                 }
             },
             columns: [
