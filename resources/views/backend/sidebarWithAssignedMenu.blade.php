@@ -237,7 +237,7 @@
                 <a href="{{ url('/view/all/product') }}">
                     View All Products
                     <span style="color:lightgreen" title="Total Products">
-                        ({{DB::table('products')->where('status', 1)->count()}})
+                        ({{DB::table('products')->count()}})
                     </span>
                 </a>
             </li>
