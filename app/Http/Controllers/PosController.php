@@ -414,7 +414,7 @@ class PosController extends Controller
 
         $discount = $request->discount ? $request->discount : 0;
         $deliveryCost = $request->shipping_charge ? $request->shipping_charge : 0;
-        $couponCode = session('coupon') ? session('coupon') : 0;
+        $couponCode = session('coupon') ? session('coupon') : null;
 
         $orderId = DB::table('orders')->insertGetId([
             'order_no' => time().rand(100,999),

@@ -4,6 +4,8 @@
     <link href="{{ url('dataTable') }}/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ url('dataTable') }}/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="{{ url('dataTable') }}/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="{{ url('assets') }}/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url('assets') }}/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet"/>
     <style>
         .dataTables_wrapper .dataTables_paginate .paginate_button{
             padding: 0px;
@@ -71,19 +73,23 @@
     $parameter = "";
     if(isset($request->status)){
         if($request->status == 'pending'){
-            $parameter = "?status=pending";
+            $parameter = "pending";
             $pageTitle = "Pending Orders";
         }
         if($request->status == 'approved'){
-            $parameter = "?status=approved";
+            $parameter = "approved";
             $pageTitle = "Approved Orders";
         }
+        if($request->status == 'intransit'){
+            $parameter = "intransit";
+            $pageTitle = "InTransit Orders";
+        }
         if($request->status == 'delivered'){
-            $parameter = "?status=delivered";
+            $parameter = "delivered";
             $pageTitle = "Delivered Orders";
         }
         if($request->status == 'cancelled'){
-            $parameter = "?status=cancelled";
+            $parameter = "cancelled";
             $pageTitle = "Cancelled Orders";
         }
     }
@@ -152,6 +158,10 @@
     <script src="{{ url('dataTable') }}/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('dataTable') }}/js/dataTables.bootstrap4.min.js"></script>
 
+    <script src="{{ url('assets') }}/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="{{ url('assets') }}/plugins/moment/moment.js"></script>
+    <script src="{{ url('assets') }}/plugins/daterangepicker/daterangepicker.js"></script>
+
     <script src="{{ url('dataTable') }}/js/dataTables.buttons.min.js"></script>
     <script src="{{ url('dataTable') }}/js/jszip.min.js"></script>
     <script src="{{ url('dataTable') }}/js/pdfmake.min.js"></script>
@@ -160,6 +170,54 @@
     <script src="{{ url('dataTable') }}/js/buttons.print.min.js"></script>
 
     <script type="text/javascript">
+
+        // Date Range Picker
+        var defaultOptions = {
+            "cancelClass": "btn-light",
+            "applyButtonClasses": "btn-success"
+        };
+
+        // date pickers
+        $('[data-toggle="daterangepicker"]').each(function (idx, obj) {
+            var objOptions = $.extend({}, defaultOptions, $(obj).data());
+            $(obj).daterangepicker(objOptions);
+        });
+
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+        var defaultRangeOptions = {
+            startDate: start,
+            endDate: end,
+            ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        };
+
+        $('[data-toggle="date-picker-range"]').each(function (idx, obj) {
+            var objOptions = $.extend({}, defaultRangeOptions, $(obj).data());
+            var target = objOptions["targetDisplay"];
+            //rendering
+            $(obj).daterangepicker(objOptions, function(start, end) {
+                if (target)
+                    $(target).html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
+            });
+        });
+
+        const targetNode = document.getElementById("selectedValue");
+        const observer = new MutationObserver((mutationsList) => {
+            for (const mutation of mutationsList) {
+                if (mutation.type === "characterData" || mutation.type === "childList") {
+                    filterOrderData();
+                }
+            }
+        });
+        observer.observe(targetNode, { childList: true, characterData: true, subtree: true });
+
         let grandTotal = 0;
         var table = $(".data-table").DataTable({
             processing: true,
@@ -169,7 +227,23 @@
                 [10, 25, 50, 100, -1],
                 [10, 25, 50, 100, "All"]
             ],
-            ajax: "{{ url('view/orders') }}{{$parameter}}",
+            ajax: {
+                url: "{{ url('view/orders') }}",
+                data: function(d) {
+                    if("{{$parameter}}" !== ""){
+                        d.status = "{{$parameter ?? ''}}";
+                    } else {
+                        d.order_status = $("#order_status").val();
+                    }
+                    d.order_no = $("#order_no").val() || "";
+                    d.order_from = $("#order_from").val();
+                    d.payment_status = $("#payment_status").val();
+                    d.customer_phone = $("#customer_phone").val();
+                    d.purchase_date_range = $("#selectedValue").text();
+                    d.delivery_method = $("#delivery_method").val();
+                    d.coupon_code = $("#coupon_code").val();
+                }
+            },
             columns: [
                 {
                     data: 'DT_RowIndex',
@@ -258,6 +332,19 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        function filterOrderData(){
+            table.draw(false);
+        }
+
+        function clearFilters(){
+            $("#order_no").val("");
+            $("#order_from").val("");
+            $("#payment_status").val("");
+            $("#customer_phone").val("");
+            $("#selectedValue").text("");
+            table.draw(false);
+        }
 
         function orderEditWarning() {
             if (!confirm("Warning! Dont Edit Any Order if it is not Necessary")) {

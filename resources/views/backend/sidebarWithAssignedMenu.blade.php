@@ -295,7 +295,12 @@
             </li>
             <li @if(request()->query('status') == 'approved') class="mm-active" @endif>
                 <a @if(request()->query('status') == 'approved') class="active" @endif style="color: wheat !important;" href="{{ url('/view/orders') }}?status=approved">
-                    Approved Orders ({{DB::table('orders')->where('order_status', 1)->orWhere('order_status', 2)->count()}})
+                    Approved Orders ({{DB::table('orders')->where('order_status', 1)->count()}})
+                </a>
+            </li>
+            <li @if(request()->query('status') == 'intransit') class="mm-active" @endif>
+                <a @if(request()->query('status') == 'intransit') class="active" @endif style="color: lightgreen !important;" href="{{ url('/view/orders') }}?status=intransit">
+                    InTransit Orders ({{DB::table('orders')->where('order_status', 2)->count()}})
                 </a>
             </li>
             <li @if(request()->query('status') == 'delivered') class="mm-active" @endif>

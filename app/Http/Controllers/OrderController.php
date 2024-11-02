@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,20 +28,52 @@ class OrderController extends Controller
                         ->select('orders.*', 'shipping_infos.full_name as customer_name', 'shipping_infos.phone as customer_phone')
                         ->orderBy('id', 'desc');
 
-            // order status filter start
-            if($request->status == 'pending'){
-                $query->where('order_status', 0);
+            // Filter based on status if it's not empty
+            if (!empty($request->status)) {
+                if ($request->status == 'pending') {
+                    $query->where('order_status', 0);
+                } elseif ($request->status == 'approved') {
+                    $query->where('order_status', 1);
+                } elseif ($request->status == 'intransit') {
+                    $query->where('order_status', 2);
+                } elseif ($request->status == 'delivered') {
+                    $query->where('order_status', 3);
+                } elseif ($request->status == 'cancelled') {
+                    $query->where('order_status', 4);
+                }
             }
-            if($request->status == 'approved'){
-                $query->where('order_status', 1)->orWhere('order_status', 2);
+
+            // Continue with filtering
+            if (!empty($request->order_no)) {
+                $query->where('order_no', 'LIKE', '%' . $request->order_no . '%');
             }
-            if($request->status == 'delivered'){
-                $query->where('order_status', 3);
+            if ($request->order_from) {
+                $query->where('order_from', $request->order_from);
             }
-            if($request->status == 'cancelled'){
-                $query->where('order_status', 4);
+            if ($request->payment_status != '') {
+                $query->where('payment_status', $request->payment_status);
             }
-            // order status filter end
+            if ($request->customer_phone != '') {
+                $query->where('shipping_infos.phone', 'LIKE', '%' . $request->customer_phone. '%');
+            }
+            if ($request->purchase_date_range != '') {
+                $dateRange = $request->purchase_date_range;
+                list($startDateStr, $endDateStr) = explode(" - ", $dateRange);
+                $startDate = DateTime::createFromFormat("M j, Y", trim($startDateStr));
+                $endDate = DateTime::createFromFormat("M j, Y", trim($endDateStr));
+                $formattedStartDate = $startDate ? $startDate->format("Y-m-d")." 00:00:00" : null;
+                $formattedEndDate = $endDate ? $endDate->format("Y-m-d"). " 23:59:59" : null;
+                $query->whereBetween('order_date', [$formattedStartDate, $formattedEndDate]);
+            }
+            if ($request->status == "" && $request->order_status != "") {
+                $query->where('order_status', $request->order_status);
+            }
+            if ($request->delivery_method != "") {
+                $query->where('delivery_method', $request->delivery_method);
+            }
+            if ($request->coupon_code != "") {
+                $query->where('coupon_code', 'LIKE', '%' .$request->coupon_code. '%');
+            }
 
             $data = $query->get();
 
@@ -59,7 +92,7 @@ class OrderController extends Controller
                         } elseif($data->order_status == 1) {
                             return '<span class="alert alert-info" style="padding: 2px 10px !important;">Approved</span>';
                         } elseif($data->order_status == 2) {
-                            return '<span class="alert alert-primary" style="padding: 2px 10px !important;">In Transit</span>';
+                            return '<span class="alert alert-primary" style="padding: 2px 10px !important;">InTransit</span>';
                         } elseif($data->order_status == 3) {
                             return '<span class="alert alert-success" style="padding: 2px 10px !important;">Delivered</span>';
                         } else {
