@@ -435,6 +435,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::post('/update/vendor', [VendorController::class, 'updateVendor'])->name('UpdateVendor');
     Route::get('/approve/vendor/{vendor_no}', [VendorController::class, 'approveVendor'])->name('ApproveVendor');
     Route::get('/delete/vendor/{vendor_no}', [VendorController::class, 'deleteVendor'])->name('DeleteVendor');
+    Route::get('/remove/vendor/{vendor_no}', [VendorController::class, 'removeVendor'])->name('RemoveVendor');
     Route::get('/download/approved/vendors/excel', [VendorController::class, 'downloadApprovedVendorsExcel'])->name('DownloadApprovedVendorsExcel');
 
     // store routes

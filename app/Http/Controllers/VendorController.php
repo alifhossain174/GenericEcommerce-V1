@@ -96,6 +96,7 @@ class VendorController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
                         $btn = ' <a href="'.url('edit/vendor').'/'.$data->vendor_no.'" class="mb-1 btn-sm btn-warning rounded d-inline-block"><i class="fas fa-edit"></i></a>';
+                        $btn .= ' <a href="'.url('remove/vendor').'/'.$data->vendor_no.'" class="mb-1 btn-sm btn-danger rounded d-inline-block"><i class="fas fa-trash"></i></a>';
                         return $btn;
                     })
                     ->rawColumns(['action', 'status'])
@@ -178,6 +179,7 @@ class VendorController extends Controller
                             $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->vendor_no.'" data-original-title="Approve" class="btn-sm btn-success rounded d-inline-block approveBtn"><i class="fas fa-check"></i></a>';
                         }
                         $btn .= ' <a href="'.url('edit/vendor').'/'.$data->vendor_no.'" class="mb-1 btn-sm btn-warning rounded d-inline-block"><i class="fas fa-edit"></i></a>';
+                        $btn .= ' <a href="'.url('remove/vendor').'/'.$data->vendor_no.'" class="mb-1 btn-sm btn-danger rounded d-inline-block"><i class="fas fa-trash"></i></a>';
                         return $btn;
                     })
                     ->rawColumns(['action', 'status'])
@@ -269,6 +271,42 @@ class VendorController extends Controller
         User::where('id', $vendor->user_id)->delete();
         $vendor->delete();
         return response()->json(['success' => 'Vendor Deleted Successfully.']);
+    }
+
+    public function removeVendor($vendorNo){
+
+        $totalProducts = 0;
+        $totalOrders = 0;
+        $vendor = Vendor::where('vendor_no', $vendorNo)->first();
+        $store = DB::table('stores')->where('vendor_id', $vendor->id)->first();
+
+        if($store){
+            $totalProducts = DB::table('products')->where('store_id', $store->id)->count();
+            $totalOrders = DB::table('order_details')->where('store_id', $store->id)->groupBy('order_id')->count();
+
+            if($totalOrders > 0){
+                Toastr::error('Vendor has Orders', 'Please Contact Our Support Team');
+                return back();
+            }
+            if($totalProducts > 0){
+                Toastr::error('Vendor has Products', 'Please Contact Our Support Team');
+                return back();
+            }
+
+            DB::table('stores')->where('vendor_id')->delete();
+        }
+
+        if($vendor->nid_card && file_exists(public_path($vendor->nid_card))){
+            unlink(public_path($vendor->nid_card));
+        }
+        if($vendor->trade_license && file_exists(public_path($vendor->trade_license))){
+            unlink(public_path($vendor->trade_license));
+        }
+        User::where('id', $vendor->user_id)->delete();
+        $vendor->delete();
+
+        Toastr::success('Vendor has Removed');
+        return back();
     }
 
     public function downloadApprovedVendorsExcel(){
