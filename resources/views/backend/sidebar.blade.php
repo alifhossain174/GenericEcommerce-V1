@@ -175,7 +175,9 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-shopping-cart"></i><span>Manage Orders</span></a>
         <ul class="sub-menu" aria-expanded="false">
+            @if(env('POS') == true)
             <li><a style="color: white !important;" href="{{ url('/create/new/order') }}">Create Order</a>
+            @endif
             <li>
                 <a style="color: white !important;" href="{{ url('/view/orders') }}">
                     All Orders ({{DB::table('orders')->count()}})

@@ -280,7 +280,9 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-shopping-cart"></i><span>Manage Orders</span></a>
         <ul class="sub-menu" aria-expanded="false">
+            @if(env('POS') == true)
             @if(checkAuth("create/new/order")) <li><a style="color: white !important;" href="{{ url('/create/new/order') }}">Create Order</a></li> @endif
+            @endif
 
             @if(checkAuth("view/orders"))
             <li>
