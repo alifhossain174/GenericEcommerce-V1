@@ -49,7 +49,7 @@ class CategoryController extends Controller
             'show_on_navbar' => $request->show_on_navbar ? $request->show_on_navbar : 0,
             'icon' => $icon,
             'banner_image' => $categoryBanner,
-            'slug' => Generate::Slug($request->name),
+            'slug' => str_replace(' ', '', Generate::Slug($request->name),),
             'status' => 1,
             'serial' => Category::min('serial') - 1,
             'created_at' => Carbon::now()
