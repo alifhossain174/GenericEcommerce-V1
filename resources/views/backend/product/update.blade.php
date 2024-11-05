@@ -50,7 +50,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <form class="needs-validation" method="POST" action="{{url('update/product')}}" enctype="multipart/form-data">
+                    <form class="needs-validation" id="product_update_form" method="POST" action="{{url('update/product')}}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="slug" value="{{$product->slug}}">
                         <input type="hidden" name="id" value="{{$product->id}}">
@@ -61,8 +61,9 @@
                                 <h4 class="card-title mb-3" style="font-size: 18px; padding-top: 12px;">Update Product</h4>
                             </div>
                             <div class="col-lg-6 text-right">
-                                <a href="{{url('view/all/product')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Discard</a>
-                                <button class="btn btn-primary m-2" style="width: 150px;" type="submit"><i class="fas fa-save"></i> Update Product</button>
+                                <a href="{{url('view/all/product')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-1"><i class="mdi mdi-cancel"></i> Discard</a>
+                                <button class="btn btn-warning m-1 saveAsDraft" style="width: 130px;" type="button"><i class="fas fa-archive"></i> Save as Draft</button>
+                                <button class="btn btn-success m-1" style="width: 150px;" type="submit"><i class="fas fa-save"></i> Update Product</button>
                             </div>
                         </div>
 
@@ -378,6 +379,7 @@
                                         <option value="">Select One</option>
                                         <option value="1" @if($product->status == 1) selected @endif>Active</option>
                                         <option value="0" @if($product->status == 0) selected @endif>Inactive</option>
+                                        <option value="2" @if($product->status == 2) selected @endif>Draft</option>
                                     </select>
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('status')
@@ -757,6 +759,7 @@
 
                         <div class="form-group text-center pt-3">
                             <a href="{{url('view/all/product')}}" style="width: 150px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Cancel</a>
+                            <button class="btn btn-warning m-2 saveAsDraft" style="width: 130px;" type="button"><i class="fas fa-archive"></i> Save as Draft</button>
                             <button class="btn btn-primary m-2" style="width: 150px;" type="submit"><i class="fas fa-save"></i> Update Product</button>
                         </div>
 
@@ -779,6 +782,18 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
     <script type="text/javascript">
+
+        $(".saveAsDraft").on("click", function(e) {
+            $("#status").val(2);
+            e.preventDefault();
+            // Trigger form submission to enforce validation
+            // $("#product_entry_form")[0].reportValidity();
+            // if ($("#product_entry_form")[0].checkValidity()) {
+            //     $("#product_entry_form").submit();
+            // }
+            $("#product_update_form").submit();
+        });
+
 
         let preloaded = [
             @foreach ($gallery as $image)

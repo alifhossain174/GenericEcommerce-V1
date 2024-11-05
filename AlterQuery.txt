@@ -115,3 +115,5 @@ ALTER TABLE `custom_pages` ADD `show_in_header` TINYINT(4) NOT NULL DEFAULT '0' 
 
 ==================28.10.2024====================
 ALTER TABLE `general_infos` ADD `guest_checkout` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '1=>Enable; 0=>Disable' AFTER `crisp_website_id`;
+ALTER TABLE `products` CHANGE `status` `status` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '1=>Active; 0=>Inactive; 2=>Draft';
+ALTER TABLE `products` CHANGE `image` `image` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;

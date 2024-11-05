@@ -45,7 +45,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <form class="needs-validation" method="POST" action="{{url('save/new/product')}}" enctype="multipart/form-data">
+                    <form class="needs-validation" id="product_entry_form" method="POST" action="{{url('save/new/product')}}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row border-bottom mb-4 pb-2">
@@ -53,8 +53,10 @@
                                 <h4 class="card-title mb-3" style="font-size: 18px; padding-top: 12px;">Add New Product</h4>
                             </div>
                             <div class="col-lg-6 text-right">
-                                <a href="{{url('view/all/product')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Discard</a>
-                                <button class="btn btn-primary m-2" style="width: 130px;" type="submit"><i class="fas fa-save"></i> Save Product</button>
+                                <a href="{{url('view/all/product')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-1"><i class="mdi mdi-cancel"></i> Discard</a>
+                                <button class="btn btn-warning m-1 saveAsDraft" style="width: 130px;" type="button"><i class="fas fa-archive"></i> Save as Draft</button>
+                                <input type="hidden" name="status" id="product_status" value="1">
+                                <button class="btn btn-success m-1" style="width: 130px;" type="submit"><i class="fas fa-save"></i> Save Product</button>
                             </div>
                         </div>
 
@@ -606,8 +608,9 @@
                         </div>
 
                         <div class="form-group text-center pt-3">
-                            <a href="{{url('view/all/product')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2" type="submit"><i class="mdi mdi-cancel"></i> Discard</a>
-                            <button class="btn btn-primary m-2" style="width: 130px;" type="submit"><i class="fas fa-save"></i> Save Product</button>
+                            <a href="{{url('view/all/product')}}" style="width: 130px;" class="btn btn-danger d-inline-block text-white m-2"><i class="mdi mdi-cancel"></i> Discard</a>
+                            <button class="btn btn-warning m-2 saveAsDraft" style="width: 130px;" type="button"><i class="fas fa-archive"></i> Save as Draft</button>
+                            <button class="btn btn-success m-2" style="width: 130px;" type="submit"><i class="fas fa-save"></i> Save Product</button>
                         </div>
 
                     </form>
@@ -629,6 +632,17 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
     <script type="text/javascript">
+
+        $(".saveAsDraft").on("click", function(e) {
+            $("#product_status").val(2);
+            e.preventDefault();
+            // Trigger form submission to enforce validation
+            // $("#product_entry_form")[0].reportValidity();
+            // if ($("#product_entry_form")[0].checkValidity()) {
+            //     $("#product_entry_form").submit();
+            // }
+            $("#product_entry_form").submit();
+        });
 
         $('#has_variant').prop("checked", false);
         function showVariantSection(value){

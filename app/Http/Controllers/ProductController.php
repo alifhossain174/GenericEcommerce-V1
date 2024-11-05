@@ -47,12 +47,13 @@ class ProductController extends Controller
 
     public function saveNewProduct(Request $request){
 
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'category_id' => 'required',
-            'image' => 'required',
-        ]);
-
+        if($request->status != 2){ //when save as draft
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'category_id' => 'required',
+                'image' => 'required',
+            ]);
+        }
 
         $image = null;
         if ($request->hasFile('image')){
@@ -85,7 +86,7 @@ class ProductController extends Controller
         $product->image = $image;
         $product->flag_id = $request->flag_id;
         $product->slug = $slug."-".time().str::random(5);
-        $product->status = 1;
+        $product->status = $request->status;
         $product->unit_id = isset($request->unit_id) ? $request->unit_id : null;
         $product->specification = $request->specification;
         $product->warrenty_policy = $request->warrenty_policy;
@@ -266,6 +267,8 @@ class ProductController extends Controller
                     ->editColumn('status', function($data) {
                         if($data->status == 1){
                             return '<span class="btn btn-sm btn-success d-inline-block">Active</span>';
+                        } elseif($data->status == 2) {
+                            return '<span class="btn btn-sm btn-warning d-inline-block">Draft</span>';
                         } else {
                             return '<span class="btn btn-sm btn-danger d-inline-block">Inactive</span>';
                         }
@@ -380,11 +383,13 @@ class ProductController extends Controller
 
     public function updateProduct(Request $request){
 
-        $request->validate([
-            'name' => 'required|max:255',
-            'category_id' => 'required',
-            'status' => 'required',
-        ]);
+        if($request->status != 2){ //when save as draft
+            $request->validate([
+                'name' => 'required|max:255',
+                'category_id' => 'required',
+                'status' => 'required',
+            ]);
+        }
 
         $product = Product::where('id', $request->id)->first();
 
