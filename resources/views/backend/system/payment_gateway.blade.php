@@ -2,6 +2,28 @@
 
 @section('header_css')
     <link href="{{url('assets')}}/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .premium_addon{
+            text-align: center;
+            background: goldenrod;
+            padding: 5px;
+            font-size: 14px;
+            color: white;
+            text-shadow: 1px 1px 1px black;
+            border-radius: 3px 3px 0px 0px;
+        }
+        .payment_card{
+            height: 745px
+        }
+        .premium_note{
+            font-size: 15px;
+            text-align: center;
+            border: 1px solid goldenrod;
+            padding: 6px 4px;
+            border-radius: 4px;
+            background: white;
+        }
+    </style>
 @endsection
 
 @section('page_title')
@@ -14,8 +36,12 @@
 
 @section('content')
     <div class="row">
+        <div class="col-lg-12 mb-2">
+            <h5 class="premium_note">Note: Premium add-ons are not included in the initial package purchase and must be purchased separately. However, cash on delivery is available at no additional cost.</h5>
+        </div>
         <div class="col">
-            <div class="card" style="height: 720px; @if($gateways[0]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+            <div class="card payment_card" style="@if($gateways[0]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+                <h5 class="premium_addon">Premium Add-On</h5>
                 <div class="card-body">
                     <h4 class="card-title mb-3">
                         <div class="row">
@@ -111,7 +137,8 @@
         </div>
 
         <div class="col">
-            <div class="card" style="height: 720px; @if($gateways[1]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+            <div class="card payment_card" style="@if($gateways[1]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+                <h5 class="premium_addon">Premium Add-On</h5>
                 <div class="card-body">
                     <h4 class="card-title mb-3">
                         <div class="row">
@@ -207,7 +234,8 @@
         </div>
 
         <div class="col">
-            <div class="card" style="height: 720px; @if($gateways[2]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+            <div class="card payment_card" style="@if($gateways[2]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+                <h5 class="premium_addon">Premium Add-On</h5>
                 <div class="card-body">
                     <h4 class="card-title mb-3">
                         <div class="row">
@@ -303,7 +331,8 @@
         </div>
 
         <div class="col">
-            <div class="card" style="height: 720px; @if($gateways[3]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+            <div class="card payment_card" style="@if($gateways[3]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+                <h5 class="premium_addon">Premium Add-On</h5>
                 <div class="card-body">
                     <h4 class="card-title mb-3">
                         <div class="row">
@@ -399,7 +428,8 @@
         </div>
 
         <div class="col">
-            <div class="card" style="height: 720px; @if($gateways[4]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+            <div class="card payment_card" style="@if($gateways[4]->status == 1) border: 2px solid green; box-shadow: 2px 2px 5px #b5b5b5; @endif">
+                <h5 class="premium_addon">Premium Add-On</h5>
                 <div class="card-body">
                     <h4 class="card-title mb-3">
                         <div class="row">

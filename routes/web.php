@@ -259,7 +259,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
 
 
     // pos routes
-    if(env('POS') == true){
+    if(env('POS') == true && env('POS_KEY') == "GenericCommerceV1-SBW7583837NUDD82"){
         Route::get('/create/new/order', [PosController::class, 'createNewOrder'])->name('CreateNewOrder');
         Route::post('/product/live/search', [PosController::class, 'productLiveSearch'])->name('ProductLiveSearch');
         Route::post('/get/pos/product/variants', [PosController::class, 'getProductVariants'])->name('GetProductVariants');

@@ -88,7 +88,14 @@
         <div class="col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-3">Product List</h4>
+                    <h4 class="card-title mb-3">
+                        <div class="row">
+                            <div class="col-lg-6">Product List</div>
+                            <div class="col-lg-6 text-right">
+                                <a href="{{url('add/new/product')}}" class="btn btn-success btn-sm" style="margin-left: 5px"><b><i class="fas fa-plus"></i> Add New Product</b></a>
+                            </div>
+                        </div>
+                    </h4>
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0 data-table">
                             <thead>

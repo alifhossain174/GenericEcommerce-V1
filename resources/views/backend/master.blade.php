@@ -98,7 +98,7 @@
                             <label class="btn text-white rounded mr-2 mb-0" style="cursor:pointer; background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);">
                                 <input type="checkbox" id="guest_checkout" onchange="guestCheckout()" @if($generalInfo->guest_checkout == 1) checked @endif> Guest Checkout
                             </label>
-                            @if(env('POS') == true)
+                            @if(env('POS') == true && env('POS_KEY') == "GenericCommerceV1-SBW7583837NUDD82")
                             <a href="{{ url('/create/new/order') }}" class="btn text-white rounded mr-2" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-cart-arrow-down fa-fw"></i> POS</a>
                             @endif
                             <a href="{{env('APP_FRONTEND_URL')}}" target="_blank" class="btn text-white rounded" style="background: linear-gradient(to right, #17263ADE, #2c3e50f5, #17263A);"><i class="fas fa-paper-plane"></i> Visit Website</a>

@@ -175,7 +175,7 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-shopping-cart"></i><span>Manage Orders</span></a>
         <ul class="sub-menu" aria-expanded="false">
-            @if(env('POS') == true)
+            @if(env('POS') == true && env('POS_KEY') == "GenericCommerceV1-SBW7583837NUDD82")
             <li><a style="color: white !important;" href="{{ url('/create/new/order') }}">Create Order</a>
             @endif
             <li>
