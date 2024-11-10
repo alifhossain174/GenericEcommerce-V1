@@ -31,7 +31,7 @@
 
                     <div class="form-group">
                         <label for="simpleinput">Password</label>
-                        <input type="text" name="password" class="form-control" placeholder="Address" />
+                        <input type="text" name="password" class="form-control" placeholder="*******" />
                     </div>
 
                 </div>
