@@ -92,6 +92,7 @@ class ProductController extends Controller
         $product->warrenty_policy = $request->warrenty_policy;
         $product->brand_id = $request->brand_id;
         $product->model_id = $request->model_id;
+        $product->warrenty_id = $request->warrenty_id;
         $product->code = $request->code;
         $product->reward_points = $request->reward_points;
 
@@ -110,7 +111,6 @@ class ProductController extends Controller
             $product->discount_price = 0;
             $product->stock = 0;
             $product->multiple_images = NULL;
-            $product->warrenty_id = NULL;
             $product->has_variant = 1;
             //variant specific
 
@@ -133,7 +133,7 @@ class ProductController extends Controller
                 if($i == 0){ // saving the base variant price & warrenty As product main price & warrenty for filtering
                     $product->price = $request->product_variant_price[$i];
                     $product->discount_price = $request->product_variant_discounted_price[$i];
-                    $product->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null;
+                    $product->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : $request->warrenty_id;
                     $product->save();
                 }
 
@@ -162,7 +162,7 @@ class ProductController extends Controller
             $product->price = $request->price > 0 ? $request->price : 0;
             $product->discount_price = $request->discount_price > 0 ? $request->discount_price : 0;
             $product->stock = $request->stock > 0 ? $request->stock : 0;
-            $product->warrenty_id = $request->warrenty_id;
+
             $product->has_variant = 0;
             //variant specific
 
@@ -433,6 +433,7 @@ class ProductController extends Controller
         $product->code = $request->code;
         $product->reward_points = $request->reward_points;
         $product->unit_id = isset($request->unit_id) ? $request->unit_id : null;
+        $product->warrenty_id = $request->warrenty_id;
         $product->status = $request->status;
 
         $product->special_offer = $request->special_offer == 1 ? 1 : 0;
@@ -464,7 +465,6 @@ class ProductController extends Controller
             $product->discount_price = 0;
             $product->stock = 0;
             $product->multiple_images = NULL;
-            $product->warrenty_id = NULL;
             $product->has_variant = 1;
             //variant specific
 
@@ -475,7 +475,7 @@ class ProductController extends Controller
                 if($i == 0){ // saving the base variant price & warrenty As product main price & warrenty for filtering
                     $product->price = $request->product_variant_price[$i];
                     $product->discount_price = $request->product_variant_discounted_price[$i];
-                    $product->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null;
+                    $product->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : $request->warrenty_id;
                     $product->save();
                 }
 
@@ -557,7 +557,6 @@ class ProductController extends Controller
             $product->price = $request->price > 0 ? $request->price : 0;
             $product->discount_price = $request->discount_price > 0 ? $request->discount_price : 0;
             $product->stock = $request->stock > 0 ? $request->stock : 0;
-            $product->warrenty_id = $request->warrenty_id;
             $product->has_variant = 0;
             //variant specific
 

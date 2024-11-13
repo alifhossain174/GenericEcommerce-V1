@@ -122,6 +122,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('guest/order/checkout', [ApiController::class, 'guestOrderCheckout']); // for guest
     Route::post('submit/shipping/billing/info', [ApiController::class, 'shippingBillingInfo']);
     Route::post('order/payment/cod', [ApiController::class, 'orderCashOnDelivery']);
+    Route::post('order/payment/bkash', [ApiController::class, 'orderPaymentBkash']);
     // order api end
 
 

@@ -1806,6 +1806,93 @@ class ApiController extends BaseController
         }
     }
 
+    public function orderPaymentBkash(Request $request){
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $orderId = $request->order_id;
+            $trxId = $request->trx_id;
+
+            $orderInfo = Order::where('id', $orderId)->first();
+            $orderInfo->bank_tran_id = $trxId;
+            $orderInfo->payment_method = 2; //bkash
+            $orderInfo->payment_status = 1; //paid
+            $orderInfo->order_status = 1; //approved
+            $orderInfo->save();
+
+            DB::table('order_progress')->insert([
+                'order_id' => $orderId,
+                'order_status' => 1,
+                'created_at' => Carbon::now()
+            ]);
+
+            OrderPayment::insert([
+                'order_id' => $orderInfo->id,
+                'payment_through' => "bkash",
+                'tran_id' => $orderInfo->tran_id,
+                'val_id' => NULL,
+                'amount' => $orderInfo->total,
+                'card_type' => NULL,
+                'store_amount' => $orderInfo->total,
+                'card_no' => NULL,
+                'status' => "VALID",
+                'tran_date' => date("Y-m-d H:i:s"),
+                'currency' => "BDT",
+                'card_issuer' => NULL,
+                'card_brand' => NULL,
+                'card_sub_brand' => NULL,
+                'card_issuer_country' => NULL,
+                'created_at' => Carbon::now()
+            ]);
+
+            // sending order email
+            try {
+
+                $emailConfig = EmailConfigure::where('status', 1)->orderBy('id', 'desc')->first();
+                $shippingInfo = DB::table('shipping_infos')->where('order_id', $orderInfo->id)->first();
+                $userEmail = $shippingInfo->email;
+
+                if($emailConfig && $userEmail){
+                    $decryption = "";
+                    if($emailConfig){
+
+                        $ciphering = "AES-128-CTR";
+                        $options = 0;
+                        $decryption_iv = '1234567891011121';
+                        $decryption_key = "GenericCommerceV1";
+                        $decryption = openssl_decrypt ($emailConfig->password, $ciphering, $decryption_key, $options, $decryption_iv);
+
+                        config([
+                            'mail.mailers.smtp.host' => $emailConfig->host,
+                            'mail.mailers.smtp.port' => $emailConfig->port,
+                            'mail.mailers.smtp.username' => $emailConfig->email,
+                            'mail.mailers.smtp.password' => $decryption != "" ? $decryption : '',
+                            'mail.mailers.smtp.encryption' => $emailConfig ? ($emailConfig->encryption == 1 ? 'tls' : ($emailConfig->encryption == 2 ? 'ssl' : '')) : '',
+                        ]);
+
+                        Mail::to(trim($userEmail))->send(new OrderPlacedEmail($orderInfo));
+                    }
+                }
+
+            } catch(\Exception $e) {
+                // write code for handling error from here
+            }
+            // sending order email done
+
+
+            return response()->json([
+                'success' => true,
+                'message' => "Order Payment is Successfull",
+                'data' => new OrderResource(Order::where('id', $orderInfo->id)->first())
+            ], 200);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+    }
+
     public function submitProductReview(Request $request){
 
         $product_id = $request->product_id;
