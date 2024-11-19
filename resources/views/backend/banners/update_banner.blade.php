@@ -57,6 +57,7 @@
                                                 <option value="middle" @if($data->position == 'middle') selected @endif>Middle (Homepage)</option>
                                                 <option value="bottom" @if($data->position == 'bottom') selected @endif>Bottom (Homepage)</option>
                                                 <option value="shop" @if($data->position == 'shop') selected @endif>Top (ShopPage)</option>
+                                                <option value="popup" @if($data->position == 'popup') selected @endif>Popup (Homepage)</option>
                                             </select>
                                         </div>
                                     </div>

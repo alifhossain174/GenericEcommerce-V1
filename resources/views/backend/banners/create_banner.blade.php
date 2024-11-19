@@ -42,6 +42,7 @@
                                                 <option value="middle">Middle (Homepage)</option>
                                                 <option value="bottom">Bottom (Homepage)</option>
                                                 <option value="shop">Top (ShopPage)</option>
+                                                <option value="popup">Popup (Homepage)</option>
                                             </select>
                                         </div>
                                     </div>
