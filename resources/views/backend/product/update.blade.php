@@ -335,7 +335,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col" id="product_warrenty" @if(DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 0)->first())>
+                                    <div class="col" id="product_warrenty" @if($product->has_variant == 1) style="display:none" @endif>
                                         <div class="form-group">
                                             <label for="warrenty_id">Warranty</label>
                                             <select name="warrenty_id" data-toggle="select2" class="form-control" id="warrenty_id">

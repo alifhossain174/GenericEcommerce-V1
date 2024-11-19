@@ -23,6 +23,7 @@ class CreateBrandsTable extends Migration
             $table->tinyInteger('featured')->default(0)->comment("0=> Not Featured; 1=> Featured");
             $table->tinyInteger('status')->default(1)->comment("0=> Inactive; 1=> Active");
             $table->tinyInteger('serial')->default(1);
+            $table->string('link')->nullable();
             $table->string('slug');
             $table->timestamps();
         });
