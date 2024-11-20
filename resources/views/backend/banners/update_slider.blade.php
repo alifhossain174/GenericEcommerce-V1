@@ -30,6 +30,10 @@
                                     <input type="file" name="image" class="dropify" data-height="262" data-max-file-size="1M" accept="image/*"/>
                                 </div>
                                 <div class="form-group">
+                                    <label for="slider">Mobile/App Slider Image<span class="text-danger">*</span></label>
+                                    <input type="file" name="image_for_app" class="dropify" data-height="262" data-max-file-size="1M" accept="image/*"/>
+                                </div>
+                                <div class="form-group">
                                     <label for="colFormLabe0">Status <span class="text-danger">*</span></label>
                                     <select name="status" class="form-control" id="colFormLabe0" required>
                                         <option value="">Select One</option>
@@ -56,12 +60,23 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="link">Slider Link</label>
                                             <input type="text" name="link" value="{{$data->link}}" class="form-control" id="link" placeholder="https://">
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('link')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="link_for_app">Slider Link</label>
+                                            <input type="text" name="link_for_app" value="{{$data->link_for_app}}" class="form-control" id="link_for_app" placeholder="https://">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('link_for_app')
                                                     {{ $message }}
                                                 @enderror
                                             </div>
@@ -164,6 +179,13 @@
             $(".dropify-clear").eq(0).css("display", "block");
             $(".dropify-filename-inner").eq(0).html("{{$data->image}}");
             $("span.dropify-render").eq(0).html("<img src='{{url($data->image)}}'>");
+        @endif
+
+        @if($data->image_for_app && file_exists(public_path($data->image_for_app)))
+            $(".dropify-preview").eq(1).css("display", "block");
+            $(".dropify-clear").eq(1).css("display", "block");
+            $(".dropify-filename-inner").eq(1).html("{{$data->image_for_app}}");
+            $("span.dropify-render").eq(1).html("<img src='{{url($data->image_for_app)}}'>");
         @endif
 
         $(".colorpicker").spectrum({

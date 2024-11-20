@@ -49,6 +49,7 @@
                                 <tr>
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Banner</th>
+                                    <th class="text-center">Mobile/App Banner</th>
                                     <th class="text-center">Sub Title</th>
                                     <th class="text-center">Title</th>
                                     <th class="text-center">Description</th>
@@ -99,6 +100,17 @@
                 {
                     data: 'image',
                     name: 'image',
+                    render: function( data, type, full, meta ) {
+                        if(data){
+                            return "<img src=\"/" + data + "\" width=\"60\"/>";
+                        } else {
+                            return '';
+                        }
+                    }
+                },
+                {
+                    data: 'image_for_app',
+                    name: 'image_for_app',
                     render: function( data, type, full, meta ) {
                         if(data){
                             return "<img src=\"/" + data + "\" width=\"60\"/>";

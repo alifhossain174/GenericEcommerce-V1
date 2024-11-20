@@ -49,9 +49,11 @@
                                 <tr>
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Slider</th>
+                                    <th class="text-center">Mobile/App Slider</th>
                                     <th class="text-center">Sub Title</th>
                                     <th class="text-center">Title</th>
                                     <th class="text-center">Slider Link</th>
+                                    <th class="text-center">App Link</th>
                                     <th class="text-center">Button Text</th>
                                     <th class="text-center">Button Link</th>
                                     <th class="text-center">Status</th>
@@ -107,9 +109,21 @@
                         }
                     }
                 },
+                {
+                    data: 'image_for_app',
+                    name: 'image_for_app',
+                    render: function( data, type, full, meta ) {
+                        if(data){
+                            return "<img src=\"/" + data + "\" width=\"60\"/>";
+                        } else {
+                            return '';
+                        }
+                    }
+                },
                 {data: 'sub_title', name: 'sub_title'},
                 {data: 'title', name: 'title'},
                 {data: 'link', name: 'link'},
+                {data: 'link_for_app', name: 'link_for_app'},
                 {data: 'btn_text', name: 'btn_text'},
                 {data: 'btn_link', name: 'btn_link'},
                 {data: 'status', name: 'status'},

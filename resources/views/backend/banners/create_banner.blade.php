@@ -29,6 +29,12 @@
                                     <input type="file" name="image" class="dropify" data-height="262" data-max-file-size="1M" accept="image/*" required/>
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="banner">Mobile/App Banner Image <span class="text-danger">*</span></label>
+                                    <input type="file" name="image_for_app" class="dropify" data-height="262" data-max-file-size="1M" accept="image/*" required/>
+                                </div>
+                            </div>
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-lg-3">
@@ -46,7 +52,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="text_position">Text Position</label>
                                             <select class="form-control" name="text_position" id="text_position">
@@ -56,12 +62,23 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label for="link">Banner Link</label>
                                             <input type="text" name="link" class="form-control" id="link" placeholder="https://">
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('link')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="link_for_app">App Banner Link</label>
+                                            <input type="text" name="link_for_app" class="form-control" id="link_for_app" placeholder="https://">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('link_for_app')
                                                     {{ $message }}
                                                 @enderror
                                             </div>
