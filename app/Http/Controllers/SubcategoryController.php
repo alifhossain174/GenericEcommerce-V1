@@ -49,6 +49,7 @@ class SubcategoryController extends Controller
         Subcategory::insert([
             'category_id' => $request->category_id,
             'name' => $request->name,
+            'featured' => $request->featured,
             'icon' => $icon,
             'image' => $image,
             'slug' => Generate::Slug($request->name),
@@ -171,6 +172,7 @@ class SubcategoryController extends Controller
         Subcategory::where('id', $request->id)->update([
             'category_id' => $request->category_id,
             'name' => $request->name,
+            'featured' => $request->featured,
             'icon' => $icon,
             'image' => $image,
             'slug' => Generate::Slug($request->slug),

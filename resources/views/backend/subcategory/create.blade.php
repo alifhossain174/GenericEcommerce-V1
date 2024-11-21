@@ -63,6 +63,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="featured" class="col-sm-2 col-form-label">Feature Subcategory</label>
+                            <div class="col-sm-3">
+                                <select name="featured" class="form-control" id="featured">
+                                    <option value="">Select One</option>
+                                    <option value="1">Yes Featured</option>
+                                    <option value="0">Not Featured</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Save Subcategory</button>
                         </div>

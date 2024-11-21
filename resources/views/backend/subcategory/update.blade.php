@@ -93,6 +93,17 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="featured" class="col-sm-2 col-form-label">Feature Subcategory</label>
+                            <div class="col-sm-3">
+                                <select name="featured" class="form-control" id="featured">
+                                    <option value="">Select One</option>
+                                    <option value="1" @if($category->featured == 1) selected @endif>Yes Featured</option>
+                                    <option value="0" @if($category->featured == 0) selected @endif>Not Featured</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="colFormLabe0" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
                                 <button class="btn btn-primary" type="submit">Update Subcategory</button>
