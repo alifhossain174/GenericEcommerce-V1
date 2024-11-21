@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2024 at 03:31 PM
+-- Generation Time: Nov 21, 2024 at 05:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -68,7 +68,9 @@ CREATE TABLE `banners` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Sliders; 2=>Banners',
   `image` varchar(255) NOT NULL,
+  `image_for_app` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
+  `link_for_app` varchar(255) DEFAULT NULL,
   `position` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `sub_title_color` varchar(255) DEFAULT NULL,
@@ -91,17 +93,21 @@ CREATE TABLE `banners` (
 -- Dumping data for table `banners`
 --
 
-INSERT INTO `banners` (`id`, `type`, `image`, `link`, `position`, `status`, `sub_title_color`, `sub_title`, `title_color`, `title`, `description_color`, `description`, `btn_color`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
-(45, 2, 'banner/Knczj1723999843.jpg', '#', 'middle', 1, NULL, '50% special offer', NULL, 'Chocolate Shake Back in Stock', NULL, 'Offer Of the Week!', NULL, 'Shop Now', '#', 'left', 'cGzGd1723999843', 7, '2024-08-18 16:50:43', '2024-09-29 07:37:56'),
-(46, 2, 'banner/hGaHB1724000080.jpg', '#', 'middle', 1, NULL, 'Special hot sale', NULL, 'Healthy & Fresh Cool Breakfast', NULL, 'Choose a Nutritious & Healthy Breakfast', NULL, 'Shop Now', NULL, 'left', '6bHEO1724000080', 6, '2024-08-18 16:54:40', '2024-09-29 07:37:56'),
-(49, 2, 'banner/pLCa81724406165.jpg', '/', 'shop', 1, NULL, NULL, NULL, 'Healthy, nutritious & Tasty Fruits & Veggies', NULL, 'Save upto 50%', NULL, NULL, NULL, 'right', 'kKP801724406166', 3, '2024-08-23 09:42:46', '2024-09-29 07:37:56'),
-(51, 2, 'banner/fF6PD1727595447.jpg', NULL, 'top', 1, '#000000', 'Get up to 20% OFF', '#000000', 'Sports OutFit', '#000000', 'Starting at $170.00', NULL, NULL, NULL, 'left', '2DW2w1727595447', 1, '2024-09-29 07:37:27', '2024-09-29 07:47:02'),
-(52, 2, 'banner/UxUB81727595466.jpg', NULL, 'top', 1, '#ffffff', 'Accessories Collection', '#ffffff', 'Follow us on Facebook', '#ffffff', 'Starting at $170.00', NULL, NULL, NULL, 'left', 'IBvpp1727595466', 2, '2024-09-29 07:37:46', '2024-09-29 07:48:22'),
-(53, 2, 'banner/vBPso1727682861.jpg', NULL, 'bottom', 1, '#f44336', 'Top Products', '#ffffff', 'Trending Like Sneakers', NULL, NULL, '#ffffff', 'Shop Now', '#', 'left', '4Bpyt1727682861', 0, '2024-09-30 07:54:21', '2024-09-30 08:06:05'),
-(54, 2, 'banner/H3Bbe1727682888.jpg', NULL, 'bottom', 1, '#f44336', 'Top Products', '#000000', 'Trending Like Sneakers', NULL, NULL, '#000000', 'Shop Now', NULL, 'left', 'VuLq51727682888', -1, '2024-09-30 07:54:48', '2024-09-30 08:06:32'),
-(55, 2, 'banner/vLjci1727682903.jpg', NULL, 'bottom', 1, '#f44336', 'Top Products', '#ffffff', 'Trending Like Sneakers', NULL, NULL, '#ffffff', 'Shop Now', NULL, 'left', 'FUT951727682903', -2, '2024-09-30 07:55:03', '2024-09-30 08:05:43'),
-(58, 1, 'banner/0BiKO1731394519.jpg', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'saje91731394519', -1, '2024-11-12 06:55:19', NULL),
-(59, 1, 'banner/zByMr1731394524.jpg', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TAml91731394524', -2, '2024-11-12 06:55:24', NULL);
+INSERT INTO `banners` (`id`, `type`, `image`, `image_for_app`, `link`, `link_for_app`, `position`, `status`, `sub_title_color`, `sub_title`, `title_color`, `title`, `description_color`, `description`, `btn_color`, `btn_text`, `btn_link`, `text_position`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
+(45, 2, 'banner/Knczj1723999843.jpg', NULL, '#', NULL, 'middle', 1, NULL, '50% special offer', NULL, 'Chocolate Shake Back in Stock', NULL, 'Offer Of the Week!', NULL, 'Shop Now', '#', 'left', 'cGzGd1723999843', 7, '2024-08-18 16:50:43', '2024-09-29 07:37:56'),
+(46, 2, 'banner/hGaHB1724000080.jpg', NULL, '#', NULL, 'middle', 1, NULL, 'Special hot sale', NULL, 'Healthy & Fresh Cool Breakfast', NULL, 'Choose a Nutritious & Healthy Breakfast', NULL, 'Shop Now', NULL, 'left', '6bHEO1724000080', 6, '2024-08-18 16:54:40', '2024-09-29 07:37:56'),
+(49, 2, 'banner/pLCa81724406165.jpg', NULL, '/', NULL, 'shop', 1, NULL, NULL, NULL, 'Healthy, nutritious & Tasty Fruits & Veggies', NULL, 'Save upto 50%', NULL, NULL, NULL, 'right', 'kKP801724406166', 3, '2024-08-23 09:42:46', '2024-09-29 07:37:56'),
+(51, 2, 'banner/fF6PD1727595447.jpg', NULL, NULL, NULL, 'top', 1, '#000000', 'Get up to 20% OFF', '#000000', 'Sports OutFit', '#000000', 'Starting at $170.00', NULL, NULL, NULL, 'left', '2DW2w1727595447', 1, '2024-09-29 07:37:27', '2024-09-29 07:47:02'),
+(52, 2, 'banner/UxUB81727595466.jpg', NULL, NULL, NULL, 'top', 1, '#ffffff', 'Accessories Collection', '#ffffff', 'Follow us on Facebook', '#ffffff', 'Starting at $170.00', NULL, NULL, NULL, 'left', 'IBvpp1727595466', 2, '2024-09-29 07:37:46', '2024-09-29 07:48:22'),
+(53, 2, 'banner/vBPso1727682861.jpg', NULL, NULL, NULL, 'bottom', 1, '#f44336', 'Top Products', '#ffffff', 'Trending Like Sneakers', NULL, NULL, '#ffffff', 'Shop Now', '#', 'left', '4Bpyt1727682861', 0, '2024-09-30 07:54:21', '2024-09-30 08:06:05'),
+(54, 2, 'banner/H3Bbe1727682888.jpg', NULL, NULL, NULL, 'bottom', 1, '#f44336', 'Top Products', '#000000', 'Trending Like Sneakers', NULL, NULL, '#000000', 'Shop Now', NULL, 'left', 'VuLq51727682888', -1, '2024-09-30 07:54:48', '2024-09-30 08:06:32'),
+(55, 2, 'banner/vLjci1727682903.jpg', NULL, NULL, NULL, 'bottom', 1, '#f44336', 'Top Products', '#ffffff', 'Trending Like Sneakers', NULL, NULL, '#ffffff', 'Shop Now', NULL, 'left', 'FUT951727682903', -2, '2024-09-30 07:55:03', '2024-09-30 08:05:43'),
+(58, 1, 'banner/0BiKO1731394519.jpg', NULL, 'https://zoomart.pages.dev/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'saje91731394519', -1, '2024-11-12 06:55:19', '2024-11-20 07:00:16'),
+(59, 1, 'banner/zByMr1731394524.jpg', NULL, 'https://zoomart.pages.dev/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TAml91731394524', -2, '2024-11-12 06:55:24', '2024-11-20 07:00:11'),
+(60, 1, 'banner/aNkTU1732093936.jpg', 'banner/2qw6b1732093936.jpg', 'http://127.0.0.1:8000/', 'http://127.0.0.1:8000/', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'lkvWe1732093936', -3, '2024-11-20 09:12:16', NULL),
+(62, 1, 'banner/lX5r91732094827.jpg', 'banner/ZY2Xd1732094827.jpg', 'https://fmmtechnology.net/rr', 'https://fmmtechnology.net/rrrr', NULL, 1, NULL, 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'left', 'lG82r1732094785', -4, '2024-11-20 09:26:25', '2024-11-21 04:50:02'),
+(66, 2, 'banner/Botxn1732164227.png', 'banner/4OAhX1732160898.png', 'https://fmmtechnology.net/', 'https://fmmtechnology.net/', 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0hUpV1732160899', -7, '2024-11-21 03:48:19', '2024-11-21 04:44:12'),
+(67, 2, 'banner/nM73N1732164330.png', 'banner/xtwAJ1732164342.jpg', NULL, NULL, 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Khzmk1732164330', -8, '2024-11-21 04:45:30', '2024-11-21 04:45:43');
 
 -- --------------------------------------------------------
 
@@ -1139,7 +1145,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `trade_license_no`, `tin_no`, `bin_no`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `messenger_chat_status`, `fb_page_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `guest_checkout`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/rotCU1730413158.svg', 'company_logo/AawTK1730413158.svg', 'company_logo/o35k61730413158.svg', 'TechShop - Ecommerce', 'Getup Ltd.', 'Ecommerce Bangladesh is online version of Ecommerce  situated at Dhaka since 2024.', '+88012345647890', 'sample@example.com', 'Dhaka, Bangladesh', NULL, 'https://play.google.com', 'https://www.apple.com/app-store', '98740', '3216549875', NULL, 'Copyright © 2024 Ecommerce. All Rights Reserved.', 'company_logo/cRxqA1720483781.png', '#000000', '#d4145a', '#ffffff', '#222831', '#252a34', '#cccccc', 'Online Ecommerce Shopping', 'ecommerce,online shopping,buy online,shop online', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', 'Online Ecommerce Shopping', 'company_logo/83f4h1731393547.png', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://x.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://www.messenger.com', 'https://web.whatsapp.com/', NULL, NULL, NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-N5D5W9BW', 0, NULL, 0, 'https://m.me', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, 1, NULL, NULL, '2024-11-12 08:12:01');
+(1, 'company_logo/rotCU1730413158.svg', 'company_logo/AawTK1730413158.svg', 'company_logo/o35k61730413158.svg', 'TechShop - Ecommerce', 'Getup Ltd.', 'Ecommerce Bangladesh is online version of Ecommerce  situated at Dhaka since 2024.', '+88012345647890', 'sample@example.com', 'Dhaka, Bangladesh', NULL, 'https://play.google.com', 'https://www.apple.com/app-store', '98740', '3216549875', NULL, 'Copyright © 2024 Ecommerce. All Rights Reserved.', 'company_logo/cRxqA1720483781.png', '#000000', '#d4145a', '#ffffff', '#222831', '#252a34', '#cccccc', 'Online Ecommerce Shopping', 'ecommerce,online shopping,buy online,shop online', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', 'Online Ecommerce Shopping', 'company_logo/83f4h1731393547.png', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://x.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://www.messenger.com', 'https://web.whatsapp.com/', NULL, NULL, NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-N5D5W9BW', 0, NULL, 0, 'https://m.me', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, 0, NULL, NULL, '2024-11-20 06:04:57');
 
 -- --------------------------------------------------------
 
@@ -4814,7 +4820,8 @@ INSERT INTO `testimonials` (`id`, `description`, `rating`, `customer_name`, `des
 (5, '\"I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness. There, now he\'s trapped in a book I wrote: a crummy world of plot holes and spelling errors! As an interesting side note.\"', 4, 'Levi Sampson', 'Engineer, Getup Ltd.', 'testimonial/2ODxW1710389796.jpg', 'lgoK91710389796', '2024-03-14 04:16:36', '2024-08-26 11:21:08'),
 (6, '\"I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness. There, now he\'s trapped in a book I wrote: a crummy world of plot holes and spelling errors! As an interesting side note.\"', 5, 'Patience Blankenship', 'Sales Executive, Getup Ltd.', 'testimonial/cgUSR1710389825.jpg', '7DsXD1710389825', '2024-03-14 04:17:05', '2024-08-26 11:21:02'),
 (7, '\"I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness. There, now he\'s trapped in a book I wrote: a crummy world of plot holes and spelling errors! As an interesting side note.\"', 4, 'Carissa Woodward', 'Manager, Getup Ltd.', 'testimonial/N6cXl1710389840.jpg', 'GgIYb1710389840', '2024-03-14 04:17:20', '2024-08-26 11:20:57'),
-(8, '\"I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness. There, now he\'s trapped in a book I wrote: a crummy world of plot holes and spelling errors! As an interesting side note.\"', 3, 'Sacha Lowe', 'CEO, Getup Ltd.', 'testimonial/TgzFu1710389859.jpg', 'TnZFJ1710389859', '2024-03-14 04:17:39', '2024-08-26 11:20:41');
+(8, '\"I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness. There, now he\'s trapped in a book I wrote: a crummy world of plot holes and spelling errors! As an interesting side note.\"', 3, 'Sacha Lowe', 'CEO, Getup Ltd.', 'testimonial/TgzFu1710389859.jpg', 'TnZFJ1710389859', '2024-03-14 04:17:39', '2024-08-26 11:20:41'),
+(9, 'Illum amet temporibus minima qui harum in autem proident exercitation qui tempore', 2, 'Uma Ortega', 'Deserunt consequuntu', 'testimonial/F10LC1732082700.jpg', '5CNR51732082700', '2024-11-20 06:05:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -10649,7 +10656,7 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `billing_addresses`
@@ -11009,7 +11016,7 @@ ALTER TABLE `terms_and_policies`
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `unions`
@@ -11086,12 +11093,6 @@ ALTER TABLE `withdraws`
 --
 ALTER TABLE `unions`
   ADD CONSTRAINT `unions_ibfk_2` FOREIGN KEY (`upazilla_id`) REFERENCES `upazilas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `upazilas`
---
-ALTER TABLE `upazilas`
-  ADD CONSTRAINT `upazilas_ibfk_2` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
