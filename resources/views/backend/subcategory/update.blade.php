@@ -78,7 +78,7 @@
 
                         <div class="form-group row">
                             <label for="colFormLabe0" class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-3">
                                 <select name="status" class="form-control" id="colFormLabe0" required>
                                     <option value="">Select One</option>
                                     <option value="1" @if($subcategory->status == 1) selected @endif>Active</option>
@@ -97,8 +97,8 @@
                             <div class="col-sm-3">
                                 <select name="featured" class="form-control" id="featured">
                                     <option value="">Select One</option>
-                                    <option value="1" @if($category->featured == 1) selected @endif>Yes Featured</option>
-                                    <option value="0" @if($category->featured == 0) selected @endif>Not Featured</option>
+                                    <option value="1" @if($subcategory->featured == 1) selected @endif>Yes Featured</option>
+                                    <option value="0" @if($subcategory->featured == 0) selected @endif>Not Featured</option>
                                 </select>
                             </div>
                         </div>
