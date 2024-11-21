@@ -56,12 +56,12 @@ class BannerController extends Controller
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('banner/');
 
-            // $get_image->move($location, $image_name);
-            if ($get_image->getClientOriginalExtension() == 'svg') {
-                $get_image->move($location, $image_name);
-            } else {
-                Image::make($get_image)->save($location . $image_name, 60);
-            }
+            $get_image->move($location, $image_name);
+            // if($get_image->getClientOriginalExtension() == 'svg'){
+            //     $get_image->move($location, $image_name);
+            // } else {
+            //     Image::make($get_image)->save($location . $image_name, 60);
+            // }
 
             $image = "banner/" . $image_name;
         }
@@ -151,12 +151,12 @@ class BannerController extends Controller
             $image_name = str::random(5) . time() . '.' . $get_image->getClientOriginalExtension();
             $location = public_path('banner/');
 
-            // $get_image->move($location, $image_name);
-            if ($get_image->getClientOriginalExtension() == 'svg') {
-                $get_image->move($location, $image_name);
-            } else {
-                Image::make($get_image)->save($location . $image_name, 60);
-            }
+            $get_image->move($location, $image_name);
+            // if($get_image->getClientOriginalExtension() == 'svg'){
+            //     $get_image->move($location, $image_name);
+            // } else {
+            //     Image::make($get_image)->save($location . $image_name, 60);
+            // }
 
             $image = "banner/" . $image_name;
         }
