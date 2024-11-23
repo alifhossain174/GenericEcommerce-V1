@@ -69,7 +69,7 @@
                                 <select name="featured" class="form-control" id="featured">
                                     <option value="">Select One</option>
                                     <option value="1">Yes Featured</option>
-                                    <option value="0">Not Featured</option>
+                                    <option value="0" selected>Not Featured</option>
                                 </select>
                             </div>
                         </div>
