@@ -219,10 +219,6 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::post('/update/crisp/chat/info', [GeneralInfoController::class, 'updateCrispChat'])->name('UpdateCrispChat');
     Route::get('/change/guest/checkout/status', [GeneralInfoController::class, 'changeGuestCheckoutStatus'])->name('ChangeGuestCheckoutStatus');
 
-    //Footer Contact Info
-    Route::get('/footer/contact/info', [GeneralInfoController::class, 'footerContactInfo'])->name('FooterContactInfo');
-    Route::post('/update/footer/contact/info', [GeneralInfoController::class, 'updateFooterContactInfo'])->name('UpdateFooterContactInfo');
-
     // faq routes
     Route::get('/view/all/faqs', [FaqController::class, 'viewAllFaqs'])->name('ViewAllFaqs');
     Route::get('/add/new/faq', [FaqController::class, 'addNewFaq'])->name('AddNewFaq');

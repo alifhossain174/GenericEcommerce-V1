@@ -5,7 +5,6 @@
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Website Config</li>
     <li><a href="{{ url('/general/info') }}"><i class="feather-grid"></i><span>General Info</span></a></li>
-    <li><a href="{{ url('/footer/contact/info') }}"><i class="feather-grid"></i><span>Footer Contact Info</span></a></li>
     <li><a href="{{ url('/website/theme/page') }}"><i class="mdi mdi-format-color-fill"
                 style="font-size: 18px"></i><span>Website Theme Color</span></a></li>
     <li><a href="{{ url('/social/media/page') }}"><i class="mdi mdi-link-variant"

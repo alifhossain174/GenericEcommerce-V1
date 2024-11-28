@@ -125,6 +125,33 @@ Entry General Information
                             </div>
 
                             <div class="form-group row">
+                                <label for="footer_contact" class="col-sm-2 col-form-label">Footer Contact<span
+                                        class="text-danger">*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="footer_contact" data-role="tagsinput" name="footer_contact"
+                                        value="{{$data->footer_contact}}" class="form-control" placeholder="01*********">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('footer_contact')
+                                        {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="footer_email" class="col-sm-2 col-form-label">Footer Email<span
+                                        class="text-danger">*</span></label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="footer_email" data-role="tagsinput" name="footer_email"
+                                        value="{{$data->footer_email}}" class="form-control" placeholder="Write Email Here">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('footer_email')
+                                        {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="short_description" class="col-sm-2 col-form-label">Short Description</label>
                                 <div class="col-sm-10">
                                     <textarea id="short_description" name="short_description" rows="2"
