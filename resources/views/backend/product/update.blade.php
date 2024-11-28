@@ -991,7 +991,7 @@
                     dataType: 'json',
                     success: function (result) {
                         $('#model_id').html('<option value="">Select Model</option>');
-                        $.each(result, function (key, value) {
+                        $.each(result, function (key, value) {z
                             $("#model_id").append('<option value="' + value.id + '">' + value.name + '</option>');
                         });
                     }

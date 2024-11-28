@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
 use App\Models\GeneralInfo;
+use App\Models\FooterContactInfo;
 use App\Models\GoogleRecaptcha;
 use App\Models\SocialLogin;
 use Carbon\Carbon;
@@ -196,6 +197,24 @@ class GeneralInfoController extends Controller
         ]);
 
         Toastr::success('General Info Updated', 'Success');
+        return back();
+    }
+
+    public function footerContactInfo(Request $request){
+        $data = FooterContactInfo::where('id', 1)->first();
+        return view('backend.general_info.footer_contact_info', compact('data'));
+    }
+
+    public function updateFooterContactInfo(Request $request){
+        $data = FooterContactInfo::where('id', 1)->first();
+
+        FooterContactInfo::where('id', 1)->update([
+            'contact' => $request->contact,
+            'email' => $request->email,
+            'updated_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Footer Contact Info Updated', 'Success');
         return back();
     }
 
