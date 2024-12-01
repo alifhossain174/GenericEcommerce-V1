@@ -301,7 +301,6 @@ class SystemController extends Controller
         return back();
 
     }
-
     public function changePaymentGatewayStatus($provider){
 
         if($provider == 'ssl_commerz'){ //ID 1 => ssl_commerz
