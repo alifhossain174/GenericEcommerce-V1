@@ -219,6 +219,15 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::post('/update/crisp/chat/info', [GeneralInfoController::class, 'updateCrispChat'])->name('UpdateCrispChat');
     Route::get('/change/guest/checkout/status', [GeneralInfoController::class, 'changeGuestCheckoutStatus'])->name('ChangeGuestCheckoutStatus');
 
+    //Faq category
+    Route::get('/faq/categories', [FaqController::class, 'faqCategories'])->name('FaqCategories');
+    Route::post('/save/faq/category', [FaqController::class, 'saveFaqCategory'])->name('SaveFaqCategory');
+    Route::get('/delete/faq/category/{slug}', [FaqController::class, 'deleteFaqCategory'])->name('DeleteFaqCategory');
+    Route::get('/get/faq/category/info/{slug}', [FaqController::class, 'getFaqCategoryInfo'])->name('GetFaqCategoryInfo');
+    Route::post('/update/faq/category', [FaqController::class, 'updateFaqCategoryInfo'])->name('UpdateFaqCategoryInfo');
+    Route::get('/rearrange/faq/category', [FaqController::class, 'rearrangeFaqCategory'])->name('RearrangeFaqCategory');
+    Route::post('/save/rearranged/faq/categories', [FaqController::class, 'saveRearrangeCategory'])->name('SaveRearrangeCategory');
+
     // faq routes
     Route::get('/view/all/faqs', [FaqController::class, 'viewAllFaqs'])->name('ViewAllFaqs');
     Route::get('/add/new/faq', [FaqController::class, 'addNewFaq'])->name('AddNewFaq');
@@ -226,6 +235,8 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('/delete/faq/{slug}', [FaqController::class, 'deleteFaq'])->name('DeleteFaq');
     Route::get('/edit/faq/{slug}', [FaqController::class, 'editFaq'])->name('EditFaq');
     Route::post('/update/faq', [FaqController::class, 'updateFaq'])->name('UpdateFaq');
+    Route::get('/rearrange/faq', [FaqController::class, 'rearrangeFaq'])->name('RearrangeFaq');
+    Route::post('/save/rearranged/faqs', [FaqController::class, 'saveRearrangeFaq'])->name('SaveRearrangeFaq');
 
 
     // sliders and banners routes

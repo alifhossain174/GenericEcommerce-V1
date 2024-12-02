@@ -352,8 +352,13 @@
         </ul>
     </li>
     <li><a href="{{ url('/about/us/page') }}"><i class="feather-globe"></i><span>About Us</span></a></li>
-    <li><a href="{{ url('/view/all/faqs') }}"><i class="far fa-question-circle"></i><span>FAQ's</span></a></li>
-
+    <li>
+        <a href="javascript: void(0);" class="has-arrow"><i class="far fa-question-circle"></i><span>FAQ's</span></a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{ url('/faq/categories') }}">FAQ Categories</a></li>
+            <li><a href="{{ url('/view/all/faqs') }}">FAQ's</a></li>
+        </ul>
+    </li>
 
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">User Role Permission</li>
