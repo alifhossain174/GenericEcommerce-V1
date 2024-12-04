@@ -67,6 +67,9 @@
             border-radius: 4px !important;
             border-color: #007eb2 !important;
         }
+        .dataTables_filter input{
+            width: 320px !important;
+        }
 
     </style>
 @endsection
@@ -92,7 +95,7 @@
                         <div class="row">
                             <div class="col-lg-6">Product List</div>
                             <div class="col-lg-6 text-right">
-                                <a href="{{url('add/new/product')}}" class="btn btn-success btn-sm" style="margin-left: 5px"><b><i class="fas fa-plus"></i> Add New Product</b></a>
+                                <a href="{{url('add/new/product')}}" class="btn btn-success btn-sm" style="margin-left: 5px; padding: 10px 20px;"><b><i class="fas fa-plus"></i> Add New Product</b></a>
                             </div>
                         </div>
                     </h4>
@@ -100,17 +103,17 @@
                         <table class="table table-bordered mb-0 data-table">
                             <thead>
                                 <tr>
-                                    <th class="text-center">SL</th>
+                                    {{-- <th class="text-center">SL</th> --}}
+                                    <th class="text-center">SKU</th>
                                     <th class="text-center">Image</th>
-                                    <th class="text-center">Category</th>
                                     <th class="text-center">Name</th>
+                                    <th class="text-center">Category</th>
                                     @if(env('MultiVendor') == true)
                                     <th class="text-center">Store</th>
                                     @endif
-                                    <th class="text-center">Price</th>
-                                    <th class="text-center">Offer Price</th>
-                                    <th class="text-center">Stock</th>
                                     <th class="text-center">Flag</th>
+                                    {{-- <th class="text-center">Price</th> --}}
+                                    <th class="text-center">Stock</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
@@ -202,10 +205,10 @@
             processing: true,
             serverSide: true,
             stateSave: true,
-            pageLength: 10,
+            pageLength: 20,
             lengthMenu: [
-                [10, 25, 50, 100, -1],
-                [10, 25, 50, 100, "All"]
+                [10, 20, 50, 100, -1],
+                [10, 20, 50, 100, "All"]
             ],
             ajax: {
                 url: "{{ url('view/all/product') }}",
@@ -224,9 +227,13 @@
                 }
             },
             columns: [
+                // {
+                //     data: 'DT_RowIndex',
+                //     name: 'DT_RowIndex'
+                // },
                 {
-                    data: 'DT_RowIndex',
-                    name: 'DT_RowIndex'
+                    data: 'code',
+                    name: 'code'
                 },
                 {
                     data: 'image',
@@ -240,12 +247,12 @@
                     }
                 },
                 {
-                    data: 'category_name',
-                    name: 'category_name'
-                }, //orderable: true, searchable: true
-                {
                     data: 'name',
                     name: 'name'
+                },
+                {
+                    data: 'category_name',
+                    name: 'category_name'
                 },
                 @if(env('MultiVendor') == true)
                 {
@@ -253,19 +260,15 @@
                     name: 'store_name'
                 },
                 @endif
-                {
-                    data: 'price',
-                    name: 'price'
-                },
-                {
-                    data: 'discount_price',
-                    name: 'discount_price'
-                },
+                {data: 'flag_name', name: 'flag_name'},
+                // {
+                //     data: 'price',
+                //     name: 'price'
+                // },
                 {
                     data: 'stock',
                     name: 'stock'
                 },
-                {data: 'flag_name', name: 'flag_name'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],

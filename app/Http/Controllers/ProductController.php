@@ -273,32 +273,19 @@ class ProductController extends Controller
                             return '<span class="btn btn-sm btn-danger d-inline-block">Inactive</span>';
                         }
                     })
-                    ->editColumn('price', function($data) {
-                        if($data->has_variant == 1){
-                            $priceStr = '';
-                            $variantInfo = ProductVariant::where('product_id', $data->id)->select('price')->orderBy('id', 'asc')->get();
-                            foreach($variantInfo as $variant){
-                                $priceStr .= $variant->price.", ";
-                            }
+                    // ->editColumn('price', function($data) {
+                    //     if($data->has_variant == 1){
+                    //         $priceStr = '';
+                    //         $variantInfo = ProductVariant::where('product_id', $data->id)->select('price')->orderBy('id', 'asc')->get();
+                    //         foreach($variantInfo as $variant){
+                    //             $priceStr .= $variant->price.", ";
+                    //         }
 
-                            return rtrim($priceStr,", ");
-                        } else {
-                            return $data->price;
-                        }
-                    })
-                    ->editColumn('discount_price', function($data) {
-                        if($data->has_variant == 1){
-                            $priceStr = '';
-                            $variantInfo = ProductVariant::where('product_id', $data->id)->orderBy('id', 'asc')->get();
-                            foreach($variantInfo as $variant){
-                                $priceStr .= $variant->discounted_price.", ";
-                            }
-
-                            return rtrim($priceStr,", ");
-                        } else {
-                            return $data->discount_price;
-                        }
-                    })
+                    //         return rtrim($priceStr,", ");
+                    //     } else {
+                    //         return $data->price;
+                    //     }
+                    // })
                     ->editColumn('stock', function($data) {
                         if($data->has_variant == 1){
                             $stockStr = '';
@@ -312,7 +299,7 @@ class ProductController extends Controller
                             return $data->stock;
                         }
                     })
-                    ->addIndexColumn()
+                    // ->addIndexColumn()
                     ->addColumn('action', function($data){
                         $link = env('APP_FRONTEND_URL')."/product/details/".$data->slug;
                         $btn = ' <a target="_blank" href="'.$link.'" class="mb-1 btn-sm btn-success rounded d-inline-block" title="For Frontend Product View"><i class="fa fa-eye"></i></a>';
