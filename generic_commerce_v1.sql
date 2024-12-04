@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2024 at 07:14 AM
+-- Generation Time: Dec 02, 2024 at 07:31 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -130,7 +130,8 @@ CREATE TABLE `billing_addresses` (
 
 INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `thana`, `city`, `country`, `created_at`, `updated_at`) VALUES
 (1, 1, 'H/N: 176, Seroil, Rajshahi', NULL, 'Boalia Thana', 'Rajshahi', 'Bangladesh', '2024-11-12 08:17:38', NULL),
-(2, 2, 'H/N: 176, Seroil, Rajshahi', NULL, 'Boalia Thana', 'Rajshahi', 'Bangladesh', '2024-11-13 07:27:35', NULL);
+(2, 2, 'H/N: 176, Seroil, Rajshahi', NULL, 'Boalia Thana', 'Rajshahi', 'Bangladesh', '2024-11-13 07:27:35', NULL),
+(3, 3, 'Dolore velit est nob', 'Quis eius quasi repr', 'Chuadanga Sadar', 'Chuadanga', 'Bangladesh', '2024-11-28 07:35:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -1019,10 +1020,12 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `faqs` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` int(11) DEFAULT NULL,
   `question` varchar(255) NOT NULL,
   `answer` longtext NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `slug` varchar(255) NOT NULL,
+  `serial` double NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1031,12 +1034,37 @@ CREATE TABLE `faqs` (
 -- Dumping data for table `faqs`
 --
 
-INSERT INTO `faqs` (`id`, `question`, `answer`, `status`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'How can I place an order?', 'To place an order, simply browse through our product listings, select the items you wish to purchase, and add them to your cart. Proceed to the checkout page, enter your shipping and payment information, and confirm your order. you can buy directly single product also.', 1, 'YNNLM1689485446', '2023-07-16 15:30:46', '2023-07-16 15:30:46'),
-(2, 'What payment methods do you accept?', 'We accept various payment methods, including credit cards, debit cards, and online payment services such as SSLCommerez. The available payment options will be displayed during the checkout process.', 1, 'wj67c1689485485', '2023-07-16 15:31:25', '2023-07-16 15:31:25'),
-(3, 'How long does it take to process and ship an order?', 'We typically process and ship orders within 1-2 business days. However, processing times may vary during peak seasons or promotional periods. Once your order is shipped, you will receive a shipping confirmation email with tracking information.', 1, '8QsEn1689486367', '2023-07-16 15:46:07', '2023-07-16 15:46:07'),
-(4, 'What are your shipping options and delivery times?', 'We offer a range of shipping options, including standard and expedited shipping. The delivery time will depend on your location, the selected shipping method, and other factors beyond our control. During the checkout process, you will be provided with estimated delivery times for each shipping option.', 1, 'q9BXl1689486385', '2023-07-16 15:46:25', '2023-07-16 15:46:25'),
-(6, 'What is your return policy?', 'We have a flexible return policy. If you are not satisfied with your purchase, you may be eligible for a return within the specified return period. Please refer to our Return Policy for detailed information on the return process, eligibility criteria, and other important details.', 1, 'lihMH1689486418', '2023-07-16 15:46:58', '2023-07-16 15:46:58');
+INSERT INTO `faqs` (`id`, `category_id`, `question`, `answer`, `status`, `slug`, `serial`, `created_at`, `updated_at`) VALUES
+(16, 3, 'How Long Will it Take to Get My Package? test', 'Fringilla urna porttitor rhoncus dolor purus. Luctus venenatis lectus semper bibendum Diam maecenas ultricies mi eget mauris. Nibh tellus molestie nunc non isse faucibus Ultrices eros in cursus turpis massa tincidunt. Ante in nibh mauri eger enim neque volu lectus. Etiam non quam lacus suspendisse faucibus.  test', 1, 'C1tMR1733118723', 1, '2024-12-02 05:52:03', NULL),
+(17, 3, 'What Shipping Methods are Available?', 'Fringilla urna porttitor rhoncus dolor purus. Luctus venenatis lectus semper bibendum Diam maecenas ultricies mi eget mauris. Nibh tellus molestie nunc non isse faucibus Ultrices eros in cursus turpis massa tincidunt. Ante in nibh mauri eger enim neque volu lectus. Etiam non quam lacus suspendisse faucibus.', 1, 'dV9i41733120526', 1, '2024-12-02 06:22:06', NULL),
+(18, 3, 'Do You Ship Internationally?', 'Fringilla urna porttitor rhoncus dolor purus. Luctus venenatis lectus semper bibendum Diam maecenas ultricies mi eget mauris. Nibh tellus molestie nunc non isse faucibus Ultrices eros in cursus turpis massa tincidunt. Ante in nibh mauri eger enim neque volu lectus. Etiam non quam lacus suspendisse faucibus.', 1, 'hZFjj1733120549', 1, '2024-12-02 06:22:29', NULL),
+(19, 3, 'How Long Will it Take to Get My Package?', 'Fringilla urna porttitor rhoncus dolor purus. Luctus venenatis lectus semper bibendum Diam maecenas ultricies mi eget mauris. Nibh tellus molestie nunc non isse faucibus Ultrices eros in cursus turpis massa tincidunt. Ante in nibh mauri eger enim neque volu lectus. Etiam non quam lacus suspendisse faucibus.', 1, 'CUgb41733120571', 1, '2024-12-02 06:22:51', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faq_categories`
+--
+
+CREATE TABLE `faq_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
+  `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
+  `serial` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `faq_categories`
+--
+
+INSERT INTO `faq_categories` (`id`, `name`, `slug`, `status`, `featured`, `serial`, `created_at`, `updated_at`) VALUES
+(3, 'Shipping Information', 'shipping-information1731584415', 1, 0, 1, '2024-11-14 11:14:56', '2024-11-14 11:40:15'),
+(5, 'Payment', 'payment1731584042', 1, 0, 1, '2024-11-14 11:34:02', NULL),
+(6, 'Orders & Returns', 'orders-returns1731584051', 1, 0, 1, '2024-11-14 11:34:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -1144,7 +1172,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_contact`, `footer_email`, `trade_license_no`, `tin_no`, `bin_no`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `messenger_chat_status`, `fb_page_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `guest_checkout`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/rotCU1730413158.svg', 'company_logo/AawTK1730413158.svg', 'company_logo/o35k61730413158.svg', 'TechShop - Ecommerce', 'Getup Ltd.', 'Ecommerce Bangladesh is online version of Ecommerce  situated at Dhaka since 2024.', '+88012345647890', 'sample@example.com', 'Dhaka, Bangladesh', NULL, 'https://play.google.com', 'https://www.apple.com/app-store', NULL, NULL, '98740', '3216549875', NULL, 'Copyright © 2024 Ecommerce. All Rights Reserved.', 'company_logo/cRxqA1720483781.png', '#000000', '#d4145a', '#ffffff', '#222831', '#252a34', '#cccccc', 'Online Ecommerce Shopping', 'ecommerce,online shopping,buy online,shop online', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', 'Online Ecommerce Shopping', 'company_logo/83f4h1731393547.png', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://x.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://www.messenger.com', 'https://web.whatsapp.com/', NULL, NULL, NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-N5D5W9BW', 0, NULL, 0, 'https://m.me', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, 0, NULL, NULL, '2024-11-24 08:45:01');
+(1, 'company_logo/rotCU1730413158.svg', 'company_logo/AawTK1730413158.svg', 'company_logo/o35k61730413158.svg', 'TechShop - Ecommerce', 'Getup Ltd.', 'Ecommerce Bangladesh is online version of Ecommerce  situated at Dhaka since 2024.', '+88012345647890', 'sample@example.com', '<p>Milk Vita Market,&nbsp; Ground Floor, Shop#3 <br>Baghabari Ghat,&nbsp;Shahjadpur, Sirajganj</p>', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14604.04227296382!2d90.414883!3d23.782638!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b1bc2acc3e3f%3A0xc1754878d221b24e!2sGetUp%20Limited!5e0!3m2!1sen!2sbd!4v1733119041109!5m2!1sen!2sbd', 'https://play.google.com', 'https://www.apple.com/app-store', NULL, NULL, '98740', '3216549875', NULL, 'Copyright © 2024 Ecommerce. All Rights Reserved.', 'company_logo/cRxqA1720483781.png', '#000000', '#d4145a', '#ffffff', '#222831', '#252a34', '#cccccc', 'Online Ecommerce Shopping', 'ecommerce,online shopping,buy online,shop online', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', 'Online Ecommerce Shopping', 'company_logo/83f4h1731393547.png', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://x.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://www.messenger.com', 'https://web.whatsapp.com/', NULL, NULL, NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-N5D5W9BW', 0, NULL, 0, 'https://m.me', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, 0, NULL, NULL, '2024-12-02 06:10:49');
 
 -- --------------------------------------------------------
 
@@ -1314,7 +1342,8 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `order_no`, `order_from`, `user_id`, `order_date`, `estimated_dd`, `delivery_date`, `delivery_method`, `payment_method`, `payment_status`, `trx_id`, `bank_tran_id`, `order_status`, `sub_total`, `coupon_code`, `discount`, `reward_points_used`, `delivery_fee`, `vat`, `tax`, `total`, `order_note`, `order_remarks`, `slug`, `complete_order`, `created_at`, `updated_at`) VALUES
 (1, '1731399458914', 1, NULL, '2024-11-12 14:17:38', '2024-11-19', NULL, '1', 2, 1, '173139945815m0J', '234234', 1, 4194, '0', 0, 0, 100, 0, 0, 4294, NULL, NULL, 'WnHgW1731399458', 1, '2024-11-12 08:17:38', '2024-11-13 06:45:26'),
-(2, '1731482855903', 1, NULL, '2024-11-13 13:27:35', '2024-11-20', NULL, '1', 1, 0, '1731482855Q4cfo', NULL, 0, 391, '0', 0, 0, 100, 0, 0, 491, NULL, NULL, 'nJNM71731482855', 1, '2024-11-13 07:27:35', NULL);
+(2, '1731482855903', 1, NULL, '2024-11-13 13:27:35', '2024-11-20', NULL, '1', 1, 0, '1731482855Q4cfo', NULL, 0, 391, '0', 0, 0, 100, 0, 0, 491, NULL, NULL, 'nJNM71731482855', 1, '2024-11-13 07:27:35', NULL),
+(3, '2411281', 1, 23, '2024-11-28 13:35:32', '2024-12-05', NULL, '1', 1, 0, '17327793328mJ4l', NULL, 0, 1776, '0', 0, 0, 0, 0, 0, 1776, 'Aute omnis asperiore', NULL, 'lCW3w1732779332', 1, '2024-11-28 07:35:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -1354,7 +1383,10 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `store_id`, `color_
 (4, 1, 3507, NULL, 26, 20, NULL, NULL, NULL, NULL, NULL, 2, 1, 639, 639, 0, '2024-11-12 08:17:38', NULL),
 (5, 1, 3502, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 1, 965, 965, 0, '2024-11-12 08:17:38', NULL),
 (6, 1, 3496, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 742, 742, 3, '2024-11-12 08:17:38', NULL),
-(7, 2, 3263, NULL, 11, 18, NULL, NULL, NULL, NULL, NULL, 3, 1, 391, 391, 0, '2024-11-13 07:27:35', NULL);
+(7, 2, 3263, NULL, 11, 18, NULL, NULL, NULL, NULL, NULL, 3, 1, 391, 391, 0, '2024-11-13 07:27:35', NULL),
+(8, 3, 3319, NULL, 7, 20, NULL, NULL, NULL, NULL, NULL, 1, 1, 814, 814, 0, '2024-11-28 07:35:32', NULL),
+(9, 3, 3340, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, 1, 151, 151, 0, '2024-11-28 07:35:32', NULL),
+(10, 3, 3245, NULL, 3, 18, NULL, NULL, NULL, NULL, NULL, 3, 1, 811, 811, 0, '2024-11-28 07:35:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -1392,7 +1424,8 @@ CREATE TABLE `order_payments` (
 INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `val_id`, `amount`, `card_type`, `store_amount`, `card_no`, `bank_tran_id`, `status`, `tran_date`, `currency`, `card_issuer`, `card_brand`, `card_sub_brand`, `card_issuer_country`, `store_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 'COD', '173139945815m0J', NULL, '4294', NULL, '4294', NULL, NULL, 'VALID', '2024-11-12 14:17:38', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-11-12 08:17:38', NULL),
 (2, 1, 'bkash', NULL, NULL, '4294', NULL, '4294', NULL, NULL, 'VALID', '2024-11-13 12:45:26', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-11-13 06:45:26', NULL),
-(3, 2, 'COD', '1731482855Q4cfo', NULL, '491', NULL, '491', NULL, NULL, 'VALID', '2024-11-13 13:29:00', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-11-13 07:29:00', NULL);
+(3, 2, 'COD', '1731482855Q4cfo', NULL, '491', NULL, '491', NULL, NULL, 'VALID', '2024-11-13 13:29:00', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-11-13 07:29:00', NULL),
+(4, 3, 'COD', '17327793328mJ4l', NULL, '1776', NULL, '1776', NULL, NULL, 'VALID', '2024-11-28 13:35:32', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-11-28 07:35:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -1415,7 +1448,8 @@ CREATE TABLE `order_progress` (
 INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `updated_at`) VALUES
 (1, 1, 0, '2024-11-12 08:17:38', NULL),
 (2, 1, 1, '2024-11-13 06:45:26', NULL),
-(3, 2, 0, '2024-11-13 07:27:35', NULL);
+(3, 2, 0, '2024-11-13 07:27:35', NULL),
+(4, 3, 0, '2024-11-28 07:35:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -2121,7 +2155,7 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (3242, 2, 46, NULL, NULL, 64, NULL, 'Focused context-sensitive intranet-33', '593', 'productImages/10.png', '[\"10.png\",\"17.png\",\"4.png\",\"19.png\"]', 'Ut ratione maxime quia sequi ut molestiae cum et. Unde sunt architecto illo enim eos. Molestias earum dolorem exercitationem rerum nemo.', 'Facere praesentium sit et cumque qui. Non maiores voluptatem voluptatum consectetur et. Dolores quis totam fugit doloremque. Sequi nulla ipsa pariatur et. Harum iusto et quo quo fuga modi. Debitis aut quidem omnis blanditiis ipsam vel. Hic dolores consequatur modi ea eius aut. Eum sapiente expedita officia soluta. Sequi alias sit nemo dignissimos dolore ducimus quo.', 'Placeat corporis atque temporibus tempora eos eos dolorem repellendus. Iste placeat nisi et deserunt. Voluptas tempora quibusdam enim rem quam.', 'Vitae omnis reprehenderit sint soluta. Non nulla aut culpa consectetur. Id quia ab provident soluta magni aut in. Rerum et consequatur distinctio aspernatur veritatis ab.', 279, 269, 3, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'focused-contextsensitive-intranet33-1731394679GCDSD', 30, 0, NULL, 'Focused context-sensitive intranet-33', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:57:59', NULL),
 (3243, 3, 49, 10, NULL, 64, NULL, 'Digitized impactful systemengine-34', '995', 'productImages/15.png', NULL, 'Ad blanditiis vitae nostrum. Cum aut omnis quisquam tempore odio tenetur dolores. Repellat magnam et iure esse aut. Est maiores maxime eum qui cupiditate at deleniti.', 'Sint eaque tempora nisi quis quasi at. Nihil consectetur non tempora sed omnis. Et fuga laboriosam dignissimos velit dolorem possimus illo repellendus. Deleniti nihil vero laboriosam cumque non. Vel ut quas molestiae sapiente vitae. Et unde doloremque repudiandae corporis. Quisquam voluptatem incidunt corrupti. Animi et rerum delectus explicabo officiis.', 'Cupiditate saepe assumenda ut placeat architecto similique. Est veniam iusto architecto sed voluptas. Et dolorem reiciendis tempore quibusdam. Alias nihil in sunt omnis libero et quo.', 'Voluptatem praesentium ipsum odit voluptas minima pariatur. Qui adipisci officiis sunt nesciunt itaque. Iusto magnam eius id ut. Et qui porro quo voluptatum autem nemo qui.', 486, 476, 2, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'digitized-impactful-systemengine34-17313946791Buoo', 34, 1, '2024-12-12 12:57:00', 'Digitized impactful systemengine-34', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:57:59', NULL),
 (3244, 1, 46, NULL, NULL, 63, NULL, 'Fully-configurable stable artificialintelligence-35', '540', 'productImages/17.png', '[\"10.png\",\"10.png\",\"20.png\",\"5.png\"]', 'Eos velit temporibus repellat quis molestiae. Et modi inventore culpa asperiores consequuntur. Temporibus facere vitae hic sed ullam. Dolor sed cumque inventore voluptatem.', 'Sapiente iste sunt modi reprehenderit rerum saepe. Excepturi voluptas consequatur perspiciatis voluptatem veritatis sit. Est quo dolores accusantium nihil impedit ex facilis animi. Sit quo et nam voluptatem tenetur quia. Et qui quos quia pariatur accusantium quibusdam. Beatae perspiciatis dicta eos rerum. Exercitationem quis molestiae voluptatem.', 'Aut sed recusandae excepturi est. Asperiores pariatur omnis asperiores voluptatibus omnis dolores. Aut non perspiciatis cum. Consequatur voluptatem placeat explicabo sint harum ut atque.', 'Voluptas accusantium minus sunt natus voluptas aut commodi. Nemo a maiores tempora perferendis quia. Earum quibusdam enim in quibusdam.', 444, 434, 1, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'fullyconfigurable-stable-artificialintelligence35-1731394679tpfGf', 35, 0, NULL, 'Fully-configurable stable artificialintelligence-35', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:57:59', NULL),
-(3245, 3, 46, NULL, NULL, 64, NULL, 'Horizontal dedicated project-36', '649', 'productImages/11.png', NULL, 'Dicta dignissimos est debitis nisi sit quidem alias. Eius deleniti et eligendi vero facere vel. Ipsa eligendi quis exercitationem eos velit et quidem excepturi.', 'Sit est quis et exercitationem. Eum quia quis illum. Cumque esse voluptatibus dolores. Aut autem laborum deserunt dolorum qui hic. Reprehenderit nihil doloremque voluptas nostrum. Ut nihil eos iure aut dolorum reprehenderit. Quia error ut molestiae placeat pariatur omnis iusto et. Magni omnis exercitationem sapiente et voluptatem a repellendus officia.', 'Aut ipsum et tempora vel autem rem. Voluptatem et ut cum sit sit autem. Placeat distinctio aut quam et amet repellendus neque doloribus.', 'Omnis ut qui ipsam perspiciatis qui modi. Distinctio asperiores quo ipsam illo. Ipsam aliquam vero assumenda quos. Ut rerum sapiente pariatur alias illo.', 821, 811, 0, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'horizontal-dedicated-project36-1731394679DpSKT', 31, 1, '2024-12-12 12:57:00', 'Horizontal dedicated project-36', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:57:59', NULL),
+(3245, 3, 46, NULL, NULL, 64, NULL, 'Horizontal dedicated project-36', '649', 'productImages/11.png', NULL, 'Dicta dignissimos est debitis nisi sit quidem alias. Eius deleniti et eligendi vero facere vel. Ipsa eligendi quis exercitationem eos velit et quidem excepturi.', 'Sit est quis et exercitationem. Eum quia quis illum. Cumque esse voluptatibus dolores. Aut autem laborum deserunt dolorum qui hic. Reprehenderit nihil doloremque voluptas nostrum. Ut nihil eos iure aut dolorum reprehenderit. Quia error ut molestiae placeat pariatur omnis iusto et. Magni omnis exercitationem sapiente et voluptatem a repellendus officia.', 'Aut ipsum et tempora vel autem rem. Voluptatem et ut cum sit sit autem. Placeat distinctio aut quam et amet repellendus neque doloribus.', 'Omnis ut qui ipsam perspiciatis qui modi. Distinctio asperiores quo ipsam illo. Ipsam aliquam vero assumenda quos. Ut rerum sapiente pariatur alias illo.', 821, 811, 0, 999, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'horizontal-dedicated-project36-1731394679DpSKT', 31, 1, '2024-12-12 12:57:00', 'Horizontal dedicated project-36', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:57:59', NULL),
 (3246, 2, 45, 19, 1, 63, NULL, 'Exclusive global firmware-37', '670', 'productImages/3.png', '[\"8.png\",\"15.png\",\"4.png\",\"14.png\"]', 'Vel cupiditate officiis porro. Distinctio sit commodi ut voluptates quod. Est neque et voluptatem autem officiis vel.', 'Quod voluptas eos dolorem sit eos velit. Sit nihil tempora voluptates dicta quam. Quas voluptatum aliquam veniam in qui aut. Harum pariatur ut inventore omnis est itaque qui. Nostrum tempore porro rerum nam quos exercitationem. Dolorem voluptatem beatae maiores fuga eius. Eveniet dolorem explicabo nam qui. Aut suscipit voluptatem quia alias itaque ab ipsa.', 'Dolor omnis reprehenderit quasi debitis ab. Corrupti quibusdam incidunt aperiam numquam et. Vel aut quis est animi quis cumque animi. Voluptatem iure ut fugit et aut et quis.', 'Asperiores rerum quis voluptatem error. Eos quia sunt libero architecto itaque aut. Est est est non in.', 861, 851, 0, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'exclusive-global-firmware37-17313946790tkBY', 31, 0, NULL, 'Exclusive global firmware-37', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:57:59', NULL),
 (3247, 2, 50, 7, NULL, 64, NULL, 'Triple-buffered client-driven service-desk-38', '449', 'productImages/14.png', NULL, 'Qui et ea necessitatibus numquam sint. Sequi et cumque saepe. Accusamus voluptatem velit magnam optio beatae sit id fugiat. Vel reprehenderit et sed quidem libero rerum.', 'Laborum distinctio sed excepturi cumque. Porro ut architecto corrupti et non fugiat vero quo. Animi et est veritatis perspiciatis ut eaque. Explicabo quia qui commodi illo tempore modi.', 'Magni aperiam assumenda sunt repellat dolore. Repudiandae inventore numquam recusandae vel laboriosam necessitatibus non. Quas accusantium et quas id. Ullam quo et explicabo in blanditiis.', 'Quia suscipit blanditiis fuga reiciendis aut qui odio consequatur. Aperiam eum iusto illum. Aperiam et sit laboriosam.', 475, 465, 3, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'triplebuffered-clientdriven-servicedesk38-1731394679UkWWW', 31, 1, '2024-12-12 12:57:00', 'Triple-buffered client-driven service-desk-38', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:57:59', NULL),
 (3248, 3, 49, 9, NULL, 63, NULL, 'Profound multimedia strategy-39', '460', 'productImages/15.png', '[\"8.png\",\"2.png\",\"13.png\",\"11.png\"]', 'Aspernatur est sit doloremque consequatur pariatur laudantium. Explicabo maxime consequuntur incidunt exercitationem. Eos ab et sint dolor inventore.', 'Aspernatur laudantium maxime quidem excepturi excepturi voluptatem. Labore quis eveniet assumenda libero id. Inventore commodi deleniti dolores sit. Dolor sapiente impedit adipisci fugit quo perspiciatis. Accusantium ducimus quidem veritatis at rerum ratione unde doloremque. Veritatis corporis voluptatem esse. Maiores sint dolores dolore ut ab molestiae. Tempora fuga molestiae eaque dolor.', 'Labore aperiam corporis voluptatibus nemo. Mollitia sed unde temporibus ducimus id. Nemo sint facere nobis hic quos. Natus dolore assumenda nesciunt dignissimos deleniti.', 'Qui ipsa sint quasi. Laborum facilis harum mollitia natus. Qui sit excepturi aut aut doloribus.', 797, 787, 1, 1000, 8, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'profound-multimedia-strategy39-1731394679xMhGV', 34, 0, NULL, 'Profound multimedia strategy-39', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:57:59', NULL),
@@ -2197,7 +2231,7 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (3316, 3, 47, 17, NULL, 63, NULL, 'Seamless zerodefect focusgroup-7', '159', 'productImages/23.png', '[\"25.png\",\"34.png\",\"37.png\",\"30.png\"]', 'Similique vitae in repellat corrupti enim magni. In et et sunt nulla. Quia quo velit quibusdam unde mollitia sit et.', 'Vel aut quos et voluptas. Culpa aliquid ex pariatur. Aut rerum odio minima sit qui. Est ad vel esse dolorem molestiae consectetur fugit. Accusamus optio sed minus provident amet eum. Nemo dicta natus provident aspernatur voluptatibus est eos. Ducimus sit culpa consectetur. Quia corporis consequatur rem amet alias.', 'Nobis eos laboriosam minus soluta sed voluptas eum. Dolor rem modi vel molestias illum est. Aliquid repellat tempore provident distinctio et.', 'Voluptas molestias molestiae ratione eum voluptas accusamus necessitatibus. Similique culpa totam officia illum sit enim vitae.', 112, 102, 4, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'seamless-zerodefect-focusgroup7-17313946887cFT4', 34, 0, NULL, 'Seamless zerodefect focusgroup-7', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:58:08', NULL),
 (3317, 1, 49, 10, NULL, 63, NULL, 'Integrated fresh-thinking access-8', '798', 'productImages/35.png', NULL, 'Eligendi sed magni est temporibus consectetur debitis. Et ullam iure labore saepe error. Provident fugit est ratione similique quia pariatur earum. Quos quae non ea minus.', 'Quaerat consectetur sapiente fugit perspiciatis est quasi molestiae. Deserunt tempore omnis enim consequatur facilis dolorem cum ab. Quis sint quas iusto aliquid qui officia soluta. Aut optio possimus non autem voluptatem. Quis dolore pariatur ea voluptas fuga.', 'Debitis qui est et. Ea dolore fugiat nemo distinctio. Iure quia perferendis nobis debitis.', 'Ipsa nam est adipisci dolores incidunt omnis. Ullam quia hic dolorem consequuntur sequi velit. Fugiat aut id et distinctio voluptatibus soluta.', 949, 939, 0, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'integrated-freshthinking-access8-1731394688cAwph', 34, 1, '2024-12-12 12:58:00', 'Integrated fresh-thinking access-8', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:08', NULL),
 (3318, 3, 51, 4, NULL, 63, NULL, 'Advanced executive collaboration-9', '261', 'productImages/36.png', '[\"32.png\",\"29.png\",\"25.png\",\"32.png\"]', 'Facilis sed rem ipsum et suscipit. A quo sit saepe autem. Molestias optio veritatis quam iure illum ea. Eaque distinctio voluptatum eaque atque doloribus autem.', 'Aliquid voluptatum voluptatem ab libero natus. Maiores neque sequi laboriosam. Rem alias iste et perferendis a animi qui cumque. Ut praesentium sit odio eos consequatur. Aut at debitis velit expedita voluptate eaque ipsam eveniet. Sint earum libero delectus tempore id aut itaque. Quo voluptatem voluptatibus commodi in quo magnam quam.', 'Sit et laborum non delectus pariatur veritatis ut error. Inventore et laborum dolor eum officiis pariatur. Quis ad rerum voluptate qui laborum eligendi deserunt. Rerum ut vitae facilis nulla odit.', 'Odit earum incidunt similique sed. Non quaerat molestiae consequuntur aut et laudantium iste. Odit error similique voluptatibus sunt illum inventore. Culpa quia voluptatum et eum quis.', 369, 359, 4, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'advanced-executive-collaboration9-1731394689avlIR', 35, 0, NULL, 'Advanced executive collaboration-9', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:58:09', NULL),
-(3319, 3, 46, NULL, NULL, 64, NULL, 'Re-contextualized optimizing throughput-10', '290', 'productImages/37.png', NULL, 'Sapiente quas ea sed quis ut tenetur. Error ut est voluptas commodi dolor earum consequatur. Quas voluptates error quas deleniti deserunt doloribus fuga.', 'Suscipit et ut quaerat animi neque qui qui. Recusandae doloribus ducimus voluptatem et impedit molestiae quis. Nostrum similique unde facere molestiae et id itaque. Sit delectus tempore sint voluptas aut. Corporis et eaque debitis velit vitae dolorum. Saepe quisquam reprehenderit odit tenetur eaque quaerat tenetur. Excepturi eveniet eveniet ea illo doloremque quia.', 'Vel aut sapiente eaque sunt. Aut eligendi iure laudantium esse qui. Qui quam nihil suscipit omnis officia quam repellendus. Hic aut commodi at repudiandae ullam voluptatem.', 'Quia sunt officia delectus quo voluptatem accusantium. Et tempora provident dolorem qui maiores voluptate. Enim perspiciatis voluptates assumenda id omnis.', 824, 814, 0, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'recontextualized-optimizing-throughput10-17313946892DPRy', 31, 1, '2024-12-12 12:58:00', 'Re-contextualized optimizing throughput-10', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:09', NULL),
+(3319, 3, 46, NULL, NULL, 64, NULL, 'Re-contextualized optimizing throughput-10', '290', 'productImages/37.png', NULL, 'Sapiente quas ea sed quis ut tenetur. Error ut est voluptas commodi dolor earum consequatur. Quas voluptates error quas deleniti deserunt doloribus fuga.', 'Suscipit et ut quaerat animi neque qui qui. Recusandae doloribus ducimus voluptatem et impedit molestiae quis. Nostrum similique unde facere molestiae et id itaque. Sit delectus tempore sint voluptas aut. Corporis et eaque debitis velit vitae dolorum. Saepe quisquam reprehenderit odit tenetur eaque quaerat tenetur. Excepturi eveniet eveniet ea illo doloremque quia.', 'Vel aut sapiente eaque sunt. Aut eligendi iure laudantium esse qui. Qui quam nihil suscipit omnis officia quam repellendus. Hic aut commodi at repudiandae ullam voluptatem.', 'Quia sunt officia delectus quo voluptatem accusantium. Et tempora provident dolorem qui maiores voluptate. Enim perspiciatis voluptates assumenda id omnis.', 824, 814, 0, 999, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'recontextualized-optimizing-throughput10-17313946892DPRy', 31, 1, '2024-12-12 12:58:00', 'Re-contextualized optimizing throughput-10', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:09', NULL),
 (3320, 1, 45, 19, 1, 64, NULL, 'Multi-channelled multi-tasking methodology-11', '952', 'productImages/29.png', '[\"32.png\",\"38.png\",\"21.png\",\"23.png\"]', 'Deserunt unde vero aut officia libero. Dicta quos accusamus dolorum. Eum eaque velit molestias. Est atque et voluptatibus accusamus quod numquam. Quas qui ullam nemo corporis pariatur enim aperiam.', 'Consectetur non qui occaecati quia qui consequatur doloremque. Eos qui ipsa veritatis officiis. Ut explicabo nulla nihil aperiam. Natus architecto harum cupiditate animi perferendis dolorum. Esse perferendis officia praesentium beatae blanditiis. Magnam rerum a aut quis aut quos.', 'Omnis esse et voluptas ut occaecati dicta. Est veritatis doloribus accusamus quasi. Et magni perspiciatis nulla iste ex quis. Et qui voluptates cum voluptatem voluptatem saepe.', 'Veniam at aut hic. Laborum corporis nihil earum sapiente recusandae quasi eos odio. Vel error sunt aut libero alias.', 136, 126, 0, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'multichannelled-multitasking-methodology11-1731394689A1hvH', 34, 0, NULL, 'Multi-channelled multi-tasking methodology-11', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:58:09', NULL),
 (3321, 1, 50, 6, NULL, 63, NULL, 'Quality-focused bottom-line product-12', '161', 'productImages/36.png', NULL, 'Molestiae enim eaque ut maiores voluptatem. Ea alias et error amet amet. Ut est voluptas explicabo velit accusamus. Numquam et quidem odit officia aut. Reprehenderit sint perferendis ex.', 'Est illo sed beatae nam dolorum. Enim consectetur voluptatum dicta voluptas. Assumenda qui ratione minima fugiat. Voluptas iusto pariatur nemo animi voluptatem recusandae. Repellat exercitationem blanditiis ut ut repudiandae rerum. Commodi est ut eos dolore. Voluptas accusantium qui nulla aliquid. Amet beatae voluptatibus et omnis vel. Dolorum in reiciendis molestiae ducimus quasi accusantium ut.', 'Voluptatum consequuntur dolorem qui nisi laboriosam maxime veritatis. Excepturi fugit qui dolorum a quis praesentium iste. Sapiente quis ad non natus tempora excepturi.', 'Qui error in consequatur et quia. Veritatis voluptatem quia et. Adipisci amet incidunt ex inventore nam aut. Quis sit quibusdam minima tempora repellat.', 715, 705, 5, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, 'qualityfocused-bottomline-product12-1731394689tGjXS', 34, 1, '2024-12-12 12:58:00', 'Quality-focused bottom-line product-12', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:09', NULL),
 (3322, 3, 48, 15, NULL, 63, NULL, 'Grass-roots fresh-thinking help-desk-13', '592', 'productImages/30.png', '[\"22.png\",\"22.png\",\"31.png\",\"26.png\"]', 'Adipisci est et cum atque aut minima. Qui corrupti rem voluptate.', 'Possimus aut molestias sapiente est aut. Perferendis fugiat vel non voluptatibus optio quo. Molestias quam nisi minus eligendi. Mollitia fuga sit et aliquid exercitationem. Omnis quo blanditiis et consectetur repudiandae. Explicabo id voluptatem voluptas eveniet qui aspernatur praesentium. Sed reiciendis aliquid aut ea quaerat sit enim dicta.', 'Quos similique officia sunt itaque molestiae. Nobis alias quisquam suscipit qui. Blanditiis est rem rerum aut quia ex.', 'Voluptatem dolore exercitationem optio. Est sapiente consequatur qui perspiciatis sint deserunt fugiat. Omnis magni doloribus cumque corrupti. Ratione necessitatibus dolor necessitatibus aliquam.', 503, 493, 5, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'grassroots-freshthinking-helpdesk13-1731394689xF9c8', 30, 0, NULL, 'Grass-roots fresh-thinking help-desk-13', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:58:09', NULL),
@@ -2219,7 +2253,7 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (3337, 3, 50, 7, NULL, 63, NULL, 'Self-enabling intangible emulation-28', '814', 'productImages/25.png', NULL, 'Et ipsam nemo qui eligendi rerum quia repudiandae. At explicabo ea minima optio inventore non. Sed consequatur voluptas et sed nobis accusamus officia.', 'Reiciendis harum veritatis ut quod qui. Id dolorem exercitationem quam consectetur. Omnis aut rem enim fugiat voluptas voluptate et. Reprehenderit hic eos est voluptatibus. Nesciunt cum autem nihil nihil. Magnam quia laboriosam consequatur doloremque cumque autem eligendi.', 'Dicta et voluptatibus impedit voluptatem. Culpa est ipsum beatae velit voluptatem eos. Eius sed nesciunt explicabo modi sint.', 'Dolorem sed dolorum et qui reprehenderit deserunt voluptas. Officiis libero ea quidem et. Eius sed est aut illo facilis praesentium.', 760, 750, 4, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'selfenabling-intangible-emulation28-1731394690djQ0a', 34, 1, '2024-12-12 12:58:00', 'Self-enabling intangible emulation-28', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:10', NULL),
 (3338, 1, 45, 20, 3, 63, NULL, 'Optional cohesive framework-29', '947', 'productImages/39.png', '[\"28.png\",\"30.png\",\"36.png\",\"26.png\"]', 'Cupiditate et ad ea consectetur. Quam recusandae illum quae et et dicta. Delectus soluta placeat necessitatibus facere ut aliquid assumenda.', 'Asperiores expedita hic hic dolore. Nulla quos itaque qui tempora rerum. Ratione quaerat et sed sit amet earum. Repudiandae et qui ad voluptatem. Id eos voluptas nostrum. Eum qui sunt tenetur quo facere ea. Quibusdam laudantium hic ipsum sit iusto assumenda commodi nemo. Atque veniam cupiditate ipsa nulla fuga minus qui magnam.', 'Facilis rerum adipisci reiciendis. Unde dolores labore reprehenderit eos dignissimos. Ea minus et porro non.', 'Magni voluptate tempore explicabo laborum. Vel facere et a et. Eaque dolore molestiae perspiciatis voluptas et et unde. Unde nostrum animi molestias. Qui placeat ea quia ducimus qui neque.', 643, 633, 0, 1000, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'optional-cohesive-framework29-1731394690iCYim', 35, 0, NULL, 'Optional cohesive framework-29', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:58:10', NULL),
 (3339, 1, 49, 9, NULL, 64, NULL, 'Proactive radical processimprovement-30', '547', 'productImages/29.png', NULL, 'Perferendis quas occaecati consequatur unde velit voluptatibus. Quae eligendi quidem corrupti est commodi inventore tempore. Porro vitae atque aperiam eveniet vero expedita.', 'Deleniti et aut cum qui autem. Qui ipsa asperiores deleniti adipisci sapiente officiis. Ipsam cumque iusto cum sint alias ratione voluptatem. Suscipit ipsam impedit autem fugit qui. Ipsum et aliquam architecto neque qui ratione eveniet. Qui corporis culpa et asperiores nihil et voluptatem. Maiores tempore qui sunt nostrum dicta exercitationem aut.', 'Reprehenderit consequatur voluptatem eaque omnis ducimus et quia modi. Enim repellendus quod ipsa mollitia velit et iure. Laudantium dolores et commodi.', 'Dolor ut et non adipisci possimus ut. Quo quis officia repudiandae voluptatem id. Rerum molestiae odit dolore beatae deserunt molestiae aut.', 750, 740, 1, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'proactive-radical-processimprovement30-1731394690hOpxL', 35, 1, '2024-12-12 12:58:00', 'Proactive radical processimprovement-30', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:10', NULL),
-(3340, 1, 50, 6, NULL, 63, NULL, 'Optimized bifurcated artificialintelligence-31', '741', 'productImages/34.png', '[\"30.png\",\"31.png\",\"28.png\",\"22.png\"]', 'Amet voluptate fugit qui iusto. Consequatur eos commodi sed quo iusto. Vel iste iusto labore nobis assumenda quaerat.', 'Possimus est dolor sit placeat voluptate. Quia impedit est ratione voluptate. At ut dolores officiis dolorem magnam qui. Cupiditate quam sapiente perferendis est. Facilis est necessitatibus sit illum voluptatem et. Quo ut explicabo vero dolore corrupti et. Qui qui iusto cumque qui. Sed ut placeat est et temporibus similique ut. Cumque suscipit qui consequuntur soluta.', 'Neque ut aut animi ratione. Illo vero odio aut dolorum totam dignissimos eaque. Ut autem dolorem dolor magni aut. Non sunt quos voluptatem.', 'Tenetur nam qui eligendi tempore saepe nesciunt. Dolore sed officia quia quis laborum ipsum. Nulla quidem consequatur eum et. Doloremque omnis ipsum deserunt culpa odio ipsum culpa.', 161, 151, 3, 1000, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, 'optimized-bifurcated-artificialintelligence31-1731394690OPf0o', 30, 0, NULL, 'Optimized bifurcated artificialintelligence-31', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:58:10', NULL),
+(3340, 1, 50, 6, NULL, 63, NULL, 'Optimized bifurcated artificialintelligence-31', '741', 'productImages/34.png', '[\"30.png\",\"31.png\",\"28.png\",\"22.png\"]', 'Amet voluptate fugit qui iusto. Consequatur eos commodi sed quo iusto. Vel iste iusto labore nobis assumenda quaerat.', 'Possimus est dolor sit placeat voluptate. Quia impedit est ratione voluptate. At ut dolores officiis dolorem magnam qui. Cupiditate quam sapiente perferendis est. Facilis est necessitatibus sit illum voluptatem et. Quo ut explicabo vero dolore corrupti et. Qui qui iusto cumque qui. Sed ut placeat est et temporibus similique ut. Cumque suscipit qui consequuntur soluta.', 'Neque ut aut animi ratione. Illo vero odio aut dolorum totam dignissimos eaque. Ut autem dolorem dolor magni aut. Non sunt quos voluptatem.', 'Tenetur nam qui eligendi tempore saepe nesciunt. Dolore sed officia quia quis laborum ipsum. Nulla quidem consequatur eum et. Doloremque omnis ipsum deserunt culpa odio ipsum culpa.', 161, 151, 3, 999, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, 'optimized-bifurcated-artificialintelligence31-1731394690OPf0o', 30, 0, NULL, 'Optimized bifurcated artificialintelligence-31', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:58:10', NULL),
 (3341, 2, 48, 15, NULL, 64, NULL, 'Organized scalable infrastructure-32', '141', 'productImages/35.png', NULL, 'Et accusantium eos alias porro aut aut. Rerum aut asperiores ea consequuntur et. Dolorum aut eius iure sed voluptates. Dolores eveniet non eveniet rerum perspiciatis.', 'Minima delectus sit dolores excepturi quo ullam doloremque. Et libero delectus non similique tenetur fugiat. Dolor ipsum tenetur excepturi quisquam temporibus est vero. Voluptatum officia tempora est animi id qui. Adipisci id animi error quasi praesentium quam ut. Aut voluptatem delectus ullam eum voluptatem illum ipsa. Explicabo praesentium recusandae voluptas ut voluptate.', 'Vero voluptas laboriosam consequatur ipsa consequuntur sint. Voluptas harum tenetur ducimus temporibus magni error. Ea enim quos accusamus aspernatur.', 'Dolorem aliquam voluptate saepe autem reprehenderit deleniti. Eveniet dolores iste architecto. Nihil aut voluptatem est molestias et suscipit. Incidunt omnis amet aut ipsam qui sit sequi.', 530, 520, 4, 1000, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'organized-scalable-infrastructure32-1731394690Fkifw', 35, 1, '2024-12-12 12:58:00', 'Organized scalable infrastructure-32', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:10', NULL),
 (3342, 1, 49, 10, NULL, 64, NULL, 'Public-key analyzing pricingstructure-33', '940', 'productImages/33.png', '[\"27.png\",\"33.png\",\"23.png\",\"35.png\"]', 'In maxime illo earum at. Ut eum qui et esse. Est doloribus rem quibusdam adipisci sed provident provident. Inventore fugit quos doloremque exercitationem earum rerum ex.', 'Fugit eaque eius facilis hic. Quasi est qui tempora. Qui dolore dolorem corrupti corporis voluptatem eligendi vero magnam. Mollitia vitae in dolore aut molestiae. Quia sed quia adipisci officia. Alias enim ad et molestias sapiente.', 'Cumque consequatur repudiandae non autem ex. Sapiente minus voluptatem rerum cumque aut. Nisi quibusdam natus aliquam error vero. Eum reprehenderit assumenda voluptatem nostrum ut numquam vitae.', 'In voluptatibus sit labore est et repudiandae. Reprehenderit voluptatem est perferendis maxime iste. Magni qui nobis consequuntur ut magnam perspiciatis dolorem.', 384, 374, 3, 1000, 3, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'publickey-analyzing-pricingstructure33-173139469035x3R', 31, 0, NULL, 'Public-key analyzing pricingstructure-33', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:58:10', NULL),
 (3343, 2, 51, 2, NULL, 63, NULL, 'Exclusive encompassing strategy-34', '262', 'productImages/24.png', NULL, 'Dolores cupiditate enim repudiandae est aut cumque rerum. Optio vero quasi quia error. Et eius maiores ratione sapiente eos.', 'Distinctio consequatur et repellendus vitae voluptatem dolore. Consectetur vel consequuntur veritatis voluptate consectetur. Exercitationem corrupti sequi voluptate voluptas alias doloribus in. Autem quia accusantium et. Sed eos doloremque nesciunt ex. Iure pariatur voluptas autem quia. Vero non quos omnis a debitis rerum omnis. Placeat voluptatem quis eum eos quos molestias accusamus.', 'Non ea qui tempore voluptate sed non. Dolore et nostrum minus odit. Et magnam dolore aut beatae at praesentium qui molestiae. Ut quis fugiat voluptas voluptatem nostrum.', 'Optio ut ducimus suscipit at ut assumenda id tenetur. Rerum deserunt et sequi vel. Cumque sequi id earum amet quibusdam ullam rem tempore. Tempora omnis culpa est.', 547, 537, 5, 1000, 4, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 1, 'exclusive-encompassing-strategy34-1731394690DdCHa', 32, 1, '2024-12-12 12:58:00', 'Exclusive encompassing strategy-34', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:10', NULL),
@@ -4479,7 +4513,8 @@ CREATE TABLE `shipping_infos` (
 
 INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `gender`, `address`, `thana`, `post_code`, `city`, `country`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'H/N: 176, Seroil, Rajshahi', 'Boalia Thana', NULL, 'Rajshahi', 'Bangladesh', '2024-11-12 08:17:38', NULL),
-(2, 2, 'Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'H/N: 176, Seroil, Rajshahi', 'Boalia Thana', NULL, 'Rajshahi', 'Bangladesh', '2024-11-13 07:27:35', NULL);
+(2, 2, 'Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'H/N: 176, Seroil, Rajshahi', 'Boalia Thana', NULL, 'Rajshahi', 'Bangladesh', '2024-11-13 07:27:35', NULL),
+(3, 3, 'Emily Bean', '+1 (408) 155-5433', 'anonnabokshi2k24@gmail.com', NULL, 'Duis aperiam quaerat', 'Lohagara', 'Totam molestias ut a', 'Narail', 'Bangladesh', '2024-11-28 07:35:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -4740,7 +4775,8 @@ CREATE TABLE `subscribed_users` (
 INSERT INTO `subscribed_users` (`id`, `email`, `created_at`, `updated_at`) VALUES
 (1, 'alifhossain174@gmail.com', '2024-10-27 18:34:32', NULL),
 (2, 'lenana@mailinator.com', '2024-10-31 15:49:35', NULL),
-(3, 'alifhossain174@gmail.com', '2024-11-12 08:17:38', NULL);
+(3, 'alifhossain174@gmail.com', '2024-11-12 08:17:38', NULL),
+(4, 'anonnabokshi2k24@gmail.com', '2024-11-28 07:35:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -10027,7 +10063,8 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (18, NULL, 'Md Fahim Hossain', NULL, 'alifhossain164@gmail.com', '2024-10-16 14:40:56', '267791', '$2y$12$zKSwoEohaozqpfNKKWW0AO6J4gFu/apGH5.nPE.b7jlsF6fhZQFZy', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-16 14:37:20', '2024-10-16 14:40:56'),
 (19, NULL, 'Fahad Hossain', '01969887744', 'fahad@gmail.com', '2024-10-26 20:50:04', '0', '$2y$10$CRJPxYEEPt2ifmjDElTFj.XzA/75K3258c4iys7GxHbhIQ2TTcjAu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-26 20:50:04', NULL),
 (20, NULL, 'Olga Flowers', '+1 (979) 759-1711', 'alifhossain174@gmail.com', '2024-10-26 20:51:56', '0', '$2y$10$yYHz5hUa7.kqbq/TUdFTCeV033JeeGLLn72DtTltjchAEZu7svaNa', NULL, NULL, NULL, 3, NULL, 6, 0, NULL, 1, '2024-10-26 20:51:56', '2024-11-02 22:50:25'),
-(22, NULL, 'Test User', NULL, 'testcustomer@gmail.com', NULL, '883377', '$2y$12$bRQfeSB74h9BMiQpf4GqBuGCtSCBtlx/DS9.7eX5qHBpKIMp0DNzu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-11-13 21:13:21', '2024-11-13 21:13:21');
+(22, NULL, 'Test User', NULL, 'testcustomer@gmail.com', NULL, '883377', '$2y$12$bRQfeSB74h9BMiQpf4GqBuGCtSCBtlx/DS9.7eX5qHBpKIMp0DNzu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-11-13 21:13:21', '2024-11-13 21:13:21'),
+(23, NULL, 'Anonna', NULL, 'anonnabokshi2k24@gmail.com', '2024-11-28 07:34:03', '841697', '$2y$12$2i5afi9jsJP1l.zH5gs2e.WgqUkfRWWO8yX9vfX1MMF2ld7tyBW0i', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-11-28 07:17:53', '2024-11-28 07:34:03');
 
 -- --------------------------------------------------------
 
@@ -10350,6 +10387,12 @@ ALTER TABLE `faqs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `faq_categories`
+--
+ALTER TABLE `faq_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `flags`
 --
 ALTER TABLE `flags`
@@ -10669,7 +10712,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -10801,7 +10844,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `faq_categories`
+--
+ALTER TABLE `faq_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `flags`
@@ -10837,25 +10886,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -10945,7 +10994,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sims`
@@ -10999,7 +11048,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `subscribed_users`
 --
 ALTER TABLE `subscribed_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `support_messages`
@@ -11047,7 +11096,7 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`

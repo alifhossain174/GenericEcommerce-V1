@@ -122,3 +122,8 @@ ALTER TABLE `products` CHANGE `image` `image` VARCHAR(255) CHARACTER SET utf8mb4
 ALTER TABLE `general_infos`
 ADD COLUMN footer_contact varchar(255) AFTER app_store_link,
 ADD COLUMN footer_email varchar(255) AFTER footer_contact;
+
+==================2.12.24======================
+ALTER TABLE `faqs` ADD `category_id` INT(11) NULL DEFAULT NULL AFTER `id`;
+ALTER TABLE `faqs` ADD `serial` DOUBLE NOT NULL DEFAULT '1' AFTER `slug`; 
+New Table Added named "faq_categories"
