@@ -299,9 +299,9 @@ class ProductController extends Controller
                             return $data->stock;
                         }
                     })
-                    // ->addIndexColumn()
+                    ->addIndexColumn()
                     ->addColumn('action', function($data){
-                        $link = env('APP_FRONTEND_URL')."/product/details/".$data->slug;
+                        $link = env('APP_FRONTEND_URL')."/product/".$data->slug;
                         $btn = ' <a target="_blank" href="'.$link.'" class="mb-1 btn-sm btn-success rounded d-inline-block" title="For Frontend Product View"><i class="fa fa-eye"></i></a>';
                         $btn .= ' <a href="'.url('edit/product').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded d-inline-block"><i class="fas fa-edit"></i></a>';
                         $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded d-inline-block deleteBtn"><i class="fas fa-trash-alt"></i></a>';

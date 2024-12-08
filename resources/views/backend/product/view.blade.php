@@ -103,7 +103,7 @@
                         <table class="table table-bordered mb-0 data-table">
                             <thead>
                                 <tr>
-                                    {{-- <th class="text-center">SL</th> --}}
+                                    <th class="text-center">SL</th>
                                     <th class="text-center">SKU</th>
                                     <th class="text-center">Image</th>
                                     <th class="text-center">Name</th>
@@ -227,10 +227,10 @@
                 }
             },
             columns: [
-                // {
-                //     data: 'DT_RowIndex',
-                //     name: 'DT_RowIndex'
-                // },
+                {
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex'
+                },
                 {
                     data: 'code',
                     name: 'code'
