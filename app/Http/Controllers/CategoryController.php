@@ -23,6 +23,12 @@ class CategoryController extends Controller
             'name' => ['required', 'string', 'max:255', 'unique:categories'],
         ]);
 
+        $duplicateCategorySlugExists = Category::where('slug', str_replace(' ', '', Generate::Slug($request->name)))->first();
+        if($duplicateCategorySlugExists){
+            Toastr::warning('Duplicate Category Slug Exists', 'Duplicate');
+            return back();
+        }
+
         $icon = null;
         if ($request->hasFile('icon')){
             $get_image = $request->file('icon');
@@ -49,7 +55,7 @@ class CategoryController extends Controller
             'show_on_navbar' => $request->show_on_navbar ? $request->show_on_navbar : 0,
             'icon' => $icon,
             'banner_image' => $categoryBanner,
-            'slug' => str_replace(' ', '', Generate::Slug($request->name),),
+            'slug' => str_replace(' ', '', Generate::Slug($request->name)),
             'status' => 1,
             'serial' => Category::min('serial') - 1,
             'created_at' => Carbon::now()

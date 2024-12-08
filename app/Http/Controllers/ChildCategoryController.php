@@ -31,6 +31,12 @@ class ChildCategoryController extends Controller
             'subcategory_id' => 'required',
         ]);
 
+        $duplicateChildCategoryExists = ChildCategory::where('name', $request->name)->first();
+        if($duplicateChildCategoryExists){
+            Toastr::warning('Duplicate Child Category Exists', 'Success');
+            return back();
+        }
+
         $icon = null;
         if ($request->hasFile('icon')){
             $get_image = $request->file('icon');

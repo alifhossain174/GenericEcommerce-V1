@@ -183,9 +183,9 @@
                                         <tr>
                                             <td class="text-center">{{$sl++}}</td>
                                             <td>
-                                                <b>{{$details->product_name}}</b>
-                                                <br/>
-                                                Category : {{$details->category_name}}
+                                                <b>{{$details->product_name}}</b><br/>
+                                                Category : {{$details->category_name}}<br/>
+                                                SKU : {{$details->product_code}}
                                             </td>
                                             <td class="text-center">
                                                 @if($details->color_id) Color: {{$colorInfo ? $colorInfo->name : ''}} | @endif

@@ -26,6 +26,13 @@ class SubcategoryController extends Controller
             'category_id' => 'required',
         ]);
 
+        $duplicateSubCategoryExists = Subcategory::where('category_id', $request->category_id)->where('name', $request->name)->first();
+        $duplicateSubCategorySlugExists = Subcategory::where('category_id', $request->category_id)->where('slug', $request->slug)->first();
+        if($duplicateSubCategoryExists || $duplicateSubCategorySlugExists){
+            Toastr::warning('Duplicate SubCategory Exists', 'Success');
+            return back();
+        }
+
         $icon = null;
         if ($request->hasFile('icon')){
             $get_image = $request->file('icon');

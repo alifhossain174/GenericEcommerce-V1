@@ -173,7 +173,7 @@ class OrderController extends Controller
                             ->leftJoin('products', 'order_details.product_id', 'products.id')
                             ->leftJoin('categories', 'products.category_id', 'categories.id')
                             ->leftJoin('units', 'order_details.unit_id', 'units.id')
-                            ->select('order_details.*', 'stores.store_name', 'products.name as product_name', 'units.name as unit_name', 'categories.name as category_name')
+                            ->select('order_details.*', 'stores.store_name', 'products.name as product_name', 'products.code as product_code', 'units.name as unit_name', 'categories.name as category_name')
                             ->where('order_id', $order->id)
                             ->get();
         $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
