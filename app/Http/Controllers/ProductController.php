@@ -104,13 +104,13 @@ class ProductController extends Controller
         $product->meta_description = $request->meta_description;
         $product->created_at = Carbon::now();
 
+
         if($request->has_variant == 1){
 
             //variant specific
             $product->price = 0;
             $product->discount_price = 0;
             $product->stock = 0;
-            $product->multiple_images = NULL;
             $product->has_variant = 1;
             //variant specific
 
@@ -162,42 +162,47 @@ class ProductController extends Controller
             $product->price = $request->price > 0 ? $request->price : 0;
             $product->discount_price = $request->discount_price > 0 ? $request->discount_price : 0;
             $product->stock = $request->stock > 0 ? $request->stock : 0;
-
             $product->has_variant = 0;
             //variant specific
 
-            $files = [];
-            if($request->hasfile('photos'))
-            {
-                foreach($request->file('photos') as $file)
-                {
-                    $name = time().str::random(5).'.'.$file->extension();
-                    $location = public_path('productImages/');
+            $product->save();
+        }
 
-                    if($file->extension() == 'svg'){
-                        $file->move($location, $name);
-                    } else {
-                        Image::make($file)->save($location . $name, 60);
-                    }
-
-                    $files[] = $name;
+        // multiple image code start
+        $files = [];
+        if($request->hasfile('photos')){
+            foreach($request->file('photos') as $file){
+                $name = time().str::random(5).'.'.$file->extension();
+                $location = public_path('productImages/');
+                if($file->extension() == 'svg'){
+                    $file->move($location, $name);
+                } else {
+                    Image::make($file)->save($location . $name, 60);
                 }
-                $product->multiple_images = json_encode($files);
+                $files[] = $name;
             }
 
-            $product->save();
+            DB::table('products')->where('id', $product->id)->update([
+                'multiple_images' => json_encode($files)
+            ]);
 
-            if(count($files) > 0){
-                foreach($files as $file)
-                {
-                    ProductImage::insert([
-                        'product_id' => $product->id,
-                        'image' => $file,
-                        'created_at' => Carbon::now(),
-                    ]);
-                }
+        } else {
+            DB::table('products')->where('id', $product->id)->update([
+                'multiple_images' => NULL
+            ]);
+        }
+
+        if(count($files) > 0){
+            foreach($files as $file)
+            {
+                ProductImage::insert([
+                    'product_id' => $product->id,
+                    'image' => $file,
+                    'created_at' => Carbon::now(),
+                ]);
             }
         }
+        // multiple image code end
 
         Toastr::success('Product is Inserted', 'Success');
         return back();
@@ -557,56 +562,59 @@ class ProductController extends Controller
                     $img->delete();
                 }
             }
-
-            $files = [];
-            if(isset($request->old) && is_array($request->old) && count($request->old) > 0){
-                $oldImageIdArray = array();
-                foreach($request->old as $oldImage){
-                    $oldImageIdArray[] = $oldImage;
-                }
-
-                $gallery = ProductImage::where('product_id', $product->id)->get();
-                foreach($gallery as $multipleImage){
-                    if(!in_array($multipleImage->id, $oldImageIdArray)){
-                        if(file_exists(public_path('productImages/'.$multipleImage->image))){
-                            unlink(public_path('productImages/'.$multipleImage->image));
-                        }
-                        ProductImage::where('id', $multipleImage->id)->delete();
-                    } else {
-                        $files[] = $multipleImage->image;
-                    }
-                }
-            } else {
-                ProductImage::where('product_id', $product->id)->delete();
-            }
-
-
-            if($request->hasfile('photos'))
-            {
-                foreach($request->file('photos') as $file)
-                {
-                    $name = time().str::random(5).'.'.$file->extension();
-                    $location = public_path('productImages/');
-
-                    if($file->extension() == 'svg'){
-                        $file->move($location, $name);
-                    } else {
-                        Image::make($file)->save($location . $name, 60);
-                    }
-
-                    $files[] = $name;
-
-                    ProductImage::insert([
-                        'product_id' => $product->id,
-                        'image' => $name,
-                        'created_at' => Carbon::now(),
-                    ]);
-                }
-            }
-
-            $product->multiple_images = json_encode($files);
-            $product->save();
         }
+
+
+        // multiple image code start
+        $files = [];
+        if(isset($request->old) && is_array($request->old) && count($request->old) > 0){
+            $oldImageIdArray = array();
+            foreach($request->old as $oldImage){
+                $oldImageIdArray[] = $oldImage;
+            }
+
+            $gallery = ProductImage::where('product_id', $product->id)->get();
+            foreach($gallery as $multipleImage){
+                if(!in_array($multipleImage->id, $oldImageIdArray)){
+                    if(file_exists(public_path('productImages/'.$multipleImage->image))){
+                        unlink(public_path('productImages/'.$multipleImage->image));
+                    }
+                    ProductImage::where('id', $multipleImage->id)->delete();
+                } else {
+                    $files[] = $multipleImage->image;
+                }
+            }
+        } else {
+            ProductImage::where('product_id', $product->id)->delete();
+        }
+
+
+        if($request->hasfile('photos'))
+        {
+            foreach($request->file('photos') as $file)
+            {
+                $name = time().str::random(5).'.'.$file->extension();
+                $location = public_path('productImages/');
+
+                if($file->extension() == 'svg'){
+                    $file->move($location, $name);
+                } else {
+                    Image::make($file)->save($location . $name, 60);
+                }
+
+                $files[] = $name;
+
+                ProductImage::insert([
+                    'product_id' => $product->id,
+                    'image' => $name,
+                    'created_at' => Carbon::now(),
+                ]);
+            }
+        }
+
+        $product->multiple_images = json_encode($files);
+        $product->save();
+        // multiple image code end
 
         Toastr::success('Product Updated', 'Success');
         return redirect('/view/all/product');

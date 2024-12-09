@@ -147,7 +147,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group" id="product_image_gallery" @if($product->has_variant == 1) style="display:none" @endif>
+                                <div class="form-group" id="product_image_gallery">
                                     <label for="tags">Product Image Gallery</label>
                                     <div class="input-images"></div>
                                 </div>
@@ -806,14 +806,14 @@
             imagesInputName: 'photos',
             preloadedInputName: 'old'
         });
-        $(".material-icons").html("<i class='fa fa-upload'></i>");
+        $(".material-icons").html("<i class='fa fa-trash'></i>");
 
 
         function showVariantSection(value){
             if ($('#has_variant').is(":checked")){
                 $("#product_variant").fadeIn(500);
 
-                $("#product_image_gallery").fadeOut(500);
+                // $("#product_image_gallery").fadeOut(500);
                 $("#product_price").fadeOut(500);
                 $("#product_discounted_price").fadeOut(500);
                 $("#product_stock").fadeOut(500);
@@ -821,7 +821,7 @@
             } else {
                 $("#product_variant").fadeOut(500);
 
-                $("#product_image_gallery").fadeIn(500);
+                // $("#product_image_gallery").fadeIn(500);
                 $("#product_price").fadeIn(500);
                 $("#product_discounted_price").fadeIn(500);
                 $("#product_stock").fadeIn(500);
