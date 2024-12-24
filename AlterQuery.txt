@@ -127,3 +127,6 @@ ADD COLUMN footer_email varchar(255) AFTER footer_contact;
 ALTER TABLE `faqs` ADD `category_id` INT(11) NULL DEFAULT NULL AFTER `id`;
 ALTER TABLE `faqs` ADD `serial` DOUBLE NOT NULL DEFAULT '1' AFTER `slug`;
 New Table Added named "faq_categories"
+
+==================24.12.24======================
+ALTER TABLE `products` CHANGE `meta_keywords` `meta_keywords` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `meta_description` `meta_description` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;

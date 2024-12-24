@@ -218,7 +218,7 @@ class ProductController extends Controller
                         ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                         ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
                         ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
-                        ->select('products.*', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
+                        ->select('products.id', 'products.name', 'products.code', 'products.image', 'products.slug', 'products.status', 'products.has_variant', 'products.stock', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
                         ->orderBy('products.id', 'desc');
 
             // filter start from here

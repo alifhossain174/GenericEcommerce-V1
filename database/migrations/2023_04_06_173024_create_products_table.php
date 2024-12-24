@@ -44,8 +44,8 @@ class CreateProductsTable extends Migration
             $table->string('offer_end_time')->nullable();
 
             $table->string('meta_title')->nullable();
-            $table->string('meta_keywords')->nullable();
-            $table->string('meta_description')->nullable();
+            $table->longText('meta_keywords')->nullable();
+            $table->longText('meta_description')->nullable();
 
             $table->tinyInteger('status')->default(1)->comment("0=>Inactive; 1=>Active; 2=>Draft");
             $table->tinyInteger('has_variant')->default(0)->comment("0=>No Variant; 1=>Product Has variant based on Colors, Region etc.");

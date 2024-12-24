@@ -477,8 +477,8 @@
                                                                 @endif
 
                                                                 <th class="text-center" style="min-width: 100px;">Stock</th>
-                                                                <th class="text-center" style="min-width: 100px;">Price</th>
-                                                                <th class="text-center" style="min-width: 100px;">Disc. Price</th>
+                                                                <th class="text-center" style="min-width: 130px;">Price</th>
+                                                                <th class="text-center" style="min-width: 130px;">Disc. Price</th>
                                                                 <th class="text-center" style="min-width: 50px;">Action</th>
                                                             </tr>
                                                         </thead>
