@@ -442,15 +442,15 @@ class ProductController extends Controller
 
         if($request->has_variant == 1){
 
-            $gallery = ProductImage::where('product_id', $request->id)->get();
-            if(count($gallery) > 0){
-                foreach($gallery as $img){
-                    if(file_exists(public_path('productImages/'.$img->image))){
-                        unlink(public_path('productImages/'.$img->image));
-                    }
-                    $img->delete();
-                }
-            }
+            // $gallery = ProductImage::where('product_id', $request->id)->get();
+            // if(count($gallery) > 0){
+            //     foreach($gallery as $img){
+            //         if(file_exists(public_path('productImages/'.$img->image))){
+            //             unlink(public_path('productImages/'.$img->image));
+            //         }
+            //         $img->delete();
+            //     }
+            // }
 
             //variant specific
             $product->price = 0;
