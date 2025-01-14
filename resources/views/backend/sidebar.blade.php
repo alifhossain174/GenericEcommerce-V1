@@ -12,7 +12,7 @@
     <li><a href="{{ url('/seo/homepage') }}"><i class="dripicons-search"></i><span>Home Page SEO</span></a></li>
     <li><a href="{{ url('/custom/css/js') }}"><i class="feather-code"></i><span>Custom CSS & JS</span></a></li>
     <li><a href="{{ url('/social/chat/script/page') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li>
-
+    <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li>
 
     @if(env('BUYSELL_Module') == true)
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
@@ -218,7 +218,6 @@
         </ul>
     </li>
 
-    {{-- <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li> --}}
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-bell"></i><span>Push Notification</span></a>
         <ul class="sub-menu" aria-expanded="false">

@@ -7,6 +7,17 @@ use App\Http\Controllers\ColorController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\StorageController;
 
+
+Route::get('/storage-link', function () {
+    echo $_SERVER['DOCUMENT_ROOT'];
+    exit();
+    // $target = '/home/public_html/storage/app/public';
+    // $shortcut = '/home/public_html/public/storage';
+    // symlink($target, $shortcut);
+    // return "Storage link!";
+});
+
+
 Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function () {
 
     // config setup
