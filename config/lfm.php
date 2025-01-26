@@ -34,9 +34,7 @@ return [
     // And set 'user_field' to App\Handler\ConfigHandler::class
     // Ex: The private folder of user will be named as the user id.
     'private_folder_name'      => UniSharp\LaravelFilemanager\Handlers\ConfigHandler::class,
-
     'allow_shared_folder'      => true,
-
     'shared_folder_name'       => 'shares',
 
     /*
@@ -61,13 +59,14 @@ return [
                 'application/pdf',
                 'text/plain',
                 'image/svg+xml',
-
+                'image/webp',
+                'image/avif',
             ],
         ],
         'image' => [
             'folder_name'  => 'photos',
             'startup_view' => 'grid',
-            'max_size'     => 50000, // size in KB
+            'max_size'     => 90000, // size in KB
             'thumb' => true,
             'thumb_width' => 80,
             'thumb_height' => 80,
@@ -77,6 +76,8 @@ return [
                 'image/png',
                 'image/gif',
                 'image/svg+xml',
+                'image/webp',
+                'image/avif',
             ],
         ],
     ],
@@ -132,10 +133,11 @@ return [
         'image/jpeg',
         'image/pjpeg',
         'image/png',
+        'image/webp',
+        'image/avif',
     ],
 
     'thumb_img_width'          => 200, // px
-
     'thumb_img_height'         => 200, // px
 
     /*
@@ -158,6 +160,8 @@ return [
         'ppt'  => 'Microsoft PowerPoint',
         'pptx' => 'Microsoft PowerPoint',
         'svg' => 'SVG Image',
+        'webp' => 'WebP Image',
+        'avif' => 'AVIF Image',
     ],
 
     /*

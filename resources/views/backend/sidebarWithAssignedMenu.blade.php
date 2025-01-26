@@ -40,7 +40,7 @@
 
     $orderModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
                                                 ->where('route', 'like', '%create/new/order%')
-                                                ->where('route', 'like', '%view/orders%')
+                                                ->orWhere('route', 'like', '%view/orders%')
                                                 ->get();
 
     $promoCodeModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%add/new/code%')->orWhere('route', 'like', '%view/all/promo/codes%')->get();
@@ -96,7 +96,6 @@
 
     <li><a href="{{ url('/home') }}"><i class="feather-home"></i><span>Dashboard</span></a></li>
 
-
     @if(checkAuth("general/info") || checkAuth("website/theme/page") || checkAuth("social/media/page") || checkAuth("seo/homepage") || checkAuth("custom/css/js") || checkAuth("social/chat/script"))
     <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 5px;">
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">Website Config</li>
@@ -107,7 +106,7 @@
     @if(checkAuth("seo/homepage")) <li><a href="{{ url('/seo/homepage') }}"><i class="dripicons-search"></i><span>Home Page SEO</span></a></li> @endif
     @if(checkAuth("custom/css/js")) <li><a href="{{ url('/custom/css/js') }}"><i class="feather-code"></i><span>Custom CSS & JS</span></a></li> @endif
     @if(checkAuth("social/chat/script")) <li><a href="{{ url('/social/chat/script') }}"><i class="mdi mdi-code-brackets"></i><span>Social & Chat Scripts</span></a></li> @endif
-    <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li>
+    @if(checkAuth("file-manager")) <li><a href="{{ url('/file-manager') }}"><i class="fas fa-folder-open"></i><span>File Manager</span></a></li> @endif
 
     @if(env('MultiVendor') == true)
         <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">

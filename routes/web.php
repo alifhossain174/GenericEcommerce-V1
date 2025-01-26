@@ -42,11 +42,15 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::get('/clear', function () {
-    Artisan::call('cache:clear');
+// Route::get('/php-details', function () {
+//     phpinfo();
+// });
+
+Route::get('/config-clear', function () {
+    // Artisan::call('cache:clear');
     Artisan::call('config:clear');
-    Artisan::call('view:clear');
-    Artisan::call('route:clear');
+    // Artisan::call('view:clear');
+    // Artisan::call('route:clear');
 
     // Artisan::call('config:cache');
     // Artisan::call('route:cache');
@@ -88,7 +92,28 @@ Route::get('/file-manager', function () {
 })->middleware(['auth']);
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+
     \UniSharp\LaravelFilemanager\Lfm::routes();
+    // this lfm.php and the view files has been modified to allow delete/rename/move action only for admin
+
+    // replace this function inside the vendor/unisharp/laravel-filemanager/src/lfm.php if move is not working
+    // public function translateFromUtf8($input)
+    // {
+    //     $rInput = [];
+    //     if ($this->isRunningOnWindows()) {
+    //         if (is_array($input)) {
+    //             foreach ($input as $k => $i) {
+    //                 $rInput[] = iconv('UTF-8', mb_detect_encoding($i), $i);
+    //             }
+    //         } else {
+    //             $rInput = $input;
+    //         }
+    //     } else {
+    //         $rInput = $input;
+    //     }
+    //     return $rInput;
+    // }
+
 });
 // file manager routes end
 
