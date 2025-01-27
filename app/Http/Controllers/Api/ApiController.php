@@ -1332,7 +1332,7 @@ class ApiController extends BaseController
                 'device_condition_id' => isset($request->device_condition_id[$index]) ? $request->device_condition_id[$index] : null,
 
                 'qty' => $request->qty[$index],
-                'unit_id' => $request->unit_id[$index],
+                'unit_id' => isset($request->unit_id[$index]) ? $request->unit_id[$index] : null,
                 'unit_price' => $request->unit_price[$index],
                 'total_price' => (int) $request->qty[$index] * (double) $request->unit_price[$index],
                 'created_at' => Carbon::now()

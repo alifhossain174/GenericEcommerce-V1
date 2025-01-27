@@ -484,7 +484,7 @@ class CartController extends Controller
                     'device_condition_id' => $item->device_condition_id,
 
                     'qty' => $item->qty,
-                    'unit_id' => $item->unit_id,
+                    'unit_id' => isset($item->unit_id) ? $item->unit_id : null,
                     'unit_price' => $item->unit_price,
                     'total_price' => $item->total_price,
                     'created_at' => Carbon::now()
@@ -573,7 +573,7 @@ class CartController extends Controller
             'warrenty_id' => $request->warrenty_id,
             'device_condition_id' => $request->device_condition_id,
             'qty' => $request->qty,
-            'unit_id' => $request->unit_id,
+            'unit_id' => isset($request->unit_id) ? $request->unit_id : null,
             'unit_price' => $request->unit_price,
             'total_price' => $request->total_price,
             'created_at' => Carbon::now()
@@ -654,7 +654,7 @@ class CartController extends Controller
                 'warrenty_id' => $request->warrenty_id,
                 'device_condition_id' => $request->device_condition_id,
                 'qty' => $request->qty,
-                'unit_id' => $request->unit_id,
+                'unit_id' => isset($request->unit_id) ? $request->unit_id : null,
                 'unit_price' => $request->unit_price,
                 'total_price' => $request->total_price,
                 'created_at' => Carbon::now()
