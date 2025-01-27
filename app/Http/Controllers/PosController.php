@@ -22,7 +22,7 @@ class PosController extends Controller
     public function createNewOrder(){
         $categories = Category::where('status', 1)->orderBy('name', 'asc')->get();
         $brands = Brand::where('status', 1)->orderBy('name', 'asc')->get();
-        $products = Product::where('status', 1)->orderBy('name', 'asc')->get();
+        $products = Product::where('status', 1)->select('id', 'stock', 'price', 'discount_price', 'image', 'name', 'code')->orderBy('name', 'asc')->get();
         $customers = User::where('user_type', 3)->orderBy('name', 'asc')->get();
         $districts = DB::table('districts')->orderBy('name', 'asc')->get();
         return view('backend.orders.pos.create', compact('categories', 'brands', 'products', 'customers', 'districts'));
@@ -54,7 +54,7 @@ class PosController extends Controller
 
     public function getProductVariants(Request $request){
 
-        $product = Product::where('id', $request->product_id)->first();
+        $product = Product::where('id', $request->product_id)->select('id', 'name', 'code')->first();
 
         $colors = DB::table('product_variants')
                 ->leftJoin('colors', 'product_variants.color_id', 'colors.id')
@@ -406,6 +406,11 @@ class PosController extends Controller
             return back();
         }
 
+        // echo "<pre>";
+        // print_r(session('cart'));
+        // echo "</pre>";
+        // exit();
+
         date_default_timezone_set("Asia/Dhaka");
         $total = 0;
         foreach((array) session('cart') as $details){
@@ -459,19 +464,30 @@ class PosController extends Controller
             $totalRewardPointsEarned = $totalRewardPointsEarned + $product->reward_points;
 
             // decrement the stock
-            if($details['color_id'] || $details['size_id']){
+            if(($details['color_id'] && $details['color_id']) > 0 || ($details['size_id'] && $details['size_id'] > 0)){
+
                 $productInfo = DB::table('product_variants')
                                 ->where('product_id', $details['product_id'])
-                                ->where('size_id', $details['size_id'])
-                                ->where('color_id', $details['color_id'])
+                                ->when($details['size_id'] > 0, function ($query) use ($details) {
+                                    return $query->where('size_id', $details['size_id']);
+                                })
+                                ->when($details['color_id'] > 0, function ($query) use ($details) {
+                                    return $query->where('color_id', $details['color_id']);
+                                })
                                 ->first();
 
                 DB::table('product_variants')
                 ->where('product_id', $details['product_id'])
-                ->where('size_id', $details['size_id'])
-                ->where('color_id', $details['color_id'])->update([
+                ->when($details['size_id'] > 0, function ($query) use ($details) {
+                    return $query->where('size_id', $details['size_id']);
+                })
+                ->when($details['color_id'] > 0, function ($query) use ($details) {
+                    return $query->where('color_id', $details['color_id']);
+                })
+                ->update([
                     'stock' => $productInfo->stock - $details['quantity'],
                 ]);
+
             } else {
                 DB::table('products')->where('id', $details['product_id'])->update([
                     'stock' => $product->stock - $details['quantity'],
