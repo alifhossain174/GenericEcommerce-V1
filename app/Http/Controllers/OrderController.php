@@ -509,4 +509,23 @@ class OrderController extends Controller
 
         return response()->json(['success' => 'Order Deleted Successfully.']);
     }
+
+    public function bulkOrderStatusUpdate(Request $request){
+
+        $orderIds = $request->ids;
+        foreach($orderIds as $orderId){
+            $order = Order::where('id', $orderId)->first();
+            $order->order_status = $request->status;
+            $order->updated_at = Carbon::now();
+            $order->save();
+
+            OrderProgress::insert([
+                'order_id' => $orderId,
+                'order_status' => $request->status,
+                'created_at' => Carbon::now()
+            ]);
+        }
+
+        return response()->json(['message' => 'Order Updated Successfully!']);
+    }
 }

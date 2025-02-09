@@ -124,11 +124,25 @@
         <div class="col-lg-12 col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-3">{{$pageTitle}}</h4>
+                    <h4 class="card-title mb-3">
+                        {{$pageTitle}}
+
+                        <select class="custom-select form-control d-inline-block ml-4" id="multi_select_order_status" style="width: auto; height: 28px; line-height: 14px; font-size: 14px;">
+                            <option value="">Select Status</option>
+                            <option value="0">Pending</option>
+                            <option value="1">Approved</option>
+                            <option value="2">In Transit</option>
+                            <option value="3">Delivered</option>
+                            <option value="4">Cancelled</option>
+                        </select>
+                        <button class="btn btn-info btn-sm rounded" id="multi_order_status_btn">Change Selected Order Status</button>
+
+                    </h4>
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0 data-table">
                             <thead>
                                 <tr>
+                                    <th><input type="checkbox" id="selectAll"></th>
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Order No</th>
                                     <th class="text-center" style="width: 80px">Order Date</th>
@@ -146,7 +160,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th colspan="6"></th>
+                                    <th colspan="7"></th>
                                     <th></th>
                                     <th colspan="3"></th>
                                 </tr>
@@ -261,6 +275,15 @@
             },
             columns: [
                 {
+                    data: 'id',
+                    name: 'id',
+                    orderable: false,
+                    searchable: false,
+                    render: function(data, type, row) {
+                        return `<input type="checkbox" class="row-select" value="${row.id}">`;
+                    }
+                },
+                {
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex'
                 },
@@ -305,10 +328,10 @@
             ],
             footerCallback: function(row, data, start, end, display) {
                 var api = this.api();
-                var pageTotal = api.column(6, { page: 'current' }).data().reduce(function(a, b) {
+                var pageTotal = api.column(7, { page: 'current' }).data().reduce(function(a, b) {
                     return parseFloat(a) + parseFloat(b);
                 }, 0);
-                $(api.column(6).footer()).html('Page Total: ' + pageTotal.toFixed(2)); // Display page total
+                $(api.column(7).footer()).html('Page Total: ' + pageTotal.toFixed(2)); // Display page total
             },
             dom: 'lBfrtip', // Include 'l' for length changing input (Show Entries)
             buttons: [
@@ -338,6 +361,58 @@
                 }
             ]
         });
+
+        $(document).ready(function() {
+
+            // Select/Deselect All Checkboxes
+            $('#selectAll').on('click', function() {
+                $('.row-select').prop('checked', this.checked);
+            });
+
+            // Track individual checkbox selection
+            $(document).on('change', '.row-select', function() {
+                if ($('.row-select:checked').length === $('.row-select').length) {
+                    $('#selectAll').prop('checked', true);
+                } else {
+                    $('#selectAll').prop('checked', false);
+                }
+            });
+
+            $('#multi_order_status_btn').on('click', function(e) {
+
+                e.preventDefault(); // Prevent default form submission if inside a form
+
+                var selectedIds = [];
+                $('.row-select:checked').each(function() {
+                    selectedIds.push($(this).val());
+                });
+
+                if (selectedIds.length === 0) {
+                    toastr.error("Please select at least one record");
+                    return false;
+                }
+
+                if (!confirm("Warning! Are you sure, want to change the status ?")) {
+                    return false;
+                }
+
+                $.ajax({
+                    url: "{{ url('bulk/order/status/update') }}",
+                    method: 'POST',
+                    data: {
+                        ids: selectedIds,
+                        status: $('#multi_select_order_status').val(),
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        table.draw(false);
+                        toastr.success("Order Status Updated");
+                        $('#multi_select_order_status').val("");
+                    }
+                });
+            });
+        });
+        
     </script>
 
     {{-- js code for user crud --}}

@@ -327,6 +327,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::post('/add/more/product', [OrderController::class, 'addMoreProduct'])->name('AddMoreProduct');
     Route::post('/get/product/variants', [OrderController::class, 'getProductVariants'])->name('GetProductVariants');
     Route::get('delete/order/{slug}', [OrderController::class, 'deleteOrder'])->name('DeleteOrder');
+    Route::post('/bulk/order/status/update', [OrderController::class, 'bulkOrderStatusUpdate'])->name('BulkOrderStatusUpdate');
 
 
     // promo codes

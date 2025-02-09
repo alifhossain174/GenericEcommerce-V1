@@ -146,19 +146,19 @@ class FilterController extends Controller
                                 return $query->where('products.name', 'LIKE', '%'.$searchKeyword.'%');
                             })
                             ->when($categoryId, function($query) use ($categoryId){
-                                return $query->where('products.category_id', $categoryId);
+                                return $query->whereIn('products.category_id', $categoryId);
                             })
                             ->when($subcategoryId, function($query) use ($subcategoryId){
-                                return $query->where('products.subcategory_id', $subcategoryId);
+                                return $query->whereIn('products.subcategory_id', $subcategoryId);
                             })
                             ->when($childcategoryId, function($query) use ($childcategoryId){
-                                return $query->where('products.childcategory_id', $childcategoryId);
+                                return $query->whereIn('products.childcategory_id', $childcategoryId);
                             })
                             ->when($flagId, function($query) use ($flagId){
-                                return $query->where('products.flag_id', $flagId);
+                                return $query->whereIn('products.flag_id', $flagId);
                             })
                             ->when($brandId, function($query) use ($brandId){
-                                return $query->where('products.brand_id', $brandId);
+                                return $query->whereIn('products.brand_id', $brandId);
                             })
                             ->when($storeId, function($query) use ($storeId){
                                 return $query->where('products.store_id', $storeId);
