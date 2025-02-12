@@ -412,7 +412,7 @@
                 });
             });
         });
-        
+
     </script>
 
     {{-- js code for user crud --}}
