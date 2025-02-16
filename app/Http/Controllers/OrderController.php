@@ -528,4 +528,11 @@ class OrderController extends Controller
 
         return response()->json(['message' => 'Order Updated Successfully!']);
     }
+
+    public function bulkPrintOrders(Request $request){
+        $orderIds = explode(',', $request->orders);
+        $orders = Order::whereIn('id', $orderIds)->get();
+        $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
+        return view('backend.orders.print', compact('orders', 'generalInfo'));
+    }
 }

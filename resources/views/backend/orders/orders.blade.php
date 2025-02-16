@@ -136,6 +136,7 @@
                             <option value="4">Cancelled</option>
                         </select>
                         <button class="btn btn-info btn-sm rounded" id="multi_order_status_btn">Change Selected Order Status</button>
+                        <button class="btn btn-primary btn-sm rounded ml-3" id="multi_order_print_btn">Print Selected Orders</button>
 
                     </h4>
                     <div class="table-responsive">
@@ -392,6 +393,11 @@
                     return false;
                 }
 
+                if ($("#multi_select_order_status").val() == '') {
+                    toastr.error("Please select an order Status");
+                    return false;
+                }
+
                 if (!confirm("Warning! Are you sure, want to change the status ?")) {
                     return false;
                 }
@@ -411,6 +417,25 @@
                     }
                 });
             });
+
+            // multi selection Print Button Click
+            $('#multi_order_print_btn').on('click', function(e) {
+
+                e.preventDefault(); // Prevent default form submission if inside a form
+
+                var selectedIds = [];
+                $('.row-select:checked').each(function() {
+                    selectedIds.push($(this).val());
+                });
+
+                if (selectedIds.length === 0) {
+                    toastr.error("Please select at least one record");
+                    return false;
+                }
+
+                window.open(`/bulk/print/orders?orders=${selectedIds.join(',')}`, '_blank');
+            });
+
         });
 
     </script>

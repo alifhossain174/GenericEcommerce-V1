@@ -6,6 +6,7 @@
 @section('page_heading')
     Orders Details
 @endsection
+
 @section('header_css')
     <style>
         @media print {
