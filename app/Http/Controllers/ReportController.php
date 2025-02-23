@@ -51,7 +51,7 @@ class ReportController extends Controller
         $min_stock = $request->min_stock;
         $max_stock = $request->max_stock;
 
-        $query = Product::select('id', 'category_id', 'name', 'code', 'status', 'discount_price', 'price');
+        $query = Product::select('id', 'category_id', 'name', 'code', 'status', 'discount_price', 'price', 'stock');
         if ($category_id != '') {
             $query->where('category_id', $category_id);
         }
