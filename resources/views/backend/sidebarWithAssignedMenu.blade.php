@@ -82,7 +82,10 @@
 
     $backupModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%backup%')->get();
 
-    $reportModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)->where('route', 'like', '%sales/report%')->get();
+    $reportModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
+                                                ->where('route', 'like', '%sales/report%')
+                                                ->orWhere('route', 'like', '%stock/report%')
+                                                ->get();
 
     $demoProductsModule = App\Models\UserRolePermission::where('user_id', Auth::user()->id)
                                                 ->where('route', 'like', '%generate/demo/products%')
@@ -374,6 +377,7 @@
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
         <ul class="sub-menu" aria-expanded="false">
             @if(checkAuth("sales/report")) <li><a href="{{ url('/sales/report') }}">Sales Report</a></li> @endif
+            @if(checkAuth("stock/report")) <li><a href="{{ url('/stock/report') }}">Stock Report</a></li> @endif
         </ul>
     </li>
     @endif

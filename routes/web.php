@@ -450,6 +450,8 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     // generate report
     Route::get('sales/report', [ReportController::class, 'salesReport'])->name('SalesReport');
     Route::post('generate/sales/report', [ReportController::class, 'generateSalesReport'])->name('GenerateSalesReport');
+    Route::get('stock/report', [ReportController::class, 'stockReport'])->name('StockReport');
+    Route::post('generate/stock/report', [ReportController::class, 'generateStockReport'])->name('GenerateStockReport');
 
 
     // user role permission routes

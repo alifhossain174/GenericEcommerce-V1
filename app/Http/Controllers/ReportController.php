@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -35,6 +36,35 @@ class ReportController extends Controller
 
         $returnHTML = view('backend.report.sales_report_view', compact('startDate', 'endDate', 'data'))->render();
         return response()->json(['variant' => $returnHTML]);
+
+    }
+
+    public function stockReport(){
+        return view('backend.report.stock_report');
+    }
+
+    public function generateStockReport(Request $request){
+
+        $category_id = $request->category_id;
+        $product_code = $request->product_code;
+        $product_status = $request->product_status;
+        $min_stock = $request->min_stock;
+        $max_stock = $request->max_stock;
+
+        $query = Product::query();
+        if ($category_id != '') {
+            $query->where('category_id', $category_id);
+        }
+        if ($product_code != '') {
+            $query->where('code', $product_code);
+        }
+        if ($product_status != '') {
+            $query->where('status', $product_status);
+        }
+        $data = $query->orderBy('id', 'desc')->get();
+
+        $returnHTML = view('backend.report.stock_report_view', compact('data', 'min_stock', 'max_stock'))->render();
+        return response()->json(['report' => $returnHTML]);
 
     }
 }

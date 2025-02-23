@@ -253,6 +253,7 @@
         <a href="javascript: void(0);" class="has-arrow"><i class="feather-printer"></i><span>Generate Report</span></a>
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{ url('/sales/report') }}">Sales Report</a></li>
+            <li><a href="{{ url('/stock/report') }}">Stock Report</a></li>
         </ul>
     </li>
     <li>
