@@ -88,7 +88,7 @@ class ProductImport implements ToCollection
 
                         foreach($fileArray as $item){
 
-                            $uploadPath = public_path('productImages/'); 
+                            $uploadPath = public_path('productImages/');
                             $exploded = explode(".",$item);
                             $imageExtension = end($exploded);
                             $fileName = time().str::random(5).".".$imageExtension;

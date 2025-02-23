@@ -245,6 +245,7 @@
             </li>
             @endif
             @if(checkAuth("products/from/excel")) <li><a href="{{ url('/products/from/excel') }}">Bulk Upload <sup class="text-warning">New</sup></a></li> @endif
+            @if(checkAuth("bulk/product/update")) <li><a href="{{ url('/bulk/product/update') }}">Bulk Product Update <sup class="text-warning">New</sup></a></li> @endif
             @if(checkAuth("view/product/reviews"))
             <li>
                 <a href="{{ url('/view/product/reviews') }}">

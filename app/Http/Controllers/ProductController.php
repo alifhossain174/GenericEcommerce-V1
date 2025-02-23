@@ -28,6 +28,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Yajra\DataTables\DataTables;
 use App\Imports\ProductImport;
+use App\Imports\BulkProductUpdate;
 use DateTime;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -907,6 +908,29 @@ class ProductController extends Controller
             Excel::import($import, request()->file('excel_file'));
 
             Toastr::success('Data Uploaded Successfully', 'Success');
+            return back();
+        } else {
+            Toastr::error('Wrong File Format', 'Wrong Format');
+            return back();
+        }
+
+    }
+
+    public function bulkProductUpdate(){
+        return view('backend.product.bulk_update');
+    }
+
+    public function updateProductFromExcel(Request $request){
+
+        ini_set('max_execution_time', 3600); //30 min
+        ini_set('memory_limit', '8192M');
+
+        $extension = request()->file('excel_file')->getClientOriginalExtension();
+        if ($extension == 'xlsx' || $extension == 'csv') {
+            $import = new BulkProductUpdate();
+            Excel::import($import, request()->file('excel_file'));
+
+            Toastr::success('Data Updated Successfully', 'Success');
             return back();
         } else {
             Toastr::error('Wrong File Format', 'Wrong Format');

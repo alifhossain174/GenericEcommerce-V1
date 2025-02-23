@@ -145,6 +145,7 @@
                 </a>
             </li>
             <li><a href="{{ url('/products/from/excel') }}">Bulk Upload <sup class="text-warning">New</sup></a></li>
+            <li><a href="{{ url('/bulk/product/update') }}">Bulk Product Update <sup class="text-warning">New</sup></a></li>
             <li>
                 <a href="{{ url('/view/product/reviews') }}">
                     Products's Review
