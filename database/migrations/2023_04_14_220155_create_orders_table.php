@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->dateTime('order_date');
             $table->date('estimated_dd')->nullable();
             $table->dateTime('delivery_date')->nullable();
-            $table->string('delivery_method')->comment('1=>Home Delivery; 2=>Store Pickup')->nullable();
+            $table->string('delivery_method')->comment('1=>Home Delivery; 2=>Store Pickup; 3=>steadFast; 4=>pathao')->nullable();
             $table->tinyInteger('payment_method')->nullable()->comment('1=>cash_on_delivery; 2=>bkash; 3=>nagad; 4=>Card');
             $table->tinyInteger('payment_status')->nullable()->comment('0=>Unpaid; 1=>Payment Success; 2=>Payment Failed');
             $table->string('trx_id')->nullable()->comment("Created By GenericCommerceV1");

@@ -134,6 +134,16 @@ class OrderController extends Controller
 
                         $btn = ' <a href="'.url('order/details').'/'.$data->slug.'" title="Order Details" class="d-inline-block btn-sm btn-info rounded mb-1"><i class="fas fa-list-ul"></i></a>';
 
+                        if ($data->order_status != 0) {
+                            if (!($data->tracking_id == null && ($data->order_status == 2 || $data->order_status == 3 && $data->order_status != 4))) {
+                                if ($data->tracking_id != null) {
+                                    $btn .= ' <a href="https://steadfast.com.bd/t/' . $data->tracking_id . '" target="_blank" title="Tracking the Order" class="mb-1 d-inline-block btn-sm btn-secondary rounded"><i class="fas fa-dolly"></i></a>';
+                                } else {
+                                    $btn .= ' <a href="' . url('add/order/' . $data->id . '/courier') . '" onclick="javascript:return confirm(\'Are you sure to placed the order in courier?\')" title="Place To Courier" class="mb-1 d-inline-block btn-sm btn-primary rounded"><i class="fas fa-dolly-flatbed"></i></a>';
+                                }
+                            }
+                        }
+
                         if($data->order_status == 0){
                             $btn .= ' <a href="'.url('order/edit').'/'.$data->slug.'" onclick="return orderEditWarning()" title="Order Edit" class="mb-1 d-inline-block btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
                             $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Cancel" data-id="'.$data->slug.'" data-original-title="Cancel" class="d-inline-block mb-1 btn-sm btn-danger rounded cancelBtn"><i class="fa fa-times"></i></a>';
@@ -163,11 +173,32 @@ class OrderController extends Controller
         $products = DB::table('products')->orderBy('name', 'asc')->get();
         return view('backend.orders.orders', compact('request', 'products'));
     }
+
+    // public function orderDetails($slug){
+    //     $order = Order::where('slug', $slug)->first();
+    //     $userInfo = User::where('id', $order->user_id)->first();
+    //     $shippingInfo = ShippingInfo::where('order_id', $order->id)->first();
+    //     $billingAddress = BillingAddress::where('order_id', $order->id)->first();
+    //     $orderDetails = DB::table('order_details')
+    //                         ->leftJoin('stores', 'order_details.store_id', 'stores.id')
+    //                         ->leftJoin('products', 'order_details.product_id', 'products.id')
+    //                         ->leftJoin('categories', 'products.category_id', 'categories.id')
+    //                         ->leftJoin('units', 'order_details.unit_id', 'units.id')
+    //                         ->select('order_details.*', 'stores.store_name', 'products.name as product_name', 'products.code as product_code', 'units.name as unit_name', 'categories.name as category_name')
+    //                         ->where('order_id', $order->id)
+    //                         ->get();
+    //     $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
+    //     return view('backend.orders.details', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo'));
+    // }
+
     public function orderDetails($slug){
+
         $order = Order::where('slug', $slug)->first();
         $userInfo = User::where('id', $order->user_id)->first();
         $shippingInfo = ShippingInfo::where('order_id', $order->id)->first();
         $billingAddress = BillingAddress::where('order_id', $order->id)->first();
+        $payments = OrderPayment::getOrderPaymentsWithTotal($order->id, 'amount');
+
         $orderDetails = DB::table('order_details')
                             ->leftJoin('stores', 'order_details.store_id', 'stores.id')
                             ->leftJoin('products', 'order_details.product_id', 'products.id')
@@ -176,8 +207,10 @@ class OrderController extends Controller
                             ->select('order_details.*', 'stores.store_name', 'products.name as product_name', 'products.code as product_code', 'units.name as unit_name', 'categories.name as category_name')
                             ->where('order_id', $order->id)
                             ->get();
+
         $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
-        return view('backend.orders.details', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo'));
+
+        return view('backend.orders.details', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo','payments'));
     }
 
     public function cancelOrder($slug){
@@ -278,6 +311,8 @@ class OrderController extends Controller
             ]);
 
         } else {
+            $data->payment_status = $request->payment_status;
+            // $data->order_note = $request->order_note;
             $data->order_remarks = $request->order_remarks;
             $data->estimated_dd = $request->estimated_dd;
             $data->updated_at = Carbon::now();
@@ -289,12 +324,62 @@ class OrderController extends Controller
 
     }
 
+    public function addOrderPayment(Request $request)
+    {
+        try {
+            $request->validate([
+                'payment_through' => 'required',
+                'amount' => 'nullable',
+            ]);
+            DB::beginTransaction();
+            $payDate = $request->payment_date ? date('Y-m-d H:i:s', strtotime($request->payment_date)) : date('Y-m-d H:i:s');
+            $data = OrderPayment::insert([
+                'order_id' => $request->order_id,
+                'payment_through' => $request->payment_through,
+                'tran_id' => $request->tran_id,
+                'val_id' => NULL,
+                'amount' => $request->amount,
+                'card_type' => NULL,
+                'store_amount' => $request->amount,
+                'card_no' => NULL,
+                'status' => "VALID",
+                'tran_date' => $payDate,
+                'currency' => "BDT",
+                'card_issuer' => NULL,
+                'card_brand' => NULL,
+                'card_sub_brand' => NULL,
+                'card_issuer_country' => NULL,
+                'created_at' => Carbon::now()
+            ]);
+            if($data){
+                $payments = OrderPayment::getOrderPaymentsWithTotal($request->order_id,'amount');
+                $orderData = Order::find($request->order_id);
+                $payStatus = $payments['total'] == $orderData->total ? 1 : 3;
+                $orderData->payment_status = $payStatus;
+                $orderData->updated_at = Carbon::now();
+                $orderData->update();
+                DB::commit();
+                Toastr::success('Payment Information Updated', 'Success');
+            } else {
+                DB::rollBack();
+                Toastr::error('Something Went Wrong!', 'Failed');
+            }
+            return back();
+        } catch (\Throwable $th) {
+            return $th;
+            DB::rollBack();
+            Toastr::error('Something Went Wrong with Server!', 'Failed');
+            return back();
+        }
+    }
+
     public function orderEdit($slug){
+
         $order = Order::where('slug', $slug)->first();
         $userInfo = User::where('id', $order->user_id)->first();
         $shippingInfo = ShippingInfo::where('order_id', $order->id)->first();
         $billingAddress = BillingAddress::where('order_id', $order->id)->first();
-
+        $payments = OrderPayment::getOrderPaymentsWithTotal($order->id,'amount');
         $orderDetails = DB::table('order_details')
                             ->leftJoin('products', 'order_details.product_id', 'products.id')
                             ->leftJoin('categories', 'products.category_id', 'categories.id')
@@ -306,7 +391,7 @@ class OrderController extends Controller
         $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
         $districts = DB::table('districts')->get();
         $countries = DB::table('country')->get();
-        return view('backend.orders.edit', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo', 'districts', 'countries'));
+        return view('backend.orders.edit', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo', 'districts', 'countries','payments'));
     }
 
     public function orderUpdate(Request $request){

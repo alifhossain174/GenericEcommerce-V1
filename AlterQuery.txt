@@ -118,15 +118,23 @@ ALTER TABLE `general_infos` ADD `guest_checkout` TINYINT(4) NOT NULL DEFAULT '1'
 ALTER TABLE `products` CHANGE `status` `status` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '1=>Active; 0=>Inactive; 2=>Draft';
 ALTER TABLE `products` CHANGE `image` `image` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
 
+
 ==================28.11.24======================
 ALTER TABLE `general_infos`
 ADD COLUMN footer_contact varchar(255) AFTER app_store_link,
 ADD COLUMN footer_email varchar(255) AFTER footer_contact;
+
 
 ==================2.12.24======================
 ALTER TABLE `faqs` ADD `category_id` INT(11) NULL DEFAULT NULL AFTER `id`;
 ALTER TABLE `faqs` ADD `serial` DOUBLE NOT NULL DEFAULT '1' AFTER `slug`;
 New Table Added named "faq_categories"
 
+
 ==================24.12.24======================
 ALTER TABLE `products` CHANGE `meta_keywords` `meta_keywords` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `meta_description` `meta_description` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+==================09.03.25======================
+ALTER TABLE `orders` ADD `tracking_id` VARCHAR(255) NULL DEFAULT NULL AFTER `order_remarks`, ADD `courier_details` LONGTEXT NULL DEFAULT NULL AFTER `tracking_id`, ADD `courier_status` VARCHAR(255) NULL DEFAULT NULL AFTER `courier_details`;
+ALTER TABLE `orders` CHANGE `delivery_method` `delivery_method` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '1=>Home Delivery; 2=>Store Pickup; 3=>steadFast; 4=>pathao';

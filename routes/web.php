@@ -33,6 +33,7 @@ use App\Http\Controllers\CustomPageController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WithdrawController;
+use App\Http\Controllers\SteadFastCourierController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
 use App\Http\Middleware\DemoMode;
@@ -330,9 +331,12 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::post('/add/more/product', [OrderController::class, 'addMoreProduct'])->name('AddMoreProduct');
     Route::post('/get/product/variants', [OrderController::class, 'getProductVariants'])->name('GetProductVariants');
     Route::get('delete/order/{slug}', [OrderController::class, 'deleteOrder'])->name('DeleteOrder');
+    Route::post('add/order/payment', [OrderController::class, 'addOrderPayment']);
     Route::post('/bulk/order/status/update', [OrderController::class, 'bulkOrderStatusUpdate'])->name('BulkOrderStatusUpdate');
     Route::get('/bulk/print/orders', [OrderController::class, 'bulkPrintOrders'])->name('BulkPrintOrders');
 
+    //start courier routes
+    Route::get('add/order/{orderid}/courier', [SteadFastCourierController::class, 'addOrderToCourier']);
 
     // promo codes
     Route::get('/add/new/code', [PromoCodeController::class, 'addPromoCode'])->name('AddPromoCode');
