@@ -6,6 +6,7 @@ use App\Models\EmailConfigure;
 use App\Models\EmailTemplate;
 use App\Models\PaymentGateway;
 use App\Models\SmsGateway;
+use App\Models\CourierApiKey;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
@@ -344,6 +345,53 @@ class SystemController extends Controller
 
             PaymentGateway::where('id', 5)->update([
                 'status' => $info->status == 1 ? 0 : 1,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        return response()->json(['success' => 'Updated Successfully.']);
+    }
+
+    //Courier Api Keys
+    public function viewCourierApiKeys()
+    {
+        $courierApiKeys = CourierApiKey::orderBy('id', 'asc')->get();
+        return view('backend.system.courier_api_key', compact('courierApiKeys'));
+    }
+
+    public function updateCourierApiKeyInfo(Request $request)
+    {
+        $provider = $request->provider;
+
+        DB::table('courier_api_keys')->update([
+            'status' => 0,
+            'updated_at' => Carbon::now()
+        ]);
+
+        if ($provider == 'steadfast') { //ID 1 => Steadfast
+            CourierApiKey::where('id', 1)->update([
+                'app_key' => $request->app_key,
+                'secret_key' => $request->secret_key,
+                'courier_cod_charge' => $request->courier_cod_charge,
+                'status' => 1,
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        Toastr::success('Info Updated', 'Success');
+        return back();
+    }
+
+    public function changeCourierApiKeystatus($provider)
+    {
+        DB::table('courier_api_keys')->update([
+            'status' => 0,
+            'updated_at' => Carbon::now()
+        ]);
+
+        if ($provider == 'steadfast') { //ID 1 => Elitbuzz
+            CourierApiKey::where('id', 1)->update([
+                'status' => 1,
                 'updated_at' => Carbon::now()
             ]);
         }

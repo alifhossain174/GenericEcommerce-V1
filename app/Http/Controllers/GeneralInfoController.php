@@ -195,6 +195,12 @@ class GeneralInfoController extends Controller
 
             'footer_copyright_text' => $request->footer_copyright_text,
             'payment_banner' => $paymentBanner,
+
+            'bd_courier_app_key' => $request->bd_courier_app_key,
+            'minimum_partial_payment' => $request->minimum_partial_payment,
+            'minimum_partial_payment_status' => $request->minimum_partial_payment_status,
+            'order_notification_status' => $request->order_notification_status,
+            
             'updated_at' => Carbon::now()
         ]);
 

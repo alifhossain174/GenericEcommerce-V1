@@ -24,4 +24,9 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::post('/update/payment/gateway/info', [SystemController::class, 'updatePaymentGatewayInfo'])->name('UpdatePaymentGatewayInfo');
     Route::get('/change/payment/gateway/status/{provider}', [SystemController::class, 'changePaymentGatewayStatus'])->name('ChangePaymentGatewayStatus');
 
+    // system route for courier api keys
+    Route::get('/setup/courier/api/keys', [SystemController::class, 'viewCourierApiKeys'])->name('ViewCourierApiKeys');
+    Route::post('/update/courier/api/key/info', [SystemController::class, 'updateCourierApiKeyInfo'])->name('UpdateCourierApiKeyInfo');
+    Route::get('/change/courier/api/key/status/{provider}', [SystemController::class, 'changeCourierApiKeystatus'])->name('ChangeCourierApiKeystatus');
+
 });

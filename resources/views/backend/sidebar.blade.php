@@ -241,6 +241,7 @@
             <li><a href="{{ url('/view/email/templates') }}">Email Templates</a></li>
             <li><a href="{{ url('/setup/sms/gateways') }}">SMS Gateway</a></li>
             <li><a href="{{ url('/setup/payment/gateways') }}">Payment Gateway</a></li>
+            <li><a href="{{ url('/setup/courier/api/keys') }}">Courier Api keys</a></li>
         </ul>
     </li>
 

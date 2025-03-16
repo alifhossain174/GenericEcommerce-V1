@@ -1,292 +1,366 @@
 @extends('backend.master')
 
 @section('header_css')
-<link href="{{url('assets')}}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
-<link href="{{url('assets')}}/css/tagsinput.css" rel="stylesheet" type="text/css" />
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-<style>
-    <style>.bootstrap-tagsinput .badge {
-        margin: 2px 2px !important;
-    }
-</style>
+    <link href="{{ url('assets') }}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url('assets') }}/css/tagsinput.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <style>
+        <style>.bootstrap-tagsinput .badge {
+            margin: 2px 2px !important;
+        }
+    </style>
 @endsection
 
 @section('page_title')
-Website Config
+    Website Config
 @endsection
 @section('page_heading')
-Entry General Information
+    Entry General Information
 @endsection
 
 @section('content')
-<div class="row">
-    <div class="col-lg-12 col-xl-12">
-        <div class="card">
-            <div class="card-body">
-                <form class="needs-validation" method="POST" action="{{url('update/general/info')}}"
-                    enctype="multipart/form-data">
-                    @csrf
+    <div class="row">
+        <div class="col-lg-12 col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <form class="needs-validation" method="POST" action="{{ url('update/general/info') }}"
+                        enctype="multipart/form-data">
+                        @csrf
 
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <h4 class="card-title mb-3">General Information Form</h4>
-                        </div>
-                        <div class="col-lg-4 text-right">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h4 class="card-title mb-3">General Information Form</h4>
+                            </div>
+                            <div class="col-lg-4 text-right">
 
-                            <a href="{{url('/home')}}" style="width: 130px;"
-                                class="btn btn-danger d-inline-block text-white m-2" type="submit"><i
-                                    class="mdi mdi-cancel"></i> Cancel</a>
-                            <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i
-                                    class="fas fa-save"></i> Update Info</button>
-
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-center pt-3">
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <label for="logo">Primary Logo (Light)</label>
-                                <input type="file" name="logo" class="dropify" data-height="150" data-max-file-size="1M"
-                                    accept="image/*" />
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <label for="logo">Secondary Logo (Dark)</label>
-                                <input type="file" name="logo_dark" class="dropify" data-height="150"
-                                    data-max-file-size="1M" accept="image/*" />
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <label for="fav_icon">Favicon</label>
-                                <input type="file" name="fav_icon" class="dropify" data-height="150"
-                                    data-max-file-size="1M" accept="image/*" />
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row justify-content-center pt-3">
-                        <div class="col-lg-9">
-
-                            <div class="form-group row">
-                                <label for="company_name" class="col-sm-2 col-form-label">Company Name <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="company_name" name="company_name"
-                                        value="{{$data->company_name}}" class="form-control"
-                                        placeholder="Enter Company Name Here" required>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('company_name')
-                                        {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row" style="display:none">
-                                <label for="tab_title" class="col-sm-2 col-form-label">Browser Tab Title <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="tab_title" name="tab_title" value="{{$data->tab_title}}"
-                                        class="form-control" placeholder="Tab Title">
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('tab_title')
-                                        {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="contact" class="col-sm-2 col-form-label">Phone No. <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="contact" data-role="tagsinput" name="contact"
-                                        value="{{$data->contact}}" class="form-control" placeholder="01*********">
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('contact')
-                                        {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="email" class="col-sm-2 col-form-label">Company Emails <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="email" data-role="tagsinput" name="email"
-                                        value="{{$data->email}}" class="form-control" placeholder="Write Email Here">
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('email')
-                                        {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="footer_contact" class="col-sm-2 col-form-label">Footer Contact<span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="footer_contact" data-role="tagsinput" name="footer_contact"
-                                        value="{{$data->footer_contact}}" class="form-control" placeholder="01*********">
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('footer_contact')
-                                        {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="footer_email" class="col-sm-2 col-form-label">Footer Email<span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="footer_email" data-role="tagsinput" name="footer_email"
-                                        value="{{$data->footer_email}}" class="form-control" placeholder="Write Email Here">
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('footer_email')
-                                        {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="short_description" class="col-sm-2 col-form-label">Short Description</label>
-                                <div class="col-sm-10">
-                                    <textarea id="short_description" name="short_description" rows="2"
-                                        class="form-control">{!! $data->short_description !!}</textarea>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('short_description')
-                                        {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="address" class="col-sm-2 col-form-label">Company Address</label>
-                                <div class="col-sm-10">
-                                    <textarea id="address" name="address" rows="3" class="form-control"
-                                        placeholder="Enter Company Address Here">{{$data->address}}</textarea>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('address')
-                                        {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="google_map_link" class="col-sm-2 col-form-label"><i
-                                        class="fas fa-map-marker-alt"></i> Google Map Link</label>
-                                <div class="col-sm-10">
-                                    <textarea name="google_map_link" id="google_map_link"
-                                        class="form-control">{{ $data->google_map_link }}</textarea>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('google_map_link')
-                                        {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="play_store_link" class="col-sm-2 col-form-label"><i
-                                        class="fab fa-google-play"></i> Play Store Link</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="play_store_link" id="play_store_link"
-                                        value="{{ $data->play_store_link }}" placeholder="https://play.google.com/store"
-                                        class="form-control" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="app_store_link" class="col-sm-2 col-form-label"><i class="fab fa-apple"
-                                        style="font-size: 16px;"></i> App Store Link</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="app_store_link" id="app_store_link"
-                                        value="{{ $data->app_store_link }}"
-                                        placeholder="https://www.apple.com/app-store/" class="form-control" />
-                                </div>
-                            </div>
-
-                            <hr>
-                            <div class="form-group row">
-                                <label for="trade_license_no" class="col-sm-2 col-form-label">Trade License No</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="trade_license_no" id="trade_license_no"
-                                        value="{{ $data->trade_license_no }}" placeholder="Trade License No"
-                                        class="form-control" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="tin_no" class="col-sm-2 col-form-label">TIN No</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="tin_no" id="tin_no" value="{{ $data->tin_no }}"
-                                        placeholder="TIN No" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="bin_no" class="col-sm-2 col-form-label">BIN No</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="bin_no" id="bin_no" value="{{ $data->bin_no }}"
-                                        placeholder="BIN No" class="form-control" />
-                                </div>
-                            </div>
-                            <hr>
-
-
-                            <div class="form-group row">
-                                <label for="footer_copyright_text" class="col-sm-2 col-form-label"><i
-                                        class="far fa-copyright"></i> Footer Copyright Text</label>
-                                <div class="col-sm-10">
-                                    <textarea name="footer_copyright_text" id="footer_copyright_text"
-                                        class="form-control">{{ $data->footer_copyright_text }}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="payment_banner" class="col-sm-2 col-form-label"><i
-                                        class="fab fa-cc-visa"></i> Payment Banner</label>
-                                <div class="col-sm-10">
-                                    <input type="file" name="payment_banner" class="dropify" data-height="100"
-                                        data-max-file-size="1M" accept="image/*" />
-                                </div>
-                            </div>
-
-                            <div class="form-group text-center">
-                                <a href="{{url('/home')}}" style="width: 130px;"
+                                <a href="{{ url('/home') }}" style="width: 130px;"
                                     class="btn btn-danger d-inline-block text-white m-2" type="submit"><i
                                         class="mdi mdi-cancel"></i> Cancel</a>
                                 <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i
                                         class="fas fa-save"></i> Update Info</button>
+
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center pt-3">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="logo">Primary Logo (Light)</label>
+                                    <input type="file" name="logo" class="dropify" data-height="150"
+                                        data-max-file-size="1M" accept="image/*" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="logo">Secondary Logo (Dark)</label>
+                                    <input type="file" name="logo_dark" class="dropify" data-height="150"
+                                        data-max-file-size="1M" accept="image/*" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="fav_icon">Favicon</label>
+                                    <input type="file" name="fav_icon" class="dropify" data-height="150"
+                                        data-max-file-size="1M" accept="image/*" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row justify-content-center pt-3">
+                            <div class="col-lg-9">
+
+                                <div class="form-group row">
+                                    <label for="company_name" class="col-sm-2 col-form-label">Company Name <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="company_name" name="company_name"
+                                            value="{{ $data->company_name }}" class="form-control"
+                                            placeholder="Enter Company Name Here" required>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('company_name')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row" style="display:none">
+                                    <label for="tab_title" class="col-sm-2 col-form-label">Browser Tab Title <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="tab_title" name="tab_title" value="{{ $data->tab_title }}"
+                                            class="form-control" placeholder="Tab Title">
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('tab_title')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="contact" class="col-sm-2 col-form-label">Phone No. <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="contact" data-role="tagsinput" name="contact"
+                                            value="{{ $data->contact }}" class="form-control" placeholder="01*********">
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('contact')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-2 col-form-label">Company Emails <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="email" data-role="tagsinput" name="email"
+                                            value="{{ $data->email }}" class="form-control"
+                                            placeholder="Write Email Here">
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('email')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="footer_contact" class="col-sm-2 col-form-label">Footer Contact<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="footer_contact" data-role="tagsinput"
+                                            name="footer_contact" value="{{ $data->footer_contact }}"
+                                            class="form-control" placeholder="01*********">
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('footer_contact')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="footer_email" class="col-sm-2 col-form-label">Footer Email<span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="footer_email" data-role="tagsinput"
+                                            name="footer_email" value="{{ $data->footer_email }}" class="form-control"
+                                            placeholder="Write Email Here">
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('footer_email')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="short_description" class="col-sm-2 col-form-label">Short
+                                        Description</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="short_description" name="short_description" rows="2" class="form-control">{!! $data->short_description !!}</textarea>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('short_description')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="address" class="col-sm-2 col-form-label">Company Address</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="address" name="address" rows="3" class="form-control"
+                                            placeholder="Enter Company Address Here">{{ $data->address }}</textarea>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('address')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="google_map_link" class="col-sm-2 col-form-label"><i
+                                            class="fas fa-map-marker-alt"></i> Google Map Link</label>
+                                    <div class="col-sm-10">
+                                        <textarea name="google_map_link" id="google_map_link" class="form-control">{{ $data->google_map_link }}</textarea>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('google_map_link')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="play_store_link" class="col-sm-2 col-form-label"><i
+                                            class="fab fa-google-play"></i> Play Store Link</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="play_store_link" id="play_store_link"
+                                            value="{{ $data->play_store_link }}"
+                                            placeholder="https://play.google.com/store" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="app_store_link" class="col-sm-2 col-form-label"><i class="fab fa-apple"
+                                            style="font-size: 16px;"></i> App Store Link</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="app_store_link" id="app_store_link"
+                                            value="{{ $data->app_store_link }}"
+                                            placeholder="https://www.apple.com/app-store/" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <div class="form-group row">
+                                    <label for="trade_license_no" class="col-sm-2 col-form-label">Trade License No</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="trade_license_no" id="trade_license_no"
+                                            value="{{ $data->trade_license_no }}" placeholder="Trade License No"
+                                            class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tin_no" class="col-sm-2 col-form-label">TIN No</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="tin_no" id="tin_no" value="{{ $data->tin_no }}"
+                                            placeholder="TIN No" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="bin_no" class="col-sm-2 col-form-label">BIN No</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="bin_no" id="bin_no" value="{{ $data->bin_no }}"
+                                            placeholder="BIN No" class="form-control" />
+                                    </div>
+                                </div>
+                                <hr>
+
+
+                                <div class="form-group row">
+                                    <label for="footer_copyright_text" class="col-sm-2 col-form-label"><i
+                                            class="far fa-copyright"></i> Footer Copyright Text</label>
+                                    <div class="col-sm-10">
+                                        <textarea name="footer_copyright_text" id="footer_copyright_text" class="form-control">{{ $data->footer_copyright_text }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="payment_banner" class="col-sm-2 col-form-label"><i
+                                            class="fab fa-cc-visa"></i> Payment Banner</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" name="payment_banner" class="dropify" data-height="100"
+                                            data-max-file-size="1M" accept="image/*" />
+                                    </div>
+                                </div>
+
+                                 <div class="form-group row">
+                                    <label for="bd_courier_app_key" class="col-sm-2 col-form-label"> BD Courier App Key
+                                        <span class="text-danger"></span></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="bd_courier_app_key" name="bd_courier_app_key"
+                                            value="{{ $data->bd_courier_app_key }}" class="form-control"
+                                            placeholder="Enter BD Courier App Key Here">
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('bd_courier_app_key')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- <div class="form-group row">
+                                    <label for="minimum_partial_payment" class="col-sm-2 col-form-label"> Minimum Partial
+                                        payment
+                                        <span class="text-danger"></span></label>
+                                    <div class="col-sm-10">
+                                        <input type="number" id="minimum_partial_payment" name="minimum_partial_payment"
+                                            value="{{ $data->minimum_partial_payment }}" class="form-control"
+                                            placeholder="Enter Minimum Partial Payment Here">
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('minimum_partial_payment')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="minimum_partial_payment_status" class="col-sm-2 col-form-label">Partial
+                                        Payment Status
+                                        <span class="text-danger"></span></label>
+                                    <div class="col-sm-10">
+                                        <select name="minimum_partial_payment_status" class="form-control"
+                                            id="minimum_partial_payment_status" required>
+                                            <option value="">Select One</option>
+                                            <option value="1" @if ($data->minimum_partial_payment_status == 1) selected @endif>Active
+                                            </option>
+                                            <option value="0" @if ($data->minimum_partial_payment_status == 0) selected @endif>
+                                                Inactive</option>
+                                        </select>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('minimum_partial_payment_status')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="order_notification_status" class="col-sm-2 col-form-label">Order
+                                        Notification Status
+                                        <span class="text-danger"></span></label>
+                                    <div class="col-sm-10">
+                                        <select name="order_notification_status" class="form-control"
+                                            id="order_notification_status" required>
+                                            <option value="">Select One</option>
+                                            <option value="1" @if ($data->order_notification_status == 1) selected @endif>Active
+                                            </option>
+                                            <option value="0" @if ($data->order_notification_status == 0) selected @endif>
+                                                Inactive</option>
+                                        </select>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('order_notification_status')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div> --}}
+
+                                <div class="form-group text-center">
+                                    <a href="{{ url('/home') }}" style="width: 130px;"
+                                        class="btn btn-danger d-inline-block text-white m-2" type="submit"><i
+                                            class="mdi mdi-cancel"></i> Cancel</a>
+                                    <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i
+                                            class="fas fa-save"></i> Update Info</button>
+                                </div>
+
                             </div>
 
                         </div>
 
-                    </div>
 
-
-                    {{-- <div class="form-group text-center pt-3 mt-3">
+                        {{-- <div class="form-group text-center pt-3 mt-3">
                         <a href="{{url('/home')}}" style="width: 130px;"
                             class="btn btn-danger d-inline-block text-white m-2" type="submit"><i
                                 class="mdi mdi-cancel"></i> Cancel</a>
                         <button class="btn btn-primary m-2" type="submit" style="width: 140px;"><i
                                 class="fas fa-save"></i> Update Info</button>
                     </div> --}}
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 
 @section('footer_js')
-<script src="{{url('assets')}}/plugins/dropify/dropify.min.js"></script>
-<script src="{{url('assets')}}/pages/fileuploads-demo.js"></script>
-<script src="{{url('assets')}}/js/tagsinput.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script src="{{ url('assets') }}/plugins/dropify/dropify.min.js"></script>
+    <script src="{{ url('assets') }}/pages/fileuploads-demo.js"></script>
+    <script src="{{ url('assets') }}/js/tagsinput.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
-<script>
-    $('#short_description').summernote({
+    <script>
+        $('#short_description').summernote({
             placeholder: 'Write Short Description Here',
             tabsize: 2,
             height: 200
@@ -304,32 +378,32 @@ Entry General Information
             height: 200
         });
 
-        @if($data->logo && file_exists(public_path($data->logo)))
+        @if ($data->logo && file_exists(public_path($data->logo)))
             $(".dropify-preview").eq(0).css("display", "block");
             $(".dropify-clear").eq(0).css("display", "block");
-            $(".dropify-filename-inner").eq(0).html("{{$data->logo}}");
-            $("span.dropify-render").eq(0).html("<img src='{{url($data->logo)}}'>");
+            $(".dropify-filename-inner").eq(0).html("{{ $data->logo }}");
+            $("span.dropify-render").eq(0).html("<img src='{{ url($data->logo) }}'>");
         @endif
 
-        @if($data->logo_dark && file_exists(public_path($data->logo_dark)))
+        @if ($data->logo_dark && file_exists(public_path($data->logo_dark)))
             $(".dropify-preview").eq(1).css("display", "block");
             $(".dropify-clear").eq(1).css("display", "block");
-            $(".dropify-filename-inner").eq(1).html("{{$data->logo_dark}}");
-            $("span.dropify-render").eq(1).html("<img src='{{url($data->logo_dark)}}'>");
+            $(".dropify-filename-inner").eq(1).html("{{ $data->logo_dark }}");
+            $("span.dropify-render").eq(1).html("<img src='{{ url($data->logo_dark) }}'>");
         @endif
 
-        @if($data->fav_icon && file_exists(public_path($data->fav_icon)))
+        @if ($data->fav_icon && file_exists(public_path($data->fav_icon)))
             $(".dropify-preview").eq(2).css("display", "block");
             $(".dropify-clear").eq(2).css("display", "block");
-            $(".dropify-filename-inner").eq(2).html("{{$data->fav_icon}}");
-            $("span.dropify-render").eq(2).html("<img src='{{url($data->fav_icon)}}'>");
+            $(".dropify-filename-inner").eq(2).html("{{ $data->fav_icon }}");
+            $("span.dropify-render").eq(2).html("<img src='{{ url($data->fav_icon) }}'>");
         @endif
 
-        @if($data->payment_banner && file_exists(public_path($data->payment_banner)))
+        @if ($data->payment_banner && file_exists(public_path($data->payment_banner)))
             $(".dropify-preview").eq(3).css("display", "block");
             $(".dropify-clear").eq(3).css("display", "block");
-            $(".dropify-filename-inner").eq(3).html("{{$data->payment_banner}}");
-            $("span.dropify-render").eq(3).html("<img src='{{url($data->payment_banner)}}'>");
+            $(".dropify-filename-inner").eq(3).html("{{ $data->payment_banner }}");
+            $("span.dropify-render").eq(3).html("<img src='{{ url($data->payment_banner) }}'>");
         @endif
-</script>
+    </script>
 @endsection
