@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Hash;
 
 class PosController extends Controller
 {
-    public function createNewOrder(){
+    public function createNewOrder()
+    {
         $categories = Category::where('status', 1)->orderBy('name', 'asc')->get();
         $brands = Brand::where('status', 1)->orderBy('name', 'asc')->get();
         $products = Product::where('status', 1)->select('id', 'stock', 'price', 'discount_price', 'image', 'name', 'code')->orderBy('name', 'asc')->get();
@@ -28,22 +29,23 @@ class PosController extends Controller
         return view('backend.orders.pos.create', compact('categories', 'brands', 'products', 'customers', 'districts'));
     }
 
-    public function productLiveSearch(Request $request){
+    public function productLiveSearch(Request $request)
+    {
 
         $query = Product::where('status', 1);
 
         if ($request->product_name) {
-            $query->where(function($q) use ($request) {
+            $query->where(function ($q) use ($request) {
                 $q->where('name', 'LIKE', '%' . $request->product_name . '%')
-                  ->orWhere('code', 'LIKE', '%' . $request->product_name . '%');
+                    ->orWhere('code', 'LIKE', '%' . $request->product_name . '%');
             });
         }
 
-        if($request->category_id){
+        if ($request->category_id) {
             // $query->where('category_id', $request->category_id);
             $query->whereRaw("FIND_IN_SET(?, category_id)", [$request->category_id]);
         }
-        if($request->brand_id){
+        if ($request->brand_id) {
             $query->where('brand_id', $request->brand_id);
         }
         $products = $query->orderBy('name', 'asc')->get();
@@ -52,79 +54,79 @@ class PosController extends Controller
         return response()->json(['searchResults' => $searchResults]);
     }
 
-    public function getProductVariants(Request $request){
+    public function getProductVariants(Request $request)
+    {
 
         $product = Product::where('id', $request->product_id)->select('id', 'name', 'code')->first();
 
         $colors = DB::table('product_variants')
-                ->leftJoin('colors', 'product_variants.color_id', 'colors.id')
-                ->select('colors.*')
-                ->where('product_variants.product_id', $product->id)
-                ->where('product_variants.stock', '>', 0)
-                ->groupBy('product_variants.color_id')
-                ->get();
+            ->leftJoin('colors', 'product_variants.color_id', 'colors.id')
+            ->select('colors.*')
+            ->where('product_variants.product_id', $product->id)
+            ->where('product_variants.stock', '>', 0)
+            ->groupBy('product_variants.color_id')
+            ->get();
 
         $sizes = DB::table('product_variants')
-                ->leftJoin('product_sizes', 'product_variants.size_id', 'product_sizes.id')
-                ->select('product_sizes.*')
-                ->where('product_variants.product_id', $product->id)
-                ->where('product_variants.stock', '>', 0)
-                ->groupBy('product_variants.size_id')
-                ->get();
+            ->leftJoin('product_sizes', 'product_variants.size_id', 'product_sizes.id')
+            ->select('product_sizes.*')
+            ->where('product_variants.product_id', $product->id)
+            ->where('product_variants.stock', '>', 0)
+            ->groupBy('product_variants.size_id')
+            ->get();
 
         return response()->json([
             'product' => $product,
             'colors' => $colors,
             'sizes' => $sizes,
         ]);
-
     }
 
-    public function checkProductVariant(Request $request){
+    public function checkProductVariant(Request $request)
+    {
 
         $query = DB::table('product_variants')->where('product_id', $request->product_id);
-        if($request->color_id != ''){
+        if ($request->color_id != '') {
             $query->where('color_id', $request->color_id);
         }
-        if($request->size_id != ''){
+        if ($request->size_id != '') {
             $query->where('size_id', $request->size_id);
         }
 
         $data = $query->where('stock', '>', 0)->orderBy('discounted_price', 'asc')->orderBy('price', 'asc')->first();
-        if($data){
+        if ($data) {
             return response()->json([
                 'price' => $data->discounted_price > 0 ? $data->discounted_price : $data->price,
                 'stock' => $data->stock
             ]);
-
-        }else {
+        } else {
             return response()->json(['price' => 0, 'stock' => 0]);
         }
-
     }
 
-    public function addToCart(Request $request){
+    public function addToCart(Request $request)
+    {
 
-        if($request->color_id > 0 || $request->size_id > 0){
+        if ($request->color_id > 0 || $request->size_id > 0) {
 
             $query = DB::table('product_variants')
-                            ->leftJoin('products', 'product_variants.product_id', 'products.id')
-                            ->leftJoin('colors', 'product_variants.color_id', 'colors.id')
-                            ->leftJoin('product_sizes', 'product_variants.size_id', 'product_sizes.id')
-                            ->select('product_variants.*', 'products.image as product_image', 'products.code as product_code', 'products.name as product_name', 'colors.name as color_name', 'product_sizes.name as size_name');
+                ->leftJoin('products', 'product_variants.product_id', 'products.id')
+                ->leftJoin('colors', 'product_variants.color_id', 'colors.id')
+                ->leftJoin('product_sizes', 'product_variants.size_id', 'product_sizes.id')
+                ->select('product_variants.*', 'products.image as product_image', 'products.code as product_code', 'products.name as product_name', 'colors.name as color_name', 'product_sizes.name as size_name');
 
-            if($request->color_id > 0){
+            if ($request->color_id > 0) {
                 $query->where('product_variants.color_id', $request->color_id);
             }
-            if($request->size_id > 0){
+            if ($request->size_id > 0) {
                 $query->where('product_variants.size_id', $request->size_id);
             }
             $productInfo = $query->where('product_variants.product_id', $request->product_id)->first();
 
             $cart = session()->get('cart', []);
-            $productKey = $request->product_id."_".$request->color_id."_".$request->size_id;
+            $productKey = $request->product_id . "_" . $request->color_id . "_" . $request->size_id;
 
-            if(isset($cart[$productKey])) {
+            if (isset($cart[$productKey])) {
                 $cart[$productKey]['quantity']++;
             } else {
                 $cart[$productKey] = [
@@ -140,13 +142,12 @@ class PosController extends Controller
                     "size_name" => $productInfo->size_name
                 ];
             }
-
         } else {
             $productInfo = Product::where('id', $request->product_id)->first();
 
             $cart = session()->get('cart', []);
-            $productKey = $request->product_id."_".$request->color_id."_".$request->size_id;
-            if(isset($cart[$productKey])) {
+            $productKey = $request->product_id . "_" . $request->color_id . "_" . $request->size_id;
+            if (isset($cart[$productKey])) {
                 $cart[$productKey]['quantity']++;
             } else {
                 $cart[$productKey] = [
@@ -171,13 +172,13 @@ class PosController extends Controller
             'rendered_cart' => $returnHTML,
             'cart_calculation' => $cartCalculationHTML,
         ]);
-
     }
 
-    public function getSavedAddress($user_id){
+    public function getSavedAddress($user_id)
+    {
         $savedAddressed = DB::table('user_addresses')
-        ->where('user_id', $user_id)
-        ->get();
+            ->where('user_id', $user_id)
+            ->get();
 
         $userInfo = User::where('id', $user_id)->first();
         $savedAddressHTML = view('backend.orders.pos.saved_address', compact('savedAddressed'))->render();
@@ -187,9 +188,10 @@ class PosController extends Controller
         ]);
     }
 
-    public function removeCartItem($cartIndex){
+    public function removeCartItem($cartIndex)
+    {
         $cart = session()->get('cart');
-        if(isset($cart[$cartIndex])) {
+        if (isset($cart[$cartIndex])) {
             unset($cart[$cartIndex]);
             session()->put('cart', $cart);
         }
@@ -205,9 +207,10 @@ class PosController extends Controller
         ]);
     }
 
-    public function updateCartItem($cartIndex, $qty){
+    public function updateCartItem($cartIndex, $qty)
+    {
         $cart = session()->get('cart');
-        if(isset($cart[$cartIndex])) {
+        if (isset($cart[$cartIndex])) {
             $cart[$cartIndex]['quantity'] = $qty;
             session()->put('cart', $cart);
         }
@@ -223,19 +226,20 @@ class PosController extends Controller
         ]);
     }
 
-    public function applyCoupon(Request $request){
+    public function applyCoupon(Request $request)
+    {
         $couponCode = $request->coupon_code;
         $couponInfo = DB::table('promo_codes')->where('code', $couponCode)->first();
-        if($couponInfo){
+        if ($couponInfo) {
 
-            if($couponInfo->effective_date && $couponInfo->effective_date > date("Y-m-d")){
+            if ($couponInfo->effective_date && $couponInfo->effective_date > date("Y-m-d")) {
                 return response()->json([
                     'status' => 0,
                     'message' => "Coupon is not Applicable"
                 ]);
             }
 
-            if($couponInfo->expire_date && $couponInfo->expire_date < date("Y-m-d")){
+            if ($couponInfo->expire_date && $couponInfo->expire_date < date("Y-m-d")) {
                 return response()->json([
                     'status' => 0,
                     'message' => "Coupon is Expired"
@@ -243,11 +247,11 @@ class PosController extends Controller
             }
 
             $subTotal = 0;
-            foreach((array) session('cart') as $id => $details){
+            foreach ((array) session('cart') as $id => $details) {
                 $subTotal += $details['price'] * $details['quantity'];
             }
 
-            if($couponInfo->minimum_order_amount && $couponInfo->minimum_order_amount > $subTotal){
+            if ($couponInfo->minimum_order_amount && $couponInfo->minimum_order_amount > $subTotal) {
                 return response()->json([
                     'status' => 0,
                     'message' => "Minimum Amount is not Matched"
@@ -255,13 +259,13 @@ class PosController extends Controller
             }
 
             $discount = 0;
-            if($couponInfo->type == 1){
+            if ($couponInfo->type == 1) {
                 $discount = $couponInfo->value;
             } else {
-                $discount = ($subTotal*$couponInfo->value)/100;
+                $discount = ($subTotal * $couponInfo->value) / 100;
             }
 
-            if($discount > $subTotal){
+            if ($discount > $subTotal) {
                 return response()->json([
                     'status' => 0,
                     'message' => "Discount Cannot be greater than Order Amount"
@@ -278,7 +282,6 @@ class PosController extends Controller
                 'message' => "Coupon Applied",
                 'cart_calculation' => $cartCalculationHTML
             ]);
-
         } else {
             return response()->json([
                 'status' => 0,
@@ -287,7 +290,8 @@ class PosController extends Controller
         }
     }
 
-    public function saveNewCustomer(Request $request){
+    public function saveNewCustomer(Request $request)
+    {
         User::insert([
             'name' => $request->customer_name,
             'phone' => $request->customer_phone,
@@ -305,7 +309,8 @@ class PosController extends Controller
         return back();
     }
 
-    public function updateOrderTotal($shipping_charge, $discount){
+    public function updateOrderTotal($shipping_charge, $discount)
+    {
         $shipping_charge = is_numeric($shipping_charge) ? $shipping_charge : 0;
         $discount = is_numeric($discount) ? $discount : 0;
 
@@ -317,11 +322,12 @@ class PosController extends Controller
         ]);
     }
 
-    public function districtWiseThana(Request $request){
+    public function districtWiseThana(Request $request)
+    {
 
         $districtWiseDeliveryCharge = 0;
         $districtInfo = DB::table('districts')->where('id', $request->district_id)->first();
-        if($districtInfo){
+        if ($districtInfo) {
             $districtWiseDeliveryCharge = $districtInfo->delivery_charge;
         }
 
@@ -335,22 +341,23 @@ class PosController extends Controller
         ]);
     }
 
-    public function districtWiseThanaByName(Request $request){
+    public function districtWiseThanaByName(Request $request)
+    {
 
         $districtWiseDeliveryCharge = 0;
         $districtInfo = DB::table('districts')->where('name', $request->district_id)->first();
-        if($districtInfo){
+        if ($districtInfo) {
             $districtWiseDeliveryCharge = $districtInfo->delivery_charge;
         }
 
         session(['shipping_charge' => $districtWiseDeliveryCharge]);
 
         $data = DB::table('upazilas')
-        ->leftJoin('districts', 'upazilas.district_id', 'districts.id')
-        ->where("districts.name", $request->district_id)
-        ->select('upazilas.name', 'upazilas.id')
-        ->orderBy('upazilas.name', 'asc')
-        ->get();
+            ->leftJoin('districts', 'upazilas.district_id', 'districts.id')
+            ->where("districts.name", $request->district_id)
+            ->select('upazilas.name', 'upazilas.id')
+            ->orderBy('upazilas.name', 'asc')
+            ->get();
 
         $cartCalculationHTML = view('backend.orders.pos.cart_calculation')->render();
         return response()->json([
@@ -359,8 +366,9 @@ class PosController extends Controller
         ]);
     }
 
-    public function changeDeliveryMethod(Request $request){
-        if($request->delivery_method == 1){
+    public function changeDeliveryMethod(Request $request)
+    {
+        if ($request->delivery_method == 2) {
             session(['shipping_charge' => 0]);
             $cartCalculationHTML = view('backend.orders.pos.cart_calculation')->render();
             return response()->json([
@@ -369,7 +377,7 @@ class PosController extends Controller
         } else {
             $districtWiseDeliveryCharge = 0;
             $districtInfo = DB::table('districts')->where('id', $request->shipping_district_id)->first();
-            if($districtInfo){
+            if ($districtInfo) {
                 $districtWiseDeliveryCharge = $districtInfo->delivery_charge;
             }
             session(['shipping_charge' => $districtWiseDeliveryCharge]);
@@ -380,7 +388,8 @@ class PosController extends Controller
         }
     }
 
-    public function saveCustomerAddress(Request $request){
+    public function saveCustomerAddress(Request $request)
+    {
         UserAddress::insert([
             'user_id' => $request->customer_id,
             'address_type' => $request->address_type,
@@ -391,7 +400,7 @@ class PosController extends Controller
             'country' => 'Bangladesh',
             'city' => $request->customer_address_district_id,
             'state' => $request->customer_address_thana_id,
-            'slug' => time().rand(999999,100000),
+            'slug' => time() . rand(999999, 100000),
             'created_at' => Carbon::now()
         ]);
 
@@ -399,9 +408,10 @@ class PosController extends Controller
         return back();
     }
 
-    public function placeOrder(Request $request){
+    public function placeOrder(Request $request)
+    {
 
-        if(!session('cart') || (session('cart') && count(session('cart')) <= 0)){
+        if (!session('cart') || (session('cart') && count(session('cart')) <= 0)) {
             Toastr::error('No Products Found in Cart', 'Failed to Place Order');
             return back();
         }
@@ -413,16 +423,16 @@ class PosController extends Controller
 
         date_default_timezone_set("Asia/Dhaka");
         $total = 0;
-        foreach((array) session('cart') as $details){
+        foreach ((array) session('cart') as $details) {
             $total += $details['price'] * $details['quantity'];
         }
-
+        // dd($request->all());
         $discount = $request->discount ? $request->discount : 0;
         $deliveryCost = $request->shipping_charge ? $request->shipping_charge : 0;
         $couponCode = session('coupon') ? session('coupon') : null;
 
         $orderId = DB::table('orders')->insertGetId([
-            'order_no' => date("ymd").DB::table('orders')->where('order_date', 'LIKE', date("Y-m-d").'%')->count()+1,
+            'order_no' => date("ymd") . DB::table('orders')->where('order_date', 'LIKE', date("Y-m-d") . '%')->count() + 1,
             'order_from' => 3, //pos order
             'user_id' => $request->customer_id ? $request->customer_id : null,
             'order_date' => date("Y-m-d H:i:s"),
@@ -430,15 +440,15 @@ class PosController extends Controller
             'delivery_method' => $request->delivery_method,
             'payment_method' => 1,
             'payment_status' => 0,
-            'trx_id' => time().str::random(5),
+            'trx_id' => time() . str::random(5),
             'order_status' => 1,
             'sub_total' => $total,
             'coupon_code' => $couponCode,
             'discount' => $discount,
-            'delivery_fee' => $request->delivery_method == 2 ? $deliveryCost : 0,
+            'delivery_fee' => $request->delivery_method == 1 ? $deliveryCost : 0,
             'vat' => 0,
             'tax' => 0,
-            'total' => $total+$deliveryCost-$discount,
+            'total' => $request->delivery_method == 1 ? $total + $deliveryCost - $discount : $total - $discount,
             'order_note' => $request->special_note,
             'complete_order' => 1,
             'slug' => str::random(5) . time(),
@@ -458,36 +468,35 @@ class PosController extends Controller
         ]);
 
         $totalRewardPointsEarned = 0;
-        foreach(session('cart') as $details){
+        foreach (session('cart') as $details) {
 
             $product = DB::table('products')->where('id', $details['product_id'])->first();
             $totalRewardPointsEarned = $totalRewardPointsEarned + $product->reward_points;
 
             // decrement the stock
-            if(($details['color_id'] && $details['color_id']) > 0 || ($details['size_id'] && $details['size_id'] > 0)){
+            if (($details['color_id'] && $details['color_id']) > 0 || ($details['size_id'] && $details['size_id'] > 0)) {
 
                 $productInfo = DB::table('product_variants')
-                                ->where('product_id', $details['product_id'])
-                                ->when($details['size_id'] > 0, function ($query) use ($details) {
-                                    return $query->where('size_id', $details['size_id']);
-                                })
-                                ->when($details['color_id'] > 0, function ($query) use ($details) {
-                                    return $query->where('color_id', $details['color_id']);
-                                })
-                                ->first();
+                    ->where('product_id', $details['product_id'])
+                    ->when($details['size_id'] > 0, function ($query) use ($details) {
+                        return $query->where('size_id', $details['size_id']);
+                    })
+                    ->when($details['color_id'] > 0, function ($query) use ($details) {
+                        return $query->where('color_id', $details['color_id']);
+                    })
+                    ->first();
 
                 DB::table('product_variants')
-                ->where('product_id', $details['product_id'])
-                ->when($details['size_id'] > 0, function ($query) use ($details) {
-                    return $query->where('size_id', $details['size_id']);
-                })
-                ->when($details['color_id'] > 0, function ($query) use ($details) {
-                    return $query->where('color_id', $details['color_id']);
-                })
-                ->update([
-                    'stock' => $productInfo->stock - $details['quantity'],
-                ]);
-
+                    ->where('product_id', $details['product_id'])
+                    ->when($details['size_id'] > 0, function ($query) use ($details) {
+                        return $query->where('size_id', $details['size_id']);
+                    })
+                    ->when($details['color_id'] > 0, function ($query) use ($details) {
+                        return $query->where('color_id', $details['color_id']);
+                    })
+                    ->update([
+                        'stock' => $productInfo->stock - $details['quantity'],
+                    ]);
             } else {
                 DB::table('products')->where('id', $details['product_id'])->update([
                     'stock' => $product->stock - $details['quantity'],
@@ -517,7 +526,7 @@ class PosController extends Controller
             ]);
         }
 
-        if($request->customer_id && $totalRewardPointsEarned > 0){
+        if ($request->customer_id && $totalRewardPointsEarned > 0) {
             $userInfo = User::where('id', $request->customer_id)->first();
             $userInfo->balance = $userInfo->balance + $totalRewardPointsEarned;
             $userInfo->save();
@@ -552,7 +561,7 @@ class PosController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        if($request->shipping_email && !DB::table('subscribed_users')->where('email', $request->shipping_email)->exists()){
+        if ($request->shipping_email && !DB::table('subscribed_users')->where('email', $request->shipping_email)->exists()) {
             DB::table('subscribed_users')->insert([
                 'email' => $request->shipping_email,
                 'created_at' => Carbon::now()
@@ -560,35 +569,35 @@ class PosController extends Controller
         }
 
         $orderInfo = DB::table('orders')->where('id', $orderId)->first();
-        DB::table('order_payments')->insert([
-            'order_id' => $orderId,
-            'payment_through' => "COD",
-            'tran_id' => $orderInfo->trx_id,
-            'val_id' => NULL,
-            'amount' => $orderInfo->total,
-            'card_type' => NULL,
-            'store_amount' => $orderInfo->total,
-            'card_no' => NULL,
-            'status' => "VALID",
-            'tran_date' => date("Y-m-d H:i:s"),
-            'currency' => "BDT",
-            'card_issuer' => NULL,
-            'card_brand' => NULL,
-            'card_sub_brand' => NULL,
-            'card_issuer_country' => NULL,
-            'created_at' => Carbon::now()
-        ]);
+        // DB::table('order_payments')->insert([
+        //     'order_id' => $orderId,
+        //     'payment_through' => "COD",
+        //     'tran_id' => $orderInfo->trx_id,
+        //     'val_id' => NULL,
+        //     'amount' => $orderInfo->total,
+        //     'card_type' => NULL,
+        //     'store_amount' => $orderInfo->total,
+        //     'card_no' => NULL,
+        //     'status' => "VALID",
+        //     'tran_date' => date("Y-m-d H:i:s"),
+        //     'currency' => "BDT",
+        //     'card_issuer' => NULL,
+        //     'card_brand' => NULL,
+        //     'card_sub_brand' => NULL,
+        //     'card_issuer_country' => NULL,
+        //     'created_at' => Carbon::now()
+        // ]);
 
 
         // sending order sms start
-        if($request->shipping_phone && env('APP_ENV') != 'local'){
+        if ($request->shipping_phone && env('APP_ENV') != 'local') {
 
             try {
 
-                $orderSmsString = "Dear Customer, Your Order #".$orderInfo->order_no." placed successfully at ".env('APP_NAME').". Total amount: ".$orderInfo->total."TK. Expected delivery within 3-7 days.";
+                $orderSmsString = "Dear Customer, Your Order #" . $orderInfo->order_no . " placed successfully at " . env('APP_NAME') . ". Total amount: " . $orderInfo->total . "TK. Expected delivery within 3-7 days.";
 
                 $smsGateway = DB::table('sms_gateways')->where('status', 1)->first();
-                if($smsGateway && $smsGateway->provider_name == 'Reve'){
+                if ($smsGateway && $smsGateway->provider_name == 'Reve') {
                     Http::get($smsGateway->api_endpoint, [
                         'apikey' => $smsGateway->api_key,
                         'secretkey' => $smsGateway->secret_key,
@@ -597,7 +606,7 @@ class PosController extends Controller
                         "messageContent" => $orderSmsString
                     ]);
                 }
-                if($smsGateway && $smsGateway->provider_name == 'KhudeBarta'){
+                if ($smsGateway && $smsGateway->provider_name == 'KhudeBarta') {
                     Http::get($smsGateway->api_endpoint, [
                         'apikey' => $smsGateway->api_key,
                         'secretkey' => $smsGateway->secret_key,
@@ -606,7 +615,7 @@ class PosController extends Controller
                         "messageContent" => $orderSmsString
                     ]);
                 }
-                if($smsGateway && $smsGateway->provider_name == 'ElitBuzz'){
+                if ($smsGateway && $smsGateway->provider_name == 'ElitBuzz') {
                     Http::get($smsGateway->api_endpoint, [
                         'api_key' => $smsGateway->api_key,
                         "type" => "text",
@@ -615,8 +624,7 @@ class PosController extends Controller
                         "msg" => $orderSmsString
                     ]);
                 }
-
-            } catch(\Exception $e) {
+            } catch (\Exception $e) {
                 // write code for handling error from here
             }
         }
@@ -627,15 +635,15 @@ class PosController extends Controller
             $emailConfig = DB::table('email_configures')->where('status', 1)->orderBy('id', 'desc')->first();
             $userEmail = $request->shipping_email;
 
-            if($emailConfig && $userEmail && env('APP_ENV') != 'local'){
+            if ($emailConfig && $userEmail && env('APP_ENV') != 'local') {
                 $decryption = "";
-                if($emailConfig){
+                if ($emailConfig) {
 
                     $ciphering = "AES-128-CTR";
                     $options = 0;
                     $decryption_iv = '1234567891011121';
                     $decryption_key = "GenericCommerceV1";
-                    $decryption = openssl_decrypt ($emailConfig->password, $ciphering, $decryption_key, $options, $decryption_iv);
+                    $decryption = openssl_decrypt($emailConfig->password, $ciphering, $decryption_key, $options, $decryption_iv);
 
                     config([
                         'mail.mailers.smtp.host' => $emailConfig->host,
@@ -648,8 +656,7 @@ class PosController extends Controller
                     Mail::to(trim($userEmail))->send(new OrderPlacedEmail($orderInfo));
                 }
             }
-
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             // write code for handling error from here
         }
         // sending order email done
@@ -662,10 +669,10 @@ class PosController extends Controller
 
         Toastr::success('Order Placed Successfully', 'Success');
         return back();
-
     }
 
-    public function formatBangladeshiPhoneNumber($phoneNumber) {
+    public function formatBangladeshiPhoneNumber($phoneNumber)
+    {
         // Remove any non-numeric characters from the phone number
         $phoneNumber = preg_replace('/\D/', '', $phoneNumber);
 
@@ -677,5 +684,4 @@ class PosController extends Controller
 
         return $phoneNumber;
     }
-
 }

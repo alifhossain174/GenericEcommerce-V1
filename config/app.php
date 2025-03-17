@@ -171,7 +171,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        App\Providers\CourierServiceProvider::class,
+        App\Providers\CurrencyServiceProvider::class,
         /*
          * Application Service Providers...
          */

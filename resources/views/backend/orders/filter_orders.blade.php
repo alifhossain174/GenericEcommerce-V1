@@ -57,6 +57,7 @@
                                 <option value="">Select One</option>
                                 <option value="0">Pending</option>
                                 <option value="1">Approved</option>
+                                <option value="5">Ready to Ship</option>
                                 <option value="2">In Transit</option>
                                 <option value="3">Delivered</option>
                                 <option value="4">Cancelled</option>

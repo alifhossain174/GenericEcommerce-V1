@@ -8,16 +8,18 @@
             <tr>
                 <th style="width: 30%; line-height: 36px;">Billing Address</th>
                 <td>
-                    <input type="text" name="billing_address" id="billing_address" class="form-control" placeholder="Street No/House No/Area">
+                    <input type="text" name="billing_address" id="billing_address" class="form-control"
+                        placeholder="Street No/House No/Area">
                 </td>
             </tr>
             <tr>
                 <th style="width: 30%; line-height: 36px;">Billing City</th>
                 <td>
-                    <select class="form-control" name="billing_district_id" id="billing_district_id" data-toggle="select2">
+                    <select class="form-control" name="billing_district_id" id="billing_district_id"
+                        data-toggle="select2">
                         <option value="">Select One</option>
-                        @foreach($districts as $district)
-                        <option value="{{$district->id}}">{{$district->name}}</option>
+                        @foreach ($districts as $district)
+                            <option value="{{ $district->id }}">{{ $district->name }}</option>
                         @endforeach
                     </select>
                 </td>
@@ -33,7 +35,8 @@
             <tr>
                 <th style="width: 30%; line-height: 36px;">Post Code</th>
                 <td>
-                    <input type="text" name="billing_postal_code" id="billing_postal_code" class="form-control" placeholder="Post Code">
+                    <input type="text" name="billing_postal_code" id="billing_postal_code" class="form-control"
+                        placeholder="Post Code">
                 </td>
             </tr>
         </tbody>

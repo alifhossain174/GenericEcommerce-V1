@@ -73,3 +73,61 @@ ul.live_search li.live_search_item a.stock_out{
     top: 18px;
 }
 /* live search css end */
+
+/* Pos  */
+.pos-item-card-group {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-height: 1000px;
+    overflow-y: scroll;
+    padding-right: 12px;
+}
+.card.pos-card {
+    position: relative;
+    margin: 0;
+}
+.pos-card-image {
+    position: relative;
+}
+.card.pos-card .badge {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+}
+.card.pos-card .card-body {
+    padding: 8px;
+    text-align: center;
+}
+.card.pos-card .card-title {
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.card.pos-card .card-title::before {
+    display: none;
+}
+.card.pos-card .add_to_cart_btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #00c23a;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 32px;
+    font-size: 12px;
+}
+.card.pos-card .add_to_cart_btn:hover {
+    background: #000;
+}
+@media (max-width: 576px) {
+    .pos-item-card-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

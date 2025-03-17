@@ -14,11 +14,9 @@ use Carbon\Carbon;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Http\CustomHelper;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
 {
@@ -29,13 +27,7 @@ class OrderController extends Controller
             $query = DB::table('orders')
                 ->leftJoin('order_details', 'orders.id', '=', 'order_details.order_id')
                 ->leftJoin('shipping_infos', 'shipping_infos.order_id', '=', 'orders.id')
-                ->leftJoin('products', 'order_details.product_id', '=', 'products.id')
-                ->select(
-                    'orders.*',
-                    'shipping_infos.full_name as customer_name',
-                    'shipping_infos.phone as customer_phone',
-                    DB::raw('GROUP_CONCAT(DISTINCT products.name SEPARATOR ", ") as product_names')
-                )
+                ->select('orders.*', 'shipping_infos.full_name as customer_name', 'shipping_infos.phone as customer_phone')
                 ->groupBy('orders.id')
                 ->orderBy('id', 'desc');
 
@@ -97,61 +89,13 @@ class OrderController extends Controller
             $data = $query->get();
 
             return Datatables::of($data)
-                ->editColumn('product_info', function ($data) {
-                    // Get product details for this order
-                    $orderItems = DB::table('order_details')
-                        ->leftJoin('products', 'order_details.product_id', '=', 'products.id')
-                        ->leftJoin('colors', 'order_details.color_id', '=', 'colors.id')
-                        ->leftJoin('storage_types', 'order_details.storage_id', '=', 'storage_types.id')
-                        ->leftJoin('sims', 'order_details.sim_id', '=', 'sims.id')
-                        ->leftJoin('product_sizes', 'order_details.size_id', '=', 'product_sizes.id')
-                        ->select(
-                            'products.name as product_name',
-                            'colors.name as color',
-                            'storage_types.ram',
-                            'storage_types.rom',
-                            'sims.name as sim',
-                            'product_sizes.name as size'
-                        )
-                        ->where('order_details.order_id', $data->id)
-                        ->get();
-
-                    $html = '';
-
-                    foreach ($orderItems as $index => $item) {
-                        // Limit to first 2 products to avoid clutter
-                        // if ($index >= 2) {
-                        //     $remainingCount = DB::table('order_details')
-                        //         ->where('order_id', $data->id)
-                        //         ->count() - 2;
-                        //     $html .= '<div>+' . $remainingCount . ' more items</div>';
-                        //     break;
-                        // }
-
-                        $html .= '<div class="d-flex align-items-center mb-1">';
-
-                        // Product image
-                        // if (!empty($item->product_image)) {
-                        //     $html .= '<img src="' . url(env('ADMIN_URL') . '/' . $item->product_image) . '" class="rounded me-2" width="40">';
-                        // }
-
-                        // Product name and variants
-                        $html .= '<div>' . $item->product_name;
-
-                        $variants = [];
-                        if (!empty($item->color)) $variants[] = $item->color;
-                        if (!empty($item->ram) && !empty($item->rom)) $variants[] = $item->ram . '/' . $item->rom;
-                        if (!empty($item->sim)) $variants[] = $item->sim;
-                        if (!empty($item->size)) $variants[] = $item->size;
-
-                        if (!empty($variants)) {
-                            $html .= '<div class="text-left"><small class="text-muted">' . implode(' | ', $variants) . '</small></div>';
-                        }
-
-                        $html .= '</div></div>';
-                    }
-
-                    return $html;
+                ->editColumn('order_from', function ($data) {
+                    if ($data->order_from == 1)
+                        return "Web";
+                    elseif ($data->order_from == 2)
+                        return "App";
+                    else
+                        return "POS";
                 })
                 ->editColumn('order_status', function ($data) {
                     if ($data->order_status == 0) {
@@ -183,27 +127,24 @@ class OrderController extends Controller
                 })
                 ->editColumn('payment_status', function ($data) {
                     if ($data->payment_status == 0) {
-                        return '<span class="alert alert-warning" style="padding: 2px 10px !important;">Unpaid</span>';
+                        return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Unpaid</span>';
                     } elseif ($data->payment_status == 1) {
                         return '<span class="alert alert-success" style="padding: 2px 10px !important;">Paid</span>';
-                    } elseif ($data->payment_status == 2) {
-                        return '<span class="alert alert-primary" style="padding: 2px 10px !important;">Failed</span>';
-                    } elseif ($data->payment_status == 3) {
-                        return '<span class="alert alert-info" style="padding: 2px 10px !important;">Partial</span>';
                     } else {
-                        return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Cancel</span>';
+                        return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Failed</span>';
                     }
                 })
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
+
                     $btn = ' <a href="' . url('order/details') . '/' . $data->slug . '" title="Order Details" class="d-inline-block btn-sm btn-info rounded mb-1"><i class="fas fa-list-ul"></i></a>';
 
                     if ($data->order_status != 0) {
                         if (!($data->tracking_id == null && ($data->order_status == 2 || $data->order_status == 3 && $data->order_status != 4))) {
                             if ($data->tracking_id != null) {
-                                $btn .= ' <a href="https://steadfast.com.bd/t/' . $data->tracking_id . '" target="_blank" title="Tracking the Order" class="mb-1 d-inline-block btn-sm btn-secondary rounded"><i class="fas fa-truck"></i></a>';
+                                $btn .= ' <a href="https://steadfast.com.bd/t/' . $data->tracking_id . '" target="_blank" title="Tracking the Order" class="mb-1 d-inline-block btn-sm btn-secondary rounded"><i class="fas fa-dolly"></i></a>';
                             } else {
-                                $btn .= ' <a href="' . url('add/order/' . $data->id . '/courier') . '" onclick="javascript:return confirm(\'Are you sure to placed the order in courier?\')" title="Place To Courier" class="mb-1 d-inline-block btn-sm btn-primary rounded"><i class="fas fa-truck"></i></a>';
+                                $btn .= ' <a href="' . url('add/order/' . $data->id . '/courier') . '" onclick="javascript:return confirm(\'Are you sure to placed the order in courier?\')" title="Place To Courier" class="mb-1 d-inline-block btn-sm btn-primary rounded"><i class="fas fa-dolly-flatbed"></i></a>';
                             }
                         }
                     }
@@ -230,28 +171,49 @@ class OrderController extends Controller
 
                     return $btn;
                 })
-                ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status', 'product_info'])
+                ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status'])
                 ->make(true);
         }
 
         $products = DB::table('products')->orderBy('name', 'asc')->get();
         return view('backend.orders.orders', compact('request', 'products'));
     }
+
+    // public function orderDetails($slug){
+    //     $order = Order::where('slug', $slug)->first();
+    //     $userInfo = User::where('id', $order->user_id)->first();
+    //     $shippingInfo = ShippingInfo::where('order_id', $order->id)->first();
+    //     $billingAddress = BillingAddress::where('order_id', $order->id)->first();
+    //     $orderDetails = DB::table('order_details')
+    //                         ->leftJoin('stores', 'order_details.store_id', 'stores.id')
+    //                         ->leftJoin('products', 'order_details.product_id', 'products.id')
+    //                         ->leftJoin('categories', 'products.category_id', 'categories.id')
+    //                         ->leftJoin('units', 'order_details.unit_id', 'units.id')
+    //                         ->select('order_details.*', 'stores.store_name', 'products.name as product_name', 'products.code as product_code', 'units.name as unit_name', 'categories.name as category_name')
+    //                         ->where('order_id', $order->id)
+    //                         ->get();
+    //     $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
+    //     return view('backend.orders.details', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo'));
+    // }
+
     public function orderDetails($slug)
     {
+
         $order = Order::where('slug', $slug)->first();
         $userInfo = User::where('id', $order->user_id)->first();
         $shippingInfo = ShippingInfo::where('order_id', $order->id)->first();
         $billingAddress = BillingAddress::where('order_id', $order->id)->first();
         $payments = OrderPayment::getOrderPaymentsWithTotal($order->id, 'amount');
+
         $orderDetails = DB::table('order_details')
             ->leftJoin('stores', 'order_details.store_id', 'stores.id')
             ->leftJoin('products', 'order_details.product_id', 'products.id')
             ->leftJoin('categories', 'products.category_id', 'categories.id')
             ->leftJoin('units', 'order_details.unit_id', 'units.id')
-            ->select('order_details.*', 'stores.store_name', 'products.has_variant as product_has_variant', 'products.image as product_image', 'products.name as product_name', 'products.code as product_code', 'units.name as unit_name', 'categories.name as category_name')
+            ->select('order_details.*', 'stores.store_name', 'products.name as product_name', 'products.code as product_code', 'units.name as unit_name', 'categories.name as category_name')
             ->where('order_id', $order->id)
             ->get();
+
         $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
 
         return view('backend.orders.details', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo', 'payments'));
@@ -260,20 +222,16 @@ class OrderController extends Controller
     public function cancelOrder($slug)
     {
 
-        $orderInfo = Order::where('slug', $slug)->first();
-        $orderInfo->order_status = 4;
-        $orderInfo->updated_at = Carbon::now();
-        $orderInfo->save();
+        $data = Order::where('slug', $slug)->first();
+        $data->order_status = 4;
+        $data->updated_at = Carbon::now();
+        $data->save();
 
         OrderProgress::insert([
-            'order_id' => $orderInfo->id,
+            'order_id' => $data->id,
             'order_status' => 4,
             'created_at' => Carbon::now()
         ]);
-
-        $orderSmsString = "Dear Customer, Your Order #" . $orderInfo->order_no . " has been cancelled at " . env('APP_NAME') . ". Total amount: " . $orderInfo->total . "TK.\n\nTrack your order at \n" . env('APP_URL') . "/track/order/" . $orderInfo->order_no;
-        $shippingInfo = DB::table('shipping_infos')->where('order_id', $orderInfo->id)->first();
-        $this->sendOrderSms($shippingInfo->phone, $orderSmsString);
 
         return response()->json(['success' => 'Order Cancelled successfully.']);
     }
@@ -281,20 +239,16 @@ class OrderController extends Controller
     public function approveOrder($slug)
     {
 
-        $orderInfo = Order::where('slug', $slug)->first();
-        $orderInfo->order_status = 1;
-        $orderInfo->updated_at = Carbon::now();
-        $orderInfo->save();
+        $data = Order::where('slug', $slug)->first();
+        $data->order_status = 1;
+        $data->updated_at = Carbon::now();
+        $data->save();
 
         OrderProgress::insert([
-            'order_id' => $orderInfo->id,
+            'order_id' => $data->id,
             'order_status' => 1,
             'created_at' => Carbon::now()
         ]);
-
-        $orderSmsString = "Dear Customer, Your Order #" . $orderInfo->order_no . " has been approved at " . env('APP_NAME') . ". Total amount: " . $orderInfo->total . "TK.\n\nTrack your order at \n" . env('APP_URL') . "/track/order/" . $orderInfo->order_no;
-        $shippingInfo = DB::table('shipping_infos')->where('order_id', $orderInfo->id)->first();
-        $this->sendOrderSms($shippingInfo->phone, $orderSmsString);
 
         return response()->json(['success' => 'Order Approved successfully.']);
     }
@@ -302,21 +256,16 @@ class OrderController extends Controller
     public function intransitOrder($slug)
     {
 
-        $orderInfo = Order::where('slug', $slug)->first();
-        $orderInfo->order_status = 2;
-        $orderInfo->updated_at = Carbon::now();
-        $orderInfo->save();
-
+        $data = Order::where('slug', $slug)->first();
+        $data->order_status = 2;
+        $data->updated_at = Carbon::now();
+        $data->save();
 
         OrderProgress::insert([
-            'order_id' => $orderInfo->id,
+            'order_id' => $data->id,
             'order_status' => 2,
             'created_at' => Carbon::now()
         ]);
-
-        $orderSmsString = "Dear Customer, Your Order #" . $orderInfo->order_no . " is in Transit at " . env('APP_NAME') . ". Total amount: " . $orderInfo->total . "TK.\n\nTrack your order at \n" . env('APP_URL') . "/track/order/" . $orderInfo->order_no;
-        $shippingInfo = DB::table('shipping_infos')->where('order_id', $orderInfo->id)->first();
-        $this->sendOrderSms($shippingInfo->phone, $orderSmsString);
 
         return response()->json(['success' => 'Order In Transit successfully.']);
     }
@@ -351,112 +300,7 @@ class OrderController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        $orderSmsString = "Dear Customer, Your Order #" . $data->order_no . " has been Delivered at " . env('APP_NAME') . ". Total amount: " . $data->total . "TK.\n\nTrack your order at \n" . env('APP_URL') . "/track/order/" . $data->order_no;
-        $shippingInfo = DB::table('shipping_infos')->where('order_id', $data->id)->first();
-        $this->sendOrderSms($shippingInfo->phone, $orderSmsString);
-
         return response()->json(['success' => 'Order Delivered successfully.']);
-    }
-
-    public static function sendOrderSms($phone, $orderSmsString)
-    {
-        if ($phone) {
-
-            $smsGateway = DB::table('sms_gateways')->where('status', 1)->first();
-            if ($smsGateway && $smsGateway->provider_name == 'Reve') {
-                Http::get($smsGateway->api_endpoint, [
-                    'apikey' => $smsGateway->api_key,
-                    'secretkey' => $smsGateway->secret_key,
-                    "callerID" => $smsGateway->sender_id,
-                    "toUser" => $phone,
-                    "messageContent" => $orderSmsString
-                ]);
-            }
-            if ($smsGateway && $smsGateway->provider_name == 'KhudeBarta') {
-                Http::get($smsGateway->api_endpoint, [
-                    'apikey' => $smsGateway->api_key,
-                    'secretkey' => $smsGateway->secret_key,
-                    "callerID" => $smsGateway->sender_id,
-                    "toUser" => OrderController::formatBangladeshiPhoneNumber($phone),
-                    "messageContent" => $orderSmsString
-                ]);
-            }
-            if ($smsGateway && $smsGateway->provider_name == 'ElitBuzz') {
-                Http::get($smsGateway->api_endpoint, [
-                    'api_key' => $smsGateway->api_key,
-                    "type" => "text",
-                    "contacts" => $phone,
-                    "senderid" => $smsGateway->sender_id,
-                    "msg" => $orderSmsString
-                ]);
-            }
-        }
-    }
-
-    public function smsTest($message)
-    {
-        $sms = urlencode($message);
-        try {
-            $curl = curl_init();
-            $url = "http://portal.khudebarta.com:3775/sendtext";
-            $apikey = "a7e2a22612a65c4a";
-            $secretkey = "81c17503";
-            $callerID = "getupltd";
-            $toUser = "8801568099321";
-            $messageContent = $sms;
-            curl_setopt_array($curl, [
-                CURLOPT_URL => $url,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_HTTPGET => true,
-                CURLOPT_HTTPHEADER => [
-                    "Content-Type: application/json",
-                ],
-            ]);
-            $queryParams = http_build_query([
-                'apikey' => $apikey,
-                'secretkey' => $secretkey,
-                'callerID' => $callerID,
-                'toUser' => $toUser,
-                'messageContent' => $messageContent
-            ]);
-            curl_setopt($curl, CURLOPT_URL, $url . '?' . $queryParams);
-
-            $response = curl_exec($curl);
-            if (curl_errno($curl)) {
-                $error = curl_error($curl);
-                curl_close($curl);
-                return "Curl Error: " . $error;
-            }
-            curl_close($curl);
-            return $response;
-
-            // $resp = Http::get("http://portal.khudebarta.com:3775/sendtext", [
-            //     'apikey' => "a7e2a22612a65c4a",
-            //     'secretkey' => "81c17503",
-            //     "callerID" => "getupltd",
-            //     "toUser" => "8801568099321",
-            //     "messageContent" => $sms
-            // ]);
-            // return $resp;
-        } catch (\Throwable $th) {
-            return $th;
-        }
-    }
-
-    public static function formatBangladeshiPhoneNumber($phoneNumber)
-    {
-        // Remove any non-numeric characters from the phone number
-        $phoneNumber = preg_replace('/\D/', '', $phoneNumber);
-
-        // Check if the number starts with '88'
-        if (substr($phoneNumber, 0, 2) !== '88') {
-            // If not, prepend '88' to the number
-            $phoneNumber = '88' . $phoneNumber;
-        }
-
-        return $phoneNumber;
     }
 
     public function orderInfoUpdate(Request $request)
@@ -489,15 +333,63 @@ class OrderController extends Controller
         return back();
     }
 
+    public function addOrderPayment(Request $request)
+    {
+        try {
+            $request->validate([
+                'payment_through' => 'required',
+                'amount' => 'nullable',
+            ]);
+            DB::beginTransaction();
+            $payDate = $request->payment_date ? date('Y-m-d H:i:s', strtotime($request->payment_date)) : date('Y-m-d H:i:s');
+            $data = OrderPayment::insert([
+                'order_id' => $request->order_id,
+                'payment_through' => $request->payment_through,
+                'tran_id' => $request->tran_id,
+                'val_id' => NULL,
+                'amount' => $request->amount,
+                'card_type' => NULL,
+                'store_amount' => $request->amount,
+                'card_no' => NULL,
+                'status' => "VALID",
+                'tran_date' => $payDate,
+                'currency' => "BDT",
+                'card_issuer' => NULL,
+                'card_brand' => NULL,
+                'card_sub_brand' => NULL,
+                'card_issuer_country' => NULL,
+                'created_at' => Carbon::now()
+            ]);
+            if ($data) {
+                $payments = OrderPayment::getOrderPaymentsWithTotal($request->order_id, 'amount');
+                $orderData = Order::find($request->order_id);
+                $payStatus = $payments['total'] == $orderData->total ? 1 : 3;
+                $orderData->payment_status = $payStatus;
+                $orderData->updated_at = Carbon::now();
+                $orderData->update();
+                DB::commit();
+                Toastr::success('Payment Information Updated', 'Success');
+            } else {
+                DB::rollBack();
+                Toastr::error('Something Went Wrong!', 'Failed');
+            }
+            return back();
+        } catch (\Throwable $th) {
+            return $th;
+            DB::rollBack();
+            Toastr::error('Something Went Wrong with Server!', 'Failed');
+            return back();
+        }
+    }
+
     public function orderEdit($slug)
     {
+
         $order = Order::where('slug', $slug)->first();
         $userInfo = User::where('id', $order->user_id)->first();
         $shippingInfo = ShippingInfo::where('order_id', $order->id)->first();
         $billingAddress = BillingAddress::where('order_id', $order->id)->first();
         $payments = OrderPayment::getOrderPaymentsWithTotal($order->id, 'amount');
-        // return $payments['total'];
-
         $orderDetails = DB::table('order_details')
             ->leftJoin('products', 'order_details.product_id', 'products.id')
             ->leftJoin('categories', 'products.category_id', 'categories.id')
@@ -656,56 +548,6 @@ class OrderController extends Controller
 
         Toastr::success('Order Information Updated', 'Success');
         return back();
-    }
-
-    public function addOrderPayment(Request $request)
-    {
-        try {
-            $request->validate([
-                'payment_through' => 'required',
-                'amount' => 'nullable',
-            ]);
-            DB::beginTransaction();
-            $payDate = $request->payment_date ? date('Y-m-d H:i:s', strtotime($request->payment_date)) : date('Y-m-d H:i:s');
-            $data = OrderPayment::insert([
-                'order_id' => $request->order_id,
-                'payment_through' => $request->payment_through,
-                'tran_id' => $request->tran_id,
-                'val_id' => NULL,
-                'amount' => $request->amount,
-                'card_type' => NULL,
-                'store_amount' => $request->amount,
-                'card_no' => NULL,
-                'status' => "VALID",
-                'tran_date' => $payDate,
-                'currency' => "BDT",
-                'card_issuer' => NULL,
-                'card_brand' => NULL,
-                'card_sub_brand' => NULL,
-                'card_issuer_country' => NULL,
-                'created_at' => Carbon::now()
-            ]);
-            if ($data) {
-                $payments = OrderPayment::getOrderPaymentsWithTotal($request->order_id, 'amount');
-                $orderData = Order::find($request->order_id);
-                $payStatus = $payments['total'] == $orderData->total ? 1 : 3;
-                $orderData->payment_status = $payStatus;
-                $orderData->order_status = $orderData->order_status <= 1 ? 1 : $orderData->order_status;
-                $orderData->updated_at = Carbon::now();
-                $orderData->update();
-                DB::commit();
-                Toastr::success('Payment Information Updated', 'Success');
-            } else {
-                DB::rollBack();
-                Toastr::error('Something Went Wrong!', 'Failed');
-            }
-            return back();
-        } catch (\Throwable $th) {
-            return $th;
-            DB::rollBack();
-            Toastr::error('Something Went Wrong with Server!', 'Failed');
-            return back();
-        }
     }
 
     public function addMoreProduct(Request $request)

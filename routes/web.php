@@ -34,6 +34,8 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\SteadFastCourierController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CurrencyController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
 use App\Http\Middleware\DemoMode;
@@ -46,6 +48,7 @@ Route::get('/', function () {
 // Route::get('/php-details', function () {
 //     phpinfo();
 // });
+Route::get('add/order/{orderid}/courier', [SteadFastCourierController::class, 'addOrderToCourier']);
 
 Route::get('/config-clear', function () {
     // Artisan::call('cache:clear');
@@ -68,7 +71,7 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
 ]);
 
-Route::middleware([CheckUserType::class, DemoMode::class])->group(function(){
+Route::middleware([CheckUserType::class, DemoMode::class])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/clear/cache', [HomeController::class, 'clearCache'])->name('ClearCache');
     Route::get('/change/password/page', [HomeController::class, 'changePasswordPage'])->name('changePasswordPage');
@@ -126,7 +129,10 @@ require 'buySell.php';
 
 Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function () {
 
+    Route::get('/view/pending/orders', [HomeController::class, 'viewPaymentHistory'])->name('ViewPaymentHistory');
+
     Route::get('/view/payment/history', [HomeController::class, 'viewPaymentHistory'])->name('ViewPaymentHistory');
+    Route::post('update/payment', [HomeController::class, 'updataPaymentAmount']);
 
     // category routes
     Route::get('/add/new/category', [CategoryController::class, 'addNewCategory'])->name('AddNewCategory');
@@ -298,7 +304,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
 
 
     // pos routes
-    if(env('POS') == true && env('POS_KEY') == "GenericCommerceV1-SBW7583837NUDD82"){
+    if (env('POS') == true && env('POS_KEY') == "GenericCommerceV1-SBW7583837NUDD82") {
         Route::get('/create/new/order', [PosController::class, 'createNewOrder'])->name('CreateNewOrder');
         Route::post('/product/live/search', [PosController::class, 'productLiveSearch'])->name('ProductLiveSearch');
         Route::post('/get/pos/product/variants', [PosController::class, 'getProductVariants'])->name('GetProductVariants');
@@ -336,7 +342,8 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('/bulk/print/orders', [OrderController::class, 'bulkPrintOrders'])->name('BulkPrintOrders');
 
     //start courier routes
-    Route::get('add/order/{orderid}/courier', [SteadFastCourierController::class, 'addOrderToCourier']);
+    // Route::get('add/order/{orderid}/courier', [SteadFastCourierController::class, 'addOrderToCourier']);
+    //end courier routes
 
     // promo codes
     Route::get('/add/new/code', [PromoCodeController::class, 'addPromoCode'])->name('AddPromoCode');
@@ -437,6 +444,13 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('/get/delivery/charge/{id}', [DeliveryChargeController::class, 'getDeliveryCharge'])->name('GetDeliveryCharge');
     Route::post('/update/delivery/charge', [DeliveryChargeController::class, 'updateDeliveryCharge'])->name('UpdateDeliveryCharge');
 
+    //Currency
+    Route::get('view/currency', [CurrencyController::class, 'viewCurrency'])->name('ViewCurrency');
+    Route::get('get/currency/info/{id}', [CurrencyController::class, 'getCurrencyInfo'])->name('getCurrencyInfo');
+    Route::post('update/currency/info', [CurrencyController::class, 'updateCurrencyInfo'])->name('UpdateCurrencyInfo');
+    Route::post('save/new/currency', [CurrencyController::class, 'saveNewCurrency'])->name('SaveNewCurrency');
+    Route::get('delete/currency/{id}', [CurrencyController::class, 'deleteCurrency'])->name('DeleteCurrency');
+
     // upazaila thana
     Route::get('view/upazila/thana', [DeliveryChargeController::class, 'viewUpazilaThana'])->name('ViewUpazilaThana');
     Route::get('get/upazila/info/{id}', [DeliveryChargeController::class, 'getUpazilaInfo'])->name('getUpazilaInfo');
@@ -508,5 +522,9 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('get/withdraw/info/{id}', [WithdrawController::class, 'getWithdrawInfo'])->name('getWithdrawInfo');
     Route::get('deny/withdraw/{id}', [WithdrawController::class, 'denyWithdraw'])->name('DenyWithdraw');
     Route::post('approve/withdraw', [WithdrawController::class, 'approveWithdraw'])->name('ApproveWithdraw');
+
+    Route::get('findout-customer-courier-ratio/{phone}', [CustomerController::class, 'getPropRatio']);
+
+    Route::get('/test-sms/{text}', [OrderController::class, 'smsTest']); //Developer test
 
 });

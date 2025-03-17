@@ -37,6 +37,9 @@ class CreateOrdersTable extends Migration
             $table->double('total')->default(0);
             $table->longText('order_note')->comment("Order Note By Customer")->nullable();
             $table->longText('order_remarks')->comment("Special Note By Admin")->nullable();
+            $table->text('tracking_id')->comment("courier traking id")->nullable();
+            $table->longText('courier_details')->comment("courier details info")->nullable();
+            $table->text('courier_status')->nullable();
             $table->string('slug')->unique();
             $table->tinyInteger('complete_order')->default(0)->comment('0=>Incomplete Order (Address Missing); 1=>Complete Order (Address Given)');
             $table->timestamps();

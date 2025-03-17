@@ -86,7 +86,7 @@
                         <div class="col">
                             <h6 class="text-uppercase font-size-12 text-muted mb-3">Todays Order (Daily)</h6>
                             <span class="h3 mb-0"> {{ number_format($todaysOrder[0]) }} </span>
-                            <span class="h3 mb-0"> <a target="_blank" href="{{url('view/pending/orders')}}" style="height: 20px; line-height: 10px; margin-top: -4px;" class="btn btn-sm btn-success rounded">View All</a> </span>
+                            <span class="h3 mb-0"> <a target="_blank" href="{{url('view/orders?status=pending')}}" style="height: 20px; line-height: 10px; margin-top: -4px;" class="btn btn-sm btn-success rounded">View All</a> </span>
                         </div>
                     </div> <!-- end row -->
 

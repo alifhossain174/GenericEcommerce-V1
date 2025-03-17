@@ -169,8 +169,12 @@
                                                 echo '<span class="badge badge-soft-warning" style="padding: 2px 10px !important;">Unpaid</span>';
                                             } elseif($order->payment_status == 1) {
                                                 echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Success</span>';
+                                            } elseif($order->payment_status == 2) {
+                                                echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Failed</span>';
+                                            } elseif($order->payment_status == 3) {
+                                                echo '<span class="badge badge-soft-primary" style="padding: 2px 10px !important;">Partial</span>';
                                             } else {
-                                                echo '<span class="badge badge-soft-danger" style="padding: 2px 10px !important;">Failed</span>';
+                                                echo '<span class="badge badge-soft-danger" style="padding: 2px 10px !important;">Cancel</span>';
                                             }
                                         @endphp
                                     </p>
@@ -381,6 +385,40 @@
                                     <option value="2" @if($order->order_status == 2) selected @endif @if($order->order_status == 0 || $order->order_status == 3 || $order->order_status == 4) disabled @endif>Intransit</option>
                                     <option value="3" @if($order->order_status == 3) selected @endif @if($order->order_status == 1 || $order->order_status == 0 || $order->order_status == 4) disabled @endif>Delivered</option>
                                     <option value="4" @if($order->order_status == 4) selected @endif @if($order->order_status == 2 || $order->order_status == 3) disabled @endif>Cancel</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success rounded w-100 mt-1">Save Changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card p-3">
+                <form action="{{url('/order/info/update')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="order_id" value="{{$order->id}}">
+                    <div class="row">
+                        <!-- <div class="col-lg-10">
+                            <div class="form-group" style="margin-bottom: 0px">
+                                <label style="margin-bottom: .2rem; font-weight: 500;">Special Note For Order (Visible by Admin Only) :</label>
+                                <textarea name="order_remarks" class="form-control" style="height: 149px !important;" placeholder="Special Note By Admin">{{$order->order_remarks}}</textarea>
+                            </div>
+                        </div> -->
+                        <div class="col-lg-2">
+                            <!-- <div class="form-group" style="margin-bottom: .5rem;">
+                                <label style="margin-bottom: .2rem; font-weight: 500;">Est. Delivery Date :</label>
+                                <input type="date" class="form-control" name="estimated_dd" value="{{$order->estimated_dd}}" required>
+                            </div> -->
+
+                            <div class="form-group" style="margin-bottom: .5rem;">
+                                <label style="margin-bottom: .2rem; font-weight: 500;">Payment Status :</label>
+                                <select name="payment_status" class="form-control" required>
+                                    <option value="">Change Status</option>
+                                    <option value="0" @if($order->payment_status == 0) selected @endif>Unpaid</option>
+                                    <option value="1" @if($order->payment_status == 1) selected @endif>Success</option>
+                                    <option value="2" @if($order->payment_status == 2) selected @endif>Failed</option>
+                                    <option value="3" @if($order->payment_status == 3) selected @endif>Partial</option>
+                                    <option value="4" @if($order->payment_status == 4) selected @endif>Cancel</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-success rounded w-100 mt-1">Save Changes</button>

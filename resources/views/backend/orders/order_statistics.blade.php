@@ -1,6 +1,6 @@
-
 <div class="card mb-1">
-    <div class="card-header bg-white border-bottom-0 collapsed" style="cursor: pointer;" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+    <div class="card-header bg-white border-bottom-0 collapsed" style="cursor: pointer;" id="headingOne"
+        data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         <a href="javascript:void(0)" style="position: relative;" class="d-block text-dark font-size-15">
             <i class="fas fa-chart-line"></i> Total Order Statistics
             <span style="position: absolute; top: 50%; transform:translateY(-50%); right: 20px">&#8595;</span>
@@ -15,7 +15,8 @@
                             <div class="col">
                                 <h6 class="text-uppercase font-size-12 text-muted">Total Pending Orders</h6>
                                 <span class="h4 mb-0">
-                                    ৳ {{ number_format(DB::table('orders')->where('order_status', 0)->sum('total'), 2) }}
+                                    {{ $currencySymbol }}
+                                    {{ number_format(DB::table('orders')->where('order_status', 0)->sum('total'), 2) }}
                                 </span>
                             </div>
                         </div>
@@ -32,7 +33,8 @@
                             <div class="col">
                                 <h6 class="text-uppercase font-size-12 text-muted">Total Approved Orders</h6>
                                 <span class="h4 mb-0">
-                                    ৳ {{ number_format(DB::table('orders')->where('order_status', 1)->orWhere('order_status', 2)->sum('total'), 2) }}
+                                    {{ $currencySymbol }}
+                                    {{ number_format(DB::table('orders')->where('order_status', 1)->orWhere('order_status', 2)->sum('total'), 2) }}
                                 </span>
                             </div>
                         </div>
@@ -49,7 +51,8 @@
                             <div class="col">
                                 <h6 class="text-uppercase font-size-12 text-muted">Total Delivered Orders</h6>
                                 <span class="h4 mb-0">
-                                    ৳ {{ number_format(DB::table('orders')->where('order_status', 3)->sum('total'), 2) }}
+                                    {{ $currencySymbol }}
+                                    {{ number_format(DB::table('orders')->where('order_status', 3)->sum('total'), 2) }}
                                 </span>
                             </div>
                         </div>
@@ -67,7 +70,8 @@
                             <div class="col">
                                 <h6 class="text-uppercase font-size-12 text-muted">Total Cancelled Orders</h6>
                                 <span class="h4 mb-0">
-                                    ৳ {{ number_format(DB::table('orders')->where('order_status', 4)->sum('total'), 2) }}
+                                    {{ $currencySymbol }}
+                                    {{ number_format(DB::table('orders')->where('order_status', 4)->sum('total'), 2) }}
                                 </span>
                             </div>
                         </div>
@@ -80,5 +84,3 @@
         </div>
     </div>
 </div>
-
-
