@@ -34,6 +34,7 @@ class OrderController extends Controller
                     'orders.*',
                     'shipping_infos.full_name as customer_name',
                     'shipping_infos.phone as customer_phone',
+                    'shipping_infos.address as customer_address',
                     DB::raw('GROUP_CONCAT(DISTINCT products.name SEPARATOR ", ") as product_names')
                 )
                 ->groupBy('orders.id')
@@ -97,6 +98,13 @@ class OrderController extends Controller
             $data = $query->get();
 
             return Datatables::of($data)
+                ->editColumn('customer_name', function ($data) {
+                    $html = '<div style="font-size: 16px;">' . $data->customer_name . '</div>';
+                    if (!empty($data->customer_address)) {
+                        $html .= '<div class="small text-muted" style="font-size: 12px;">(' . $data->customer_address . ')</div>';
+                    }
+                    return $html;
+                })
                 ->editColumn('product_info', function ($data) {
                     // Get product details for this order
                     $orderItems = DB::table('order_details')
@@ -111,44 +119,102 @@ class OrderController extends Controller
                             'storage_types.ram',
                             'storage_types.rom',
                             'sims.name as sim',
-                            'product_sizes.name as size'
+                            'product_sizes.name as size',
+                            'order_details.region_id',
+                            'order_details.warrenty_id',
+                            'order_details.device_condition_id'
                         )
                         ->where('order_details.order_id', $data->id)
                         ->get();
 
+                    // Get config setup if available
+                    $configSetup = [];
+                    try {
+                        $configSetup = DB::table('configuration_setups')->get();
+                    } catch (\Exception $e) {
+                        // Fallback labels if configuration_setups table doesn't exist
+                        $configSetup = [
+                            (object)['name' => 'Size'],
+                            (object)['name' => 'Storage'],
+                            (object)['name' => 'SIM'],
+                            (object)['name' => 'Device Condition'],
+                            (object)['name' => 'Product Warranty'],
+                            (object)['name' => 'Region'],
+                            (object)['name' => 'Color']
+                        ];
+                    }
+
                     $html = '';
-
                     foreach ($orderItems as $index => $item) {
-                        // Limit to first 2 products to avoid clutter
-                        // if ($index >= 2) {
-                        //     $remainingCount = DB::table('order_details')
-                        //         ->where('order_id', $data->id)
-                        //         ->count() - 2;
-                        //     $html .= '<div>+' . $remainingCount . ' more items</div>';
-                        //     break;
-                        // }
-
-                        $html .= '<div class="d-flex align-items-center mb-1">';
-
-                        // Product image
-                        // if (!empty($item->product_image)) {
-                        //     $html .= '<img src="' . url(env('ADMIN_URL') . '/' . $item->product_image) . '" class="rounded me-2" width="40">';
-                        // }
-
-                        // Product name and variants
-                        $html .= '<div>' . $item->product_name;
-
-                        $variants = [];
-                        if (!empty($item->color)) $variants[] = $item->color;
-                        if (!empty($item->ram) && !empty($item->rom)) $variants[] = $item->ram . '/' . $item->rom;
-                        if (!empty($item->sim)) $variants[] = $item->sim;
-                        if (!empty($item->size)) $variants[] = $item->size;
-
-                        if (!empty($variants)) {
-                            $html .= '<div class="text-left"><small class="text-muted">' . implode(' | ', $variants) . '</small></div>';
+                        // Add separator between items
+                        if ($index > 0) {
+                            $html .= '<hr style="margin: 5px 0;">';
                         }
 
-                        $html .= '</div></div>';
+                        // Product name
+                        $html .= '<div><strong>' . $item->product_name . '</strong></div>';
+
+                        // First row of variants
+                        $variantInfo1 = [];
+
+                        // Color
+                        if (isset($item->color) && !empty($item->color)) {
+                            $variantInfo1[] = (isset($configSetup[6]) ? $configSetup[6]->name : 'Color') . ': ' . $item->color;
+                        }
+
+                        // Storage (RAM/ROM)
+                        if ((isset($item->ram) && !empty($item->ram)) || (isset($item->rom) && !empty($item->rom))) {
+                            $storage = (isset($configSetup[1]) ? $configSetup[1]->name : 'Storage') . ': ';
+                            $storage .= (isset($item->ram) ? $item->ram : '') . '/' . (isset($item->rom) ? $item->rom : '');
+                            $variantInfo1[] = $storage;
+                        }
+
+                        // SIM
+                        if (isset($item->sim) && !empty($item->sim)) {
+                            $variantInfo1[] = (isset($configSetup[2]) ? $configSetup[2]->name : 'SIM') . ': ' . $item->sim;
+                        }
+
+                        // Size
+                        if (isset($item->size) && !empty($item->size)) {
+                            $variantInfo1[] = (isset($configSetup[0]) ? $configSetup[0]->name : 'Size') . ': ' . $item->size;
+                        }
+
+                        // Display first row of variants
+                        if (!empty($variantInfo1)) {
+                            $html .= '<div style="color: #6c757d; font-size: 12px; margin-top: 3px;">' . implode(' | ', $variantInfo1) . '</div>';
+                        }
+
+                        // Second row of variants
+                        $variantInfo2 = [];
+
+                        // Region
+                        if (isset($item->region_id) && !empty($item->region_id)) {
+                            $regionInfo = DB::table('country')->where('id', $item->region_id)->first();
+                            if ($regionInfo && isset($regionInfo->name)) {
+                                $variantInfo2[] = (isset($configSetup[5]) ? $configSetup[5]->name : 'Region') . ': ' . $regionInfo->name;
+                            }
+                        }
+
+                        // Warranty
+                        if (isset($item->warrenty_id) && !empty($item->warrenty_id)) {
+                            $warrantyInfo = DB::table('product_warrenties')->where('id', $item->warrenty_id)->first();
+                            if ($warrantyInfo && isset($warrantyInfo->name)) {
+                                $variantInfo2[] = (isset($configSetup[4]) ? $configSetup[4]->name : 'Product Warranty') . ': ' . $warrantyInfo->name;
+                            }
+                        }
+
+                        // Device Condition
+                        if (isset($item->device_condition_id) && !empty($item->device_condition_id)) {
+                            $conditionInfo = DB::table('device_conditions')->where('id', $item->device_condition_id)->first();
+                            if ($conditionInfo && isset($conditionInfo->name)) {
+                                $variantInfo2[] = (isset($configSetup[3]) ? $configSetup[3]->name : 'Device Condition') . ': ' . $conditionInfo->name;
+                            }
+                        }
+
+                        // Display second row of variants
+                        if (!empty($variantInfo2)) {
+                            $html .= '<div style="color: #6c757d; font-size: 12px; margin-top: 3px;">' . implode(' | ', $variantInfo2) . '</div>';
+                        }
                     }
 
                     return $html;
@@ -230,7 +296,7 @@ class OrderController extends Controller
 
                     return $btn;
                 })
-                ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status', 'product_info'])
+                ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status', 'product_info', 'customer_name'])
                 ->make(true);
         }
 

@@ -183,6 +183,9 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('/bulk/product/update', [ProductController::class, 'bulkProductUpdate'])->name('BulkProductUpdate');
     Route::post('/update/product/from/excel', [ProductController::class, 'updateProductFromExcel'])->name('UpdateProductFromExcel');
 
+    //Duplicate Product
+    Route::get('duplicate/product/{slug}', [ProductController::class, 'duplicateProduct'])->name('product.duplicate');
+
     // demo products route
     Route::get('generate/demo/products', [ProductController::class, 'generateDemoProducts'])->name('GenerateDemoProducts');
     Route::post('save/generated/demo/products', [ProductController::class, 'saveGeneratedDemoProducts'])->name('SaveGeneratedDemoProducts');

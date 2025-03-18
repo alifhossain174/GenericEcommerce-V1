@@ -324,8 +324,15 @@
                     name: 'order_date'
                 },
                 // {
-                //     data: 'order_from',
-                //     name: 'order_from'
+                //     data: 'customer_name',
+                //     name: 'customer_name',
+                //     render: function(data, type, row) {
+                //         let html = `<div>${data}</div>`;
+                //         if (row.customer_address) {
+                //             html += `<div class="small text-muted">${row.customer_address}</div>`;
+                //         }
+                //         return html;
+                //     }
                 // },
                 {
                     data: 'customer_name',
