@@ -159,7 +159,10 @@
                             Status</button>
                         <button class="btn btn-primary btn-sm rounded ml-3" id="multi_order_print_btn">Print Selected
                             Orders</button>
-
+                        @if (request()->is('view/orders') && request()->query('status') == 'ready-to-ship')
+                            <button class="btn btn-success btn-sm rounded ml-3" id="multi_order_courier_btn">Bulk Courier
+                                Entry</button>
+                        @endif
                     </h4>
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0 data-table">
@@ -275,11 +278,16 @@
         var table = $(".data-table").DataTable({
             processing: true,
             serverSide: true,
+
+            // Option 1: Keep stateSave but override with stateDuration
             stateSave: true,
-            pageLength: 10,
+            stateDuration: -1, // Session only storage
+
+            // Make sure pageLength is correctly set and takes priority
+            pageLength: 20,
             lengthMenu: [
-                [10, 25, 50, 100, -1],
-                [10, 25, 50, 100, "All"]
+                [10, 20, 25, 50, 100, -1],
+                [10, 20, 25, 50, 100, "All"]
             ],
             ajax: {
                 url: "{{ url('view/orders') }}",
@@ -474,6 +482,38 @@
                 }
 
                 window.open(`/bulk/print/orders?orders=${selectedIds.join(',')}`, '_blank');
+            });
+
+            // multi selection courier send Button Click
+            $('#multi_order_courier_btn').on('click', function(e) {
+
+                e.preventDefault(); // Prevent default form submission if inside a form
+                if (!confirm("Are sure to upgrade to Courier ?")) return;
+
+                var selectedIds = [];
+                $('.row-select:checked').each(function() {
+                    selectedIds.push($(this).val());
+                });
+
+                if (selectedIds.length === 0) {
+                    toastr.error("Please select at least one record");
+                    return false;
+                }
+
+                $.ajax({
+                    url: "{{ url('add/bulk/order/courier') }}",
+                    method: 'POST',
+                    data: {
+                        ids: selectedIds,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        table.draw(false);
+                        toastr.success("Order Status Updated");
+                        $('#multi_select_order_status').val("");
+                    }
+                });
+                // window.open(`/bulk/print/orders?orders=${selectedIds.join(',')}`, '_blank');
             });
 
         });

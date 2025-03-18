@@ -35,6 +35,9 @@ class OrderController extends Controller
                     'shipping_infos.full_name as customer_name',
                     'shipping_infos.phone as customer_phone',
                     'shipping_infos.address as customer_address',
+                    'shipping_infos.thana as customer_thana',
+                    'shipping_infos.city as customer_city',
+                    'shipping_infos.post_code as customer_post_code',
                     DB::raw('GROUP_CONCAT(DISTINCT products.name SEPARATOR ", ") as product_names')
                 )
                 ->groupBy('orders.id')
@@ -101,7 +104,7 @@ class OrderController extends Controller
                 ->editColumn('customer_name', function ($data) {
                     $html = '<div style="font-size: 16px;">' . $data->customer_name . '</div>';
                     if (!empty($data->customer_address)) {
-                        $html .= '<div class="small text-muted" style="font-size: 12px;">(' . $data->customer_address . ')</div>';
+                        $html .= '<div class="small text-muted" style="font-size: 12px;">(' . $data->customer_address . ', ' . $data->customer_thana . ', ' . $data->customer_city . ' - ' . $data->customer_post_code . ')</div>';
                     }
                     return $html;
                 })

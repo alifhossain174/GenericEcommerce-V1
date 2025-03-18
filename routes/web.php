@@ -33,9 +33,9 @@ use App\Http\Controllers\CustomPageController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WithdrawController;
-use App\Http\Controllers\SteadFastCourierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\CourierController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
 use App\Http\Middleware\DemoMode;
@@ -343,6 +343,10 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::post('add/order/payment', [OrderController::class, 'addOrderPayment']);
     Route::post('/bulk/order/status/update', [OrderController::class, 'bulkOrderStatusUpdate'])->name('BulkOrderStatusUpdate');
     Route::get('/bulk/print/orders', [OrderController::class, 'bulkPrintOrders'])->name('BulkPrintOrders');
+
+    //start courier routes
+    Route::get('add/order/{orderid}/courier', [CourierController::class, 'addOrderToCourier']);
+    Route::post('add/bulk/order/courier', [CourierController::class, 'addBulkCourier']);
 
     //start courier routes
     // Route::get('add/order/{orderid}/courier', [SteadFastCourierController::class, 'addOrderToCourier']);
