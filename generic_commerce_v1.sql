@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2024 at 05:20 PM
+-- Generation Time: Mar 18, 2025 at 05:04 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -139,7 +139,9 @@ INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `than
 (5, 5, 'Flat B4, House No 71, Road 27, Gulshan-1', '1200', 'Gulshan', 'Dhaka', 'Bangladesh', '2024-12-01 13:04:06', NULL),
 (6, 6, 'Flat B4, House No 71, Road 27, Gulshan-1', '1200', 'Gulshan', 'Dhaka', 'Bangladesh', '2024-12-01 13:05:55', NULL),
 (7, 8, 'Am Saalepark', '1200', 'Barguna Sadar', 'Barguna', 'Bangladesh', '2024-12-20 02:58:41', NULL),
-(8, 9, 'Am Saalepark', '1200', 'Bakerganj', 'Barisal', 'Bangladesh', '2024-12-20 03:05:06', NULL);
+(8, 9, 'Am Saalepark', '1200', 'Bakerganj', 'Barisal', 'Bangladesh', '2024-12-20 03:05:06', NULL),
+(9, 10, 'Veniam ut veniam i', 'Sunt ut ut incidunt', 'Atrai', 'Naogaon', 'Bangladesh', '2025-03-16 09:57:19', NULL),
+(10, 11, 'Corporis tenetur quo', 'Officiis eveniet vo', 'Faridgonj', 'Chandpur', 'Bangladesh', '2025-03-16 10:01:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -785,6 +787,57 @@ INSERT INTO `country` (`id`, `iso`, `name`, `nicename`, `iso3`, `numcode`, `phon
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `courier_api_keys`
+--
+
+CREATE TABLE `courier_api_keys` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `provider_name` varchar(255) NOT NULL,
+  `app_key` varchar(255) DEFAULT NULL,
+  `secret_key` varchar(255) DEFAULT NULL,
+  `courier_cod_charge` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=>Inactive; 1=>Active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `courier_api_keys`
+--
+
+INSERT INTO `courier_api_keys` (`id`, `image`, `provider_name`, `app_key`, `secret_key`, `courier_cod_charge`, `status`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'steadfast', 'hsif6ql43zfolo3erusrlv1xakk9xzry', 'q1rg4cc2mhxeyi55hlcjoyko', '0.01', 1, '2025-03-17 04:37:21', '2025-03-17 05:27:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `currencies`
+--
+
+CREATE TABLE `currencies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `symbol` varchar(255) NOT NULL,
+  `exchange_rate` decimal(8,2) NOT NULL DEFAULT 1.00,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
+  `code` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `currencies`
+--
+
+INSERT INTO `currencies` (`id`, `name`, `symbol`, `exchange_rate`, `status`, `code`, `created_at`, `updated_at`) VALUES
+(1, 'Dollar', '$', 1.00, 0, 'USD', '2025-03-11 08:42:14', '2025-03-17 06:55:12'),
+(2, 'Bangladeshi Taka', '৳', 120.00, 1, 'BDT', '2025-03-11 08:42:24', '2025-03-17 06:55:12'),
+(4, 'Pound', '£', 120.00, 0, 'GBP', '2025-03-11 08:43:26', '2025-03-17 06:55:12');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `custom_pages`
 --
 
@@ -1163,6 +1216,10 @@ CREATE TABLE `general_infos` (
   `crisp_website_id` varchar(255) DEFAULT NULL,
   `guest_checkout` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Enable; 0=>Disable',
   `about_us` longtext DEFAULT NULL,
+  `bd_courier_app_key` varchar(255) DEFAULT NULL,
+  `minimum_partial_payment` double DEFAULT NULL,
+  `minimum_partial_payment_status` tinyint(4) DEFAULT NULL,
+  `order_notification_status` tinyint(4) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1171,8 +1228,8 @@ CREATE TABLE `general_infos` (
 -- Dumping data for table `general_infos`
 --
 
-INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_contact`, `footer_email`, `trade_license_no`, `tin_no`, `bin_no`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `messenger_chat_status`, `fb_page_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `guest_checkout`, `about_us`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/rotCU1730413158.svg', 'company_logo/AawTK1730413158.svg', 'company_logo/o35k61730413158.svg', 'TechShop - Ecommerce', 'Getup Ltd.', 'Ecommerce Bangladesh is online version of Ecommerce  situated at Dhaka since 2024.', '+88012345647890', 'sample@example.com', 'Dhaka, Bangladesh', NULL, 'https://play.google.com', 'https://www.apple.com/app-store', NULL, NULL, '98740', '3216549875', NULL, 'Copyright © 2024 Ecommerce. All Rights Reserved.', 'company_logo/cRxqA1720483781.png', '#000000', '#d4145a', '#ffffff', '#222831', '#252a34', '#cccccc', 'Online Ecommerce Shopping', 'ecommerce,online shopping,buy online,shop online', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', 'Online Ecommerce Shopping', 'company_logo/83f4h1731393547.png', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://x.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://www.messenger.com', 'https://web.whatsapp.com/', NULL, NULL, NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-N5D5W9BW', 0, NULL, 0, 'https://m.me', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, 1, NULL, NULL, '2024-12-09 18:41:16');
+INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_contact`, `footer_email`, `trade_license_no`, `tin_no`, `bin_no`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `messenger_chat_status`, `fb_page_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `guest_checkout`, `about_us`, `bd_courier_app_key`, `minimum_partial_payment`, `minimum_partial_payment_status`, `order_notification_status`, `created_at`, `updated_at`) VALUES
+(1, 'company_logo/rotCU1730413158.svg', 'company_logo/AawTK1730413158.svg', 'company_logo/o35k61730413158.svg', 'TechShop - Ecommerce', 'Getup Ltd.', 'Ecommerce Bangladesh is online version of Ecommerce  situated at Dhaka since 2024.', '+88012345647890', 'sample@example.com', 'Dhaka, Bangladesh', NULL, 'https://play.google.com', 'https://www.apple.com/app-store', NULL, NULL, '98740', '3216549875', NULL, 'Copyright © 2024 Ecommerce. All Rights Reserved.', 'company_logo/cRxqA1720483781.png', '#000000', '#d4145a', '#ffffff', '#222831', '#252a34', '#cccccc', 'Online Ecommerce Shopping', 'ecommerce,online shopping,buy online,shop online', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', 'Online Ecommerce Shopping', 'company_logo/83f4h1731393547.png', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://x.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://www.messenger.com', 'https://web.whatsapp.com/', NULL, NULL, NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-N5D5W9BW', 0, NULL, 0, 'https://m.me', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, 0, NULL, 'tIvUJx043sH18HxtyM0QSbV6XR7uJ0ELn6rXAPgyFwGPkfRnxmVxudMdFhzB', NULL, NULL, NULL, NULL, '2025-03-16 11:02:09');
 
 -- --------------------------------------------------------
 
@@ -1330,6 +1387,9 @@ CREATE TABLE `orders` (
   `total` double NOT NULL DEFAULT 0,
   `order_note` longtext DEFAULT NULL COMMENT 'Order Note By Customer',
   `order_remarks` longtext DEFAULT NULL,
+  `tracking_id` text DEFAULT NULL,
+  `courier_details` longtext DEFAULT NULL,
+  `courier_status` text DEFAULT NULL,
   `slug` varchar(255) NOT NULL,
   `complete_order` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Incomplete Order (Address Missing); 1=>Complete Order (Address Given)',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1340,16 +1400,18 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `order_no`, `order_from`, `user_id`, `order_date`, `estimated_dd`, `delivery_date`, `delivery_method`, `payment_method`, `payment_status`, `trx_id`, `bank_tran_id`, `order_status`, `sub_total`, `coupon_code`, `discount`, `reward_points_used`, `delivery_fee`, `vat`, `tax`, `total`, `order_note`, `order_remarks`, `slug`, `complete_order`, `created_at`, `updated_at`) VALUES
-(1, '1731399458914', 1, NULL, '2024-11-12 14:17:38', '2024-11-19', NULL, '1', 2, 1, '173139945815m0J', '234234', 1, 4194, '0', 0, 0, 100, 0, 0, 4294, NULL, NULL, 'WnHgW1731399458', 1, '2024-11-12 08:17:38', '2024-11-13 06:45:26'),
-(2, '1731482855903', 1, NULL, '2024-11-13 13:27:35', '2024-11-20', NULL, '1', 1, 0, '1731482855Q4cfo', NULL, 0, 391, '0', 0, 0, 100, 0, 0, 491, NULL, NULL, 'nJNM71731482855', 1, '2024-11-13 07:27:35', NULL),
-(3, '2412011', 1, NULL, '2024-12-01 19:01:30', '2024-12-08', NULL, '2', 1, 0, '1733058090TzIzV', NULL, 0, 647, 'OFF20', 20, 0, 0, 0, 0, 627, NULL, NULL, 'qnHaq1733058090', 1, '2024-12-01 13:01:30', NULL),
-(4, '2412012', 1, NULL, '2024-12-01 19:03:21', '2024-12-08', NULL, '2', 1, 0, '17330582016oVxR', NULL, 0, 647, 'OFF20', 20, 0, 0, 0, 0, 627, NULL, NULL, 'RhyKP1733058201', 1, '2024-12-01 13:03:21', NULL),
-(5, '2412013', 1, NULL, '2024-12-01 19:04:06', '2024-12-08', NULL, '2', 1, 0, '1733058246QiIRe', NULL, 0, 647, 'OFF20', 20, 0, 0, 0, 0, 627, NULL, NULL, 'y5U0z1733058246', 1, '2024-12-01 13:04:06', NULL),
-(6, '2412014', 1, NULL, '2024-12-01 19:05:55', '2024-12-08', NULL, '2', 1, 0, '1733058355igQ5D', NULL, 0, 584, '0', 0, 0, 0, 0, 0, 584, 'Test', NULL, 'yNIYO1733058355', 1, '2024-12-01 13:05:55', NULL),
-(7, '1733769912954', NULL, NULL, '2024-12-10 00:45:12', '2024-12-15', NULL, '1', 1, 0, '1733769912LlVgp', NULL, 0, 542, '0', 0, 0, 0, 0, 0, 542, NULL, NULL, 'wOIXQ1733769912', 1, '2024-12-09 18:45:12', NULL),
-(8, '2412201', 1, NULL, '2024-12-20 03:58:41', '2024-12-27', NULL, '1', 1, 0, '1734645521XnLU5', NULL, 0, 2538, '0', 0, 0, 0, 0, 0, 2538, NULL, NULL, 'IZbsA1734645521', 1, '2024-12-20 02:58:41', NULL),
-(9, '2412202', 1, NULL, '2024-12-20 04:05:06', '2024-12-27', NULL, '1', 1, 0, '1734645906rfrFs', NULL, 0, 846, '0', 0, 0, 0, 0, 0, 846, NULL, NULL, 'zcdKe1734645906', 1, '2024-12-20 03:05:06', NULL);
+INSERT INTO `orders` (`id`, `order_no`, `order_from`, `user_id`, `order_date`, `estimated_dd`, `delivery_date`, `delivery_method`, `payment_method`, `payment_status`, `trx_id`, `bank_tran_id`, `order_status`, `sub_total`, `coupon_code`, `discount`, `reward_points_used`, `delivery_fee`, `vat`, `tax`, `total`, `order_note`, `order_remarks`, `tracking_id`, `courier_details`, `courier_status`, `slug`, `complete_order`, `created_at`, `updated_at`) VALUES
+(1, '1731399458914', 1, NULL, '2024-11-12 14:17:38', '2024-11-19', NULL, '1', 2, 1, '173139945815m0J', '234234', 1, 4194, '0', 0, 0, 100, 0, 0, 4294, NULL, NULL, NULL, NULL, NULL, 'WnHgW1731399458', 1, '2024-11-12 08:17:38', '2024-11-13 06:45:26'),
+(2, '1731482855903', 1, NULL, '2024-11-13 13:27:35', '2024-11-20', NULL, '1', 1, 0, '1731482855Q4cfo', NULL, 0, 391, '0', 0, 0, 100, 0, 0, 491, NULL, NULL, NULL, NULL, NULL, 'nJNM71731482855', 1, '2024-11-13 07:27:35', NULL),
+(3, '2412011', 1, NULL, '2024-12-01 19:01:30', '2024-12-08', NULL, '2', 1, 0, '1733058090TzIzV', NULL, 4, 647, 'OFF20', 20, 0, 0, 0, 0, 627, NULL, NULL, NULL, NULL, NULL, 'qnHaq1733058090', 1, '2024-12-01 13:01:30', '2025-03-16 09:47:18'),
+(4, '2412012', 1, NULL, '2024-12-01 19:03:21', '2024-12-08', NULL, '3', 1, 0, '17330582016oVxR', NULL, 2, 647, 'OFF20', 20, 0, 0, 0, 0, 627, NULL, NULL, '7EC884642', '{\"consignment_id\":132941894,\"invoice\":\"24120128117\",\"tracking_code\":\"7EC884642\",\"recipient_name\":\"Fahim Hossain\",\"recipient_phone\":\"01969005035\",\"recipient_address\":\"Flat B4, House No 71, Road 27, Gulshan-1,Gulshan,Dhaka,POC-1000\",\"cod_amount\":633,\"status\":\"in_review\",\"note\":\"Handle with care\",\"created_at\":\"2025-03-17T05:28:12.000000Z\",\"updated_at\":\"2025-03-17T05:28:12.000000Z\"}', 'in_review', 'RhyKP1733058201', 1, '2024-12-01 13:03:21', '2025-03-17 05:28:13'),
+(5, '2412013', 1, NULL, '2024-12-01 19:04:06', '2024-12-08', NULL, '3', 1, 0, '1733058246QiIRe', NULL, 2, 647, 'OFF20', 20, 0, 0, 0, 0, 627, NULL, NULL, '7EC84801F', '{\"consignment_id\":132940928,\"invoice\":\"24120135664\",\"tracking_code\":\"7EC84801F\",\"recipient_name\":\"Md Fahim Hossain\",\"recipient_phone\":\"01969005035\",\"recipient_address\":\"Flat B4, House No 71, Road 27, Gulshan-1,Gulshan,Dhaka,POC-1200\",\"cod_amount\":1,\"status\":\"in_review\",\"note\":\"Handle with care\",\"created_at\":\"2025-03-17T05:22:00.000000Z\",\"updated_at\":\"2025-03-17T05:22:00.000000Z\"}', 'in_review', 'y5U0z1733058246', 1, '2024-12-01 13:04:06', '2025-03-17 05:22:01'),
+(6, '2412014', 1, NULL, '2024-12-01 19:05:55', '2024-12-08', NULL, '2', 1, 0, '1733058355igQ5D', NULL, 4, 584, '0', 0, 0, 0, 0, 0, 584, 'Test', NULL, NULL, NULL, NULL, 'yNIYO1733058355', 1, '2024-12-01 13:05:55', '2025-03-16 10:37:42'),
+(7, '1733769912954', NULL, NULL, '2024-12-10 00:45:12', '2024-12-15', NULL, '1', 1, 0, '1733769912LlVgp', NULL, 4, 542, '0', 0, 0, 0, 0, 0, 542, NULL, NULL, NULL, NULL, NULL, 'wOIXQ1733769912', 1, '2024-12-09 18:45:12', '2025-03-16 10:34:39'),
+(8, '2412201', 1, NULL, '2024-12-20 03:58:41', '2024-12-27', NULL, '1', 1, 0, '1734645521XnLU5', NULL, 2, 2538, '0', 0, 0, 0, 0, 0, 2538, NULL, NULL, NULL, NULL, NULL, 'IZbsA1734645521', 1, '2024-12-20 02:58:41', '2025-03-16 10:34:27'),
+(9, '2412202', 1, NULL, '2024-12-20 04:05:06', '2024-12-27', NULL, '1', 1, 0, '1734645906rfrFs', NULL, 5, 846, '0', 0, 0, 0, 0, 0, 846, NULL, NULL, '7D4E458ED', '{\"consignment_id\":131392600,\"invoice\":\"2503114\",\"tracking_code\":\"7D4E458ED\",\"recipient_name\":\"Shik Marufa\",\"recipient_phone\":\"01717814696\",\"recipient_address\":\"Sec-14, road-16, house-82 uttara model town, Dhaka- 1230,Uttara,Dhaka,POC-1230\",\"cod_amount\":1520,\"status\":\"in_review\",\"note\":\"Handle with care\",\"created_at\":\"2025-03-11T13:31:02.000000Z\",\"updated_at\":\"2025-03-11T13:31:02.000000Z\"}', NULL, 'zcdKe1734645906', 1, '2024-12-20 03:05:06', '2025-03-16 09:55:59'),
+(10, '2503161', 3, 19, '2025-03-16 15:57:19', '2025-03-23', NULL, '2', 1, 0, '1742119039EK2ty', NULL, 1, 846, NULL, 0, 0, 0, 0, 0, 846, 'Nemo aut numquam sed', NULL, '7EC7C9E4A', '{\"consignment_id\": 132938910,\"invoice\": \"2503161\",\n\"tracking_code\": \"7EC7C9E4A\",\n        \"recipient_name\": \"Fahad Hossain\",\n        \"recipient_phone\": \"01787910731\",\n        \"recipient_address\": \"Veniam ut veniam i,Atrai,Naogaon,POC-Sunt ut ut incidunt\",\n        \"cod_amount\": 1,\n        \"status\": \"in_review\",\n        \"note\": \"Nemo aut numquam sed\",\n        \"created_at\": \"2025-03-17T05:08:29.000000Z\",\n        \"updated_at\": \"2025-03-17T05:08:29.000000Z\"\n    }', NULL, '3nkT21742119039', 1, '2025-03-16 09:57:19', NULL),
+(11, '2503162', 3, 20, '2025-03-16 16:01:56', '2025-03-23', NULL, '3', 1, 1, '1742119316CinLt', NULL, 2, 846, NULL, 0, 0, 0, 0, 0, 846, 'Nam lorem aspernatur', NULL, '7EC836D86', '{\"consignment_id\":132940653,\"invoice\":\"25031629124\",\"tracking_code\":\"7EC836D86\",\"recipient_name\":\"Olga Flowers\",\"recipient_phone\":\"01787910731\",\"recipient_address\":\"Corporis tenetur quo,Faridgonj,Chandpur,POC-Officiis eveniet vo\",\"cod_amount\":804,\"status\":\"in_review\",\"note\":\"Nam lorem aspernatur\",\"created_at\":\"2025-03-17T05:20:29.000000Z\",\"updated_at\":\"2025-03-17T05:20:29.000000Z\"}', 'in_review', 'TEE3L1742119316', 1, '2025-03-16 10:01:56', '2025-03-17 05:20:30');
 
 -- --------------------------------------------------------
 
@@ -1395,7 +1457,9 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `store_id`, `color_
 (10, 5, 3356, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 647, 647, 0, '2024-12-01 13:04:06', NULL),
 (11, 6, 3336, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 584, 584, 0, '2024-12-01 13:05:55', NULL),
 (12, 9, 3469, NULL, 18, 17, NULL, NULL, NULL, NULL, NULL, 3, 1, 268, 268, 0, '2024-12-20 03:05:06', NULL),
-(13, 9, 3450, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 578, 578, 0, '2024-12-20 03:05:06', NULL);
+(13, 9, 3450, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 578, 578, 0, '2024-12-20 03:05:06', NULL),
+(14, 10, 3423, 1, 11, 19, NULL, NULL, NULL, NULL, NULL, 2, 1, 846, 846, 5, '2025-03-16 09:57:19', NULL),
+(15, 11, 3423, 1, 11, 19, NULL, NULL, NULL, NULL, NULL, 2, 1, 846, 846, 5, '2025-03-16 10:01:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -1437,7 +1501,9 @@ INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `v
 (4, 5, 'COD', '1733058246QiIRe', NULL, '627', NULL, '627', NULL, NULL, 'VALID', '2024-12-01 19:04:06', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-12-01 13:04:06', NULL),
 (5, 6, 'COD', '1733058355igQ5D', NULL, '584', NULL, '584', NULL, NULL, 'VALID', '2024-12-01 19:05:55', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-12-01 13:05:55', NULL),
 (6, 8, 'COD', '1734645521XnLU5', NULL, '2538', NULL, '2538', NULL, NULL, 'VALID', '2024-12-20 03:58:41', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-12-20 02:58:41', NULL),
-(7, 9, 'COD', '1734645906rfrFs', NULL, '846', NULL, '846', NULL, NULL, 'VALID', '2024-12-20 04:05:06', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-12-20 03:05:06', NULL);
+(7, 9, 'COD', '1734645906rfrFs', NULL, '846', NULL, '846', NULL, NULL, 'VALID', '2024-12-20 04:05:06', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-12-20 03:05:06', NULL),
+(8, 10, 'COD', '1742119039EK2ty', NULL, '846', NULL, '846', NULL, NULL, 'VALID', '2025-03-16 15:57:19', 'BDT', NULL, NULL, NULL, NULL, NULL, '2025-03-16 09:57:19', NULL),
+(9, 11, 'bKash', '52652', NULL, '50', NULL, '50', NULL, NULL, 'VALID', '2025-03-16 16:02:00', 'BDT', NULL, NULL, NULL, NULL, NULL, '2025-03-16 10:02:25', '2025-03-16 10:19:39');
 
 -- --------------------------------------------------------
 
@@ -1467,7 +1533,23 @@ INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `u
 (7, 6, 0, '2024-12-01 13:05:55', NULL),
 (8, 7, 0, '2024-12-09 18:45:12', NULL),
 (9, 8, 0, '2024-12-20 02:58:41', NULL),
-(10, 9, 0, '2024-12-20 03:05:06', NULL);
+(10, 9, 0, '2024-12-20 03:05:06', NULL),
+(11, 9, 1, '2025-03-16 09:45:05', NULL),
+(12, 8, 1, '2025-03-16 09:45:17', NULL),
+(13, 3, 4, '2025-03-16 09:47:18', NULL),
+(14, 4, 1, '2025-03-16 09:47:25', NULL),
+(15, 7, 1, '2025-03-16 09:52:04', NULL),
+(16, 6, 1, '2025-03-16 09:52:13', NULL),
+(17, 9, 5, '2025-03-16 09:55:59', NULL),
+(18, 10, 0, '2025-03-16 09:57:19', NULL),
+(19, 10, 1, '2025-03-16 09:57:19', NULL),
+(20, 11, 0, '2025-03-16 10:01:56', NULL),
+(21, 11, 1, '2025-03-16 10:01:56', NULL),
+(22, 8, 2, '2025-03-16 10:34:27', NULL),
+(23, 7, 4, '2025-03-16 10:34:32', NULL),
+(24, 7, 4, '2025-03-16 10:34:39', NULL),
+(25, 5, 1, '2025-03-16 10:37:37', NULL),
+(26, 6, 4, '2025-03-16 10:37:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -4213,7 +4295,7 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `unit_i
 (6833, 3423, '66.png', 23, NULL, 18, 127, 1, 6, 1000, 856, 846, 7, 3, '2024-11-12 06:58:20', '2024-11-12 06:58:20'),
 (6834, 3423, '79.png', 21, NULL, 20, 127, 1, 6, 1000, 856, 846, 7, 3, '2024-11-12 06:58:20', '2024-11-12 06:58:20'),
 (6835, 3423, '46.png', 7, NULL, 20, 127, 1, 6, 1000, 856, 846, 7, 3, '2024-11-12 06:58:20', '2024-11-12 06:58:20'),
-(6836, 3423, '75.png', 11, NULL, 19, 127, 1, 6, 1000, 856, 846, 7, 3, '2024-11-12 06:58:20', '2024-11-12 06:58:20'),
+(6836, 3423, '75.png', 11, NULL, 19, 127, 1, 6, 997, 856, 846, 7, 3, '2024-11-12 06:58:20', '2024-11-12 06:58:20'),
 (6837, 3425, '62.png', 9, NULL, 18, 181, 4, 4, 1000, 540, 530, 7, 1, '2024-11-12 06:58:20', '2024-11-12 06:58:20'),
 (6838, 3425, '64.png', 22, NULL, 18, 181, 4, 4, 1000, 540, 530, 7, 1, '2024-11-12 06:58:20', '2024-11-12 06:58:20'),
 (6839, 3425, '47.png', 2, NULL, 20, 181, 4, 4, 1000, 540, 530, 7, 1, '2024-11-12 06:58:20', '2024-11-12 06:58:20'),
@@ -4532,7 +4614,9 @@ INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `
 (5, 5, 'Md Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'Flat B4, House No 71, Road 27, Gulshan-1', 'Gulshan', '1200', 'Dhaka', 'Bangladesh', '2024-12-01 13:04:06', NULL),
 (6, 6, 'Md Fahim Hossain', '01969005035', NULL, NULL, 'Flat B4, House No 71, Road 27, Gulshan-1', 'Gulshan', '1200', 'Dhaka', 'Bangladesh', '2024-12-01 13:05:55', NULL),
 (7, 8, 'Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'Am Saalepark', 'Barguna Sadar', '1200', 'Barguna', 'Bangladesh', '2024-12-20 02:58:41', NULL),
-(8, 9, 'Fahim Hossain', '+4915736108363', 'alifhossain174@gmail.com', NULL, 'Am Saalepark', 'Bakerganj', '1200', 'Barisal', 'Bangladesh', '2024-12-20 03:05:06', NULL);
+(8, 9, 'Fahim Hossain', '+4915736108363', 'alifhossain174@gmail.com', NULL, 'Am Saalepark', 'Bakerganj', '1200', 'Barisal', 'Bangladesh', '2024-12-20 03:05:06', NULL),
+(9, 10, 'Fahad Hossain', '01787910731', 'fahad@gmail.com', NULL, 'Veniam ut veniam i', 'Atrai', 'Sunt ut ut incidunt', 'Naogaon', 'Bangladesh', '2025-03-16 09:57:19', NULL),
+(10, 11, 'Olga Flowers', '01787910731', 'alifhossain174@gmail.com', NULL, 'Corporis tenetur quo', 'Faridgonj', 'Officiis eveniet vo', 'Chandpur', 'Bangladesh', '2025-03-16 10:01:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -4793,7 +4877,8 @@ CREATE TABLE `subscribed_users` (
 INSERT INTO `subscribed_users` (`id`, `email`, `created_at`, `updated_at`) VALUES
 (1, 'alifhossain174@gmail.com', '2024-10-27 18:34:32', NULL),
 (2, 'lenana@mailinator.com', '2024-10-31 15:49:35', NULL),
-(3, 'alifhossain174@gmail.com', '2024-11-12 08:17:38', NULL);
+(3, 'alifhossain174@gmail.com', '2024-11-12 08:17:38', NULL),
+(4, 'fahad@gmail.com', '2025-03-16 09:57:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -10078,8 +10163,8 @@ INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at
 (1, NULL, 'Admin', '01969005035', 'admin@gmail.com', '2024-03-02 08:18:31', '320215', '$2y$12$oHWN0HLlomKGtI9bp503POf.uujhNJmq6bS3M8f3u0PAcrHZYLzEq', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-03-28 10:20:00', '2024-04-25 07:52:00'),
 (17, NULL, 'Delilah Manning', '+1 (816) 469-7934', 'sosako7271@chysir.com', '2024-10-16 14:06:35', '848882', '$2y$12$Xx2dWLRND1rlz6gKpCMyXOrgj2lDtNQVrgD/Y4ZWxMSqPl3jT4Y5G', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-10-16 14:06:11', '2024-10-16 20:50:03'),
 (18, NULL, 'Md Fahim Hossain', NULL, 'alifhossain164@gmail.com', '2024-10-16 14:40:56', '267791', '$2y$12$zKSwoEohaozqpfNKKWW0AO6J4gFu/apGH5.nPE.b7jlsF6fhZQFZy', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-16 14:37:20', '2024-10-16 14:40:56'),
-(19, NULL, 'Fahad Hossain', '01969887744', 'fahad@gmail.com', '2024-10-26 20:50:04', '0', '$2y$10$CRJPxYEEPt2ifmjDElTFj.XzA/75K3258c4iys7GxHbhIQ2TTcjAu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-26 20:50:04', NULL),
-(20, NULL, 'Olga Flowers', '+1 (979) 759-1711', 'alifhossain174@gmail.com', '2024-10-26 20:51:56', '0', '$2y$10$yYHz5hUa7.kqbq/TUdFTCeV033JeeGLLn72DtTltjchAEZu7svaNa', NULL, NULL, NULL, 3, NULL, 6, 0, NULL, 1, '2024-10-26 20:51:56', '2024-11-02 22:50:25'),
+(19, NULL, 'Fahad Hossain', '01969887744', 'fahad@gmail.com', '2024-10-26 20:50:04', '0', '$2y$10$CRJPxYEEPt2ifmjDElTFj.XzA/75K3258c4iys7GxHbhIQ2TTcjAu', NULL, NULL, NULL, 3, NULL, 10, 0, NULL, 1, '2024-10-26 20:50:04', '2025-03-16 11:02:23'),
+(20, NULL, 'Olga Flowers', '+1 (979) 759-1711', 'alifhossain174@gmail.com', '2024-10-26 20:51:56', '0', '$2y$10$yYHz5hUa7.kqbq/TUdFTCeV033JeeGLLn72DtTltjchAEZu7svaNa', NULL, NULL, NULL, 3, NULL, 11, 0, NULL, 1, '2024-10-26 20:51:56', '2025-03-16 10:01:56'),
 (22, NULL, 'Test User', NULL, 'testcustomer@gmail.com', NULL, '883377', '$2y$12$bRQfeSB74h9BMiQpf4GqBuGCtSCBtlx/DS9.7eX5qHBpKIMp0DNzu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-11-13 21:13:21', '2024-11-13 21:13:21');
 
 -- --------------------------------------------------------
@@ -10352,6 +10437,19 @@ ALTER TABLE `contact_requests`
 --
 ALTER TABLE `country`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `courier_api_keys`
+--
+ALTER TABLE `courier_api_keys`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `currencies`
+--
+ALTER TABLE `currencies`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `currencies_code_unique` (`code`);
 
 --
 -- Indexes for table `custom_pages`
@@ -10722,7 +10820,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -10809,6 +10907,18 @@ ALTER TABLE `country`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
 
 --
+-- AUTO_INCREMENT for table `courier_api_keys`
+--
+ALTER TABLE `courier_api_keys`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `currencies`
+--
+ALTER TABLE `currencies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `custom_pages`
 --
 ALTER TABLE `custom_pages`
@@ -10890,25 +11000,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -10998,7 +11108,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `sims`
@@ -11052,7 +11162,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `subscribed_users`
 --
 ALTER TABLE `subscribed_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `support_messages`
