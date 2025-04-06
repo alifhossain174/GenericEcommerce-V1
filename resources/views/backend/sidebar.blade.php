@@ -118,29 +118,6 @@
 
         </ul>
     </li>
-    {{-- <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-sliders"></i><span>Category</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/add/new/category') }}">Add New Category</a></li>
-            <li><a href="{{ url('/view/all/category') }}">View All Categories</a></li>
-        </ul>
-    </li> --}}
-    {{-- <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-command"></i><span>Subcategory</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/add/new/subcategory') }}">Add New Subcategory</a></li>
-            <li><a href="{{ url('/view/all/subcategory') }}">View All Subcategories</a></li>
-        </ul>
-    </li> --}}
-    {{-- <li>
-        <a href="javascript: void(0);" class="has-arrow"><i class="feather-git-pull-request"></i><span>Child
-                Category</span></a>
-        <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{ url('/add/new/childcategory') }}">Add Child Category</a></li>
-            <li><a href="{{ url('/view/all/childcategory') }}">View Child Categories</a></li>
-        </ul>
-    </li> --}}
-
     <li><a href="{{ url('/view/all/category') }}"><i class="feather-sliders"></i><span>Product Categories</span></a>
     </li>
     <li><a href="{{ url('/view/all/menus') }}"><i class="feather-sliders"></i><span>Menus</span></a></li>
