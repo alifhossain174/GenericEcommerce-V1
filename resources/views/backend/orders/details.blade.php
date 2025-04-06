@@ -171,7 +171,9 @@
                                         } elseif ($order->order_status == 5) {
                                             echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Ready to Ship</span>';
                                         } elseif ($order->order_status == 2) {
-                                            echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Intransit</span>';
+                                            echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Intransit - courier: ' .
+                                                $order->courier_status .
+                                                '</span>';
                                         } elseif ($order->order_status == 3) {
                                             echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Delivered</span>';
                                         } else {
@@ -302,10 +304,10 @@
                                             <tr>
                                                 <td class="text-center">{{ $sl++ }}</td>
                                                 <!-- <td>
-                                                            <b>{{ $details->product_name }}</b><br />
-                                                            Category : {{ $details->category_name }}<br />
-                                                            SKU : {{ $details->product_code }}
-                                                    </td> -->
+                                                                <b>{{ $details->product_name }}</b><br />
+                                                                Category : {{ $details->category_name }}<br />
+                                                                SKU : {{ $details->product_code }}
+                                                        </td> -->
                                                 <td style="display: flex;align-items: center;">
                                                     <div class="product-info-img" style="display: inline-block;"><img
                                                             src="{{ url(env('ADMIN_URL') . '/' . $details->product_image) }}"
@@ -442,8 +444,8 @@
                                         class="btn btn-primary waves-effect waves-light"><i class="fa fa-print m-r-5"></i>
                                         Print Invoice</a>
                                     <!-- <a href="javascript:void(0);" onclick="printPageArea('printableArea')"
-                                        class="btn btn-primary waves-effect waves-light"><i class="fa fa-print m-r-5"></i>
-                                        Print Invoice</a> -->
+                                            class="btn btn-primary waves-effect waves-light"><i class="fa fa-print m-r-5"></i>
+                                            Print Invoice</a> -->
                                 </div>
                             </div>
                         </div>
@@ -638,13 +640,13 @@
                                         </div>
 
                                         <!-- <div class="col-lg-6 col-12">
-                                                    <div class="form-group ">
-                                                        <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
-                                                        <input class="form-control" type="number" value="49.00" step="0.01"
-                                                            name="shipping" id="shipping" required=""
-                                                            placeholder="Enter Shipping">
-                                                    </div>
-                                                </div> -->
+                                                        <div class="form-group ">
+                                                            <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
+                                                            <input class="form-control" type="number" value="49.00" step="0.01"
+                                                                name="shipping" id="shipping" required=""
+                                                                placeholder="Enter Shipping">
+                                                        </div>
+                                                    </div> -->
                                     </div>
                                     <button type="submit"
                                         class="btn btn-primary rounded mt-1 {{ in_array($order->order_status, [3, 4]) ? 'opacity-50' : '' }}"
@@ -674,27 +676,27 @@
                         </div>
                     </div>
                     <!-- <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <div class="card-header" id="headingThree">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 
-                                            <span> <i class="fa fa-sticky-note"></i>
-                                            Courier Performance Data
-                                            </span>
+                                                <span> <i class="fa fa-sticky-note"></i>
+                                                Courier Performance Data
+                                                </span>
 
 
-                                            <div class="arrow"><i class="fas fa-chevron-right"></i></div>
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                    data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        
+                                                <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                                            </button>
+                                        </h2>
                                     </div>
-                                </div>
-                            </div> -->
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                        data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            
+                                        </div>
+                                    </div>
+                                </div> -->
                     <div class="card">
                         <div class="card-header">
                             <b>

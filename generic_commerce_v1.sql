@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2025 at 05:04 AM
+-- Generation Time: Apr 06, 2025 at 09:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -102,12 +102,12 @@ INSERT INTO `banners` (`id`, `type`, `image`, `image_for_app`, `link`, `link_for
 (53, 2, 'banner/vBPso1727682861.jpg', NULL, NULL, NULL, 'bottom', 1, '#f44336', 'Top Products', '#ffffff', 'Trending Like Sneakers', NULL, NULL, '#ffffff', 'Shop Now', '#', 'left', '4Bpyt1727682861', 0, '2024-09-30 07:54:21', '2024-09-30 08:06:05'),
 (54, 2, 'banner/H3Bbe1727682888.jpg', NULL, NULL, NULL, 'bottom', 1, '#f44336', 'Top Products', '#000000', 'Trending Like Sneakers', NULL, NULL, '#000000', 'Shop Now', NULL, 'left', 'VuLq51727682888', -1, '2024-09-30 07:54:48', '2024-09-30 08:06:32'),
 (55, 2, 'banner/vLjci1727682903.jpg', NULL, NULL, NULL, 'bottom', 1, '#f44336', 'Top Products', '#ffffff', 'Trending Like Sneakers', NULL, NULL, '#ffffff', 'Shop Now', NULL, 'left', 'FUT951727682903', -2, '2024-09-30 07:55:03', '2024-09-30 08:05:43'),
-(58, 1, 'banner/0BiKO1731394519.jpg', NULL, 'https://zoomart.pages.dev/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'saje91731394519', -1, '2024-11-12 06:55:19', '2024-11-20 07:00:16'),
-(59, 1, 'banner/zByMr1731394524.jpg', NULL, 'https://zoomart.pages.dev/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TAml91731394524', -2, '2024-11-12 06:55:24', '2024-11-20 07:00:11'),
-(60, 1, 'banner/aNkTU1732093936.jpg', 'banner/2qw6b1732093936.jpg', 'http://127.0.0.1:8000/', 'http://127.0.0.1:8000/', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'lkvWe1732093936', -3, '2024-11-20 09:12:16', NULL),
-(62, 1, 'banner/lX5r91732094827.jpg', 'banner/ZY2Xd1732094827.jpg', 'https://fmmtechnology.net/rr', 'https://fmmtechnology.net/rrrr', NULL, 1, NULL, 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'left', 'lG82r1732094785', -4, '2024-11-20 09:26:25', '2024-11-21 04:50:02'),
-(66, 2, 'banner/Botxn1732164227.png', 'banner/4OAhX1732160898.png', 'https://fmmtechnology.net/', 'https://fmmtechnology.net/', 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0hUpV1732160899', -7, '2024-11-21 03:48:19', '2024-11-21 04:44:12'),
-(67, 2, 'banner/nM73N1732164330.png', 'banner/xtwAJ1732164342.jpg', NULL, NULL, 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Khzmk1732164330', -8, '2024-11-21 04:45:30', '2024-11-21 04:45:43');
+(58, 1, 'banner/uXdcf1743923249.jpg', NULL, 'https://zoomart.pages.dev/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'saje91731394519', -1, '2024-11-12 06:55:19', '2025-04-06 07:07:29'),
+(59, 1, 'banner/FpmW21743923225.png', NULL, 'https://zoomart.pages.dev/', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TAml91731394524', -2, '2024-11-12 06:55:24', '2025-04-06 07:07:05'),
+(60, 1, 'banner/X1TdZ1743923189.jpg', 'banner/2qw6b1732093936.jpg', 'http://127.0.0.1:8000/', 'http://127.0.0.1:8000/', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'lkvWe1732093936', -3, '2024-11-20 09:12:16', '2025-04-06 07:06:29'),
+(62, 1, 'banner/l1vHE1743923160.jpg', 'banner/ZY2Xd1732094827.jpg', 'https://fmmtechnology.net/rr', 'https://fmmtechnology.net/rrrr', NULL, 1, NULL, 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'left', 'lG82r1732094785', -4, '2024-11-20 09:26:25', '2025-04-06 07:06:00'),
+(66, 2, 'banner/iQwoE1743923476.png', 'banner/4OAhX1732160898.png', 'https://fmmtechnology.net/', 'https://fmmtechnology.net/', 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0hUpV1732160899', -7, '2024-11-21 03:48:19', '2025-04-06 07:11:16'),
+(67, 2, 'banner/btr801743923463.png', 'banner/xtwAJ1732164342.jpg', NULL, NULL, 'top', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Khzmk1732164330', -8, '2024-11-21 04:45:30', '2025-04-06 07:11:03');
 
 -- --------------------------------------------------------
 
@@ -141,7 +141,9 @@ INSERT INTO `billing_addresses` (`id`, `order_id`, `address`, `post_code`, `than
 (7, 8, 'Am Saalepark', '1200', 'Barguna Sadar', 'Barguna', 'Bangladesh', '2024-12-20 02:58:41', NULL),
 (8, 9, 'Am Saalepark', '1200', 'Bakerganj', 'Barisal', 'Bangladesh', '2024-12-20 03:05:06', NULL),
 (9, 10, 'Veniam ut veniam i', 'Sunt ut ut incidunt', 'Atrai', 'Naogaon', 'Bangladesh', '2025-03-16 09:57:19', NULL),
-(10, 11, 'Corporis tenetur quo', 'Officiis eveniet vo', 'Faridgonj', 'Chandpur', 'Bangladesh', '2025-03-16 10:01:56', NULL);
+(10, 11, 'Corporis tenetur quo', 'Officiis eveniet vo', 'Faridgonj', 'Chandpur', 'Bangladesh', '2025-03-16 10:01:56', NULL),
+(12, 13, 'Ducimus praesentium', 'Dolor eiusmod laboru', 'Bagerhat Sadar', 'Bagerhat', 'Bangladesh', '2025-03-18 06:55:31', NULL),
+(13, 14, 'gulshan 1', '1229', 'Bagerhat Sadar', 'Bagerhat', 'Bangladesh', '2025-03-18 07:40:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -496,14 +498,14 @@ CREATE TABLE `config_setups` (
 --
 
 INSERT INTO `config_setups` (`id`, `icon`, `name`, `code`, `industry`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Product Size', 'product_size', 'Fashion', 1, '2023-12-17 06:53:00', '2024-11-12 06:39:49'),
-(2, NULL, 'Storage', 'storage', 'Tech', 0, '2023-12-17 06:53:00', '2024-11-12 06:39:49'),
-(3, NULL, 'Sim Type', 'sim', 'Tech', 0, '2023-12-17 06:53:00', '2024-11-12 06:39:49'),
-(4, NULL, 'Device Condition', 'device_condition', 'Tech', 0, '2023-12-17 06:53:00', '2024-11-12 06:39:49'),
-(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 0, '2023-12-17 06:53:00', '2024-11-12 06:39:49'),
-(6, NULL, 'Region', 'region', 'Common', 0, '2023-12-17 06:53:00', '2024-11-12 06:39:49'),
-(7, NULL, 'Product Color', 'color', 'Common', 1, '2024-01-29 09:12:58', '2024-11-12 06:39:49'),
-(8, NULL, 'Measurement Unit', 'measurement_unit', 'Common', 0, '2024-01-29 09:14:23', '2024-11-12 06:39:49');
+(1, NULL, 'Product Size', 'product_size', 'Fashion', 1, '2023-12-17 06:53:00', '2025-03-18 06:53:04'),
+(2, NULL, 'Storage', 'storage', 'Tech', 1, '2023-12-17 06:53:00', '2025-03-18 06:53:04'),
+(3, NULL, 'Sim Type', 'sim', 'Tech', 1, '2023-12-17 06:53:00', '2025-03-18 06:53:04'),
+(4, NULL, 'Device Condition', 'device_condition', 'Tech', 1, '2023-12-17 06:53:00', '2025-03-18 06:53:04'),
+(5, NULL, 'Product Warranty', 'product_warranty', 'Tech', 1, '2023-12-17 06:53:00', '2025-03-18 06:53:04'),
+(6, NULL, 'Region', 'region', 'Common', 1, '2023-12-17 06:53:00', '2025-03-18 06:53:04'),
+(7, NULL, 'Product Color', 'color', 'Common', 1, '2024-01-29 09:12:58', '2025-03-18 06:53:04'),
+(8, NULL, 'Measurement Unit', 'measurement_unit', 'Common', 1, '2024-01-29 09:14:23', '2025-03-18 06:53:04');
 
 -- --------------------------------------------------------
 
@@ -807,7 +809,7 @@ CREATE TABLE `courier_api_keys` (
 --
 
 INSERT INTO `courier_api_keys` (`id`, `image`, `provider_name`, `app_key`, `secret_key`, `courier_cod_charge`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'steadfast', 'hsif6ql43zfolo3erusrlv1xakk9xzry', 'q1rg4cc2mhxeyi55hlcjoyko', '0.01', 1, '2025-03-17 04:37:21', '2025-03-17 05:27:38');
+(1, NULL, 'steadfast', 'tjq1ilwqiz5ofkzotn75roh8eoqqesa9', '7ayismhcxalsz1kekvyyg1od', '0.01', 1, '2025-03-17 04:37:21', '2025-03-18 08:58:53');
 
 -- --------------------------------------------------------
 
@@ -1151,6 +1153,35 @@ INSERT INTO `flags` (`id`, `icon`, `name`, `status`, `featured`, `slug`, `serial
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `footers`
+--
+
+CREATE TABLE `footers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `widget1_title` varchar(255) DEFAULT NULL,
+  `widget1_links` longtext DEFAULT NULL,
+  `widget2_title` varchar(255) DEFAULT NULL,
+  `widget2_links` longtext DEFAULT NULL,
+  `widget3_title` varchar(255) DEFAULT NULL,
+  `widget3_links` longtext DEFAULT NULL,
+  `social_link_title` varchar(255) DEFAULT NULL,
+  `social_links` text DEFAULT NULL,
+  `contact_title` varchar(255) DEFAULT NULL,
+  `contact` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `footers`
+--
+
+INSERT INTO `footers` (`id`, `widget1_title`, `widget1_links`, `widget2_title`, `widget2_links`, `widget3_title`, `widget3_links`, `social_link_title`, `social_links`, `contact_title`, `contact`, `created_at`, `updated_at`) VALUES
+(1, 'Quick links', '[{\"widget1_link_label\":\"Contact us\",\"widget1_url\":\"contact\"},{\"widget1_link_label\":\"The blog\",\"widget1_url\":\"blogs\"},{\"widget1_link_label\":\"Terms and Conditions\",\"widget1_url\":\"\\/terms-and-condition\"},{\"widget1_link_label\":\"Privacy Policy\",\"widget1_url\":\"\\/privacy-policy\"},{\"widget1_link_label\":\"Shipping Policy\",\"widget1_url\":\"\\/shipping-policy\"},{\"widget1_link_label\":\"Return & Refund Policy\",\"widget1_url\":\"\\/return-policy\"},{\"widget1_link_label\":\"Warranty Policy\",\"widget1_url\":\"\\/warranty-policy\"},{\"widget1_link_label\":\"FAQ\",\"widget1_url\":\"\\/faq\"}]', 'Account', '[{\"widget2_link_label\":\"My account\",\"widget2_url\":\"home\"},{\"widget2_link_label\":\"My orders\",\"widget2_url\":\"my\\/orders\"},{\"widget2_link_label\":\"My wishlist\",\"widget2_url\":\"my\\/wishlists\"},{\"widget2_link_label\":\"Payment history\",\"widget2_url\":\"my\\/payments\"},{\"widget2_link_label\":\"Support ticket\",\"widget2_url\":\"support\\/tickets\"},{\"widget2_link_label\":\"Order Tracking\",\"widget2_url\":\"track\\/order\"},{\"widget2_link_label\":\"Update Pricelist\",\"widget2_url\":\"\\/pricelist\"}]', 'Showroom Location', '[{\"widget3_link_label\":\"Bashundhara Branch: Basement #2, Shop #65-66, Bashundhara City, Panthapath, Dhaka 1208, Dhaka Division.\",\"widget3_url\":null},{\"widget3_link_label\":\"Jamuna Branch: Level: 4, Block: A, Shop: 28B, Kuril Progati Sarani, Dhaka-1215\",\"widget3_url\":null}]', 'Follow Us', '[{\"social_link_label\":\"WhatsApp\",\"social_link_icon\":\"social-icons\\/nVPoB7MWERYljdFV1HGCIPdXb6GA8PhivK8MABkt.svg\",\"social_link_url\":\"https:\\/\\/wa.me\\/8801840099662\"},{\"social_link_label\":\"Messenger\",\"social_link_icon\":\"social-icons\\/UaJyecgUlmnN7m3yNVrr05SN0LfjDuGFvFSF6Zqt.svg\",\"social_link_url\":\"https:\\/\\/m.me\\/internationalRio\"},{\"social_link_label\":\"Telegram\",\"social_link_icon\":\"social-icons\\/kZ0fpqbPM0zB7kUn2T82tx9n0nIaCGIAsWbSmj2K.svg\",\"social_link_url\":\"https:\\/\\/telegram.com\"}]', 'Contact', '[{\"contact_label\":\"Hotline-1\",\"contact_number\":\"01840-099662\"},{\"contact_label\":\"Hotline-2\",\"contact_number\":\"01879-131332\"},{\"contact_label\":\"Hotline-3\",\"contact_number\":\"01977-999855\"}]', NULL, '2025-02-23 09:57:11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `general_infos`
 --
 
@@ -1229,7 +1260,7 @@ CREATE TABLE `general_infos` (
 --
 
 INSERT INTO `general_infos` (`id`, `logo`, `logo_dark`, `fav_icon`, `tab_title`, `company_name`, `short_description`, `contact`, `email`, `address`, `google_map_link`, `play_store_link`, `app_store_link`, `footer_contact`, `footer_email`, `trade_license_no`, `tin_no`, `bin_no`, `footer_copyright_text`, `payment_banner`, `primary_color`, `secondary_color`, `tertiary_color`, `title_color`, `paragraph_color`, `border_color`, `meta_title`, `meta_keywords`, `meta_description`, `meta_og_title`, `meta_og_image`, `meta_og_description`, `custom_css`, `custom_js`, `header_script`, `footer_script`, `facebook`, `instagram`, `twitter`, `linkedin`, `youtube`, `messenger`, `whatsapp`, `telegram`, `tiktok`, `pinterest`, `viber`, `google_analytic_status`, `google_analytic_tracking_id`, `google_tag_manager_status`, `google_tag_manager_id`, `fb_pixel_status`, `fb_pixel_app_id`, `messenger_chat_status`, `fb_page_id`, `tawk_chat_status`, `tawk_chat_link`, `crisp_chat_status`, `crisp_website_id`, `guest_checkout`, `about_us`, `bd_courier_app_key`, `minimum_partial_payment`, `minimum_partial_payment_status`, `order_notification_status`, `created_at`, `updated_at`) VALUES
-(1, 'company_logo/rotCU1730413158.svg', 'company_logo/AawTK1730413158.svg', 'company_logo/o35k61730413158.svg', 'TechShop - Ecommerce', 'Getup Ltd.', 'Ecommerce Bangladesh is online version of Ecommerce  situated at Dhaka since 2024.', '+88012345647890', 'sample@example.com', 'Dhaka, Bangladesh', NULL, 'https://play.google.com', 'https://www.apple.com/app-store', NULL, NULL, '98740', '3216549875', NULL, 'Copyright © 2024 Ecommerce. All Rights Reserved.', 'company_logo/cRxqA1720483781.png', '#000000', '#d4145a', '#ffffff', '#222831', '#252a34', '#cccccc', 'Online Ecommerce Shopping', 'ecommerce,online shopping,buy online,shop online', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', 'Online Ecommerce Shopping', 'company_logo/83f4h1731393547.png', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://x.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://www.messenger.com', 'https://web.whatsapp.com/', NULL, NULL, NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-N5D5W9BW', 0, NULL, 0, 'https://m.me', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, 0, NULL, 'tIvUJx043sH18HxtyM0QSbV6XR7uJ0ELn6rXAPgyFwGPkfRnxmVxudMdFhzB', NULL, NULL, NULL, NULL, '2025-03-16 11:02:09');
+(1, 'company_logo/8K79u1743923059.svg', 'company_logo/LqWAx1743923059.svg', 'company_logo/4lH4v1743923059.svg', 'TechShop - Ecommerce', 'Getup Ltd.', 'Ecommerce Bangladesh is online version of Ecommerce  situated at Dhaka since 2024.', '+88012345647890', 'sample@example.com', 'Dhaka, Bangladesh', NULL, 'https://play.google.com', 'https://www.apple.com/app-store', NULL, NULL, '98740', '3216549875', NULL, 'Copyright © 2024 Ecommerce. All Rights Reserved.', 'company_logo/cRxqA1720483781.png', '#000000', '#d4145a', '#ffffff', '#222831', '#252a34', '#cccccc', 'Online Ecommerce Shopping', 'ecommerce,online shopping,buy online,shop online', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', 'Online Ecommerce Shopping', 'company_logo/83f4h1731393547.png', 'Shop the latest trends at Ecommerce, your go-to destination for online shopping. Discover a wide range of products, from clothing to accessories, and enjoy a seamless shopping experience. Elevate your style with Ecommerce today.', NULL, '<script>\r\n	var meDev = \"Code Sleep Eat\";\r\n	console.log(data);\r\n</script>', NULL, NULL, 'https://www.facebook.com', 'https://www.instagram.com', 'https://x.com', 'https://www.linkedin.com', 'https://www.youtube.com', 'https://www.messenger.com', 'https://web.whatsapp.com/', NULL, NULL, NULL, NULL, 0, 'UA-842191520-669T', 0, 'GTM-N5D5W9BW', 0, NULL, 0, 'https://m.me', 0, 'https://embed.tawk.to/5a7c31ed7591465c7077c48/default', 0, NULL, 1, NULL, 'tIvUJx043sH18HxtyM0QSbV6XR7uJ0ELn6rXAPgyFwGPkfRnxmVxudMdFhzB', NULL, NULL, NULL, NULL, '2025-04-06 07:26:38');
 
 -- --------------------------------------------------------
 
@@ -1252,6 +1283,58 @@ CREATE TABLE `google_recaptchas` (
 
 INSERT INTO `google_recaptchas` (`id`, `captcha_site_key`, `captcha_secret_key`, `status`, `created_at`, `updated_at`) VALUES
 (1, '6LcVO6cbAAAAOzIEwPlU66nL1rxD4VAS38tjp45', '6LcVO6cbAAAALVNrpZfNRfd0Gy_9a_fJRLiMV', 0, NULL, '2023-10-05 05:29:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menus`
+--
+
+CREATE TABLE `menus` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `menu_name` varchar(255) DEFAULT NULL,
+  `app_url` varchar(255) DEFAULT NULL,
+  `web_url` varchar(255) DEFAULT NULL,
+  `menu_type` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Top Menu; 1=>Main Menu; 2=>Footer Menu',
+  `parent_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `parent_menu` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `serial` double NOT NULL DEFAULT 1,
+  `sort` tinyint(4) NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Active; 0=>Inactive',
+  `slug` varchar(255) NOT NULL,
+  `description` longtext DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `meta_description` varchar(255) DEFAULT NULL,
+  `og_title` varchar(255) DEFAULT NULL,
+  `og_keywords` varchar(255) DEFAULT NULL,
+  `og_image` varchar(255) DEFAULT NULL,
+  `featured` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=>Not Featured; 1=>Featured',
+  `show_on_navbar` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1=>Yes; 0=>No',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`id`, `menu_name`, `app_url`, `web_url`, `menu_type`, `parent_id`, `parent_menu`, `icon`, `serial`, `sort`, `status`, `slug`, `description`, `meta_title`, `meta_keywords`, `meta_description`, `og_title`, `og_keywords`, `og_image`, `featured`, `show_on_navbar`, `created_at`, `updated_at`) VALUES
+(38, 'Home', NULL, NULL, 1, NULL, NULL, NULL, -38, 0, 1, 'home', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2024-12-23 05:34:45', '2024-12-23 06:49:58'),
+(39, 'Blogs', NULL, 'blogs', 1, NULL, NULL, NULL, -21, 1, 1, 'blogs', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2024-12-23 05:35:44', NULL),
+(40, 'Contact Us', NULL, 'contact', 1, NULL, NULL, NULL, -22, 1, 1, 'contact-us', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2024-12-23 05:36:15', NULL),
+(41, 'Jack Arnold', 'Quia assumenda est', 'Sed doloremque eos d', 1, 38, NULL, NULL, -23, 1, 1, 'jack-arnold', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2024-12-23 06:02:00', NULL),
+(42, 'Bruce Shelton', 'Porro voluptas fugia', 'Voluptatum aperiam r', 1, 38, NULL, NULL, -24, 0, 1, 'bruce-shelton', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2024-12-23 06:02:46', NULL),
+(43, 'Denise Skinner', 'Magni facilis libero', 'Quia eligendi in con', 1, 38, NULL, NULL, -25, 1, 1, 'denise-skinner', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2024-12-23 06:15:29', NULL),
+(44, 'Winifred Henry', 'Eos dolore consecte', 'Qui asperiores debit', 1, 38, NULL, NULL, -26, 0, 1, 'winifred-henry', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2024-12-23 06:19:25', NULL),
+(47, 'Cadman Mcdaniel', 'Quisquam labore vero', 'Quae doloribus est', 1, 41, NULL, NULL, -29, 0, 1, 'cadman-mcdaniel', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2024-12-23 06:37:16', NULL),
+(58, 'Women', NULL, 'category/women', 1, NULL, NULL, NULL, -42, 2, 1, 'women', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2025-01-19 08:59:49', NULL),
+(59, 'Abaya', NULL, 'category/abaya', 1, 58, NULL, NULL, -43, 1, 1, 'abaya', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2025-01-19 09:00:23', NULL),
+(62, 'Damon Wongss', 'Velit qui velit fusss', 'Modi magni consectetss', 1, NULL, NULL, 'Menu_images/ErYCX1738480362.png', -45, 44, 1, 'damon-wong', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2025-02-02 07:12:42', '2025-02-02 07:12:52'),
+(63, 'Brenda Arnold', 'Mollitia exercitatio', 'Sit explicabo In nu', 1, 42, NULL, NULL, -46, 18, 1, 'brenda-arnold', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2025-02-11 04:43:58', NULL),
+(65, 'ই-বুক', NULL, 'category/ই-বুক/ই-বুক', 1, NULL, NULL, NULL, -51, 1, 1, 'categoryই-বুকই-বুক', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2025-03-05 09:54:07', '2025-03-05 09:58:30'),
+(66, 'Judith Clevelandss', 'Et excepturi ullamcoss', 'Maiores voluptatemss', 1, NULL, NULL, NULL, -54, 0, 1, 'maiores-voluptatemss', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2025-04-06 07:27:00', '2025-04-06 07:27:23');
 
 -- --------------------------------------------------------
 
@@ -1338,7 +1421,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (104, '2024_10_17_123804_create_buy_sells_table', 52),
 (105, '2024_10_17_123954_create_buy_sell_images_table', 53),
 (106, '2024_10_17_124400_create_buy_sell_categories_table', 54),
-(107, '2024_10_17_163447_create_buy_sell_configs_table', 55);
+(107, '2024_10_17_163447_create_buy_sell_configs_table', 55),
+(108, '2024_12_03_135041_create_menus_table', 56);
 
 -- --------------------------------------------------------
 
@@ -1401,8 +1485,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `order_no`, `order_from`, `user_id`, `order_date`, `estimated_dd`, `delivery_date`, `delivery_method`, `payment_method`, `payment_status`, `trx_id`, `bank_tran_id`, `order_status`, `sub_total`, `coupon_code`, `discount`, `reward_points_used`, `delivery_fee`, `vat`, `tax`, `total`, `order_note`, `order_remarks`, `tracking_id`, `courier_details`, `courier_status`, `slug`, `complete_order`, `created_at`, `updated_at`) VALUES
-(1, '1731399458914', 1, NULL, '2024-11-12 14:17:38', '2024-11-19', NULL, '1', 2, 1, '173139945815m0J', '234234', 1, 4194, '0', 0, 0, 100, 0, 0, 4294, NULL, NULL, NULL, NULL, NULL, 'WnHgW1731399458', 1, '2024-11-12 08:17:38', '2024-11-13 06:45:26'),
-(2, '1731482855903', 1, NULL, '2024-11-13 13:27:35', '2024-11-20', NULL, '1', 1, 0, '1731482855Q4cfo', NULL, 0, 391, '0', 0, 0, 100, 0, 0, 491, NULL, NULL, NULL, NULL, NULL, 'nJNM71731482855', 1, '2024-11-13 07:27:35', NULL),
+(1, '1731399458914', 1, NULL, '2024-11-12 14:17:38', '2024-11-19', NULL, '1', 2, 1, '173139945815m0J', '234234', 2, 4194, '0', 0, 0, 100, 0, 0, 4294, NULL, NULL, NULL, NULL, NULL, 'WnHgW1731399458', 1, '2024-11-12 08:17:38', '2025-03-18 09:02:58'),
+(2, '1731482855903', 1, NULL, '2024-11-13 13:27:35', '2024-11-20', NULL, '1', 1, 0, '1731482855Q4cfo', NULL, 1, 391, '0', 0, 0, 100, 0, 0, 491, NULL, NULL, NULL, NULL, NULL, 'nJNM71731482855', 1, '2024-11-13 07:27:35', '2025-03-18 08:59:46'),
 (3, '2412011', 1, NULL, '2024-12-01 19:01:30', '2024-12-08', NULL, '2', 1, 0, '1733058090TzIzV', NULL, 4, 647, 'OFF20', 20, 0, 0, 0, 0, 627, NULL, NULL, NULL, NULL, NULL, 'qnHaq1733058090', 1, '2024-12-01 13:01:30', '2025-03-16 09:47:18'),
 (4, '2412012', 1, NULL, '2024-12-01 19:03:21', '2024-12-08', NULL, '3', 1, 0, '17330582016oVxR', NULL, 2, 647, 'OFF20', 20, 0, 0, 0, 0, 627, NULL, NULL, '7EC884642', '{\"consignment_id\":132941894,\"invoice\":\"24120128117\",\"tracking_code\":\"7EC884642\",\"recipient_name\":\"Fahim Hossain\",\"recipient_phone\":\"01969005035\",\"recipient_address\":\"Flat B4, House No 71, Road 27, Gulshan-1,Gulshan,Dhaka,POC-1000\",\"cod_amount\":633,\"status\":\"in_review\",\"note\":\"Handle with care\",\"created_at\":\"2025-03-17T05:28:12.000000Z\",\"updated_at\":\"2025-03-17T05:28:12.000000Z\"}', 'in_review', 'RhyKP1733058201', 1, '2024-12-01 13:03:21', '2025-03-17 05:28:13'),
 (5, '2412013', 1, NULL, '2024-12-01 19:04:06', '2024-12-08', NULL, '3', 1, 0, '1733058246QiIRe', NULL, 2, 647, 'OFF20', 20, 0, 0, 0, 0, 627, NULL, NULL, '7EC84801F', '{\"consignment_id\":132940928,\"invoice\":\"24120135664\",\"tracking_code\":\"7EC84801F\",\"recipient_name\":\"Md Fahim Hossain\",\"recipient_phone\":\"01969005035\",\"recipient_address\":\"Flat B4, House No 71, Road 27, Gulshan-1,Gulshan,Dhaka,POC-1200\",\"cod_amount\":1,\"status\":\"in_review\",\"note\":\"Handle with care\",\"created_at\":\"2025-03-17T05:22:00.000000Z\",\"updated_at\":\"2025-03-17T05:22:00.000000Z\"}', 'in_review', 'y5U0z1733058246', 1, '2024-12-01 13:04:06', '2025-03-17 05:22:01'),
@@ -1411,7 +1495,9 @@ INSERT INTO `orders` (`id`, `order_no`, `order_from`, `user_id`, `order_date`, `
 (8, '2412201', 1, NULL, '2024-12-20 03:58:41', '2024-12-27', NULL, '1', 1, 0, '1734645521XnLU5', NULL, 2, 2538, '0', 0, 0, 0, 0, 0, 2538, NULL, NULL, NULL, NULL, NULL, 'IZbsA1734645521', 1, '2024-12-20 02:58:41', '2025-03-16 10:34:27'),
 (9, '2412202', 1, NULL, '2024-12-20 04:05:06', '2024-12-27', NULL, '1', 1, 0, '1734645906rfrFs', NULL, 5, 846, '0', 0, 0, 0, 0, 0, 846, NULL, NULL, '7D4E458ED', '{\"consignment_id\":131392600,\"invoice\":\"2503114\",\"tracking_code\":\"7D4E458ED\",\"recipient_name\":\"Shik Marufa\",\"recipient_phone\":\"01717814696\",\"recipient_address\":\"Sec-14, road-16, house-82 uttara model town, Dhaka- 1230,Uttara,Dhaka,POC-1230\",\"cod_amount\":1520,\"status\":\"in_review\",\"note\":\"Handle with care\",\"created_at\":\"2025-03-11T13:31:02.000000Z\",\"updated_at\":\"2025-03-11T13:31:02.000000Z\"}', NULL, 'zcdKe1734645906', 1, '2024-12-20 03:05:06', '2025-03-16 09:55:59'),
 (10, '2503161', 3, 19, '2025-03-16 15:57:19', '2025-03-23', NULL, '2', 1, 0, '1742119039EK2ty', NULL, 1, 846, NULL, 0, 0, 0, 0, 0, 846, 'Nemo aut numquam sed', NULL, '7EC7C9E4A', '{\"consignment_id\": 132938910,\"invoice\": \"2503161\",\n\"tracking_code\": \"7EC7C9E4A\",\n        \"recipient_name\": \"Fahad Hossain\",\n        \"recipient_phone\": \"01787910731\",\n        \"recipient_address\": \"Veniam ut veniam i,Atrai,Naogaon,POC-Sunt ut ut incidunt\",\n        \"cod_amount\": 1,\n        \"status\": \"in_review\",\n        \"note\": \"Nemo aut numquam sed\",\n        \"created_at\": \"2025-03-17T05:08:29.000000Z\",\n        \"updated_at\": \"2025-03-17T05:08:29.000000Z\"\n    }', NULL, '3nkT21742119039', 1, '2025-03-16 09:57:19', NULL),
-(11, '2503162', 3, 20, '2025-03-16 16:01:56', '2025-03-23', NULL, '3', 1, 1, '1742119316CinLt', NULL, 2, 846, NULL, 0, 0, 0, 0, 0, 846, 'Nam lorem aspernatur', NULL, '7EC836D86', '{\"consignment_id\":132940653,\"invoice\":\"25031629124\",\"tracking_code\":\"7EC836D86\",\"recipient_name\":\"Olga Flowers\",\"recipient_phone\":\"01787910731\",\"recipient_address\":\"Corporis tenetur quo,Faridgonj,Chandpur,POC-Officiis eveniet vo\",\"cod_amount\":804,\"status\":\"in_review\",\"note\":\"Nam lorem aspernatur\",\"created_at\":\"2025-03-17T05:20:29.000000Z\",\"updated_at\":\"2025-03-17T05:20:29.000000Z\"}', 'in_review', 'TEE3L1742119316', 1, '2025-03-16 10:01:56', '2025-03-17 05:20:30');
+(11, '2503162', 3, 20, '2025-03-16 16:01:56', '2025-03-23', NULL, '3', 1, 1, '1742119316CinLt', NULL, 2, 846, NULL, 0, 0, 0, 0, 0, 846, 'Nam lorem aspernatur', NULL, '7EC836D86', '{\"consignment_id\":132940653,\"invoice\":\"25031629124\",\"tracking_code\":\"7EC836D86\",\"recipient_name\":\"Olga Flowers\",\"recipient_phone\":\"01787910731\",\"recipient_address\":\"Corporis tenetur quo,Faridgonj,Chandpur,POC-Officiis eveniet vo\",\"cod_amount\":804,\"status\":\"in_review\",\"note\":\"Nam lorem aspernatur\",\"created_at\":\"2025-03-17T05:20:29.000000Z\",\"updated_at\":\"2025-03-17T05:20:29.000000Z\"}', 'in_review', 'TEE3L1742119316', 1, '2025-03-16 10:01:56', '2025-03-17 05:20:30'),
+(13, '1742280931983', NULL, NULL, '2025-03-18 12:55:31', '2025-03-25', NULL, '1', 1, 0, '1742280931BpUS9', NULL, 5, 49, '0', 0, 0, 0, 0, 0, 49, 'Quis fugiat aut eos', NULL, NULL, NULL, NULL, 'IVUIh1742280931', 1, '2025-03-18 06:55:31', '2025-03-18 09:00:10'),
+(14, '1742283656817', NULL, NULL, '2025-03-18 13:40:56', '2025-03-25', NULL, '1', 1, 0, '17422836568VECa', NULL, 5, 386, '0', 0, 0, 0, 0, 0, 386, 'Et non alias minus n', NULL, NULL, NULL, NULL, '80J0E1742283656', 1, '2025-03-18 07:40:56', '2025-03-18 09:00:57');
 
 -- --------------------------------------------------------
 
@@ -1459,7 +1545,9 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `store_id`, `color_
 (12, 9, 3469, NULL, 18, 17, NULL, NULL, NULL, NULL, NULL, 3, 1, 268, 268, 0, '2024-12-20 03:05:06', NULL),
 (13, 9, 3450, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 578, 578, 0, '2024-12-20 03:05:06', NULL),
 (14, 10, 3423, 1, 11, 19, NULL, NULL, NULL, NULL, NULL, 2, 1, 846, 846, 5, '2025-03-16 09:57:19', NULL),
-(15, 11, 3423, 1, 11, 19, NULL, NULL, NULL, NULL, NULL, 2, 1, 846, 846, 5, '2025-03-16 10:01:56', NULL);
+(15, 11, 3423, 1, 11, 19, NULL, NULL, NULL, NULL, NULL, 2, 1, 846, 846, 5, '2025-03-16 10:01:56', NULL),
+(17, 13, 3522, NULL, 15, NULL, 234, 1, 4, 3, 6, 4, 1, 49, 49, 0, '2025-03-18 06:55:31', NULL),
+(18, 14, 3520, NULL, 26, 17, 58, 4, 4, 2, 3, 7, 1, 386, 386, 0, '2025-03-18 07:40:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -1503,7 +1591,9 @@ INSERT INTO `order_payments` (`id`, `order_id`, `payment_through`, `tran_id`, `v
 (6, 8, 'COD', '1734645521XnLU5', NULL, '2538', NULL, '2538', NULL, NULL, 'VALID', '2024-12-20 03:58:41', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-12-20 02:58:41', NULL),
 (7, 9, 'COD', '1734645906rfrFs', NULL, '846', NULL, '846', NULL, NULL, 'VALID', '2024-12-20 04:05:06', 'BDT', NULL, NULL, NULL, NULL, NULL, '2024-12-20 03:05:06', NULL),
 (8, 10, 'COD', '1742119039EK2ty', NULL, '846', NULL, '846', NULL, NULL, 'VALID', '2025-03-16 15:57:19', 'BDT', NULL, NULL, NULL, NULL, NULL, '2025-03-16 09:57:19', NULL),
-(9, 11, 'bKash', '52652', NULL, '50', NULL, '50', NULL, NULL, 'VALID', '2025-03-16 16:02:00', 'BDT', NULL, NULL, NULL, NULL, NULL, '2025-03-16 10:02:25', '2025-03-16 10:19:39');
+(9, 11, 'bKash', '52652', NULL, '50', NULL, '50', NULL, NULL, 'VALID', '2025-03-16 16:02:00', 'BDT', NULL, NULL, NULL, NULL, NULL, '2025-03-16 10:02:25', '2025-03-16 10:19:39'),
+(10, 13, 'COD', '1742280931BpUS9', NULL, '49', NULL, '49', NULL, NULL, 'VALID', '2025-03-18 12:55:31', 'BDT', NULL, NULL, NULL, NULL, NULL, '2025-03-18 06:55:31', NULL),
+(11, 14, 'COD', '17422836568VECa', NULL, '386', NULL, '386', NULL, NULL, 'VALID', '2025-03-18 13:40:56', 'BDT', NULL, NULL, NULL, NULL, NULL, '2025-03-18 07:40:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -1549,7 +1639,15 @@ INSERT INTO `order_progress` (`id`, `order_id`, `order_status`, `created_at`, `u
 (23, 7, 4, '2025-03-16 10:34:32', NULL),
 (24, 7, 4, '2025-03-16 10:34:39', NULL),
 (25, 5, 1, '2025-03-16 10:37:37', NULL),
-(26, 6, 4, '2025-03-16 10:37:42', NULL);
+(26, 6, 4, '2025-03-16 10:37:42', NULL),
+(30, 13, 0, '2025-03-18 06:55:31', NULL),
+(31, 14, 0, '2025-03-18 07:40:56', NULL),
+(32, 14, 1, '2025-03-18 08:32:15', NULL),
+(33, 2, 1, '2025-03-18 08:59:46', NULL),
+(34, 13, 1, '2025-03-18 09:00:01', NULL),
+(35, 13, 5, '2025-03-18 09:00:10', NULL),
+(36, 14, 5, '2025-03-18 09:00:57', NULL),
+(37, 1, 2, '2025-03-18 09:02:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -2527,7 +2625,14 @@ INSERT INTO `products` (`id`, `store_id`, `category_id`, `subcategory_id`, `chil
 (3507, 3, 50, 7, NULL, 64, NULL, 'Monitored hybrid concept-98', '756', 'productImages/71.png', NULL, 'Fugit rerum magni et tempora veniam sequi repellat. Officiis magni sapiente autem iusto. Reprehenderit dignissimos nobis rem rerum repellat.', 'Sed omnis delectus corrupti quis accusantium. Enim esse tempore itaque enim veniam enim odit eius. Incidunt et voluptatibus nihil est placeat et delectus. Et ut est vero earum qui qui. Et est delectus optio sed corporis illo. Beatae iure voluptatem et ut earum iure. Rerum quia itaque numquam consequuntur magni.', 'Molestias fugiat aut enim hic. Minima ut aliquid consequatur voluptas dolorem. Eos voluptatem dolorum et culpa facilis. Tempore laborum inventore culpa sint aspernatur quam possimus sunt.', 'Animi optio eum eaque eius officiis ipsam. Ut repellendus odit amet consequatur molestiae nemo. Autem recusandae qui laudantium eos. Pariatur soluta error iusto unde.', 649, 639, 0, 999, 2, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 3, 'monitored-hybrid-concept98-1731394706PIjib', 35, 1, '2024-12-12 12:58:00', 'Monitored hybrid concept-98', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:26', NULL),
 (3508, 1, 45, 19, 2, 63, NULL, 'Switchable fresh-thinking instructionset-99', '839', 'productImages/62.png', '[\"42.png\",\"70.png\",\"66.png\",\"65.png\"]', 'Fugiat sint nesciunt aut facilis non. Perferendis quae accusantium inventore debitis voluptatibus. Fuga neque sint quaerat quia quibusdam quibusdam.', 'Eos nesciunt facere animi vitae. Molestiae voluptas quae quia sunt et exercitationem. Error consectetur id repellat ea. Qui illo quia veritatis eligendi. Nisi et corporis necessitatibus natus in exercitationem aut aperiam. Tempore beatae cum molestiae eveniet ipsam provident. Commodi aperiam velit minus nesciunt in atque.', 'Maiores porro omnis alias ut numquam dolor id. Labore voluptatibus ipsa facilis tempora. Sed quis eaque quod soluta voluptas quis rerum ea.', 'Consequatur tempore itaque maxime exercitationem rerum maiores ex. Alias qui dolorum iusto et.', 708, 698, 4, 999, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, 'switchable-freshthinking-instructionset99-173139470601HGn', 34, 0, NULL, 'Switchable fresh-thinking instructionset-99', 'product,demo', NULL, 1, 0, 1, '2024-11-12 06:58:26', NULL),
 (3509, 3, 47, 16, NULL, 64, NULL, 'Open-architected object-oriented approach-100', '716', 'productImages/54.png', NULL, 'Ipsa impedit perspiciatis ipsam sed quia tempora. Sunt eum sed fuga doloribus ratione. Molestiae porro laborum animi dicta ab dolores quis.', 'Esse optio culpa sequi qui sed. Quis qui optio reprehenderit. Pariatur nulla autem temporibus culpa impedit iste. Voluptas maiores ullam optio dignissimos quibusdam fugiat. Sapiente voluptatem consectetur ipsam dolores nisi. Harum dolores enim qui molestiae eaque. Suscipit tempore magni voluptas dolorem et.', 'Sit ut rerum voluptate id. Nihil alias nulla eum minus.', 'Qui reiciendis non qui corporis corrupti rerum. Enim in ut soluta iure delectus. Maiores repudiandae quo non et animi sit. Eos ea placeat cupiditate omnis minima voluptas.', 396, 386, 5, 999, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 8, 'openarchitected-objectoriented-approach100-1731394706JneMq', 31, 1, '2024-12-12 12:58:00', 'Open-architected object-oriented approach-100', 'product,demo', NULL, 1, 1, 1, '2024-11-12 06:58:26', NULL),
-(3513, 1, 46, NULL, NULL, 63, NULL, 'Test Product', '987654321', 'productImages/Z1mNw1733755754.JPG', '[\"1733756209mayaq.jpg\",\"1733756209cGmSM.jpg\"]', 'Test Product', '<p>Test Product<br></p>', '<p>Test Product<br></p>', '<p>Test Product<br></p>', 100, 90, 5, 100, 1, NULL, NULL, 1, 'test-product-1733755754PMmfv', 31, 0, '1970-01-01 06:00:00', 'Test', 'Test', 'Test', 1, 0, 0, '2024-12-09 14:49:14', '2024-12-24 21:16:56');
+(3515, 2, 46, NULL, NULL, 64, NULL, 'test', 'Repudiandae doloribu', 'productImages/viu6P1742271093.png', '[\"1742271093ajGiH.jpg\",\"1742271093a4cpI.jpg\",\"1742271094RmQd3.jpg\",\"1742271094MkpcV.jpg\"]', 'Nemo dolor dignissimvg', 'Irure eos, consequat.rvvg', NULL, NULL, 637, 619, 0, 0, 7, 'Qui ex aut fuga Sit', 'Nisi libero ut expli', NULL, 'test-1742271093v0U6S', 35, 0, '1972-07-18 22:13:00', 'Quas quia rerum cons', 'Eius veniam praesen', 'Nostrud tempora quod', 1, 1, 0, '2025-03-18 04:11:33', '2025-03-18 04:11:33'),
+(3516, 2, 46, NULL, NULL, 63, NULL, 'Hanae Hammond', 'Beatae eos veniam', 'productImages/pCW2l1742276985.png', '[\"1742276985B2CeZ.png\",\"1742276986kKKkw.png\",\"1742276986srsnL.png\"]', 'Omnis ea ratione rec', 'Reprehenderit adipis.dvsdvs', NULL, NULL, 300, 400, 0, 0, 4, 'Qui excepteur est a', 'Sit neque iste offi', NULL, 'hanae-hammond-1742276985kXL4m', 32, 0, '1988-05-23 23:20:00', 'Enim accusantium ali', 'Ullam qui repellendu', 'Voluptatem veniam f', 1, 1, 0, '2025-03-18 05:49:45', '2025-03-18 05:50:11'),
+(3517, 2, 46, NULL, NULL, 63, NULL, 'Hanae Hammond (Copy)', 'Beatae eos veniam-C949', 'productImages/pCW2l1742276985.png', '[\"1742276985B2CeZ.png\",\"1742276986kKKkw.png\",\"1742276986srsnL.png\"]', 'Omnis ea ratione rec', 'Reprehenderit adipis.dvsdvs', NULL, NULL, 300, 400, 0, 0, 4, 'Qui excepteur est a', 'Sit neque iste offi', NULL, 'hanae-hammond-copy', 32, 0, '1988-05-23 23:20:00', 'Enim accusantium ali', 'Ullam qui repellendu', 'Voluptatem veniam f', 1, 1, 0, '2025-03-18 05:56:11', NULL),
+(3518, 2, 46, NULL, NULL, 63, NULL, 'Hanae Hammond (Copy) (Copy)', 'Beatae eos veniam-C949-COPY', 'productImages/LsPnw1742277879.png', '[\"17422778805jZK8.png\",\"17422778807oZ11.png\",\"1742277880rBJxP.png\"]', 'Omnis ea ratione rec', 'Reprehenderit adipis.dvsdvs', NULL, NULL, 0, 0, 0, 0, 4, 'Qui excepteur est a', 'Sit neque iste offi', NULL, 'hanae-hammond-copy-copy-1742277879kNEM4', 32, 0, '1988-05-23 23:20:00', 'Enim accusantium ali', 'Ullam qui repellendu', 'Voluptatem veniam f', 1, 1, 0, '2025-03-18 06:04:39', '2025-03-18 06:04:39'),
+(3519, 2, 46, NULL, NULL, 63, NULL, 'Hanae Hammond (Copy) (Copy) (Copy)', 'Beatae eos veniam-C949-COPY-COPY', 'productImages/lVUK91742277913.png', '[\"1742277913CiVpV.png\",\"1742277913Cubu8.png\",\"1742277913a5w5h.png\"]', 'Omnis ea ratione rec', 'Reprehenderit adipis.dvsdvs', NULL, NULL, 0, 0, 0, 0, 4, 'Qui excepteur est a', 'Sit neque iste offi', NULL, 'hanae-hammond-copy-copy-copy-1742277913BpPKt', 32, 0, '1988-05-23 23:20:00', 'Enim accusantium ali', 'Ullam qui repellendu', 'Voluptatem veniam f', 1, 1, 0, '2025-03-18 06:05:13', '2025-03-18 06:05:13'),
+(3520, 3, 47, 16, NULL, 64, NULL, 'Open-architected object-oriented approach-100 (Copy)', '716-COPY', 'productImages/Ujmrh1742277921.png', NULL, 'Ipsa impedit perspiciatis ipsam sed quia tempora. Sunt eum sed fuga doloribus ratione. Molestiae porro laborum animi dicta ab dolores quis.', 'Esse optio culpa sequi qui sed. Quis qui optio reprehenderit. Pariatur nulla autem temporibus culpa impedit iste. Voluptas maiores ullam optio dignissimos quibusdam fugiat. Sapiente voluptatem consectetur ipsam dolores nisi. Harum dolores enim qui molestiae eaque. Suscipit tempore magni voluptas dolorem et.', 'Sit ut rerum voluptate id. Nihil alias nulla eum minus.', 'Qui reiciendis non qui corporis corrupti rerum. Enim in ut soluta iure delectus. Maiores repudiandae quo non et animi sit. Eos ea placeat cupiditate omnis minima voluptas.', 396, 386, 5, 0, 7, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 2, 'openarchitected-objectoriented-approach100-copy-1742277921jnpRo', 31, 1, '2024-12-12 12:58:00', 'Open-architected object-oriented approach-100', 'product,demo', NULL, 1, 1, 0, '2025-03-18 06:05:21', '2025-03-18 06:05:21'),
+(3521, 1, 45, 19, 2, 63, NULL, 'Switchable fresh-thinking instructionset-99 (Copy)', '839-COPY', 'productImages/tpCfu1742277942.png', '[\"1742277942LEtVA.png\",\"1742277942nhtLo.png\",\"17422779421wWGL.png\",\"17422779421GIpE.png\"]', 'Fugiat sint nesciunt aut facilis non. Perferendis quae accusantium inventore debitis voluptatibus. Fuga neque sint quaerat quia quibusdam quibusdam.', 'Eos nesciunt facere animi vitae. Molestiae voluptas quae quia sunt et exercitationem. Error consectetur id repellat ea. Qui illo quia veritatis eligendi. Nisi et corporis necessitatibus natus in exercitationem aut aperiam. Tempore beatae cum molestiae eveniet ipsam provident. Commodi aperiam velit minus nesciunt in atque.', 'Maiores porro omnis alias ut numquam dolor id. Labore voluptatibus ipsa facilis tempora. Sed quis eaque quod soluta voluptas quis rerum ea.', 'Consequatur tempore itaque maxime exercitationem rerum maiores ex. Alias qui dolorum iusto et.', 708, 698, 4, 999, 1, 'product,demo', 'https://www.youtube.com/watch?v=2tirsYI5D2M', 7, 'switchable-freshthinking-instructionset99-copy-17422779428J9DM', 34, 0, NULL, 'Switchable fresh-thinking instructionset-99', 'product,demo', NULL, 1, 0, 0, '2025-03-18 06:05:42', '2025-03-18 06:05:42'),
+(3522, 1, 46, NULL, NULL, 64, NULL, 'Finn Ellis', 'Autem officiis maior', 'productImages/JNGQx1742280835.png', NULL, 'Corporis est delectu', 'Soluta non quaerat v.vfd', NULL, NULL, 439, 49, 0, 0, 4, 'Dolor ex et sint Nam', 'Non laudantium itaq', 3, 'finn-ellis-1742280835R8aCG', 35, 0, '2017-11-11 22:35:00', 'Laboriosam enim vol', 'Pariatur Quia ut ip', 'Nobis aut doloribus', 1, 1, 0, '2025-03-18 06:53:55', '2025-03-18 06:53:55');
 
 -- --------------------------------------------------------
 
@@ -3148,8 +3253,26 @@ INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `update
 (7010, 3508, '70.png', '2024-11-12 06:58:26', NULL),
 (7011, 3508, '66.png', '2024-11-12 06:58:26', NULL),
 (7012, 3508, '65.png', '2024-11-12 06:58:26', NULL),
-(7021, 3513, '1733756209mayaq.jpg', '2024-12-09 14:56:49', NULL),
-(7022, 3513, '1733756209cGmSM.jpg', '2024-12-09 14:56:49', NULL);
+(7024, 3515, '1742271093ajGiH.jpg', '2025-03-18 04:11:34', NULL),
+(7025, 3515, '1742271093a4cpI.jpg', '2025-03-18 04:11:34', NULL),
+(7026, 3515, '1742271094RmQd3.jpg', '2025-03-18 04:11:34', NULL),
+(7027, 3515, '1742271094MkpcV.jpg', '2025-03-18 04:11:34', NULL),
+(7028, 3516, '1742276985B2CeZ.png', '2025-03-18 05:49:46', NULL),
+(7029, 3516, '1742276986kKKkw.png', '2025-03-18 05:49:46', NULL),
+(7030, 3516, '1742276986srsnL.png', '2025-03-18 05:49:46', NULL),
+(7031, 3517, '1742276985B2CeZ.png', '2025-03-18 05:56:11', NULL),
+(7032, 3517, '1742276986kKKkw.png', '2025-03-18 05:56:11', NULL),
+(7033, 3517, '1742276986srsnL.png', '2025-03-18 05:56:11', NULL),
+(7034, 3518, '17422778805jZK8.png', '2025-03-18 06:04:40', '2025-03-18 06:04:40'),
+(7035, 3518, '17422778807oZ11.png', '2025-03-18 06:04:40', '2025-03-18 06:04:40'),
+(7036, 3518, '1742277880rBJxP.png', '2025-03-18 06:04:40', '2025-03-18 06:04:40'),
+(7037, 3519, '1742277913CiVpV.png', '2025-03-18 06:05:13', '2025-03-18 06:05:13'),
+(7038, 3519, '1742277913Cubu8.png', '2025-03-18 06:05:13', '2025-03-18 06:05:13'),
+(7039, 3519, '1742277913a5w5h.png', '2025-03-18 06:05:13', '2025-03-18 06:05:13'),
+(7040, 3521, '1742277942LEtVA.png', '2025-03-18 06:05:42', '2025-03-18 06:05:42'),
+(7041, 3521, '1742277942nhtLo.png', '2025-03-18 06:05:42', '2025-03-18 06:05:42'),
+(7042, 3521, '17422779421wWGL.png', '2025-03-18 06:05:42', '2025-03-18 06:05:42'),
+(7043, 3521, '17422779421GIpE.png', '2025-03-18 06:05:42', '2025-03-18 06:05:42');
 
 -- --------------------------------------------------------
 
@@ -4468,7 +4591,20 @@ INSERT INTO `product_variants` (`id`, `product_id`, `image`, `color_id`, `unit_i
 (7005, 3509, '52.png', 26, NULL, 17, 58, 4, 4, 1000, 396, 386, 2, 3, '2024-11-12 06:58:27', '2024-11-12 06:58:27'),
 (7006, 3509, '72.png', 2, NULL, 19, 58, 4, 4, 1000, 396, 386, 2, 3, '2024-11-12 06:58:27', '2024-11-12 06:58:27'),
 (7007, 3509, '54.png', 16, NULL, 20, 58, 4, 4, 1000, 396, 386, 2, 3, '2024-11-12 06:58:27', '2024-11-12 06:58:27'),
-(7008, 3509, '80.png', 18, NULL, 20, 58, 4, 4, 1000, 396, 386, 2, 3, '2024-11-12 06:58:27', '2024-11-12 06:58:27');
+(7008, 3509, '80.png', 18, NULL, 20, 58, 4, 4, 1000, 396, 386, 2, 3, '2024-11-12 06:58:27', '2024-11-12 06:58:27'),
+(7011, 3515, NULL, 17, NULL, 17, NULL, NULL, NULL, 74, 637, 619, NULL, NULL, '2025-03-18 04:11:33', NULL),
+(7012, 3515, NULL, 22, NULL, 18, NULL, NULL, NULL, 70, 910, 662, NULL, NULL, '2025-03-18 04:11:33', NULL),
+(7013, 3515, NULL, 27, NULL, 20, NULL, NULL, NULL, 89, 883, 863, NULL, NULL, '2025-03-18 04:11:33', NULL),
+(7014, 3516, NULL, 23, NULL, 17, NULL, NULL, NULL, 200, 300, 400, NULL, NULL, '2025-03-18 05:49:45', '2025-03-18 05:50:11'),
+(7015, 3516, NULL, 12, NULL, 17, NULL, NULL, NULL, 200, 300, 400, NULL, NULL, '2025-03-18 05:49:45', '2025-03-18 05:50:11'),
+(7016, 3516, NULL, 1, NULL, 17, NULL, NULL, NULL, 200, 300, 400, NULL, NULL, '2025-03-18 05:49:45', '2025-03-18 05:50:11'),
+(7017, 3520, '1742277921NB2Kp.png', 26, NULL, 17, 58, 4, 4, 999, 396, 386, 2, 3, '2025-03-18 06:05:21', '2025-03-18 06:05:21'),
+(7018, 3520, '1742277921tzJDI.png', 2, NULL, 19, 58, 4, 4, 1000, 396, 386, 2, 3, '2025-03-18 06:05:21', '2025-03-18 06:05:21'),
+(7019, 3520, '1742277921rt5Mj.png', 16, NULL, 20, 58, 4, 4, 1000, 396, 386, 2, 3, '2025-03-18 06:05:21', '2025-03-18 06:05:21'),
+(7020, 3520, '1742277921tJN2e.png', 18, NULL, 20, 58, 4, 4, 1000, 396, 386, 2, 3, '2025-03-18 06:05:21', '2025-03-18 06:05:21'),
+(7021, 3522, NULL, 15, 3, 18, 234, 1, 4, 29, 439, 49, 3, 6, '2025-03-18 06:53:55', NULL),
+(7022, 3522, NULL, 17, 4, 19, 231, 2, 10, 21, 112, 869, 3, 1, '2025-03-18 06:53:55', NULL),
+(7023, 3522, NULL, 22, 1, 19, 62, 3, 7, 61, 287, 630, 7, 3, '2025-03-18 06:53:55', NULL);
 
 -- --------------------------------------------------------
 
@@ -4616,7 +4752,9 @@ INSERT INTO `shipping_infos` (`id`, `order_id`, `full_name`, `phone`, `email`, `
 (7, 8, 'Fahim Hossain', '01969005035', 'alifhossain174@gmail.com', NULL, 'Am Saalepark', 'Barguna Sadar', '1200', 'Barguna', 'Bangladesh', '2024-12-20 02:58:41', NULL),
 (8, 9, 'Fahim Hossain', '+4915736108363', 'alifhossain174@gmail.com', NULL, 'Am Saalepark', 'Bakerganj', '1200', 'Barisal', 'Bangladesh', '2024-12-20 03:05:06', NULL),
 (9, 10, 'Fahad Hossain', '01787910731', 'fahad@gmail.com', NULL, 'Veniam ut veniam i', 'Atrai', 'Sunt ut ut incidunt', 'Naogaon', 'Bangladesh', '2025-03-16 09:57:19', NULL),
-(10, 11, 'Olga Flowers', '01787910731', 'alifhossain174@gmail.com', NULL, 'Corporis tenetur quo', 'Faridgonj', 'Officiis eveniet vo', 'Chandpur', 'Bangladesh', '2025-03-16 10:01:56', NULL);
+(10, 11, 'Olga Flowers', '01787910731', 'alifhossain174@gmail.com', NULL, 'Corporis tenetur quo', 'Faridgonj', 'Officiis eveniet vo', 'Chandpur', 'Bangladesh', '2025-03-16 10:01:56', NULL),
+(12, 13, 'Kaseem Dickerson', '+1 (903) 752-4272', 'juxosohydi@mailinator.com', NULL, 'Ducimus praesentium', 'Bagerhat Sadar', 'Dolor eiusmod laboru', 'Bagerhat', 'Bangladesh', '2025-03-18 06:55:31', NULL),
+(13, 14, 'Fay Hendrix', '+1 (601) 948-9141', 'pyhazaxymo@mailinator.com', NULL, 'gulshan 1', 'Bagerhat Sadar', '1229', 'Bagerhat', 'Bangladesh', '2025-03-18 07:40:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -10507,6 +10645,12 @@ ALTER TABLE `flags`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `footers`
+--
+ALTER TABLE `footers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `general_infos`
 --
 ALTER TABLE `general_infos`
@@ -10516,6 +10660,12 @@ ALTER TABLE `general_infos`
 -- Indexes for table `google_recaptchas`
 --
 ALTER TABLE `google_recaptchas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `menus`
+--
+ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10820,7 +10970,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `billing_addresses`
 --
 ALTER TABLE `billing_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -10973,6 +11123,12 @@ ALTER TABLE `flags`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
+-- AUTO_INCREMENT for table `footers`
+--
+ALTER TABLE `footers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `general_infos`
 --
 ALTER TABLE `general_infos`
@@ -10985,10 +11141,16 @@ ALTER TABLE `google_recaptchas`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `menus`
+--
+ALTER TABLE `menus`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -11000,25 +11162,25 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `order_progress`
 --
 ALTER TABLE `order_progress`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -11042,13 +11204,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3515;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3523;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7024;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7044;
 
 --
 -- AUTO_INCREMENT for table `product_models`
@@ -11078,7 +11240,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7011;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7024;
 
 --
 -- AUTO_INCREMENT for table `product_warrenties`
@@ -11108,7 +11270,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `shipping_infos`
 --
 ALTER TABLE `shipping_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `sims`

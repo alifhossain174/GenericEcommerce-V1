@@ -24,7 +24,7 @@ class CourierController extends Controller
 
     public function setConfigData($provider = "steadfast")
     {
-        $courierApiKeys = CourierApiKey::where('provider_name',$provider)->first();
+        $courierApiKeys = CourierApiKey::where('provider_name', $provider)->first();
         switch ($provider) {
             case 'steadfast':
                 $this->baseUrl = "https://portal.steadfast.com.bd/api/v1";
@@ -32,7 +32,7 @@ class CourierController extends Controller
             case 'pathao':
                 $this->baseUrl = "https://api-hermes.pathao.com";
                 break;
-            
+
             default:
                 $this->baseUrl = "https://portal.steadfast.com.bd/api/v1";
                 break;
@@ -54,35 +54,91 @@ class CourierController extends Controller
 
     public function placeOrder($data)
     {
-        $response = Http::withHeaders($this->getHeader())->post($this->baseUrl.'/create_order', $data);
+        $response = Http::withHeaders($this->getHeader())->post($this->baseUrl . '/create_order', $data);
         return $response->json();
     }
 
     public function bulkCreateOrders($data)
     {
         $response = Http::withHeaders($this->getHeader())
-            ->post($this->baseUrl.'/create_order/bulk-order', ['data' => json_encode($data)]);
+            ->post($this->baseUrl . '/create_order/bulk-order', ['data' => json_encode($data)]);
 
         return $response->json();
     }
 
     public function checkDeliveryStatusByConsignmentId($id)
     {
-        $response = Http::withHeaders($this->getHeader())->get($this->baseUrl.'/status_by_cid/'.$id);
+        $response = Http::withHeaders($this->getHeader())->get($this->baseUrl . '/status_by_cid/' . $id);
         return $response->json();
     }
 
 
     public function checkDeliveryStatusByInvoiceId($id)
     {
-        $response = Http::withHeaders($this->getHeader())->get($this->baseUrl.'/status_by_invoice/'.$id);
+        $response = Http::withHeaders($this->getHeader())->get($this->baseUrl . '/status_by_invoice/' . $id);
         return $response->json();
     }
 
     public function checkDeliveryStatusByTrackingCode($id)
     {
-        $response = Http::withHeaders($this->getHeader())->get($this->baseUrl.'/status_by_trackingcode/'.$id);
+        $response = Http::withHeaders($this->getHeader())->get($this->baseUrl . '/status_by_trackingcode/' . $id);
         return $response->json();
+    }
+    public function updataCourierStatus(Request $request)
+    {
+        try {
+
+            $results = [];
+            $processedCount = 0;
+
+            Order::select('id', 'order_no', 'total', 'order_date', 'tracking_id', 'courier_status')
+                ->whereBetween('order_date', [$request->startDate, $request->endDate . ' 23:59:59'])
+                ->whereNotNull('tracking_id')
+                ->where(function ($query) {
+                    $query->where('courier_status', '!=', 'delivered')
+                        ->where('courier_status', '!=', 'unknown')
+                        ->where('courier_status', '!=', 'cancelled');
+                })
+                ->chunk(50, function ($orders) use (&$results, &$processedCount) {
+                    $trackingIds = $orders->pluck('tracking_id', 'id')->toArray();
+                    $updateData = [];
+                    foreach ($trackingIds as $orderId => $trackingId) {
+                        $result = $this->checkDeliveryStatusByTrackingCode($trackingId);
+                        if (isset($result['delivery_status'])) {
+                            $updateData[] = [
+                                'id' => $orderId,
+                                'courier_status' => $result['delivery_status']
+                            ];
+                        }
+
+                        $results[] = $result;
+                        $processedCount++;
+                    }
+                    if (!empty($updateData)) {
+                        foreach ($updateData as $item) {
+                            DB::table('orders')
+                                ->where('id', $item['id'])
+                                ->update(['courier_status' => $item['courier_status']]);
+                        }
+                    }
+                });
+            // Toastr::success('Courier Status has been Updated successfully.', 'Success');
+            return response()->json([
+                'success' => true,
+                'processed_count' => $processedCount,
+                'results' => $results
+            ]);
+
+            return back();
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'message' => $th->getMessage()
+            ]);
+            // Toastr::error('Order has been Placed.', 'Failed');
+            // return response()->json(['message' => 'Courier Status has been Updated successfully!']);
+            return back();
+        }
     }
 
     public function addOrderToCourier(Request $request, $orderId)
@@ -102,7 +158,7 @@ class CourierController extends Controller
             }
             $makeAddr = $orderInfo->shipping_info?->address . ',' . $orderInfo->shipping_info?->thana . ',' . $orderInfo->shipping_info?->city . ',POC-' . $orderInfo->shipping_info?->post_code;
             $orderData = [
-                'invoice' => $orderInfo->order_no . rand(100,500),
+                'invoice' => $orderInfo->order_no . rand(100, 500),
                 'recipient_name' => $orderInfo->shipping_info?->full_name ?? 'N/A',
                 'recipient_phone' => $orderInfo->shipping_info?->phone ?? 'N/A',
                 'recipient_address' => $makeAddr,
@@ -132,10 +188,10 @@ class CourierController extends Controller
     public function addBulkCourier(Request $request)
     {
         try {
-            $orderInfo = Order::select('id','order_no','total')->with('shipping_info')
-                ->whereIn('id',$request->orderIds)->whereNull('tracking_id')->get();
+            $orderInfo = Order::select('id', 'order_no', 'total')->with('shipping_info')
+                ->whereIn('id', $request->orderIds)->whereNull('tracking_id')->get();
             $data = array();
-            foreach($orderInfo as $order){
+            foreach ($orderInfo as $order) {
                 if (empty($order->shipping_info)) {
                     break;
                 }
@@ -154,7 +210,7 @@ class CourierController extends Controller
                     'cod_amount' => $due == 0 ? 1 : round($due),
                     'note' => $order->order_note ?? 'Handle with care'
                 ];
-                array_push($data,...[$orderData]);
+                array_push($data, ...[$orderData]);
             }
             $result = $this->bulkCreateOrders($data);
             if (is_array($result) && isset($result['data'])) {

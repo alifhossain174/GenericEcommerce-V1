@@ -36,6 +36,7 @@ use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CourierController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Middleware\CheckUserType;
 use App\Http\Middleware\DemoMode;
@@ -48,7 +49,6 @@ Route::get('/', function () {
 // Route::get('/php-details', function () {
 //     phpinfo();
 // });
-Route::get('add/order/{orderid}/courier', [SteadFastCourierController::class, 'addOrderToCourier']);
 
 Route::get('/config-clear', function () {
     // Artisan::call('cache:clear');
@@ -133,6 +133,19 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
 
     Route::get('/view/payment/history', [HomeController::class, 'viewPaymentHistory'])->name('ViewPaymentHistory');
     Route::post('update/payment', [HomeController::class, 'updataPaymentAmount']);
+
+    // Menu routes
+    Route::get('/add/new/menu', [MenuController::class, 'addNewMenu'])->name('AddNewMenu');
+    Route::post('/save/new/menu', [MenuController::class, 'saveNewMenu'])->name('SaveNewMenu');
+    Route::get('/view/all/menus', [MenuController::class, 'viewAllMenu'])->name('ViewAllMenu');
+    Route::get('/delete/menu/{slug}', [MenuController::class, 'deleteMenu'])->name('DeleteMenu');
+    Route::get('/feature/menu/{slug}', [MenuController::class, 'featureMenu'])->name('FeatureMenu');
+    Route::get('/edit-old/menu/{slug}', [MenuController::class, 'editMenu'])->name('EditMenu');
+    Route::get('/edit/menu/{slug}', [MenuController::class, 'editMenuNew'])->name('EditMenuNew');
+
+    Route::post('/update/menu', [MenuController::class, 'updateMenu'])->name('UpdateMenu');
+    Route::get('/rearrange/menu', [MenuController::class, 'rearrange'])->name('menus.rearrange');
+    Route::post('/menus-sort', [MenuController::class, 'rearrange'])->name('menus.sort');
 
     // category routes
     Route::get('/add/new/category', [CategoryController::class, 'addNewCategory'])->name('AddNewCategory');
@@ -347,6 +360,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     //start courier routes
     Route::get('add/order/{orderid}/courier', [CourierController::class, 'addOrderToCourier']);
     Route::post('add/bulk/order/courier', [CourierController::class, 'addBulkCourier']);
+    Route::post('update/status/order/courier', [CourierController::class, 'updataCourierStatus']);
 
     //start courier routes
     // Route::get('add/order/{orderid}/courier', [SteadFastCourierController::class, 'addOrderToCourier']);

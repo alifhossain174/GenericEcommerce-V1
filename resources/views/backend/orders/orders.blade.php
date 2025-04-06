@@ -163,6 +163,9 @@
                             <button class="btn btn-success btn-sm rounded ml-3" id="multi_order_courier_btn">Bulk Courier
                                 Entry</button>
                         @endif
+                        <button type="button" class="btn btn-info btn-sm ml-3 rounded"
+                            onclick="toggleCourierModal()"></i>Courier Status</button>
+
                     </h4>
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0 data-table">
@@ -193,6 +196,32 @@
                                 </tr>
                             </tfoot>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="courierUpdateStatusModal" tabindex="-1"
+                aria-labelledby="courierUpdateStatusModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="courierUpdateStatusModalLabel">Update Courier Status</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><i
+                                    class="fas fa-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="startDate" class="form-label">Start Date</label>
+                                <input type="date" class="form-control" id="startDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="endDate" class="form-label">End Date</label>
+                                <input type="date" class="form-control" id="endDate">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="updateCourierStatusBtn">Update</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -504,7 +533,7 @@
                     url: "{{ url('add/bulk/order/courier') }}",
                     method: 'POST',
                     data: {
-                        ids: selectedIds,
+                        orderIds: selectedIds,
                         _token: "{{ csrf_token() }}"
                     },
                     success: function(response) {
@@ -550,6 +579,47 @@
                 return false;
             }
         }
+
+        function toggleCourierModal() {
+            $("#courierUpdateStatusModal").modal().show()
+        }
+
+        $("#updateCourierStatusBtn").on("click", async function() {
+            const stDate = $("#startDate").val()
+            const enDate = $("#endDate").val()
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            await fetch('/update/status/order/courier', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        startDate: stDate,
+                        endDate: enDate
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message || 'Courier Status updated successfully!');
+                    } else {
+                        alert(data.message || 'Error updating payment.');
+                    }
+                    $("#courierUpdateStatusModal").modal().hide();
+                    window.location.href = window.location.href;
+                })
+                .catch(error => {
+                    // console.log({error});
+                    alert(error?.message || "Something went wrong!");
+                });
+        })
 
         $('body').on('click', '.cancelBtn', function() {
             var slug = $(this).data("id");

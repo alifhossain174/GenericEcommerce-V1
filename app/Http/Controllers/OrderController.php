@@ -124,28 +124,10 @@ class OrderController extends Controller
                             'sims.name as sim',
                             'product_sizes.name as size',
                             'order_details.region_id',
-                            'order_details.warrenty_id',
-                            'order_details.device_condition_id'
+                            'order_details.warrenty_id'
                         )
                         ->where('order_details.order_id', $data->id)
                         ->get();
-
-                    // Get config setup if available
-                    $configSetup = [];
-                    try {
-                        $configSetup = DB::table('configuration_setups')->get();
-                    } catch (\Exception $e) {
-                        // Fallback labels if configuration_setups table doesn't exist
-                        $configSetup = [
-                            (object)['name' => 'Size'],
-                            (object)['name' => 'Storage'],
-                            (object)['name' => 'SIM'],
-                            (object)['name' => 'Device Condition'],
-                            (object)['name' => 'Product Warranty'],
-                            (object)['name' => 'Region'],
-                            (object)['name' => 'Color']
-                        ];
-                    }
 
                     $html = '';
                     foreach ($orderItems as $index => $item) {
@@ -162,24 +144,22 @@ class OrderController extends Controller
 
                         // Color
                         if (isset($item->color) && !empty($item->color)) {
-                            $variantInfo1[] = (isset($configSetup[6]) ? $configSetup[6]->name : 'Color') . ': ' . $item->color;
+                            $variantInfo1[] = $item->color;
                         }
 
                         // Storage (RAM/ROM)
                         if ((isset($item->ram) && !empty($item->ram)) || (isset($item->rom) && !empty($item->rom))) {
-                            $storage = (isset($configSetup[1]) ? $configSetup[1]->name : 'Storage') . ': ';
-                            $storage .= (isset($item->ram) ? $item->ram : '') . '/' . (isset($item->rom) ? $item->rom : '');
-                            $variantInfo1[] = $storage;
+                            $variantInfo1[] = (isset($item->ram) ? $item->ram : '') . '/' . (isset($item->rom) ? $item->rom : '');
                         }
 
                         // SIM
                         if (isset($item->sim) && !empty($item->sim)) {
-                            $variantInfo1[] = (isset($configSetup[2]) ? $configSetup[2]->name : 'SIM') . ': ' . $item->sim;
+                            $variantInfo1[] = $item->sim;
                         }
 
                         // Size
                         if (isset($item->size) && !empty($item->size)) {
-                            $variantInfo1[] = (isset($configSetup[0]) ? $configSetup[0]->name : 'Size') . ': ' . $item->size;
+                            $variantInfo1[] = $item->size;
                         }
 
                         // Display first row of variants
@@ -194,7 +174,7 @@ class OrderController extends Controller
                         if (isset($item->region_id) && !empty($item->region_id)) {
                             $regionInfo = DB::table('country')->where('id', $item->region_id)->first();
                             if ($regionInfo && isset($regionInfo->name)) {
-                                $variantInfo2[] = (isset($configSetup[5]) ? $configSetup[5]->name : 'Region') . ': ' . $regionInfo->name;
+                                $variantInfo2[] = $regionInfo->name;
                             }
                         }
 
@@ -202,15 +182,7 @@ class OrderController extends Controller
                         if (isset($item->warrenty_id) && !empty($item->warrenty_id)) {
                             $warrantyInfo = DB::table('product_warrenties')->where('id', $item->warrenty_id)->first();
                             if ($warrantyInfo && isset($warrantyInfo->name)) {
-                                $variantInfo2[] = (isset($configSetup[4]) ? $configSetup[4]->name : 'Product Warranty') . ': ' . $warrantyInfo->name;
-                            }
-                        }
-
-                        // Device Condition
-                        if (isset($item->device_condition_id) && !empty($item->device_condition_id)) {
-                            $conditionInfo = DB::table('device_conditions')->where('id', $item->device_condition_id)->first();
-                            if ($conditionInfo && isset($conditionInfo->name)) {
-                                $variantInfo2[] = (isset($configSetup[3]) ? $configSetup[3]->name : 'Device Condition') . ': ' . $conditionInfo->name;
+                                $variantInfo2[] = $warrantyInfo->name;
                             }
                         }
 
@@ -228,13 +200,13 @@ class OrderController extends Controller
                     } elseif ($data->order_status == 1) {
                         return '<span class="alert alert-info" style="padding: 2px 10px !important;">Approved</span>';
                     } elseif ($data->order_status == 5) {
-                        return '<span class="alert alert-info" style="padding: 2px 10px !important;">Ready to ship</span>';
+                        return '<span class="alert alert-info" style="padding: 2px 10px !important;">Ready to ship ' . ($data->delivery_method == 3 ? '(SteadFast<br>' . '-' . $data->courier_status . ')' : '') . '</span>';
                     } elseif ($data->order_status == 2) {
-                        return '<span class="alert alert-primary" style="padding: 2px 12px !important;">InTransit ' . ($data->delivery_method == 3 ? '(SteadFast)' : '') . '</span>';
+                        return '<span class="alert alert-primary" style="padding: 2px 12px !important;">InTransit ' . ($data->delivery_method == 3 ? '(SteadFast<br>' . '-' . $data->courier_status . ')' : '') . '</span>';
                     } elseif ($data->order_status == 3) {
-                        return '<span class="alert alert-success" style="padding: 2px 10px !important;">Delivered</span>';
+                        return '<span class="alert alert-success" style="padding: 2px 10px !important;">Delivered ' . ($data->delivery_method == 3 ? '(SteadFast<br>' . '-' . $data->courier_status . ')' : '') . '</span>';
                     } else {
-                        return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Cancelled</span>';
+                        return '<span class="alert alert-danger" style="padding: 2px 10px !important;">Cancelled ' . ($data->delivery_method == 3 ? '(SteadFast<br>' . '-' . $data->courier_status . ')' : '') . '</span>';
                     }
                 })
                 ->editColumn('payment_method', function ($data) {
