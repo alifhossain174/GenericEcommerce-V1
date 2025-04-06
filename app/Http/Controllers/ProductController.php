@@ -54,7 +54,7 @@ class ProductController extends Controller
         if ($request->status != 2) { //when save as draft
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
-                'category_id' => 'required',
+                'category_id' => 'required|array',
                 'image' => 'required',
             ]);
         }
@@ -84,7 +84,7 @@ class ProductController extends Controller
         $product->tags = $request->tags;
         $product->video_url = $request->video_url;
         $product->store_id = isset($request->store_id) ? $request->store_id : null;
-        $product->category_id = $request->category_id;
+        $product->category_id = json_encode($request->category_id);
         $product->subcategory_id = $request->subcategory_id;
         $product->childcategory_id = $request->childcategory_id;
         $product->image = $image;
@@ -220,7 +220,7 @@ class ProductController extends Controller
                 ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
                 ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
-                ->select('products.id', 'products.name', 'products.code', 'products.price', 'products.discount_price', 'products.image', 'products.slug', 'products.status', 'products.has_variant', 'products.stock', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
+                ->select('products.id', 'products.name', 'products.category_id', 'products.code', 'products.price', 'products.discount_price', 'products.image', 'products.slug', 'products.status', 'products.has_variant', 'products.stock', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
                 ->orderBy('products.id', 'desc');
 
             // filter start from here
@@ -280,19 +280,25 @@ class ProductController extends Controller
                         return '<span class="btn btn-sm btn-danger d-inline-block">Inactive</span>';
                     }
                 })
-                // ->editColumn('price', function($data) {
-                //     if($data->has_variant == 1){
-                //         $priceStr = '';
-                //         $variantInfo = ProductVariant::where('product_id', $data->id)->select('price')->orderBy('id', 'asc')->get();
-                //         foreach($variantInfo as $variant){
-                //             $priceStr .= $variant->price.", ";
-                //         }
+                ->editColumn('category_id', function ($data) {
 
-                //         return rtrim($priceStr,", ");
-                //     } else {
-                //         return $data->price;
-                //     }
-                // })
+                    if ($data->category_id) {
+
+                        $category = is_array(json_decode($data->category_id, true))
+                            ? json_decode($data->category_id, true)
+                            : [$data->category_id]; // Treat as an array if it's a single integer
+
+                        $categoryStr = '';
+                        foreach ($category as $cat) {
+                            $categoryInfo = Category::where('id', $cat)->first();
+                            if ($categoryInfo) {
+                                $categoryStr .= $categoryInfo->name . ", ";
+                            }
+                        }
+
+                        return rtrim($categoryStr, ", ");
+                    }
+                })
                 ->editColumn('stock', function ($data) {
                     if ($data->has_variant == 1) {
                         $stockStr = '';
@@ -384,7 +390,7 @@ class ProductController extends Controller
         if ($request->status != 2) { //when save as draft
             $request->validate([
                 'name' => 'required|max:255',
-                'category_id' => 'required',
+                'category_id' => 'required|array',
                 'status' => 'required',
             ]);
         }
@@ -420,7 +426,7 @@ class ProductController extends Controller
         $product->tags = $request->tags;
         $product->video_url = $request->video_url;
         $product->store_id = isset($request->store_id) ? $request->store_id : null;
-        $product->category_id = $request->category_id;
+        $product->category_id = json_encode($request->category_id);
         $product->subcategory_id = $request->subcategory_id;
         $product->childcategory_id = $request->childcategory_id;
         $product->image = $image;

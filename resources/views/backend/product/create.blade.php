@@ -239,50 +239,23 @@
                                     </div>
                                 @endif
 
-                                <div class="form-group">
-                                    <label for="category_id">Category<span class="text-danger">*</span></label>
-                                    <select name="category_id" data-toggle="select2" class="form-control"
-                                        id="category_id" required>
-                                        @php
-                                            echo App\Models\Category::getDropDownList('name');
-                                        @endphp
-                                    </select>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('category_id')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
+                                <!--New Multiple category checkbox-->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 h6">Product Category</h5>
 
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="subcategory_id">Subcategory</label>
-                                            <select name="subcategory_id" data-toggle="select2" class="form-control"
-                                                id="subcategory_id">
-                                                <option value="">Select One</option>
-                                            </select>
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('subcategory_id')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="h-300px overflow-auto c-scrollbar-light">
+
+                                            @foreach (\App\Models\Category::getTreeForSelect([]) as $option)
+                                                {!! $option !!}
+                                            @endforeach
+
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="childcategory_id">Child Category</label>
-                                            <select name="childcategory_id" data-toggle="select2" class="form-control"
-                                                id="childcategory_id">
-                                                <option value="">Select One</option>
-                                            </select>
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('childcategory_id')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
 
                                 <div class="row">

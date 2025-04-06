@@ -107,7 +107,7 @@
                                     <th class="text-center">SKU</th>
                                     <th class="text-center">Image</th>
                                     <th class="text-center">Name</th>
-                                    <th class="text-center">Category</th>
+                                    {{-- <th class="text-center">Category</th> --}}
                                     @if(env('MultiVendor') == true)
                                     <th class="text-center">Store</th>
                                     @endif
@@ -218,7 +218,7 @@
                     @if(env('DEMO_MODE') == true)
                     d.store_id = $("#store_id").val();
                     @endif
-                    d.category_id = $("#category_id").val();
+                    // d.category_id = $("#category_id").val();
                     d.brand_id = $("#brand_id").val();
                     d.flag_id = $("#flag_id").val();
                     d.status = $("#status").val();
@@ -250,10 +250,10 @@
                     data: 'name',
                     name: 'name'
                 },
-                {
-                    data: 'category_name',
-                    name: 'category_name'
-                },
+                // {
+                //     data: 'category_name',
+                //     name: 'category_name'
+                // },
                 @if(env('MultiVendor') == true)
                 {
                     data: 'store_name',
@@ -318,7 +318,7 @@
             $("#product_code").val("");
             $("#product_name").val("");
             $("#store_id").val("").change();
-            $("#category_id").val("").change();
+            // $("#category_id").val("").change();
             $("#brand_id").val("").change();
             $("#flag_id").val("").change();
             $("#status").val("");

@@ -257,63 +257,21 @@
                                     </div>
                                 @endif
 
-                                <div class="form-group">
-                                    <label for="category_id">Category <span class="text-danger">*</span></label>
-                                    <select name="category_id" data-toggle="select2" class="form-control"
-                                        id="category_id" required>
-                                        @php
-                                            echo App\Models\Category::getDropDownList('name', $product->category_id);
-                                        @endphp
-                                    </select>
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('category_id')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
+                                <!--New Multiple category checkbox-->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 h6">Product Category</h5>
 
-                                {{-- subcategory child category --}}
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="subcategory_id">Subcategory</label>
-                                            <select name="subcategory_id" data-toggle="select2" class="form-control"
-                                                id="subcategory_id">
-                                                <option value="">Select One</option>
-                                                @foreach ($subcategories as $subcategory)
-                                                    <option value="{{ $subcategory->id }}"
-                                                        @if ($subcategory->id == $product->subcategory_id) selected @endif>
-                                                        {{ $subcategory->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('subcategory_id')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="h-300px overflow-auto c-scrollbar-light">
+                                            @foreach (\App\Models\Category::getTreeForSelect(json_decode($product->category_id, false, 512, JSON_THROW_ON_ERROR)) as $option)
+                                                {!! $option !!}
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="childcategory_id">Child Category</label>
-                                            <select name="childcategory_id" data-toggle="select2" class="form-control"
-                                                id="childcategory_id">
-                                                <option value="">Select One</option>
-                                                @if (count($childcategories) > 0)
-                                                    @foreach ($childcategories as $childcategory)
-                                                        <option value="{{ $childcategory->id }}"
-                                                            @if ($childcategory->id == $product->childcategory_id) selected @endif>
-                                                            {{ $childcategory->name }}</option>
-                                                    @endforeach
-                                                @endif
-                                            </select>
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('childcategory_id')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
 
                                 {{-- brand model --}}
