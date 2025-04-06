@@ -4,11 +4,9 @@
     <link href="{{ url('assets') }}/css/tagsinput.css" rel="stylesheet" type="text/css" />
     <link href="{{ url('dataTable') }}/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ url('dataTable') }}/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-
     <link href="{{ url('assets') }}/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ url('assets') }}/plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ url('multipleImgUploadPlugin') }}/image-uploader.min.css" rel="stylesheet" type="text/css" />
-
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <style>
         .dataTables_wrapper .dataTables_paginate .paginate_button {
@@ -160,13 +158,13 @@
     Category
 @endsection
 @section('page_heading')
-    View All Categories
+    Update category
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12 col-xl-12">
-           
+
             <div class="card">
                 <div class="card-body">
                     <div class="product-category-inner">
@@ -182,17 +180,21 @@
 
                         <!-- Category Data Form  -->
                         <div class="data-form hidden" id="dataForm">
-                            <form class="needs-validation" method="POST" action="{{ url('save/new/category') }}"
+                            <form class="needs-validation" method="POST" action="{{ url('update/category') }}"
                                 enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="id" value="{{ $category->id }}">
+
                                 {{-- <div class="d-flex justify-content-between align-content-center mb-4">
                                     <h3 id="formTitle" class="m-0">New Category</h3>
                                     <a href="{{ url('/view/all/category') }}" class="btn btn-primary">Add new category</a>
                                 </div> --}}
 
+                                <h3 id="formTitle">Category Update Form</h3>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" id="nameInput" name="name" placeholder="Name" required />
+                                    <input value="{{ $category->name }}" type="text" id="nameInput" name="name"
+                                        placeholder="Name" required />
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('name')
                                             {{ $message }}
@@ -200,31 +202,26 @@
                                     </div>
                                 </div>
 
-
                                 <div class="form-group">
                                     <label>Permalink <span class="btn-outline-danger">*</span></label>
                                     <input type="text" name="slug" id="permalinkInput" placeholder="Permalink"
-                                        oninput="updateSlugPreview()" />
+                                        oninput="updateSlugPreview()" value="{{ $category->slug }}" required />
 
                                     <small class="form-hint mt-n2 text-truncate">
                                         Preview url:
-                                        <a id="permalinkPreview" {{-- href="{{ config('app.url') }}/category/your-slug" --}}
+                                        <a id="permalinkPreview" {{-- href="{{env('APP_FRONTEND_URL')}}/{{$category->slug}}" --}}
                                             style="color:darkcyan;font-size: 12px" target="_blank">
-                                            {{ env('APP_FRONTEND_URL') }}/category/your-slug
+                                            {{ env('APP_FRONTEND_URL') }}/{{ $category->slug }}
                                         </a>
                                     </small>
-
                                 </div>
 
-
-
                                 <div class="form-group">
-
                                     <label>Parent </label>
                                     <select class="form-control w-100" data-toggle="select2" id="parentInput"
                                         name="parent_id">
-                                        <option value="0">Parent Category</option>
-                                        @foreach (\App\Models\Category::getTree(0) as $option)
+                                        <option value="">Select Category</option>
+                                        @foreach (\App\Models\Category::getTree($category->parent_id) as $option)
                                             {!! $option !!}
                                         @endforeach
                                     </select>
@@ -232,7 +229,8 @@
 
                                 <div class="form-group">
                                     <label for="description">Full Description</label>
-                                    <textarea id="description" name="description" class="form-control"></textarea>
+
+                                    <textarea id="description" name="description" class="form-control"> {!! $category->description !!}</textarea>
                                     <div class="invalid-feedback" style="display: block;">
                                         @error('description')
                                             {{ $message }}
@@ -243,7 +241,7 @@
 
                                 <div class="form-group">
                                     <label>Summary </label>
-                                    <textarea name="summary" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Note"></textarea>
+                                    <textarea name="summary" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Note"> {!! $category->summary !!}</textarea>
                                 </div>
 
                                 <div class="form-group row">
@@ -275,8 +273,9 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="meta_title">Affiliate bonus</label>
-                                            <input type="number" id="meta_title" name="affiliate_bonus"
-                                                class="form-control" placeholder="Affiliate bonus">
+                                            <input value="{{ $category->affiliate_bonus }}" type="number"
+                                                id="meta_title" name="affiliate_bonus" class="form-control"
+                                                placeholder="Affiliate bonus">
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('affiliate_bonus')
                                                     {{ $message }}
@@ -287,7 +286,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="meta_keywords">Vendor commission</label>
-                                            <input type="number" name="vendor_commission" class="form-control">
+                                            <input value="{{ $category->vendor_commission }}" type="number"
+                                                name="vendor_commission" class="form-control">
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('vendor_commission')
                                                     {{ $message }}
@@ -304,13 +304,26 @@
                                         <label for="meta_title">Sort priority</label>
                                         <select class="form-control" id="sort_priority" name="sort_priority">
                                             <option value="">Select One</option>
-                                            <option value="P_H_L">Price(High to Low)</option>
-                                            <option value="P_L_H">Price(Low to High)</option>
-                                            <option value="N_ASC">Name(ASC)</option>
-                                            <option value="N_DESC">Name(DESC)</option>
-                                            <option value="R_H_L">Rating(High to Low)</option>
-                                            <option value="R_L_H">Rating(Low to High)</option>
+                                            <option value="P_H_L"
+                                                {{ $category->sort_priority == 'P_H_L' ? 'selected' : '' }}>Price (High to
+                                                Low)</option>
+                                            <option value="P_L_H"
+                                                {{ $category->sort_priority == 'P_L_H' ? 'selected' : '' }}>Price (Low to
+                                                High)</option>
+                                            <option value="N_ASC"
+                                                {{ $category->sort_priority == 'N_ASC' ? 'selected' : '' }}>Name (ASC)
+                                            </option>
+                                            <option value="N_DESC"
+                                                {{ $category->sort_priority == 'N_DESC' ? 'selected' : '' }}>Name (DESC)
+                                            </option>
+                                            <option value="R_H_L"
+                                                {{ $category->sort_priority == 'R_H_L' ? 'selected' : '' }}>Rating (High to
+                                                Low)</option>
+                                            <option value="R_L_H"
+                                                {{ $category->sort_priority == 'R_L_H' ? 'selected' : '' }}>Rating (Low to
+                                                High)</option>
                                         </select>
+
                                         <div class="invalid-feedback" style="display: block;">
                                             @error('sort_priority')
                                                 {{ $message }}
@@ -318,11 +331,11 @@
                                         </div>
                                     </div>
 
-
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="meta_keywords">Google category id</label>
-                                            <input type="number" name="google_cat_id" class="form-control">
+                                            <input value="{{ $category->google_cat_id }}" type="number"
+                                                name="google_cat_id" class="form-control">
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('google_cat_id')
                                                     {{ $message }}
@@ -330,11 +343,7 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
-
-
                                 <div class="row mt-3">
                                     <div class="col-lg-12">
                                         <div class="card">
@@ -346,8 +355,9 @@
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="meta_title">Meta Title</label>
-                                                            <input type="text" id="meta_title" name="meta_title"
-                                                                class="form-control" placeholder="Meta Title">
+                                                            <input value="{{ $category->meta_title }}" type="text"
+                                                                id="meta_title" name="meta_title" class="form-control"
+                                                                placeholder="Meta Title">
                                                             <div class="invalid-feedback" style="display: block;">
                                                                 @error('meta_title')
                                                                     {{ $message }}
@@ -358,9 +368,9 @@
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label for="meta_keywords">Meta Keywords</label>
-                                                            <input type="text" id="meta_keywords"
-                                                                data-role="tagsinput" name="meta_keywords"
-                                                                class="form-control">
+                                                            <input value="{{ $category->meta_keywords }}" type="text"
+                                                                id="meta_keywords" data-role="tagsinput"
+                                                                name="meta_keywords" class="form-control">
                                                             <div class="invalid-feedback" style="display: block;">
                                                                 @error('meta_keywords')
                                                                     {{ $message }}
@@ -371,7 +381,7 @@
                                                     <div class="col-lg-12">
                                                         <div class="form-group">
                                                             <label for="meta_description">Meta Description</label>
-                                                            <textarea id="meta_description" name="meta_description" class="form-control" placeholder="Meta Description Here"></textarea>
+                                                            <textarea id="meta_description" name="meta_description" class="form-control" placeholder="Meta Description Here"> {!! $category->meta_description !!}</textarea>
                                                             <div class="invalid-feedback" style="display: block;">
                                                                 @error('meta_description')
                                                                     {{ $message }}
@@ -385,9 +395,6 @@
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="row mt-3">
                                     <div class="col-lg-12">
                                         <div class="card">
@@ -400,8 +407,9 @@
                                                         <div class="col-lg-12">
                                                             <div class="form-group">
                                                                 <label for="meta_title">OG Title</label>
-                                                                <input type="text" id="meta_title" name="og_title"
-                                                                    class="form-control" placeholder="Meta Title">
+                                                                <input value="{{ $category->og_title }}" type="text"
+                                                                    id="meta_title" name="og_title" class="form-control"
+                                                                    placeholder="Meta Title">
                                                                 <div class="invalid-feedback" style="display: block;">
                                                                     @error('og_title')
                                                                         {{ $message }}
@@ -413,7 +421,7 @@
                                                             <div class="form-group">
                                                                 <label for="meta_description">OG Description</label>
                                                                 <textarea rows="6" id="meta_description" name="og_keywords" class="form-control"
-                                                                    placeholder="Meta Description Here"></textarea>
+                                                                    placeholder="Meta Description Here">{!! $category->og_keywords !!}</textarea>
                                                                 <div class="invalid-feedback" style="display: block;">
                                                                     @error('og_keywords')
                                                                         {{ $message }}
@@ -431,9 +439,6 @@
                                                                 accept="image/*" />
                                                         </div>
                                                     </div>
-
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -442,13 +447,15 @@
 
                                 <div class="form-group row">
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="show_on_navbar">Show On Navbar</label>
 
                                         <select name="show_on_navbar" class="form-control" id="show_on_navbar">
                                             <option value="">Select One</option>
-                                            <option value="1" selected>Yes</option>
-                                            <option value="0">No</option>
+                                            <option value="1" @if ($category->show_on_navbar == 1) selected @endif>Yes
+                                            </option>
+                                            <option value="0" @if ($category->show_on_navbar == 0) selected @endif>No
+                                            </option>
                                         </select>
                                         <div class="invalid-feedback" style="display: block;">
                                             @error('show_on_navbar')
@@ -458,12 +465,16 @@
 
                                     </div>
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <label for="meta_title">Is featured?</label>
                                         <select name="featured" class="form-control" id="featured">
                                             <option value="">Select One</option>
-                                            <option value="1">Yes</option>
-                                            <option value="0" selected>No</option>
+                                            <option value="1" @if ($category->featured == 1) selected @endif>Yes
+                                                Featured
+                                            </option>
+                                            <option value="0" @if ($category->featured == 0) selected @endif>Not
+                                                Featured
+                                            </option>
                                         </select>
                                         <div class="invalid-feedback" style="display: block;">
                                             @error('featured')
@@ -471,23 +482,74 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
 
+                                    <div class="col-lg-4">
+                                        <label for="meta_title">Status</label>
+                                        <select name="status" class="form-control" id="featured">
+                                            <option value="">Select One</option>
+                                            <option value="1" @if ($category->status == 1) selected @endif>Active
+                                            </option>
+                                            <option value="0" @if ($category->status == 0) selected @endif>
+                                                Inactive</option>
+                                        </select>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('status')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="data-form-bottom">
-                                    <button type="submit" class="btn btn-primary">
-                                        Save
-                                    </button>
+                                    <button type="submit" class="btn btn-primary"> Save </button>
                                 </div>
 
+
                             </form>
+
+                            @php
+                                $category_products = \DB::table('products')
+                                    ->whereRaw("JSON_CONTAINS(category_id, '\"$category->id\"')")
+                                    ->where('status', 1)
+                                    ->orderBy('id', 'desc')
+                                    ->get();
+                            @endphp
+                            {{-- <p>Product {{ $key }}: {{ $product->name }}</p> --}}
+
+                            {{-- Create a product table --}}
+                            <table class="table table-bordered mt-3">
+                                <thead>
+                                    <tr>
+                                        <th>SL</th>
+                                        <th>SKU</th>
+                                        <th>Product Image</th>
+                                        <th>Product Name</th>
+                                        <th>Product Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($category_products as $key => $product)
+                                        <tr>
+                                            <td>
+                                                {{ $key + 1 }}
+                                            </td>
+                                            <td>{{ $product->code }}</td>
+                                            <td>
+                                                <img src="{{ url($product->image) }}" alt="{{ $product->name }}"
+                                                    style="width: 50px;">
+                                            </td>
+                                            <td>{{ $product->name }}</td>
+                                            <td>{{ $product->price }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 @endsection
@@ -498,16 +560,11 @@
     <script src="{{ url('dataTable') }}/js/jquery.validate.js"></script>
     <script src="{{ url('dataTable') }}/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('dataTable') }}/js/dataTables.bootstrap4.min.js"></script>
-
-
     <script src="{{ url('assets') }}/plugins/dropify/dropify.min.js"></script>
     <script src="{{ url('assets') }}/pages/fileuploads-demo.js"></script>
     <script src="{{ url('multipleImgUploadPlugin') }}/image-uploader.min.js"></script>
     <script src="{{ url('assets') }}/js/tagsinput.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-
-
     <script type="text/javascript">
         var table = $(".data-table").DataTable({
             processing: true,
@@ -578,36 +635,7 @@
                     searchable: false
                 },
             ],
-            // initComplete: function() {
-            //     this.api().columns([1]).every(function() {
-            //         var column = this;
-            //         var input = document.createElement("input");
-            //         $(input).appendTo($(column.footer()).empty())
-            //             .on('change', function() {
-            //                 var val = $.fn.dataTable.util.escapeRegex($(this).val());
-            //                 column.search(val ? val : '', true, false).draw();
-            //             });
-            //     });
 
-            //     this.api().columns([4]).every(function() {
-            //         var column = this;
-            //         var select = $('<select style="width:100%"><option value="">All</option></select>')
-            //             .appendTo($(column.footer()).empty())
-            //             .on('change', function() {
-            //                 var val = $.fn.dataTable.util.escapeRegex(
-            //                     $(this).val()
-            //                 );
-            //                 column
-            //                     .search(val ? '^' + val + '$' : '', true, false)
-            //                     .draw();
-            //             });
-            //         column.each(function() {
-            //             select.append('<option value="Active">' + 'Active' + '</option>')
-            //             select.append('<option value="Inactive">' + 'Inactive' + '</option>')
-
-            //         });
-            //     });
-            // }
         });
 
         $(".dataTables_filter").append($("#customFilter"));
@@ -659,7 +687,6 @@
             }
         });
     </script>
-
 
     <!-- Product Category JS -->
     <script type="text/javascript">
@@ -719,29 +746,6 @@
                 editButton.style.display = "inline-block";
             }
 
-            // Populate the form with the clicked menu's name and other details
-            // formTitle.textContent = li.dataset.name || "Form";
-            // nameInput.value = li.dataset.name || "";
-            //permalinkInput.value = li.dataset.slug || "";
-            // rootCat.value = li.dataset.parent_id || "";
-            // parentInput.value = li.dataset.parentCat || "";
-            /*
-
-                        const selectedValue = li.dataset.parent || "";
-                        // Update the `selected` attribute dynamically for all options
-                        const options = parentInput.options; // Get all options
-
-
-                        for (let i = 0; i < options.length; i++) {
-                            options[i].removeAttribute("selected");
-                            //alert(li.dataset.parent_id);
-
-                            if (options[i].value === "57") {
-                                options[i].setAttribute("selected", "selected"); // Add selected attribute to the correct option
-                            }
-                        }
-            */
-
             descriptionInput.value = "";
             dataForm.classList.remove("hidden");
         });
@@ -773,14 +777,44 @@
             }
         });
 
-
-
         $('#description').summernote({
             placeholder: 'Write Description Here',
             tabsize: 2,
             height: 350
         });
     </script>
+
+    <script>
+        @if ($category->image && file_exists(public_path($category->image)))
+            $(".dropify-preview").eq(0).css("display", "block");
+            $(".dropify-clear").eq(0).css("display", "block");
+            $(".dropify-filename-inner").eq(0).html("{{ $category->image }}");
+            $("span.dropify-render").eq(0).html("<img src='{{ url($category->image) }}'>");
+        @endif
+
+        @if ($category->icon && file_exists(public_path($category->icon)))
+            $(".dropify-preview").eq(1).css("display", "block");
+            $(".dropify-clear").eq(1).css("display", "block");
+            $(".dropify-filename-inner").eq(1).html("{{ $category->icon }}");
+            $("span.dropify-render").eq(1).html("<img src='{{ url($category->icon) }}'>");
+        @endif
+
+        @if ($category->banner_image && file_exists(public_path($category->banner_image)))
+            $(".dropify-preview").eq(2).css("display", "block");
+            $(".dropify-clear").eq(2).css("display", "block");
+            $(".dropify-filename-inner").eq(2).html("{{ $category->banner_image }}");
+            $("span.dropify-render").eq(2).html("<img src='{{ url($category->banner_image) }}'>");
+        @endif
+
+        @if ($category->og_image && file_exists(public_path($category->og_image)))
+            $(".dropify-preview").eq(3).css("display", "block");
+            $(".dropify-clear").eq(3).css("display", "block");
+            $(".dropify-filename-inner").eq(3).html("{{ $category->og_image }}");
+            $("span.dropify-render").eq(3).html("<img src='{{ url($category->og_image) }}'>");
+        @endif
+    </script>
+
+
 
     <script>
         function updateSlugPreview() {

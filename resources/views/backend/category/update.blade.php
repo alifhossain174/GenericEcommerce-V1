@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-3">Category Update Form</h4>
-
+                    {{ $message }}
                     <form class="needs-validation" method="POST" action="{{url('update/category')}}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" value="{{$category->id}}">
@@ -35,6 +35,26 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <div class="form-group">
+                            <label>Permalink
+                                <span class="btn-outline-danger">*</span></label>
+                            <input type="text"
+                                name="slug"
+                                id="permalinkInput"
+                                placeholder="Permalink"
+                                value="{{$category->slug}}"
+                            />
+
+                            <small class="form-hint mt-n2 text-truncate">
+                                Preview:
+                                <a href="{{ config('app.url') }}/product-categories/{{$category->slug}}"
+                                    target="_blank">{{ config('app.url') }}/product-categories/{{$category->slug}}</a>
+                            </small>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Change Icon</label>
@@ -107,9 +127,10 @@
 
                         <div class="form-group row">
                             <label for="colFormLabe0" class="col-sm-2 col-form-label"></label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-6">
                                 <div class="form-group">
                                     <button class="btn btn-primary" type="submit">Update Category</button>
+                                    <button class="btn btn-danger" type="button" onclick="window.history.back()">All Categories</button>
                                 </div>
                             </div>
                         </div>
@@ -133,6 +154,12 @@
             $("span.dropify-render").eq(0).html("<img src='{{url($category->icon)}}'>");
         @endif
 
+        @if($category->banner_image && file_exists(public_path($category->banner_image)))
+            $(".dropify-preview").eq(1).css("display", "block");
+            $(".dropify-clear").eq(1).css("display", "block");
+            $(".dropify-filename-inner").eq(1).html("{{$category->banner_image}}");
+            $("span.dropify-render").eq(1).html("<img src='{{url($category->banner_image)}}'>");
+        @endif
         @if($category->banner_image && file_exists(public_path($category->banner_image)))
             $(".dropify-preview").eq(1).css("display", "block");
             $(".dropify-clear").eq(1).css("display", "block");
