@@ -552,9 +552,9 @@ class OrderController extends Controller
         $countries = DB::table('country')->get();
         return view('backend.orders.edit', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo', 'districts', 'countries', 'payments'));
     }
-
     public function orderUpdate(Request $request)
     {
+
         $orderInfo = Order::where('id', $request->order_id)->first();
 
         // order items
@@ -603,39 +603,77 @@ class OrderController extends Controller
         // shipping info
         $shippingInfo = ShippingInfo::where('order_id', $request->order_id)->first();
         if ($shippingInfo) {
+            // Get district and thana information
+            $district = null;
+            $thana = null;
 
-            $deliveryCharge = 100;
-            $districtWiseDeliveryCharge = DB::table('districts')->select('delivery_charge')->where('name', strtolower(trim($request->shipping_city)))->first();
-            if ($districtWiseDeliveryCharge) {
-                $deliveryCharge = $districtWiseDeliveryCharge->delivery_charge;
+            if (isset($request->shipping_district_id) && !empty($request->shipping_district_id)) {
+                $district = DB::table('districts')->where('id', $request->shipping_district_id)->first();
+            }
+
+            if (isset($request->shipping_thana_id) && !empty($request->shipping_thana_id)) {
+                $thana = DB::table('upazilas')->where('id', $request->shipping_thana_id)->first();
+            }
+
+            // Calculate delivery charge based on district
+            $deliveryCharge = 100; // Default delivery charge
+            if ($district) {
+                $deliveryCharge = $district->delivery_charge;
             }
 
             $orderInfo->delivery_fee = $deliveryCharge;
-            $orderInfo->total = $orderInfo->total + $deliveryCharge;
+
+            if ($request->has('discount')) {
+                $orderInfo->discount = $request->discount;
+            }
+
+            // Handle coupon code separately
+            if ($request->has('coupon_code')) {
+                $orderInfo->coupon_code = $request->coupon_code;
+            } elseif ($request->missing('coupon_code')) {
+                // Only clear coupon if the field is explicitly sent as empty
+                $orderInfo->coupon_code = null;
+            }
+
+            // Calculate total with discount
+            $orderInfo->total = $orderInfo->sub_total - $orderInfo->discount + $deliveryCharge;
             $orderInfo->save();
 
-
+            // Update shipping info
             $shippingInfo->full_name = $request->shipping_name;
             $shippingInfo->phone = $request->shipping_phone;
-            $shippingInfo->email = $request->shipping_email;
+            $shippingInfo->email = $request->shipping_email ?? null;
             $shippingInfo->address = $request->shipping_address;
-            $shippingInfo->post_code = $request->shipping_post_code;
-            $shippingInfo->city = $request->shipping_city;
+            $shippingInfo->post_code = $request->shipping_post_code ?? null;
+            $shippingInfo->city = $district ? $district->name : null;
+            $shippingInfo->thana = $thana ? $thana->name : null;
             $shippingInfo->country = $request->shipping_country;
             $shippingInfo->updated_at = Carbon::now();
             $shippingInfo->save();
         } else {
+            // Get district and thana information
+            $district = null;
+            $thana = null;
 
-            $deliveryCharge = 100;
-            $districtWiseDeliveryCharge = DB::table('districts')->select('delivery_charge')->where('name', strtolower(trim($request->shipping_city)))->first();
-            if ($districtWiseDeliveryCharge) {
-                $deliveryCharge = $districtWiseDeliveryCharge->delivery_charge;
+            if (isset($request->shipping_district_id) && !empty($request->shipping_district_id)) {
+                $district = DB::table('districts')->where('id', $request->shipping_district_id)->first();
+            }
+
+            if (isset($request->shipping_thana_id) && !empty($request->shipping_thana_id)) {
+                $thana = DB::table('upazilas')->where('id', $request->shipping_thana_id)->first();
+            }
+
+            // Calculate delivery charge based on district
+            $deliveryCharge = 100; // Default delivery charge
+            if ($district) {
+                $deliveryCharge = $district->delivery_charge;
             }
 
             $orderInfo->delivery_fee = $deliveryCharge;
-            $orderInfo->total = $orderInfo->total + $deliveryCharge;
+            $orderInfo->total = $orderInfo->sub_total - $orderInfo->discount + $deliveryCharge;
             $orderInfo->save();
 
+            // Create new shipping info
             ShippingInfo::insert([
                 'order_id' => $orderInfo->id,
                 'full_name' => $request->shipping_name,
@@ -643,7 +681,8 @@ class OrderController extends Controller
                 'email' => $request->shipping_email,
                 'address' => $request->shipping_address,
                 'post_code' => $request->shipping_post_code,
-                'city' => $request->shipping_city,
+                'city' => $district ? $district->name : null,
+                'thana' => $thana ? $thana->name : null,
                 'country' => $request->shipping_country,
                 'created_at' => Carbon::now()
             ]);
@@ -652,18 +691,44 @@ class OrderController extends Controller
         // billing info
         $billingInfo = BillingAddress::where('order_id', $request->order_id)->first();
         if ($billingInfo) {
+            // Get district and thana information for billing
+            $district = null;
+            $thana = null;
+
+            if (isset($request->billing_district_id) && !empty($request->billing_district_id)) {
+                $district = DB::table('districts')->where('id', $request->billing_district_id)->first();
+            }
+
+            if (isset($request->billing_thana_id) && !empty($request->billing_thana_id)) {
+                $thana = DB::table('upazilas')->where('id', $request->billing_thana_id)->first();
+            }
+
             $billingInfo->address = $request->billing_address;
-            $billingInfo->post_code = $request->billing_post_code;
-            $billingInfo->city = $request->billing_city;
+            $billingInfo->post_code = $request->billing_post_code ?? null;
+            $billingInfo->city = $district ? $district->name : null;
+            $billingInfo->thana = $thana ? $thana->name : null;
             $billingInfo->country = $request->billing_country;
             $billingInfo->updated_at = Carbon::now();
             $billingInfo->save();
         } else {
+            // Get district and thana information for billing
+            $district = null;
+            $thana = null;
+
+            if (isset($request->billing_district_id) && !empty($request->billing_district_id)) {
+                $district = DB::table('districts')->where('id', $request->billing_district_id)->first();
+            }
+
+            if (isset($request->billing_thana_id) && !empty($request->billing_thana_id)) {
+                $thana = DB::table('upazilas')->where('id', $request->billing_thana_id)->first();
+            }
+
             BillingAddress::insert([
                 'order_id' => $orderInfo->id,
                 'address' => $request->billing_address,
                 'post_code' => $request->billing_post_code,
-                'city' => $request->billing_city,
+                'city' => $district ? $district->name : null,
+                'thana' => $thana ? $thana->name : null,
                 'country' => $request->billing_country,
                 'created_at' => Carbon::now()
             ]);

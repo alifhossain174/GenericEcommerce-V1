@@ -266,4 +266,99 @@ class UserController extends Controller
         $userInfo->save();
         return response()->json(['success' => 'Revoke SuperAdmin Successfully']);
     }
+
+    public function userDetails($id)
+    {
+        // Get user details
+        $user = User::findOrFail($id);
+
+        // Get user's orders
+        $orders = Order::where('user_id', $id)
+            ->orderBy('order_date', 'desc')
+            ->get();
+
+        // Get user's addresses
+        $addresses = UserAddress::where('user_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Get recently ordered products as an alternative to product views
+        $recentViews = DB::table('order_details')
+            ->join('orders', 'order_details.order_id', '=', 'orders.id')
+            ->join('products', 'order_details.product_id', '=', 'products.id')
+            ->where('orders.user_id', $id)
+            ->select(
+                'products.*',
+                'orders.order_date as viewed_at'
+            )
+            ->orderBy('orders.order_date', 'desc')
+            ->limit(12)
+            ->get();
+
+        // Ensure uniqueness (only show each product once)
+        $recentViews = $recentViews->unique('id');
+
+        // Limit after ensuring uniqueness
+        $recentViews = $recentViews->take(12);
+
+        // For cart items, we'll check if there are any in-progress orders
+        // This is a fallback if you don't have a dedicated cart table
+        $pendingOrder = Order::where('user_id', $id)
+            ->where('order_status', 0) // Assuming 0 is pending status
+            ->orderBy('order_date', 'desc')
+            ->first();
+
+        $cartItems = collect([]);
+        $cartTotal = 0;
+
+        if ($pendingOrder) {
+            $cartItems = DB::table('order_details')
+                ->join('products', 'order_details.product_id', '=', 'products.id')
+                ->where('order_details.order_id', $pendingOrder->id)
+                ->select(
+                    'products.*',
+                    'order_details.qty as quantity',
+                    'order_details.id as cart_id'
+                )
+                ->get();
+
+            // Calculate cart total
+            foreach ($cartItems as $item) {
+                $cartTotal += ($item->discount_price > 0 ? $item->discount_price : $item->price) * $item->quantity;
+            }
+        }
+
+        // Get purchased products from orders (excluding pending orders)
+        $purchasedProducts = DB::table('order_details')
+            ->join('orders', 'order_details.order_id', '=', 'orders.id')
+            ->join('products', 'order_details.product_id', '=', 'products.id')
+            ->where('orders.user_id', $id)
+            ->where('orders.order_status', '>', 0) // Only include non-pending orders
+            ->where('orders.order_status', '<>', 4) // Excluding cancelled orders
+            ->select(
+                'products.id as product_id',
+                'products.name as product_name',
+                'products.code as product_code',
+                'products.price as product_price',
+                'products.discount_price',
+                'order_details.qty as quantity',
+                'order_details.unit_price',
+                'order_details.total_price',
+                'orders.order_no',
+                'orders.order_date',
+                'orders.id as order_id'
+            )
+            ->orderBy('orders.order_date', 'desc')
+            ->get();
+
+        return view('backend.users.user_details', compact(
+            'user',
+            'orders',
+            'addresses',
+            'recentViews',
+            'cartItems',
+            'cartTotal',
+            'purchasedProducts'
+        ));
+    }
 }

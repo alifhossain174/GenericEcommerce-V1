@@ -262,7 +262,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('revoke/user/superadmin/{id}', [UserController::class, 'revokeSuperAdmin'])->name('RevokeSuperAdmin');
     Route::get('/change/user/status/{id}', [UserController::class, 'changeUserStatus'])->name('ChangeUserStatus');
     Route::get('/delete/customer/{id}', [UserController::class, 'deleteCustomer'])->name('DeleteCustomer');
-
+    Route::get('/customer/details/{id}', [UserController::class, 'userDetails'])->name('user.details');
 
     // general info routes
     Route::get('/about/us/page', [GeneralInfoController::class, 'aboutUsPage'])->name('AboutUsPage');
@@ -374,6 +374,8 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::post('add/order/payment', [OrderController::class, 'addOrderPayment']);
     Route::post('/bulk/order/status/update', [OrderController::class, 'bulkOrderStatusUpdate'])->name('BulkOrderStatusUpdate');
     Route::get('/bulk/print/orders', [OrderController::class, 'bulkPrintOrders'])->name('BulkPrintOrders');
+    Route::post('/validate-coupon', [OrderController::class, 'validateCoupon'])->name('validate.coupon');
+    Route::post('/remove-coupon', [OrderController::class, 'removeCoupon'])->name('remove.coupon');
 
     //start courier routes
     Route::get('add/order/{orderid}/courier', [CourierController::class, 'addOrderToCourier']);

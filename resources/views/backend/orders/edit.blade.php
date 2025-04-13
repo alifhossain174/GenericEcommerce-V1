@@ -128,67 +128,54 @@
 
 
                         <div class="row mt-4">
-                            <div class="col-lg-3">
-
-                                <h6 class="font-weight-bold">Shipping Info :</h6>
-                                <address class="line-h-24 shipping_address_fields">
-                                    <input type="text" name="shipping_name"
-                                        value="@if ($shippingInfo) {{ $shippingInfo->full_name }} @endif"
-                                        @if ((isset($shippingInfo) && $shippingInfo->full_name == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c;" @endif
-                                        placeholder="Customer Name" class="form-control shipping_input mb-2" required>
-                                    <input type="text" name="shipping_phone"
-                                        value="@if ($shippingInfo) {{ $shippingInfo->phone }} @endif"
-                                        @if ((isset($shippingInfo) && $shippingInfo->phone == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c;" @endif
-                                        placeholder="Customer Phone" class="form-control shipping_input mb-2" required>
-                                    <input type="text" name="shipping_email"
-                                        value="@if ($shippingInfo) {{ $shippingInfo->email }} @endif"
-                                        @if ((isset($shippingInfo) && $shippingInfo->email == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c;" @endif
-                                        placeholder="Customer Email" class="form-control shipping_input mb-2">
-                                    <input type="text" name="shipping_address"
-                                        value="@if ($shippingInfo) {{ $shippingInfo->address }} @endif"
-                                        @if ((isset($shippingInfo) && $shippingInfo->address == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c;" @endif
-                                        placeholder="Customer Address" class="form-control shipping_input mb-2" required>
-
-
-                                    @if ((isset($shippingInfo) && $shippingInfo->city == '') || !isset($shippingInfo))
-                                        <style>
-                                            .shipping_address_fields .select2-container {
-                                                border: 1px solid #b500008c !important;
-                                                border-radius: 6px;
-                                                margin-bottom: 8px;
-                                            }
-                                        </style>
-                                    @else
-                                        <style>
-                                            .shipping_address_fields .select2-container {
-                                                margin-bottom: 8px;
-                                            }
-                                        </style>
-                                    @endif
-
-                                    <select class="form-control" name="shipping_city" data-toggle="select2" required>
-                                        <option value="">Select Shipping City</option>
-                                        @foreach ($districts as $district)
-                                            <option value="{{ $district->name }}"
-                                                @if ($shippingInfo && $shippingInfo->city == $district->name) selected @endif>{{ $district->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-
-                                    <input type="text" name="shipping_post_code"
-                                        value="@if ($shippingInfo) {{ $shippingInfo->post_code }} @endif"
-                                        @if ((isset($shippingInfo) && $shippingInfo->post_code == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c; width: 38.4%;" @else style="width: 38.4%;" @endif
-                                        placeholder="Post Code" class="form-control shipping_input mb-2">
-                                    <input type="text" name="shipping_country"
-                                        value="@if ($shippingInfo) {{ $shippingInfo->country }} @endif"
-                                        @if ((isset($shippingInfo) && $shippingInfo->country == '') || !isset($shippingInfo)) style="border: 1px solid #b500008c; width: 60%;" @else style="width: 60%;" @endif
-                                        placeholder="Country Name" class="form-control shipping_input">
-
-                                </address>
-
-                            </div><!-- end col -->
-                            <div class="col-lg-9">
+                            <div class="col-6">
+                                @if ($shippingInfo)
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                                        <h6 class="mb-0 fw-bold">Shipping Information</h6>
+                                        @php
+                                            $orderCount = DB::table('orders')
+                                                ->join('shipping_infos', 'shipping_infos.order_id', '=', 'orders.id')
+                                                ->where('shipping_infos.phone', $shippingInfo->phone)
+                                                ->count();
+                                            $customerType = $orderCount > 1 ? 'Old' : 'New';
+                                        @endphp
+                                        <span class="badge bg-{{ $customerType == 'Old' ? 'info' : 'success' }}">{{ $customerType }} Customer</span>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="fw-bold">{{ $shippingInfo->full_name }}</div>
+                                            <a target="_blank" href="{{ url('/customer/details/' . $order->user_id) }}" class="btn btn-sm btn-light ms-2" title="View Customer">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </div>
+                                        
+                                        <div class="mb-1" id="customer-phone">{{ $shippingInfo->phone }}</div>
+                                        
+                                        @if($shippingInfo->email)
+                                            <div class="mb-1">{{ $shippingInfo->email }}</div>
+                                        @endif
+                                        
+                                        <div class="mb-1">{{ $shippingInfo->address }}</div>
+                                        
+                                        @if ($shippingInfo->thana)
+                                            <div class="mb-1">Thana: {{ $shippingInfo->thana }}</div>
+                                        @endif
+                                        
+                                        <div>{{ $shippingInfo->city }} {{ $shippingInfo->post_code }}, {{ $shippingInfo->country }}</div>
+                                    </div>
+                                </div>
+                                @endif
+                            </div>
+                            
+                            <!-- end col -->
+                            <div class="col-lg-6">
                                 <div class="mt-3 float-right">
+                                    <p><div class="d-flex justify-content-end">
+                                        <a href="{{ url('order/details/' . $order->slug) }}"  class="btn btn-sm btn-warning rounded" title="View Order">
+                                            <i class="fas fa-eye"></i> View Order
+                                        </a>
+                                    </div></p>
                                     <p class="mb-2"><strong>Order NO: </strong> #{{ $order->order_no }}</p>
                                     <p class="mb-2"><strong>Tran. ID: </strong> #{{ $order->trx_id }}</p>
                                     <p class="mb-2"><strong>Order Date: </strong>
@@ -200,34 +187,55 @@
                                             Website
                                         @elseif($order->order_from == 2)
                                             Mobile App
+                                        @elseif($order->order_from == 3)
+                                            POS
                                         @else
-                                            N/A
+                                            Lending Page
                                         @endif
                                     </p>
-                                    <p class="mb-2"><strong>Order Status: </strong>
+                                    <p class="mb-1"><strong>Order Status: </strong>
                                         @php
                                             if ($order->order_status == 0) {
                                                 echo '<span class="badge badge-soft-warning" style="padding: 2px 10px !important;">Pending</span>';
                                             } elseif ($order->order_status == 1) {
                                                 echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Approved</span>';
                                             } elseif ($order->order_status == 5) {
-                                                echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Ready to Ship</span>';
+                                                echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Ready to Ship' .
+                                                    ($order->delivery_method == 3
+                                                        ? ' (Courier: ' . $order->courier_status . ')'
+                                                        : '') .
+                                                    '</span>';
                                             } elseif ($order->order_status == 2) {
-                                                echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Intransit</span>';
+                                                echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Intransit' .
+                                                    ($order->delivery_method == 3
+                                                        ? ' (Courier: ' . $order->courier_status . ')'
+                                                        : '') .
+                                                    '</span>';
                                             } elseif ($order->order_status == 3) {
-                                                echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Delivered</span>';
+                                                echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Delivered' .
+                                                    ($order->delivery_method == 3
+                                                        ? ' (Courier: ' . $order->courier_status . ')'
+                                                        : '') .
+                                                    '</span>';
                                             } else {
-                                                echo '<span class="badge badge-soft-danger" style="padding: 2px 10px !important;">Cancelled</span>';
+                                                echo '<span class="badge badge-soft-danger" style="padding: 2px 10px !important;">Cancelled' .
+                                                    ($order->delivery_method == 3
+                                                        ? ' (Courier: ' . $order->courier_status . ')'
+                                                        : '') .
+                                                    '</span>';
                                             }
                                         @endphp
                                     </p>
-                                    <p class="mb-2"><strong>Delivery Method: </strong>
+                                    <p class="mb-1"><strong>Delivery Method: </strong>
                                         @php
                                             if ($order->delivery_method == 1) {
                                                 echo '<span class="badge badge-soft-success" style="padding: 3px 5px !important;">Home Delivery</span>';
                                             }
                                             if ($order->delivery_method == 2) {
                                                 echo '<span class="badge badge-soft-success" style="padding: 3px 5px !important;">Store Pickup</span>';
+                                            }
+                                            if ($order->delivery_method == 3) {
+                                                echo '<span class="badge badge-soft-success" style="padding: 3px 5px !important;">SteadFast</span>';
                                             }
                                         @endphp
                                     </p>
@@ -289,6 +297,7 @@
                         </div>
                         <!-- end row -->
 
+                        <!-- order item details -->
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
@@ -455,83 +464,52 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-3">
-                                <div class="clearfix pt-3">
-                                    <h6 class="text-muted">Billing Address:</h6>
-                                    <address class="line-h-24 billing_address_fields">
-                                        <input type="text" name="billing_address"
-                                            value="@if ($billingAddress) {{ $billingAddress->address }} @endif"
-                                            @if ((isset($billingAddress) && $billingAddress->address == '') || !isset($billingAddress)) style="border: 1px solid #b500008c;" @endif
-                                            placeholder="Billing Address" class="form-control shipping_input mb-2">
-
-                                        @if ((isset($billingAddress) && $billingAddress->city == '') || !isset($billingAddress))
-                                            <style>
-                                                .billing_address_fields .select2-container {
-                                                    border: 1px solid #b500008c !important;
-                                                    border-radius: 6px;
-                                                    margin-bottom: 8px;
-                                                }
-                                            </style>
-                                        @else
-                                            <style>
-                                                .billing_address_fields .select2-container {
-                                                    margin-bottom: 8px;
-                                                }
-                                            </style>
-                                        @endif
-
-                                        <select class="form-control" name="billing_city" data-toggle="select2" required>
-                                            <option value="">Select Billing City</option>
-                                            @foreach ($districts as $district)
-                                                <option value="{{ $district->name }}"
-                                                    @if ($billingAddress && $billingAddress->city == $district->name) selected @endif>
-                                                    {{ $district->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-
-
-                                        <input type="text" name="billing_post_code"
-                                            value="@if ($billingAddress) {{ $billingAddress->post_code }} @endif"
-                                            @if ((isset($billingAddress) && $billingAddress->post_code == '') || !isset($billingAddress)) style="border: 1px solid #b500008c; width: 38.4%;" @else style="width: 38.4%;" @endif
-                                            placeholder="Post Code" class="form-control shipping_input mb-2">
-                                        <input type="text" name="billing_country"
-                                            value="@if ($billingAddress) {{ $billingAddress->country }} @endif"
-                                            @if ((isset($billingAddress) && $billingAddress->country == '') || !isset($billingAddress)) style="border: 1px solid #b500008c;" @else style="width: 60%;" @endif
-                                            placeholder="Country Name" class="form-control shipping_input">
-                                    </address>
-                                </div>
-
-                                @if ($userInfo)
-                                    <div class="clearfix pt-2">
-                                        <h6 class="text-muted">User Account Info:</h6>
-                                        <address class="line-h-24">
-                                            {{ $userInfo->name }}<br>
-                                            @if ($userInfo->email)
-                                                {{ $userInfo->email }}<br>
-                                            @endif
-                                            @if ($userInfo->phone)
-                                                {{ $userInfo->phone }}<br>
-                                            @endif
-                                            @if ($userInfo->address)
-                                                {{ $userInfo->address }}
-                                            @endif
-                                        </address>
-                                    </div>
-                                @endif
-
+                            <div class="col-lg-6">
+                                
+                                        <!-- Coupon Box -->
+                                        {{-- <div class="card shadow-sm mb-3">
+                                            <div class="card-header bg-light py-2">
+                                                <h6 class="card-title mb-0 fw-bold">Apply Coupon</h6>
+                                            </div>
+                                            <div class="card-body py-2">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="coupon_code" 
+                                                        placeholder="Enter coupon code" value="{{ $order->coupon_code }}">
+                                                    <button type="button" class="btn {{ $order->coupon_code ? 'btn-danger' : 'btn-success' }} rounded" 
+                                                        id="couponBtn" style="margin-top: -3px; line-height: 22px;">
+                                                        {{ $order->coupon_code ? 'Remove' : 'Apply Coupon' }}
+                                                    </button>
+                                                </div>
+                                                <div id="coupon_message" class="mt-2"></div>
+                                            </div>
+                                        </div> --}}
+                                
+                                        <!-- Manual Discount Box -->
+                                        <div class="card shadow-sm">
+                                            <div class="card-header bg-light py-2">
+                                                <h6 class="card-title mb-0 fw-bold">Manual Discount</h6>
+                                            </div>
+                                            <div class="card-body py-2">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">{{ $currencySymbol }}</span>
+                                                    <input type="number" min="0" class="form-control" id="discount" name="discount" 
+                                                        placeholder="Enter discount amount" value="{{ $order->discount }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                
                             </div>
-                            <div class="col-lg-9 pt-3 text-right">
+                            <div class="col-lg-6 pt-3 text-right">
                                 <div class="float-right">
-                                    <p><b>Sub-total :</b> {{ $currencySymbol }} {{ number_format($order->sub_total, 0) }}
-                                    </p>
-                                    @if ($order->discount > 0)
+                                    <p><b>Sub-total :</b> {{ $currencySymbol }} <span>{{ number_format($order->sub_total, 0) }}</span></p>
+                                   
                                         <p><b>Discount @if ($order->coupon_code)
                                                     ({{ $order->coupon_code }})
                                                 @endif:</b> {{ $currencySymbol }}
                                             {{ number_format($order->discount, 0) }}
                                         </p>
-                                    @endif
+                                  
                                     <!-- <p><b>Reward Points Used :</b> {{ $order->reward_points_used }}</p> -->
                                     @if ($order->vat + $order->tax > 0)
                                         <p><b>VAT/TAX :</b> {{ $currencySymbol }}
@@ -542,18 +520,358 @@
                                     <p><b>Total Order Amount :</b> {{ $currencySymbol }}
                                         {{ number_format($order->total, 0) }}</p>
                                     <p><b>Paid Amount :</b><span id="order_delivery_charge">
-                                            {{ $order->total - $payments['total'] == 0 ? 'Full Paid' : $currencySymbol . ' ' . number_format($payments['total'], 2) }}
+                                            {{ number_format($order->total - $payments['total'], 2) == 0 ? 'Full Paid' : $currencySymbol . ' ' . $payments['total'] }}
                                         </span>
                                     </p>
                                     @if (number_format($order->total - $payments['total'], 2) > 0)
                                         <p><b>Due Amount :</b> {{ $currencySymbol }} <span
-                                                id="order_delivery_charge">{{ number_format($order->total - $payments['total'], 2) }}</span>
+                                                id="order_delivery_charge">{{ number_format($order->total - $payments['total'], 2) }}
+
+
+                                            </span>
                                         </p>
                                     @endif
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
+                        <!-- end order item details -->
+                         {{-- update billing address and shipping address --}}
+                         <div class="row">
+                            <!-- Shipping Information Column -->
+                            <div class="col-lg-6">
+                                <div class="card shadow-sm">
+                                    <div class="card-header bg-light py-2">
+                                        <h6 class="card-title mb-0 fw-bold">Shipping Information</h6>
+                                    </div>
+                                    <div class="card-body py-2">
+                                        <form class="shipping_address_fields">
+                                            <!-- Customer Name -->
+                                            <input type="text" name="shipping_name" id="shipping_name"
+                                                value="@if ($shippingInfo) {{ $shippingInfo->full_name }} @endif"
+                                                @if ((isset($shippingInfo) && $shippingInfo->full_name == '') || !isset($shippingInfo)) class="form-control is-invalid mb-2" @else class="form-control mb-2" @endif
+                                                placeholder="Customer Name" required>
+                                            
+                                            <!-- Customer Phone -->
+                                            <input type="text" name="shipping_phone" id="shipping_phone"
+                                                value="@if ($shippingInfo) {{ $shippingInfo->phone }} @endif"
+                                                @if ((isset($shippingInfo) && $shippingInfo->phone == '') || !isset($shippingInfo)) class="form-control is-invalid mb-2" @else class="form-control mb-2" @endif
+                                                placeholder="Customer Phone" required>
+                                            
+                                            <!-- Customer Email -->
+                                            <input type="email" name="shipping_email" id="shipping_email"
+                                                value="@if ($shippingInfo) {{ $shippingInfo->email }} @endif"
+                                                class="form-control mb-2" placeholder="Customer Email (Optional)">
+                                            
+                                            <!-- Customer Address -->
+                                            <input type="text" name="shipping_address" id="shipping_address"
+                                                value="@if ($shippingInfo) {{ $shippingInfo->address }} @endif"
+                                                @if ((isset($shippingInfo) && $shippingInfo->address == '') || !isset($shippingInfo)) class="form-control is-invalid mb-2" @else class="form-control mb-2" @endif
+                                                placeholder="Customer Address" required>
+                                            
+                                            @if ((isset($shippingInfo) && $shippingInfo->city == '') || !isset($shippingInfo))
+                                                <style>
+                                                    .shipping_address_fields .select2-container {
+                                                        border: 1px solid #dc3545 !important;
+                                                        border-radius: 0.25rem;
+                                                        margin-bottom: 0.5rem;
+                                                    }
+                                                </style>
+                                            @else
+                                                <style>
+                                                    .shipping_address_fields .select2-container {
+                                                        margin-bottom: 0.5rem;
+                                                    }
+                                                </style>
+                                            @endif
+                                            
+                                            <div class="row mb-2">
+                                                <!-- District Selection -->
+                                                <div class="col-md-6">
+                                                    <select class="form-select" id="shipping_district_id" name="shipping_district_id"
+                                                        data-toggle="select2" required>
+                                                        <option value="">Select District</option>
+                                                        @foreach ($districts as $district)
+                                                            <option value="{{ $district->id }}"
+                                                                data-delivery-charge="{{ $district->delivery_charge }}"
+                                                                @if ($shippingInfo && $shippingInfo->city == $district->name) selected @endif>
+                                                                {{ $district->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                
+                                                <!-- Thana Selection -->
+                                                <div class="col-md-6">
+                                                    <select class="form-select" id="shipping_thana_id" name="shipping_thana_id"
+                                                        data-toggle="select2" required>
+                                                        <option value="">Select Thana</option>
+                                                        <!-- Options will be loaded dynamically -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <!-- Post Code -->
+                                                <div class="col-md-6">
+                                                    <input type="text" name="shipping_post_code" id="shipping_post_code"
+                                                        value="@if ($shippingInfo) {{ $shippingInfo->post_code }} @endif"
+                                                        class="form-control mb-2" placeholder="Post Code (Optional)">
+                                                </div>
+                                                
+                                                <!-- Country -->
+                                                <div class="col-md-6">
+                                                    <input type="text" name="shipping_country" id="shipping_country"
+                                                        value="@if ($shippingInfo) {{ $shippingInfo->country }} @endif"
+                                                        @if ((isset($shippingInfo) && $shippingInfo->country == '') || !isset($shippingInfo)) class="form-control is-invalid" @else class="form-control" @endif
+                                                        placeholder="Country Name" required>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Billing & User Info Column -->
+                            <div class="col-lg-6">
+                                <div class="card shadow-sm">
+                                    <div class="card-header bg-light py-2">
+                                        <h6 class="card-title mb-0 fw-bold">Billing Address</h6>
+                                        <div class="form-check mt-1">
+                                            <input class="form-check-input" type="checkbox" id="different_billing" name="different_billing">
+                                            <label class="form-check-label" for="different_billing">
+                                                Different from shipping address
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="card-body py-2">
+                                        <div id="billing_form_container" class="billing_address_fields" style="display: none;">
+                                            <!-- Billing Address -->
+                                            <input type="text" name="billing_address" id="billing_address"
+                                                value="@if ($billingAddress) {{ $billingAddress->address }} @endif"
+                                                @if ((isset($billingAddress) && $billingAddress->address == '') || !isset($billingAddress)) style="border: 1px solid #b500008c;" @endif
+                                                placeholder="Billing Address" class="form-control shipping_input mb-2">
+                                        
+                                            @if ((isset($billingAddress) && $billingAddress->city == '') || !isset($billingAddress))
+                                                <style>
+                                                    .billing_address_fields .select2-container {
+                                                        border: 1px solid #b500008c !important;
+                                                        border-radius: 6px;
+                                                        margin-bottom: 8px;
+                                                    }
+                                                </style>
+                                            @else
+                                                <style>
+                                                    .billing_address_fields .select2-container {
+                                                        margin-bottom: 8px;
+                                                    }
+                                                </style>
+                                            @endif
+                                        
+                                            <div class="row mb-2">
+                                                <!-- District Selection -->
+                                                <div class="col-12">
+                                                    <select class="form-select" id="billing_district_id" name="billing_district_id" data-toggle="select2" required>
+                                                        <option value="">Select Billing District</option>
+                                                        @foreach ($districts as $district)
+                                                            <option value="{{ $district->id }}"
+                                                                @if ($billingAddress && $billingAddress->city == $district->name) selected @endif>
+                                                                {{ $district->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="row mb-2">
+                                                <!-- Thana Selection -->
+                                                <div class="col-12">
+                                                    <select class="form-select" id="billing_thana_id" name="billing_thana_id" data-toggle="select2" required>
+                                                        <option value="">Select Billing Thana</option>
+                                                        <!-- Options will be loaded dynamically -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="row g-2">
+                                                <!-- Post Code -->
+                                                <div class="col-md-6">
+                                                    <input type="text" name="billing_post_code" id="billing_post_code"
+                                                        value="@if ($billingAddress) {{ $billingAddress->post_code }} @endif"
+                                                        placeholder="Post Code (Optional)" class="form-control shipping_input mb-2">
+                                                </div>
+                                                
+                                                <!-- Country -->
+                                                <div class="col-md-6">
+                                                    <input type="text" name="billing_country" id="billing_country"
+                                                        value="@if ($billingAddress) {{ $billingAddress->country }} @endif"
+                                                        @if ((isset($billingAddress) && $billingAddress->country == '') || !isset($billingAddress)) style="border: 1px solid #b500008c;" @endif
+                                                        placeholder="Country Name" class="form-control shipping_input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="same_billing_message" class="text-muted">
+                                            <small><i class="fas fa-info-circle me-1"></i> Billing address will be the same as shipping address</small>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                @if ($userInfo)
+                                    <div class="card shadow-sm mt-3">
+                                        <div class="card-header bg-light py-2">
+                                            <h6 class="mb-0 fw-bold">User Account Info</h6>
+                                        </div>
+                                        <div class="card-body py-2">
+                                            <p class="mb-1">{{ $userInfo->name }}</p>
+                                            @if ($userInfo->email)
+                                                <p class="mb-1">{{ $userInfo->email }}</p>
+                                            @endif
+                                            @if ($userInfo->phone)
+                                                <p class="mb-1">{{ $userInfo->phone }}</p>
+                                            @endif
+                                            @if ($userInfo->address)
+                                                <p class="mb-0">{{ $userInfo->address }}</p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const differentBillingCheckbox = document.getElementById('different_billing');
+                                const billingFormContainer = document.getElementById('billing_form_container');
+                                const sameBillingMessage = document.getElementById('same_billing_message');
+                                
+                                // Get district and thana elements
+                                const shippingDistrictSelect = document.getElementById('shipping_district_id');
+                                const shippingThanaSelect = document.getElementById('shipping_thana_id');
+                                const billingDistrictSelect = document.getElementById('billing_district_id');
+                                const billingThanaSelect = document.getElementById('billing_thana_id');
+                                
+                                // Add event listener for the checkbox
+                                differentBillingCheckbox.addEventListener('change', function() {
+                                    if (this.checked) {
+                                        // Show billing form when "Different from shipping address" is checked
+                                        billingFormContainer.style.display = 'block';
+                                        sameBillingMessage.style.display = 'none';
+                                        
+                                        // Initialize billing fields with shipping values on first show
+                                        copyShippingToBilling();
+                                    } else {
+                                        // Hide billing form when unchecked
+                                        billingFormContainer.style.display = 'none';
+                                        sameBillingMessage.style.display = 'block';
+                                    }
+                                });
+                                
+                                // When shipping district changes, update billing district if using same address
+                                shippingDistrictSelect.addEventListener('change', function() {
+                                    // Update billing district if "Different from shipping" is checked and billing form is visible
+                                    if (differentBillingCheckbox.checked && billingFormContainer.style.display === 'block') {
+                                        // Set billing district to match shipping district
+                                        billingDistrictSelect.value = this.value;
+                                        
+                                        // Trigger change event for Select2 and thana loading
+                                        if (window.jQuery && window.jQuery.fn.select2) {
+                                            jQuery(billingDistrictSelect).trigger('change');
+                                        }
+                                        
+                                        // Wait for thanas to load before copying shipping thana to billing thana
+                                        setTimeout(function() {
+                                            if (shippingThanaSelect.selectedIndex >= 0 && billingThanaSelect.options.length > 1) {
+                                                billingThanaSelect.value = shippingThanaSelect.value;
+                                                
+                                                if (window.jQuery && window.jQuery.fn.select2) {
+                                                    jQuery(billingThanaSelect).trigger('change');
+                                                }
+                                            }
+                                        }, 500); // 500ms delay to allow thanas to load
+                                    }
+                                });
+                                
+                                // When shipping thana changes, update billing thana if using same address
+                                shippingThanaSelect.addEventListener('change', function() {
+                                    // Update billing thana if "Different from shipping" is checked and billing form is visible
+                                    if (differentBillingCheckbox.checked && billingFormContainer.style.display === 'block') {
+                                        if (billingThanaSelect.options.length > 1) {
+                                            billingThanaSelect.value = this.value;
+                                            
+                                            if (window.jQuery && window.jQuery.fn.select2) {
+                                                jQuery(billingThanaSelect).trigger('change');
+                                            }
+                                        }
+                                    }
+                                });
+                                
+                                // Function to copy shipping values to billing
+                                function copyShippingToBilling() {
+                                    // Address
+                                    document.getElementById('billing_address').value = document.getElementById('shipping_address').value;
+                                    
+                                    // District
+                                    if (shippingDistrictSelect.selectedIndex >= 0) {
+                                        billingDistrictSelect.value = shippingDistrictSelect.value;
+                                        
+                                        // If using Select2, update the UI
+                                        if (window.jQuery && window.jQuery.fn.select2) {
+                                            jQuery(billingDistrictSelect).trigger('change');
+                                        }
+                                        
+                                        // Wait for thanas to load before setting thana value
+                                        setTimeout(function() {
+                                            if (shippingThanaSelect.selectedIndex >= 0 && billingThanaSelect.options.length > 1) {
+                                                billingThanaSelect.value = shippingThanaSelect.value;
+                                                
+                                                if (window.jQuery && window.jQuery.fn.select2) {
+                                                    jQuery(billingThanaSelect).trigger('change');
+                                                }
+                                            }
+                                        }, 500); // 500ms delay to allow thanas to load
+                                    }
+                                    
+                                    // Post Code
+                                    document.getElementById('billing_post_code').value = document.getElementById('shipping_post_code').value;
+                                    
+                                    // Country
+                                    document.getElementById('billing_country').value = document.getElementById('shipping_country').value;
+                                }
+                                
+                                // Create hidden inputs to store shipping info for billing when form is submitted
+                                const form = document.querySelector('form');
+                                form.addEventListener('submit', function(e) {
+                                    if (!differentBillingCheckbox.checked) {
+                                        // If billing is same as shipping, create hidden inputs with shipping values
+                                        const shippingAddress = document.getElementById('shipping_address').value;
+                                        const shippingDistrict = document.getElementById('shipping_district_id').value;
+                                        const shippingThana = document.getElementById('shipping_thana_id').value;
+                                        const shippingPostCode = document.getElementById('shipping_post_code').value;
+                                        const shippingCountry = document.getElementById('shipping_country').value;
+                                        
+                                        // Create or update hidden fields
+                                        createOrUpdateHidden('billing_address_hidden', 'billing_address', shippingAddress);
+                                        createOrUpdateHidden('billing_district_id_hidden', 'billing_district_id', shippingDistrict);
+                                        createOrUpdateHidden('billing_thana_id_hidden', 'billing_thana_id', shippingThana);
+                                        createOrUpdateHidden('billing_post_code_hidden', 'billing_post_code', shippingPostCode);
+                                        createOrUpdateHidden('billing_country_hidden', 'billing_country', shippingCountry);
+                                    }
+                                });
+                                
+                                function createOrUpdateHidden(id, name, value) {
+                                    let hiddenField = document.getElementById(id);
+                                    if (!hiddenField) {
+                                        hiddenField = document.createElement('input');
+                                        hiddenField.type = 'hidden';
+                                        hiddenField.id = id;
+                                        hiddenField.name = name;
+                                        form.appendChild(hiddenField);
+                                    }
+                                    hiddenField.value = value;
+                                }
+                            });
+                            </script>
+                        {{-- end update billing address and shipping address --}}
 
                         <div class="mt-4 mb-4">
                             <div class="text-right">
@@ -686,146 +1004,105 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#payment" aria-expanded="false" aria-controls="payment">
+                    @if (!in_array($order->order_status, [2, 3, 4, 5]))
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#payment" aria-expanded="false" aria-controls="payment">
 
-                                    <span><i class="fa fa-dollar-sign"></i>
-                                        Payment
-                                    </span>
+                                        <span><i class="fa fa-dollar-sign"></i>
+                                            Payment
+                                        </span>
 
-                                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="payment" class="collapse" aria-labelledby="headingTwo"
-                            data-parent="#accordionExample">
-                            <div class="card-body">
-
-                                <form action="{{ url('add/order/payment') }}" method="POST"
-                                    {{ in_array($order->order_status, [3, 4]) ? 'onsubmit="return false;"' : '' }}>
-                                    @csrf
-                                    <input type="hidden" name="order_id" value="{{ $order->id }}">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group" style="margin-bottom: .5rem;">
-                                                <label style="margin-bottom: .2rem; font-weight: 500;">Payment
-                                                    Method</label>
-                                                <select name="payment_through" class="form-control" required>
-                                                    <option value="bKash">BKash</option>
-                                                    <option value="Rocket">Rocket</option>
-                                                    <option value="Nagad">Nagad</option>
-                                                    <option value="Upay">Upay</option>
-                                                    <option value="COD">COD</option>
-                                                    <option value="Other">Others</option>
-                                                </select>
+                                        <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="payment" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <form action="{{ url('add/order/payment') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="order_id" value="{{ $order->id }}">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group" style="margin-bottom: .5rem;">
+                                                    <label style="margin-bottom: .2rem; font-weight: 500;">Payment
+                                                        Method</label>
+                                                    <select name="payment_through" class="form-control" required>
+                                                        <option value="bKash">BKash</option>
+                                                        <option value="Rocket">Rocket</option>
+                                                        <option value="Nagad">Nagad</option>
+                                                        <option value="Upay">Upay</option>
+                                                        <option value="COD">COD</option>
+                                                        <option value="Other">Others</option>
+                                                    </select>
+                                                </div>
                                             </div>
+
+                                            <div class="col-12">
+                                                <div class="form-group ">
+                                                    <label for="tran_id">bKash / Rocket / Nagad / Upay TrxID or Note <sup
+                                                            style="color:red;">*</sup></label>
+                                                    <input class="form-control" type="text" value=""
+                                                        name="tran_id" id="tran_id" required=""
+                                                        placeholder="Enter TrxID">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="form-group ">
+                                                    <label for="amount">Amount (Due:
+                                                        {{ number_format($order->total - $payments['total'], 2) }})<sup
+                                                            style="color:red;">*</sup></label>
+                                                    <input class="form-control" type="number" value=""
+                                                        step="0.01" name="amount" id="amount" required=""
+                                                        max="{{ number_format($order->total - $payments['total'], 2) }}"
+                                                        placeholder="Enter Amount">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="form-group" style="margin-bottom: .8rem;">
+                                                    <label style="margin-bottom: .2rem; font-weight: 500;">Payment Date
+                                                        :</label>
+                                                    <input type="datetime-local" class="form-control" name="payment_date"
+                                                        value="{{ date('Y-m-d\TH:i') }}" step="1">
+                                                </div>
+                                            </div>
+
+                                            <!-- <div class="col-lg-6 col-12">
+                                                <div class="form-group ">
+                                                    <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
+                                                    <input class="form-control" type="number" value="49.00" step="0.01"
+                                                        name="shipping" id="shipping" required=""
+                                                        placeholder="Enter Shipping">
+                                                </div>
+                                            </div> -->
                                         </div>
 
-                                        <div class="col-12">
-                                            <div class="form-group ">
-                                                <label for="tran_id">bKash / Rocket / Nagad / Upay TrxID or Note <sup
-                                                        style="color:red;">*</sup></label>
-                                                <input class="form-control" type="text" value="" name="tran_id"
-                                                    id="tran_id" required="" placeholder="Enter TrxID">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="form-group ">
-                                                <label for="amount">Amount (Due:
-                                                    {{ number_format($order->total - $payments['total'], 2) }})<sup
-                                                        style="color:red;">*</sup></label>
-                                                <input class="form-control" type="number" value="" step="0.01"
-                                                    name="amount" id="amount" required=""
-                                                    max="{{ number_format($order->total - $payments['total'], 2) }}"
-                                                    placeholder="Enter Amount">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="form-group" style="margin-bottom: .8rem;">
-                                                <label style="margin-bottom: .2rem; font-weight: 500;">Payment Date
-                                                    :</label>
-                                                <input type="datetime-local" class="form-control" name="payment_date"
-                                                    value="{{ date('Y-m-d\TH:i') }}" step="1">
-                                            </div>
-                                        </div>
-
-                                        <!-- <div class="col-lg-6 col-12">
-                                                    <div class="form-group ">
-                                                        <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
-                                                        <input class="form-control" type="number" value="49.00" step="0.01"
-                                                            name="shipping" id="shipping" required=""
-                                                            placeholder="Enter Shipping">
-                                                    </div>
-                                                </div> -->
+                                        <button type="submit" class="btn btn-primary rounded mt-1">Add
+                                            Payment</button>
+                                    </form>
+                                    <div class="payment-history mt-4">
+                                        <h5>Payment History</h5>
+                                        <ul class="mb-0">
+                                            @forelse ($payments['payments'] as $pay)
+                                                <li>payment via {{ $pay->payment_through }} @if ($pay->tran_id)
+                                                        (TrxID: {{ $pay->tran_id }})
+                                                    @endif amount: {{ $pay->amount }} At
+                                                    {{ date('d M Y', strtotime($pay->tran_date)) }}</li>
+                                            @empty
+                                                <p>No History Found</p>
+                                            @endforelse
+                                        </ul>
                                     </div>
-                                    <button type="submit"
-                                        class="btn btn-primary rounded mt-1 {{ in_array($order->order_status, [3, 4]) ? 'opacity-50' : '' }}"
-                                        {{ in_array($order->order_status, [3, 4]) ? 'disabled' : '' }}> Add
-                                        Payment</button>
-
-                                </form>
-                                <div class="payment-history mt-4">
-                                    <h5>Payment History</h5>
-                                    <ul class="mb-0">
-                                        @forelse ($payments['payments'] as $pay)
-                                            <li>
-                                                payment via {{ $pay->payment_through }} @if ($pay->tran_id)
-                                                    (TrxID: {{ $pay->tran_id }})
-                                                @endif amount: {{ $pay->amount }} At
-                                                {{ date('d M Y', strtotime($pay->tran_date)) }}
-                                                <button type="button" class="btn btn-sm btn-warning openPaymentModal"
-                                                    data-id="{{ $pay->id }}">Edit</button>
-                                                <!-- data-target="#editModal" -->
-                                            </li>
-                                        @empty
-                                            <p>No History Found</p>
-                                        @endforelse
-                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!--<div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-
-                                            <span> <i class="fa fa-sticky-note"></i>
-                                                Order Note
-                                            </span>
-
-
-                                            <div class="arrow"><i class="fas fa-chevron-right"></i></div>
-                                        </button>
-                                    </h2>
-                                </div>
-                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                    data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <ul>
-                                            <li>New Order From: 127.0.0.1UA#Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-                                                AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36</li>
-                                            <li>Order Created By U#16 Saiful &gt;&gt; admin</li>
-                                            <li>Partial Payment Collected By Saiful with TrxID: 54365</li>
-                                            <li>Partial Payment Collected By Saiful with TrxID: 255</li>
-                                            <li>Editing INV#73788 as draft</li>
-                                            <li>Editing INV#73790 as draft</li>
-                                        </ul>
-                                        <form action="" method="POST">
-                                            <input type="hidden" name="_method" value="put"> <input type="hidden"
-                                                name="_token" value="qt0bdSJv9IJGoseW7o2z963QluTK5o5XmwpjWMM0"> <input
-                                                name="system_note" id="system_note" rows="3" class="form-control"
-                                                placeholder="Just Type Note Then Press Enter" required="">
-                                            <button type="submit" class="mt-2 btn btn-primary">Save Note</button>
-                                        </form>
-                                    </div>
-                                </div> -->
+                    @endif
+                    
                 </div>
             </div>
         </div>
@@ -883,6 +1160,7 @@
                     fixRowNo();
                     $(".addAnotherItem").html("<strong>+ Add More Product</strong>");
                     $('[data-toggle="select2"]').select2(); // initiate select2 for newly added row
+                    orderAmountCalculation(); // Calculate totals after adding product
                 },
                 error: function(data) {
                     console.log('Error:', data);
@@ -1032,15 +1310,372 @@
         }
 
         function orderAmountCalculation() {
+            // Calculate subtotal from all product totals
             var orderSubtotal = 0;
             $(".orderT").each(function() {
-                orderSubtotal = Number(orderSubtotal) + Number($(this).val());
+                orderSubtotal = Number(orderSubtotal) + Number($(this).val() || 0);
             });
-            var orderDiscount = Number($("#order_discount").html());
-            var orderDeliveryCharge = Number($("#order_delivery_charge").html());
-            $("#order_sub_total").html(orderSubtotal.toFixed(2))
-            var totalAmount = Number(orderSubtotal - orderDiscount + orderDeliveryCharge);
-            $("#order_total").html(totalAmount.toFixed(2))
+            
+            // Get values for discount, VAT/tax, and delivery charge from your HTML
+            var orderDiscount = 0;
+            if ($("#order_discount").length) {
+                orderDiscount = Number($("#order_discount").html() || 0);
+            } else {
+                // Try to get from the discount display in the HTML
+                var discountText = $("p:contains('Discount')").text();
+                if (discountText) {
+                    var discountMatch = discountText.match(/[\d,.]+/);
+                    if (discountMatch) {
+                        orderDiscount = Number(discountMatch[0].replace(/,/g, '') || 0);
+                    }
+                }
+            }
+            
+            var orderVatTax = 0;
+            if ($("#vat_tax_amount").length) {
+                orderVatTax = Number($("#vat_tax_amount").val() || 0);
+            } else {
+                // Try to get from the VAT/TAX display in the HTML
+                var vatTaxText = $("p:contains('VAT/TAX')").text();
+                if (vatTaxText) {
+                    var vatTaxMatch = vatTaxText.match(/[\d,.]+/);
+                    if (vatTaxMatch) {
+                        orderVatTax = Number(vatTaxMatch[0].replace(/,/g, '') || 0);
+                    }
+                }
+            }
+            
+            var orderDeliveryCharge = 0;
+            if ($("#delivery_charge_amount").length) {
+                orderDeliveryCharge = Number($("#delivery_charge_amount").val() || 0);
+            } else {
+                // Try to get from the Delivery Charge display in the HTML
+                var deliveryText = $("p:contains('Delivery Charge')").text();
+                if (deliveryText) {
+                    var deliveryMatch = deliveryText.match(/[\d,.]+/);
+                    if (deliveryMatch) {
+                        orderDeliveryCharge = Number(deliveryMatch[0].replace(/,/g, '') || 0);
+                    }
+                }
+            }
+            
+            // Format for display (add commas for thousands)
+            var formattedSubtotal = orderSubtotal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            
+            // Update subtotal display - try different selectors
+            if ($("#order_sub_total").length) {
+                $("#order_sub_total").html(formattedSubtotal);
+            } else {
+                // Find the subtotal element in the page and update it
+                $("p:contains('Sub-total')").each(function() {
+                    // Get the currency symbol
+                    var currencySymbol = $(this).text().match(/[^\w\s.,]/)[0] || '';
+                    // Replace only the number part
+                    $(this).html('<b>Sub-total :</b> ' + currencySymbol + ' ' + formattedSubtotal);
+                });
+            }
+            
+            // Calculate total
+            var totalAmount = Number(orderSubtotal) - Number(orderDiscount) + Number(orderVatTax) + Number(orderDeliveryCharge);
+            var formattedTotal = totalAmount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            
+            // Update total display - try different selectors
+            if ($("#order_total").length) {
+                $("#order_total").html(formattedTotal);
+            } else {
+                // Find the total element in the page and update it
+                $("p:contains('Total Order Amount')").each(function() {
+                    // Get the currency symbol
+                    var currencySymbol = $(this).text().match(/[^\w\s.,]/)[0] || '';
+                    // Replace only the number part
+                    $(this).html('<b>Total Order Amount :</b> ' + currencySymbol + ' ' + formattedTotal);
+                });
+            }
+            
+            // Update due amount if it exists
+            var paidAmount = 0;
+            var paidText = $("p:contains('Paid Amount')").text();
+            if (paidText && !paidText.includes('Full Paid')) {
+                var paidMatch = paidText.match(/[\d,.]+/);
+                if (paidMatch) {
+                    paidAmount = Number(paidMatch[0].replace(/,/g, '') || 0);
+                }
+            }
+            
+            var dueAmount = totalAmount - paidAmount;
+            
+            if (dueAmount > 0) {
+                var formattedDueAmount = dueAmount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                var currencySymbol = $("p:contains('Due Amount')").text().match(/[^\w\s.,]/)[0] || '';
+                
+                $("p:contains('Due Amount')").find("span").html(formattedDueAmount);
+            }
+            
+            // Store values for form submission if needed
+            if ($("#sub_total_field").length) {
+                $("#sub_total_field").val(orderSubtotal.toFixed(2));
+            }
+            
+            if ($("#total_field").length) {
+                $("#total_field").val(totalAmount.toFixed(2));
+            }
         }
+        
+        // Make sure totals are calculated when the page loads
+        $(document).ready(function() {
+            // Calculate initial totals
+            setTimeout(orderAmountCalculation, 500);
+            
+            // Add event listener for quantity changes
+            $(document).on('change', 'input[name="qty[]"]', function() {
+                var id = $(this).attr('id').split('_')[1];
+                changeTotalPrice(id);
+            });
+        });
     </script>
+    <script>
+        $(document).ready(function() {
+    // Auto-update discount when the value changes
+   // Manual discount handling - just updates the discount amount without affecting coupon
+      // Apply coupon
+function applyCoupon() {
+    var couponCode = $("#coupon_code").val();
+    if (!couponCode) {
+        toastr.error("Please enter a coupon code");
+        return false;
+    }
+
+    // Change button state to loading
+    var couponBtn = $("#couponBtn");
+    var originalText = couponBtn.text();
+    couponBtn.text("Applying...").prop("disabled", true);
+
+    $.ajax({
+        url: "{{ route('validate.coupon') }}",
+        type: "POST",
+        data: {
+            coupon_code: couponCode,
+            order_id: $("input[name='order_id']").val(),
+            _token: "{{ csrf_token() }}"
+        },
+        dataType: 'json',
+        success: function(data) {
+            if (!data.valid) {
+                toastr.error(data.message);
+                couponBtn.text(originalText).prop("disabled", false);
+            } else {
+                toastr.success(data.message);
+                
+                // Update discount display
+                var discountAmount = data.discount_amount;
+                var currencySymbol = $("p:contains('Discount')").text().match(/[^\w\s.,]/)[0] || '';
+                var formattedDiscount = parseFloat(discountAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                
+                // Update the display with the new discount and coupon code
+                if ($("p:contains('Discount')").length) {
+                    $("p:contains('Discount')").html('<b>Discount (' + couponCode + '):</b> ' + currencySymbol + ' ' + formattedDiscount);
+                } else {
+                    $("p:contains('Sub-total')").after('<p><b>Discount (' + couponCode + '):</b> ' + currencySymbol + ' ' + formattedDiscount + '</p>');
+                }
+                
+                // Update discount input field to match
+                $("#discount").val(discountAmount);
+                
+                // Recalculate total and due amount
+                orderAmountCalculation();
+                
+                // Change button to Remove
+                couponBtn.text("Remove").removeClass("btn-success").addClass("btn-danger");
+                couponBtn.prop("onclick", null).off("click");
+                couponBtn.on("click", removeCoupon);
+                couponBtn.prop("disabled", false);
+            }
+        },
+        error: function(data) {
+            console.log('Error:', data);
+            couponBtn.text(originalText).prop("disabled", false);
+            toastr.error("Something went wrong. Please try again.");
+        }
+    });
+}
+
+// Remove coupon
+function removeCoupon() {
+    // Get any manual discount that might be set
+    var manualDiscount = $("#discount").val() || 0;
+    
+    // Change button state to loading
+    var couponBtn = $("#couponBtn");
+    couponBtn.text("Removing...").prop("disabled", true);
+
+    $.ajax({
+        url: "{{ route('remove.coupon') }}",
+        type: "POST",
+        data: {
+            order_id: $("input[name='order_id']").val(),
+            manual_discount: manualDiscount,
+            _token: "{{ csrf_token() }}"
+        },
+        dataType: 'json',
+        success: function(data) {
+            toastr.success(data.message);
+            
+            // Update discount display - keep manual discount if any
+            var currencySymbol = $("p:contains('Discount')").text().match(/[^\w\s.,]/)[0] || '';
+            var formattedDiscount = parseFloat(manualDiscount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            
+            // Update the display text without coupon code
+            $("p:contains('Discount')").html('<b>Discount:</b> ' + currencySymbol + ' ' + formattedDiscount);
+            
+            // Recalculate totals based on the manual discount
+            orderAmountCalculation();
+            
+            // Clear coupon input
+            $("#coupon_code").val("");
+            
+            // Change button back to Apply
+            couponBtn.text("Apply Coupon").removeClass("btn-danger").addClass("btn-success");
+            couponBtn.prop("onclick", null).off("click");
+            couponBtn.on("click", applyCoupon);
+            couponBtn.prop("disabled", false);
+        },
+        error: function(data) {
+            console.log('Error:', data);
+            couponBtn.text("Remove").prop("disabled", false);
+            toastr.error("Failed to remove coupon. Please try again.");
+        }
+    });
+}
+
+// Handle manual discount input
+$("#discount").on('input', function() {
+    var discountAmount = Number($(this).val()) || 0;
+    
+    // Only update if there's no coupon applied (check button text)
+    if ($("#couponBtn").text() !== "Remove") {
+        // Update the display - find the currency symbol first
+        var currencySymbol = $("p:contains('Discount')").text().match(/[^\w\s.,]/)[0] || '';
+        var formattedDiscount = discountAmount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        
+        // Update the display text
+        if ($("p:contains('Discount')").length) {
+            $("p:contains('Discount')").html('<b>Discount:</b> ' + currencySymbol + ' ' + formattedDiscount);
+        } else {
+            $("p:contains('Sub-total')").after('<p><b>Discount:</b> ' + currencySymbol + ' ' + formattedDiscount + '</p>');
+        }
+        
+        // Recalculate totals
+        orderAmountCalculation();
+    } else {
+        // Reset to previous value if coupon is applied
+        $(this).val($(this).data('previous-value') || 0);
+        toastr.warning("Please remove the coupon before changing the discount manually");
+    }
+}).on('focus', function() {
+    // Store the previous value when focusing
+    $(this).data('previous-value', $(this).val());
+});
+
+// Initialize on document ready
+$(document).ready(function() {
+    // Set up coupon button based on existing coupon
+    if ($("#coupon_code").val()) {
+        $("#couponBtn").text("Remove").removeClass("btn-success").addClass("btn-danger");
+        $("#couponBtn").off("click").on("click", removeCoupon);
+    } else {
+        $("#couponBtn").text("Apply Coupon").removeClass("btn-danger").addClass("btn-success");
+        $("#couponBtn").off("click").on("click", applyCoupon);
+    }
+});      
+});
+    </script>
+
+    <script>
+        // Function to load thanas based on district selection
+        function loadThanas(districtId, targetElementId, selectedThanaName = '') {
+            if (!districtId) {
+                $('#' + targetElementId).html('<option value="">Select Thana</option>');
+                return;
+            }
+
+            $.ajax({
+                url: "{{ url('/district/wise/thana') }}",
+                type: "POST",
+                data: {
+                    district_id: districtId,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#' + targetElementId).html('<option value="">Select Thana</option>');
+
+                    if (result.data && result.data.length > 0) {
+                        $.each(result.data, function(key, value) {
+                            // Check if we need to select this option
+                            var selected = '';
+                            if (selectedThanaName && selectedThanaName === value.name) {
+                                selected = 'selected';
+                            }
+
+                            $('#' + targetElementId).append('<option value="' + value.id + '" ' +
+                                selected + '>' + value.name + '</option>');
+                        });
+                    }
+
+                    // Refresh Select2
+                    $('#' + targetElementId).trigger('change.select2');
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', error);
+                    console.log('Response:', xhr.responseText);
+                }
+            });
+        }
+
+        // Document ready handler
+        $(document).ready(function() {
+            // Load current thana for shipping address if district is selected
+            if ($("#shipping_district_id").val()) {
+                loadThanas($("#shipping_district_id").val(), 'shipping_thana_id',
+                    '{{ $shippingInfo->thana ?? '' }}');
+            }
+
+            // Load current thana for billing address if district is selected
+            if ($("#billing_district_id").val()) {
+                loadThanas($("#billing_district_id").val(), 'billing_thana_id',
+                    '{{ $billingAddress->thana ?? '' }}');
+            }
+
+            // District change for shipping address
+            $("#shipping_district_id").change(function() {
+                var districtId = $(this).val();
+                if (districtId) {
+                    loadThanas(districtId, 'shipping_thana_id');
+
+                    // Update delivery charge if available
+                    var deliveryCharge = $(this).find('option:selected').data('delivery-charge') || 0;
+                    $("#order_delivery_charge").text('{{ $currencySymbol }} ' + parseFloat(deliveryCharge)
+                        .toFixed(2));
+
+                    // Recalculate total
+                    orderAmountCalculation();
+                } else {
+                    $('#shipping_thana_id').html('<option value="">Select Thana</option>');
+                    $('#shipping_thana_id').trigger('change.select2');
+                }
+            });
+
+            // District change for billing address
+            $("#billing_district_id").change(function() {
+                var districtId = $(this).val();
+                if (districtId) {
+                    loadThanas(districtId, 'billing_thana_id');
+                } else {
+                    $('#billing_thana_id').html('<option value="">Select Thana</option>');
+                    $('#billing_thana_id').trigger('change.select2');
+                }
+            });
+        });
+    </script>
+    
 @endsection
