@@ -178,6 +178,41 @@ class ApiController extends BaseController
         }
     }
 
+
+    //New Catrgory Api
+    public function newCategoryTree(Request $request){
+
+        if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
+
+            $categories = $this->getNestedCategoryTree(null);
+            return response()->json([
+                'success' => true,
+                'data' => $categories
+            ], 200);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => "Authorization Token is Invalid"
+            ], 422);
+        }
+
+    }
+
+    public function getNestedCategoryTree($parentId = null) {
+        // Fetch categories from database
+        $categories = DB::table('categories')
+            ->where('parent_id', $parentId)
+            ->get();
+
+        // Recursively fetch children
+        foreach ($categories as $category) {
+            $category->children = $this->getNestedCategoryTree($category->id);
+        }
+
+        return $categories;
+    }
+
     public function getCategoryList(Request $request){
         if ($request->header('Authorization') == ApiController::AUTHORIZATION_TOKEN) {
 

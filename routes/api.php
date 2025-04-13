@@ -53,6 +53,8 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('product/question/submit', [ApiController::class, 'submitProductQuestion']);
 
     Route::get('get/category/tree', [ApiController::class, 'getCategoryTree']);
+    Route::get('new/category/tree', [ApiController::class, 'newCategoryTree']);
+
     Route::get('category/list', [ApiController::class, 'getCategoryList']);
     Route::get('top/categories', [ApiController::class, 'topCategories']);
     Route::get('get/featured/subcategories', [ApiController::class, 'getFeaturedSubcategory']);
