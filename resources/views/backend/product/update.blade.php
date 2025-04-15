@@ -205,6 +205,21 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col">
+                                        <div class="form-group" id="product_cost_price"
+                                            @if ($product->has_variant == 1) style="display:none" @endif>
+                                            <label for="cost_price">Cost Price (In BDT) <span
+                                                    class="text-danger">*</span></label>
+                                            <input id="cost_price" name="cost_price" data-toggle="touchspin"
+                                                type="text" value="{{ $product->cost_price }}" class="form-control">
+
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('cost_price')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -271,7 +286,7 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                    
+
                                 </div>
 
                                 {{-- brand model --}}
@@ -526,13 +541,13 @@
                                                                         placeholder="Enter discounted price for all variants"
                                                                         min="0">
                                                                 </th>
-                                                                {{-- <th class="text-center">Cost Price <span
+                                                                <th class="text-center">Cost Price <span
                                                                         class="text-danger">*</span>
                                                                     <input type="number" id="bulk_cost_price"
                                                                         class="form-control"
                                                                         placeholder="Enter cost price for all variants"
                                                                         min="0">
-                                                                </th> --}}
+                                                                </th>
 
                                                                 <th class="text-center" style="min-width: 50px;">Action
 
@@ -701,12 +716,12 @@
                                                                                 value="{{ $productVariant->discounted_price }}"
                                                                                 style="height: 34px;" placeholder="0">
                                                                         </td>
-                                                                        {{-- <td class="text-center">
+                                                                        <td class="text-center">
                                                                             <input type="number" class="form-control"
                                                                                 name="product_variant_cost_price[]"
                                                                                 value="{{ $productVariant->cost_price }}"
                                                                                 style="height: 34px;" placeholder="0">
-                                                                        </td> --}}
+                                                                        </td>
                                                                         <td class="text-center">
                                                                             <a href="javascript:void(0)"
                                                                                 onclick="removeRowWithDelete(this, {{ $productVariant->id }})"
@@ -853,12 +868,12 @@
                                                                             value="0" style="height: 34px;"
                                                                             placeholder="0">
                                                                     </td>
-                                                                    {{-- <td class="text-center">
+                                                                    <td class="text-center">
                                                                         <input type="number" class="form-control"
                                                                             name="product_variant_cost_price[]"
                                                                             value="0" style="height: 34px;"
                                                                             placeholder="0">
-                                                                    </td> --}}
+                                                                    </td>
                                                                     <td class="text-center">
                                                                         {{-- <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a> --}}
                                                                     </td>
@@ -1003,6 +1018,7 @@
                 // $("#product_image_gallery").fadeOut(500);
                 $("#product_price").fadeOut(500);
                 $("#product_discounted_price").fadeOut(500);
+                $("#product_cost_price").fadeOut(500);
                 $("#product_stock").fadeOut(500);
                 $("#product_warrenty").fadeOut(500);
             } else {
@@ -1011,6 +1027,7 @@
                 // $("#product_image_gallery").fadeIn(500);
                 $("#product_price").fadeIn(500);
                 $("#product_discounted_price").fadeIn(500);
+                 $("#product_cost_price").fadeIn(500);
                 $("#product_stock").fadeIn(500);
                 $("#product_warrenty").fadeIn(500);
             }
@@ -1292,7 +1309,7 @@
                 const bulkStock = document.getElementById('bulk_stock').value;
                 const bulkPrice = document.getElementById('bulk_price').value;
                 const bulkDiscountedPrice = document.getElementById('bulk_discounted_price').value;
-                // const bulkCostPrice = document.getElementById('bulk_cost_price').value;
+                const bulkCostPrice = document.getElementById('bulk_cost_price').value;
 
                 // Get all stock inputs
                 if (bulkStock) {
@@ -1319,13 +1336,13 @@
                     });
                 }
 
-                // Get all cost price inputs
-                // if (bulkCostPrice) {
-                //     const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
-                //     costPriceInputs.forEach(input => {
-                //         input.value = bulkCostPrice;
-                //     });
-                // }
+                Get all cost price inputs
+                if (bulkCostPrice) {
+                    const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
+                    costPriceInputs.forEach(input => {
+                        input.value = bulkCostPrice;
+                    });
+                }
 
                 // Show success message (optional)
                 alert('Values applied to all variants successfully!');
@@ -1340,7 +1357,7 @@
                     document.getElementById('bulk_stock').value = '';
                     document.getElementById('bulk_price').value = '';
                     document.getElementById('bulk_discounted_price').value = '';
-                    // document.getElementById('bulk_cost_price').value = '';
+                    document.getElementById('bulk_cost_price').value = '';
 
                     // Reset all stock inputs
                     const stockInputs = document.getElementsByName('product_variant_stock[]');
@@ -1361,11 +1378,11 @@
                         input.value = 0;
                     });
 
-                    // Reset all cost price inputs
-                    // const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
-                    // costPriceInputs.forEach(input => {
-                    //     input.value = 0;
-                    // });
+                    Reset all cost price inputs
+                    const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
+                    costPriceInputs.forEach(input => {
+                        input.value = 0;
+                    });
 
                     // Show success message
                     alert('All values have been reset to 0');

@@ -114,6 +114,7 @@ class ProductController extends Controller
             //variant specific
             $product->price = 0;
             $product->discount_price = 0;
+            $product->cost_price = 0;
             $product->stock = 0;
             $product->has_variant = 1;
             //variant specific
@@ -137,6 +138,7 @@ class ProductController extends Controller
                 if ($i == 0) { // saving the base variant price & warrenty As product main price & warrenty for filtering
                     $product->price = $request->product_variant_price[$i];
                     $product->discount_price = $request->product_variant_discounted_price[$i];
+                    $product->cost_price = $request->product_variant_cost_price[$i];
                     $product->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : $request->warrenty_id;
                     $product->save();
                 }
@@ -153,6 +155,7 @@ class ProductController extends Controller
                     'stock' => $request->product_variant_stock[$i],
                     'price' => $price_id,
                     'discounted_price' => $request->product_variant_discounted_price[$i],
+                    'cost_price' => $request->product_variant_cost_price[$i],
                     'warrenty_id' => isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null,
                     'device_condition_id' => isset($request->product_variant_device_condition_id[$i]) ? $request->product_variant_device_condition_id[$i] : null,
                     'created_at' => Carbon::now()
@@ -164,6 +167,7 @@ class ProductController extends Controller
             //variant specific
             $product->price = $request->price > 0 ? $request->price : 0;
             $product->discount_price = $request->discount_price > 0 ? $request->discount_price : 0;
+            $product->cost_price = $request->cost_price > 0 ? $request->cost_price : 0;
             $product->stock = $request->stock > 0 ? $request->stock : 0;
             $product->has_variant = 0;
             //variant specific
@@ -220,7 +224,7 @@ class ProductController extends Controller
                 ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
                 ->leftJoin('flags', 'products.flag_id', '=', 'flags.id')
                 ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
-                ->select('products.id', 'products.name', 'products.category_id', 'products.code', 'products.price', 'products.discount_price', 'products.image', 'products.slug', 'products.status', 'products.has_variant', 'products.stock', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
+                ->select('products.id', 'products.name', 'products.category_id', 'products.code', 'products.cost_price', 'products.price', 'products.discount_price', 'products.image', 'products.slug', 'products.status', 'products.has_variant', 'products.stock', 'stores.store_name', 'categories.name as category_name', 'flags.name as flag_name')
                 ->orderBy('products.id', 'desc');
 
             // filter start from here
@@ -467,6 +471,7 @@ class ProductController extends Controller
             //variant specific
             $product->price = 0;
             $product->discount_price = 0;
+            $product->cost_price = 0;
             $product->stock = 0;
             $product->multiple_images = NULL;
             $product->has_variant = 1;
@@ -479,6 +484,7 @@ class ProductController extends Controller
                 if ($i == 0) { // saving the base variant price & warrenty As product main price & warrenty for filtering
                     $product->price = $request->product_variant_price[$i];
                     $product->discount_price = $request->product_variant_discounted_price[$i];
+                    $product->cost_price = $request->product_variant_cost_price[$i];
                     $product->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : $request->warrenty_id;
                     $product->save();
                 }
@@ -512,6 +518,7 @@ class ProductController extends Controller
                     $variantInfo->stock = $request->product_variant_stock[$i];
                     $variantInfo->price = $price_id;
                     $variantInfo->discounted_price = $request->product_variant_discounted_price[$i];
+                    $variantInfo->cost_price = $request->product_variant_cost_price[$i];
                     $variantInfo->warrenty_id = isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null;
                     $variantInfo->device_condition_id = isset($request->product_variant_device_condition_id[$i]) ? $request->product_variant_device_condition_id[$i] : null;
                     $variantInfo->updated_at = Carbon::now();
@@ -544,6 +551,7 @@ class ProductController extends Controller
                         'stock' => $request->product_variant_stock[$i],
                         'price' => $price_id,
                         'discounted_price' => $request->product_variant_discounted_price[$i],
+                        'cost_price' => $request->product_variant_cost_price[$i],
                         'warrenty_id' => isset($request->product_variant_warrenty[$i]) ? $request->product_variant_warrenty[$i] : null,
                         'device_condition_id' => isset($request->product_variant_device_condition_id[$i]) ? $request->product_variant_device_condition_id[$i] : null,
                         'created_at' => Carbon::now()
@@ -556,6 +564,7 @@ class ProductController extends Controller
             //variant specific
             $product->price = $request->price > 0 ? $request->price : 0;
             $product->discount_price = $request->discount_price > 0 ? $request->discount_price : 0;
+            $product->cost_price = $request->cost_price > 0 ? $request->cost_price : 0;
             $product->stock = $request->stock > 0 ? $request->stock : 0;
             $product->has_variant = 0;
             //variant specific

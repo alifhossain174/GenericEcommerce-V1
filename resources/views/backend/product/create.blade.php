@@ -191,6 +191,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col">
+                                        <div class="form-group" id="product_cost_price">
+                                            <label for="cost_price">Cost Price (In BDT) <span
+                                                    class="text-danger">*</span></label>
+                                            <input id="cost_price" name="cost_price" data-toggle="touchspin"
+                                                type="text">
+
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('cost_price')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
 
@@ -473,13 +487,13 @@
                                                                         placeholder="Enter discounted price for all variants"
                                                                         min="0">
                                                                 </th>
-                                                                {{-- <th class="text-center">Cost Price <span
+                                                                <th class="text-center">Cost Price <span
                                                                         class="text-danger">*</span>
                                                                     <input type="number" id="bulk_cost_price"
                                                                         class="form-control"
                                                                         placeholder="Enter cost price for all variants"
                                                                         min="0">
-                                                                </th> --}}
+                                                                </th>
 
                                                                 <th class="text-center" style="min-width: 50px;">Action
 
@@ -603,12 +617,12 @@
                                                                     </td>
                                                                 @endif
 
-                                                                {{-- <td class="text-center">
+                                                                <td class="text-center">
                                                                     <input type="number" class="form-control"
                                                                         name="product_variant_cost_price[]"
                                                                         style="min-width: 100px;" value="0"
                                                                         style="height: 34px;" placeholder="0">
-                                                                </td> --}}
+                                                                </td>
 
                                                                 <td class="text-center">
                                                                     <input type="number" class="form-control"
@@ -1004,7 +1018,7 @@
                 const bulkStock = document.getElementById('bulk_stock').value;
                 const bulkPrice = document.getElementById('bulk_price').value;
                 const bulkDiscountedPrice = document.getElementById('bulk_discounted_price').value;
-                // const bulkCostPrice = document.getElementById('bulk_cost_price').value;
+                const bulkCostPrice = document.getElementById('bulk_cost_price').value;
 
                 // Get all stock inputs
                 if (bulkStock) {
@@ -1031,13 +1045,13 @@
                     });
                 }
 
-                // Get all cost price inputs
-                // if (bulkCostPrice) {
-                //     const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
-                //     costPriceInputs.forEach(input => {
-                //         input.value = bulkCostPrice;
-                //     });
-                // }
+                Get all cost price inputs
+                if (bulkCostPrice) {
+                    const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
+                    costPriceInputs.forEach(input => {
+                        input.value = bulkCostPrice;
+                    });
+                }
 
                 // Show success message (optional)
                 alert('Values applied to all variants successfully!');
@@ -1052,7 +1066,7 @@
                     document.getElementById('bulk_stock').value = '';
                     document.getElementById('bulk_price').value = '';
                     document.getElementById('bulk_discounted_price').value = '';
-                    // document.getElementById('bulk_cost_price').value = '';
+                    document.getElementById('bulk_cost_price').value = '';
 
                     // Reset all stock inputs
                     const stockInputs = document.getElementsByName('product_variant_stock[]');
@@ -1073,11 +1087,11 @@
                         input.value = 0;
                     });
 
-                    // Reset all cost price inputs
-                    // const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
-                    // costPriceInputs.forEach(input => {
-                    //     input.value = 0;
-                    // });
+                    Reset all cost price inputs
+                    const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
+                    costPriceInputs.forEach(input => {
+                        input.value = 0;
+                    });
 
                     // Show success message
                     alert('All values have been reset to 0');

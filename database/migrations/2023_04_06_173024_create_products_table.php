@@ -31,6 +31,7 @@ class CreateProductsTable extends Migration
             $table->longText('warrenty_policy')->nullable();
             $table->double('price')->default(0);
             $table->double('discount_price')->default(0);
+            $table->double('cost_price')->default(0);
             $table->double('reward_points')->default(0);
             $table->double('stock')->default(0);
             $table->unsignedBigInteger('unit_id')->nullable();
