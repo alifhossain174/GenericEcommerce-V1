@@ -208,6 +208,7 @@
     <script src="{{ url('assets') }}/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
     <script src="{{ url('assets') }}/plugins/morris-js/morris.min.js"></script>
     <script src="{{ url('assets') }}/plugins/raphael/raphael.min.js"></script>
+    <script src="{{ url('assets') }}/plugins/apexcharts/apexcharts.min.js"></script>
     <script src="{{ url('assets') }}/pages/dashboard-demo.js"></script>
     <script src="{{ url('assets') }}/js/theme.js"></script>
 

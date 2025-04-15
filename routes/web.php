@@ -74,6 +74,9 @@ Auth::routes([
 
 Route::middleware([CheckUserType::class, DemoMode::class])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/top-products', [HomeController::class, 'getTopProducts'])->name('top.products');
+    Route::get('/top-customers', [HomeController::class, 'getTopCustomers'])->name('top.customers');
+    Route::get('/top-cities', [HomeController::class, 'getTopCities'])->name('top.cities');
     Route::get('/clear/cache', [HomeController::class, 'clearCache'])->name('ClearCache');
     Route::get('/change/password/page', [HomeController::class, 'changePasswordPage'])->name('changePasswordPage');
     Route::post('/change/password', [HomeController::class, 'changePassword'])->name('changePassword');
