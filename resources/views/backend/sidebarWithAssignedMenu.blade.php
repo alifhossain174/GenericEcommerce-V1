@@ -621,7 +621,6 @@ $demoProductsModule = App\Models\UserRolePermission::where('user_id', Auth::user
         </li>
     @endif
 
-
     @if (count($supportTicketModule) > 0 || checkAuth('view/all/contact/requests') || checkAuth('view/all/subscribed/users'))
         <hr style="border-color: #c8c8c836; margin-top: 12px; margin-bottom: 12px;">
         <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">CRM Modules</li>
@@ -667,6 +666,7 @@ $demoProductsModule = App\Models\UserRolePermission::where('user_id', Auth::user
             </ul>
         </li>
     @endif
+
     @if (checkAuth('view/all/contact/requests'))
         <li><a href="{{ url('/view/all/contact/requests') }}"><i class="feather-phone-forwarded"></i><span>Contact
                     Request</span></a></li>

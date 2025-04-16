@@ -402,6 +402,9 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
 
 
     // support ticket routes
+    Route::get('create/support/ticket', [SupportTicketController::class, 'createSupportTicket'])->name('admin.support.tickets.create');
+    Route::post('store/support/ticket', [SupportTicketController::class, 'storeSupportTicket'])->name('admin.support.tickets.store');
+
     Route::get('/pending/support/tickets', [SupportTicketController::class, 'pendingSupportTickets'])->name('PendingSupportTickets');
     Route::get('/solved/support/tickets', [SupportTicketController::class, 'solvedSupportTickets'])->name('SolvedSupportTickets');
     Route::get('/on/hold/support/tickets', [SupportTicketController::class, 'onHoldSupportTickets'])->name('OnHoldSupportTickets');

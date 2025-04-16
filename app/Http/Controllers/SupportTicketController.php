@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SupportMessage;
 use App\Models\SupportTicket;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,194 +15,263 @@ use Illuminate\Support\Facades\Auth;
 
 class SupportTicketController extends Controller
 {
-    public function pendingSupportTickets(Request $request){
+    public function createSupportTicket()
+    {
+        $customers = User::where('user_type', '3')->get(); // Assuming you have a user_type field
+        return view('backend.support_ticket.create', compact('customers'));
+    }
+    public function storeSupportTicket(Request $request)
+    {
+        $request->validate([
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        $attachment = NULL;
+        if ($request->hasFile('attachment')) {
+            $get_attachment = $request->file('attachment');
+            $attachment_name = Str::random(5) . time() . '.' . $get_attachment->getClientOriginalExtension();
+            $location = public_path('support_ticket_attachments/');
+            $get_attachment->move($location, $attachment_name);
+            $attachment = "support_ticket_attachments/" . $attachment_name;
+        }
+
+        // Generate a unique ticket number
+        $ticketNo = 'TIC-' . strtoupper(Str::random(8));
+
+        // Create the support ticket (don't store message here)
+        $supportTicket = SupportTicket::create([
+            'ticket_no' => $ticketNo,
+            'support_taken_by' => Auth::id(), // Admin who creates the ticket
+            'subject' => $request->subject,
+            'status' => 0, // Pending
+            'slug' => Str::slug($request->subject) . '-' . Str::random(8),
+            'created_at' => Carbon::now()
+        ]);
+
+        // Create the message in the support_messages table
+        // Use Auth::id() as sender_id if no customer_id is provided
+        $senderId = $request->customer_id ?? Auth::id();
+        $senderType = $request->customer_id ? 0 : 1; // 0 for customer, 1 for admin
+
+        SupportMessage::create([
+            'support_ticket_id' => $supportTicket->id,
+            'sender_id' => $senderId,
+            'sender_type' => $senderType,
+            'message' => $request->message,
+            'attachment' => $attachment,
+            'created_at' => Carbon::now()
+        ]);
+
+        Toastr::success('Support Ticket Created Successfully', 'Success');
+        return redirect()->to('/pending/support/tickets');
+    }
+    public function pendingSupportTickets(Request $request)
+    {
         if ($request->ajax()) {
 
             $data = DB::table('support_tickets')
-                        ->join('users', 'support_tickets.support_taken_by', '=', 'users.id')
-                        ->select('support_tickets.*', 'users.name')
-                        ->where('support_tickets.status', 0)
-                        ->orWhere('support_tickets.status', 1)
-                        ->orderBy('id', 'desc')
-                        ->get();
+                ->join('users', 'support_tickets.support_taken_by', '=', 'users.id')
+                ->select('support_tickets.*', 'users.name')
+                ->where('support_tickets.status', 0)
+                ->orWhere('support_tickets.status', 1)
+                ->orderBy('id', 'desc')
+                ->get();
 
             return Datatables::of($data)
-                    ->editColumn('status', function($data) {
-                        if($data->status == 0){
-                            return 'Pending';
-                        } elseif($data->status == 1) {
-                            return 'In Progress';
-                        } elseif($data->status == 2) {
-                            return 'Solved';
-                        } elseif($data->status == 3) {
-                            return 'Rejected';
-                        } elseif($data->status == 4) {
-                            return 'On Hold';
-                        }else {
-                            return '';
-                        }
-                    })
-                    ->editColumn('attachment', function($data) {
-                        if($data->attachment){
-                            return "<a href=".url('/')."/".$data->attachment." stream target='_blank'>Download Attachment</a>";
-                        } else {
-                            return "No Attachment Found";
-                        }
-                    })
-                    ->addIndexColumn()
-                    ->addColumn('action', function($data){
-                        $btn = ' <a href="'.url('view/support/messages').'/'.$data->slug.'" title="Edit" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
-                        if($data->status == 0){
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="'.$data->slug.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="On Hold" data-id="'.$data->slug.'" data-original-title="On Hold" class="btn-sm btn-secondary rounded onHoldBtn"><i class="fa fa-pause"></i></a>';
-                            $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Reject" data-id="'.$data->slug.'" data-original-title="Reject" class="btn-sm btn-danger rounded rejectBtn"><i class="fa fa-thumbs-down"></i></a>';
-                        }
-                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve For Next Level" data-id="'.$data->slug.'" data-original-title="Status" class="btn-sm btn-info rounded statusBtn"><i class="fas fa-check"></i></a>';
-                        return $btn;
-                    })
-                    ->rawColumns(['action', 'attachment', 'status'])
-                    ->make(true);
+                ->editColumn('status', function ($data) {
+                    if ($data->status == 0) {
+                        return 'Pending';
+                    } elseif ($data->status == 1) {
+                        return 'In Progress';
+                    } elseif ($data->status == 2) {
+                        return 'Solved';
+                    } elseif ($data->status == 3) {
+                        return 'Rejected';
+                    } elseif ($data->status == 4) {
+                        return 'On Hold';
+                    } else {
+                        return '';
+                    }
+                })
+                ->editColumn('attachment', function ($data) {
+                    if ($data->attachment) {
+                        return "<a href=" . url('/') . "/" . $data->attachment . " stream target='_blank'>Download Attachment</a>";
+                    } else {
+                        return "No Attachment Found";
+                    }
+                })
+                ->editColumn('created_at', function ($data) {
+                    return Carbon::parse($data->created_at)->format('M d, Y h:i A');
+                })
+                ->addIndexColumn()
+                ->addColumn('action', function ($data) {
+                    $btn = ' <a href="' . url('view/support/messages') . '/' . $data->slug . '" title="Edit" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
+                    if ($data->status == 0) {
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="' . $data->slug . '" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="On Hold" data-id="' . $data->slug . '" data-original-title="On Hold" class="btn-sm btn-secondary rounded onHoldBtn"><i class="fa fa-pause"></i></a>';
+                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Reject" data-id="' . $data->slug . '" data-original-title="Reject" class="btn-sm btn-danger rounded rejectBtn"><i class="fa fa-thumbs-down"></i></a>';
+                    }
+                    $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Approve For Next Level" data-id="' . $data->slug . '" data-original-title="Status" class="btn-sm btn-info rounded statusBtn"><i class="fas fa-thumbs-up"></i></a>';
+                    return $btn;
+                })
+                ->rawColumns(['action', 'attachment', 'status'])
+                ->make(true);
         }
         return view('backend.support_ticket.pending');
     }
-
-    public function solvedSupportTickets(Request $request){
+    public function solvedSupportTickets(Request $request)
+    {
         if ($request->ajax()) {
 
             $data = DB::table('support_tickets')
-                        ->join('users', 'support_tickets.support_taken_by', '=', 'users.id')
-                        ->select('support_tickets.*', 'users.name')
-                        ->where('support_tickets.status', 2)
-                        ->orderBy('id', 'desc')
-                        ->get();
+                ->join('users', 'support_tickets.support_taken_by', '=', 'users.id')
+                ->select('support_tickets.*', 'users.name')
+                ->where('support_tickets.status', 2)
+                ->orderBy('id', 'desc')
+                ->get();
 
             return Datatables::of($data)
-                    ->editColumn('status', function($data) {
-                        if($data->status == 0){
-                            return 'Pending';
-                        } elseif($data->status == 1) {
-                            return 'In Progress';
-                        } elseif($data->status == 2) {
-                            return 'Solved';
-                        } elseif($data->status == 3) {
-                            return 'Rejected';
-                        } elseif($data->status == 4) {
-                            return 'On Hold';
-                        }else {
-                            return '';
-                        }
-                    })
-                    ->editColumn('attachment', function($data) {
-                        if($data->attachment){
-                            return "<a href=".url('/')."/".$data->attachment." stream target='_blank'>Download Attachment</a>";
-                        } else {
-                            return "No Attachment Found";
-                        }
-                    })
-                    ->addIndexColumn()
-                    ->addColumn('action', function($data){
-                        $btn = ' <a href="'.url('view/support/messages').'/'.$data->slug.'" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
-                        return $btn;
-                    })
-                    ->rawColumns(['action', 'attachment'])
-                    ->make(true);
+                ->editColumn('status', function ($data) {
+                    if ($data->status == 0) {
+                        return 'Pending';
+                    } elseif ($data->status == 1) {
+                        return 'In Progress';
+                    } elseif ($data->status == 2) {
+                        return 'Solved';
+                    } elseif ($data->status == 3) {
+                        return 'Rejected';
+                    } elseif ($data->status == 4) {
+                        return 'On Hold';
+                    } else {
+                        return '';
+                    }
+                })
+                ->editColumn('attachment', function ($data) {
+                    if ($data->attachment) {
+                        return "<a href=" . url('/') . "/" . $data->attachment . " stream target='_blank'>Download Attachment</a>";
+                    } else {
+                        return "No Attachment Found";
+                    }
+                })
+                ->editColumn('created_at', function ($data) {
+                    return Carbon::parse($data->created_at)->format('M d, Y h:i A');
+                })
+                ->addIndexColumn()
+                ->addColumn('action', function ($data) {
+                    $btn = ' <a href="' . url('view/support/messages') . '/' . $data->slug . '" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
+                    return $btn;
+                })
+                ->rawColumns(['action', 'attachment'])
+                ->make(true);
         }
         return view('backend.support_ticket.solved');
     }
 
-    public function onHoldSupportTickets(Request $request){
+    public function onHoldSupportTickets(Request $request)
+    {
         if ($request->ajax()) {
 
             $data = DB::table('support_tickets')
-                        ->join('users', 'support_tickets.support_taken_by', '=', 'users.id')
-                        ->select('support_tickets.*', 'users.name')
-                        ->where('support_tickets.status', 4)
-                        ->orderBy('id', 'desc')
-                        ->get();
+                ->join('users', 'support_tickets.support_taken_by', '=', 'users.id')
+                ->select('support_tickets.*', 'users.name')
+                ->where('support_tickets.status', 4)
+                ->orderBy('id', 'desc')
+                ->get();
 
             return Datatables::of($data)
-                    ->editColumn('status', function($data) {
-                        if($data->status == 0){
-                            return 'Pending';
-                        } elseif($data->status == 1) {
-                            return 'In Progress';
-                        } elseif($data->status == 2) {
-                            return 'Solved';
-                        } elseif($data->status == 3) {
-                            return 'Rejected';
-                        } elseif($data->status == 4) {
-                            return 'On Hold';
-                        }else {
-                            return '';
-                        }
-                    })
-                    ->editColumn('attachment', function($data) {
-                        if($data->attachment){
-                            return "<a href=".url('/')."/".$data->attachment." stream target='_blank'>Download Attachment</a>";
-                        } else {
-                            return "No Attachment Found";
-                        }
-                    })
-                    ->addIndexColumn()
-                    ->addColumn('action', function($data){
-                        $btn = ' <a href="'.url('view/support/messages').'/'.$data->slug.'" title="Edit" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
-                        $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="In Progress" data-id="'.$data->slug.'" data-original-title="In Progress" class="btn-sm btn-info rounded inProgressBtn"><i class="fas fa-check"></i></a>';
-                        return $btn;
-                    })
-                    ->rawColumns(['action', 'attachment'])
-                    ->make(true);
+                ->editColumn('status', function ($data) {
+                    if ($data->status == 0) {
+                        return 'Pending';
+                    } elseif ($data->status == 1) {
+                        return 'In Progress';
+                    } elseif ($data->status == 2) {
+                        return 'Solved';
+                    } elseif ($data->status == 3) {
+                        return 'Rejected';
+                    } elseif ($data->status == 4) {
+                        return 'On Hold';
+                    } else {
+                        return '';
+                    }
+                })
+                ->editColumn('attachment', function ($data) {
+                    if ($data->attachment) {
+                        return "<a href=" . url('/') . "/" . $data->attachment . " stream target='_blank'>Download Attachment</a>";
+                    } else {
+                        return "No Attachment Found";
+                    }
+                })
+                ->editColumn('created_at', function ($data) {
+                    return Carbon::parse($data->created_at)->format('M d, Y h:i A');
+                })
+                ->addIndexColumn()
+                ->addColumn('action', function ($data) {
+                    $btn = ' <a href="' . url('view/support/messages') . '/' . $data->slug . '" title="Edit" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
+                    $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" data-id="' . $data->slug . '" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
+                    $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="Reject" data-id="' . $data->slug . '" data-original-title="Reject" class="btn-sm btn-danger rounded rejectBtn"><i class="fa fa-thumbs-down"></i></a>';
+                    $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip" title="In Progress" data-id="' . $data->slug . '" data-original-title="In Progress" class="btn-sm btn-info rounded inProgressBtn"><i class="fas fa-check"></i></a>';
+                    return $btn;
+                })
+                ->rawColumns(['action', 'attachment'])
+                ->make(true);
         }
         return view('backend.support_ticket.hold');
     }
 
-    public function rejectedSupportTickets(Request $request){
+    public function rejectedSupportTickets(Request $request)
+    {
         if ($request->ajax()) {
 
             $data = DB::table('support_tickets')
-                        ->join('users', 'support_tickets.support_taken_by', '=', 'users.id')
-                        ->select('support_tickets.*', 'users.name')
-                        ->where('support_tickets.status', 3)
-                        ->orderBy('id', 'desc')
-                        ->get();
+                ->join('users', 'support_tickets.support_taken_by', '=', 'users.id')
+                ->select('support_tickets.*', 'users.name')
+                ->where('support_tickets.status', 3)
+                ->orderBy('id', 'desc')
+                ->get();
 
             return Datatables::of($data)
-                    ->editColumn('status', function($data) {
-                        if($data->status == 0){
-                            return 'Pending';
-                        } elseif($data->status == 1) {
-                            return 'In Progress';
-                        } elseif($data->status == 2) {
-                            return 'Solved';
-                        } elseif($data->status == 3) {
-                            return 'Rejected';
-                        } elseif($data->status == 4) {
-                            return 'On Hold';
-                        }else {
-                            return '';
-                        }
-                    })
-                    ->editColumn('attachment', function($data) {
-                        if($data->attachment){
-                            return "<a href=".url('/')."/".$data->attachment." stream target='_blank'>Download Attachment</a>";
-                        } else {
-                            return "No Attachment Found";
-                        }
-                    })
-                    ->addIndexColumn()
-                    ->addColumn('action', function($data){
-                        $btn = ' <a href="'.url('view/support/messages').'/'.$data->slug.'" title="Edit" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
-                        return $btn;
-                    })
-                    ->rawColumns(['action', 'attachment'])
-                    ->make(true);
+                ->editColumn('status', function ($data) {
+                    if ($data->status == 0) {
+                        return 'Pending';
+                    } elseif ($data->status == 1) {
+                        return 'In Progress';
+                    } elseif ($data->status == 2) {
+                        return 'Solved';
+                    } elseif ($data->status == 3) {
+                        return 'Rejected';
+                    } elseif ($data->status == 4) {
+                        return 'On Hold';
+                    } else {
+                        return '';
+                    }
+                })
+                ->editColumn('attachment', function ($data) {
+                    if ($data->attachment) {
+                        return "<a href=" . url('/') . "/" . $data->attachment . " stream target='_blank'>Download Attachment</a>";
+                    } else {
+                        return "No Attachment Found";
+                    }
+                })
+                ->editColumn('created_at', function ($data) {
+                    return Carbon::parse($data->created_at)->format('M d, Y h:i A');
+                })
+                ->addIndexColumn()
+                ->addColumn('action', function ($data) {
+                    $btn = ' <a href="' . url('view/support/messages') . '/' . $data->slug . '" title="Edit" class="mb-1 btn-sm btn-warning rounded"><i class="fas fa-edit"></i></a>';
+                    return $btn;
+                })
+                ->rawColumns(['action', 'attachment'])
+                ->make(true);
         }
         return view('backend.support_ticket.rejected');
     }
 
-    public function deleteSupportTicket($slug){
+    public function deleteSupportTicket($slug)
+    {
         $data = SupportTicket::where('slug', $slug)->first();
-        if($data->attachment){
-            if(file_exists(public_path($data->attachment))){
+        if ($data->attachment) {
+            if (file_exists(public_path($data->attachment))) {
                 unlink(public_path($data->attachment));
             }
         }
@@ -210,48 +280,54 @@ class SupportTicketController extends Controller
         return response()->json(['success' => 'Support deleted successfully.']);
     }
 
-    public function changeStatusSupport($slug){
+    public function changeStatusSupport($slug)
+    {
         $data = SupportTicket::where('slug', $slug)->first();
         $data->status = $data->status + 1;
         $data->save();
         return response()->json(['success' => 'Status Changed successfully.']);
     }
 
-    public function changeStatusSupportOnHold($slug){
+    public function changeStatusSupportOnHold($slug)
+    {
         $data = SupportTicket::where('slug', $slug)->first();
         $data->status = 4;
         $data->save();
         return response()->json(['success' => 'Status Changed successfully.']);
     }
 
-    public function changeStatusSupportRejected($slug){
+    public function changeStatusSupportRejected($slug)
+    {
         $data = SupportTicket::where('slug', $slug)->first();
         $data->status = 3;
         $data->save();
         return response()->json(['success' => 'Status Changed successfully.']);
     }
 
-    public function changeStatusSupportInProgress($slug){
+    public function changeStatusSupportInProgress($slug)
+    {
         $data = SupportTicket::where('slug', $slug)->first();
         $data->status = 1;
         $data->save();
         return response()->json(['success' => 'Status Changed successfully.']);
     }
 
-    public function viewSupportMessage($slug){
+    public function viewSupportMessage($slug)
+    {
         $data = SupportTicket::where('slug', $slug)->first();
         $messages = SupportMessage::where('support_ticket_id', $data->id)->orderBy('id', 'asc')->get();
         return view('backend.support_ticket.messages', compact('data', 'messages'));
     }
 
-    public function sendSupportMessage(Request $request){
+    public function sendSupportMessage(Request $request)
+    {
         $request->validate([
             'support_ticket_id' => 'required',
             'message' => 'required',
         ]);
 
         $attachment = NULL;
-        if ($request->hasFile('attachment')){
+        if ($request->hasFile('attachment')) {
             $get_attachment = $request->file('attachment');
             $attachment_name = str::random(5) . time() . '.' . $get_attachment->getClientOriginalExtension();
             $location = public_path('support_ticket_attachments/');

@@ -287,8 +287,14 @@
     <li class="menu-title" style="color: khaki; text-shadow: 1px 1px 2px black;">CRM Modules</li>
     <li>
         <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-headset"></i><span>Support
-                Ticket</span></a>
+                Ticket</span> (@php
+                    echo DB::table('support_tickets')->where('status', 0)->orWhere('status', 1)->count();
+                @endphp)</a>
         <ul class="sub-menu" aria-expanded="false">
+            <li><a style="color: #1bc68a !important;" href="{{ route('admin.support.tickets.create') }}">Create New
+                    Ticket</a></li>
+
+
             <li><a style="color: skyblue !important;" href="{{ url('/pending/support/tickets') }}">Pending Supports
                     (@php
                         echo DB::table('support_tickets')->where('status', 0)->orWhere('status', 1)->count();
