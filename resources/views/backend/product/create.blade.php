@@ -10,6 +10,29 @@
     <link href="{{ url('assets') }}/css/tagsinput.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <style>
+        input[type=number] {
+            -moz-appearance: textfield;
+            /* Firefox */
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            /* Chrome, Safari, Edge */
+            margin: 0;
+        }
+
+
+        .table {
+            width: 100%;
+            table-layout: auto
+        }
+
+        .table td {
+            min-width: 100px;
+            white-space: nowrap
+        }
+
         .select2-selection {
             height: 34px !important;
             border: 1px solid #ced4da !important;
@@ -32,6 +55,115 @@
             padding: 12px 15px;
             border-radius: 4px;
         }
+
+
+        /* treeview*/
+        .hummingbird-treeview,
+        .hummingbird-treeview * {
+            list-style: none;
+            font-size: 13px;
+            line-height: 12px;
+        }
+
+        .hummingbird-treeview label {
+            font-weight: normal;
+            width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-left: 20px;
+        }
+
+        .hummingbird-treeview input[type="checkbox"] {
+            width: 13px;
+            height: 12px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .hummingbird-treeview input[type="radio"] {
+            float: right;
+            margin-right: 10px;
+            display: none;
+        }
+
+        .hummingbird-treeview ul:not(.hummingbird-base) {
+            display: none;
+        }
+
+        .hummingbird-treeview .mdi {
+            font-style: normal;
+            cursor: pointer;
+        }
+
+        .hummingbird-treeview .mdi {
+            font-style: normal;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        .hummingbird-base {
+            white-space: nowrap;
+            padding-inline-start: 0px !important;
+        }
+
+        .hummingbird-base ul {
+            padding-inline-start: 15px !important;
+        }
+
+        .hummingbird-base li {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .hummingbird-base li[data-id]:not([data-id=""]) {
+            position: relative;
+        }
+
+        .c-scrollbar-light {
+            height: 320px;
+            overflow-y: scroll;
+        }
+
+        @media (min-width: 1024px) and (max-width: 1399px) {
+            .hummingbird-treeview label {
+                width: 180px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .hummingbird-treeview label {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 345px) {
+            .hummingbird-treeview label {
+                width: 180px;
+            }
+        }
+
+        .product-header.sticky {
+            position: fixed;
+            top: 80px;
+            left: 284px;
+            right: 26px;
+            z-index: 999;
+            box-shadow: 0 8px 24px #20262e0a;
+            background: #fff;
+            margin: 0;
+            padding-top: 8px;
+        }
+
+        @media only screen and (max-width: 991px) {
+            .product-page-header .col-lg-6.text-right {
+                text-align: left !important;
+            }
+
+            .product-header.sticky {
+                left: 32px;
+            }
+        }
     </style>
 @endsection
 
@@ -46,36 +178,48 @@
     <div class="row">
         <div class="col-lg-12 col-xl-12">
             <div class="card">
+
                 <div class="card-body">
 
                     <form class="needs-validation" id="product_entry_form" method="POST"
                         action="{{ url('save/new/product') }}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="row border-bottom mb-4 pb-2">
-                            <div class="col-lg-6 product-card-title">
-                                <h4 class="card-title mb-3" style="font-size: 18px; padding-top: 12px;">Add New Product</h4>
-                            </div>
-                            <div class="col-lg-6 text-right">
-                                <a href="{{ url('view/all/product') }}" style="width: 130px;"
-                                    class="btn btn-danger d-inline-block text-white m-1"><i class="mdi mdi-cancel"></i>
-                                    Discard</a>
-                                <button class="btn btn-warning m-1 saveAsDraft" style="width: 130px;" type="button"><i
-                                        class="fas fa-archive"></i> Save as Draft</button>
-                                <input type="hidden" name="status" id="product_status" value="1">
-                                <button class="btn btn-success m-1" style="width: 130px;" type="submit"><i
-                                        class="fas fa-save"></i> Save Product</button>
+                        {{-- Product Header  --}}
+                        <div class="product-page-header">
+                            <div class="row border-bottom mb-4 pb-2 product-header">
+                                <div class="col-lg-6 product-card-title">
+                                    <h4 class="card-title mb-3" style="font-size: 18px; padding-top: 12px;">Add New
+                                        Product</h4>
+                                </div>
+                                <div class="col-lg-6 text-right">
+                                    <a href="{{ url('view/all/product') }}" style="width: 130px;"
+                                        class="btn btn-danger d-inline-block text-white m-1">
+                                        Discard</a>
+                                    <button class="btn btn-warning m-1 saveAsDraft" style="width: 130px;"
+                                        type="button">Save as Draft
+                                    </button>
+                                    <input type="hidden" name="status" id="product_status" value="1">
+                                    <button class="btn btn-success m-1" style="width: 130px;" type="submit">Save Product
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-8 pr-lg-5">
                                 <div class="form-group">
-                                    <label for="name">Title <span class="text-danger">*</span></label>
+                                    <label for="name">Product Title<span class="text-danger">*</span></label>
                                     <input type="text" id="name" name="name" class="form-control"
-                                        placeholder="Enter Product Name Here" required>
+                                        placeholder="Enter Product Title Here" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="slug">Slug<span class="text-danger">*</span></label>
+                                    <input type="text" id="slug" name="slug" class="form-control"
+                                        placeholder="Auto-generated Slug" required>
                                     <div class="invalid-feedback" style="display: block;">
-                                        @error('name')
+                                        @error('slug')
                                             {{ $message }}
                                         @enderror
                                     </div>
@@ -111,6 +255,13 @@
                                             <span class="d-none d-lg-block">Warrenty Policy</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="#landing_page" data-toggle="tab" aria-expanded="false"
+                                            class="nav-link">
+                                            <i class="mdi mdi-home-variant d-lg-none d-block"></i>
+                                            <span class="d-none d-lg-block">Landig Page</span>
+                                        </a>
+                                    </li>
                                 </ul>
 
                                 <div class="tab-content mb-4">
@@ -123,17 +274,60 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane show" id="profile">
-                                        <textarea id="specification" name="specification" class="form-control"></textarea>
+                                        {{-- <textarea id="specification" name="specification" class="form-control"></textarea>
                                         <div class="invalid-feedback" style="display: block;">
                                             @error('specification')
                                                 {{ $message }}
                                             @enderror
-                                        </div>
+                                        </div> --}}
+
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order</th>
+                                                    <th>Title</th>
+                                                    <th>Short Description</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="specificationRows">
+                                                <tr>
+                                                    <td width="10%">
+                                                        <input type="text" name="order[]" class="form-control"
+                                                            value="0">
+                                                    </td>
+                                                    <td width="25%">
+                                                        <input type="text" name="sp_title[]" class="form-control">
+                                                    </td>
+                                                    <td width="40%">
+                                                        <input type="text" name="sp_short_description[]"
+                                                            class="form-control">
+                                                    </td>
+                                                    <td width="10%">
+                                                        <button type="button" class="btn btn-danger btn-sm removeRow">
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <button type="button" class="btn btn-primary me-2" id="addRow">
+                                            <i class="ri-add-line"></i> Add Row
+                                        </button>
                                     </div>
                                     <div class="tab-pane" id="settings">
                                         <textarea id="warrenty_policy" name="warrenty_policy" class="form-control"></textarea>
                                         <div class="invalid-feedback" style="display: block;">
                                             @error('warrenty_policy')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="landing_page">
+                                        <textarea id="landing_page_textarea" name="landing_page" class="form-control"></textarea>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('landing_page')
                                                 {{ $message }}
                                             @enderror
                                         </div>
@@ -151,10 +345,29 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                                {{-- Product Image  --}}
                                 <div class="form-group" id="product_image_gallery">
                                     <label for="tags">Product Image Gallery</label>
+
                                     <div class="input-images"></div>
+                                    <small class="form-text text-muted">[ Please upload jpg, jpeg, png file of 1000px *
+                                        1257px (1 : 1.26 ratio) ]</small>
                                 </div>
+
+                                {{-- Product Video  --}}
+                                <div class="form-group">
+                                    <label for="video_url">Video URL</label>
+                                    <input type="text" id="video_url" name="video_url" class="form-control"
+                                        placeholder="https://youtube.com/YGUYUTYG">
+                                    <div class="invalid-feedback" style="display: block;">
+                                        @error('video_url')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+
 
                             </div>
                             <div class="col-lg-4">
@@ -163,14 +376,18 @@
                                             class="text-danger">*</span></label>
                                     <input type="file" name="image" class="dropify" data-height="205"
                                         data-max-file-size="1M" accept="image/*" required />
+                                    <small class="form-text text-muted">[ Please upload jpg, jpeg, png file of 700px *
+                                        880px (1 : 1.26 ratio) ]</small>
                                 </div>
 
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group" id="product_price">
-                                            <label for="price">Price (In BDT) <span
+                                            <label for="price">Price ({{ $currencySymbol }})<span
                                                     class="text-danger">*</span></label>
-                                            <input id="price" name="price" data-toggle="touchspin" type="text">
+                                            <input id="price" name="price" type="number" class="form-control"
+                                                min="0" step="0.01" inputmode="numeric"
+                                                onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode === 46">
 
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('price')
@@ -181,9 +398,12 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group" id="product_discounted_price">
-                                            <label for="discount_price">Discount Price</label>
-                                            <input type="text" id="discount_price" data-toggle="touchspin"
-                                                name="discount_price" class="form-control">
+                                            <label for="discount_price">Offer Price ({{ $currencySymbol }})</label>
+                                            <input type="number" id="discount_price"
+                                                name="discount_price"class="form-control" min="0" step="0.01"
+                                                inputmode="numeric"
+                                                onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode === 46">
+
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('discount_price')
                                                     {{ $message }}
@@ -193,10 +413,13 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group" id="product_cost_price">
-                                            <label for="cost_price">Cost Price (In BDT) <span
+                                            <label for="cost_price">Cost Price ({{ $currencySymbol }}) <span
                                                     class="text-danger">*</span></label>
-                                            <input id="cost_price" name="cost_price" data-toggle="touchspin"
-                                                type="text">
+                                            <input id="cost_price" name="cost_price" type="number" class="form-control"
+                                                min="0" step="0.01" inputmode="numeric"
+                                                onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode === 46">
+
+
 
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('cost_price')
@@ -212,15 +435,19 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="reward_points">Reward Points</label>
-                                            <input type="text" id="reward_points" data-toggle="touchspin"
-                                                value="0" name="reward_points" class="form-control">
+                                            <input type="number" id="reward_points" value="0" name="reward_points"
+                                                class="form-control" min="0" step="0.01" inputmode="numeric"
+                                                onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode === 46">
+
                                         </div>
                                     </div>
+
                                     <div class="col" id="product_stock">
                                         <div class="form-group">
                                             <label for="stock">Stock</label>
-                                            <input type="text" id="stock" data-toggle="touchspin" name="stock"
-                                                class="form-control" placeholder="10">
+                                            <input type="number" id="stock" name="stock" class="form-control"
+                                                min="0" step="0.01" inputmode="numeric" placeholder="10"
+                                                onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode === 46">
                                             <div class="invalid-feedback" style="display: block;">
                                                 @error('stock')
                                                     {{ $message }}
@@ -253,137 +480,204 @@
                                     </div>
                                 @endif
 
+
                                 <!--New Multiple category checkbox-->
                                 <div class="card">
                                     <div class="card-header">
                                         <h5 class="mb-0 h6">Product Category</h5>
-
                                     </div>
-
                                     <div class="card-body">
                                         <div class="h-300px overflow-auto c-scrollbar-light">
-
                                             @foreach (\App\Models\Category::getTreeForSelect([]) as $option)
                                                 {!! $option !!}
                                             @endforeach
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="brand_id">Brand</label>
-                                            <select name="brand_id" data-toggle="select2" class="form-control"
-                                                id="brand_id">
-                                                @php
-                                                    echo App\Models\Brand::getDropDownList('name');
-                                                @endphp
-                                            </select>
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('brand_id')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="model_id">Model</label>
-                                            <select name="model_id" data-toggle="select2" class="form-control"
-                                                id="model_id">
-                                                <option value="">Select One</option>
-                                            </select>
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('model_id')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="flag_id">Flag</label>
-                                            <select name="flag_id" data-toggle="select2" class="form-control"
-                                                id="flag_id">
-                                                @php
-                                                    echo App\Models\Flag::getDropDownList('name');
-                                                @endphp
-                                            </select>
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('flag')
-                                                    {{ $message }}
-                                                @enderror
+                                {{-- Brand  --}}
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 h6">Brand</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="brand_id">Brand</label>
+                                                    <select name="brand_id" data-toggle="select2" class="form-control"
+                                                        id="brand_id">
+                                                        @php
+                                                            echo App\Models\Brand::getDropDownList('name');
+                                                        @endphp
+                                                    </select>
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('brand_id')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="model_id">Model</label>
+                                                    <select name="model_id" data-toggle="select2" class="form-control"
+                                                        id="model_id">
+                                                        <option value="">Select One</option>
+                                                    </select>
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('model_id')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="col" id="product_warrenty">
-                                        <div class="form-group">
-                                            <label for="warrenty_id">Warranty</label>
-                                            <select name="warrenty_id" data-toggle="select2" class="form-control"
-                                                id="warrenty_id">
-                                                @php
-                                                    echo App\Models\ProductWarrenty::getDropDownList('name');
-                                                @endphp
-                                            </select>
-
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('warrenty')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- @if (DB::table('config_setups')->where('code', 'measurement_unit')->where('status', 0)->first()) --}}
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="unit_id">Unit</label>
-                                            <select name="unit_id" data-toggle="select2" class="form-control"
-                                                id="unit_id">
-                                                @php
-                                                    echo App\Models\Unit::getDropDownList('name');
-                                                @endphp
-                                            </select>
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('unit_id')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{-- @endif --}}
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="video_url">Video URL</label>
-                                    <input type="text" id="video_url" name="video_url" class="form-control"
-                                        placeholder="https://youtube.com/YGUYUTYG">
-                                    <div class="invalid-feedback" style="display: block;">
-                                        @error('video_url')
-                                            {{ $message }}
-                                        @enderror
                                     </div>
                                 </div>
 
 
+                                {{-- Flag  --}}
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="flag_id">Flag</label>
+                                                    <select name="flag_id" data-toggle="select2" class="form-control"
+                                                        id="flag_id">
+                                                        @php
+                                                            echo App\Models\Flag::getDropDownList('name');
+                                                        @endphp
+                                                    </select>
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('flag')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="warrenty_id">Warrenty</label>
+                                                    <select name="warrenty_id" data-toggle="select2" class="form-control"
+                                                        id="warrenty_id">
+                                                        @php
+                                                            echo App\Models\ProductWarrenty::getDropDownList('name');
+                                                        @endphp
+                                                    </select>
+
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('warrenty')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="unit_id">Unit</label>
+                                                    <select name="unit_id" data-toggle="select2" class="form-control"
+                                                        id="unit_id">
+                                                        @php
+                                                            echo App\Models\Unit::getDropDownList('name');
+                                                        @endphp
+                                                    </select>
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('unit_id')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                {{-- Size Chart --}}
+                                {{-- <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0 h6">Size Chart</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="product_type_id">Product Type</label>
+                                                    <select id="product_type_id" name="product_type_id"
+                                                        class="form-control select2">
+                                                        <option value="">Select Product Type</option>
+                                                        @foreach ($productTypes as $productType)
+                                                            <option value="{{ $productType->id }}">
+                                                                {{ $productType->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="style_fit_id">Style Fit</label>
+                                                    <select id="style_fit_id" name="style_fit_id"
+                                                        class="form-control select2" disabled>
+                                                        <option value="">Select Style Fit</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="measurement_id">Measurement</label>
+                                                    <select id="measurement_id" name="measurement_id"
+                                                        class="form-control select2" disabled>
+                                                        <option value="">Select Measurement</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> --}}
+
+                                {{-- Status  --}}
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group m-0">
+                                                    <label class="d-block">Free Shipping</label>
+                                                    <label for="free_shipping">
+                                                        <input type="checkbox" id="free_shipping" name="free_shipping"
+                                                            value="1" data-size="small" data-toggle="switchery"
+                                                            data-color="#38b3d6" data-secondary-color="#df3554" />
+                                                    </label>
+
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        @error('free_shipping')
+                                                            {{ $message }}
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                {{-- Offers  --}}
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="special_offer">
-                                            <div class="form-group mb-1">
-                                                <label for="special_offer">Special Offer: <input type="checkbox"
-                                                        id="special_offer" name="special_offer" value="1"
-                                                        data-size="small" data-toggle="switchery" data-color="#38b3d6"
-                                                        data-secondary-color="#df3554" /></label>
+                                            <div class="form-group mb-0">
+                                                <label for="special_offer" class="m-0">Special Offer: <input
+                                                        type="checkbox" id="special_offer" name="special_offer"
+                                                        value="1" data-size="small" data-toggle="switchery"
+                                                        data-color="#38b3d6" data-secondary-color="#df3554" /></label>
                                             </div>
-                                            <div class="form-group mb-1">
+                                            <div class="form-group mb-1 mt-3" id="offer_end_time_container">
                                                 <label for="offer_end_time">Offer End Time</label>
                                                 <input type="datetime-local" id="offer_end_time" name="offer_end_time"
                                                     class="form-control">
@@ -391,7 +685,6 @@
                                         </div>
                                     </div>
                                 </div>
-
 
                             </div>
                         </div>
@@ -419,8 +712,8 @@
 
                                                 <div class="table-responsive">
                                                     <h4 class="card-title mb-3">Product Variant <small
-                                                            class="text-danger font-weight-bolder">(Insert the Base Variant
-                                                            First)</small></h4>
+                                                            class="text-danger font-weight-bolder">(Insert the Base
+                                                            Variant First)</small></h4>
 
                                                     <table class="table table-bordered rounded"
                                                         id="product_variant_table">
@@ -443,27 +736,32 @@
 
                                                                 @if (DB::table('config_setups')->where('code', 'region')->where('status', 1)->first())
                                                                     <th class="text-center" style="min-width: 200px;">
-                                                                        Region</th>
+                                                                        Region
+                                                                    </th>
                                                                 @endif
 
                                                                 @if (DB::table('config_setups')->where('code', 'sim')->where('status', 1)->first())
                                                                     <th class="text-center" style="min-width: 140px;">SIM
-                                                                        Type</th>
+                                                                        Type
+                                                                    </th>
                                                                 @endif
 
                                                                 @if (DB::table('config_setups')->where('code', 'storage')->where('status', 1)->first())
                                                                     <th class="text-center" style="min-width: 140px;">
-                                                                        Storage</th>
+                                                                        Storage
+                                                                    </th>
                                                                 @endif
 
                                                                 @if (DB::table('config_setups')->where('code', 'product_warranty')->where('status', 1)->first())
                                                                     <th class="text-center" style="min-width: 120px;">
-                                                                        Warrenty</th>
+                                                                        Warrenty
+                                                                    </th>
                                                                 @endif
 
                                                                 @if (DB::table('config_setups')->where('code', 'device_condition')->where('status', 1)->first())
                                                                     <th class="text-center" style="min-width: 120px;">
-                                                                        Condition</th>
+                                                                        Condition
+                                                                    </th>
                                                                 @endif
 
                                                                 <th class="text-center">Stock <span
@@ -619,13 +917,6 @@
 
                                                                 <td class="text-center">
                                                                     <input type="number" class="form-control"
-                                                                        name="product_variant_cost_price[]"
-                                                                        style="min-width: 100px;" value="0"
-                                                                        style="height: 34px;" placeholder="0">
-                                                                </td>
-
-                                                                <td class="text-center">
-                                                                    <input type="number" class="form-control"
                                                                         name="product_variant_stock[]"
                                                                         style="min-width: 100px;" value="0"
                                                                         style="height: 34px;" placeholder="0">
@@ -642,6 +933,12 @@
                                                                         style="min-width: 100px;" value="0"
                                                                         style="height: 34px;" placeholder="0">
                                                                 </td>
+                                                                <td class="text-center">
+                                                                    <input type="number" class="form-control"
+                                                                        name="product_variant_cost_price[]"
+                                                                        style="min-width: 100px;" value="0"
+                                                                        style="height: 34px;" placeholder="0">
+                                                                </td>
 
                                                                 <td class="text-center">
                                                                     {{-- <a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a> --}}
@@ -654,8 +951,8 @@
                                                         <div class="col-lg-12 text-center pb-3">
                                                             <button type="button"
                                                                 class="btn btn-success rounded addAnotherVariant"
-                                                                onclick="addAnotherVariant()">+ Add Another
-                                                                Variant</button>
+                                                                onclick="addAnotherVariant()">+ Add Another Variant
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -719,15 +1016,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group text-center pt-3">
+                        {{-- <div class="form-group text-center pt-3">
                             <a href="{{ url('view/all/product') }}" style="width: 130px;"
                                 class="btn btn-danger d-inline-block text-white m-2"><i class="mdi mdi-cancel"></i>
                                 Discard</a>
                             <button class="btn btn-warning m-2 saveAsDraft" style="width: 130px;" type="button"><i
-                                    class="fas fa-archive"></i> Save as Draft</button>
+                                    class="fas fa-archive"></i> Save as Draft
+                            </button>
                             <button class="btn btn-success m-2" style="width: 130px;" type="submit"><i
-                                    class="fas fa-save"></i> Save Product</button>
-                        </div>
+                                    class="fas fa-save"></i> Save Product
+                            </button>
+                        </div> --}}
 
                     </form>
                 </div>
@@ -746,7 +1045,7 @@
     <script src="{{ url('multipleImgUploadPlugin') }}/image-uploader.min.js"></script>
     <script src="{{ url('assets') }}/js/tagsinput.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-
+    <script src="{{ url('assets') }}/plugins/hummingbird-treeview/hummingbird-treeview.js"></script>
 
     <script type="text/javascript">
         $(".saveAsDraft").on("click", function(e) {
@@ -766,7 +1065,7 @@
             if ($('#has_variant').is(":checked")) {
                 $("#product_variant").fadeIn(500);
 
-                //$("#product_image_gallery").fadeOut(500);
+                // $("#product_image_gallery").fadeOut(500);
                 $("#product_price").fadeOut(500);
                 $("#product_discounted_price").fadeOut(500);
                 $("#product_stock").fadeOut(500);
@@ -774,7 +1073,7 @@
             } else {
                 $("#product_variant").fadeOut(500);
 
-                //$("#product_image_gallery").fadeIn(500);
+                // $("#product_image_gallery").fadeIn(500);
                 $("#product_price").fadeIn(500);
                 $("#product_discounted_price").fadeIn(500);
                 $("#product_stock").fadeIn(500);
@@ -790,23 +1089,41 @@
 
         function addAnotherVariant() {
             $(".addAnotherVariant").html("Adding...");
-            $.ajax({
-                data: '',
-                url: "{{ url('/add/another/variant') }}",
-                type: "POST",
-                dataType: 'json',
-                success: function(data) {
-                    $(".addAnotherVariant").html("Added");
-                    $("#product_variant_table tbody").append(data.variant);
-                    $(".addAnotherVariant").html("+ Add Another Variant");
-                    $('[data-toggle="select2"]').select2(); // initiate select2 for newly added row
-                },
-                error: function(data) {
-                    console.log('Error:', data);
-                    $(".addAnotherVariant").html("Something Went Wrong");
-                }
+
+            // Get the first row as a template
+            var firstRow = $("#product_variant_table tbody tr:first");
+
+            // Create a new row by cloning the HTML structure of the first row
+            var newRow = firstRow.clone();
+
+            // Reset form elements to their default state
+            newRow.find('input[type="file"]').val('');
+            newRow.find('input[type="number"]').val(0);
+
+            // For select2 elements, we need special handling
+            newRow.find('select').each(function() {
+                // Get the name attribute to preserve it
+                var name = $(this).attr('name');
+                var id = $(this).attr('id');
+
+                // Remove the select2 container and replace with a fresh select
+                var selectClone = $(this).clone();
+                $(this).next('.select2-container').remove();
+                $(this).replaceWith(selectClone);
             });
-            $(".addAnotherVariant").blur();
+
+            // Add delete button to the action column
+            newRow.find('td:last').html(
+                '<a href="javascript:void(0)" onclick="removeRow(this)" class="btn btn-danger rounded btn-sm d-inline text-white"><i class="feather-trash-2" style="font-size: 14px; line-height: 2"></i></a>'
+            );
+
+            // Append the new row
+            $("#product_variant_table tbody").append(newRow);
+
+            // Reinitialize select2 on all select elements in the new row
+            newRow.find('[data-toggle="select2"]').select2();
+
+            $(".addAnotherVariant").html("+ Add Another Variant");
         }
 
         function removeRow(btndel) {
@@ -866,6 +1183,7 @@
             return button.render();
         };
 
+
         // Initialize Summernote with the full toolbar and LFM button
         $('#description').summernote({
             placeholder: 'Write Description Here',
@@ -888,8 +1206,8 @@
             }
         });
 
-        $('#specification').summernote({
-            placeholder: 'Write Specification Here',
+        $('#landing_page_textarea').summernote({
+            placeholder: 'Write Landing page Description Here',
             tabsize: 2,
             height: 300, // Editor height
             toolbar: [
@@ -908,6 +1226,41 @@
                 lfm: LFMButton // Register the LFM button
             }
         });
+
+        $(document).ready(function() {
+            $('#addRow').click(function() {
+                var newRow = $('#specificationRows tr:last').clone();
+
+                var highestOrder = 0;
+                $('#specificationRows tr').each(function() {
+                    var currentOrder = parseInt($(this).find('input[name="order[]"]').val()) || 0;
+                    highestOrder = Math.max(highestOrder, currentOrder);
+                });
+
+                newRow.find('input:not([name="order[]"])').val('');
+                newRow.find('textarea').val('');
+
+                newRow.find('input[name="order[]"]').val(highestOrder + 1);
+
+                $('#specificationRows').append(newRow);
+            });
+
+            $('#specificationRows').on('click', '.removeRow', function() {
+                if ($('#specificationRows tr').length > 1) {
+                    $(this).closest('tr').remove();
+                    reorderRows();
+                } else {
+                    alert('At least one row is required.');
+                }
+            });
+
+            function reorderRows() {
+                $('#specificationRows tr').each(function(index) {
+                    $(this).find('input[name="order[]"]').val(index + 1);
+                });
+            }
+        });
+
 
         $('#warrenty_policy').summernote({
             placeholder: 'Write Warrenty Policy Here',
@@ -1006,6 +1359,68 @@
         });
     </script>
 
+
+    {{-- Product Tree Category JS --}}
+    <script type="text/javascript">
+        // $(document).ready(function() {
+        $("#treeview").hummingbird();
+        // var main_id = $('#treeview input[type=radio]')[0].value;
+        // $('#treeview input:radio[value='+main_id+']').prop('checked',true);
+
+        $("#treeview input[type=checkbox]").change(function() {
+        var selected = document.querySelector(
+            '#treeview input[type="radio"]:checked'
+        );
+        if (selected == null) {
+            var value = $(this).val();
+            $("#treeview input:radio[value=" + value + "]").prop(
+                "checked",
+                true
+            );
+        }
+        });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Listen for changes in any checkbox input
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('change', function() {
+                    handleParentSelection(this);
+                });
+            });
+
+            // Function to handle the parent category selection when a subcategory is selected
+            function handleParentSelection(subcategoryCheckbox) {
+                const parentCategoryId = subcategoryCheckbox.closest('li').parentNode.closest('li')?.id;
+
+                if (parentCategoryId) {
+                    const parentCheckbox = document.querySelector(`#${parentCategoryId} input[type="checkbox"]`);
+                    if (parentCheckbox) {
+                        parentCheckbox.checked = true;
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $("#name").on("keyup", function() {
+                let title = $(this).val();
+                let slug = title.toLowerCase()
+                    .replace(/[^a-z0-9\s]/g, '') // Remove special characters
+                    .replace(/\s+/g, '-') // Replace spaces with "-"
+                    .trim();
+                $("#slug").val(slug);
+            });
+        });
+    </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Get the apply button
@@ -1045,7 +1460,7 @@
                     });
                 }
 
-                Get all cost price inputs
+                // Get all cost price inputs
                 if (bulkCostPrice) {
                     const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
                     costPriceInputs.forEach(input => {
@@ -1087,7 +1502,7 @@
                         input.value = 0;
                     });
 
-                    Reset all cost price inputs
+                    // Reset all cost price inputs
                     const costPriceInputs = document.getElementsByName('product_variant_cost_price[]');
                     costPriceInputs.forEach(input => {
                         input.value = 0;
@@ -1099,4 +1514,97 @@
             });
         });
     </script>
+
+    {{-- <script>
+        $(document).ready(function() {
+            // Product Type → Style Fit Dropdown
+            $('#product_type_id').on('change', function() {
+                const productTypeId = $(this).val();
+                const styleFitSelect = $('#style_fit_id');
+                const measurementSelect = $('#measurement_id');
+
+                // Reset and disable subsequent dropdowns
+                styleFitSelect.html('<option value="">Select Style Fit</option>').prop('disabled', true);
+                measurementSelect.html('<option value="">Select Measurement</option>').prop('disabled',
+                    true);
+
+                if (productTypeId) {
+                    $.ajax({
+                        url: `/product/get-style-fits/${productTypeId}`,
+                        method: 'GET',
+                        success: function(styleFits) {
+                            styleFitSelect.prop('disabled', false);
+                            styleFits.forEach(function(styleFit) {
+                                styleFitSelect.append(
+                                    `<option value="${styleFit.id}">${styleFit.name}</option>`
+                                );
+                            });
+                        },
+                        error: function() {
+                            alert('Error fetching style fits');
+                        }
+                    });
+                }
+            });
+
+            // Style Fit → Measurement Dropdown
+            $('#style_fit_id').on('change', function() {
+                const styleFitId = $(this).val();
+                const measurementSelect = $('#measurement_id');
+
+                // Reset and disable measurement dropdown
+                measurementSelect.html('<option value="">Select Measurement</option>').prop('disabled',
+                    true);
+
+                if (styleFitId) {
+                    $.ajax({
+                        url: `/product/get-measurements/${styleFitId}`,
+                        method: 'GET',
+                        success: function(measurements) {
+                            measurementSelect.prop('disabled', false);
+                            measurements.forEach(function(measurement) {
+                                measurementSelect.append(
+                                    `<option value="${measurement.id}">${measurement.name}</option>`
+                                );
+                            });
+                        },
+                        error: function() {
+                            alert('Error fetching measurements');
+                        }
+                    });
+                }
+            });
+        });
+    </script> --}}
+
+    {{-- Toggle Offer End Time --}}
+    {{-- <script type="text/javascript">
+        // Function to toggle offer end time visibility
+        function toggleOfferEndTime() {
+            var checkbox = document.getElementById('special_offer');
+            var container = document.getElementById('offer_end_time_container');
+
+            container.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        // Set initial state when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleOfferEndTime();
+
+            // Add event listener for checkbox changes
+            document.getElementById('special_offer').addEventListener('change', toggleOfferEndTime);
+        });
+    </script> --}}
+
+    {{-- Sticky Header  --}}
+    {{-- <script type="text/javascript">
+        $(window).on("scroll", function(event) {
+            var scroll = $(window).scrollTop();
+            if (scroll < 100) {
+                $(".product-header").removeClass("sticky");
+            } else {
+                $(".product-header").addClass("sticky");
+            }
+        });
+    </script> --}}
 @endsection
