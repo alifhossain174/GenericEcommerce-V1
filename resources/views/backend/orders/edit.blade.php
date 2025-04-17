@@ -1143,13 +1143,13 @@
                                             </div>
 
                                             <!-- <div class="col-lg-6 col-12">
-                                                                                <div class="form-group ">
-                                                                                    <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
-                                                                                    <input class="form-control" type="number" value="49.00" step="0.01"
-                                                                                        name="shipping" id="shipping" required=""
-                                                                                        placeholder="Enter Shipping">
-                                                                                </div>
-                                                                            </div> -->
+                                                                                    <div class="form-group ">
+                                                                                        <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
+                                                                                        <input class="form-control" type="number" value="49.00" step="0.01"
+                                                                                            name="shipping" id="shipping" required=""
+                                                                                            placeholder="Enter Shipping">
+                                                                                    </div>
+                                                                                </div> -->
                                         </div>
 
                                         <button type="submit" class="btn btn-primary rounded mt-1">Add
