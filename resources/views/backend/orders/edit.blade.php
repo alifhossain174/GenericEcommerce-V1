@@ -110,6 +110,7 @@
             <form action="{{ url('order/update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="order_id" value="{{ $order->id }}">
+                <input type="hidden" id="delivery_charge_amount" name="delivery_fee" value="{{ $order->delivery_fee }}">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -130,52 +131,65 @@
                         <div class="row mt-4">
                             <div class="col-6">
                                 @if ($shippingInfo)
-                                <div class="card border-0 shadow-sm">
-                                    <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
-                                        <h6 class="mb-0 fw-bold">Shipping Information</h6>
-                                        @php
-                                            $orderCount = DB::table('orders')
-                                                ->join('shipping_infos', 'shipping_infos.order_id', '=', 'orders.id')
-                                                ->where('shipping_infos.phone', $shippingInfo->phone)
-                                                ->count();
-                                            $customerType = $orderCount > 1 ? 'Old' : 'New';
-                                        @endphp
-                                        <span class="badge bg-{{ $customerType == 'Old' ? 'info' : 'success' }}">{{ $customerType }} Customer</span>
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <div class="fw-bold">{{ $shippingInfo->full_name }}</div>
-                                            <a target="_blank" href="{{ url('/customer/details/' . $order->user_id) }}" class="btn btn-sm btn-light ms-2" title="View Customer">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
+                                    <div class="card border-0 shadow-sm">
+                                        <div
+                                            class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                                            <h6 class="mb-0 fw-bold">Shipping Information</h6>
+                                            @php
+                                                $orderCount = DB::table('orders')
+                                                    ->join(
+                                                        'shipping_infos',
+                                                        'shipping_infos.order_id',
+                                                        '=',
+                                                        'orders.id',
+                                                    )
+                                                    ->where('shipping_infos.phone', $shippingInfo->phone)
+                                                    ->count();
+                                                $customerType = $orderCount > 1 ? 'Old' : 'New';
+                                            @endphp
+                                            <span
+                                                class="badge bg-{{ $customerType == 'Old' ? 'info' : 'success' }}">{{ $customerType }}
+                                                Customer</span>
                                         </div>
-                                        
-                                        <div class="mb-1" id="customer-phone">{{ $shippingInfo->phone }}</div>
-                                        
-                                        @if($shippingInfo->email)
-                                            <div class="mb-1">{{ $shippingInfo->email }}</div>
-                                        @endif
-                                        
-                                        <div class="mb-1">{{ $shippingInfo->address }}</div>
-                                        
-                                        @if ($shippingInfo->thana)
-                                            <div class="mb-1">Thana: {{ $shippingInfo->thana }}</div>
-                                        @endif
-                                        
-                                        <div>{{ $shippingInfo->city }} {{ $shippingInfo->post_code }}, {{ $shippingInfo->country }}</div>
+                                        <div class="card-body p-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="fw-bold">{{ $shippingInfo->full_name }}</div>
+                                                <a target="_blank" href="{{ url('/customer/details/' . $order->user_id) }}"
+                                                    class="btn btn-sm btn-light ms-2" title="View Customer">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                            </div>
+
+                                            <div class="mb-1" id="customer-phone">{{ $shippingInfo->phone }}</div>
+
+                                            @if ($shippingInfo->email)
+                                                <div class="mb-1">{{ $shippingInfo->email }}</div>
+                                            @endif
+
+                                            <div class="mb-1">{{ $shippingInfo->address }}</div>
+
+                                            @if ($shippingInfo->thana)
+                                                <div class="mb-1">Thana: {{ $shippingInfo->thana }}</div>
+                                            @endif
+
+                                            <div>{{ $shippingInfo->city }} {{ $shippingInfo->post_code }},
+                                                {{ $shippingInfo->country }}</div>
+                                        </div>
                                     </div>
-                                </div>
                                 @endif
                             </div>
-                            
+
                             <!-- end col -->
                             <div class="col-lg-6">
                                 <div class="mt-3 float-right">
-                                    <p><div class="d-flex justify-content-end">
-                                        <a href="{{ url('order/details/' . $order->slug) }}"  class="btn btn-sm btn-warning rounded" title="View Order">
+                                    <p>
+                                    <div class="d-flex justify-content-end">
+                                        <a href="{{ url('order/details/' . $order->slug) }}"
+                                            class="btn btn-sm btn-warning rounded" title="View Order">
                                             <i class="fas fa-eye"></i> View Order
                                         </a>
-                                    </div></p>
+                                    </div>
+                                    </p>
                                     <p class="mb-2"><strong>Order NO: </strong> #{{ $order->order_no }}</p>
                                     <p class="mb-2"><strong>Tran. ID: </strong> #{{ $order->trx_id }}</p>
                                     <p class="mb-2"><strong>Order Date: </strong>
@@ -217,12 +231,24 @@
                                                         ? ' (Courier: ' . $order->courier_status . ')'
                                                         : '') .
                                                     '</span>';
-                                            } else {
+                                            } elseif ($order->order_status == 4) {
                                                 echo '<span class="badge badge-soft-danger" style="padding: 2px 10px !important;">Cancelled' .
                                                     ($order->delivery_method == 3
                                                         ? ' (Courier: ' . $order->courier_status . ')'
                                                         : '') .
                                                     '</span>';
+                                            } elseif ($order->order_status == 6) {
+                                                echo '<span class="badge badge-soft-primary" style="padding: 2px 10px !important;">Courier Assigned' .
+                                                    ($order->delivery_method == 3
+                                                        ? ' (Courier: ' . $order->courier_status . ')'
+                                                        : '') .
+                                                    '</span>';
+                                            } elseif ($order->order_status == 7) {
+                                                echo '<span class="badge badge-soft-warning" style="padding: 2px 10px !important;">Return Request</span>';
+                                            } elseif ($order->order_status == 8) {
+                                                echo '<span class="badge badge-soft-secondary" style="padding: 2px 10px !important;">Returned</span>';
+                                            } elseif ($order->order_status == 9) {
+                                                echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Completed</span>';
                                             }
                                         @endphp
                                     </p>
@@ -239,6 +265,7 @@
                                             }
                                         @endphp
                                     </p>
+
                                     <p class="mb-2"><strong>Payment Method: </strong>
                                         @php
                                             if ($order->payment_method == null) {
@@ -465,51 +492,55 @@
 
                         <div class="row">
                             <div class="col-lg-6">
-                                
-                                        <!-- Coupon Box -->
-                                        {{-- <div class="card shadow-sm mb-3">
-                                            <div class="card-header bg-light py-2">
-                                                <h6 class="card-title mb-0 fw-bold">Apply Coupon</h6>
-                                            </div>
-                                            <div class="card-body py-2">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" id="coupon_code" 
-                                                        placeholder="Enter coupon code" value="{{ $order->coupon_code }}">
-                                                    <button type="button" class="btn {{ $order->coupon_code ? 'btn-danger' : 'btn-success' }} rounded" 
-                                                        id="couponBtn" style="margin-top: -3px; line-height: 22px;">
-                                                        {{ $order->coupon_code ? 'Remove' : 'Apply Coupon' }}
-                                                    </button>
-                                                </div>
-                                                <div id="coupon_message" class="mt-2"></div>
-                                            </div>
-                                        </div> --}}
-                                
-                                        <!-- Manual Discount Box -->
-                                        <div class="card shadow-sm">
-                                            <div class="card-header bg-light py-2">
-                                                <h6 class="card-title mb-0 fw-bold">Manual Discount</h6>
-                                            </div>
-                                            <div class="card-body py-2">
-                                                <div class="input-group">
-                                                    <span class="input-group-text">{{ $currencySymbol }}</span>
-                                                    <input type="number" min="0" class="form-control" id="discount" name="discount" 
-                                                        placeholder="Enter discount amount" value="{{ $order->discount }}">
-                                                </div>
-                                            </div>
+
+                                <!-- Coupon Box -->
+                                <div class="card shadow-sm mb-3">
+                                    <div class="card-header bg-light py-2">
+                                        <h6 class="card-title mb-0 fw-bold">Apply Coupon</h6>
+                                    </div>
+                                    <div class="card-body py-2">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="coupon_code"
+                                                placeholder="Enter coupon code" value="{{ $order->coupon_code }}">
+                                            <button type="button"
+                                                class="btn {{ $order->coupon_code ? 'btn-danger' : 'btn-success' }} rounded"
+                                                id="couponBtn" style="margin-top: -3px; line-height: 22px;">
+                                                {{ $order->coupon_code ? 'Remove' : 'Apply Coupon' }}
+                                            </button>
                                         </div>
-                                    
-                                
+                                        <div id="coupon_message" class="mt-2"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Manual Discount Box -->
+                                <div class="card shadow-sm">
+                                    <div class="card-header bg-light py-2">
+                                        <h6 class="card-title mb-0 fw-bold">Manual Discount</h6>
+                                    </div>
+                                    <div class="card-body py-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">{{ $currencySymbol }}</span>
+                                            <input type="number" min="0" class="form-control" id="discount"
+                                                name="discount" placeholder="Enter discount amount"
+                                                value="{{ $order->discount }}">
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                             <div class="col-lg-6 pt-3 text-right">
                                 <div class="float-right">
-                                    <p><b>Sub-total :</b> {{ $currencySymbol }} <span>{{ number_format($order->sub_total, 0) }}</span></p>
-                                   
-                                        <p><b>Discount @if ($order->coupon_code)
-                                                    ({{ $order->coupon_code }})
-                                                @endif:</b> {{ $currencySymbol }}
-                                            {{ number_format($order->discount, 0) }}
-                                        </p>
-                                  
+                                    <p><b>Sub-total :</b> {{ $currencySymbol }}
+                                        <span>{{ number_format($order->sub_total, 0) }}</span>
+                                    </p>
+
+                                    <p><b>Discount @if ($order->coupon_code)
+                                                ({{ $order->coupon_code }})
+                                            @endif:</b> {{ $currencySymbol }}
+                                        {{ number_format($order->discount, 0) }}
+                                    </p>
+
                                     <!-- <p><b>Reward Points Used :</b> {{ $order->reward_points_used }}</p> -->
                                     @if ($order->vat + $order->tax > 0)
                                         <p><b>VAT/TAX :</b> {{ $currencySymbol }}
@@ -536,8 +567,8 @@
                             </div>
                         </div>
                         <!-- end order item details -->
-                         {{-- update billing address and shipping address --}}
-                         <div class="row">
+                        {{-- update billing address and shipping address --}}
+                        <div class="row">
                             <!-- Shipping Information Column -->
                             <div class="col-lg-6">
                                 <div class="card shadow-sm">
@@ -551,24 +582,24 @@
                                                 value="@if ($shippingInfo) {{ $shippingInfo->full_name }} @endif"
                                                 @if ((isset($shippingInfo) && $shippingInfo->full_name == '') || !isset($shippingInfo)) class="form-control is-invalid mb-2" @else class="form-control mb-2" @endif
                                                 placeholder="Customer Name" required>
-                                            
+
                                             <!-- Customer Phone -->
                                             <input type="text" name="shipping_phone" id="shipping_phone"
                                                 value="@if ($shippingInfo) {{ $shippingInfo->phone }} @endif"
                                                 @if ((isset($shippingInfo) && $shippingInfo->phone == '') || !isset($shippingInfo)) class="form-control is-invalid mb-2" @else class="form-control mb-2" @endif
                                                 placeholder="Customer Phone" required>
-                                            
+
                                             <!-- Customer Email -->
                                             <input type="email" name="shipping_email" id="shipping_email"
                                                 value="@if ($shippingInfo) {{ $shippingInfo->email }} @endif"
                                                 class="form-control mb-2" placeholder="Customer Email (Optional)">
-                                            
+
                                             <!-- Customer Address -->
                                             <input type="text" name="shipping_address" id="shipping_address"
                                                 value="@if ($shippingInfo) {{ $shippingInfo->address }} @endif"
                                                 @if ((isset($shippingInfo) && $shippingInfo->address == '') || !isset($shippingInfo)) class="form-control is-invalid mb-2" @else class="form-control mb-2" @endif
                                                 placeholder="Customer Address" required>
-                                            
+
                                             @if ((isset($shippingInfo) && $shippingInfo->city == '') || !isset($shippingInfo))
                                                 <style>
                                                     .shipping_address_fields .select2-container {
@@ -584,12 +615,12 @@
                                                     }
                                                 </style>
                                             @endif
-                                            
+
                                             <div class="row mb-2">
                                                 <!-- District Selection -->
                                                 <div class="col-md-6">
-                                                    <select class="form-select" id="shipping_district_id" name="shipping_district_id"
-                                                        data-toggle="select2" required>
+                                                    <select class="form-select" id="shipping_district_id"
+                                                        name="shipping_district_id" data-toggle="select2" required>
                                                         <option value="">Select District</option>
                                                         @foreach ($districts as $district)
                                                             <option value="{{ $district->id }}"
@@ -600,25 +631,26 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                
+
                                                 <!-- Thana Selection -->
                                                 <div class="col-md-6">
-                                                    <select class="form-select" id="shipping_thana_id" name="shipping_thana_id"
-                                                        data-toggle="select2" required>
+                                                    <select class="form-select" id="shipping_thana_id"
+                                                        name="shipping_thana_id" data-toggle="select2" required>
                                                         <option value="">Select Thana</option>
                                                         <!-- Options will be loaded dynamically -->
                                                     </select>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="row">
                                                 <!-- Post Code -->
                                                 <div class="col-md-6">
-                                                    <input type="text" name="shipping_post_code" id="shipping_post_code"
+                                                    <input type="text" name="shipping_post_code"
+                                                        id="shipping_post_code"
                                                         value="@if ($shippingInfo) {{ $shippingInfo->post_code }} @endif"
                                                         class="form-control mb-2" placeholder="Post Code (Optional)">
                                                 </div>
-                                                
+
                                                 <!-- Country -->
                                                 <div class="col-md-6">
                                                     <input type="text" name="shipping_country" id="shipping_country"
@@ -631,27 +663,29 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Billing & User Info Column -->
                             <div class="col-lg-6">
                                 <div class="card shadow-sm">
                                     <div class="card-header bg-light py-2">
                                         <h6 class="card-title mb-0 fw-bold">Billing Address</h6>
                                         <div class="form-check mt-1">
-                                            <input class="form-check-input" type="checkbox" id="different_billing" name="different_billing">
+                                            <input class="form-check-input" type="checkbox" id="different_billing"
+                                                name="different_billing">
                                             <label class="form-check-label" for="different_billing">
                                                 Different from shipping address
                                             </label>
                                         </div>
                                     </div>
                                     <div class="card-body py-2">
-                                        <div id="billing_form_container" class="billing_address_fields" style="display: none;">
+                                        <div id="billing_form_container" class="billing_address_fields"
+                                            style="display: none;">
                                             <!-- Billing Address -->
                                             <input type="text" name="billing_address" id="billing_address"
                                                 value="@if ($billingAddress) {{ $billingAddress->address }} @endif"
                                                 @if ((isset($billingAddress) && $billingAddress->address == '') || !isset($billingAddress)) style="border: 1px solid #b500008c;" @endif
                                                 placeholder="Billing Address" class="form-control shipping_input mb-2">
-                                        
+
                                             @if ((isset($billingAddress) && $billingAddress->city == '') || !isset($billingAddress))
                                                 <style>
                                                     .billing_address_fields .select2-container {
@@ -667,11 +701,12 @@
                                                     }
                                                 </style>
                                             @endif
-                                        
+
                                             <div class="row mb-2">
                                                 <!-- District Selection -->
                                                 <div class="col-12">
-                                                    <select class="form-select" id="billing_district_id" name="billing_district_id" data-toggle="select2" required>
+                                                    <select class="form-select" id="billing_district_id"
+                                                        name="billing_district_id" data-toggle="select2" required>
                                                         <option value="">Select Billing District</option>
                                                         @foreach ($districts as $district)
                                                             <option value="{{ $district->id }}"
@@ -682,25 +717,27 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        
+
                                             <div class="row mb-2">
                                                 <!-- Thana Selection -->
                                                 <div class="col-12">
-                                                    <select class="form-select" id="billing_thana_id" name="billing_thana_id" data-toggle="select2" required>
+                                                    <select class="form-select" id="billing_thana_id"
+                                                        name="billing_thana_id" data-toggle="select2" required>
                                                         <option value="">Select Billing Thana</option>
                                                         <!-- Options will be loaded dynamically -->
                                                     </select>
                                                 </div>
                                             </div>
-                                        
+
                                             <div class="row g-2">
                                                 <!-- Post Code -->
                                                 <div class="col-md-6">
                                                     <input type="text" name="billing_post_code" id="billing_post_code"
                                                         value="@if ($billingAddress) {{ $billingAddress->post_code }} @endif"
-                                                        placeholder="Post Code (Optional)" class="form-control shipping_input mb-2">
+                                                        placeholder="Post Code (Optional)"
+                                                        class="form-control shipping_input mb-2">
                                                 </div>
-                                                
+
                                                 <!-- Country -->
                                                 <div class="col-md-6">
                                                     <input type="text" name="billing_country" id="billing_country"
@@ -711,11 +748,12 @@
                                             </div>
                                         </div>
                                         <div id="same_billing_message" class="text-muted">
-                                            <small><i class="fas fa-info-circle me-1"></i> Billing address will be the same as shipping address</small>
+                                            <small><i class="fas fa-info-circle me-1"></i> Billing address will be the same
+                                                as shipping address</small>
                                         </div>
                                     </div>
                                 </div>
-                        
+
                                 @if ($userInfo)
                                     <div class="card shadow-sm mt-3">
                                         <div class="card-header bg-light py-2">
@@ -735,28 +773,38 @@
                                         </div>
                                     </div>
                                 @endif
+                                {{-- delivery method --}}
+                                <p class="mb-1"><strong>Delivery Method: </strong>
+                                    <select name="delivery_method" class="form-control" required>
+                                        <option value="">Select Delivery Method</option>
+                                        <option value="1" @if ($order->delivery_method == 1) selected @endif>Home
+                                            Delivery</option>
+                                        <option value="2" @if ($order->delivery_method == 2) selected @endif>Store
+                                            Pickup</option>
+                                    </select>
+                                </p>
                             </div>
                         </div>
-                        
+
                         <script>
                             document.addEventListener('DOMContentLoaded', function() {
                                 const differentBillingCheckbox = document.getElementById('different_billing');
                                 const billingFormContainer = document.getElementById('billing_form_container');
                                 const sameBillingMessage = document.getElementById('same_billing_message');
-                                
+
                                 // Get district and thana elements
                                 const shippingDistrictSelect = document.getElementById('shipping_district_id');
                                 const shippingThanaSelect = document.getElementById('shipping_thana_id');
                                 const billingDistrictSelect = document.getElementById('billing_district_id');
                                 const billingThanaSelect = document.getElementById('billing_thana_id');
-                                
+
                                 // Add event listener for the checkbox
                                 differentBillingCheckbox.addEventListener('change', function() {
                                     if (this.checked) {
                                         // Show billing form when "Different from shipping address" is checked
                                         billingFormContainer.style.display = 'block';
                                         sameBillingMessage.style.display = 'none';
-                                        
+
                                         // Initialize billing fields with shipping values on first show
                                         copyShippingToBilling();
                                     } else {
@@ -765,24 +813,25 @@
                                         sameBillingMessage.style.display = 'block';
                                     }
                                 });
-                                
+
                                 // When shipping district changes, update billing district if using same address
                                 shippingDistrictSelect.addEventListener('change', function() {
                                     // Update billing district if "Different from shipping" is checked and billing form is visible
                                     if (differentBillingCheckbox.checked && billingFormContainer.style.display === 'block') {
                                         // Set billing district to match shipping district
                                         billingDistrictSelect.value = this.value;
-                                        
+
                                         // Trigger change event for Select2 and thana loading
                                         if (window.jQuery && window.jQuery.fn.select2) {
                                             jQuery(billingDistrictSelect).trigger('change');
                                         }
-                                        
+
                                         // Wait for thanas to load before copying shipping thana to billing thana
                                         setTimeout(function() {
-                                            if (shippingThanaSelect.selectedIndex >= 0 && billingThanaSelect.options.length > 1) {
+                                            if (shippingThanaSelect.selectedIndex >= 0 && billingThanaSelect.options
+                                                .length > 1) {
                                                 billingThanaSelect.value = shippingThanaSelect.value;
-                                                
+
                                                 if (window.jQuery && window.jQuery.fn.select2) {
                                                     jQuery(billingThanaSelect).trigger('change');
                                                 }
@@ -790,54 +839,58 @@
                                         }, 500); // 500ms delay to allow thanas to load
                                     }
                                 });
-                                
+
                                 // When shipping thana changes, update billing thana if using same address
                                 shippingThanaSelect.addEventListener('change', function() {
                                     // Update billing thana if "Different from shipping" is checked and billing form is visible
                                     if (differentBillingCheckbox.checked && billingFormContainer.style.display === 'block') {
                                         if (billingThanaSelect.options.length > 1) {
                                             billingThanaSelect.value = this.value;
-                                            
+
                                             if (window.jQuery && window.jQuery.fn.select2) {
                                                 jQuery(billingThanaSelect).trigger('change');
                                             }
                                         }
                                     }
                                 });
-                                
+
                                 // Function to copy shipping values to billing
                                 function copyShippingToBilling() {
                                     // Address
-                                    document.getElementById('billing_address').value = document.getElementById('shipping_address').value;
-                                    
+                                    document.getElementById('billing_address').value = document.getElementById('shipping_address')
+                                        .value;
+
                                     // District
                                     if (shippingDistrictSelect.selectedIndex >= 0) {
                                         billingDistrictSelect.value = shippingDistrictSelect.value;
-                                        
+
                                         // If using Select2, update the UI
                                         if (window.jQuery && window.jQuery.fn.select2) {
                                             jQuery(billingDistrictSelect).trigger('change');
                                         }
-                                        
+
                                         // Wait for thanas to load before setting thana value
                                         setTimeout(function() {
-                                            if (shippingThanaSelect.selectedIndex >= 0 && billingThanaSelect.options.length > 1) {
+                                            if (shippingThanaSelect.selectedIndex >= 0 && billingThanaSelect.options.length >
+                                                1) {
                                                 billingThanaSelect.value = shippingThanaSelect.value;
-                                                
+
                                                 if (window.jQuery && window.jQuery.fn.select2) {
                                                     jQuery(billingThanaSelect).trigger('change');
                                                 }
                                             }
                                         }, 500); // 500ms delay to allow thanas to load
                                     }
-                                    
+
                                     // Post Code
-                                    document.getElementById('billing_post_code').value = document.getElementById('shipping_post_code').value;
-                                    
+                                    document.getElementById('billing_post_code').value = document.getElementById('shipping_post_code')
+                                        .value;
+
                                     // Country
-                                    document.getElementById('billing_country').value = document.getElementById('shipping_country').value;
+                                    document.getElementById('billing_country').value = document.getElementById('shipping_country')
+                                        .value;
                                 }
-                                
+
                                 // Create hidden inputs to store shipping info for billing when form is submitted
                                 const form = document.querySelector('form');
                                 form.addEventListener('submit', function(e) {
@@ -848,16 +901,17 @@
                                         const shippingThana = document.getElementById('shipping_thana_id').value;
                                         const shippingPostCode = document.getElementById('shipping_post_code').value;
                                         const shippingCountry = document.getElementById('shipping_country').value;
-                                        
+
                                         // Create or update hidden fields
                                         createOrUpdateHidden('billing_address_hidden', 'billing_address', shippingAddress);
-                                        createOrUpdateHidden('billing_district_id_hidden', 'billing_district_id', shippingDistrict);
+                                        createOrUpdateHidden('billing_district_id_hidden', 'billing_district_id',
+                                            shippingDistrict);
                                         createOrUpdateHidden('billing_thana_id_hidden', 'billing_thana_id', shippingThana);
                                         createOrUpdateHidden('billing_post_code_hidden', 'billing_post_code', shippingPostCode);
                                         createOrUpdateHidden('billing_country_hidden', 'billing_country', shippingCountry);
                                     }
                                 });
-                                
+
                                 function createOrUpdateHidden(id, name, value) {
                                     let hiddenField = document.getElementById(id);
                                     if (!hiddenField) {
@@ -870,7 +924,7 @@
                                     hiddenField.value = value;
                                 }
                             });
-                            </script>
+                        </script>
                         {{-- end update billing address and shipping address --}}
 
                         <div class="mt-4 mb-4">
@@ -942,6 +996,22 @@
                                                     <option value="4"
                                                         @if ($order->order_status == 4) selected @endif
                                                         @if ($order->order_status == 2 || $order->order_status == 3) disabled @endif>Cancel</option>
+                                                    <option value="6"
+                                                        @if ($order->order_status == 6) selected @endif
+                                                        @if ($order->order_status == 3 || $order->order_status == 4) disabled @endif>Courier Assigned
+                                                    </option>
+                                                    <option value="7"
+                                                        @if ($order->order_status == 7) selected @endif
+                                                        @if ($order->order_status == 0 || $order->order_status == 1 || $order->order_status == 5) disabled @endif>Return Request
+                                                    </option>
+                                                    <option value="8"
+                                                        @if ($order->order_status == 8) selected @endif
+                                                        @if ($order->order_status == 0 || $order->order_status == 1 || $order->order_status == 5) disabled @endif>Returned
+                                                    </option>
+                                                    <option value="9"
+                                                        @if ($order->order_status == 9) selected @endif
+                                                        @if ($order->order_status == 0 || $order->order_status == 1 || $order->order_status == 2 || $order->order_status == 4) disabled @endif>Completed
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -1073,13 +1143,13 @@
                                             </div>
 
                                             <!-- <div class="col-lg-6 col-12">
-                                                <div class="form-group ">
-                                                    <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
-                                                    <input class="form-control" type="number" value="49.00" step="0.01"
-                                                        name="shipping" id="shipping" required=""
-                                                        placeholder="Enter Shipping">
-                                                </div>
-                                            </div> -->
+                                                                    <div class="form-group ">
+                                                                        <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
+                                                                        <input class="form-control" type="number" value="49.00" step="0.01"
+                                                                            name="shipping" id="shipping" required=""
+                                                                            placeholder="Enter Shipping">
+                                                                    </div>
+                                                                </div> -->
                                         </div>
 
                                         <button type="submit" class="btn btn-primary rounded mt-1">Add
@@ -1102,7 +1172,102 @@
                             </div>
                         </div>
                     @endif
-                    
+
+                    {{-- sms send --}}
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+
+                                    <span> <i class="fa fa-sticky-note"></i>
+                                        Send SMS
+                                    </span>
+
+                                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <form class="needs-validation" method="POST" action="{{ url('send/sms/order') }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group" style="margin-bottom: .8rem;">
+                                        <label style="margin-bottom: .2rem; font-weight: 500;">Number(0171xxxxxxx)
+                                            :</label>
+
+                                        <input type="number" class="form-control" name="sms_receivers"
+                                            value="{{ $shippingInfo->phone }}">
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 0px">
+                                        <label style="margin-bottom: .2rem; font-weight: 500;">SMS Text :</label>
+                                        <textarea id="smsText" name="template_description" class="form-control" style="height: 149px !important;"
+                                            placeholder="SMS Text"></textarea>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <small id="charCount" class="text-muted">0 characters</small>
+                                            <small id="smsCount" class="text-muted">0 SMS (160 chars per SMS)</small>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary rounded mt-2">Send SMS</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const smsText = document.getElementById('smsText');
+                            const charCount = document.getElementById('charCount');
+                            const smsCount = document.getElementById('smsCount');
+
+                            // Standard SMS length is 160 characters
+                            const SMS_LENGTH = 160;
+                            // For multipart SMS, each part can hold slightly less due to overhead
+                            const MULTIPART_SMS_LENGTH = 153;
+
+                            function updateCounter() {
+                                const length = smsText.value.length;
+
+                                // Update character count
+                                charCount.textContent = length + ' characters';
+
+                                // Calculate SMS count
+                                let smsRequired;
+                                if (length <= SMS_LENGTH) {
+                                    smsRequired = length > 0 ? 1 : 0;
+                                    smsCount.textContent = smsRequired + ' SMS (' + SMS_LENGTH + ' chars per SMS)';
+                                } else {
+                                    // For multipart SMS
+                                    smsRequired = Math.ceil(length / MULTIPART_SMS_LENGTH);
+                                    smsCount.textContent = smsRequired + ' SMS (' + MULTIPART_SMS_LENGTH + ' chars per SMS part)';
+                                }
+
+                                // Change color based on length
+                                if (length > SMS_LENGTH) {
+                                    charCount.classList.add('text-warning');
+                                } else {
+                                    charCount.classList.remove('text-warning');
+                                }
+
+                                if (smsRequired > 1) {
+                                    smsCount.classList.add('text-warning');
+                                } else {
+                                    smsCount.classList.remove('text-warning');
+                                }
+                            }
+
+                            // Add event listeners
+                            smsText.addEventListener('input', updateCounter);
+                            smsText.addEventListener('keyup', updateCounter);
+
+                            // Initialize counter
+                            updateCounter();
+                        });
+                    </script>
+                    {{-- end sms send --}}
+
                 </div>
             </div>
         </div>
@@ -1112,7 +1277,7 @@
 
 @section('footer_js')
     <script src="{{ url('assets') }}/plugins/select2/select2.min.js"></script>
-    <script>
+    {{-- <script>
         $('[data-toggle="select2"]').select2();
 
         function fixRowNo(params) {
@@ -1315,7 +1480,7 @@
             $(".orderT").each(function() {
                 orderSubtotal = Number(orderSubtotal) + Number($(this).val() || 0);
             });
-            
+
             // Get values for discount, VAT/tax, and delivery charge from your HTML
             var orderDiscount = 0;
             if ($("#order_discount").length) {
@@ -1330,7 +1495,7 @@
                     }
                 }
             }
-            
+
             var orderVatTax = 0;
             if ($("#vat_tax_amount").length) {
                 orderVatTax = Number($("#vat_tax_amount").val() || 0);
@@ -1344,7 +1509,7 @@
                     }
                 }
             }
-            
+
             var orderDeliveryCharge = 0;
             if ($("#delivery_charge_amount").length) {
                 orderDeliveryCharge = Number($("#delivery_charge_amount").val() || 0);
@@ -1358,10 +1523,10 @@
                     }
                 }
             }
-            
+
             // Format for display (add commas for thousands)
             var formattedSubtotal = orderSubtotal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            
+
             // Update subtotal display - try different selectors
             if ($("#order_sub_total").length) {
                 $("#order_sub_total").html(formattedSubtotal);
@@ -1374,11 +1539,12 @@
                     $(this).html('<b>Sub-total :</b> ' + currencySymbol + ' ' + formattedSubtotal);
                 });
             }
-            
+
             // Calculate total
-            var totalAmount = Number(orderSubtotal) - Number(orderDiscount) + Number(orderVatTax) + Number(orderDeliveryCharge);
+            var totalAmount = Number(orderSubtotal) - Number(orderDiscount) + Number(orderVatTax) + Number(
+                orderDeliveryCharge);
             var formattedTotal = totalAmount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            
+
             // Update total display - try different selectors
             if ($("#order_total").length) {
                 $("#order_total").html(formattedTotal);
@@ -1391,7 +1557,7 @@
                     $(this).html('<b>Total Order Amount :</b> ' + currencySymbol + ' ' + formattedTotal);
                 });
             }
-            
+
             // Update due amount if it exists
             var paidAmount = 0;
             var paidText = $("p:contains('Paid Amount')").text();
@@ -1401,31 +1567,439 @@
                     paidAmount = Number(paidMatch[0].replace(/,/g, '') || 0);
                 }
             }
-            
+
             var dueAmount = totalAmount - paidAmount;
-            
+
             if (dueAmount > 0) {
                 var formattedDueAmount = dueAmount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 var currencySymbol = $("p:contains('Due Amount')").text().match(/[^\w\s.,]/)[0] || '';
-                
+
                 $("p:contains('Due Amount')").find("span").html(formattedDueAmount);
             }
-            
+
             // Store values for form submission if needed
             if ($("#sub_total_field").length) {
                 $("#sub_total_field").val(orderSubtotal.toFixed(2));
             }
-            
+
             if ($("#total_field").length) {
                 $("#total_field").val(totalAmount.toFixed(2));
             }
         }
-        
+
         // Make sure totals are calculated when the page loads
         $(document).ready(function() {
             // Calculate initial totals
             setTimeout(orderAmountCalculation, 500);
-            
+
+            // Add event listener for quantity changes
+            $(document).on('change', 'input[name="qty[]"]', function() {
+                var id = $(this).attr('id').split('_')[1];
+                changeTotalPrice(id);
+            });
+        });
+    </script> --}}
+    <script>
+        $('[data-toggle="select2"]').select2();
+
+        function fixRowNo(params) {
+            var renum = 1;
+            $("tr td strong").each(function() {
+                $(this).text(renum);
+                renum++;
+            });
+        }
+
+        function removeRow(btndel) {
+            if (typeof(btndel) == "object") {
+                $(btndel).closest("tr").remove();
+            } else {
+                return false;
+            }
+            fixRowNo();
+            orderAmountCalculation();
+        }
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function addAnotherProduct() {
+            $(".addAnotherItem").html("Adding...");
+            var renum = 1;
+            $("tr td strong").each(function() {
+                renum++;
+            });
+
+            $.ajax({
+                data: {
+                    rowno: renum,
+                    _token: '{{ csrf_token() }}'
+                },
+                url: "{{ url('/add/more/product') }}",
+                type: "POST",
+                dataType: 'json',
+                success: function(data) {
+                    $(".addAnotherItem").html("Added");
+                    $("#orderDetailsTable tbody").append(data.more);
+                    fixRowNo();
+                    $(".addAnotherItem").html("<strong>+ Add More Product</strong>");
+                    $('[data-toggle="select2"]').select2(); // initiate select2 for newly added row
+                    orderAmountCalculation(); // Calculate totals after adding product
+                },
+                error: function(data) {
+                    console.log('Error:', data);
+                    $(".addAnotherItem").html("Something Went Wrong");
+                }
+            });
+        }
+
+        function getProductVariants(value) {
+            var productId = value;
+            var renum = 0;
+            $("tr td strong").each(function() {
+                renum++;
+            });
+            $("#product_variant_id_" + renum).html('');
+
+            $.ajax({
+                url: "{{ url('/get/product/variants') }}",
+                type: "POST",
+                data: {
+                    product_id: productId,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(result) {
+
+                    $('#product_variant_id_' + renum).html('<option value="">Select Variant</option>');
+
+                    if (Array.isArray(result)) {
+                        console.log("Has Variant");
+
+                        $.each(result, function(key, value) {
+                            $optionStr = "(" + value.variant_stock + ") ";
+                            if (value.color_name)
+                                $optionStr += value.color_name;
+                            if (value.size_name)
+                                $optionStr += " | " + value.size_name;
+                            if (value.ram && value.rom)
+                                $optionStr += " | " + value.ram + '/' + value.rom;
+                            if (value.region_name)
+                                $optionStr += " | " + value.region_name;
+                            if (value.sim_name)
+                                $optionStr += " | " + value.sim_name;
+                            if (value.device_condition)
+                                $optionStr += " | " + value.device_condition;
+                            if (value.warrrenty)
+                                $optionStr += " | " + value.warrrenty;
+
+                            var price = 0;
+                            if (value.discounted_price > 0)
+                                price = Number(value.discounted_price);
+                            else
+                                price = Number(value.price);
+
+                            $("#product_variant_id_" + renum).append('<option value="' + value.id +
+                                '" color_id="' + value.color_id + '" size_id="' + value.size_id +
+                                '" storage_id="' + value.storage_type_id + '" region_id="' + value
+                                .region_id + '" sim_id="' + value.sim_id + '" warrenty_id="' + value
+                                .warrenty_id + '" device_condition_id="' + value
+                                .device_condition_id + '" price="' + price + '" unit_name="' + value
+                                .unit_name + '" unit_id="' + value.unit_id + '" stock="' + value
+                                .variant_stock + '">' + $optionStr + '</option>');
+                        });
+
+                        orderAmountCalculation();
+
+                    } else {
+                        console.log("Dont Have any Variant");
+                        $('#product_variant_id_' + renum).html(
+                            '<option value="">Dont Have Any Variant</option>');
+
+                        if (result.stock <= 0) {
+                            toastr.error("Stock Out");
+                            $("#unit_text_" + renum).html(result.unit_name);
+                            $("#unit_" + renum).val(result.unit_id);
+                            $("#qty_" + renum).attr("max", result.stock);
+                            $("#qty_" + renum).val("");
+                            $("#unit_price_" + renum).val("");
+                            $("#total_price_" + renum).val("");
+                            return false;
+                        }
+
+                        var price = 0;
+                        if (result.discount_price > 0)
+                            price = Number(result.discount_price);
+                        else
+                            price = Number(result.price);
+
+                        $("#unit_text_" + renum).html(result.unit_name);
+                        $("#unit_" + renum).val(result.unit_id);
+                        $("#qty_" + renum).attr("max", result.stock);
+                        $("#qty_" + renum).val(1);
+                        $("#unit_price_" + renum).val(price);
+                        $("#total_price_" + renum).val(price);
+
+                        // variant attributes will be null
+                        $("#color_id_" + renum).val("");
+                        $("#storage_id_" + renum).val("");
+                        $("#region_id_" + renum).val("");
+                        $("#sim_id_" + renum).val("");
+                        $("#warrenty_id_" + renum).val("");
+                        $("#device_condition_id_" + renum).val("");
+
+                        orderAmountCalculation();
+                    }
+                }
+            });
+        }
+
+        function productVariantInfo(id) {
+            var price = $('#product_variant_id_' + id + ' option:selected').attr('price');
+            var unit_name = $('#product_variant_id_' + id + ' option:selected').attr('unit_name');
+            var unit_id = $('#product_variant_id_' + id + ' option:selected').attr('unit_id');
+            var stock = $('#product_variant_id_' + id + ' option:selected').attr('stock');
+
+            $("#unit_text_" + id).html(unit_name);
+            $("#unit_" + id).val(unit_id);
+            $("#qty_" + id).attr("max", stock);
+            $("#qty_" + id).val(1);
+            $("#unit_price_" + id).val(price);
+            $("#total_price_" + id).val(price);
+
+            var color_id = $('#product_variant_id_' + id + ' option:selected').attr('color_id');
+            var size_id = $('#product_variant_id_' + id + ' option:selected').attr('size_id');
+            var storage_id = $('#product_variant_id_' + id + ' option:selected').attr('storage_id');
+            var region_id = $('#product_variant_id_' + id + ' option:selected').attr('region_id');
+            var sim_id = $('#product_variant_id_' + id + ' option:selected').attr('sim_id');
+            var warrenty_id = $('#product_variant_id_' + id + ' option:selected').attr('warrenty_id');
+            var device_condition_id = $('#product_variant_id_' + id + ' option:selected').attr('device_condition_id');
+
+            $("#color_id_" + id).val(color_id);
+            $("#size_id_" + id).val(size_id);
+            $("#storage_id_" + id).val(storage_id);
+            $("#region_id_" + id).val(region_id);
+            $("#sim_id_" + id).val(sim_id);
+            $("#warrenty_id_" + id).val(warrenty_id);
+            $("#device_condition_id_" + id).val(device_condition_id);
+
+            orderAmountCalculation();
+        }
+
+        function changeTotalPrice(id) {
+            var unitPrice = $("#unit_price_" + id).val();
+            var qty = $("#qty_" + id).val();
+            $("#total_price_" + id).val(unitPrice * qty);
+            orderAmountCalculation();
+        }
+
+        function updateDeliveryCharge() {
+            var deliveryMethod = $("select[name='delivery_method']").val();
+            var currencySymbol = $("p:contains('Delivery Charge')").text().match(/[^\w\s.,]/)[0] || '';
+
+            // Set delivery charge based on delivery method
+            var deliveryCharge = 0;
+
+            if (deliveryMethod == "2") {
+                // Store Pickup - always zero
+                deliveryCharge = 0;
+            } else {
+                // For other methods, use district-based or default charge
+                if ($("#shipping_district_id").length && $("#shipping_district_id").val()) {
+                    var selectedDistrict = $("#shipping_district_id option:selected");
+                    if (selectedDistrict.length && selectedDistrict.data('delivery-charge')) {
+                        deliveryCharge = parseFloat(selectedDistrict.data('delivery-charge'));
+                    } else {
+                        deliveryCharge = 100; // Default delivery charge
+                    }
+                } else {
+                    // Get from existing display if available
+                    var deliveryText = $("p:contains('Delivery Charge')").text();
+                    if (deliveryText) {
+                        var deliveryMatch = deliveryText.match(/[\d,.]+/);
+                        if (deliveryMatch) {
+                            deliveryCharge = Number(deliveryMatch[0].replace(/,/g, '') || 100);
+                        } else {
+                            deliveryCharge = 100; // Default if can't extract
+                        }
+                    } else {
+                        deliveryCharge = 100; // Default
+                    }
+                }
+            }
+
+            // Update the display
+            var formattedCharge = deliveryCharge.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            $("p:contains('Delivery Charge')").each(function() {
+                $(this).html('<b>Delivery Charge :</b> ' + currencySymbol + ' ' + formattedCharge);
+            });
+
+            // Add/update hidden input for delivery_fee
+            if ($("input[name='delivery_fee']").length === 0) {
+                $("form[action*='order/update']").append('<input type="hidden" name="delivery_fee" value="' +
+                    deliveryCharge + '">');
+            } else {
+                $("input[name='delivery_fee']").val(deliveryCharge);
+            }
+
+            // Recalculate order totals
+            orderAmountCalculation();
+
+            return deliveryCharge;
+        }
+
+        function orderAmountCalculation() {
+            // Calculate subtotal from all product totals
+            var orderSubtotal = 0;
+            $(".orderT").each(function() {
+                orderSubtotal = Number(orderSubtotal) + Number($(this).val() || 0);
+            });
+
+            // Get values for discount, VAT/tax, and delivery charge from your HTML
+            var orderDiscount = 0;
+            if ($("#order_discount").length) {
+                orderDiscount = Number($("#order_discount").html() || 0);
+            } else {
+                // Try to get from the discount display in the HTML
+                var discountText = $("p:contains('Discount')").text();
+                if (discountText) {
+                    var discountMatch = discountText.match(/[\d,.]+/);
+                    if (discountMatch) {
+                        orderDiscount = Number(discountMatch[0].replace(/,/g, '') || 0);
+                    }
+                }
+            }
+
+            var orderVatTax = 0;
+            if ($("#vat_tax_amount").length) {
+                orderVatTax = Number($("#vat_tax_amount").val() || 0);
+            } else {
+                // Try to get from the VAT/TAX display in the HTML
+                var vatTaxText = $("p:contains('VAT/TAX')").text();
+                if (vatTaxText) {
+                    var vatTaxMatch = vatTaxText.match(/[\d,.]+/);
+                    if (vatTaxMatch) {
+                        orderVatTax = Number(vatTaxMatch[0].replace(/,/g, '') || 0);
+                    }
+                }
+            }
+
+            // Check current delivery method and set charge
+            var deliveryMethod = $("select[name='delivery_method']").val();
+            var orderDeliveryCharge = 0;
+
+            if (deliveryMethod == "2") { // Store Pickup
+                orderDeliveryCharge = 0;
+            } else {
+                // For other methods, get the current displayed value
+                var deliveryText = $("p:contains('Delivery Charge')").text();
+                if (deliveryText) {
+                    var deliveryMatch = deliveryText.match(/[\d,.]+/);
+                    if (deliveryMatch) {
+                        orderDeliveryCharge = Number(deliveryMatch[0].replace(/,/g, '') || 0);
+                    }
+                }
+
+                // If there's a delivery fee input, use that
+                if ($("input[name='delivery_fee']").length) {
+                    orderDeliveryCharge = Number($("input[name='delivery_fee']").val() || 0);
+                }
+            }
+
+            // Format for display (add commas for thousands)
+            var formattedSubtotal = orderSubtotal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            // Update subtotal display - try different selectors
+            if ($("#order_sub_total").length) {
+                $("#order_sub_total").html(formattedSubtotal);
+            } else {
+                // Find the subtotal element in the page and update it
+                $("p:contains('Sub-total')").each(function() {
+                    // Get the currency symbol
+                    var currencySymbol = $(this).text().match(/[^\w\s.,]/)[0] || '';
+                    // Replace only the number part
+                    $(this).html('<b>Sub-total :</b> ' + currencySymbol + ' ' + formattedSubtotal);
+                });
+            }
+
+            // Calculate total
+            var totalAmount = Number(orderSubtotal) - Number(orderDiscount) + Number(orderVatTax) + Number(
+                orderDeliveryCharge);
+            var formattedTotal = totalAmount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            // Update total display - try different selectors
+            if ($("#order_total").length) {
+                $("#order_total").html(formattedTotal);
+            } else {
+                // Find the total element in the page and update it
+                $("p:contains('Total Order Amount')").each(function() {
+                    // Get the currency symbol
+                    var currencySymbol = $(this).text().match(/[^\w\s.,]/)[0] || '';
+                    // Replace only the number part
+                    $(this).html('<b>Total Order Amount :</b> ' + currencySymbol + ' ' + formattedTotal);
+                });
+            }
+
+            // Update due amount if it exists
+            var paidAmount = 0;
+            var paidText = $("p:contains('Paid Amount')").text();
+            if (paidText && !paidText.includes('Full Paid')) {
+                var paidMatch = paidText.match(/[\d,.]+/);
+                if (paidMatch) {
+                    paidAmount = Number(paidMatch[0].replace(/,/g, '') || 0);
+                }
+            }
+
+            var dueAmount = totalAmount - paidAmount;
+
+            if (dueAmount > 0) {
+                var formattedDueAmount = dueAmount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                var currencySymbol = $("p:contains('Due Amount')").text().match(/[^\w\s.,]/)[0] || '';
+
+                $("p:contains('Due Amount')").find("span").html(formattedDueAmount);
+            }
+
+            // Store values for form submission if needed
+            if ($("#sub_total_field").length) {
+                $("#sub_total_field").val(orderSubtotal.toFixed(2));
+            }
+
+            if ($("#total_field").length) {
+                $("#total_field").val(totalAmount.toFixed(2));
+            }
+
+            // Make sure delivery_fee is updated in the form
+            if ($("input[name='delivery_fee']").length === 0) {
+                $("form[action*='order/update']").append('<input type="hidden" name="delivery_fee" value="' +
+                    orderDeliveryCharge + '">');
+            } else {
+                $("input[name='delivery_fee']").val(orderDeliveryCharge);
+            }
+        }
+
+        // Make sure totals are calculated when the page loads
+        $(document).ready(function() {
+            // Add event listener for delivery method change
+            $("select[name='delivery_method']").on('change', function() {
+                updateDeliveryCharge();
+            });
+
+            // Trigger updateDeliveryCharge on district change
+            $("#shipping_district_id").on('change', function() {
+                updateDeliveryCharge();
+            });
+
+            // Calculate initial totals with a delay to ensure DOM is ready
+            setTimeout(function() {
+                // First update delivery charge based on selected method
+                updateDeliveryCharge();
+                // Then calculate all order amounts
+                orderAmountCalculation();
+            }, 500);
+
             // Add event listener for quantity changes
             $(document).on('change', 'input[name="qty[]"]', function() {
                 var id = $(this).attr('id').split('_')[1];
@@ -1435,159 +2009,169 @@
     </script>
     <script>
         $(document).ready(function() {
-    // Auto-update discount when the value changes
-   // Manual discount handling - just updates the discount amount without affecting coupon
-      // Apply coupon
-function applyCoupon() {
-    var couponCode = $("#coupon_code").val();
-    if (!couponCode) {
-        toastr.error("Please enter a coupon code");
-        return false;
-    }
-
-    // Change button state to loading
-    var couponBtn = $("#couponBtn");
-    var originalText = couponBtn.text();
-    couponBtn.text("Applying...").prop("disabled", true);
-
-    $.ajax({
-        url: "{{ route('validate.coupon') }}",
-        type: "POST",
-        data: {
-            coupon_code: couponCode,
-            order_id: $("input[name='order_id']").val(),
-            _token: "{{ csrf_token() }}"
-        },
-        dataType: 'json',
-        success: function(data) {
-            if (!data.valid) {
-                toastr.error(data.message);
-                couponBtn.text(originalText).prop("disabled", false);
-            } else {
-                toastr.success(data.message);
-                
-                // Update discount display
-                var discountAmount = data.discount_amount;
-                var currencySymbol = $("p:contains('Discount')").text().match(/[^\w\s.,]/)[0] || '';
-                var formattedDiscount = parseFloat(discountAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                
-                // Update the display with the new discount and coupon code
-                if ($("p:contains('Discount')").length) {
-                    $("p:contains('Discount')").html('<b>Discount (' + couponCode + '):</b> ' + currencySymbol + ' ' + formattedDiscount);
-                } else {
-                    $("p:contains('Sub-total')").after('<p><b>Discount (' + couponCode + '):</b> ' + currencySymbol + ' ' + formattedDiscount + '</p>');
+            // Auto-update discount when the value changes
+            // Manual discount handling - just updates the discount amount without affecting coupon
+            // Apply coupon
+            function applyCoupon() {
+                var couponCode = $("#coupon_code").val();
+                if (!couponCode) {
+                    toastr.error("Please enter a coupon code");
+                    return false;
                 }
-                
-                // Update discount input field to match
-                $("#discount").val(discountAmount);
-                
-                // Recalculate total and due amount
-                orderAmountCalculation();
-                
-                // Change button to Remove
-                couponBtn.text("Remove").removeClass("btn-success").addClass("btn-danger");
-                couponBtn.prop("onclick", null).off("click");
-                couponBtn.on("click", removeCoupon);
-                couponBtn.prop("disabled", false);
+
+                // Change button state to loading
+                var couponBtn = $("#couponBtn");
+                var originalText = couponBtn.text();
+                couponBtn.text("Applying...").prop("disabled", true);
+
+                $.ajax({
+                    url: "{{ route('validate.coupon') }}",
+                    type: "POST",
+                    data: {
+                        coupon_code: couponCode,
+                        order_id: $("input[name='order_id']").val(),
+                        _token: "{{ csrf_token() }}"
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        if (!data.valid) {
+                            toastr.error(data.message);
+                            couponBtn.text(originalText).prop("disabled", false);
+                        } else {
+                            toastr.success(data.message);
+
+                            // Update discount display
+                            var discountAmount = data.discount_amount;
+                            var currencySymbol = $("p:contains('Discount')").text().match(/[^\w\s.,]/)[
+                                0] || '';
+                            var formattedDiscount = parseFloat(discountAmount).toFixed(0).replace(
+                                /\B(?=(\d{3})+(?!\d))/g, ",");
+
+                            // Update the display with the new discount and coupon code
+                            if ($("p:contains('Discount')").length) {
+                                $("p:contains('Discount')").html('<b>Discount (' + couponCode +
+                                    '):</b> ' + currencySymbol + ' ' + formattedDiscount);
+                            } else {
+                                $("p:contains('Sub-total')").after('<p><b>Discount (' + couponCode +
+                                    '):</b> ' + currencySymbol + ' ' + formattedDiscount + '</p>');
+                            }
+
+                            // Update discount input field to match
+                            $("#discount").val(discountAmount);
+
+                            // Recalculate total and due amount
+                            orderAmountCalculation();
+
+                            // Change button to Remove
+                            couponBtn.text("Remove").removeClass("btn-success").addClass("btn-danger");
+                            couponBtn.prop("onclick", null).off("click");
+                            couponBtn.on("click", removeCoupon);
+                            couponBtn.prop("disabled", false);
+                        }
+                    },
+                    error: function(data) {
+                        console.log('Error:', data);
+                        couponBtn.text(originalText).prop("disabled", false);
+                        toastr.error("Something went wrong. Please try again.");
+                    }
+                });
             }
-        },
-        error: function(data) {
-            console.log('Error:', data);
-            couponBtn.text(originalText).prop("disabled", false);
-            toastr.error("Something went wrong. Please try again.");
-        }
-    });
-}
 
-// Remove coupon
-function removeCoupon() {
-    // Get any manual discount that might be set
-    var manualDiscount = $("#discount").val() || 0;
-    
-    // Change button state to loading
-    var couponBtn = $("#couponBtn");
-    couponBtn.text("Removing...").prop("disabled", true);
+            // Remove coupon
+            function removeCoupon() {
+                // Get any manual discount that might be set
+                var manualDiscount = $("#discount").val() || 0;
 
-    $.ajax({
-        url: "{{ route('remove.coupon') }}",
-        type: "POST",
-        data: {
-            order_id: $("input[name='order_id']").val(),
-            manual_discount: manualDiscount,
-            _token: "{{ csrf_token() }}"
-        },
-        dataType: 'json',
-        success: function(data) {
-            toastr.success(data.message);
-            
-            // Update discount display - keep manual discount if any
-            var currencySymbol = $("p:contains('Discount')").text().match(/[^\w\s.,]/)[0] || '';
-            var formattedDiscount = parseFloat(manualDiscount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            
-            // Update the display text without coupon code
-            $("p:contains('Discount')").html('<b>Discount:</b> ' + currencySymbol + ' ' + formattedDiscount);
-            
-            // Recalculate totals based on the manual discount
-            orderAmountCalculation();
-            
-            // Clear coupon input
-            $("#coupon_code").val("");
-            
-            // Change button back to Apply
-            couponBtn.text("Apply Coupon").removeClass("btn-danger").addClass("btn-success");
-            couponBtn.prop("onclick", null).off("click");
-            couponBtn.on("click", applyCoupon);
-            couponBtn.prop("disabled", false);
-        },
-        error: function(data) {
-            console.log('Error:', data);
-            couponBtn.text("Remove").prop("disabled", false);
-            toastr.error("Failed to remove coupon. Please try again.");
-        }
-    });
-}
+                // Change button state to loading
+                var couponBtn = $("#couponBtn");
+                couponBtn.text("Removing...").prop("disabled", true);
 
-// Handle manual discount input
-$("#discount").on('input', function() {
-    var discountAmount = Number($(this).val()) || 0;
-    
-    // Only update if there's no coupon applied (check button text)
-    if ($("#couponBtn").text() !== "Remove") {
-        // Update the display - find the currency symbol first
-        var currencySymbol = $("p:contains('Discount')").text().match(/[^\w\s.,]/)[0] || '';
-        var formattedDiscount = discountAmount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        
-        // Update the display text
-        if ($("p:contains('Discount')").length) {
-            $("p:contains('Discount')").html('<b>Discount:</b> ' + currencySymbol + ' ' + formattedDiscount);
-        } else {
-            $("p:contains('Sub-total')").after('<p><b>Discount:</b> ' + currencySymbol + ' ' + formattedDiscount + '</p>');
-        }
-        
-        // Recalculate totals
-        orderAmountCalculation();
-    } else {
-        // Reset to previous value if coupon is applied
-        $(this).val($(this).data('previous-value') || 0);
-        toastr.warning("Please remove the coupon before changing the discount manually");
-    }
-}).on('focus', function() {
-    // Store the previous value when focusing
-    $(this).data('previous-value', $(this).val());
-});
+                $.ajax({
+                    url: "{{ route('remove.coupon') }}",
+                    type: "POST",
+                    data: {
+                        order_id: $("input[name='order_id']").val(),
+                        manual_discount: manualDiscount,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        toastr.success(data.message);
 
-// Initialize on document ready
-$(document).ready(function() {
-    // Set up coupon button based on existing coupon
-    if ($("#coupon_code").val()) {
-        $("#couponBtn").text("Remove").removeClass("btn-success").addClass("btn-danger");
-        $("#couponBtn").off("click").on("click", removeCoupon);
-    } else {
-        $("#couponBtn").text("Apply Coupon").removeClass("btn-danger").addClass("btn-success");
-        $("#couponBtn").off("click").on("click", applyCoupon);
-    }
-});      
-});
+                        // Update discount display - keep manual discount if any
+                        var currencySymbol = $("p:contains('Discount')").text().match(/[^\w\s.,]/)[0] ||
+                            '';
+                        var formattedDiscount = parseFloat(manualDiscount).toFixed(0).replace(
+                            /\B(?=(\d{3})+(?!\d))/g, ",");
+
+                        // Update the display text without coupon code
+                        $("p:contains('Discount')").html('<b>Discount:</b> ' + currencySymbol + ' ' +
+                            formattedDiscount);
+
+                        // Recalculate totals based on the manual discount
+                        orderAmountCalculation();
+
+                        // Clear coupon input
+                        $("#coupon_code").val("");
+
+                        // Change button back to Apply
+                        couponBtn.text("Apply Coupon").removeClass("btn-danger").addClass(
+                            "btn-success");
+                        couponBtn.prop("onclick", null).off("click");
+                        couponBtn.on("click", applyCoupon);
+                        couponBtn.prop("disabled", false);
+                    },
+                    error: function(data) {
+                        console.log('Error:', data);
+                        couponBtn.text("Remove").prop("disabled", false);
+                        toastr.error("Failed to remove coupon. Please try again.");
+                    }
+                });
+            }
+
+            // Handle manual discount input
+            $("#discount").on('input', function() {
+                var discountAmount = Number($(this).val()) || 0;
+
+                // Only update if there's no coupon applied (check button text)
+                if ($("#couponBtn").text() !== "Remove") {
+                    // Update the display - find the currency symbol first
+                    var currencySymbol = $("p:contains('Discount')").text().match(/[^\w\s.,]/)[0] || '';
+                    var formattedDiscount = discountAmount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+                    // Update the display text
+                    if ($("p:contains('Discount')").length) {
+                        $("p:contains('Discount')").html('<b>Discount:</b> ' + currencySymbol + ' ' +
+                            formattedDiscount);
+                    } else {
+                        $("p:contains('Sub-total')").after('<p><b>Discount:</b> ' + currencySymbol + ' ' +
+                            formattedDiscount + '</p>');
+                    }
+
+                    // Recalculate totals
+                    orderAmountCalculation();
+                } else {
+                    // Reset to previous value if coupon is applied
+                    $(this).val($(this).data('previous-value') || 0);
+                    toastr.warning("Please remove the coupon before changing the discount manually");
+                }
+            }).on('focus', function() {
+                // Store the previous value when focusing
+                $(this).data('previous-value', $(this).val());
+            });
+
+            // Initialize on document ready
+            $(document).ready(function() {
+                // Set up coupon button based on existing coupon
+                if ($("#coupon_code").val()) {
+                    $("#couponBtn").text("Remove").removeClass("btn-success").addClass("btn-danger");
+                    $("#couponBtn").off("click").on("click", removeCoupon);
+                } else {
+                    $("#couponBtn").text("Apply Coupon").removeClass("btn-danger").addClass("btn-success");
+                    $("#couponBtn").off("click").on("click", applyCoupon);
+                }
+            });
+        });
     </script>
 
     <script>
@@ -1677,5 +2261,4 @@ $(document).ready(function() {
             });
         });
     </script>
-    
 @endsection

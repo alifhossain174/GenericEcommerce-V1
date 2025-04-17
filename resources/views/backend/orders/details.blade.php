@@ -114,7 +114,20 @@
                             @if ($shippingInfo)
                                 <h6 class="font-weight-bold">Shipping Info :</h6>
                                 <address class="line-h-24">
-                                    <b>{{ $shippingInfo->full_name }}</b><br>
+                                    <b>{{ $shippingInfo->full_name }}
+                                        @php
+                                            $orderCount = DB::table('orders')
+                                                ->join('shipping_infos', 'shipping_infos.order_id', '=', 'orders.id')
+                                                ->where('shipping_infos.phone', $shippingInfo->phone)
+                                                ->count();
+                                            $customerType = $orderCount > 1 ? 'Old' : 'New';
+                                        @endphp
+                                        <sup>{{ $customerType }}</sup>
+                                        <a target="_blank" href="{{ url('/customer/details/' . $order->user_id) }}"
+                                            class="btn-sm mr-1" title="View Customer">
+                                            <i class="fas fa-eye"></i>
+                                        </a></b>
+                                    <br>
                                     <p id="customer-phone">{{ $shippingInfo->phone }}</p><br>
                                     {{ $shippingInfo->email }}<br>
                                     {{ $shippingInfo->address }}<br>
@@ -128,7 +141,16 @@
 
                         </div><!-- end col -->
                         <div class="col-6">
+
                             <div class="mt-3 float-right order_details_text">
+                                <p>
+                                <div class="d-flex justify-content-end">
+                                    <a href="{{ url('order/edit/' . $order->slug) }}" onclick="return orderEditWarning()"
+                                        class="btn btn-sm btn-warning rounded" title="Edit Order">
+                                        <i class="fas fa-edit"></i> Edit Order
+                                    </a>
+                                </div>
+                                </p>
                                 <p class="mb-1"><strong>Order NO: </strong> #{{ $order->order_no }}</p>
                                 <p class="mb-1"><strong>Tran. ID: </strong> #{{ $order->trx_id }}</p>
 
@@ -158,8 +180,10 @@
                                         Website
                                     @elseif($order->order_from == 2)
                                         Mobile App
-                                    @else
+                                    @elseif($order->order_from == 3)
                                         POS
+                                    @else
+                                        Lending Page
                                     @endif
                                 </p>
                                 <p class="mb-1"><strong>Order Status: </strong>
@@ -169,15 +193,41 @@
                                         } elseif ($order->order_status == 1) {
                                             echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Approved</span>';
                                         } elseif ($order->order_status == 5) {
-                                            echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Ready to Ship</span>';
+                                            echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Ready to Ship' .
+                                                ($order->delivery_method == 3
+                                                    ? ' (Courier: ' . $order->courier_status . ')'
+                                                    : '') .
+                                                '</span>';
                                         } elseif ($order->order_status == 2) {
-                                            echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Intransit - courier: ' .
-                                                $order->courier_status .
+                                            echo '<span class="badge badge-soft-info" style="padding: 2px 10px !important;">Intransit' .
+                                                ($order->delivery_method == 3
+                                                    ? ' (Courier: ' . $order->courier_status . ')'
+                                                    : '') .
                                                 '</span>';
                                         } elseif ($order->order_status == 3) {
-                                            echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Delivered</span>';
-                                        } else {
-                                            echo '<span class="badge badge-soft-danger" style="padding: 2px 10px !important;">Cancelled</span>';
+                                            echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Delivered' .
+                                                ($order->delivery_method == 3
+                                                    ? ' (Courier: ' . $order->courier_status . ')'
+                                                    : '') .
+                                                '</span>';
+                                        } elseif ($order->order_status == 4) {
+                                            echo '<span class="badge badge-soft-danger" style="padding: 2px 10px !important;">Cancelled' .
+                                                ($order->delivery_method == 3
+                                                    ? ' (Courier: ' . $order->courier_status . ')'
+                                                    : '') .
+                                                '</span>';
+                                        } elseif ($order->order_status == 6) {
+                                            echo '<span class="badge badge-soft-primary" style="padding: 2px 10px !important;">Courier Assigned' .
+                                                ($order->delivery_method == 3
+                                                    ? ' (Courier: ' . $order->courier_status . ')'
+                                                    : '') .
+                                                '</span>';
+                                        } elseif ($order->order_status == 7) {
+                                            echo '<span class="badge badge-soft-warning" style="padding: 2px 10px !important;">Return Request</span>';
+                                        } elseif ($order->order_status == 8) {
+                                            echo '<span class="badge badge-soft-secondary" style="padding: 2px 10px !important;">Returned</span>';
+                                        } elseif ($order->order_status == 9) {
+                                            echo '<span class="badge badge-soft-success" style="padding: 2px 10px !important;">Completed</span>';
                                         }
                                     @endphp
                                 </p>
@@ -188,6 +238,9 @@
                                         }
                                         if ($order->delivery_method == 2) {
                                             echo '<span class="badge badge-soft-success" style="padding: 3px 5px !important;">Store Pickup</span>';
+                                        }
+                                        if ($order->delivery_method == 3) {
+                                            echo '<span class="badge badge-soft-success" style="padding: 3px 5px !important;">SteadFast</span>';
                                         }
                                     @endphp
                                 </p>
@@ -496,6 +549,10 @@
                                                         @if ($order->order_status == 5) selected @endif
                                                         @if ($order->order_status == 2 || $order->order_status == 3 || $order->order_status == 4) disabled @endif>Ready to Ship
                                                     </option>
+                                                    <option value="6"
+                                                        @if ($order->order_status == 6) selected @endif
+                                                        @if ($order->order_status == 0 || $order->order_status == 3 || $order->order_status == 4) disabled @endif>Courier Assigned
+                                                    </option>
                                                     <option value="2"
                                                         @if ($order->order_status == 2) selected @endif
                                                         @if ($order->order_status == 0 || $order->order_status == 3 || $order->order_status == 4) disabled @endif>Intransit
@@ -503,6 +560,18 @@
                                                     <option value="3"
                                                         @if ($order->order_status == 3) selected @endif
                                                         @if ($order->order_status == 1 || $order->order_status == 0 || $order->order_status == 4) disabled @endif>Delivered
+                                                    </option>
+                                                    <option value="9"
+                                                        @if ($order->order_status == 9) selected @endif
+                                                        @if ($order->order_status == 0 || $order->order_status == 1 || $order->order_status == 2 || $order->order_status == 4) disabled @endif>Completed
+                                                    </option>
+                                                    <option value="7"
+                                                        @if ($order->order_status == 7) selected @endif
+                                                        @if ($order->order_status == 0 || $order->order_status == 1 || $order->order_status == 5) disabled @endif>Return Request
+                                                    </option>
+                                                    <option value="8"
+                                                        @if ($order->order_status == 8) selected @endif
+                                                        @if ($order->order_status == 0 || $order->order_status == 1 || $order->order_status == 5) disabled @endif>Returned
                                                     </option>
                                                     <option value="4"
                                                         @if ($order->order_status == 4) selected @endif
@@ -571,6 +640,7 @@
                         </div>
                     </div>
 
+
                     <div class="card">
                         <div class="card-header" id="headingTwo">
                             <h2 class="mb-0">
@@ -590,7 +660,7 @@
                             <div class="card-body">
 
                                 <form action="{{ url('add/order/payment') }}" method="POST"
-                                    {{ in_array($order->order_status, [3, 4]) ? 'onsubmit="return false;"' : '' }}>
+                                    {{ in_array($order->order_status, [3, 4, 5]) ? 'onsubmit="return false;"' : '' }}>
                                     @csrf
                                     <input type="hidden" name="order_id" value="{{ $order->id }}">
                                     <div class="row">
@@ -649,8 +719,8 @@
                                                     </div> -->
                                     </div>
                                     <button type="submit"
-                                        class="btn btn-primary rounded mt-1 {{ in_array($order->order_status, [3, 4]) ? 'opacity-50' : '' }}"
-                                        {{ in_array($order->order_status, [3, 4]) ? 'disabled' : '' }}> Add
+                                        class="btn btn-primary rounded mt-1 {{ in_array($order->order_status, [3, 4, 5]) ? 'opacity-50' : '' }}"
+                                        {{ in_array($order->order_status, [3, 4, 5]) ? 'disabled' : '' }}> Add
                                         Payment</button>
 
                                 </form>
@@ -675,28 +745,101 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="card">
-                                    <div class="card-header" id="headingThree">
-                                        <h2 class="mb-0">
-                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 
-                                                <span> <i class="fa fa-sticky-note"></i>
-                                                Courier Performance Data
-                                                </span>
+                    {{-- sms send --}}
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 
+                                    <span> <i class="fa fa-sticky-note"></i>
+                                        Send SMS
+                                    </span>
 
-                                                <div class="arrow"><i class="fas fa-chevron-right"></i></div>
-                                            </button>
-                                        </h2>
+                                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <form class="needs-validation" method="POST" action="{{ url('send/sms/order') }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group" style="margin-bottom: .8rem;">
+                                        <label style="margin-bottom: .2rem; font-weight: 500;">Number(0171xxxxxxx)
+                                            :</label>
+
+                                        <input type="number" class="form-control" name="sms_receivers"
+                                            value="{{ $shippingInfo->phone }}">
                                     </div>
-                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                        data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            
+                                    <div class="form-group" style="margin-bottom: 0px">
+                                        <label style="margin-bottom: .2rem; font-weight: 500;">SMS Text :</label>
+                                        <textarea id="smsText" name="template_description" class="form-control" style="height: 149px !important;"
+                                            placeholder="SMS Text"></textarea>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <small id="charCount" class="text-muted">0 characters</small>
+                                            <small id="smsCount" class="text-muted">0 SMS (160 chars per SMS)</small>
                                         </div>
                                     </div>
-                                </div> -->
+                                    <button type="submit" class="btn btn-primary rounded mt-2">Send SMS</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const smsText = document.getElementById('smsText');
+                            const charCount = document.getElementById('charCount');
+                            const smsCount = document.getElementById('smsCount');
+
+                            // Standard SMS length is 160 characters
+                            const SMS_LENGTH = 160;
+                            // For multipart SMS, each part can hold slightly less due to overhead
+                            const MULTIPART_SMS_LENGTH = 153;
+
+                            function updateCounter() {
+                                const length = smsText.value.length;
+
+                                // Update character count
+                                charCount.textContent = length + ' characters';
+
+                                // Calculate SMS count
+                                let smsRequired;
+                                if (length <= SMS_LENGTH) {
+                                    smsRequired = length > 0 ? 1 : 0;
+                                    smsCount.textContent = smsRequired + ' SMS (' + SMS_LENGTH + ' chars per SMS)';
+                                } else {
+                                    // For multipart SMS
+                                    smsRequired = Math.ceil(length / MULTIPART_SMS_LENGTH);
+                                    smsCount.textContent = smsRequired + ' SMS (' + MULTIPART_SMS_LENGTH + ' chars per SMS part)';
+                                }
+
+                                // Change color based on length
+                                if (length > SMS_LENGTH) {
+                                    charCount.classList.add('text-warning');
+                                } else {
+                                    charCount.classList.remove('text-warning');
+                                }
+
+                                if (smsRequired > 1) {
+                                    smsCount.classList.add('text-warning');
+                                } else {
+                                    smsCount.classList.remove('text-warning');
+                                }
+                            }
+
+                            // Add event listeners
+                            smsText.addEventListener('input', updateCounter);
+                            smsText.addEventListener('keyup', updateCounter);
+
+                            // Initialize counter
+                            updateCounter();
+                        });
+                    </script>
+                    {{-- end sms send --}}
                     <div class="card">
                         <div class="card-header">
                             <b>
@@ -721,7 +864,7 @@
                             <div class="mb-3">
                                 <input type="hidden" class="form-control" id="paymentId">
                                 <label for="numberField" class="form-label">Enter amount</label>
-                                <input type="number" class="form-control" id="numberField">
+                                <input type="number" class="form-control" id="numberField" value="122">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -1007,6 +1150,11 @@
 
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    </script>
+    <script>
+        function orderEditWarning() {
+            return confirm("Are you sure you want to edit this order? Any unsaved changes will be lost.");
         }
     </script>
 @endsection

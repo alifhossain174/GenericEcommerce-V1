@@ -170,6 +170,10 @@
                                             {{ $message }}
                                         @enderror
                                     </div>
+                                    <div class="d-flex justify-content-between mt-1">
+                                        <small id="charCount" class="text-muted">0 characters</small>
+                                        <small id="smsCount" class="text-muted">0 SMS (160 chars per SMS)</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -254,5 +258,57 @@
             }
         }
     </script>
+    {{-- sms character count --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const smsText = document.getElementById('template_description');
+            const charCount = document.getElementById('charCount');
+            const smsCount = document.getElementById('smsCount');
+
+            // Standard SMS length is 160 characters
+            const SMS_LENGTH = 160;
+            // For multipart SMS, each part can hold slightly less due to overhead
+            const MULTIPART_SMS_LENGTH = 153;
+
+            function updateCounter() {
+                const length = smsText.value.length;
+
+                // Update character count
+                charCount.textContent = length + ' characters';
+
+                // Calculate SMS count
+                let smsRequired;
+                if (length <= SMS_LENGTH) {
+                    smsRequired = length > 0 ? 1 : 0;
+                    smsCount.textContent = smsRequired + ' SMS (' + SMS_LENGTH + ' chars per SMS)';
+                } else {
+                    // For multipart SMS
+                    smsRequired = Math.ceil(length / MULTIPART_SMS_LENGTH);
+                    smsCount.textContent = smsRequired + ' SMS (' + MULTIPART_SMS_LENGTH + ' chars per SMS part)';
+                }
+
+                // Change color based on length
+                if (length > SMS_LENGTH) {
+                    charCount.classList.add('text-warning');
+                } else {
+                    charCount.classList.remove('text-warning');
+                }
+
+                if (smsRequired > 1) {
+                    smsCount.classList.add('text-warning');
+                } else {
+                    smsCount.classList.remove('text-warning');
+                }
+            }
+
+            // Add event listeners
+            smsText.addEventListener('input', updateCounter);
+            smsText.addEventListener('keyup', updateCounter);
+
+            // Initialize counter
+            updateCounter();
+        });
+    </script>
+    {{-- end sms character count --}}
 @endsection
 

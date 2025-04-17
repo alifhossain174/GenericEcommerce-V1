@@ -502,13 +502,13 @@ class OrderController extends Controller
 
     public function orderInfoUpdate(Request $request)
     {
-
         $data = Order::where('id', $request->order_id)->first();
         if ($data->order_status != $request->order_status) {
 
             $data->order_remarks = $request->order_remarks;
             $data->order_status = $request->order_status;
             $data->estimated_dd = $request->estimated_dd;
+            $data->delivery_method = $request->delivery_method; // Added delivery_method update
             $data->updated_at = Carbon::now();
             $data->save();
 
@@ -522,6 +522,7 @@ class OrderController extends Controller
             // $data->order_note = $request->order_note;
             $data->order_remarks = $request->order_remarks;
             $data->estimated_dd = $request->estimated_dd;
+            $data->delivery_method = $request->delivery_method; // Added delivery_method update
             $data->updated_at = Carbon::now();
             $data->save();
         }
@@ -552,6 +553,7 @@ class OrderController extends Controller
         $countries = DB::table('country')->get();
         return view('backend.orders.edit', compact('order', 'shippingInfo', 'billingAddress', 'orderDetails', 'userInfo', 'generalInfo', 'districts', 'countries', 'payments'));
     }
+
     public function orderUpdate(Request $request)
     {
 
@@ -630,13 +632,14 @@ class OrderController extends Controller
             // Handle coupon code separately
             if ($request->has('coupon_code')) {
                 $orderInfo->coupon_code = $request->coupon_code;
-            } elseif ($request->missing('coupon_code')) {
+            } else {
                 // Only clear coupon if the field is explicitly sent as empty
                 $orderInfo->coupon_code = null;
             }
 
             // Calculate total with discount
             $orderInfo->total = $orderInfo->sub_total - $orderInfo->discount + $deliveryCharge;
+            $orderInfo->delivery_method = $request->delivery_method; // Added delivery_method update
             $orderInfo->save();
 
             // Update shipping info
@@ -671,6 +674,7 @@ class OrderController extends Controller
 
             $orderInfo->delivery_fee = $deliveryCharge;
             $orderInfo->total = $orderInfo->sub_total - $orderInfo->discount + $deliveryCharge;
+            $orderInfo->delivery_method = $request->delivery_method; // Added delivery_method update
             $orderInfo->save();
 
             // Create new shipping info
