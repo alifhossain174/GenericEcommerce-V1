@@ -357,10 +357,10 @@
                                             <tr>
                                                 <td class="text-center">{{ $sl++ }}</td>
                                                 <!-- <td>
-                                                                <b>{{ $details->product_name }}</b><br />
-                                                                Category : {{ $details->category_name }}<br />
-                                                                SKU : {{ $details->product_code }}
-                                                        </td> -->
+                                                                                <b>{{ $details->product_name }}</b><br />
+                                                                                Category : {{ $details->category_name }}<br />
+                                                                                SKU : {{ $details->product_code }}
+                                                                        </td> -->
                                                 <td style="display: flex;align-items: center;">
                                                     <div class="product-info-img" style="display: inline-block;"><img
                                                             src="{{ url(env('ADMIN_URL') . '/' . $details->product_image) }}"
@@ -497,8 +497,8 @@
                                         class="btn btn-primary waves-effect waves-light"><i class="fa fa-print m-r-5"></i>
                                         Print Invoice</a>
                                     <!-- <a href="javascript:void(0);" onclick="printPageArea('printableArea')"
-                                            class="btn btn-primary waves-effect waves-light"><i class="fa fa-print m-r-5"></i>
-                                            Print Invoice</a> -->
+                                                            class="btn btn-primary waves-effect waves-light"><i class="fa fa-print m-r-5"></i>
+                                                            Print Invoice</a> -->
                                 </div>
                             </div>
                         </div>
@@ -710,13 +710,13 @@
                                         </div>
 
                                         <!-- <div class="col-lg-6 col-12">
-                                                        <div class="form-group ">
-                                                            <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
-                                                            <input class="form-control" type="number" value="49.00" step="0.01"
-                                                                name="shipping" id="shipping" required=""
-                                                                placeholder="Enter Shipping">
-                                                        </div>
-                                                    </div> -->
+                                                                        <div class="form-group ">
+                                                                            <label for="shipping">Shipping <sup style="color:red;">*</sup></label>
+                                                                            <input class="form-control" type="number" value="49.00" step="0.01"
+                                                                                name="shipping" id="shipping" required=""
+                                                                                placeholder="Enter Shipping">
+                                                                        </div>
+                                                                    </div> -->
                                     </div>
                                     <button type="submit"
                                         class="btn btn-primary rounded mt-1 {{ in_array($order->order_status, [3, 4, 5]) ? 'opacity-50' : '' }}"
@@ -774,10 +774,30 @@
                                         <input type="number" class="form-control" name="sms_receivers"
                                             value="{{ $shippingInfo->phone }}">
                                     </div>
-                                    <div class="form-group" style="margin-bottom: 0px">
-                                        <label style="margin-bottom: .2rem; font-weight: 500;">SMS Text :</label>
-                                        <textarea id="smsText" name="template_description" class="form-control" style="height: 149px !important;"
-                                            placeholder="SMS Text"></textarea>
+                                    <div class="form-group">
+                                        <label for="template_id">Select SMS Template</label>
+                                        <select name="template_id" onchange="fetchTemplateDescription(this.value)"
+                                            class="form-control" id="template_id">
+                                            @php
+                                                echo App\Models\SmsTemplate::getDropDownList('title');
+                                            @endphp
+                                        </select>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('template_id')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="template_description">SMS Template Description <span
+                                                class="text-danger">*</span></label>
+                                        <textarea id="template_description" name="template_description" class="form-control" style="height: 217px;"
+                                            placeholder="Write SMS Here" required></textarea>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            @error('template_description')
+                                                {{ $message }}
+                                            @enderror
+                                        </div>
                                         <div class="d-flex justify-content-between mt-1">
                                             <small id="charCount" class="text-muted">0 characters</small>
                                             <small id="smsCount" class="text-muted">0 SMS (160 chars per SMS)</small>
@@ -791,7 +811,7 @@
 
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
-                            const smsText = document.getElementById('smsText');
+                            const smsText = document.getElementById('template_description');
                             const charCount = document.getElementById('charCount');
                             const smsCount = document.getElementById('smsCount');
 
@@ -838,6 +858,26 @@
                             // Initialize counter
                             updateCounter();
                         });
+                    </script>
+
+                    <script>
+                        function fetchTemplateDescription(value) {
+                            var templateId = value;
+
+                            $.ajax({
+                                url: "{{ url('/get/template/description') }}",
+                                type: "POST",
+                                data: {
+                                    template_id: templateId,
+                                    _token: '{{ csrf_token() }}'
+                                },
+                                dataType: 'json',
+                                success: function(result) {
+                                    // console.log(result.description);
+                                    $("#template_description").html(result.description)
+                                }
+                            });
+                        }
                     </script>
                     {{-- end sms send --}}
                     <div class="card">
