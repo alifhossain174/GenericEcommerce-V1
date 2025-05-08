@@ -21,72 +21,8 @@
                     <div class="mb-4">
                         @include('backend.orders.pos.product_search_form')
                     </div>
-                    <div class="pos-item-card-group">
-                        {{-- @include('backend.orders.pos.live_search_products') --}}
-                        @foreach ($products as $product)
-                            @php
-                                $variants = DB::table('product_variants')
-                                    ->leftJoin('products', 'product_variants.product_id', 'products.id')
-                                    ->leftJoin('colors', 'product_variants.color_id', 'colors.id')
-                                    ->leftJoin('product_sizes', 'product_variants.size_id', 'product_sizes.id')
-                                    ->select(
-                                        'product_variants.*',
-                                        'products.name as product_name',
-                                        'products.image as product_image',
-                                        'colors.name as color_name',
-                                        'product_sizes.name as size_name',
-                                    )
-                                    ->where('product_variants.product_id', $product->id)
-                                    ->get();
-
-                                $totalStock = $product->stock;
-                                $productPrice = $product->price;
-                                $productDiscountPrice = $product->discount_price;
-
-                                if (count($variants) > 0) {
-                                    $totalStock = 0;
-                                    $variantMinDiscountPriceArray = [];
-                                    $variantMinPriceArray = [];
-
-                                    foreach ($variants as $variant) {
-                                        $totalStock = $totalStock + $variant->stock;
-                                        $variantMinDiscountPriceArray[] = $variant->discounted_price;
-                                        $variantMinPriceArray[] = $variant->price;
-                                    }
-
-                                    $productDiscountPrice = min($variantMinDiscountPriceArray);
-                                    $productPrice = min($variantMinPriceArray);
-                                }
-                            @endphp
-
-                            <div class="card pos-card">
-                                <div class="pos-card-image">
-                                    <img class="card-img-top img-fluid" loading="lazy" src="{{ url($product->image) }}"
-                                        alt="product-img" style="width: 140px;height: 140px; object-fit: cover;">
-                                    <span class="badge badge-warning">
-                                        @if ($productDiscountPrice > 0)
-                                            {{ $currencySymbol }}{{ $productPrice }}
-                                        @endif
-                                    </span>
-
-                                    @if ($totalStock)
-                                        @if (count($variants) == 0)
-                                            <a href="javascript:void(0)" onclick="addToCart({{ $product->id }},0,0)"
-                                                class="add_to_cart_btn"><i class="fas fa-cart-arrow-down fa-fw"></i></a>
-                                        @else
-                                            <a href="javascript:void(0)" onclick="showVariant({{ $product->id }})"
-                                                class="add_to_cart_btn"><i class="fas fa-cart-arrow-down fa-fw"></i></a>
-                                        @endif
-                                    @else
-                                        <a href="javascript:void(0)" class="add_to_cart_btn stock_out">Stock Out</a>
-                                    @endif
-                                </div>
-
-                                <div class="card-body">
-                                    <h5 class="card-title m-0">{{ $product->name }}</h5>
-                                </div>
-                            </div>
-                        @endforeach
+                    <div class="pos-item-card-group live_search">
+                        @include('backend.orders.pos.live_search_products')
                     </div>
                 </div>
             </div>
@@ -216,57 +152,105 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-4">
-                            <h4 class="mb-3">Delivery Method</h4>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5 class="card-title mb-3">Delivery Method</h5>
 
-                            <div class="mt-3">
-                                {{-- @php
-                                    $StorePickupConfig = DB::table('general_infos')
-                                        ->where('id', 1)
-                                        ->select('store_pickup')
-                                        ->first();
-                                @endphp --}}
+                                        @php
+                                            $StorePickupConfig = DB::table('general_infos')
+                                                ->where('id', 1)
+                                                ->select('store_pickup')
+                                                ->first();
+                                        @endphp
 
-                                {{-- @if ($StorePickupConfig->store_pickup == 1) --}}
-                                    <div class="custom-control custom-radio mb-2">
-                                        <input type="radio" id="store_pickup" name="delivery_method"
-                                            onchange="changeOfDeliveryMetod(2)" value="2"
-                                            class="custom-control-input" required style="cursor: pointer" />
-                                        <label class="custom-control-label" for="store_pickup" style="cursor: pointer">
-                                            Store Pickup
-                                        </label>
+                                        <div class="list-group">
+                                            @if ($StorePickupConfig->store_pickup == 1)
+                                                <label
+                                                    class="list-group-item list-group-item-action d-flex align-items-center">
+                                                    <div class="custom-control custom-radio mr-3">
+                                                        <input type="radio" id="store_pickup" name="delivery_method"
+                                                            onchange="changeOfDeliveryMetod(2)" value="2"
+                                                            class="custom-control-input" required>
+                                                        <span class="custom-control-label"></span>
+                                                    </div>
+                                                    <div>
+                                                        <strong>Store Pickup</strong>
+                                                        <small class="d-block text-muted">Collect your order from our
+                                                            store</small>
+                                                    </div>
+                                                </label>
+
+                                                <label
+                                                    class="list-group-item list-group-item-action d-flex align-items-center">
+                                                    <div class="custom-control custom-radio mr-3">
+                                                        <input type="radio" id="home_delivery" name="delivery_method"
+                                                            onchange="changeOfDeliveryMetod(1)" value="1"
+                                                            class="custom-control-input" required>
+                                                        <span class="custom-control-label"></span>
+                                                    </div>
+                                                    <div>
+                                                        <strong>Home Delivery</strong>
+                                                        <small class="d-block text-muted">We'll deliver to your
+                                                            address</small>
+                                                    </div>
+                                                </label>
+                                            @else
+                                                <label
+                                                    class="list-group-item list-group-item-action d-flex align-items-center">
+                                                    <div class="custom-control custom-radio mr-3">
+                                                        <input type="radio" id="home_delivery" name="delivery_method"
+                                                            onchange="changeOfDeliveryMetod(1)" value="1"
+                                                            class="custom-control-input" required checked>
+                                                        <span class="custom-control-label"></span>
+                                                    </div>
+                                                    <div>
+                                                        <strong>Home Delivery</strong>
+                                                        <small class="d-block text-muted">We'll deliver to your
+                                                            address</small>
+                                                    </div>
+                                                </label>
+                                            @endif
+                                        </div>
                                     </div>
-                                    {{-- <div class="custom-control custom-radio">
-                                        <input type="radio" id="home_delivery" name="delivery_method"
-                                            onchange="changeOfDeliveryMetod(1)" value="1"
-                                            class="custom-control-input" required style="cursor: pointer" />
-                                        <label class="custom-control-label" for="home_delivery" style="cursor: pointer">
-                                            Home Delivery
-                                        </label>
-                                    </div> --}}
-                                {{-- @else --}}
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="home_delivery" name="delivery_method"
-                                            onchange="changeOfDeliveryMetod(1)" value="1"
-                                            class="custom-control-input" required style="cursor: pointer" checked />
-                                        <label class="custom-control-label" for="home_delivery" style="cursor: pointer">
-                                            Home Delivery
-                                        </label>
+
+                                    <div class="col-md-6">
+                                        <h5 class="card-title mb-3">Order Source</h5>
+                                        <div class="form-group">
+                                            <select class="form-control custom-select" name="order_from" id="order_from"
+                                                required>
+                                                <option value="3">POS</option>
+                                                <option value="1">Web</option>
+                                                <option value="2">Mobile App</option>
+                                                <option value="4">Landing Page</option>
+                                                <option value="5">Facebook</option>
+                                                <option value="6">Instagram</option>
+                                                <option value="7">WhatsApp</option>
+                                                <option value="8">Phone Call</option>
+                                                <option value="9">Others</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                {{-- @endif --}}
+                                </div>
                             </div>
                         </div>
 
-                        <div class="mt-4">
-                            <h4 class="mb-3">Order Note</h4>
-                            <div class="form-group">
-                                <textarea class="form-control" name="special_note" rows="3" placeholder="Enter Note"></textarea>
+                        <div class="card mb-4">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0">Order Note</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group mb-0">
+                                    <textarea class="form-control" name="special_note" rows="3"
+                                        placeholder="Enter any special instructions or notes for this order"></textarea>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="mt-4">
-                            <button type="submit" class="btn btn-success mr-1 text-right">
-                                Confirm Order
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success btn-lg px-4">
+                                <i class="fas fa-check mr-2"></i>Confirm Order
                             </button>
                         </div>
 
