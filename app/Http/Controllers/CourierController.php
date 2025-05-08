@@ -158,7 +158,7 @@ class CourierController extends Controller
             }
             $makeAddr = $orderInfo->shipping_info?->address . ',' . $orderInfo->shipping_info?->thana . ',' . $orderInfo->shipping_info?->city . ',POC-' . $orderInfo->shipping_info?->post_code;
             $orderData = [
-                'invoice' => $orderInfo->order_no . rand(100, 500),
+                'invoice' => $orderInfo->order_no,
                 'recipient_name' => $orderInfo->shipping_info?->full_name ?? 'N/A',
                 'recipient_phone' => $orderInfo->shipping_info?->phone ?? 'N/A',
                 'recipient_address' => $makeAddr,

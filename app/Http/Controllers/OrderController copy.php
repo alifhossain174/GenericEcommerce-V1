@@ -29,13 +29,16 @@ class OrderController extends Controller
             $query = DB::table('orders')
                 ->leftJoin('order_details', 'orders.id', '=', 'order_details.order_id')
                 ->leftJoin('shipping_infos', 'shipping_infos.order_id', '=', 'orders.id')
+                ->leftJoin('products', 'order_details.product_id', '=', 'products.id')
                 ->select(
                     'orders.*',
                     'shipping_infos.full_name as customer_name',
                     'shipping_infos.phone as customer_phone',
+                    'shipping_infos.address as customer_address',
                     'shipping_infos.thana as customer_thana',
                     'shipping_infos.city as customer_city',
-                    'shipping_infos.post_code as customer_post_code'
+                    'shipping_infos.post_code as customer_post_code',
+                    DB::raw('GROUP_CONCAT(DISTINCT products.name SEPARATOR ", ") as product_names')
                 )
                 ->groupBy('orders.id')
                 ->orderBy('id', 'desc');
@@ -61,10 +64,7 @@ class OrderController extends Controller
             if (!empty($request->order_no)) {
                 $query->where('order_no', 'LIKE', '%' . $request->order_no . '%');
             }
-            // Handle multi-select for order_from (Source)
-            if ($request->order_from && is_array($request->order_from)) {
-                $query->whereIn('order_from', $request->order_from);
-            } elseif ($request->order_from) {
+            if ($request->order_from) {
                 $query->where('order_from', $request->order_from);
             }
             if ($request->payment_status != '') {
@@ -94,37 +94,105 @@ class OrderController extends Controller
             if ($request->coupon_code != "") {
                 $query->where('coupon_code', 'LIKE', '%' . $request->coupon_code . '%');
             }
+            if ($request->product_id != "") {
+                $query->where('order_details.product_id', $request->product_id);
+            }
 
             $data = $query->get();
 
             return Datatables::of($data)
                 ->editColumn('customer_name', function ($data) {
                     $html = '<div style="font-size: 16px;">' . $data->customer_name . '</div>';
+                    if (!empty($data->customer_address)) {
+                        $html .= '<div class="small text-muted" style="font-size: 12px;">(' . $data->customer_address . ', ' . $data->customer_thana . ', ' . $data->customer_city . ' - ' . $data->customer_post_code . ')</div>';
+                    }
                     return $html;
                 })
-                ->editColumn('order_from', function ($data) {
-                    switch ($data->order_from) {
-                        case 1:
-                            return "Web";
-                        case 2:
-                            return "Mobile App";
-                        case 3:
-                            return "POS";
-                        case 4:
-                            return "Landing Page";
-                        case 5:
-                            return "Facebook";
-                        case 6:
-                            return "Instagram";
-                        case 7:
-                            return "WhatsApp";
-                        case 8:
-                            return "Phone Call";
-                        case 9:
-                            return "Others";
-                        default:
-                            return "Unknown";
+                ->editColumn('product_info', function ($data) {
+                    // Get product details for this order
+                    $orderItems = DB::table('order_details')
+                        ->leftJoin('products', 'order_details.product_id', '=', 'products.id')
+                        ->leftJoin('colors', 'order_details.color_id', '=', 'colors.id')
+                        ->leftJoin('storage_types', 'order_details.storage_id', '=', 'storage_types.id')
+                        ->leftJoin('sims', 'order_details.sim_id', '=', 'sims.id')
+                        ->leftJoin('product_sizes', 'order_details.size_id', '=', 'product_sizes.id')
+                        ->select(
+                            'products.name as product_name',
+                            'colors.name as color',
+                            'storage_types.ram',
+                            'storage_types.rom',
+                            'sims.name as sim',
+                            'product_sizes.name as size',
+                            'order_details.region_id',
+                            'order_details.warrenty_id'
+                        )
+                        ->where('order_details.order_id', $data->id)
+                        ->get();
+
+                    $html = '';
+                    foreach ($orderItems as $index => $item) {
+                        // Add separator between items
+                        if ($index > 0) {
+                            $html .= '<hr style="margin: 5px 0;">';
+                        }
+
+                        // Product name
+                        $html .= '<div><strong>' . $item->product_name . '</strong></div>';
+
+                        // First row of variants
+                        $variantInfo1 = [];
+
+                        // Color
+                        if (isset($item->color) && !empty($item->color)) {
+                            $variantInfo1[] = $item->color;
+                        }
+
+                        // Storage (RAM/ROM)
+                        if ((isset($item->ram) && !empty($item->ram)) || (isset($item->rom) && !empty($item->rom))) {
+                            $variantInfo1[] = (isset($item->ram) ? $item->ram : '') . '/' . (isset($item->rom) ? $item->rom : '');
+                        }
+
+                        // SIM
+                        if (isset($item->sim) && !empty($item->sim)) {
+                            $variantInfo1[] = $item->sim;
+                        }
+
+                        // Size
+                        if (isset($item->size) && !empty($item->size)) {
+                            $variantInfo1[] = $item->size;
+                        }
+
+                        // Display first row of variants
+                        if (!empty($variantInfo1)) {
+                            $html .= '<div style="color: #6c757d; font-size: 12px; margin-top: 3px;">' . implode(' | ', $variantInfo1) . '</div>';
+                        }
+
+                        // Second row of variants
+                        $variantInfo2 = [];
+
+                        // Region
+                        if (isset($item->region_id) && !empty($item->region_id)) {
+                            $regionInfo = DB::table('country')->where('id', $item->region_id)->first();
+                            if ($regionInfo && isset($regionInfo->name)) {
+                                $variantInfo2[] = $regionInfo->name;
+                            }
+                        }
+
+                        // Warranty
+                        if (isset($item->warrenty_id) && !empty($item->warrenty_id)) {
+                            $warrantyInfo = DB::table('product_warrenties')->where('id', $item->warrenty_id)->first();
+                            if ($warrantyInfo && isset($warrantyInfo->name)) {
+                                $variantInfo2[] = $warrantyInfo->name;
+                            }
+                        }
+
+                        // Display second row of variants
+                        if (!empty($variantInfo2)) {
+                            $html .= '<div style="color: #6c757d; font-size: 12px; margin-top: 3px;">' . implode(' | ', $variantInfo2) . '</div>';
+                        }
                     }
+
+                    return $html;
                 })
                 ->editColumn('order_status', function ($data) {
                     if ($data->order_status == 0) {
@@ -203,12 +271,11 @@ class OrderController extends Controller
 
                     return $btn;
                 })
-                ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status', 'customer_name'])
+                ->rawColumns(['action', 'order_status', 'payment_method', 'payment_status', 'product_info', 'customer_name'])
                 ->make(true);
         }
 
         $products = DB::table('products')->orderBy('name', 'asc')->get();
-
         return view('backend.orders.orders', compact('request', 'products'));
     }
     public function orderDetails($slug)

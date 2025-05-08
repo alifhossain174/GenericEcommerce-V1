@@ -175,9 +175,10 @@
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Order No</th>
                                     <th class="text-center" style="width: 80px">Order Date</th>
-                                    <th class="text-center">From</th>
+                                    {{-- <th class="text-center">From</th> --}}
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Phone</th>
+                                    <th class="text-center">Product Name</th>
                                     <th class="text-center">Total</th>
                                     <th class="text-center">Payment</th>
                                     <th class="text-center">Status</th>
@@ -189,7 +190,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th colspan="6"></th>
+                                    <th colspan="7"></th>
                                     <th></th>
                                     <th colspan="3"></th>
                                 </tr>
@@ -326,13 +327,15 @@
                         d.order_status = $("#order_status").val();
                     }
                     d.order_no = $("#order_no").val() || "";
-                    d.order_from = $("#order_from").val();
+                    // d.order_from = $("#order_from").val();
                     d.payment_status = $("#payment_status").val();
                     d.customer_name = $("#customer_name").val();
                     d.customer_phone = $("#customer_phone").val();
+                    d.product_name = $("#product_name").val();
                     d.purchase_date_range = $("#selectedValue").text();
                     d.delivery_method = $("#delivery_method").val();
                     d.coupon_code = $("#coupon_code").val();
+                    d.product_id = $("#product_id").val();
                 }
             },
             columns: [{
@@ -357,10 +360,6 @@
                     data: 'order_date',
                     name: 'order_date'
                 },
-                {
-                    data: 'order_from',
-                    name: 'order_from'
-                },
                 // {
                 //     data: 'customer_name',
                 //     name: 'customer_name',
@@ -379,6 +378,10 @@
                 {
                     data: 'customer_phone',
                     name: 'customer_phone'
+                },
+                {
+                    data: 'product_info',
+                    name: 'product_info'
                 },
                 {
                     data: 'total',
@@ -435,6 +438,7 @@
                 }
             ]
         });
+
 
         $(document).ready(function() {
 
@@ -558,10 +562,11 @@
 
         function clearFilters() {
             $("#order_no").val("");
-            $("#order_from").val("");
+            // $("#order_from").val("");
             $("#payment_status").val("");
             $("#customer_name").val("");
             $("#customer_phone").val("");
+            $("#product_name").val("");
             $("#order_status").val("");
             $("#delivery_method").val("");
             $("#coupon_code").val("");
