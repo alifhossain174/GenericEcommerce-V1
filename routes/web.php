@@ -363,7 +363,7 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
 
     // order routes
     Route::get('/view/orders', [OrderController::class, 'viewAllOrders'])->name('ViewAllOrders');
-    Route::get('/order/details/{slug}', [OrderController::class, 'orderDetails'])->name('OrderDetails');
+    Route::get('/order/details/{order_no}', [OrderController::class, 'orderDetails'])->name('OrderDetails');
     Route::get('/cancel/order/{slug}', [OrderController::class, 'cancelOrder'])->name('CancelOrder');
     Route::get('/approve/order/{slug}', [OrderController::class, 'approveOrder'])->name('ApproveOrder');
     Route::get('/intransit/order/{slug}', [OrderController::class, 'intransitOrder'])->name('IntransitOrder');
@@ -379,6 +379,9 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('/bulk/print/orders', [OrderController::class, 'bulkPrintOrders'])->name('BulkPrintOrders');
     Route::post('/validate-coupon', [OrderController::class, 'validateCoupon'])->name('validate.coupon');
     Route::post('/remove-coupon', [OrderController::class, 'removeCoupon'])->name('remove.coupon');
+
+    Route::get('/search/order', [OrderController::class, 'searchOrder'])->name('searchOrder');
+    Route::get('/check-order/{order_no}', [OrderController::class, 'checkOrder'])->name('checkOrder');
 
     //start courier routes
     Route::get('add/order/{orderid}/courier', [CourierController::class, 'addOrderToCourier']);

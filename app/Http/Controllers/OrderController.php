@@ -169,7 +169,7 @@ class OrderController extends Controller
                 })
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-                    $btn = ' <a href="' . url('order/details') . '/' . $data->slug . '" title="Order Details" class="d-inline-block btn-sm btn-info rounded mb-1"><i class="fas fa-list-ul"></i></a>';
+                    $btn = ' <a href="' . url('order/details') . '/' . $data->order_no . '" title="Order Details" class="d-inline-block btn-sm btn-info rounded mb-1"><i class="fas fa-list-ul"></i></a>';
 
                     if ($data->order_status != 0) {
                         if (!($data->tracking_id == null && ($data->order_status == 2 || $data->order_status == 3 && $data->order_status != 4))) {
@@ -211,9 +211,9 @@ class OrderController extends Controller
 
         return view('backend.orders.orders', compact('request', 'products'));
     }
-    public function orderDetails($slug)
+    public function orderDetails($order_no)
     {
-        $order = Order::where('slug', $slug)->first();
+        $order = Order::where('order_no', $order_no)->first();
         $userInfo = User::where('id', $order->user_id)->first();
         $shippingInfo = ShippingInfo::where('order_id', $order->id)->first();
         $billingAddress = BillingAddress::where('order_id', $order->id)->first();
@@ -834,5 +834,35 @@ class OrderController extends Controller
         $orders = Order::whereIn('id', $orderIds)->get();
         $generalInfo = DB::table('general_infos')->select('logo', 'logo_dark', 'company_name')->first();
         return view('backend.orders.print', compact('orders', 'generalInfo'));
+    }
+
+    public function searchOrder(Request $request)
+    {
+        $order_no = $request->order_no;
+
+        if (empty($order_no)) {
+            return redirect()->back()->with('error', 'Please enter an order number');
+        }
+
+        // Check if order exists
+        $order = Order::where('order_no', $order_no)->first();
+
+        if (!$order) {
+            return redirect()->back()->with('error', 'No invoice found for order number: ' . $order_no);
+        }
+
+        // If found, redirect to order details - fixing the route parameter issue
+        return redirect()->to('/order/details/' . $order_no);
+    }
+
+    public function checkOrder($order_no)
+    {
+        // Check if order exists
+        $order = Order::where('order_no', $order_no)->first();
+
+        return response()->json([
+            'success' => $order ? true : false,
+            'message' => $order ? 'Order found' : 'No invoice found for order number: ' . $order_no
+        ]);
     }
 }
