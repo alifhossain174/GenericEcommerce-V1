@@ -865,4 +865,23 @@ class OrderController extends Controller
             'message' => $order ? 'Order found' : 'No invoice found for order number: ' . $order_no
         ]);
     }
+
+    // Add this method to your OrderController
+    public function autocomplete(Request $request)
+    {
+        $query = $request->get('query');
+
+        // Only search if at least 3 characters
+        if (strlen($query) < 3) {
+            return response()->json([]);
+        }
+
+        // Find up to 10 matching orders
+        $orders = Order::where('order_no', 'LIKE', $query . '%')
+            ->select('order_no', 'id') // Add other fields you want to display
+            ->limit(10)
+            ->get();
+
+        return response()->json($orders);
+    }
 }

@@ -383,6 +383,8 @@ Route::group(['middleware' => ['auth', 'CheckUserType', 'DemoMode']], function (
     Route::get('/search/order', [OrderController::class, 'searchOrder'])->name('searchOrder');
     Route::get('/check-order/{order_no}', [OrderController::class, 'checkOrder'])->name('checkOrder');
 
+    Route::get('/api/orders/autocomplete', [OrderController::class, 'autocomplete'])->name('orders.autocomplete');
+
     //start courier routes
     Route::get('add/order/{orderid}/courier', [CourierController::class, 'addOrderToCourier']);
     Route::post('add/bulk/order/courier', [CourierController::class, 'addBulkCourier']);
