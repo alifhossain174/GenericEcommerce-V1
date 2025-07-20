@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // ini_set('memory_limit', '8192M');
+        // \App\Models\User::factory(1000000)->create();
     }
 }

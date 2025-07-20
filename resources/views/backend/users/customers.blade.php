@@ -209,7 +209,12 @@
                 }
             },
             columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                {
+                    data: 'DT_RowIndex',
+                    name: '',        // <- important: no database column name
+                    orderable: false,
+                    searchable: false
+                },
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
                 {data: 'phone', name: 'phone'},

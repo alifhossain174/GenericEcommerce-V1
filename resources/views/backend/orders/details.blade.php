@@ -367,6 +367,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-6">
                             <div class="clearfix pt-3">
@@ -693,7 +694,7 @@
                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                         data-parent="#accordionExample">
                                         <div class="card-body">
-                                            
+
                                         </div>
                                     </div>
                                 </div> -->
@@ -949,42 +950,42 @@
             background: conic-gradient(#4CAF50 0% var(--progress), #f3f3f3 var(--progress) 100%);
             box-shadow: 0 0 0 12px white inset;
         }
-        
+
         .circle-progress-value {
             position: absolute;
             font-size: 42px;
             font-weight: 700;
             color: #1a2d40;
         }
-        
+
         .rating-text {
             font-size: 24px;
             font-weight: 600;
             color: #1a2d40;
         }
-        
+
         .summary-text {
             color: #505a68;
             font-size: 16px;
         }
-        
+
         .courier-logo {
             font-weight: bold;
             font-size: 16px;
         }
-        
+
         .pathao-logo {
             color: #ff5c38;
         }
-        
+
         .steadfast-logo {
             color: #0f7ac5;
         }
-        
+
         .redx-logo {
             color: #e2001a;
         }
-        
+
         .paperfly-logo {
             color: #00b3e3;
         }

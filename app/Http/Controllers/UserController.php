@@ -20,15 +20,8 @@ class UserController extends Controller
     public function viewAllCustomers(Request $request){
         if ($request->ajax()) {
 
-            // $query = DB::table('users')
-            //             ->leftJoin('orders', 'users.id', 'orders.user_id')
-            //             ->leftJoin('order_details', 'orders.id', 'order_details.order_id')
-            //             ->leftJoin('products', 'order_details.product_id', 'products.id')
-            //             ->leftJoin('user_addresses', 'users.id', 'user_addresses.user_id')
-            //             ->select('users.*', DB::raw('COUNT(DISTINCT orders.id) as total_orders'))
-            //             ->where('user_type', 3)
-            //             ->orderBy('users.id', 'desc')
-            //             ->groupBy('users.id');
+            ini_set('memory_limit', '8192M'); // 8GB RAM
+            ini_set('max_execution_time', 300); // 300 seconds = 5 minutes
 
             $orderAmountSubquery = DB::table('orders')
                                     ->select('user_id', DB::raw('SUM(total) as total_order_amount'))
@@ -101,6 +94,7 @@ class UserController extends Controller
 
             $data = $query->get();
 
+            // return Datatables::of($query)
             return Datatables::of($data)
                     ->editColumn('created_at', function($data) {
                         return date("Y-m-d h:i:s a", strtotime($data->created_at));
@@ -115,7 +109,7 @@ class UserController extends Controller
                         $btn = ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" data-original-title="Delete" class="btn-sm btn-danger rounded deleteBtn"><i class="fas fa-trash-alt"></i></a>';
                         return $btn;
                     })
-                    ->rawColumns(['action', 'icon', 'delete_request_submitted'])
+                    ->rawColumns(['action', 'delete_request_submitted'])
                     ->make(true);
         }
 
