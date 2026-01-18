@@ -1585,7 +1585,7 @@
                                                                 <p style="line-height: 140%;">
                                                                     © Copyright 2023 | All right reserved | Designed & Developed by
                                                                     <span style="color: #59a8fe; line-height: 19.6px;">
-                                                                        <strong><a style="color: #59a8fe;" target="_self" href="https://getup.com.bd/">GetUp Limited</a>&nbsp;</strong>
+                                                                        <strong><a style="color: #59a8fe;" target="_self" href="#">Company Limited</a>&nbsp;</strong>
                                                                     </span>
                                                                 </p>
                                                             </div>

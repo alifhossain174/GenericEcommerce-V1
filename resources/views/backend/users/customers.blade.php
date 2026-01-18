@@ -90,8 +90,8 @@
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Email</th>
                                     <th class="text-center">Phone</th>
-                                    <th class="text-center">Total Orders</th>
-                                    <th class="text-center">Order Amount</th>
+                                    {{-- <th class="text-center">Total Orders</th> --}}
+                                    {{-- <th class="text-center">Order Amount</th> --}}
                                     <th class="text-center" style="max-width: width: 180px;">Acc. Delete Request</th>
                                     <th class="text-center">Wallet</th>
                                     <th class="text-center" style="min-width: 75px;">Created At</th>
@@ -218,8 +218,8 @@
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
                 {data: 'phone', name: 'phone'},
-                {data: 'total_orders', name: 'total_orders'},
-                {data: 'total_order_amount', name: 'total_order_amount'},
+                //{data: 'total_orders', name: 'total_orders'},
+                //{data: 'total_order_amount', name: 'total_order_amount'},
                 {data: 'delete_request_submitted', name: 'delete_request_submitted'},
                 {data: 'balance', name: 'balance'},
                 {data: 'created_at', name: 'created_at'},

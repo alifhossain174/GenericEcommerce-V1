@@ -23,22 +23,22 @@ class UserController extends Controller
             ini_set('memory_limit', '8192M'); // 8GB RAM
             ini_set('max_execution_time', 300); // 300 seconds = 5 minutes
 
-            $orderAmountSubquery = DB::table('orders')
-                                    ->select('user_id', DB::raw('SUM(total) as total_order_amount'))
-                                    ->groupBy('user_id');
+            // $orderAmountSubquery = DB::table('orders')
+            //                         ->select('user_id', DB::raw('SUM(total) as total_order_amount'))
+            //                         ->groupBy('user_id');
 
             $query = DB::table('users')
-                        ->leftJoin('orders', 'users.id', '=', 'orders.user_id')
-                        ->leftJoin('order_details', 'orders.id', '=', 'order_details.order_id')
-                        ->leftJoin('products', 'order_details.product_id', '=', 'products.id')
-                        ->leftJoin('user_addresses', 'users.id', '=', 'user_addresses.user_id')
-                        ->leftJoinSub($orderAmountSubquery, 'order_totals', function($join) {
-                            $join->on('users.id', '=', 'order_totals.user_id');
-                        })
+                        // ->leftJoin('orders', 'users.id', '=', 'orders.user_id')
+                        // ->leftJoin('order_details', 'orders.id', '=', 'order_details.order_id')
+                        // ->leftJoin('products', 'order_details.product_id', '=', 'products.id')
+                        // ->leftJoin('user_addresses', 'users.id', '=', 'user_addresses.user_id')
+                        // ->leftJoinSub($orderAmountSubquery, 'order_totals', function($join) {
+                        //     $join->on('users.id', '=', 'order_totals.user_id');
+                        // })
                         ->select(
                             'users.*',
-                            DB::raw('COUNT(DISTINCT orders.id) as total_orders'),
-                            DB::raw('COALESCE(order_totals.total_order_amount, 0) as total_order_amount')
+                            // DB::raw('COUNT(DISTINCT orders.id) as total_orders'),
+                            // DB::raw('COALESCE(order_totals.total_order_amount, 0) as total_order_amount')
                         )
                         ->where('user_type', 3)
                         ->groupBy('users.id')
@@ -92,10 +92,9 @@ class UserController extends Controller
             }
             // filter end here
 
-            $data = $query->get();
+            // $data = $query->get();
 
-            // return Datatables::of($query)
-            return Datatables::of($data)
+            return Datatables::of($query)
                     ->editColumn('created_at', function($data) {
                         return date("Y-m-d h:i:s a", strtotime($data->created_at));
                     })
@@ -118,6 +117,7 @@ class UserController extends Controller
         $districts = DB::table('districts')->orderBy('name', 'asc')->get();
         $cities = DB::table('upazilas')->orderBy('name', 'asc')->get();
         return view('backend.users.customers', compact('products', 'categories', 'districts', 'cities'));
+
     }
 
     public function viewAllSystemUsers(Request $request){

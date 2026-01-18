@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2025 at 12:25 PM
+-- Generation Time: Jan 18, 2026 at 02:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -10514,12 +10514,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `image`, `name`, `phone`, `email`, `email_verified_at`, `verification_code`, `password`, `provider_name`, `provider_id`, `remember_token`, `user_type`, `address`, `balance`, `delete_request_submitted`, `delete_request_submitted_at`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Admin', '01969005035', 'admin@gmail.com', '2024-03-02 08:18:31', '320215', '$2y$12$oHWN0HLlomKGtI9bp503POf.uujhNJmq6bS3M8f3u0PAcrHZYLzEq', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-03-28 10:20:00', '2024-04-25 07:52:00'),
-(17, NULL, 'Delilah Manning', '+1 (816) 469-7934', 'sosako7271@chysir.com', '2024-10-16 14:06:35', '848882', '$2y$12$Xx2dWLRND1rlz6gKpCMyXOrgj2lDtNQVrgD/Y4ZWxMSqPl3jT4Y5G', NULL, NULL, NULL, 4, NULL, 0, 0, NULL, 1, '2024-10-16 14:06:11', '2024-10-16 20:50:03'),
-(18, NULL, 'Md Fahim Hossain', NULL, 'alifhossain164@gmail.com', '2024-10-16 14:40:56', '267791', '$2y$12$zKSwoEohaozqpfNKKWW0AO6J4gFu/apGH5.nPE.b7jlsF6fhZQFZy', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-10-16 14:37:20', '2024-10-16 14:40:56'),
-(19, NULL, 'Fahad Hossain', '01969887744', 'fahad@gmail.com', '2024-10-26 20:50:04', '0', '$2y$10$CRJPxYEEPt2ifmjDElTFj.XzA/75K3258c4iys7GxHbhIQ2TTcjAu', NULL, NULL, NULL, 3, NULL, 10, 0, NULL, 1, '2024-10-26 20:50:04', '2025-03-16 11:02:23'),
-(20, NULL, 'Olga Flowers', '+1 (979) 759-1711', 'alifhossain174@gmail.com', '2024-10-26 20:51:56', '0', '$2y$10$yYHz5hUa7.kqbq/TUdFTCeV033JeeGLLn72DtTltjchAEZu7svaNa', NULL, NULL, NULL, 3, NULL, 11, 0, NULL, 1, '2024-10-26 20:51:56', '2025-03-16 10:01:56'),
-(22, NULL, 'Test User', NULL, 'testcustomer@gmail.com', NULL, '883377', '$2y$12$bRQfeSB74h9BMiQpf4GqBuGCtSCBtlx/DS9.7eX5qHBpKIMp0DNzu', NULL, NULL, NULL, 3, NULL, 0, 0, NULL, 1, '2024-11-13 21:13:21', '2024-11-13 21:13:21');
+(1, NULL, 'Admin', '01969005035', 'admin@gmail.com', '2024-03-02 08:18:31', '320215', '$2y$12$oHWN0HLlomKGtI9bp503POf.uujhNJmq6bS3M8f3u0PAcrHZYLzEq', NULL, NULL, NULL, 1, 'Dhaka, Bangladesh', 0, 0, NULL, 1, '2023-03-28 10:20:00', '2024-04-25 07:52:00');
 
 -- --------------------------------------------------------
 
@@ -11121,8 +11116,7 @@ ALTER TABLE `upazilas`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user_addresses`
@@ -11588,7 +11582,7 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1135146;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`

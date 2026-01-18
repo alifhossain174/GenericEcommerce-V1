@@ -14,7 +14,7 @@
     <meta name="robots" content="noindex, nofollow">
 
     <meta content="Admin Panel" name="description"/>
-    <meta content="Getup Ltd." name="author"/>
+    <meta content="Company Ltd." name="author"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -182,7 +182,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-right d-none d-sm-block">
-                                Design & Developed by Getup Ltd.
+                                Design & Developed by Company Ltd.
                             </div>
                         </div>
                     </div>

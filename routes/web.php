@@ -52,7 +52,7 @@ Route::get('/', function () {
 // });
 
 Route::get('/config-clear', function () {
-    // Artisan::call('cache:clear');
+    Artisan::call('cache:clear');
     Artisan::call('config:clear');
     // Artisan::call('view:clear');
     // Artisan::call('route:clear');
